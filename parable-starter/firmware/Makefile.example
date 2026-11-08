@@ -1,0 +1,7 @@
+# Rename to Makefile inside a DaisyExamples-style project directory.
+# libDaisy must be checked out and compiled separately.
+TARGET = parable_core_pass_through
+CPP_SOURCES = daisy_pass_through.cpp
+LIBDAISY_DIR ?= ../../libDaisy
+C_INCLUDES += -I../include
+include $(LIBDAISY_DIR)/core/Makefile
