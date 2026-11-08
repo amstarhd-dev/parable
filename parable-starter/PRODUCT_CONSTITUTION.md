@@ -1,19 +1,23 @@
 # PARABLE — Product Constitution & Founder Operating System
 Version 1.0 — 2026-11-06
 Status: proposed operating baseline for founder approval. This file records decisions and explicit hypotheses; it is not a claim that features are implemented.
+PAR-001 amendment proposed 2026-11-08: clarify purpose, composition and physical-form hypotheses; no change to astrological correspondence rules.
 
 ## North star
-Parable is a playable correspondence instrument: it translates structured symbolic relationships into audibly meaningful audio-processing graphs. Its flagship grammar is traditional Western astrology. Manual Workshop mode lets musicians inspect, rearrange and save the same processors. **Correspondence is the distinctive invention; Workshop makes the instrument accessible and commercially useful.** Neither mode is allowed to require the other during a performance.
+Parable is a playable correspondence instrument: it translates structured symbolic relationships and traces of lived experience into playable sonic environments. Traditional Western astrology is the first correspondence grammar. **Correspondence is Parable's defining purpose; effects DSP is enabling technology.** Manual Workshop mode lets musicians inspect, rearrange and save the same processors. Neither mode is allowed to require the other during a performance.
 
 ## Product promise
-One guitar pedal, four locally stored and instantly recallable independent patches, Register, Volume and bypass. A browser-based phone editor lets players build a virtual pedalboard and generate/edit patches from a birth chart. After saving, the pedal operates without phone/computer/network. Its core processors must stand up to ordinary guitar use without any appeal to astrology.
+A standalone instrument with four locally stored and instantly recallable independent patches, Register, Volume and bypass. Composition and editing are phone-first: a browser-based phone editor lets players build a virtual pedalboard and generate/edit patches from a birth chart. After saving, the instrument operates without phone/computer/network. Its core processors must stand up to ordinary guitar use without any appeal to astrology.
+
+Daisy Seed3 is the initial hardware target; the DSP engine remains portable C++. Physical form is under investigation. Guitar-mounted hardware is an experimental design direction, not a validated manufacturing requirement. Mounting, enclosure, controls and transport belong in target-specific adapters and must not determine the audio architecture.
 
 ## Audience hypotheses (not validated)
 Primary: curious developing electric guitarists who want an easier way to explore effects. Secondary: creative/experimental players and deep gear enthusiasts. Astrology may increase discovery and cross-audience interest, but hardware demand from nonguitarists is unproven. Research buyer behavior, not demographic stereotypes.
 
-## Two composers, one runtime
+## Composers, one runtime
 - Chart Composer: chart facts -> traditional rules -> auditable correspondence trace -> validated patch graph.
 - Workshop Composer: visual blocks and connections -> validated patch graph.
+- Future biometric and other correspondence grammars compile to the same validated patch representation; these are extension points, not additional pilot commitments.
 - Runtime: portable real-time C++ DSP engine -> target-specific hardware adapter.
 - A patch is an immutable, versioned snapshot with explicit processor IDs, parameter units/ranges, routing, resource budget, expression mappings, and deterministic preset serialization.
 - Neither UI state nor compiler globals are permitted to silently override a loaded patch. Round-trip save/load is a required test.

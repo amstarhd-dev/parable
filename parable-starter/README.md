@@ -10,11 +10,21 @@ This is the first **portable C++ code brick**, not a finished Parable SDK and no
 - Atomic acceptance/rejection of individual edits to a stored patch.
 
 ## Host tests (run without Daisy hardware)
+From the repository root, with CMake >= 3.15 and a C++17 compiler:
 ```bash
-cmake -S . -B build
+cd parable-starter
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
 cmake --build build
 ctest --test-dir build --output-on-failure
 ```
+The current tests use `assert`, including setup inside assertions. Use Debug;
+Release builds that define `NDEBUG` do not exercise those checks. GitHub Actions
+runs the same Debug build from the repository-root `.github/workflows/host-tests.yml`.
+
+See [`docs/IMPLEMENTATION_STATUS.md`](docs/IMPLEMENTATION_STATUS.md) for the
+source inventory, measured baseline and untested behavior, and
+[`docs/adr/ADR-001-patch-authority.md`](docs/adr/ADR-001-patch-authority.md) for
+the proposed patch decision. The architecture proposal is not implemented.
 
 ## Not implemented / not validated
 - **Daisy adapter has not been compiled or flashed** (no libDaisy toolchain connected here).

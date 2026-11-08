@@ -17,14 +17,14 @@ This repository is the **first native C++ Parable Core proof of architecture**, 
 - `include/parable_core.h`: in-memory stage/patch validation and a trivial audio core.
 - `tests/test_core.cpp`: limited host smoke tests.
 - `firmware/daisy_pass_through.cpp`: **uncompiled/unflashed** demonstration adapter.
-- `CMakeLists.txt`: host test build; `.github/workflows/host-tests.yml`: new host CI configuration.
+- `CMakeLists.txt`: host test build. The repository-root `.github/workflows/host-tests.yml` was absent from the uploaded starter; PAR-001 adds it. See [`IMPLEMENTATION_STATUS.md`](IMPLEMENTATION_STATUS.md) for baseline evidence.
 - No real circuit-modeled drive, no actual Daisy hardware proof, no serialization or persistent storage, and no phone editor. Do not conflate a passing smoke test with product readiness.
 
 ## First Codex task (intentionally narrow)
 1. Inspect every tracked file, summarize the implemented features and most important limitations.
 2. Run `cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug`, `cmake --build build`, and `ctest --test-dir build --output-on-failure`. Report actual output.
 3. Review `AGENTS.md` and `PRODUCT_CONSTITUTION.md` for contradictions; do not silently change them.
-4. Draft `docs/ADR-001-patch-contract.md` with two viable approaches for a versioned, validated patch schema and atomic runtime patch activation. Include real-time safety, four-slot persistence and JSON/binary interoperability. Mark it **PROPOSED**; do not implement either alternative until founder review.
+4. Draft [`docs/adr/ADR-001-patch-authority.md`](adr/ADR-001-patch-authority.md) with two viable approaches for a versioned, validated patch schema and atomic runtime patch activation (PAR-001's requested path supersedes the original `docs/ADR-001-patch-contract.md` name). Include real-time safety, four-slot persistence and JSON/binary interoperability. Mark it **PROPOSED**; do not implement either alternative until founder review.
 5. Report all changed files, test results, missing evidence, and one suggested next small vertical slice. Open a PR for review; do not merge it.
 
 ## Quality gates and process
