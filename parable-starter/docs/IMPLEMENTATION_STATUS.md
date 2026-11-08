@@ -1,5 +1,92 @@
 # Implementation status and reproducible baseline
 
+## PAR-005 ARM toolchain/resource gate — 2026-11-08
+
+Started from main `849143b0886eb9de0cc6eceba7d5d9c6345df53c`, after PR #7 merged.
+Read the agent rules, constitution, current status and firmware integration first.
+Unchanged host Debug and Release suites each passed **4/4** before edits. Detailed
+pins, commands, audit, metrics, warnings and bring-up requirements are in
+[ARM_BUILD_BASELINE.md](ARM_BUILD_BASELINE.md); exact dependency/license records
+are in [ARM_DEPENDENCIES.md](../third_party/ARM_DEPENDENCIES.md).
+
+| Component/evidence | Host | ARM cross-build/link | Physical hardware | Musical audition |
+| --- | --- | --- | --- | --- |
+| Native DSP core | Existing tests preserved | In actual Cortex-M7 hard-float minimal ELF | Not flashed/run | Not auditioned |
+| Native preparation adapter | Existing host tests preserved | ARM object, text 8,380 bytes; also linked into SRAM/QSPI diagnostics | Not run | Not auditioned |
+| JSON codec/control startup | Existing host tests preserved | Internal FLASH diagnostic overflows by 65,380 bytes; same diagnostic links with official BOOT_SRAM and BOOT_QSPI | Not run | Not auditioned |
+| Minimal Seed3-oriented callback | Unchanged portable processing behavior | ELF/bin/map generated; no JSON symbols; configured-rate query compiled | Codec/PLL/DMA/analog path unverified | Not auditioned |
+| Live activation, flash presets, compiler, UI | Unchanged/deferred | Not implemented by this gate | Untested | Untested |
+
+Selected xPack GNU Arm Embedded GCC 14.2.1-1.1 is archive-checksummed; libDaisy
+`1289a000bc29dae1bc0ed4129cfa2df40ef71574` and five required driver submodules
+are commit-pinned/verified. Cortex-M7 Thumb/FPv5-D16 hard float, release `NDEBUG`,
+GNU C++17 application. Internal-flash **BOOT_NONE**, linker budget 128 KiB at
+`0x08000000`; no Daisy software bootloader deployed. The module's 8 MB external
+QSPI and 64 MB external SDRAM are not treated as this internal image budget.
+The recipe also builds fuller startup JSON decode/prepare diagnostics with the
+unmodified official SRAM and QSPI linkers: each bin/load span is **196,292 bytes**,
+Berkeley text/data/BSS **194,148 / 2,092 / 28,992**. SRAM executes in AXI with
+194,912 bytes of executable VMA span (196,292-byte load span including `.data`
+initializers); ordinary data/BSS span 13,980 bytes in DTCM. QSPI executes at
+`0x90040000`, ordinary data/BSS span 13,980 bytes in AXI. Both use 16,384 bytes D2
+DMA and 12 bytes backup SRAM, no static external SDRAM. These exclude loader
+resource use and dynamic heap/stack. Direct main frame is 328 bytes; callback 20.
+
+Actual minimal release ELF Berkeley text/data/BSS: **72,392 / 1,616 / 28,608**.
+Flash load span/bin: **74,008** bytes. AXI static address span: **13,124** bytes
+(13,120 section-byte sum); D2 DMA: **16,384**; backup SRAM: **12**; static external
+SDRAM/QSPI: **0**. Compiler direct frames: callback **20**, main **120** bytes.
+Heap/stack high-water and call-chain/IRQ stack cost remain **not measured**.
+The report explicitly separates vector/data placement and coalesced text/rodata;
+ELF debug-file size is not confused with deployed flash usage.
+
+Reproduce from repository root:
+
+```bash
+python3 parable-starter/firmware/build.py
+```
+
+A fresh dependency checkout and a second cache path both reproduced the minimal
+binary hash recorded in the detailed baseline. The **65,380-byte FLASH overflow**
+is a BOOT_NONE layout limitation, not proof JSON exceeds Daisy's total capacity.
+The script requires all three candidate images to link and treats only the
+internal-flash diagnostic's identified overflow as non-gating;
+unexpected API/compile/link failures fail. CI retains logs, ELF/bin/map, section/
+symbol/disassembly reports, input hashes and notices; exact run links are in PR.
+
+Firmware now constructs a fixed-storage Engine after `DaisySeed::Init`, using
+`AudioSampleRate()` and checking load before starting the callback. That API
+reports configured rate, not a hardware clock measurement. The pinned SDK uses
+48 kHz/24-bit SAI on the shared Seed3/TAC5242 path; advertised 192 kHz/32-bit
+capability is not demonstrated. Mono input 0 still feeds both outputs. No callback
+allocation, parsing, locks or I/O added, and fast/finite-math flags are rejected.
+
+Unresolved: upstream startup FP-handler warning, unsupported nosys syscall warnings
+and RWX ELF segment warning are retained, not suppressed. Runtime clocks, SDRAM,
+CPU overhead, heap/stack/RAM headroom, latency/noise, power/heat, electrical safety,
+guitar impedance/level handling and sound remain **unmeasured/untested**. Actual
+bring-up requires a verified module/dev kit, flashing/recovery plan, instrument-
+suitable analog front end and measurements. No direct passive-guitar connection
+or target performance claim. JSON footprint options need separate review; no
+new format, enlarged linker budget, effects or correspondence rules were added.
+The bundled v6.4 intdfu/2000ms loader binary is hash-pinned/audited, not rebuilt,
+flashed or executed. Software layout/QSPI configuration aligns with the pinned
+Seed3-aware SDK, but official loader README does not explicitly name Seed3:
+**Seed3 boot compatibility remains unverified**. See the detailed audit and
+SRAM-versus-QSPI timing/RAM tradeoffs. Linked diagnostics' newlib `_sbrk` has no
+region bound; dynamic allocation/exhaustion safety remains unproven.
+
+The planned ESP32-S3 may own JSON/control processing while Daisy receives a
+compact prepared plan. Native Engine loading has no JSON dependency. Canonical
+JSON authority need not change; a bounded, versioned transport, rate/capability
+negotiation, DSP-side validation and storage/activation ownership require a
+separate decision. No ESP32 code, wire format or functionality cut was added.
+
+Next gates: measured on-hardware signal path, separately specified live patch
+ownership, and an actual correspondence-to-audio trace. These do not replace the
+correspondence purpose with a hardware-only roadmap. Earlier sections below are
+historical; PAR-005 supersedes only their previously-unproven ARM build evidence.
+
 ## PAR-004 stopped-audio host preparation — 2026-11-08
 
 Started from latest main `4f44ca25897cee79dad068302ac612944586c91d`, including
