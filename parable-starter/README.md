@@ -93,16 +93,21 @@ implemented here, and canonical JSON functionality remains unchanged.
 - **Daisy adapter is ARM-linked but has not been flashed or hardware-tested.**
 - No persistent flash, power-loss safety, USB/Wi-Fi transfer, phone editor, footswitches, or Register.
 - No dynamic graph, parallel routing, effect resource estimator, smoothing/clickless patch switching, DSP load metrics or hardware sample-rate query.
-- No modeled overdrive, compressor, delay, reverb, Moon, or astrology.
+- Experimental diode-inspired drive kernel/lab is available below; no accepted circuit-faithful drive, compressor, delay, reverb, Moon, or astrology.
 - The one-pole filter and gain nodes are **plumbing**, not an effect catalog.
 - `Engine::load` must only be called while the audio callback is stopped; cross-thread patch exchange is not yet implemented. The prototype uses a mono signal and copies it to both outputs.
 - `schema=2` is a provisional code-internal tag; does not yet specify durable wire compatibility.
 
 ## Next build steps
+
+Immediate priority: founder listens to the drive auditions below. PAR-007 then
+integrates an accepted design with format migration; PAR-008 follows with a
+founder-approved Mars correspondence fixture. Other deferred engineering gates:
+
 1. Acquire Seed3 **65MB** module and, ideally, official pedal dev kit; review the pinned build/boot choice, flash only in a separate bring-up task, and measure pass-through and noise/latency.
 2. Build double-buffered/atomic patch activation and 4-slot durable journal with CRC and power-loss tests.
 3. Review the version-1 contract/temporary native bridge and measure target feasibility before live activation; binary interoperability remains deferred.
-4. Add realistic bypass and safe level handling, measure callback CPU/memory; then one carefully modeled drive family at a time.
+4. Add realistic bypass and safe level handling, and measure callback CPU/memory.
 5. Implement separate communication MCU (if selected) and web editor against the frozen patch contract.
 
 Design rule: one patch language, many composers. Astro, manual workshop, future biometric or other symbolic idioms compile to the same validated graph.
@@ -110,3 +115,24 @@ Design rule: one patch language, many composers. Astro, manual workshop, future 
 ## Codex onboarding
 
 For the first cloud task, see [`docs/CODEX_KICKOFF.md`](docs/CODEX_KICKOFF.md). This is an engineering baseline, **not** complete product firmware.
+
+## Experimental native drive audition (PAR-006)
+
+The first nonlinear drive is a shared portable C++ kernel and listening lab,
+**experimental pending founder approval**. It is not in patch v1 or the Engine.
+Build and hear five short, level-matched **synthetic** dry/low/high/tone/bias WAVs:
+
+```bash
+cmake -S parable-starter -B parable-starter/build/drive-release -DCMAKE_BUILD_TYPE=Release
+cmake --build parable-starter/build/drive-release -j2
+ctest --test-dir parable-starter/build/drive-release --output-on-failure --no-tests=error
+./parable-starter/build/drive-release/parable_drive_lab --output parable-starter/build/drive-auditions
+```
+
+These commands run from the repository root. Open the resulting WAVs in a player
+or DAW. The passing Release **Host tests** job also publishes
+**parable-drive-auditions** for seven days. [Listening instructions and measured
+limits](docs/DRIVE_LAB.md) include rendering a real dry mono PCM16 WAV with
+`--input`, exact controls, alias/DC/level results and ARM object sizes.
+[ADR-002](docs/adr/ADR-002-first-drive-prototype.md) remains proposed. No hardware,
+real-guitar, circuit-fidelity, musical-approval or pedal-grade claim follows.
