@@ -36,8 +36,8 @@ CPU overhead, real guitar and analog clipping remain untested.
 See [`docs/IMPLEMENTATION_STATUS.md`](docs/IMPLEMENTATION_STATUS.md) for the
 source inventory, measured baseline and untested behavior, and
 [`docs/adr/ADR-001-patch-authority.md`](docs/adr/ADR-001-patch-authority.md) for
-the selected Option A decision. The control-side data contract is implemented;
-runtime preparation, activation and durable storage remain deferred.
+the selected Option A decision. The data contract and temporary native preparation
+bridge are implemented; live activation and durable storage remain deferred.
 
 ## JSON patch contract (PAR-002)
 
@@ -45,13 +45,29 @@ runtime preparation, activation and durable storage remain deferred.
 and `Codec::encode` for `parable.patch` version 1. See the normative
 [`docs/PATCH_FORMAT_V1.md`](docs/PATCH_FORMAT_V1.md) and golden fixtures for
 required fields, numeric rules, limits and rejection behavior. This format is
-separate from the DSP prototype's internal `schema=2`; there is no active-engine
-adapter. Codec calls allocate and belong outside the audio callback.
+separate from the DSP prototype's internal `schema=2`. Codec calls allocate and
+belong outside the audio callback; the separate host bridge below does no parsing.
 
 Host configuration fetches a SHA-256-pinned nlohmann/json 3.11.3 release. Its MIT
 license, rationale and offline-build override are recorded in
-[`third_party/README.md`](third_party/README.md). Debug and Release run all three
-tests, including `patch_contract`, with checks active in both configurations.
+[`third_party/README.md`](third_party/README.md). Debug and Release run all four
+tests, including `patch_contract` and `host_preparation`, with checks active in both configurations.
+
+## Native host preparation (PAR-004)
+
+[`include/parable_prepare.h`](include/parable_prepare.h) provides
+`parable::preparation::prepare(document, actualSampleRate)`. It resolves stable
+IDs in explicit serial order and returns an owned native `Patch` or an Error
+with code, typed field, rule, instance ID and native-validation status. The rate
+must exactly match the document declaration; there is no automatic conversion.
+
+Decode and prepare on the control side. Only after success, and **with audio
+stopped**, call `Engine::load` and check its status. The Engine must use that same
+actual sample rate. The native prototype patch carries neither rate nor IDs;
+retain the validated document as authority. No Engine is changed by preparation.
+The bridge library does not link JSON; host end-to-end tests explicitly link both.
+This is a temporary boundary, not the final immutable plan or live/clickless
+activation. Daisy build, CPU/RAM, hardware and musical audition remain unproven.
 
 ## Not implemented / not validated
 - **Daisy adapter has not been compiled or flashed** (no libDaisy toolchain connected here).
@@ -65,7 +81,7 @@ tests, including `patch_contract`, with checks active in both configurations.
 ## Next build steps
 1. Acquire Seed3 **65MB** module and, ideally, official pedal dev kit; compile and flash the adapter; measure pass-through and noise/latency.
 2. Build double-buffered/atomic patch activation and 4-slot durable journal with CRC and power-loss tests.
-3. Review the version-1 JSON contract and measure target feasibility before implementing runtime preparation or activation; binary interoperability remains deferred.
+3. Review the version-1 contract/temporary native bridge and measure target feasibility before live activation; binary interoperability remains deferred.
 4. Add realistic bypass and safe level handling, measure callback CPU/memory; then one carefully modeled drive family at a time.
 5. Implement separate communication MCU (if selected) and web editor against the frozen patch contract.
 

@@ -1,6 +1,92 @@
 # Implementation status and reproducible baseline
 
+## PAR-004 stopped-audio host preparation — 2026-11-08
+
+Started from latest main `4f44ca25897cee79dad068302ac612944586c91d`, including
+merged PR #5. Read the required instructions, ADR, format, headers and existing
+tests first. Both unchanged baseline Debug and Release suites passed **3/3**
+before edits. This is the first decode -> prepare -> stopped Engine load -> mono
+host playback slice, limited to existing Bypass/Gain/OnePoleLowpass plumbing.
+
+`preparation::prepare(const patch::ValidatedPatch&, float actualSampleRate)`
+returns an owned `parable::Patch` or contextual Error. It resolves IDs through
+`serialOrder()`, copies flags/settings/trim, requires exact rate equality and
+revalidates with `parable::validate` at the actual rate. No parameter clamping,
+resampling, silent omission or reordering. Bypass's unused native parameter is
+explicitly 1. Native `schema=2` remains internal; the JSON format remains version 1.
+The adapter never loads an Engine and retains no pointers/references in its result.
+
+| Capability | Source | Host tests | Daisy build | Hardware | Musical audition |
+| --- | --- | --- | --- | --- | --- |
+| Typed document -> ordered native patch | Implemented | All 15 accepted/golden documents; exact stage fields/trim | Not built | Untested | Not auditioned |
+| Mono stopped-audio load/render | Existing Engine plus new bridge | Independently hand-built native patches/Engines; long filter history and finite bounds | Not built | Untested | Not auditioned |
+| Target-rate/error isolation | Implemented | Invalid/mismatched rates, native validation and guard faults; old patch/history/document unchanged | Not built | Untested | Not auditioned |
+| Live activation, flash, compiler, UI, new effects | Not implemented | Outside scope | Not built | Untested | Not auditioned |
+
+Changed files and reasons (relative to `parable-starter/`):
+
+- `include/parable_prepare.h`: small public control-side Result/Patch/Error API.
+- `src/parable_prepare.cpp`: ID resolution, mapping and actual-rate native validation.
+- `src/prepare_internal.h`: private borrowed source view for testing guards without
+  weakening ValidatedPatch. Not a second public input/patch authority.
+- `tests/test_prepare.cpp`: independent native expectations for every accepted
+  fixture; rendering, order, flags, ownership, capacity/rates and failure isolation.
+- `CMakeLists.txt`: JSON-independent bridge library and `host_preparation` test.
+  The existing Debug/Release CI matrix runs it without workflow changes.
+- `README.md`, `docs/PATCH_FORMAT_V1.md`, this status report: current API boundary,
+  unchanged wire rules, evidence and limitations.
+
+Exact reproduction from repository root (fresh build directories):
+
+```bash
+cmake -S parable-starter -B build-par004-Debug -DCMAKE_BUILD_TYPE=Debug
+cmake --build build-par004-Debug
+ctest --test-dir build-par004-Debug --output-on-failure --no-tests=error -V
+cmake -S parable-starter -B build-par004-Release -DCMAKE_BUILD_TYPE=Release
+cmake --build build-par004-Release
+ctest --test-dir build-par004-Release --output-on-failure --no-tests=error -V
+```
+
+Host evidence: Linux x86_64, GNU C++ 14.2.0, CMake/CTest 3.31.6. Final local and
+GitHub CI run links and exact commands are recorded in the PR. Local Debug and
+Release passed **4/4**, including 658,386 new host-preparation checks (many repeated
+sample invariants). An AddressSanitizer/UndefinedBehaviorSanitizer Debug build
+also passed 4/4 with no diagnostics; no compiler warnings were emitted.
+Baseline and new checks remain active in Release. No existing DSP algorithm,
+processor library, JSON contract/codec, fixture or correspondence semantics changed.
+
+Tests inspect mapped stages directly so commuting small-signal gain/filter audio
+cannot hide wrong order. A separate two-gain fixture with unchanged IDs produces
+0.64 vs 1.0 on input 200 using the **existing** +/-256 internal saturation rail;
+small signals commute. This overload example is not an audible-order/fidelity
+claim. All accepted fixtures render 4096 ordinary samples, explicit extremes,
+then 4096 recovery samples against independent expected-patch Engines.
+
+Failure tests preserve both Engine configuration and its evolving filter history.
+Malformed private source views exercise excessive counts, unresolvable/zero IDs,
+duplicate IDs/order, invalid gain/cutoff/trim/rate and native-status propagation.
+These states cannot be constructed through the current public ValidatedPatch API.
+Unsupported JSON types reject at decode; the closed current variant has only
+three supported alternatives. The adapter's future unsupported/valueless-settings
+fallback is defensive and has no constructible runtime case tested here. No
+const-cast, forged ValidatedPatch or public validation bypass was introduced.
+
+Unproven/incomplete: Daisy compilation/flashing, actual hardware-rate query,
+CPU overhead, heap/stack/target RAM, latency/noise, real guitar and musical quality
+remain **unbuilt/unmeasured/untested**. The caller supplies the actual rate and
+must use it consistently: a returned mutable prototype Patch has no rate/ID tags.
+Native stages are execution copies; retain the validated document as authority.
+Error strings can allocate/throw on resource exhaustion on the control side.
+Neither parsing nor preparation belongs in audio. Engine::load still requires
+stopped audio; no ownership protocol, atomic swap, clickless transition, persistent
+storage or final immutable runtime plan is supplied. Next: independently review
+this boundary, obtain target toolchain/resource evidence, and specify any live
+activation as a separate ticket with its own concurrency/hardware gates.
+
 ## PAR-002 control-side patch contract — 2026-11-08
+
+This section records the earlier contract-only increment; PAR-004 above adds the
+temporary stopped-audio bridge, while final plans/activation/storage stay deferred.
 
 Started from main `026bc5df1833a2662e40c99e483f9c43b1758433`, after PAR-003
 merged. The existing Debug suite passed 2/2 before code changes. Read the agent
