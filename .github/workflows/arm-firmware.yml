@@ -1,0 +1,27 @@
+name: ARM firmware build
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  seed3-cross-build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Build pinned ARM firmware and produce resource evidence
+        run: python3 parable-starter/firmware/build.py
+      - name: Retain ARM binaries, maps, logs and notices
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: seed3-arm-build-evidence
+          path: parable-starter/build/arm/
+          if-no-files-found: error
+          retention-days: 7

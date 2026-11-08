@@ -30,7 +30,7 @@ internally; the existing final output clamp remains +/-1. This numerical rail
 preserves headroom for all eight gain-2 stages on ordinary +/-1 input and avoids
 overflow on extreme floats. It can change extreme overload/attenuation behavior;
 it is not analog modeling or a complete limiter. See the PAR-003 status update
-for regression, recovery and normal-range reference-test evidence. Daisy firmware,
+for regression, recovery and normal-range reference-test evidence. Daisy execution,
 CPU overhead, real guitar and analog clipping remain untested.
 
 See [`docs/IMPLEMENTATION_STATUS.md`](docs/IMPLEMENTATION_STATUS.md) for the
@@ -67,10 +67,30 @@ actual sample rate. The native prototype patch carries neither rate nor IDs;
 retain the validated document as authority. No Engine is changed by preparation.
 The bridge library does not link JSON; host end-to-end tests explicitly link both.
 This is a temporary boundary, not the final immutable plan or live/clickless
-activation. Daisy build, CPU/RAM, hardware and musical audition remain unproven.
+activation. PAR-005 cross-compiles preparation to an ARM object and links the
+minimal native firmware; runtime CPU/RAM, hardware and musical audition remain unproven.
+
+## ARM firmware build (PAR-005)
+
+From repository root on Linux x86_64 with Python >=3.12, Git, GNU Make and curl:
+
+```bash
+python3 parable-starter/firmware/build.py
+```
+
+The script fetches verified/pinned sources and compiler, then writes ELF/bin/map,
+logs, resource reports and notices under `parable-starter/build/arm/`. It never
+flashes hardware. See [`docs/ARM_BUILD_BASELINE.md`](docs/ARM_BUILD_BASELINE.md)
+for exact boot/linker selection, measured sections, retained warnings and bring-up
+requirements. The recipe links minimal audio in internal flash and fuller startup
+JSON/preparation diagnostics using the official BOOT_SRAM and BOOT_QSPI layouts.
+The same diagnostic exceeds the 128 KiB BOOT_NONE limit: this is a layout limit,
+not Daisy's total capacity. Seed3 bootloader/hardware operation remains unverified.
+The planned ESP32-S3 could own JSON/control work; no controller or transport is
+implemented here, and canonical JSON functionality remains unchanged.
 
 ## Not implemented / not validated
-- **Daisy adapter has not been compiled or flashed** (no libDaisy toolchain connected here).
+- **Daisy adapter is ARM-linked but has not been flashed or hardware-tested.**
 - No persistent flash, power-loss safety, USB/Wi-Fi transfer, phone editor, footswitches, or Register.
 - No dynamic graph, parallel routing, effect resource estimator, smoothing/clickless patch switching, DSP load metrics or hardware sample-rate query.
 - No modeled overdrive, compressor, delay, reverb, Moon, or astrology.
@@ -79,7 +99,7 @@ activation. Daisy build, CPU/RAM, hardware and musical audition remain unproven.
 - `schema=2` is a provisional code-internal tag; does not yet specify durable wire compatibility.
 
 ## Next build steps
-1. Acquire Seed3 **65MB** module and, ideally, official pedal dev kit; compile and flash the adapter; measure pass-through and noise/latency.
+1. Acquire Seed3 **65MB** module and, ideally, official pedal dev kit; review the pinned build/boot choice, flash only in a separate bring-up task, and measure pass-through and noise/latency.
 2. Build double-buffered/atomic patch activation and 4-slot durable journal with CRC and power-loss tests.
 3. Review the version-1 contract/temporary native bridge and measure target feasibility before live activation; binary interoperability remains deferred.
 4. Add realistic bypass and safe level handling, measure callback CPU/memory; then one carefully modeled drive family at a time.

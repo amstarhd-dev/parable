@@ -1,4 +1,5 @@
-# Rename to Makefile inside a DaisyExamples-style project directory.
+# Historical layout example. The reproducible build uses firmware/Makefile and build.py.
+# Do not replace the pinned integration Makefile with this example.
 # libDaisy must be checked out and compiled separately.
 TARGET = parable_core_pass_through
 CPP_SOURCES = daisy_pass_through.cpp
