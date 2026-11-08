@@ -16,10 +16,22 @@ cd parable-starter
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
 cmake --build build
 ctest --test-dir build --output-on-failure
+cmake -S . -B build/Release -DCMAKE_BUILD_TYPE=Release
+cmake --build build/Release
+ctest --test-dir build/Release --output-on-failure
 ```
-The current tests use `assert`, including setup inside assertions. Use Debug;
-Release builds that define `NDEBUG` do not exercise those checks. GitHub Actions
-runs the same Debug build from the repository-root `.github/workflows/host-tests.yml`.
+Tests use always-active `CHECK` calls, including setup, and run with `NDEBUG` in
+Release. GitHub Actions runs both Debug and Release builds from the
+repository-root `.github/workflows/host-tests.yml`.
+
+Audio safety policy: non-finite inputs produce zero without changing filter
+history. Finite inputs, gain results and filter history saturate at +/-256
+internally; the existing final output clamp remains +/-1. This numerical rail
+preserves headroom for all eight gain-2 stages on ordinary +/-1 input and avoids
+overflow on extreme floats. It can change extreme overload/attenuation behavior;
+it is not analog modeling or a complete limiter. See the PAR-003 status update
+for regression, recovery and normal-range reference-test evidence. Daisy firmware,
+CPU overhead, real guitar and analog clipping remain untested.
 
 See [`docs/IMPLEMENTATION_STATUS.md`](docs/IMPLEMENTATION_STATUS.md) for the
 source inventory, measured baseline and untested behavior, and

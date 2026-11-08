@@ -109,17 +109,20 @@ public:
     }
     void setVolume(float volume) noexcept { volume_ = finite(volume) ? clip(volume, 0.f, 1.f) : 0.f; }
     float process(float input) noexcept {
-        // Always bounded; NaNs or impossible levels from malformed code must not propagate.
+        // Discard non-finite samples without advancing filter history.
         if (!finite(input)) return 0.f;
-        float x = input;
+        float x = clip(input, -kInternalHeadroom, kInternalHeadroom);
         for (size_t i=0;i<patch_.count;++i) {
             const auto& s = patch_.stages[i];
             if (!s.enabled) continue;
             switch (s.type) {
                 case Type::Bypass: break;
-                case Type::Gain: x *= s.parameter; break;
+                case Type::Gain:
+                    x = clip(x * s.parameter, -kInternalHeadroom, kInternalHeadroom);
+                    break;
                 case Type::OnePoleLowpass:
-                    states_[i] += a_[i] * (x - states_[i]);
+                    states_[i] = clip(states_[i] + a_[i] * (x - states_[i]),
+                                      -kInternalHeadroom, kInternalHeadroom);
                     x = states_[i];
                     break;
             }
@@ -129,6 +132,10 @@ public:
     }
     const Patch& loaded() const noexcept { return patch_; }
 private:
+    // Numerical safety rail: 2^8 permits all eight gain-2 stages for |input| <= 1.
+    // Bounding input, stages and filter history keeps float intermediates finite.
+    // This is emergency saturation, not an analog model or a complete limiter.
+    static constexpr float kInternalHeadroom = 256.f;
     static float clip(float x,float lo,float hi) noexcept {return x<lo?lo:(x>hi?hi:x);}
     float sampleRate_;
     float volume_ = 1.f;
