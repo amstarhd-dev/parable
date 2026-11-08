@@ -7,7 +7,8 @@ Only successful validation constructs a public typed patch. Existing values are
 never edited by decode. The result exposes const accessors and holds named
 `Gain::linear` or `OnePoleLowpass::cutoffHz` settings with stable instance IDs.
 Canonical JSON is the interchange authority; typed data is its derived value.
-There is no adapter to the active audio engine in this increment.
+PAR-004 adds a separate [temporary native preparation bridge](../include/parable_prepare.h)
+for stopped-audio host playback. This document's wire rules are unchanged.
 
 ## Required fields
 
@@ -92,6 +93,8 @@ remain unbuilt/unmeasured. A limit on JSON size is not proof of MCU fit.
 
 Four independently held encoded strings are demonstrated in host tests. They
 are RAM payloads; no bank-file format, nonvolatile storage, activation protocol,
-compiler, UI, provenance, expression mapping or runtime preparation is implemented.
-Future preparation must check the actual target sample rate and resource budget
-before use; this contract does not authorize playing an incompatible patch.
+compiler, UI, provenance, expression mapping or final runtime plan is implemented.
+The PAR-004 bridge requires exact declaration/target-rate equality and native
+validation before returning a separate prototype patch. Callers must keep that
+rate consistent with the stopped Engine they load. Measured resource budgets
+and hardware-rate queries remain future work; see the implementation status.

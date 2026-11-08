@@ -30,3 +30,14 @@ target_link_libraries(parable_patch_test PRIVATE parable_patch nlohmann_json::nl
 target_compile_options(parable_patch_test PRIVATE -Wall -Wextra -Wpedantic)
 target_compile_definitions(parable_patch_test PRIVATE PATCH_FIXTURES="${CMAKE_CURRENT_SOURCE_DIR}/tests/fixtures/patch-v1")
 add_test(NAME patch_contract COMMAND parable_patch_test)
+
+# Temporary control-side bridge; this target does not link the JSON codec/library.
+add_library(parable_prepare STATIC src/parable_prepare.cpp)
+target_include_directories(parable_prepare PUBLIC include)
+target_compile_options(parable_prepare PRIVATE -Wall -Wextra -Wpedantic)
+add_executable(parable_prepare_test tests/test_prepare.cpp)
+target_link_libraries(parable_prepare_test PRIVATE parable_prepare parable_patch nlohmann_json::nlohmann_json)
+target_include_directories(parable_prepare_test PRIVATE src)
+target_compile_options(parable_prepare_test PRIVATE -Wall -Wextra -Wpedantic)
+target_compile_definitions(parable_prepare_test PRIVATE PATCH_FIXTURES="${CMAKE_CURRENT_SOURCE_DIR}/tests/fixtures/patch-v1")
+add_test(NAME host_preparation COMMAND parable_prepare_test)
