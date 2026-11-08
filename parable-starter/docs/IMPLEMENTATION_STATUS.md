@@ -1,4 +1,97 @@
-# PAR-001 implementation status and reproducible baseline
+# Implementation status and reproducible baseline
+
+## PAR-003 numerical safety update — 2026-11-08
+
+Work started from latest main `9111f8799b5b09ff19ef9e38e21f1ae233c6321b`.
+Read `AGENTS.md`, `PRODUCT_CONSTITUTION.md` and this report before editing code.
+The original Debug smoke suite passed (1/1) before changes. This update addresses
+[issue #3](https://github.com/amstarhd-dev/parable/issues/3) only; it does not
+implement the patch ADR, effects, persistence or correspondence compilation.
+
+Current safety policy in `Engine::process`:
+
+- NaN and both infinities return zero without advancing filter history.
+- Finite input, each gain result and each filter history value saturate at
+  +/-256 internally. This is 2^8, retaining the existing headroom of eight gain-2
+  stages for ordinary input in [-1,1]. Filter histories start at zero, so both
+  operands of the filter difference stay within +/-256 and the difference within
+  +/-512. Valid coefficients are finite and between zero and one; gain is at
+  most 2. Intermediates therefore stay far below float overflow. Existing final
+  output clamping remains [-1,1]; trim/volume zero yields zero without Inf * 0.
+- The rail may alter extreme overloads followed by attenuation or filter tails.
+  It is numerical emergency saturation, not analog modeling, a complete limiter,
+  or a promise of musical quality. Revisit its headroom if stage capacity or
+  processor gain rules change. The callback still uses float arithmetic, bounded
+  loops and fixed arrays; no allocations, exceptions, I/O or locks were added.
+
+Changed files and reasons:
+
+| File (relative to `parable-starter`, except workflow) | Change |
+| --- | --- |
+| `include/parable_core.h` | Bound signal and filter history before they can overflow; retain final clamp and rejected-input policy. |
+| `tests/test_check.h`, `tests/test_core.cpp` | Replace disappearing `assert` setup/checks with single-evaluation, always-active checks and failure exit status; retain original checks. |
+| `tests/test_audio_safety.cpp` | Add original overflow regression, adversarial sequences, filter/rejected-input/rejected-patch recovery, ordinary-input reference and seeded invariant coverage. |
+| `CMakeLists.txt` | Register the separate `audio_safety` host executable/test. |
+| Repository-root `.github/workflows/host-tests.yml` | Run a Debug/Release matrix; Release keeps the normal `NDEBUG` flag. |
+| `README.md`, `docs/IMPLEMENTATION_STATUS.md` | Update test commands, safety policy, evidence and limitations. |
+
+Observed host evidence: GNU C++ 14.2.0, Linux x86_64, CMake/CTest 3.31.6.
+With new tests and the **unchanged original engine**, Debug and Release both
+built successfully but CTest exited 8: `core_validation` passed and `audio_safety`
+failed at `std::isfinite(sample)` on the original eight-gain/zero-trim reproducer.
+Release flags included `-O3 -DNDEBUG`; its checks did not disappear.
+After the fix, fresh Debug and Release build directories both passed **2/2 tests**
+without warnings. Both execute 23 original core checks and 1,476,661 audio-safety
+checks. These counts include repeated invariants, not that many distinct cases.
+GitHub Actions run links and outcomes are recorded in the focused PR description.
+
+Reproduce final builds from the repository root (separate, initially absent
+build directories; use installed CMake or the environment-only setup below):
+
+```bash
+cmake -S parable-starter -B build-par003-Debug -DCMAKE_BUILD_TYPE=Debug
+cmake --build build-par003-Debug
+ctest --test-dir build-par003-Debug --output-on-failure --no-tests=error -V
+cmake -S parable-starter -B build-par003-Release -DCMAKE_BUILD_TYPE=Release
+cmake --build build-par003-Release
+ctest --test-dir build-par003-Release --output-on-failure --no-tests=error -V
+```
+
+Reproduce the expected pre-fix failure with the final regression source (each
+test binary below must exit 1 at the finite-output check):
+
+```bash
+mkdir -p /tmp/parable-par003-before
+git show 9111f8799b5b09ff19ef9e38e21f1ae233c6321b:parable-starter/include/parable_core.h > /tmp/parable-par003-before/parable_core.h
+c++ -std=c++17 -O0 -g -I /tmp/parable-par003-before parable-starter/tests/test_audio_safety.cpp -o /tmp/parable-par003-before/debug
+/tmp/parable-par003-before/debug
+c++ -std=c++17 -O3 -DNDEBUG -I /tmp/parable-par003-before parable-starter/tests/test_audio_safety.cpp -o /tmp/parable-par003-before/release
+/tmp/parable-par003-before/release
+```
+
+Coverage includes positive/negative maximum finite floats, repeated alternating
+extremes, zero/negative zero, subnormals, NaN/both infinities, zero trim/volume,
+filter decay/recovery at 8/48/192 kHz and cutoff bounds, and unchanged signal/state
+after rejected patches. Ordinary [-1,1] bypass/gain/filter/mixed/disabled-stage
+sequences agree with an independent double-precision, unsaturated reference
+within absolute tolerance **2e-5**. A fixed seed generates 128 valid patches and
+1024 binary32 bit-pattern inputs per patch; each output is checked finite and
+within [-1,1], followed by zero-input recovery checks. This is deterministic
+sampling plus explicit edge cases, not exhaustive enumeration or musical proof.
+
+**Untested / not measured:** Daisy firmware compilation/flashing, actual callback
+CPU overhead, heap/stack/target memory, real guitar, analog clipping, listening
+quality and hardware timing. No fast-math build was tested; this safety policy
+requires ordinary IEEE-aware floating-point compilation. Existing stopped-audio
+loading/concurrency restrictions remain. There is no new hardware or musical
+completion claim. Next: independently review this safety fix; broader PAR-002
+codec work starts from updated main only after this PR is reviewed and merged.
+
+## PAR-001 historical baseline
+
+The remainder preserves the original audit at its inspected commit. Its known
+overflow defect and assertion-only testing descriptions are superseded by the
+PAR-003 update above; its untested product/hardware limitations still apply.
 
 Recorded: 2026-11-08. Inspected baseline commit:
 `a47396d6037e33d635d128f42dc6c9c7c1718273` in `amstarhd-dev/parable`.

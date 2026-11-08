@@ -11,13 +11,16 @@ jobs:
   host-tests:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
+    strategy:
+      matrix:
+        build_type: [Debug, Release]
     defaults:
       run:
         working-directory: parable-starter
     steps:
       - uses: actions/checkout@v4
-      - name: Configure with assertions enabled
-        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
+      - name: Configure
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
       - name: Build
         run: cmake --build build
       - name: Test
