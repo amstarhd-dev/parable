@@ -1,0 +1,1 @@
+{"format":"parable.patch","outputTrim":{"unit":"linear","value":1.00000000e+00},"processors":[],"routing":[{"from":"input","to":"output"}],"sampleRate":{"unit":"Hz","value":4.80000000e+04},"version":1}

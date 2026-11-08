@@ -1,8 +1,14 @@
 # ADR-001: Patch authority
 
-Status: **PROPOSED — requires founder review; neither option is implemented.**
+Status: **SELECTED — Option A, authorized by the founder for PAR-002 / issue #2.**
 Date: 2026-11-08
 Scope: canonical patch data, validation, preparation, activation and four-slot storage.
+
+Decision amendment (PAR-002, separately reviewable): implement canonical versioned
+JSON and validated typed control-side data first. The decision is selected;
+this PR's implementation still requires review. Prepared runtime plans, activation
+ownership and durable storage remain deferred. Their descriptions below record
+the intended direction, not implemented capabilities.
 
 ## Context and decision boundary
 
@@ -12,11 +18,11 @@ biometric or other grammars must produce the same patch contract. The portable
 C++ renderer must not infer sound from chart globals, editor widgets, transport
 state or the hardware mounting arrangement.
 
-Today `include/parable_core.h` has a provisional `schema=2`, eight ordered stages,
+At the PAR-001 baseline, `include/parable_core.h` had a provisional `schema=2`, eight ordered stages,
 one anonymous float per stage and four RAM slots. `Bank::set` validates before
 copying but provides no cross-thread synchronization. `Engine::load` copies the
 patch, resets DSP state and calculates coefficients; it requires stopped audio.
-There are no codecs, durable presets, instance IDs or explicit graph edges.
+That baseline had no codecs, durable presets, instance IDs or explicit graph edges.
 The status report records the limited tests and remaining safety gaps.
 
 This ADR evaluates exactly two approaches. Both keep one semantic playback
@@ -194,9 +200,9 @@ storage strategy (or stop audio explicitly) before concurrent saves are allowed.
 Saving, selecting a slot, and activating a prepared bundle have separate result
 states. A successful audition/activation does not mean the edit was saved.
 
-## Recommendation and tradeoffs
+## Selected decision and tradeoffs
 
-Recommend **Option A**, pending founder approval. Inspectable patch documents
+Select **Option A**, following founder authorization in issue #2 and this assignment. Inspectable patch documents
 fit phone-first composition, correspondence audit traces and manual editing
 before storage/transfer efficiency has been measured as a bottleneck. Keep
 JSON completely out of audio; bounded native plans preserve the portable C++
@@ -210,16 +216,29 @@ need. Neither approach chooses a new DSP topology or changes astrology. The
 existing eight-stage limit is a prototype bound, not a product capacity claim.
 Schema maxima must be finite; target runtime limits must be backed by measurements.
 
-## Approval and follow-up
+## Increment boundary and follow-up
 
-Review must resolve the representation choice before implementation. Exact
-registry fields/limits, supported metadata, canonical number rules and version
-migration fixtures belong in the first contract ticket; measured storage and
-activation limits remain hardware gates. Do not start with a persistence or
-threading rewrite before the portable value/codec contract is testable.
+The representation choice is authorized. [`../PATCH_FORMAT_V1.md`](../PATCH_FORMAT_V1.md)
+defines the first bounded contract: `parable.patch` version 1, three revision-1
+utility types, stable uint32 IDs, a single mono serial path, explicit units and
+binary32 numeric rules. It is separate from internal DSP `schema=2`. Named
+input/output endpoints imply the sole mono ports; extra port/channel fields and
+other topologies reject. Version 1 rejects metadata, provenance and expression
+mappings rather than inventing incomplete rules for them. Future versions must
+define those fields and any migration explicitly. The eight-processor capacity
+is an interchange limit for this increment, not measured MCU capacity.
 
-Proposed next ticket: **PAR-002 — Minimal canonical patch codec and validation
-fixtures**, after ADR approval. Cover only existing Bypass/Gain/OnePoleLowpass,
+The codec uses pinned MIT-licensed nlohmann/json 3.11.3 for bounded JSON ingress,
+then validates and returns immutable-access native data. Direct decimal-to-float
+conversion and fixed nine-significant-digit scientific output avoid relying on
+generic JSON float formatting. Payload/parser size, C++17 floating `charconv`
+availability on the target, cross-language parity and measured memory still need
+evidence. These costs could require a smaller parser or later lossless binary
+codec; they do not justify a second editable playback authority. Storage and
+activation remain separate hardware/ownership tickets.
+
+First implementation ticket: **PAR-002 — Minimal canonical patch codec and validation
+fixtures**. Cover only existing Bypass/Gain/OnePoleLowpass,
 stable instance IDs and explicit serial routing; no new effects or compilers.
 Acceptance: deterministic round trip and canonical bytes; duplicate/dangling
 IDs, units, bounds, versions, unsupported topology and non-finite numbers reject
