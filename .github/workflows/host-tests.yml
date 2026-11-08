@@ -25,3 +25,19 @@ jobs:
         run: cmake --build build
       - name: Test
         run: ctest --test-dir build --output-on-failure --no-tests=error
+      - name: Render synthetic drive auditions using the native kernel
+        if: matrix.build_type == 'Release'
+        run: |
+          ./build/parable_drive_lab --output build/drive-auditions
+          git rev-parse HEAD > build/drive-auditions/SOURCE_COMMIT
+          c++ --version > build/drive-auditions/HOST_COMPILER.txt
+          sha256sum src/parable_drive.cpp include/parable_drive.h tools/drive_lab.cpp tools/lab_wav.h > build/drive-auditions/SOURCE_SHA256SUMS
+          (cd build/drive-auditions && sha256sum ./*.wav) > build/drive-auditions/SHA256SUMS
+      - name: Publish listening files and measurements
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-drive-auditions
+          path: parable-starter/build/drive-auditions/
+          if-no-files-found: error
+          retention-days: 7

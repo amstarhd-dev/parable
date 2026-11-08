@@ -99,6 +99,22 @@ def build(cache, output):
          "-o", output / "preparation.o"], output / "preparation-compile.log")
     run([toolbin / "arm-none-eabi-size", output / "preparation.o"], output / "preparation-size.txt")
     run([toolbin / "arm-none-eabi-readelf", "-h", "-A", output / "preparation.o"], output / "preparation-elf-header.txt")
+    # Compile the shared experimental drive without linking it into the unchanged
+    # minimal/codec images. This is ARM object evidence, never a CPU/boot claim.
+    run([compiler, *flags, "-I", PROJECT / "include", "-c", PROJECT / "src/parable_drive.cpp",
+         "-o", output / "drive.o"], output / "drive-compile.log")
+    run([toolbin / "arm-none-eabi-size", output / "drive.o"], output / "drive-size.txt")
+    run([toolbin / "arm-none-eabi-readelf", "-h", "-A", output / "drive.o"], output / "drive-elf-header.txt")
+    run([toolbin / "arm-none-eabi-nm", "-C", "-u", output / "drive.o"], output / "drive-undefined.txt")
+    if re.search(r"operator new|malloc|calloc|realloc|__cxa_throw|pthread|printf|fstream", (output / "drive-undefined.txt").read_text()):
+        raise RuntimeError("Unexpected allocation/exception/I/O dependency in drive object")
+    layout = output / "drive-layout.cpp"
+    layout.write_text('#include "parable_drive.h"\nextern "C" { char parable_drive_instance[sizeof(parable::dsp::Drive)]; }\n')
+    run([compiler, *flags, "-I", PROJECT / "include", "-c", layout, "-o", output / "drive-layout.o"], output / "drive-layout.log")
+    symbols = subprocess.check_output([toolbin / "arm-none-eabi-nm", "-S", output / "drive-layout.o"], text=True)
+    instance = re.search(r"\b([0-9a-f]+) B parable_drive_instance\b", symbols)
+    if not instance:
+        raise RuntimeError("Missing ARM instance layout measurement")
     # A diagnostic, never-shipping full-codec image. Only its known FLASH overflow
     # is a non-gating outcome; unexpected compile/API/link failures still fail CI.
     probe = output / "codec-probe"
@@ -121,6 +137,9 @@ def build(cache, output):
              f"BUILD_DIR={directory}"], output / (name + "-build.log"))
         images[name] = inspect(toolbin, directory, "parable_seed3_codec_probe", app_type)
     report = dict(images=images)
+    report["drive_kernel"] = dict(object_size=(output / "drive-size.txt").read_text().splitlines()[-1].split()[:4],
+                                instance_bytes=int(instance[1], 16), linked_into_firmware=False,
+                                hardware_execution="not performed", target_cpu_cost="not measured")
     report["codec_probe"] = dict(status="flash_overflow" if status else "linked",
                                   make_exit_code=status, flash_overflow_bytes=int(overflow[1]) if overflow else 0,
                                   hardware_execution="not performed")
@@ -133,7 +152,8 @@ def build(cache, output):
     report["source_worktree_dirty"] = bool(git(PROJECT, "status", "--porcelain"))
     inputs = ["firmware/daisy_pass_through.cpp", "firmware/Makefile", "firmware/build.py", "firmware/report.py",
               "firmware/dependencies.json", "include/parable_core.h", "include/parable_patch.h", "include/parable_prepare.h",
-              "src/parable_prepare.cpp", "src/prepare_internal.h", "src/parable_patch.cpp", "src/patch_json.cpp", "src/patch_json.h"]
+              "src/parable_prepare.cpp", "src/prepare_internal.h", "src/parable_patch.cpp", "src/patch_json.cpp", "src/patch_json.h",
+              "include/parable_drive.h", "src/parable_drive.cpp"]
     report["source_sha256"] = {name: hashlib.sha256((PROJECT / name).read_bytes()).hexdigest() for name in inputs}
     report["linker_sha256"] = {mode: hashlib.sha256((lib / path).read_bytes()).hexdigest()
                                for mode, path in layouts.items()}
@@ -152,7 +172,8 @@ def build(cache, output):
     print(json.dumps({"images": {name: {k: image[k] for k in (
         "app_type", "execution_location", "berkeley_size", "image_load_span_bytes", "text_including_rodata_bytes",
         "included_input_rodata_bytes", "static_placement_bytes", "static_region_span_bytes")}
-        for name, image in images.items()}, "internal_flash_codec_probe": report["codec_probe"]}, indent=2))
+        for name, image in images.items()}, "drive_kernel": report["drive_kernel"],
+        "internal_flash_codec_probe": report["codec_probe"]}, indent=2))
     print(f"Build-only evidence: {output}; no flashing or hardware execution performed")
 
 
