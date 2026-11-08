@@ -1,0 +1,1 @@
+{"format":"parable.patch","outputTrim":{"unit":"linear","value":1.00000000e+00},"processors":[{"enabled":true,"id":1,"parameters":{"cutoff":{"unit":"Hz","value":3.59999976e+03}},"revision":1,"type":"OnePoleLowpass"}],"routing":[{"from":"input","to":1},{"from":1,"to":"output"}],"sampleRate":{"unit":"Hz","value":8.00000000e+03},"version":1}

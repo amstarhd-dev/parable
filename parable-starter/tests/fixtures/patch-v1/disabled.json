@@ -1,0 +1,31 @@
+{
+  "format": "parable.patch",
+  "version": 1,
+  "sampleRate": {
+    "unit": "Hz",
+    "value": 48000
+  },
+  "outputTrim": {
+    "unit": "linear",
+    "value": 1
+  },
+  "processors": [
+    {
+      "id": 4294967295,
+      "type": "Bypass",
+      "revision": 1,
+      "enabled": false,
+      "parameters": {}
+    }
+  ],
+  "routing": [
+    {
+      "from": "input",
+      "to": 4294967295
+    },
+    {
+      "from": 4294967295,
+      "to": "output"
+    }
+  ]
+}

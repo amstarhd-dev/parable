@@ -1,0 +1,19 @@
+{
+  "format": "parable.patch",
+  "version": 1,
+  "sampleRate": {
+    "unit": "Hz",
+    "value": 48000
+  },
+  "outputTrim": {
+    "unit": "linear",
+    "value": 1
+  },
+  "processors": [],
+  "routing": [
+    {
+      "from": "input",
+      "to": "output"
+    }
+  ]
+}

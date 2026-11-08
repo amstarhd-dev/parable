@@ -1,5 +1,91 @@
 # Implementation status and reproducible baseline
 
+## PAR-002 control-side patch contract — 2026-11-08
+
+Started from main `026bc5df1833a2662e40c99e483f9c43b1758433`, after PAR-003
+merged. The existing Debug suite passed 2/2 before code changes. Read the agent
+rules, constitution, this report, ADR-001 and core header first. Founder direction
+selects ADR-001 Option A; the separately reviewable decision amendment records
+that choice without claiming activation or storage implementation.
+
+Implemented: `parable.patch` version 1, a bounded strict JSON reader, field/unit/
+number/serial-graph validation, fixed-capacity read-only typed results, canonical
+serialization, golden and malformed fixtures, synthetic creator parity and four
+independent RAM-held serialized payloads. See [PATCH_FORMAT_V1.md](PATCH_FORMAT_V1.md)
+for the normative contract and [third-party provenance](../third_party/README.md).
+This is a separate control-side static library; `include/parable_core.h`, existing
+audio tests and firmware are unchanged. No new code runs in audio. There is no
+conversion to an active/prepared DSP plan and no persistent bank-file format.
+
+| Capability | Source code | Host tests | Daisy build | Actual hardware | Musical audition |
+| --- | --- | --- | --- | --- | --- |
+| Versioned JSON, explicit typed parameters/units, stable IDs | Implemented | Debug/Release | Not built | Untested | Not auditioned |
+| Serial-only graph validation and field/rule errors | Implemented | Valid/invalid fixtures and limits | Not built | Untested | Not auditioned |
+| Canonical binary32 round trips | Implemented | Golden bytes, halfway decimals, 4096 generated numeric cases | Not built | Untested | Not auditioned |
+| Manual/chart-like creator parity | Synthetic fixture/demo functions only | Equal validated data and canonical bytes | Not built | Untested | Not auditioned |
+| Four independent serialized payloads | Four host RAM strings | Isolation and encode/decode parity | Not built | Untested | Not auditioned |
+| Runtime plan/activation, flash storage, real correspondence compiler, UI | Deferred | Not implemented/tested | Not built | Untested | Not auditioned |
+
+Changes: new public `include/parable_patch.h`; private `src/patch_json.{h,cpp}`
+ingress and `src/parable_patch.cpp` validation/serialization; new `tests/test_patch.cpp`
+and `tests/fixtures/patch-v1/`; control-library/test CMake targets; format and
+dependency documentation/license; README/status updates; ADR decision amendment.
+The existing Debug/Release CI matrix discovers all three tests without a workflow
+change. No effects, correspondence semantics, callback, activation or storage work.
+
+Exact host commands from repository root, using separate initially absent build
+directories and CMake/CTest 3.31.6 with GNU C++ 14.2.0 on Linux x86_64:
+
+```bash
+cmake -S parable-starter -B build-par002-Debug -DCMAKE_BUILD_TYPE=Debug
+cmake --build build-par002-Debug
+ctest --test-dir build-par002-Debug --output-on-failure --no-tests=error -V
+cmake -S parable-starter -B build-par002-Release -DCMAKE_BUILD_TYPE=Release
+cmake --build build-par002-Release
+ctest --test-dir build-par002-Release --output-on-failure --no-tests=error -V
+```
+
+Observed: clean configure/build and 3/3 tests passed in each mode, no compiler
+warnings. Checks remain active under Release/NDEBUG. Additional Debug build with
+`-DCMAKE_CXX_FLAGS='-fsanitize=address,undefined -fno-omit-frame-pointer'` also
+passed all three tests without sanitizer reports. GitHub run links and final
+results are recorded in the PR; local results are not substituted for remote CI.
+
+Evidence: 45 checked-in JSON fixtures (15 accepted/golden documents and 30 malformed
+documents); 4096 seeded binary32 cases; exact field/code assertions on rejection;
+duplicate escaped keys, unsupported versions/types/units/fields, missing/extra
+parameters, byte/depth/value/string/processor/edge limits, invalid endpoints,
+branches, merges/duplicate edges, feedback and disconnected cycles. Reordering
+preserves same-type instance IDs/settings while changing explicit signal order.
+Failed decode returns a separate Error, leaving existing validated/canonical data
+unchanged. Two synthetic creators use the same public API; no astrology rules
+are present. Four serialized strings are independent; no nonvolatile claim.
+
+Limitations and unresolved future design work:
+
+- Version 1 intentionally rejects provenance, metadata, expression mappings and
+  unsupported processor revisions. Their semantics and version migrations need
+  separate decisions; unknown fields are never silently dropped.
+- The sample rate is explicit validation context. Future preparation must check
+  the actual device rate/resource budget; automatic conversion is not specified.
+- IDs are stable patch-local uint32 values; cross-document editing/ID-allocation
+  policy belongs to later composer work. No sharing/inheritance between slots.
+- Limits (8 processors / 16 KiB JSON) and nlohmann DOM use are unmeasured on MCU.
+  ARM C++17 floating `charconv`, exceptions/allocation support and memory budget
+  may require a smaller parser/toolchain work. That need does not authorize a
+  second playback authority. Cross-language codec parity is not yet tested.
+- A pinned dependency download is required for a fresh host build; verified
+  offline-source override is documented. Host ingress allocates and uses
+  exceptions; resource exhaustion can propagate without modifying prior values.
+- Daisy firmware, CPU overhead, heap/stack/target memory, hardware, real guitar,
+  analog clipping and musical quality remain **unbuilt/unmeasured/untested**.
+  Sanitizer success is host evidence only; no exhaustive/fuzz campaign is claimed.
+
+Next smallest work: independently review/merge this data-contract increment,
+then assess the actual Daisy toolchain/memory cost before a separate runtime-plan
+or ownership-exchange ticket. Activation and flash journaling remain independent
+future work, not implied by successful JSON round trips.
+
 ## PAR-003 numerical safety update — 2026-11-08
 
 Work started from latest main `9111f8799b5b09ff19ef9e38e21f1ae233c6321b`.

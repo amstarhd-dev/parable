@@ -11,3 +11,22 @@ add_executable(parable_audio_safety_test tests/test_audio_safety.cpp)
 target_include_directories(parable_audio_safety_test PRIVATE include)
 target_compile_options(parable_audio_safety_test PRIVATE -Wall -Wextra -Wpedantic)
 add_test(NAME audio_safety COMMAND parable_audio_safety_test)
+
+# Control-side JSON codec only; neither existing audio target links this dependency.
+include(FetchContent)
+if(POLICY CMP0135)
+    cmake_policy(SET CMP0135 NEW)
+endif()
+FetchContent_Declare(nlohmann_json
+    URL https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz
+    URL_HASH SHA256=d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d)
+FetchContent_MakeAvailable(nlohmann_json)
+add_library(parable_patch STATIC src/patch_json.cpp src/parable_patch.cpp)
+target_include_directories(parable_patch PUBLIC include)
+target_link_libraries(parable_patch PRIVATE nlohmann_json::nlohmann_json)
+target_compile_options(parable_patch PRIVATE -Wall -Wextra -Wpedantic)
+add_executable(parable_patch_test tests/test_patch.cpp)
+target_link_libraries(parable_patch_test PRIVATE parable_patch nlohmann_json::nlohmann_json)
+target_compile_options(parable_patch_test PRIVATE -Wall -Wextra -Wpedantic)
+target_compile_definitions(parable_patch_test PRIVATE PATCH_FIXTURES="${CMAKE_CURRENT_SOURCE_DIR}/tests/fixtures/patch-v1")
+add_test(NAME patch_contract COMMAND parable_patch_test)

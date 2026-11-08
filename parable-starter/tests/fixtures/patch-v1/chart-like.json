@@ -1,0 +1,36 @@
+{
+  "routing": [
+    {
+      "to": 7,
+      "from": "input"
+    },
+    {
+      "to": "output",
+      "from": 7
+    }
+  ],
+  "processors": [
+    {
+      "parameters": {
+        "gain": {
+          "value": 1.5,
+          "unit": "linear"
+        }
+      },
+      "enabled": true,
+      "revision": 1,
+      "type": "Gain",
+      "id": 7
+    }
+  ],
+  "outputTrim": {
+    "value": 0.5,
+    "unit": "linear"
+  },
+  "sampleRate": {
+    "value": 48000,
+    "unit": "Hz"
+  },
+  "version": 1,
+  "format": "parable.patch"
+}

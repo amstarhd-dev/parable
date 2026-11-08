@@ -36,7 +36,22 @@ CPU overhead, real guitar and analog clipping remain untested.
 See [`docs/IMPLEMENTATION_STATUS.md`](docs/IMPLEMENTATION_STATUS.md) for the
 source inventory, measured baseline and untested behavior, and
 [`docs/adr/ADR-001-patch-authority.md`](docs/adr/ADR-001-patch-authority.md) for
-the proposed patch decision. The architecture proposal is not implemented.
+the selected Option A decision. The control-side data contract is implemented;
+runtime preparation, activation and durable storage remain deferred.
+
+## JSON patch contract (PAR-002)
+
+[`include/parable_patch.h`](include/parable_patch.h) provides `Codec::decode`
+and `Codec::encode` for `parable.patch` version 1. See the normative
+[`docs/PATCH_FORMAT_V1.md`](docs/PATCH_FORMAT_V1.md) and golden fixtures for
+required fields, numeric rules, limits and rejection behavior. This format is
+separate from the DSP prototype's internal `schema=2`; there is no active-engine
+adapter. Codec calls allocate and belong outside the audio callback.
+
+Host configuration fetches a SHA-256-pinned nlohmann/json 3.11.3 release. Its MIT
+license, rationale and offline-build override are recorded in
+[`third_party/README.md`](third_party/README.md). Debug and Release run all three
+tests, including `patch_contract`, with checks active in both configurations.
 
 ## Not implemented / not validated
 - **Daisy adapter has not been compiled or flashed** (no libDaisy toolchain connected here).
@@ -50,7 +65,7 @@ the proposed patch decision. The architecture proposal is not implemented.
 ## Next build steps
 1. Acquire Seed3 **65MB** module and, ideally, official pedal dev kit; compile and flash the adapter; measure pass-through and noise/latency.
 2. Build double-buffered/atomic patch activation and 4-slot durable journal with CRC and power-loss tests.
-3. Define a canonical cross-platform binary/JSON patch serialization and graph validation contract.
+3. Review the version-1 JSON contract and measure target feasibility before implementing runtime preparation or activation; binary interoperability remains deferred.
 4. Add realistic bypass and safe level handling, measure callback CPU/memory; then one carefully modeled drive family at a time.
 5. Implement separate communication MCU (if selected) and web editor against the frozen patch contract.
 
