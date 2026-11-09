@@ -25,3 +25,20 @@ jobs:
         run: cmake --build build
       - name: Test
         run: ctest --test-dir build --output-on-failure --no-tests=error
+      - name: Render shared-kernel LabRAT auditions and circuit measurements
+        if: matrix.build_type == 'Release'
+        run: |
+          ./build/parable_rat_lab --output build/rat-auditions
+          git rev-parse HEAD > build/rat-auditions/SOURCE_COMMIT
+          c++ --version > build/rat-auditions/HOST_COMPILER.txt
+          sha256sum src/parable_rat.cpp src/rat_circuit_math.h include/parable_rat.h tools/rat_lab.cpp tools/rat_measure.h tools/lab_wav.h tests/fixtures/rat/*.csv > build/rat-auditions/SOURCE_SHA256SUMS
+          cp third_party/labrat/*LICENSE.txt third_party/labrat/provenance.json tests/fixtures/rat/spice-manifest.json build/rat-auditions/
+          (cd build/rat-auditions && sha256sum ./*.wav) > build/rat-auditions/SHA256SUMS
+      - name: Publish LabRAT listening material
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-labrat-auditions
+          path: parable-starter/build/rat-auditions/
+          if-no-files-found: error
+          retention-days: 7

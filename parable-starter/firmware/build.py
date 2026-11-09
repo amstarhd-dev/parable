@@ -92,13 +92,33 @@ def build(cache, output):
     run(["make", "-C", lib, "-j2", f"GCC_PATH={toolbin}", "OPT=-O3 -fstack-usage"], output / "libdaisy-build.log")
     minimal = output / "minimal"
     common = ["make", "-C", FIRMWARE, "-B", "-j2", f"LIBDAISY_DIR={lib}", f"GCC_PATH={toolbin}"]
-    run([*common, "APP_TYPE=BOOT_NONE", f"BUILD_DIR={minimal}"], output / "firmware-build.log")
+    def image_args(directory, app_type):
+        # Upstream's directory rule uses bare mkdir. -B must force source rebuilds
+        # without re-running that rule on an existing directory. Never delete it.
+        directory.mkdir(exist_ok=True)
+        return [*common, "-o", directory, f"APP_TYPE={app_type}", f"BUILD_DIR={directory}"]
+    run(image_args(minimal, "BOOT_NONE"), output / "firmware-build.log")
     flags = ["-mcpu=cortex-m7", "-mthumb", "-mfpu=fpv5-d16", "-mfloat-abi=hard", "-std=gnu++17",
              "-O2", "-fno-exceptions", "-fno-rtti", "-fshort-enums", "-fno-fast-math", "-fno-finite-math-only", "-fstack-usage"]
     run([compiler, *flags, "-I", PROJECT / "include", "-c", PROJECT / "src/parable_prepare.cpp",
          "-o", output / "preparation.o"], output / "preparation-compile.log")
     run([toolbin / "arm-none-eabi-size", output / "preparation.o"], output / "preparation-size.txt")
     run([toolbin / "arm-none-eabi-readelf", "-h", "-A", output / "preparation.o"], output / "preparation-elf-header.txt")
+    # LabRAT is compiled independently; it is not silently activated/registered.
+    run([compiler, *flags, "-I", PROJECT / "include", "-c", PROJECT / "src/parable_rat.cpp",
+         "-o", output / "rat.o"], output / "rat-compile.log")
+    run([toolbin / "arm-none-eabi-size", output / "rat.o"], output / "rat-size.txt")
+    run([toolbin / "arm-none-eabi-readelf", "-h", "-A", output / "rat.o"], output / "rat-elf-header.txt")
+    run([toolbin / "arm-none-eabi-nm", "-C", "-u", output / "rat.o"], output / "rat-undefined.txt")
+    if re.search(r"operator new|malloc|calloc|realloc|__cxa_throw|pthread|printf|fstream", (output / "rat-undefined.txt").read_text()):
+        raise RuntimeError("Unexpected allocation/exception/I/O dependency in RAT object")
+    layout = output / "rat-layout.cpp"
+    layout.write_text('#include "parable_rat.h"\nextern "C" { char parable_rat_instance[sizeof(parable::dsp::Rat)]; }\n')
+    run([compiler, *flags, "-I", PROJECT / "include", "-c", layout, "-o", output / "rat-layout.o"], output / "rat-layout.log")
+    symbols = subprocess.check_output([toolbin / "arm-none-eabi-nm", "-S", output / "rat-layout.o"], text=True)
+    instance = re.search(r"\b([0-9a-f]+) B parable_rat_instance\b", symbols)
+    if not instance:
+        raise RuntimeError("Missing ARM RAT instance measurement")
     # A diagnostic, never-shipping full-codec image. Only its known FLASH overflow
     # is a non-gating outcome; unexpected compile/API/link failures still fail CI.
     probe = output / "codec-probe"
@@ -106,7 +126,7 @@ def build(cache, output):
         for pattern in ("*.elf", "*.hex", "*.bin"):
             for path in probe.glob(pattern):
                 path.unlink()
-    status = run([*common, "APP_TYPE=BOOT_NONE", "CODEC_LINK_PROBE=1", f"JSON_DIR={jsonroot}", f"BUILD_DIR={probe}"],
+    status = run([*image_args(probe, "BOOT_NONE"), "CODEC_LINK_PROBE=1", f"JSON_DIR={jsonroot}"],
                  output / "codec-probe.log", allow_failure=True)
     diagnostic = (output / "codec-probe.log").read_text()
     overflow = re.search(r"region `FLASH' overflowed by (\d+) bytes", diagnostic)
@@ -117,10 +137,13 @@ def build(cache, output):
     images = {"minimal_internal_flash": inspect(toolbin, minimal)}
     for app_type, name in (("BOOT_SRAM", "diagnostic_sram"), ("BOOT_QSPI", "diagnostic_qspi")):
         directory = output / name
-        run([*common, f"APP_TYPE={app_type}", "CODEC_LINK_PROBE=1", f"JSON_DIR={jsonroot}",
-             f"BUILD_DIR={directory}"], output / (name + "-build.log"))
+        run([*image_args(directory, app_type), "CODEC_LINK_PROBE=1", f"JSON_DIR={jsonroot}"],
+            output / (name + "-build.log"))
         images[name] = inspect(toolbin, directory, "parable_seed3_codec_probe", app_type)
     report = dict(images=images)
+    report["rat_kernel"] = dict(object_size=(output / "rat-size.txt").read_text().splitlines()[-1].split()[:4],
+                              instance_bytes=int(instance[1],16), linked_into_audio_firmware=False,
+                              hardware_execution="not performed", target_cpu_cost="not measured")
     report["codec_probe"] = dict(status="flash_overflow" if status else "linked",
                                   make_exit_code=status, flash_overflow_bytes=int(overflow[1]) if overflow else 0,
                                   hardware_execution="not performed")
@@ -133,7 +156,8 @@ def build(cache, output):
     report["source_worktree_dirty"] = bool(git(PROJECT, "status", "--porcelain"))
     inputs = ["firmware/daisy_pass_through.cpp", "firmware/Makefile", "firmware/build.py", "firmware/report.py",
               "firmware/dependencies.json", "include/parable_core.h", "include/parable_patch.h", "include/parable_prepare.h",
-              "src/parable_prepare.cpp", "src/prepare_internal.h", "src/parable_patch.cpp", "src/patch_json.cpp", "src/patch_json.h"]
+              "src/parable_prepare.cpp", "src/prepare_internal.h", "src/parable_patch.cpp", "src/patch_json.cpp", "src/patch_json.h",
+              "include/parable_rat.h", "src/parable_rat.cpp", "src/rat_circuit_math.h"]
     report["source_sha256"] = {name: hashlib.sha256((PROJECT / name).read_bytes()).hexdigest() for name in inputs}
     report["linker_sha256"] = {mode: hashlib.sha256((lib / path).read_bytes()).hexdigest()
                                for mode, path in layouts.items()}
@@ -149,10 +173,12 @@ def build(cache, output):
     shutil.copytree(toolroot / "distro-info/licenses", notices / "toolchain", dirs_exist_ok=True)
     shutil.copyfile(jsonroot / "LICENSE.MIT", notices / "nlohmann-json-LICENSE.MIT")
     shutil.copyfile(PROJECT / "third_party/ARM_DEPENDENCIES.md", notices / "ARM_DEPENDENCIES.md")
+    shutil.copytree(PROJECT / "third_party/labrat", notices / "labrat", dirs_exist_ok=True)
     print(json.dumps({"images": {name: {k: image[k] for k in (
         "app_type", "execution_location", "berkeley_size", "image_load_span_bytes", "text_including_rodata_bytes",
         "included_input_rodata_bytes", "static_placement_bytes", "static_region_span_bytes")}
-        for name, image in images.items()}, "internal_flash_codec_probe": report["codec_probe"]}, indent=2))
+        for name, image in images.items()}, "rat_kernel": report["rat_kernel"],
+        "internal_flash_codec_probe": report["codec_probe"]}, indent=2))
     print(f"Build-only evidence: {output}; no flashing or hardware execution performed")
 
 
