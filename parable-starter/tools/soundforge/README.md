@@ -41,9 +41,16 @@ categories. `not-applicable` means the category does not describe that asset;
 Sources reference an integer `candidate` in the existing provenance file's
 `candidates` array, which supplies URL, exact revision and license. `used` means
 direct reuse; `derived` means adaptation/derivation; `audit-only` means evaluated
-without import. Used/derived entries require local notices. Current GPL/uncleared
-AudioLib candidates cannot be changed into imported records. This is a narrow
-SF-001 guard, not general legal clearance. Existing provenance also records the
+without import. Used/derived entries require local notices and an exact license
+label in the conservative import allowlist: **MIT or BSD-2-Clause only**, matching
+the currently audited sources. All other labels, including restrictive, unknown,
+unlicensed, unreviewed permissive licenses and compound expressions, reject for
+import; they may still be recorded as `audit-only`. No automatic aliases, SPDX
+expression interpretation or per-record exceptions. Expanding this policy requires
+a documented source/license review and an explicit validator/test update. Automated
+eligibility is **not legal clearance** or authentication of a license claim.
+Candidate arrays must not be reordered without reviewing/updating their references;
+stable upstream IDs remain future maintenance work. Existing provenance records the
 offline simulator pin and neutral PR #11 lab origin; its generic kernel is absent.
 Repository-owned utilities have no external source entries; origin/ownership is
 explicit, and the global project license remains **unspecified**.
@@ -81,6 +88,9 @@ change. Investigate, quantify and obtain founder review first.
 Release CI keeps the original audition artifact, notices, source/compiler SHA
 identity, settings and checksums; it adds the registry and compatibility report.
 Interpret registry paths against the recorded source checkout, not the flat ZIP.
+`SOURCE_COMMIT` is the checked-out commit; a pull-request workflow may check out
+GitHub's synthetic test-merge commit. The PR report identifies the branch head
+separately; neither metadata nor a successful test-merge means the PR was merged.
 
 ## Add the next model — one recipe
 

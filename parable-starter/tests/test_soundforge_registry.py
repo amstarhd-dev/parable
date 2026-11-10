@@ -66,6 +66,34 @@ class RegistryTests(unittest.TestCase):
         for index in (2, 3):
             self.rejected(lambda c: c["assets"][0]["sources"][0].update(candidate=index), "not cleared")
 
+    def test_import_eligibility(self):
+        cases = (("MIT", True), ("BSD-2-Clause", True), ("GPL-2.0", False),
+                 ("GPL-3.0", False), ("AGPL-3.0", False), ("proprietary", False),
+                 ("unlicensed", False), ("unknown", False), ("custom-license", False),
+                 ("Apache-2.0", False), ("MIT OR GPL-2.0", False))
+        for license_name, eligible in cases:
+            for relationship in ("used", "derived", "audit-only"):
+                with self.subTest(license=license_name, relationship=relationship), tempfile.TemporaryDirectory() as directory:
+                    root = Path(directory)
+                    (root / "fixture.txt").write_text("Test fixture, not imported code.")
+                    candidate = dict(url="https://example.com/source", revision="a"*40, license=license_name)
+                    (root / "provenance.json").write_text(json.dumps({"candidates": [candidate]}))
+                    catalog = copy.deepcopy(self.catalog)
+                    asset = catalog["assets"][1]
+                    catalog["assets"] = [asset]
+                    asset["paths"] = ["fixture.txt"]
+                    for evidence in asset["evidence"].values():
+                        if evidence["paths"]:
+                            evidence["paths"] = ["fixture.txt"]
+                    asset["sources"] = [dict(provenance_path="provenance.json", candidate=0,
+                                             relationship=relationship, scope="License-policy fixture",
+                                             notice_paths=[] if relationship == "audit-only" else ["fixture.txt"])]
+                    if eligible or relationship == "audit-only":
+                        self.assertEqual(registry.validate(catalog, root), 1)
+                    else:
+                        with self.assertRaisesRegex(ValueError, "not cleared"):
+                            registry.validate(catalog, root)
+
     def test_bad_json_and_missing_source_fields(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

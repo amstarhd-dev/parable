@@ -8,6 +8,9 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[3]
 REGISTRY = Path(__file__).with_name("registry.json")
+# Exact audited labels only. Expanding eligibility requires a documented review;
+# this structural guard is not legal clearance or an SPDX expression evaluator.
+IMPORT_LICENSES = frozenset({"MIT", "BSD-2-Clause"})
 EVIDENCE = {
     "host_numerical": {"passed", "not-performed", "not-applicable"},
     "independent_circuit": {"reduced-section-compared", "full-circuit-compared", "not-performed", "not-applicable"},
@@ -115,9 +118,8 @@ def validate(catalog, root=ROOT):
             require(source["relationship"] in ("used", "derived", "audit-only"), "Unknown source relationship")
             imported = source["relationship"] != "audit-only"
             paths(root, source["notice_paths"], nonempty=imported)
-            # These evaluated candidates are explicitly uncleared for import in SF-001.
             if imported:
-                require(candidate["license"] not in ("GPL-3.0", "no source license found in audited tree"),
+                require(candidate["license"] in IMPORT_LICENSES,
                         "Evaluated source is not cleared for import")
             text(source["scope"])
         fields(asset["evidence"], " ".join(EVIDENCE))
