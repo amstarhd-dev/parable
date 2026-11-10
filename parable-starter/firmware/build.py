@@ -135,6 +135,22 @@ def build(cache, output):
     cmos_instance = re.search(r"\b([0-9a-f]+) B parable_cmos_instance\b", cmos_symbols)
     if not cmos_instance:
         raise RuntimeError("Missing ARM CMOS instance measurement")
+    # SF003: compile the real standalone GP kernel, not a substitute firmware stub.
+    run([compiler, *flags, "-I", PROJECT / "include", "-c", PROJECT / "src/parable_germanium.cpp",
+         "-o", output / "germanium.o"], output / "germanium-compile.log")
+    run([toolbin / "arm-none-eabi-size", output / "germanium.o"], output / "germanium-size.txt")
+    run([toolbin / "arm-none-eabi-readelf", "-h", "-A", output / "germanium.o"], output / "germanium-elf-header.txt")
+    run([toolbin / "arm-none-eabi-nm", "-C", "-u", output / "germanium.o"], output / "germanium-undefined.txt")
+    if re.search(r"operator new|malloc|calloc|realloc|__cxa_throw|pthread|printf|fstream", (output / "germanium-undefined.txt").read_text()):
+        raise RuntimeError("Unexpected allocation/exception/I/O dependency in germanium object")
+    germanium_layout = output / "germanium-layout.cpp"
+    germanium_layout.write_text('#include "parable_germanium.h"\nextern "C" { char parable_germanium_instance[sizeof(parable::dsp::Germanium)]; }\n')
+    run([compiler, *flags, "-I", PROJECT / "include", "-c", germanium_layout,
+         "-o", output / "germanium-layout.o"], output / "germanium-layout.log")
+    germanium_symbols = subprocess.check_output([toolbin / "arm-none-eabi-nm", "-S", output / "germanium-layout.o"], text=True)
+    germanium_instance = re.search(r"\b([0-9a-f]+) B parable_germanium_instance\b", germanium_symbols)
+    if not germanium_instance:
+        raise RuntimeError("Missing ARM germanium instance measurement")
     # A diagnostic, never-shipping full-codec image. Only its known FLASH overflow
     # is a non-gating outcome; unexpected compile/API/link failures still fail CI.
     probe = output / "codec-probe"
@@ -163,6 +179,9 @@ def build(cache, output):
     report["cmos_kernel"] = dict(object_size=(output / "cmos-size.txt").read_text().splitlines()[-1].split()[:4],
                                instance_bytes=int(cmos_instance[1],16), linked_into_audio_firmware=False,
                                hardware_execution="not performed", target_cpu_cost="not measured")
+    report["germanium_kernel"] = dict(object_size=(output / "germanium-size.txt").read_text().splitlines()[-1].split()[:4],
+                                    instance_bytes=int(germanium_instance[1],16), linked_into_audio_firmware=False,
+                                    hardware_execution="not performed", target_cpu_cost="not measured")
     report["codec_probe"] = dict(status="flash_overflow" if status else "linked",
                                   make_exit_code=status, flash_overflow_bytes=int(overflow[1]) if overflow else 0,
                                   hardware_execution="not performed")
@@ -178,6 +197,7 @@ def build(cache, output):
               "src/parable_prepare.cpp", "src/prepare_internal.h", "src/parable_patch.cpp", "src/patch_json.cpp", "src/patch_json.h",
               "include/parable_rat.h", "src/parable_rat.cpp", "src/rat_circuit_math.h"]
     inputs += ["include/parable_cmos.h", "src/parable_cmos.cpp", "src/cmos_device.h"]
+    inputs += ["include/parable_germanium.h", "src/parable_germanium.cpp", "src/germanium_device.h"]
     report["source_sha256"] = {name: hashlib.sha256((PROJECT / name).read_bytes()).hexdigest() for name in inputs}
     report["linker_sha256"] = {mode: hashlib.sha256((lib / path).read_bytes()).hexdigest()
                                for mode, path in layouts.items()}
@@ -195,10 +215,11 @@ def build(cache, output):
     shutil.copyfile(PROJECT / "third_party/ARM_DEPENDENCIES.md", notices / "ARM_DEPENDENCIES.md")
     shutil.copytree(PROJECT / "third_party/labrat", notices / "labrat", dirs_exist_ok=True)
     shutil.copytree(PROJECT / "third_party/cmos", notices / "cmos", dirs_exist_ok=True)
+    shutil.copytree(PROJECT / "third_party/germanium", notices / "germanium", dirs_exist_ok=True)
     print(json.dumps({"images": {name: {k: image[k] for k in (
         "app_type", "execution_location", "berkeley_size", "image_load_span_bytes", "text_including_rodata_bytes",
         "included_input_rodata_bytes", "static_placement_bytes", "static_region_span_bytes")}
-        for name, image in images.items()}, "rat_kernel": report["rat_kernel"], "cmos_kernel": report["cmos_kernel"],
+        for name, image in images.items()}, "rat_kernel": report["rat_kernel"], "cmos_kernel": report["cmos_kernel"], "germanium_kernel": report["germanium_kernel"],
         "internal_flash_codec_probe": report["codec_probe"]}, indent=2))
     print(f"Build-only evidence: {output}; no flashing or hardware execution performed")
 

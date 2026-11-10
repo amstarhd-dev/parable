@@ -1,5 +1,30 @@
 # Implementation status and reproducible baseline
 
+## SF-003 — positive-ground germanium fuzz specimen
+
+Started on main `d628ffc3`, after PR #17 merged; clean Debug/Release **13/13** and
+pinned ARM baseline passed. Proposed [ADR-005](adr/ADR-005-germanium-fuzz.md)
+records source research before native code. One standalone PNP two-transistor
+network adapts MIT ACME GP currents and published measured AC128 parameters,
+including leakage, feedback, direct interstage coupling, BC caps and source loading.
+Healthy plus Q1 BC-leakage and wrong-feedback-resistor experiments, without an
+imposed4.5V bias. No new correspondence/sign, Engine, patch or hardware integration.
+
+Fresh Debug/Release **16/16**, targeted ASan/UBSan **3/3**. Independent123 device
+points,7bias cases and1344transient rows: DC peak17nV, jack72uV RMS/1.51mV peak;
+192k grid improves all-node error over6x relative to96k. Twenty synthetic WAVs
+provide matched and actual relative-level comparisons; normal renders zero
+fallback/clipping. Existing RAT16-file regression and local CMOS13-render/report
+bytes unchanged. ARM object **7108/0/0**, instance **2480 bytes**, not firmware-linked.
+Prior model objects and firmware binary bytes unchanged; target CPU unmeasured.
+
+Important limits: this untrimmed fitted sample predicts Q2-7.55V and about1.05k
+input impedance, not common4.5V/5..8k targets. Coarse high-level1x diagnostic can
+fail; accepted4x cases and alias fixture explicitly distinguish this. No new
+physical-device calibration, real guitar, founder musical approval or hardware
+feasibility claim. See [full report](GERMANIUM_REPORT.md) and
+[actual reuse/work log](SOUNDFORGE_SF003_WORK_LOG.md).
+
 ## SF-002 — experimental CMOS inverter specimen
 
 Started on main `2cc9412`, after PR #15 and its license-policy correction; clean

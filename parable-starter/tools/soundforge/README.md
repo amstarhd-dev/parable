@@ -4,6 +4,9 @@ SF-001 shares a small laboratory; it does not prescribe a shared electrical solv
 or runtime processor abstraction. LabRAT is the first specimen; SF-002 adds an
 experimental CD4049 specimen. See its [report](../../docs/CMOS_REPORT.md) and
 [measured reuse log](../../docs/SOUNDFORGE_SF002_WORK_LOG.md).
+SF-003 is the third circuit architecture: [germanium report](../../docs/GERMANIUM_REPORT.md)
+and [work log](../../docs/SOUNDFORGE_SF003_WORK_LOG.md). It reuses the same facilities
+and adds no general transistor solver or runtime integration.
 
 ## Facilities
 
@@ -80,6 +83,7 @@ ctest --test-dir parable-starter/build/sf-release --output-on-failure --no-tests
 ./parable-starter/build/sf-release/parable_rat_lab --output parable-starter/build/rat-auditions
 python3 parable-starter/tools/soundforge/check_labrat.py --directory parable-starter/build/rat-auditions
 ./parable-starter/build/sf-release/parable_cmos_lab --output parable-starter/build/cmos-auditions
+./parable-starter/build/sf-release/parable_germanium_lab --output parable-starter/build/germanium-auditions
 python3 parable-starter/firmware/build.py
 ```
 
@@ -104,7 +108,7 @@ separately; neither metadata nor a successful test-merge means the PR was merged
    transitive gaps. Borrow -> adapt -> independently simulate/model -> invent,
    documenting the actual gap before original DSP work. Never infer rights from
    a README or import evaluated GPL/unlicensed material.
-2. Add one specimen record and provenance/notice files, following the five
+2. Add one specimen record and provenance/notice files, following the six
    current records. Separate code reused/derived from references only consulted.
    Record assumptions, topology, physical parameter units, bounds and omissions.
 3. Reuse `lab_wav.h` and `analysis.h`; write the model's own runner and independent
