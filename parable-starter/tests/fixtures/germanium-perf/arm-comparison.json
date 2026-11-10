@@ -1,0 +1,570 @@
+{
+  "flags": [
+    "-mcpu=cortex-m7",
+    "-mthumb",
+    "-mfpu=fpv5-d16",
+    "-mfloat-abi=hard",
+    "-std=gnu++17",
+    "-O2",
+    "-fno-exceptions",
+    "-fno-rtti",
+    "-fshort-enums",
+    "-fno-fast-math",
+    "-fno-finite-math-only",
+    "-fstack-usage"
+  ],
+  "toolchain_sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+  "variants": {
+    "libm": {
+      "command": [
+        "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+        "-mcpu=cortex-m7",
+        "-mthumb",
+        "-mfpu=fpv5-d16",
+        "-mfloat-abi=hard",
+        "-std=gnu++17",
+        "-O2",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-fshort-enums",
+        "-fno-fast-math",
+        "-fno-finite-math-only",
+        "-fstack-usage",
+        "-DPARABLE_GERMANIUM_EVALUATOR=0",
+        "-I",
+        "/workspace/work/parable-sf003-perf/parable-starter/include",
+        "-c",
+        "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp",
+        "-o",
+        "/workspace/work/sf003perf-after-arm/germanium-perf/libm.o"
+      ],
+      "sections": {
+        ".group": 12,
+        ".text": 6084,
+        ".data": 0,
+        ".bss": 0,
+        ".text._ZN7parable3dsp16germanium_detail6deviceEddRKNS0_15GermaniumDeviceE": 656,
+        ".rodata": 368,
+        ".comment": 58,
+        ".ARM.attributes": 50
+      },
+      "text_including_rodata": 7108,
+      "data": 0,
+      "bss": 0,
+      "compiler_stack_frames": [
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:11:6:bool parable::dsp::{anonymous}::validDevice(const parable::dsp::GermaniumDevice&)",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/germanium_device.h:13:16:parable::dsp::germanium_detail::Current parable::dsp::germanium_detail::device(double, double, const parable::dsp::GermaniumDevice&)",
+          "bytes": 104,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:27:6:void parable::dsp::Germanium::coefficients(bool)",
+          "bytes": 56,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:71:6:bool parable::dsp::Germanium::solve(Vector&, const Vector&, const Matrix&, unsigned int, double&, unsigned int&) const",
+          "bytes": 512,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:108:6:void parable::dsp::Germanium::resetCircuit()",
+          "bytes": 8,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:112:6:void parable::dsp::Germanium::reset()",
+          "bytes": 8,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:52:6:bool parable::dsp::Germanium::configure(float, parable::dsp::GermaniumControls, const parable::dsp::GermaniumCircuit&, parable::dsp::GermaniumRate)",
+          "bytes": 2688,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:26:1:parable::dsp::Germanium::Germanium()",
+          "bytes": 208,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:115:8:double parable::dsp::Germanium::circuitSample(double)",
+          "bytes": 160,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:133:7:float parable::dsp::Germanium::process(float)",
+          "bytes": 56,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:150:6:void parable::dsp::Germanium::processBlock(const float*, float*, std::size_t)",
+          "bytes": 24,
+          "kind": "static"
+        }
+      ],
+      "read_only_tables": 0,
+      "expm1_relocations": 4,
+      "sqrt_relocations": 1,
+      "vsqrt": 1,
+      "vdiv": 51,
+      "vmul": 43,
+      "vfma": 15,
+      "object_sha256": "f68eb016bf96e8ca0a44f5b6966c79752a851a07772dad92e0e26f1e0812cc23"
+    },
+    "hermite32": {
+      "command": [
+        "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+        "-mcpu=cortex-m7",
+        "-mthumb",
+        "-mfpu=fpv5-d16",
+        "-mfloat-abi=hard",
+        "-std=gnu++17",
+        "-O2",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-fshort-enums",
+        "-fno-fast-math",
+        "-fno-finite-math-only",
+        "-fstack-usage",
+        "-DPARABLE_GERMANIUM_EVALUATOR=1",
+        "-I",
+        "/workspace/work/parable-sf003-perf/parable-starter/include",
+        "-c",
+        "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp",
+        "-o",
+        "/workspace/work/sf003perf-after-arm/germanium-perf/hermite32.o"
+      ],
+      "sections": {
+        ".group": 8,
+        ".text": 6084,
+        ".data": 0,
+        ".bss": 0,
+        ".text._ZN7parable3dsp16germanium_detail15FastExponentialINS1_14HermiteReducedILj32EEEE8evaluateEd": 648,
+        ".text._ZN7parable3dsp16germanium_detail12deviceApproxINS1_15FastExponentialINS1_14HermiteReducedILj32EEEEEEENS1_7CurrentEddRKNS0_15GermaniumDeviceE": 648,
+        ".rodata._ZN7parable3dsp16germanium_detail6tables17hermite32negativeE": 1024,
+        ".rodata._ZN7parable3dsp16germanium_detail6tables9hermite32E": 1024,
+        ".rodata": 384,
+        ".comment": 58,
+        ".ARM.attributes": 50
+      },
+      "text_including_rodata": 9812,
+      "data": 0,
+      "bss": 0,
+      "compiler_stack_frames": [
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:11:6:bool parable::dsp::{anonymous}::validDevice(const parable::dsp::GermaniumDevice&)",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:27:6:void parable::dsp::Germanium::coefficients(bool)",
+          "bytes": 56,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:108:6:void parable::dsp::Germanium::resetCircuit()",
+          "bytes": 8,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:112:6:void parable::dsp::Germanium::reset()",
+          "bytes": 8,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/germanium_exp.h:45:24:static parable::dsp::germanium_detail::Exponential parable::dsp::germanium_detail::FastExponential<Positive>::evaluate(double) [with Positive = parable::dsp::germanium_detail::HermiteReduced<32>]",
+          "bytes": 64,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/germanium_device_fast.h:11:16:parable::dsp::germanium_detail::Current parable::dsp::germanium_detail::deviceApprox(double, double, const parable::dsp::GermaniumDevice&) [with Evaluator = FastExponential<HermiteReduced<32> >]",
+          "bytes": 192,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:71:6:bool parable::dsp::Germanium::solve(Vector&, const Vector&, const Matrix&, unsigned int, double&, unsigned int&) const",
+          "bytes": 512,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:115:8:double parable::dsp::Germanium::circuitSample(double)",
+          "bytes": 160,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:133:7:float parable::dsp::Germanium::process(float)",
+          "bytes": 56,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:150:6:void parable::dsp::Germanium::processBlock(const float*, float*, std::size_t)",
+          "bytes": 24,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:52:6:bool parable::dsp::Germanium::configure(float, parable::dsp::GermaniumControls, const parable::dsp::GermaniumCircuit&, parable::dsp::GermaniumRate)",
+          "bytes": 2688,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:26:1:parable::dsp::Germanium::Germanium()",
+          "bytes": 208,
+          "kind": "static"
+        }
+      ],
+      "read_only_tables": 2048,
+      "expm1_relocations": 0,
+      "sqrt_relocations": 1,
+      "vsqrt": 1,
+      "vdiv": 43,
+      "vmul": 62,
+      "vfma": 25,
+      "object_sha256": "1e8aeaaa569359255c0186727d09d54caaa9cf4f6a1d9328f33cfc1a9654845a"
+    },
+    "hermite64": {
+      "command": [
+        "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+        "-mcpu=cortex-m7",
+        "-mthumb",
+        "-mfpu=fpv5-d16",
+        "-mfloat-abi=hard",
+        "-std=gnu++17",
+        "-O2",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-fshort-enums",
+        "-fno-fast-math",
+        "-fno-finite-math-only",
+        "-fstack-usage",
+        "-DPARABLE_GERMANIUM_EVALUATOR=2",
+        "-I",
+        "/workspace/work/parable-sf003-perf/parable-starter/include",
+        "-c",
+        "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp",
+        "-o",
+        "/workspace/work/sf003perf-after-arm/germanium-perf/hermite64.o"
+      ],
+      "sections": {
+        ".group": 8,
+        ".text": 6084,
+        ".data": 0,
+        ".bss": 0,
+        ".text._ZN7parable3dsp16germanium_detail15FastExponentialINS1_14HermiteReducedILj64EEEE8evaluateEd": 648,
+        ".text._ZN7parable3dsp16germanium_detail12deviceApproxINS1_15FastExponentialINS1_14HermiteReducedILj64EEEEEEENS1_7CurrentEddRKNS0_15GermaniumDeviceE": 648,
+        ".rodata._ZN7parable3dsp16germanium_detail6tables17hermite64negativeE": 2048,
+        ".rodata._ZN7parable3dsp16germanium_detail6tables9hermite64E": 2048,
+        ".rodata": 384,
+        ".comment": 58,
+        ".ARM.attributes": 50
+      },
+      "text_including_rodata": 11860,
+      "data": 0,
+      "bss": 0,
+      "compiler_stack_frames": [
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:11:6:bool parable::dsp::{anonymous}::validDevice(const parable::dsp::GermaniumDevice&)",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:27:6:void parable::dsp::Germanium::coefficients(bool)",
+          "bytes": 56,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:108:6:void parable::dsp::Germanium::resetCircuit()",
+          "bytes": 8,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:112:6:void parable::dsp::Germanium::reset()",
+          "bytes": 8,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/germanium_exp.h:45:24:static parable::dsp::germanium_detail::Exponential parable::dsp::germanium_detail::FastExponential<Positive>::evaluate(double) [with Positive = parable::dsp::germanium_detail::HermiteReduced<64>]",
+          "bytes": 64,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/germanium_device_fast.h:11:16:parable::dsp::germanium_detail::Current parable::dsp::germanium_detail::deviceApprox(double, double, const parable::dsp::GermaniumDevice&) [with Evaluator = FastExponential<HermiteReduced<64> >]",
+          "bytes": 192,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:71:6:bool parable::dsp::Germanium::solve(Vector&, const Vector&, const Matrix&, unsigned int, double&, unsigned int&) const",
+          "bytes": 512,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:115:8:double parable::dsp::Germanium::circuitSample(double)",
+          "bytes": 160,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:133:7:float parable::dsp::Germanium::process(float)",
+          "bytes": 56,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:150:6:void parable::dsp::Germanium::processBlock(const float*, float*, std::size_t)",
+          "bytes": 24,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:52:6:bool parable::dsp::Germanium::configure(float, parable::dsp::GermaniumControls, const parable::dsp::GermaniumCircuit&, parable::dsp::GermaniumRate)",
+          "bytes": 2688,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:26:1:parable::dsp::Germanium::Germanium()",
+          "bytes": 208,
+          "kind": "static"
+        }
+      ],
+      "read_only_tables": 4096,
+      "expm1_relocations": 0,
+      "sqrt_relocations": 1,
+      "vsqrt": 1,
+      "vdiv": 43,
+      "vmul": 62,
+      "vfma": 25,
+      "object_sha256": "5a4f57b8b436942554e338e68ce640247cacdec4f5f1d0604fac920facdcf8a7"
+    },
+    "polynomial8": {
+      "command": [
+        "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+        "-mcpu=cortex-m7",
+        "-mthumb",
+        "-mfpu=fpv5-d16",
+        "-mfloat-abi=hard",
+        "-std=gnu++17",
+        "-O2",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-fshort-enums",
+        "-fno-fast-math",
+        "-fno-finite-math-only",
+        "-fstack-usage",
+        "-DPARABLE_GERMANIUM_EVALUATOR=3",
+        "-I",
+        "/workspace/work/parable-sf003-perf/parable-starter/include",
+        "-c",
+        "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp",
+        "-o",
+        "/workspace/work/sf003perf-after-arm/germanium-perf/polynomial8.o"
+      ],
+      "sections": {
+        ".group": 8,
+        ".text": 6084,
+        ".data": 0,
+        ".bss": 0,
+        ".text._ZN7parable3dsp16germanium_detail15FastExponentialINS1_17PolynomialReducedILj8EEEE8evaluateEd": 476,
+        ".text._ZN7parable3dsp16germanium_detail12deviceApproxINS1_15FastExponentialINS1_17PolynomialReducedILj8EEEEEEENS1_7CurrentEddRKNS0_15GermaniumDeviceE": 648,
+        ".rodata._ZN7parable3dsp16germanium_detail6tables5poly8E": 72,
+        ".rodata": 384,
+        ".comment": 58,
+        ".ARM.attributes": 50
+      },
+      "text_including_rodata": 7664,
+      "data": 0,
+      "bss": 0,
+      "compiler_stack_frames": [
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:11:6:bool parable::dsp::{anonymous}::validDevice(const parable::dsp::GermaniumDevice&)",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:27:6:void parable::dsp::Germanium::coefficients(bool)",
+          "bytes": 56,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:108:6:void parable::dsp::Germanium::resetCircuit()",
+          "bytes": 8,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:112:6:void parable::dsp::Germanium::reset()",
+          "bytes": 8,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/germanium_exp.h:45:24:static parable::dsp::germanium_detail::Exponential parable::dsp::germanium_detail::FastExponential<Positive>::evaluate(double) [with Positive = parable::dsp::germanium_detail::PolynomialReduced<8>]",
+          "bytes": 48,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/germanium_device_fast.h:11:16:parable::dsp::germanium_detail::Current parable::dsp::germanium_detail::deviceApprox(double, double, const parable::dsp::GermaniumDevice&) [with Evaluator = FastExponential<PolynomialReduced<8> >]",
+          "bytes": 192,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:71:6:bool parable::dsp::Germanium::solve(Vector&, const Vector&, const Matrix&, unsigned int, double&, unsigned int&) const",
+          "bytes": 512,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:115:8:double parable::dsp::Germanium::circuitSample(double)",
+          "bytes": 160,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:133:7:float parable::dsp::Germanium::process(float)",
+          "bytes": 56,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:150:6:void parable::dsp::Germanium::processBlock(const float*, float*, std::size_t)",
+          "bytes": 24,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:52:6:bool parable::dsp::Germanium::configure(float, parable::dsp::GermaniumControls, const parable::dsp::GermaniumCircuit&, parable::dsp::GermaniumRate)",
+          "bytes": 2688,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:26:1:parable::dsp::Germanium::Germanium()",
+          "bytes": 208,
+          "kind": "static"
+        }
+      ],
+      "read_only_tables": 72,
+      "expm1_relocations": 0,
+      "sqrt_relocations": 1,
+      "vsqrt": 1,
+      "vdiv": 43,
+      "vmul": 60,
+      "vfma": 23,
+      "object_sha256": "0c05569d4a68e1846e097988cd242ccd860928d0014989183071f2e1d139398a"
+    },
+    "polynomial12": {
+      "command": [
+        "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+        "-mcpu=cortex-m7",
+        "-mthumb",
+        "-mfpu=fpv5-d16",
+        "-mfloat-abi=hard",
+        "-std=gnu++17",
+        "-O2",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-fshort-enums",
+        "-fno-fast-math",
+        "-fno-finite-math-only",
+        "-fstack-usage",
+        "-DPARABLE_GERMANIUM_EVALUATOR=4",
+        "-I",
+        "/workspace/work/parable-sf003-perf/parable-starter/include",
+        "-c",
+        "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp",
+        "-o",
+        "/workspace/work/sf003perf-after-arm/germanium-perf/polynomial12.o"
+      ],
+      "sections": {
+        ".group": 8,
+        ".text": 6084,
+        ".data": 0,
+        ".bss": 0,
+        ".text._ZN7parable3dsp16germanium_detail15FastExponentialINS1_17PolynomialReducedILj12EEEE8evaluateEd": 476,
+        ".text._ZN7parable3dsp16germanium_detail12deviceApproxINS1_15FastExponentialINS1_17PolynomialReducedILj12EEEEEEENS1_7CurrentEddRKNS0_15GermaniumDeviceE": 648,
+        ".rodata._ZN7parable3dsp16germanium_detail6tables6poly12E": 104,
+        ".rodata": 384,
+        ".comment": 58,
+        ".ARM.attributes": 50
+      },
+      "text_including_rodata": 7696,
+      "data": 0,
+      "bss": 0,
+      "compiler_stack_frames": [
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:11:6:bool parable::dsp::{anonymous}::validDevice(const parable::dsp::GermaniumDevice&)",
+          "bytes": 0,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:27:6:void parable::dsp::Germanium::coefficients(bool)",
+          "bytes": 56,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:108:6:void parable::dsp::Germanium::resetCircuit()",
+          "bytes": 8,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:112:6:void parable::dsp::Germanium::reset()",
+          "bytes": 8,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/germanium_exp.h:45:24:static parable::dsp::germanium_detail::Exponential parable::dsp::germanium_detail::FastExponential<Positive>::evaluate(double) [with Positive = parable::dsp::germanium_detail::PolynomialReduced<12>]",
+          "bytes": 48,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/germanium_device_fast.h:11:16:parable::dsp::germanium_detail::Current parable::dsp::germanium_detail::deviceApprox(double, double, const parable::dsp::GermaniumDevice&) [with Evaluator = FastExponential<PolynomialReduced<12> >]",
+          "bytes": 192,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:71:6:bool parable::dsp::Germanium::solve(Vector&, const Vector&, const Matrix&, unsigned int, double&, unsigned int&) const",
+          "bytes": 512,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:115:8:double parable::dsp::Germanium::circuitSample(double)",
+          "bytes": 160,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:133:7:float parable::dsp::Germanium::process(float)",
+          "bytes": 56,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:150:6:void parable::dsp::Germanium::processBlock(const float*, float*, std::size_t)",
+          "bytes": 24,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:52:6:bool parable::dsp::Germanium::configure(float, parable::dsp::GermaniumControls, const parable::dsp::GermaniumCircuit&, parable::dsp::GermaniumRate)",
+          "bytes": 2688,
+          "kind": "static"
+        },
+        {
+          "function": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp:26:1:parable::dsp::Germanium::Germanium()",
+          "bytes": 208,
+          "kind": "static"
+        }
+      ],
+      "read_only_tables": 104,
+      "expm1_relocations": 0,
+      "sqrt_relocations": 1,
+      "vsqrt": 1,
+      "vdiv": 43,
+      "vmul": 60,
+      "vfma": 23,
+      "object_sha256": "634ab0169cb40e93c6d84d7d3dac2db7b01728dbe97fd1b87779ff72ea6f10ca"
+    }
+  },
+  "hardware_cycles": "not measured",
+  "linked_into_firmware": false,
+  "source_sha256": {
+    "include/parable_germanium.h": "3ac41d2eb8eb8b0b66d5bf0e4cab6cfc0b5a47dec2d2f89359275fa0f73cd45b",
+    "src/germanium_device.h": "89ed1c3fc29d8135bf00ac133ac88b19e32f0f0802183de06add5fd1a84007f0",
+    "src/germanium_device_fast.h": "0025c5ad9a377fbeb42aa5621107fa2dc4a8fe4e268b76ee746a979c1665a963",
+    "src/germanium_device_select.h": "a2b2bf6b221718e536107f1b78bc728ef6941f1a2b488525ca87b5c55447f545",
+    "src/germanium_exp.h": "99607c77cb1417718405e407ebe27e896100ce99b317083fd90b49a679ed4c10",
+    "src/germanium_exp_tables.h": "2eebd914854c168308e9efb2ce826e84a4c4d6d1fd51e9368a7dee3a6497329f",
+    "src/parable_germanium.cpp": "18c7bb1da69b0b97ff2290093a0de36828ecc7c6bb72fc527ac7f9a40c1e9337"
+  }
+}

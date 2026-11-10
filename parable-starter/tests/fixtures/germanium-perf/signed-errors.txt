@@ -1,0 +1,4 @@
+h32 valueNorm=7.12614e-11 derivativeGateRatio=2.04313 absoluteDerivStress=14691.4 currentGateRatio=0.336608 JacobGateRatio=1.02139
+h64 valueNorm=4.46654e-12 derivativeGateRatio=0.255032 absoluteDerivStress=1827.18 currentGateRatio=0.0851129 JacobGateRatio=0.127546
+p8 valueNorm=1.76492e-11 derivativeGateRatio=0.044344 absoluteDerivStress=177.625 currentGateRatio=0.166079 JacobGateRatio=0.0221411
+p12 valueNorm=2.2204e-16 derivativeGateRatio=0.0340761 absoluteDerivStress=0.000244141 currentGateRatio=0.000205374 JacobGateRatio=3.85982e-07

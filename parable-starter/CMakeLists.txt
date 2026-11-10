@@ -103,3 +103,6 @@ target_compile_options(parable_germanium_lab PRIVATE -Wall -Wextra -Wpedantic)
 target_compile_definitions(parable_germanium_lab PRIVATE GERMANIUM_FIXTURES="${CMAKE_CURRENT_SOURCE_DIR}/tests/fixtures/germanium")
 add_test(NAME germanium_lab_measurements COMMAND parable_germanium_lab --self-test)
 add_test(NAME germanium_lab_cli COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_germanium_cli.py $<TARGET_FILE:parable_germanium_lab>)
+
+# Private SF003-PERF comparison/benchmark variants, never production mode switches.
+add_subdirectory(tools/germanium_perf)

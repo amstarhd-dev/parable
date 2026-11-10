@@ -1,0 +1,46 @@
+[
+  {
+    "name": "healthy_lowrail",
+    "rail": 6,
+    "source": 100,
+    "fuzz": 1,
+    "level": 0.05,
+    "leak": 7.546e-06,
+    "feedback": 100000,
+    "beta1": 229.6,
+    "beta2": 229.6
+  },
+  {
+    "name": "leaky_highsource_lowrail",
+    "rail": 6,
+    "source": 100000,
+    "fuzz": 0.8,
+    "level": 0.05,
+    "leak": 7.546e-05,
+    "feedback": 100000,
+    "beta1": 229.6,
+    "beta2": 229.6
+  },
+  {
+    "name": "feedback_highsource",
+    "rail": 9,
+    "source": 100000,
+    "fuzz": 0.8,
+    "level": 0.05,
+    "leak": 7.546e-06,
+    "feedback": 10000,
+    "beta1": 229.6,
+    "beta2": 229.6
+  },
+  {
+    "name": "mixed_gain_lowrail",
+    "rail": 6,
+    "source": 1000,
+    "fuzz": 0.8,
+    "level": 0.005,
+    "leak": 0.0001,
+    "feedback": 100000,
+    "beta1": 40,
+    "beta2": 300
+  }
+]

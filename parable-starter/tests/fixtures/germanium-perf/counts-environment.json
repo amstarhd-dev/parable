@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "source_commit": "440a99221af7cc3f3b7123db327bb161306d4856",
+  "dirty": true,
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+  "affinity": [
+    0
+  ],
+  "compiler": "c++ (Debian 14.2.0-19) 14.2.0",
+  "commands": [
+    {
+      "directory": "/workspace/work/sf003perf-count/tools/germanium_perf",
+      "command": "/usr/bin/c++ -DPARABLE_GERMANIUM_COUNT_APPROX -DPARABLE_GERMANIUM_EVALUATOR=0 -DPERF_FACTORY=perf_libm -DPERF_VARIANT_NAME=\\\"libm\\\" -Dparable=parable_gp_libm -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../include -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../src -O3 -DNDEBUG -std=gnu++17 -Wall -Wextra -Wpedantic -fno-fast-math -fno-finite-math-only -o CMakeFiles/germanium_perf_libm.dir/__/__/src/parable_germanium.cpp.o -c /workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp",
+      "file": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp",
+      "output": "tools/germanium_perf/CMakeFiles/germanium_perf_libm.dir/__/__/src/parable_germanium.cpp.o"
+    },
+    {
+      "directory": "/workspace/work/sf003perf-count/tools/germanium_perf",
+      "command": "/usr/bin/c++ -DPARABLE_GERMANIUM_COUNT_APPROX -DPARABLE_GERMANIUM_EVALUATOR=0 -DPERF_FACTORY=perf_libm -DPERF_VARIANT_NAME=\\\"libm\\\" -Dparable=parable_gp_libm -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../include -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../src -O3 -DNDEBUG -std=gnu++17 -Wall -Wextra -Wpedantic -fno-fast-math -fno-finite-math-only -o CMakeFiles/germanium_perf_libm.dir/perf_bridge.cpp.o -c /workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/perf_bridge.cpp",
+      "file": "/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/perf_bridge.cpp",
+      "output": "tools/germanium_perf/CMakeFiles/germanium_perf_libm.dir/perf_bridge.cpp.o"
+    },
+    {
+      "directory": "/workspace/work/sf003perf-count/tools/germanium_perf",
+      "command": "/usr/bin/c++ -DPARABLE_GERMANIUM_COUNT_APPROX -DPARABLE_GERMANIUM_EVALUATOR=1 -DPERF_FACTORY=perf_h32 -DPERF_VARIANT_NAME=\\\"hermite32\\\" -Dparable=parable_gp_h32 -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../include -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../src -O3 -DNDEBUG -std=gnu++17 -Wall -Wextra -Wpedantic -fno-fast-math -fno-finite-math-only -o CMakeFiles/germanium_perf_h32.dir/__/__/src/parable_germanium.cpp.o -c /workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp",
+      "file": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp",
+      "output": "tools/germanium_perf/CMakeFiles/germanium_perf_h32.dir/__/__/src/parable_germanium.cpp.o"
+    },
+    {
+      "directory": "/workspace/work/sf003perf-count/tools/germanium_perf",
+      "command": "/usr/bin/c++ -DPARABLE_GERMANIUM_COUNT_APPROX -DPARABLE_GERMANIUM_EVALUATOR=1 -DPERF_FACTORY=perf_h32 -DPERF_VARIANT_NAME=\\\"hermite32\\\" -Dparable=parable_gp_h32 -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../include -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../src -O3 -DNDEBUG -std=gnu++17 -Wall -Wextra -Wpedantic -fno-fast-math -fno-finite-math-only -o CMakeFiles/germanium_perf_h32.dir/perf_bridge.cpp.o -c /workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/perf_bridge.cpp",
+      "file": "/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/perf_bridge.cpp",
+      "output": "tools/germanium_perf/CMakeFiles/germanium_perf_h32.dir/perf_bridge.cpp.o"
+    },
+    {
+      "directory": "/workspace/work/sf003perf-count/tools/germanium_perf",
+      "command": "/usr/bin/c++ -DPARABLE_GERMANIUM_COUNT_APPROX -DPARABLE_GERMANIUM_EVALUATOR=2 -DPERF_FACTORY=perf_h64 -DPERF_VARIANT_NAME=\\\"hermite64\\\" -Dparable=parable_gp_h64 -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../include -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../src -O3 -DNDEBUG -std=gnu++17 -Wall -Wextra -Wpedantic -fno-fast-math -fno-finite-math-only -o CMakeFiles/germanium_perf_h64.dir/__/__/src/parable_germanium.cpp.o -c /workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp",
+      "file": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp",
+      "output": "tools/germanium_perf/CMakeFiles/germanium_perf_h64.dir/__/__/src/parable_germanium.cpp.o"
+    },
+    {
+      "directory": "/workspace/work/sf003perf-count/tools/germanium_perf",
+      "command": "/usr/bin/c++ -DPARABLE_GERMANIUM_COUNT_APPROX -DPARABLE_GERMANIUM_EVALUATOR=2 -DPERF_FACTORY=perf_h64 -DPERF_VARIANT_NAME=\\\"hermite64\\\" -Dparable=parable_gp_h64 -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../include -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../src -O3 -DNDEBUG -std=gnu++17 -Wall -Wextra -Wpedantic -fno-fast-math -fno-finite-math-only -o CMakeFiles/germanium_perf_h64.dir/perf_bridge.cpp.o -c /workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/perf_bridge.cpp",
+      "file": "/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/perf_bridge.cpp",
+      "output": "tools/germanium_perf/CMakeFiles/germanium_perf_h64.dir/perf_bridge.cpp.o"
+    },
+    {
+      "directory": "/workspace/work/sf003perf-count/tools/germanium_perf",
+      "command": "/usr/bin/c++ -DPARABLE_GERMANIUM_COUNT_APPROX -DPARABLE_GERMANIUM_EVALUATOR=3 -DPERF_FACTORY=perf_p8 -DPERF_VARIANT_NAME=\\\"polynomial8\\\" -Dparable=parable_gp_p8 -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../include -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../src -O3 -DNDEBUG -std=gnu++17 -Wall -Wextra -Wpedantic -fno-fast-math -fno-finite-math-only -o CMakeFiles/germanium_perf_p8.dir/__/__/src/parable_germanium.cpp.o -c /workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp",
+      "file": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp",
+      "output": "tools/germanium_perf/CMakeFiles/germanium_perf_p8.dir/__/__/src/parable_germanium.cpp.o"
+    },
+    {
+      "directory": "/workspace/work/sf003perf-count/tools/germanium_perf",
+      "command": "/usr/bin/c++ -DPARABLE_GERMANIUM_COUNT_APPROX -DPARABLE_GERMANIUM_EVALUATOR=3 -DPERF_FACTORY=perf_p8 -DPERF_VARIANT_NAME=\\\"polynomial8\\\" -Dparable=parable_gp_p8 -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../include -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../src -O3 -DNDEBUG -std=gnu++17 -Wall -Wextra -Wpedantic -fno-fast-math -fno-finite-math-only -o CMakeFiles/germanium_perf_p8.dir/perf_bridge.cpp.o -c /workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/perf_bridge.cpp",
+      "file": "/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/perf_bridge.cpp",
+      "output": "tools/germanium_perf/CMakeFiles/germanium_perf_p8.dir/perf_bridge.cpp.o"
+    },
+    {
+      "directory": "/workspace/work/sf003perf-count/tools/germanium_perf",
+      "command": "/usr/bin/c++ -DPARABLE_GERMANIUM_COUNT_APPROX -DPARABLE_GERMANIUM_EVALUATOR=4 -DPERF_FACTORY=perf_p12 -DPERF_VARIANT_NAME=\\\"polynomial12\\\" -Dparable=parable_gp_p12 -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../include -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../src -O3 -DNDEBUG -std=gnu++17 -Wall -Wextra -Wpedantic -fno-fast-math -fno-finite-math-only -o CMakeFiles/germanium_perf_p12.dir/__/__/src/parable_germanium.cpp.o -c /workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp",
+      "file": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp",
+      "output": "tools/germanium_perf/CMakeFiles/germanium_perf_p12.dir/__/__/src/parable_germanium.cpp.o"
+    },
+    {
+      "directory": "/workspace/work/sf003perf-count/tools/germanium_perf",
+      "command": "/usr/bin/c++ -DPARABLE_GERMANIUM_COUNT_APPROX -DPARABLE_GERMANIUM_EVALUATOR=4 -DPERF_FACTORY=perf_p12 -DPERF_VARIANT_NAME=\\\"polynomial12\\\" -Dparable=parable_gp_p12 -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../include -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../src -O3 -DNDEBUG -std=gnu++17 -Wall -Wextra -Wpedantic -fno-fast-math -fno-finite-math-only -o CMakeFiles/germanium_perf_p12.dir/perf_bridge.cpp.o -c /workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/perf_bridge.cpp",
+      "file": "/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/perf_bridge.cpp",
+      "output": "tools/germanium_perf/CMakeFiles/germanium_perf_p12.dir/perf_bridge.cpp.o"
+    },
+    {
+      "directory": "/workspace/work/sf003perf-count/tools/germanium_perf",
+      "command": "/usr/bin/c++ -DPERF_COUNT -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../include -O3 -DNDEBUG -std=gnu++17 -Wall -Wextra -Wpedantic -fno-fast-math -fno-finite-math-only -o CMakeFiles/parable_germanium_bench.dir/germanium_bench.cpp.o -c /workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/germanium_bench.cpp",
+      "file": "/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/germanium_bench.cpp",
+      "output": "tools/germanium_perf/CMakeFiles/parable_germanium_bench.dir/germanium_bench.cpp.o"
+    },
+    {
+      "directory": "/workspace/work/sf003perf-count/tools/germanium_perf",
+      "command": "/usr/bin/c++ -DGERMANIUM_FIXTURES=\\\"/workspace/work/parable-sf003-perf/parable-starter/tests/fixtures/germanium\\\" -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../include -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../src -O3 -DNDEBUG -std=gnu++17 -Wall -Wextra -Wpedantic -fno-fast-math -fno-finite-math-only -o CMakeFiles/parable_germanium_accuracy.dir/accuracy.cpp.o -c /workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/accuracy.cpp",
+      "file": "/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/accuracy.cpp",
+      "output": "tools/germanium_perf/CMakeFiles/parable_germanium_accuracy.dir/accuracy.cpp.o"
+    },
+    {
+      "directory": "/workspace/work/sf003perf-count/tools/germanium_perf",
+      "command": "/usr/bin/c++ -DPARABLE_GERMANIUM_EVALUATOR=2 -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../include -O3 -DNDEBUG -std=gnu++17 -Wall -Wextra -Wpedantic -fno-fast-math -fno-finite-math-only -o CMakeFiles/germanium_lab_h64.dir/__/__/src/parable_germanium.cpp.o -c /workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp",
+      "file": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp",
+      "output": "tools/germanium_perf/CMakeFiles/germanium_lab_h64.dir/__/__/src/parable_germanium.cpp.o"
+    },
+    {
+      "directory": "/workspace/work/sf003perf-count/tools/germanium_perf",
+      "command": "/usr/bin/c++ -DGERMANIUM_FIXTURES=\\\"/workspace/work/parable-sf003-perf/parable-starter/tests/fixtures/germanium\\\" -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../src -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../include -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles/parable_germanium_lab_h64.dir/__/germanium_lab.cpp.o -c /workspace/work/parable-sf003-perf/parable-starter/tools/germanium_lab.cpp",
+      "file": "/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_lab.cpp",
+      "output": "tools/germanium_perf/CMakeFiles/parable_germanium_lab_h64.dir/__/germanium_lab.cpp.o"
+    },
+    {
+      "directory": "/workspace/work/sf003perf-count/tools/germanium_perf",
+      "command": "/usr/bin/c++ -DPARABLE_GERMANIUM_EVALUATOR=4 -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../include -O3 -DNDEBUG -std=gnu++17 -Wall -Wextra -Wpedantic -fno-fast-math -fno-finite-math-only -o CMakeFiles/germanium_lab_p12.dir/__/__/src/parable_germanium.cpp.o -c /workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp",
+      "file": "/workspace/work/parable-sf003-perf/parable-starter/src/parable_germanium.cpp",
+      "output": "tools/germanium_perf/CMakeFiles/germanium_lab_p12.dir/__/__/src/parable_germanium.cpp.o"
+    },
+    {
+      "directory": "/workspace/work/sf003perf-count/tools/germanium_perf",
+      "command": "/usr/bin/c++ -DGERMANIUM_FIXTURES=\\\"/workspace/work/parable-sf003-perf/parable-starter/tests/fixtures/germanium\\\" -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../src -I/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_perf/../../include -O3 -DNDEBUG -std=gnu++17 -o CMakeFiles/parable_germanium_lab_p12.dir/__/germanium_lab.cpp.o -c /workspace/work/parable-sf003-perf/parable-starter/tools/germanium_lab.cpp",
+      "file": "/workspace/work/parable-sf003-perf/parable-starter/tools/germanium_lab.cpp",
+      "output": "tools/germanium_perf/CMakeFiles/parable_germanium_lab_p12.dir/__/germanium_lab.cpp.o"
+    }
+  ],
+  "binary_sha256": "3d40bf4ae028da8c7fd33708d41ab92bfcbfb77d6a4a2f4ee923e8796df7a736",
+  "source_sha256": {
+    "parable-starter/src/germanium_device.h": "89ed1c3fc29d8135bf00ac133ac88b19e32f0f0802183de06add5fd1a84007f0",
+    "parable-starter/src/germanium_device_fast.h": "0025c5ad9a377fbeb42aa5621107fa2dc4a8fe4e268b76ee746a979c1665a963",
+    "parable-starter/src/germanium_device_select.h": "a2b2bf6b221718e536107f1b78bc728ef6941f1a2b488525ca87b5c55447f545",
+    "parable-starter/src/germanium_exp.h": "99607c77cb1417718405e407ebe27e896100ce99b317083fd90b49a679ed4c10",
+    "parable-starter/src/germanium_exp_tables.h": "2eebd914854c168308e9efb2ce826e84a4c4d6d1fd51e9368a7dee3a6497329f",
+    "parable-starter/src/parable_germanium.cpp": "18c7bb1da69b0b97ff2290093a0de36828ecc7c6bb72fc527ac7f9a40c1e9337",
+    "parable-starter/tools/germanium_perf/accuracy.cpp": "046c374c3bd5f1f49e2f145273c7aac070c7afbafe71cae75c08bf17892e65a3",
+    "parable-starter/tools/germanium_perf/germanium_bench.cpp": "67dbe3a1793f2a709ecfb495898c619897b031f779a795db2badf06b5cbe8e68",
+    "parable-starter/tools/germanium_perf/perf_bridge.cpp": "2872a17cd91b3563472bd48c5de467bd05a6fa0a8cd9444f64ce7923ffe41854",
+    "parable-starter/tools/germanium_perf/perf_bridge.h": "157bf66f8e914f74b4d0282c6090772938b9d467b7c02a644e7aa5aedda09890"
+  },
+  "measurement": "instrumented call counts, NOT speed evidence"
+}

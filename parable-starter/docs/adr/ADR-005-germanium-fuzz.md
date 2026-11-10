@@ -7,6 +7,15 @@ Debug/Release 13/13 and pinned ARM build passed. No missing required files.
 
 ## Sources and reuse choice
 
+SF003-PERF numerical follow-up (issue20): **retain the original libm evaluator
+as default**. Private, compile-time Hermite32/64 and polynomial8/12 experiments
+use this same circuit source and an unchanged full-precision device reference;
+no topology, physical equation, component/fault, solver or oversampling decision
+changes. A passing device approximation alone does not establish processor speed.
+See [fixed gates](../GERMANIUM_PERF_PLAN.md) and
+[measured decision/evidence](../GERMANIUM_PERF_REPORT.md). No public BJT primitive
+or measured Rangemaster/Tone Bender reuse is established by this experiment.
+
 | Inspected source | Decision / legal basis |
 | --- | --- |
 | [ElectroSmash original circuit analysis](https://electrosmash.mas-effects.com/fuzz-face), [Germanium Fuzz](https://electrosmash.mas-effects.com/germanium-fuzz) | Inspected original positive-ground PNP drawing and analysis. Select classic 33k/100k/8.2k/470, direct interstage connection, Fuzz/Volume network. Modern trimmer/Miller-cap variant is distinct. Reference only; do not import illustrations or presume code rights. |

@@ -1,5 +1,24 @@
 # Implementation status and reproducible baseline
 
+## SF003-PERF — evaluator experiment, libm retained
+
+Started on current main440a992 after merged PR19; unchanged Debug/Release16/16,
+pinned ARM and original RAT/CMOS/germanium artifact baselines captured first.
+Private compile-time Hermite32/64 and polynomial8/12 evaluators preserve the
+original GP reference and same circuit source. H64/P12 meet the fixed numerical
+gates in the tested matrix; H32/P8 fail mathematical gates. Seven-trial paired
+full-processor host measurements show no consistent benefit, with regressions
+in all12 target-like-O2 cases. **Default remains original libm; acceleration
+success criterion is unmet.** No public numerical primitive is promoted.
+
+Original ARM object stays7108/0/0, instance2480 bytes; experimental H64 is11860/0/0
+including4096 shared table bytes. Optimized objects eliminate expm1 references,
+but all retain the normal vsqrt.f64 path and exceptional sqrt reference.
+No ARM timing, physical Daisy test, real guitar or founder listening approval.
+See [fixed gates](GERMANIUM_PERF_PLAN.md) and
+[accuracy/performance/limitations report](GERMANIUM_PERF_REPORT.md) for final
+test receipts, independent corner cases, unchanged-byte checks and reproduction.
+
 ## SF-003 — positive-ground germanium fuzz specimen
 
 Started on main `d628ffc3`, after PR #17 merged; clean Debug/Release **13/13** and
