@@ -1,0 +1,18 @@
+{
+  "simulator": "******\n** ngspice-44.2 : Circuit level simulation program\n** Compiled with KLU Direct Linear Solver\n** The U. C. Berkeley CAD Group\n** Copyright 1985-1994, Regents of the University of California.\n** Copyright 2001-2024, The ngspice team.\n** Please get your ngspice manual from https://ngspice.sourceforge.io/docs.html\n** Please file your bug-reports at http://ngspice.sourceforge.net/bugrep.html\n** Creation Date: Sun Jan 12 08:19:15 UTC 2025\n******",
+  "scope": "Independent solver of ADR-004 reduced circuit, not new physical CD4049 measurements",
+  "startup_sha256": "97ccb58aabc4e2dbdf91c2045cfeb54291672909b4394a1fca7d156e4a0453ca",
+  "netlists_sha256": {
+    "coupling_small.cir": "d27521c88564cc8841b2964f5fe4af895fb32054dfa47b496d3897272e770df4",
+    "dc-0.cir": "ec95b77d4689aaba526b7c687c312c45bf6af83b916e949695c6e0043897b69d",
+    "dc-1e-05.cir": "5ccffab755c925eee678854687bb988a9afb041979bff3a7f309cc45f1935507",
+    "feedback_low.cir": "5317d05bd98f364ddc9d851291a7ec0fa5592adec73a9a150d1a621957c0be17",
+    "healthy_high.cir": "1588202e6753a43fef3358a2781f31c048710c02fa32fc578531a97c31c035a5",
+    "healthy_low.cir": "655918433ecd54e90e35f7c99d87e29603f9de82c24d1a2c9bebad3e8640cd8a",
+    "healthy_mid.cir": "22a7499eb86ad4fd4bf2a9a70f8904d469cb327bbca859e25947cd6eecc34b3f"
+  },
+  "fixtures_sha256": {
+    "circuit-transient.csv": "a453549adeed0747fb36f8e362a1820b4805ae03bbe321288f30c5b428b097d4",
+    "inverter-dc.csv": "24c21c6806b5bbe3eb5ecc862ebf4feb7589aa45e236c4088ea80e17ecd35575"
+  }
+}

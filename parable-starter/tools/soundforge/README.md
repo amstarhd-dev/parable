@@ -1,8 +1,9 @@
 # DSP Soundforge — host laboratory and evidence registry
 
 SF-001 shares a small laboratory; it does not prescribe a shared electrical solver
-or runtime processor abstraction. LabRAT is the first specimen. A second circuit
-family must test the usefulness of these facilities before more abstraction.
+or runtime processor abstraction. LabRAT is the first specimen; SF-002 adds an
+experimental CD4049 specimen. See its [report](../../docs/CMOS_REPORT.md) and
+[measured reuse log](../../docs/SOUNDFORGE_SF002_WORK_LOG.md).
 
 ## Facilities
 
@@ -12,6 +13,9 @@ family must test the usefulness of these facilities before more abstraction.
   and matching arithmetic are extracted from LabRAT without numerical changes.
 - Existing [`../lab_wav.h`](../lab_wav.h): reuse its bounded mono PCM16 parser and
   writer unchanged, including its supported rates/duration/size/error policy.
+- `excitation.h`: the owned nine-second harmonic plucks/strums extracted from
+  LabRAT, now used by both specimens. Default .15 peak preserves every LabRAT
+  byte; CMOS requests .05 model volts. Synthetic excitation is not recorded guitar.
 - `check_labrat.py`: deterministic byte comparison to captured main outputs and
   protected sources, not a scientific reference or a generic effect acceptance test.
 - `registry.json` and `validate_registry.py`: offline asset/provenance/evidence
@@ -24,9 +28,9 @@ linear gain (1 for silence). The caller applies it and checks the final float/PC
 peak. Always retain raw levels, DC, parameters and gains. RMS matching is neither
 LUFS/perceptual matching nor a way to hide clipping, instability or model faults.
 
-FFT/coherent spectra, synthetic excitation, fault selection, stage-response math,
-SPICE generation/comparisons, and measured circuit gates remain in `rat_*` tools.
-They have model-specific assumptions. No additional measuring fixture is extracted.
+FFT/coherent spectra, fault selection, stage-response math, SPICE stamps/comparisons
+and circuit gates remain model-specific. CMOS imports the existing `run_spice`
+process/log wrapper, not RAT equations. No general circuit solver is extracted.
 
 ## Registry contract (version 1)
 
@@ -58,7 +62,7 @@ explicit, and the global project license remains **unspecified**.
 The validator checks required fields/types/version, IDs/dependencies, source
 references, statuses and all declared local files. It does not browse, authenticate
 claims, verify copyright ownership or infer evidence from a passing test. The
-model explicitly has no real-guitar audition, physical Daisy run or patch runtime
+models explicitly have no real-guitar audition, physical Daisy run or patch runtime
 integration. Reduced-section SPICE agreement is not full physical-circuit validation.
 
 ## Reproduce
@@ -75,6 +79,7 @@ cmake --build parable-starter/build/sf-release -j2
 ctest --test-dir parable-starter/build/sf-release --output-on-failure --no-tests=error
 ./parable-starter/build/sf-release/parable_rat_lab --output parable-starter/build/rat-auditions
 python3 parable-starter/tools/soundforge/check_labrat.py --directory parable-starter/build/rat-auditions
+./parable-starter/build/sf-release/parable_cmos_lab --output parable-starter/build/cmos-auditions
 python3 parable-starter/firmware/build.py
 ```
 
@@ -99,7 +104,7 @@ separately; neither metadata nor a successful test-merge means the PR was merged
    transitive gaps. Borrow -> adapt -> independently simulate/model -> invent,
    documenting the actual gap before original DSP work. Never infer rights from
    a README or import evaluated GPL/unlicensed material.
-2. Add one specimen record and provenance/notice files, following the three
+2. Add one specimen record and provenance/notice files, following the five
    current records. Separate code reused/derived from references only consulted.
    Record assumptions, topology, physical parameter units, bounds and omissions.
 3. Reuse `lab_wav.h` and `analysis.h`; write the model's own runner and independent

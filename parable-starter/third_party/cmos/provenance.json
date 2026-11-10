@@ -1,0 +1,90 @@
+{
+  "candidates": [
+    {
+      "url": "https://github.com/HSU-ANT/ACME.jl",
+      "revision": "3832ccafb952ee2ca0a27286c091d613062c23fd",
+      "license": "MIT",
+      "files_sha256": {
+        "src/elements.jl": "82811f557cfd2042c28c6170dadd657eb4362acd3b5f541a8ac111eefc20ec06"
+      },
+      "notes": "Selected narrow adaptation of mosfet current/Jacobian, not Julia/framework/dependencies. Exact source and notice inspected."
+    },
+    {
+      "url": "https://github.com/tehguitarist/Obsidian-B7000",
+      "revision": "4b91389065f59d754b3f383d9f94fa011f0d81da",
+      "license": "AGPL-3.0",
+      "files": [
+        "src/dsp/Clipper.h",
+        "docs/nonlinear-component-modeling.md",
+        "LICENSE"
+      ],
+      "notes": "Audit-only different bass-pedal circuit; no code, curve, fit or implementation adapted/imported."
+    },
+    {
+      "url": "https://dafx2020.mdw.ac.at/proceedings/papers/DAFx2020_paper_21.pdf",
+      "revision": "91de8840ab65c2ef587a7a460476681378d163bd",
+      "revision_kind": "content-sha1, not a Git commit",
+      "sha256": "b0a998d531b36916fab54b88db941e27f216f0723237ccb3d97f79f938ef56d4",
+      "license": "CC-BY-3.0",
+      "notes": "Koeper/Holters DAFx2020, equations 9/17/18, nominal Table 1, fitted Table 3 and source Figure 13. Factual parameter/equation reference; no figures, source listing or recordings imported."
+    },
+    {
+      "url": "https://www.ti.com/lit/gpn/CD4049UB",
+      "revision": "e840aa5772890105bf1a002109b89cdaf1834dbd",
+      "revision_kind": "content-sha1, not a Git commit",
+      "sha256": "f198d3d0299858ff3771f73be0cfa96a95ebec0078354fa0437535ac59449369",
+      "license": "TI document, reference only",
+      "notes": "SCHS046L February 2026. CD4049UB/UBE identity, manufacturer bounds/typical curves. Not a CD4069 substitution."
+    },
+    {
+      "url": "https://www.ti.com/lit/zip/SCHM019",
+      "revision": "105cffd405bf687451c17c7ad4a38299823f389c",
+      "revision_kind": "content-sha1, not a Git commit",
+      "sha256": "2c357995eb31ace4f3eae6c90a4a6fe9809735f888366243f5ae14f3618434c3",
+      "license": "All rights reserved; TI evaluation model",
+      "notes": "SCHM019A archive inspected. Generic binary logic SGN/propagation-delay model, rejected as analog transfer reference; no model imported or simulated as audio truth."
+    },
+    {
+      "url": "https://www.tonepad.com/project.asp?id=65",
+      "revision": "170604fcf42313e3062211902fbb7ec8c2204e2f",
+      "revision_kind": "content-sha1, not a Git commit",
+      "sha256": "70fa473999e0b41beb0b051d60ac01e4c0e8b62064da08bcead1f7191075383c",
+      "license": "Tonepad reference page; no reuse grant located",
+      "notes": "Anderton lineage / TSF reference. PDF redirected to download-warning page; drawing not retrieved or redistributed."
+    },
+    {
+      "url": "https://lkoeper.gitlab.io/dafx-2020-cmos-llama/",
+      "revision": "408820f42ef9544f093ada13bd132448e215bfe7",
+      "revision_kind": "content-sha1, not a Git commit",
+      "sha256": "ba41172c87b65026e3d385a44f33c4e45603988e33efa461a9bd35ed28a3f2e2",
+      "license": "No separate listing license located; reference only",
+      "notes": "Fit-value/connection cross-reference. No Julia listing or audio copied; selected code comes from MIT ACME, with scientific attribution."
+    },
+    {
+      "url": "https://www.ti.com/lit/pdf/SCHA004",
+      "revision": "f1ba4e249a7ca9efef1a1fcc44ba466ad6bd77e9",
+      "revision_kind": "content-sha1, not a Git commit",
+      "sha256": "365758089c2cbb45abace1faa4104bd177132a5be67a43c1a6a8fd7024667572",
+      "license": "TI document, reference only",
+      "notes": "Buffered/unbuffered device characteristics; no graphics/text imported."
+    }
+  ],
+  "decision_record": "parable-starter/docs/adr/ADR-004-cmos-inverter-model.md",
+  "offline_reference": {
+    "provenance_path": "parable-starter/third_party/labrat/provenance.json",
+    "field": "offline_reference",
+    "simulator": "ngspice 44.2; existing pinned package, no new tool dependency"
+  },
+  "internal_reuse": {
+    "base_commit": "2cc9412c1968d1c229bcbedba7fb6e19dfd6f416",
+    "paths": [
+      "tools/lab_wav.h",
+      "tools/soundforge/analysis.h",
+      "tools/rat_spice_reference.py:run_spice",
+      "tools/rat_lab.cpp:synthetic",
+      "src/parable_rat.cpp:FIR oversampling technique"
+    ],
+    "notes": "Existing PCM/stats/parser and simulator wrapper reused; neutral synthetic excitation extracted once. FIR processing idiom narrowly duplicated with attribution to avoid changing protected RAT DSP."
+  },
+  "ownership": "Parable-local solver/runner/fixtures plus MIT ACME adaptation; global Parable LICENSE remains unspecified. No copyrighted schematic images or third-party recordings imported."
+}
