@@ -1,6 +1,6 @@
 # Parable Core — Brick 0.1 (2026-11-06)
 
-This is the first **portable C++ code brick**, not a finished Parable SDK and not a commercial DSP effect. It intentionally contains no astrology, browser code, or expensive faux analog models.
+This is the first **portable C++ code brick**, not a finished Parable SDK and not a commercial DSP effect. It contains no astrology or browser implementation. A separate experimental circuit-derived LabRAT listening laboratory is described below.
 
 ## Purpose
 - A versioned, validated patch snapshot (`schema=2` for this native proof; **not** yet the final JSON/Wire format).
@@ -93,7 +93,7 @@ implemented here, and canonical JSON functionality remains unchanged.
 - **Daisy adapter is ARM-linked but has not been flashed or hardware-tested.**
 - No persistent flash, power-loss safety, USB/Wi-Fi transfer, phone editor, footswitches, or Register.
 - No dynamic graph, parallel routing, effect resource estimator, smoothing/clickless patch switching, DSP load metrics or hardware sample-rate query.
-- No modeled overdrive, compressor, delay, reverb, Moon, or astrology.
+- LabRAT is a separate experimental circuit-derived processor; no factory-fidelity/pedal-grade drive, compressor, delay, reverb, Moon, or astrology is proven.
 - The one-pole filter and gain nodes are **plumbing**, not an effect catalog.
 - `Engine::load` must only be called while the audio callback is stopped; cross-thread patch exchange is not yet implemented. The prototype uses a mono signal and copies it to both outputs.
 - `schema=2` is a provisional code-internal tag; does not yet specify durable wire compatibility.
@@ -110,3 +110,26 @@ Design rule: one patch language, many composers. Astro, manual workshop, future 
 ## Codex onboarding
 
 For the first cloud task, see [`docs/CODEX_KICKOFF.md`](docs/CODEX_KICKOFF.md). This is an engineering baseline, **not** complete product firmware.
+
+## LabRAT circuit and malfunction auditions (PAR-007)
+
+[Source audit](docs/LABRAT_SOURCE_AUDIT.md) -> [proposed ADR-003](docs/adr/ADR-003-labrat-circuit-model.md)
+-> [listening/measurement report](docs/LABRAT_REPORT.md). Eleven synthetic dry,
+healthy low/medium/high, Filter, dynamics and component-variation WAVs use the
+shared native RAT kernel. Founder musical approval remains pending.
+
+From repository root:
+
+```bash
+cmake -S parable-starter -B parable-starter/build/rat-release -DCMAKE_BUILD_TYPE=Release
+cmake --build parable-starter/build/rat-release -j2
+ctest --test-dir parable-starter/build/rat-release --output-on-failure --no-tests=error
+./parable-starter/build/rat-release/parable_rat_lab --output parable-starter/build/rat-auditions
+```
+
+Open the WAVs in a player/DAW, or download **parable-labrat-auditions** from the
+passing Release Host tests workflow (seven-day retention). `--input dry-guitar.wav`
+accepts bounded mono PCM16 without changing DSP code. No real-guitar or hardware
+proof is claimed. Patch v1 and the existing Engine are unchanged; the PAR-006
+processor is not substituted for the RAT. Historical factory revision, full
+LM308/JFET dynamics and faulty-buffer headroom remain unverified.

@@ -1,0 +1,23 @@
+{
+  "simulator": "******\n** ngspice-44.2 : Circuit level simulation program\n** Compiled with KLU Direct Linear Solver\n** The U. C. Berkeley CAD Group\n** Copyright 1985-1994, Regents of the University of California.\n** Copyright 2001-2024, The ngspice team.\n** Please get your ngspice manual from https://ngspice.sourceforge.io/docs.html\n** Please file your bug-reports at http://ngspice.sourceforge.net/bugrep.html\n** Creation Date: Sun Jan 12 08:19:15 UTC 2025\n******",
+  "kind": "independent simulator of reduced circuit, not a verified full LM308 macromodel",
+  "startup_sha256": "b21b0c841fa6a942872c0b4570871dcaadfa3d1245c5434f1bfc90a0a300dde5",
+  "netlist_sha256": {
+    "ac-compensation-0.02.cir": "38d3c45040fecb53237e59505c6091e07789640a7a65c2ffc7f88f6b6777b6f9",
+    "ac-compensation-0.35.cir": "b974c8087bf70bc3e844ceaed8c3812e5f95281d0328779d77bc88a9980a1dc3",
+    "ac-compensation-0.9.cir": "e65bb0edf6252e3c6cb0d3832d0d7a9328a541e965a7152eefcb5d1f2c9d4c63",
+    "ac-healthy-0.02.cir": "862d987839573a9c542faddf04e2d40da4215549171ef281be0a0f4b44a39390",
+    "ac-healthy-0.35.cir": "adc1d60b2cf366ab45e4ce3196dee79f41ee320761c5f738660cb56a8fa20f24",
+    "ac-healthy-0.9.cir": "b4b1fbfb777ff763dbf60cb551905f821d3bf4b10a7cd691eedeeece11560aa1",
+    "ac-ruetz-0.02.cir": "9bef1ec074dce3c1b4db73479118353632c8a640601085768f0cc63429f5f6d9",
+    "ac-ruetz-0.35.cir": "654a716dc02f336f862c3ffc5fa4283353120d0be9f3b22478c8d975716119fe",
+    "ac-ruetz-0.9.cir": "6408cbd9756867495c375a4ca36d92f35ac129a19f5ae58743c4503aaf41a932",
+    "transient-diode_open.cir": "066e0bdcb2f11761718e2a8f4f03a7b88063dad85e1e72d659214c8fd7e2c8c9",
+    "transient-filter_dark.cir": "794a1e19b32c3191f1d9a11758451ebdf85b7cc000b7e6a5462ea97c92d94b94",
+    "transient-healthy.cir": "ba327fa1937e36d039d3d594eea9d9a6542eebf0d191edd7e5bc7161ef17785b"
+  },
+  "fixtures_sha256": {
+    "clip-transient.csv": "0d6a2f9f5d7c75ecb762b08950210333d2ac0aa14ae89c7d6bb7556b5ab56188",
+    "preamp-ac.csv": "b235b0b751b34a9b42b276cfc80aa02bdcbb0c6c7c5eca0dc2f3e0fecdd7f94d"
+  }
+}

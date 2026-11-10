@@ -1,5 +1,49 @@
 # Implementation status and reproducible baseline
 
+## PAR-007 LabRAT — circuit-derived processor and fault laboratory
+
+Founder-supplied LabRAT brief supersedes the prior PAR-007 generic-drive integration
+plan. Started from main `bb0635032bfae7b15a2e59de152040bf0a7dcb07`; PR #11 was
+unmerged. Only its host PCM/synthetic/FFT lab pieces are reused, not PAR-006 DSP.
+Required instructions and architecture read; baseline Debug/Release **4/4** each
+passed before changes. See [source audit](LABRAT_SOURCE_AUDIT.md), proposed
+[ADR-003](adr/ADR-003-labrat-circuit-model.md) and [full report](LABRAT_REPORT.md).
+
+| Stage | Actual evidence |
+| --- | --- |
+| Source/audit/borrow | PiRAT/Rodent feedback polynomial/pot law port, exact source hashes, BSD/MIT notices; AudioLib source license absent, its code not imported; BYOD alternative audited |
+| Native circuit-derived model | LM308/silicon RAT nominal reconstruction; explicit R/C/diodes, normal controls separate from circuit parameters, finite-A plus approximate rail/slew, coupled passive clipping/Filter/output model |
+| Component variations | Positive diode disconnected; Ruetz feedback-leg opening; feedback compensation capacitor 100 pF -> 100 nF wrong-part experiment |
+| Independent reduced-circuit reference | Actual ngspice 44.2 output: 333 complex preamp AC points and 576 diode/filter time points; numerical discrepancies recorded, not a full vendor LM308/JFET validation |
+| Host-tested | Existing tests preserved; Debug/Release **6/6**; targeted ASan+UBSan **2/2**. Numerical/parameter/state/sample/block/DC/silence/slew/allocation and circuit-reference checks |
+| Listening material | Eleven nine-second mono PCM16 synthetic dry/healthy/Filter/dynamics/fault WAVs, same C++ kernel, RMS matched; passing-CI download plus exact settings and measurements |
+| Human musical acceptance | **Pending founder listening/review** |
+| ARM | Actual Cortex-M7 object 6,452/0/0 bytes text/data/BSS, ARM state 10,752 bytes; no linked/activated RAT firmware or target execution |
+| Hardware / real guitar / pedal-grade | **Not demonstrated** |
+| Specific historical revision / full component fidelity | **Not authenticated**; reduced model/idealized buffers and overload dynamics have material limits |
+
+Independent preamp agreement is about 9e-7 dB after bilinear frequency alignment;
+actual same-frequency warping reaches 0.324 dB. Reduced clipping/Filter waveform
+error is about 0.50 mV RMS / 0.91 mV peak. Selected 1x/4x alias fixture improves
+35.92 dB, with residual -50.58 dBc. These figures are model/fixture evidence,
+not physical-pedal fidelity or a universal alias bound. Diode opening charges the
+raw node to about +3.70 V in the test and reduces steady clipping; ideal output
+buffer limitations make large-fault post-buffer fidelity uncertain.
+
+No astrology rules, closed patch v1, native Engine/preparation or controls/storage/
+activation architecture changed. No generic drive is silently registered. No
+callback allocations, I/O, locks, throws or iterative circuit solver; preparation
+is stopped-control-side only. ARM evidence includes exact object/layout/work
+estimates, not measured CPU/latency/noise/power or stack high-water.
+
+Unfulfilled evidence is explicit: blocked ElectroSmash access, no verified factory
+year/BOM or manufacturer LM308/JFET model/measurements, no real guitar audition,
+no hardware/Seed3 boot or musical approval. Source borrowing and circuit-equation
+validation are substantive progress, not grounds to declare the whole RAT faithful.
+Next: founder audition and an agreed factory/reference capture, then refine the
+missing component dynamics before permanent patch integration. Overall project
+licensing remains an owner decision; borrowed notices are retained.
+
 ## PAR-005 ARM toolchain/resource gate — 2026-11-08
 
 Started from main `849143b0886eb9de0cc6eceba7d5d9c6345df53c`, after PR #7 merged.

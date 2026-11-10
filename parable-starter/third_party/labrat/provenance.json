@@ -1,0 +1,62 @@
+{
+  "candidates": [
+    {
+      "url": "https://github.com/nezetic/pirat",
+      "revision": "adeb07e8799c70ef74f1051a09c3b09e53692dbe",
+      "license": "BSD-2-Clause",
+      "files_sha256": {
+        "src/pirat/TFGain.cpp": "816bcdc8e2e65e819414f599de559e13e0b789e4db3f05cd248c3afe543a4bde",
+        "src/pirat/Bilinear.h": "7669cef5a48b8be08a9ac4344ebf288019055694e87623d99bcbc771ec1bfb6e",
+        "src/pirat/PiRATDist.cpp": "91ed26226d289c7b9e5069d89707503700bf8bb9c8b4002c408264141ff3feb1",
+        "src/pirat/Splines.cpp": "d1b899c83dd21804c381ace5cbe0bc210ae7f6458fd5ac3e3268b57cc39271f7",
+        "src/pirat/SplineInterpolator.h": "684339a748fc45c9652194d8e3a42c2fcd82d592816e780b58d109b7c12efcbc"
+      }
+    },
+    {
+      "url": "https://github.com/ValdemarOrn/SharpSoundPlugins",
+      "revision": "a791098f68f95c6f3548c9d9853f54ed33043d90",
+      "license": "MIT",
+      "files_sha256": {
+        "Rodent.V2/TFGain.cs": "0d0f3cc88e0f0e4f3368af531761509d22d75b002e0850400bf73d7957419b4d",
+        "Rodent.V2/Rodent.cs": "73869b84264b1cef14395551e51b37f36fb8806b68ae0f09d544c9a912c0cdb8",
+        "Rodent.V2/Analysis/Rat.asc": "4d8071bb0ea9307fb3bd053fe454cffa8681567b5d8ae9ea1fa92db909a25b5c",
+        "Rodent.V2/Analysis/transfer.m": "7506c8f2b094bae8f71288b24f0f9ea1829a486bf77a85261c0269203f7aa095",
+        "Rodent.V2/Analysis/components.jpg": "211e32a8b53da2d707cb03f575d8f8d516f2bfcdddf86e8396ff734f06372771",
+        "Rodent.V2/Splines.cs": "5c55c4a2051f223bb05e8816bf0a6f299adbbf6f3c846075eda7e78ed71dbaee"
+      }
+    },
+    {
+      "url": "https://github.com/Chowdhury-DSP/BYOD",
+      "revision": "1cf22b6ac802b9dc33cfc9f8dd6af5b3c3e40bc9",
+      "license": "GPL-3.0",
+      "files": [
+        "src/processors/drive/mouse_drive/MouseDrive.cpp",
+        "src/processors/drive/mouse_drive/MouseDriveWDF.h",
+        "res/schematics/proco_rat_schematic.svg"
+      ],
+      "used": "audit only; no code/graphics imported"
+    },
+    {
+      "url": "https://github.com/ValdemarOrn/AudioLib",
+      "revision": "9d4dfcab2136427eb7b87fdb47098f439f53a16b",
+      "license": "no source license found in audited tree",
+      "files": [
+        "AudioLib/Bilinear.cs",
+        "AudioLib/SplineLut/SplineInterpolator.cs"
+      ],
+      "used": "dependency audit only; no code imported"
+    }
+  ],
+  "offline_reference": {
+    "simulator": "ngspice 44.2 (Debian 44.2+ds-1)",
+    "url": "https://deb.debian.org/debian/pool/main/n/ngspice/ngspice_44.2+ds-1_amd64.deb",
+    "sha256": "4d76721dd91416055b1088cfc58626d4db47b91afda7c73258c0968ba6e4d24e",
+    "use": "external offline tool, not linked/redistributed in DSP; package copyright records BSD/component exceptions"
+  },
+  "internal_lab_reuse": {
+    "revision": "cacdc28f533355167ed667b417ef195569aba48f",
+    "source": "PR #11 tools/lab_wav.h, synthetic signal/FFT laboratory code",
+    "generic_drive_kernel": "not imported"
+  },
+  "borrowed": "feedback analog polynomial and pot law; bilinear transform independently implemented from mathematical substitution, no AudioLib code"
+}
