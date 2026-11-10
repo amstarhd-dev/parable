@@ -1,0 +1,91 @@
+{
+  "candidates": [
+    {
+      "url": "https://github.com/HSU-ANT/ACME.jl",
+      "revision": "3832ccafb952ee2ca0a27286c091d613062c23fd",
+      "license": "MIT",
+      "files_sha256": {
+        "src/elements.jl": "82811f557cfd2042c28c6170dadd657eb4362acd3b5f541a8ac111eefc20ec06"
+      },
+      "notes": "Selected narrow internal bjt GP adaptation. Paper transport-Is convention,25.5mV and leakage-ideality derivatives explicitly adjusted; Julia/general solver not imported."
+    },
+    {
+      "url": "https://github.com/grwhitehead/germaniumbjts",
+      "revision": "7838a40f939eaee39b37afef1dac031ef45c276a",
+      "license": "MIT",
+      "files_sha256": {
+        "germaniumbjts.lib": "d246c840f9610bfce04d744505ce414dcae0f52d9fdffe9f1ef2ff07c441e873",
+        "holmes2017/ac128-fuzzface/fuzzface.mod": "c40b99a1418b605f9e42f07688c5ddc2179c13e4d024fa759cdabd0f006ce3c8"
+      },
+      "notes": "MIT Greg Whitehead2020 parameter transcription/cross-reference. Narrow model-parameter adaptation, not whole netlist. Published variant differs from classic network; VT/CCB/CEB not assumed portable builtin ngspice fields. No audio or graphics."
+    },
+    {
+      "url": "https://www.dafx17.eca.ed.ac.uk/papers/DAFx17_paper_28.pdf",
+      "revision": "2f0d48ec550a4ec6a27089989c5e8b13c4339c86",
+      "revision_kind": "content-sha1, not a Git commit",
+      "sha256": "2d73c9df818243477704566db72c05f5410d579c1b2c44cbd75a88e1e5bdad97",
+      "license": "Article reference; no blanket code license located",
+      "notes": "Primary measured AC128/OC44 table/equations and model comparison, paper read. Factual reference only, not imported figures/audio/listings. Finite measured domains and thermal uncertainty retained."
+    },
+    {
+      "url": "https://electrosmash.mas-effects.com/fuzz-face",
+      "revision": "732a2954f64cc134c709780e079f541296b38f4b",
+      "revision_kind": "content-sha1, not a Git commit",
+      "sha256": "fd650a40ac726ca2e39f535021e58e17705b51b96d10855518f8739973c21478",
+      "license": "Reference only; no code/diagram reuse grant assumed",
+      "notes": "Original positive-ground PNP schematic and classic33k100k8.2k470 values inspected; no image/text imported."
+    },
+    {
+      "url": "https://electrosmash.mas-effects.com/germanium-fuzz",
+      "revision": "299de108adf19270f1b480647f572f02773a9e56",
+      "revision_kind": "content-sha1, not a Git commit",
+      "sha256": "910bb57970b898f8ea6a25df71199090715e38b208f327f83ac899ba7c3adb5f",
+      "license": "Reference only; no code/diagram reuse grant assumed",
+      "notes": "Modern positive-ground trimmer/Miller variant inspected, kept distinct. No schematic copied."
+    },
+    {
+      "url": "https://www.taydakits.com/instructions/fuzz-face/pages/designators-and-components--26",
+      "revision": "9c06290067acbbf74dc379c3046ef1d2437713b3",
+      "revision_kind": "content-sha1, not a Git commit",
+      "sha256": "55d952b50334f6ef832a5756debd7af500d36a600d98106d2dc15a1014b5e4f5",
+      "license": "Reference only; no reuse grant assumed",
+      "notes": "Polarity/low-input-loading/Ge versus silicon notes and modern22u/trimmer variant. Not used as a measured transistor model."
+    },
+    {
+      "url": "https://github.com/RT-WDF/rt-wdf_lib",
+      "revision": "4d250f1fc1ad4adaf09d82ce353443174ce2ddd7",
+      "license": "GPL-2.0-or-later OR AGPL-3.0",
+      "files": [
+        "Libs/rt-wdf/rt-wdf_nlModels.cpp",
+        "README.md"
+      ],
+      "notes": "Audit-only source-header license, no rootLICENSE. Native NPN Ebers-Moll and Armadillo/framework evaluated; no adaptation. Renderer330645ffdc0f10909cc98b257d951f3da59e4ed9 has no FuzzFace circuit."
+    },
+    {
+      "url": "https://repository.gatech.edu/server/api/core/bitstreams/51260c5f-4066-4229-8a92-ab83c7e615a3/content",
+      "revision": "1e21d981ff11eaf852b2ac615f7f321baf00fbc8",
+      "revision_kind": "content-sha1, not a Git commit",
+      "sha256": "c48bc5706fba7721a4ff33da3a9a00bf3c5657f243b872e7cbb1b3ae2ab009e7",
+      "license": "Thesis reference only; no source import license assumed",
+      "notes": "Official GeorgiaTech2006 thesis located after issue URL failed. Measurement sections3.2/Table3.2-3.5 and simplified model/capacitor assumptions/conclusions inspected. No MATLAB/LUT/audio copied; its input-cutoff simplification ignores essential transistor loading and is not adopted."
+    }
+  ],
+  "decision_record": "parable-starter/docs/adr/ADR-005-germanium-fuzz.md",
+  "offline_reference": {
+    "simulator": "ngspice 44.2 (Debian 44.2+ds-1)",
+    "url": "https://deb.debian.org/debian/pool/main/n/ngspice/ngspice_44.2+ds-1_amd64.deb",
+    "sha256": "4d76721dd91416055b1088cfc58626d4db47b91afda7c73258c0968ba6e4d24e",
+    "use": "external offline tool, not linked/redistributed in DSP; package copyright records BSD/component exceptions"
+  },
+  "internal_reuse": {
+    "base_commit": "d628ffc3e0beeca40ca06506c4e1344781be4667",
+    "paths": [
+      "tools/lab_wav.h",
+      "tools/soundforge/analysis.h",
+      "tools/soundforge/excitation.h",
+      "tools/soundforge/validate_registry.py",
+      "tools/rat_spice_reference.py:run_spice"
+    ],
+    "notes": "Facilities unchanged; existing FIR technique and small projection/CSV/path-guard idioms deliberately repeated without modifying prior model kernels."
+  }
+}

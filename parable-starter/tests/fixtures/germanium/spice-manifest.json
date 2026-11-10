@@ -1,0 +1,32 @@
+{
+  "simulator": "******\n** ngspice-44.2 : Circuit level simulation program\n** Compiled with KLU Direct Linear Solver\n** The U. C. Berkeley CAD Group\n** Copyright 1985-1994, Regents of the University of California.\n** Copyright 2001-2024, The ngspice team.\n** Please get your ngspice manual from https://ngspice.sourceforge.io/docs.html\n** Please file your bug-reports at http://ngspice.sourceforge.net/bugrep.html\n** Creation Date: Sun Jan 12 08:19:15 UTC 2025\n******",
+  "scope": "Independent solver of explicit ADR005 equations/network; not physical pedal measurements",
+  "thermal_volts": 0.0255,
+  "wrapper_temperature_c": 26.85,
+  "maximum_transient_step_seconds": 2.5e-07,
+  "startup_sha256": "400783084f0c6109fd57b07b3c1c7bab371ab1b194162b0a6c836f08f63a7cc0",
+  "netlists_sha256": {
+    "bias-feedback_wrong.cir": "aa160bb2f141b89a488f43e28f24643525539071cfba93955f6b516322cf0f51",
+    "bias-healthy_high.cir": "e5043f068cdf0baa9abc9d71f4ea688647bc766b21972df48b58d82b9f4aa320",
+    "bias-healthy_low.cir": "779c07368beab47f4dae4baad4f60189e7cf4597bc172d87c27b23dd5f251bc7",
+    "bias-healthy_mid.cir": "bb1d9cb375412084cfeab66e5f7a2dafa2ed4ea302efc978707e0ea766da9a2e",
+    "bias-q1_leaky.cir": "3e76cb8a484bb954d477afba8650364e52fb5801314ef726e6812af4b5b0043e",
+    "bias-source_high.cir": "3b60df059e688fc7c502c4cf9d53c385364a37f972819e46dcc9540fab06c24d",
+    "bias-weak_input.cir": "e7953f2e6fb77f4cdb6ba24de37055986a01315ee1e7972df2cb80b642ca4a4b",
+    "device-leaky.cir": "ad2bd507b98cad9048c3b01480a244d7572c3df2e774438c9d6997d413e00fad",
+    "device-low_gain.cir": "76f7c69c839e7b9b782740daf07ff4b07efdeced95498d6da43ad6732bf7dbe1",
+    "device-nominal.cir": "793c2c22908630dcb60156d6e415924e2938e0df69bf214f25452c81dd381ed5",
+    "transient-feedback_wrong.cir": "13fea877c8c0440cc1939141458db77f27ff8499911b6d702b2381f02f368dd0",
+    "transient-healthy_high.cir": "02214bd4a46a91b472764ae29270784647240825a8dc3f91017f21fcd0cd861e",
+    "transient-healthy_low.cir": "d0e36902b2fdfcf25aa18fdc8a12c8d3b2f2920b4ade168a5e826135a95a6879",
+    "transient-healthy_mid.cir": "5f3f72d4594d5d849747b562451c5366f41373c26cdd8bbddf4abcc2c9e41c5c",
+    "transient-q1_leaky.cir": "2a4ba55ab1cbb107c9ea4bb42276640acc101d470da5c6246423eccfe22ac6e3",
+    "transient-source_high.cir": "dc76170b3ae517ec0605c17d8a12fb81c8ebdf2f8e98ebb63b5913354a1c06ef",
+    "transient-weak_input.cir": "580044d9a3708dcf1148d651bda07efecee396e1af6adec4886710379b4256f8"
+  },
+  "fixtures_sha256": {
+    "bias.csv": "773f44ec5d4a05585c79f62f89d9a382281eb207c980801a2b819b48e0d46e3f",
+    "device-current.csv": "17a50eb71d160a248219973c88caade4279bed099d49ed309eb4cf267811ca38",
+    "transient.csv": "72b15707db6b784eb00f1d4b98dcdeee2ef9335be7550b389c7ab5aacdaafe7e"
+  }
+}

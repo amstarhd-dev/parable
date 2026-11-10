@@ -1,0 +1,22 @@
+Independent measured PNP current reference
+Vcollector c 0 -2
+Vbase b 0 0
+Xtest c b 0 measured beta=100 leak=7.5460000000000003e-06
+
+.subckt measured c b e params: beta=229.6 leak=7.546u
+Bbe e b I={20.66u/beta*(exp(v(e,b)/(1.133*0.0255))-1)+2.190u*(exp(v(e,b)/(1.796*0.0255))-1)}
+Bbc c b I={20.66u/14.66*(exp(v(c,b)/(1.140*0.0255))-1)+leak*(exp(v(c,b)/(1.364*0.0255))-1)}
+Btransport e c I={2*(1-v(e,b)/88.28-v(c,b)/19.68)/(1+sqrt(1+4*(20.66u*(exp(v(e,b)/(1.133*0.0255))-1)/0.463+20.66u*(exp(v(c,b)/(1.140*0.0255))-1)/0.2415)))*(20.66u*(exp(v(e,b)/(1.133*0.0255))-1)-20.66u*(exp(v(c,b)/(1.140*0.0255))-1))}
+.ends
+
+.options reltol=1e-8 abstol=1e-13 vntol=1e-10 gmin=1e-14
+.temp 26.85
+.control
+set noaskquit
+set wr_singlescale
+set wr_vecnames
+dc Vbase 0.1 -0.3 -0.01
+wrdata device-low_gain.txt v(b) i(Vbase) i(Vcollector)
+quit
+.endc
+.end

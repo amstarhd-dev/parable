@@ -449,6 +449,155 @@
           "paths": []
         }
       }
+    },
+    {
+      "id": "germanium-fuzz",
+      "type": "model",
+      "paths": [
+        "parable-starter/include/parable_germanium.h",
+        "parable-starter/src/parable_germanium.cpp",
+        "parable-starter/src/germanium_device.h",
+        "parable-starter/tools/germanium_lab.cpp",
+        "parable-starter/tools/germanium_measure.h",
+        "parable-starter/tests/test_germanium.cpp",
+        "parable-starter/tests/test_germanium_cli.py",
+        "parable-starter/docs/adr/ADR-005-germanium-fuzz.md"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/germanium/provenance.json",
+          "candidate": 0,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/germanium/ACME-LICENSE.md",
+            "parable-starter/third_party/germanium/ATTRIBUTION.md"
+          ],
+          "scope": "Narrow MIT internal GP/model-parameter adaptation"
+        },
+        {
+          "provenance_path": "parable-starter/third_party/germanium/provenance.json",
+          "candidate": 1,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/germanium/WHITEHEAD-LICENSE.md",
+            "parable-starter/third_party/germanium/ATTRIBUTION.md"
+          ],
+          "scope": "Narrow MIT internal GP/model-parameter adaptation"
+        },
+        {
+          "provenance_path": "parable-starter/third_party/germanium/provenance.json",
+          "candidate": 2,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Reference/evaluation only; no code, illustrations or recordings imported. See ADR005."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/germanium/provenance.json",
+          "candidate": 3,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Reference/evaluation only; no code, illustrations or recordings imported. See ADR005."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/germanium/provenance.json",
+          "candidate": 4,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Reference/evaluation only; no code, illustrations or recordings imported. See ADR005."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/germanium/provenance.json",
+          "candidate": 5,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Reference/evaluation only; no code, illustrations or recordings imported. See ADR005."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/germanium/provenance.json",
+          "candidate": 6,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Reference/evaluation only; no code, illustrations or recordings imported. See ADR005."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/germanium/provenance.json",
+          "candidate": 7,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Reference/evaluation only; no code, illustrations or recordings imported. See ADR005."
+        }
+      ],
+      "ownership_notes": "Parable-local fixed4node solve/lab plus MIT ACME current/Jacobian and MIT Whitehead measured-parameter transcription adaptation. Global project license unspecified; GPL/AGPL and schematic/audio assets not imported.",
+      "physics_notes": "Positive-ground PNP two-transistor classic nominal network; both stages use the same published measured AC128 sample, not a matched pair or all AC128/NKT275. GP leakage/gain/reverse/Early/high-injection, constant100pF BC caps, direct interstage bias and feedback, explicit sourceR. No imposed4.5V offset.",
+      "behavior": "Healthy Fuzz/Volume, Q1 BC leakage7.546u->75.46u variation and feedback100k->10k wrong part. 4x with stopped preparation, bounded24Newton updates, explicit failure counters. Raw-relative plus RMS-matched WAVs.",
+      "limitations": [
+        "Untrimmed nominal fitted sample gives Q2collector-7.55V and about1.05kOhm input impedance at1kHz, differing from common4.5V/5..8k targets. Independent equation/solver validation is not physical-pedal calibration.",
+        "Finite-range measured fit: no terminal series resistance, nonlinear junction charge/storage, breakdown/noise, temperature evolution, battery impedance or full pickup/cable model.1x8.8kHz .05V diagnostic can leave guardedjunctiondomain; rejected, not used as alias evidence or listening material.",
+        "No real guitar, founder musical approval, physical device/hardware CPU/latency or patch integration. Native compilation is not firmware execution."
+      ],
+      "dependencies": {
+        "assets": [
+          "host.pcm16",
+          "host.signal-analysis",
+          "host.synthetic-plucks"
+        ],
+        "external": [
+          "C++17 standard math; internal GP uses expm1/sqrt. Julia/RT-WDF/framework not linked.",
+          "Existing pinned offline ngspice44.2 and unchanged simulator wrapper.",
+          "Existing pinned ARM recipe/toolchain/libDaisy; no firmware activation."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Configuration/state/parameter/source-loading/Fuzz/safety/derivatives and scientific checks, with explicit counters and rejected coarse diagnostic.",
+          "paths": [
+            "parable-starter/tests/test_germanium.cpp",
+            "parable-starter/tests/test_germanium_cli.py",
+            "parable-starter/tools/germanium_measure.h"
+          ]
+        },
+        "independent_circuit": {
+          "status": "reduced-section-compared",
+          "scope": "123 device points,7bias cases,1344transient rows of literal physical-signGP/passive stamps.192k native grid vs<=.25us reference,96k error convergence measured. Not physical-unit calibration.",
+          "paths": [
+            "parable-starter/tools/germanium_spice_reference.py",
+            "parable-starter/tests/fixtures/germanium/device-current.csv",
+            "parable-starter/tests/fixtures/germanium/bias.csv",
+            "parable-starter/tests/fixtures/germanium/transient.csv",
+            "parable-starter/tests/fixtures/germanium/spice-manifest.json"
+          ]
+        },
+        "synthetic_audition": {
+          "status": "generated",
+          "scope": "20same-kernel synthetic9s PCM16 WAVs:10matched+10common-gainrelative, raw/final levels/bias/config/gains, no fallback/clipping. No founder audition claim.",
+          "paths": [
+            "parable-starter/tools/germanium_lab.cpp"
+          ]
+        },
+        "real_guitar_audition": {
+          "status": "not-performed",
+          "scope": "No recorded guitar supplied or founder listening approval.",
+          "paths": []
+        },
+        "arm_cross_compile": {
+          "status": "compiled",
+          "scope": "Pinned CortexM7 object7108/0/0 text/data/BSS,ARM instance2480bytes. Unresolvedexpm1/sqrt; standalone,notlinked/executed. No targetCPU measurement.",
+          "paths": [
+            "parable-starter/firmware/build.py"
+          ]
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No physical device, flashing, boot, audio/latency/noise/power/timing/stack measurement.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "Standalone laboratory specimen; Engine/patch/astrology untouched.",
+          "paths": []
+        }
+      }
     }
   ]
 }

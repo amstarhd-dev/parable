@@ -9,6 +9,13 @@ integration or founder musical approval. Run `parable_cmos_lab --output DIR`
 from the host build for synthetic listening WAVs; optional `--input` accepts
 owned mono PCM16 through the existing reader. CI publishes the audition artifact.
 
+SF-003 adds one positive-ground two-transistor germanium specimen with source
+loading, leakage and physical feedback: [research/tests/limits](docs/GERMANIUM_REPORT.md)
+and [measured reuse](docs/SOUNDFORGE_SF003_WORK_LOG.md). Run
+`parable_germanium_lab --output DIR` for both RMS-matched and raw-relative synthetic
+WAVs; optional owned mono PCM16 input uses the existing reader. Musical/physical
+approval and patch integration remain separate gates.
+
 ## Purpose
 - A versioned, validated patch snapshot (`schema=2` for this native proof; **not** yet the final JSON/Wire format).
 - Four independent in-memory performance slots.
