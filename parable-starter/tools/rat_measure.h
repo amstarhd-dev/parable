@@ -5,14 +5,17 @@
 #include <complex>
 #include <sstream>
 #include <iostream>
+#include <stdexcept>
 namespace ratlab {
 constexpr double pi=3.14159265358979323846;
 using namespace parable::dsp;
 inline RatCircuit variation(const std::string& name) {
     RatCircuit c;
+    if(name=="healthy")return c;
     if(name=="diode_open")c.positiveDiodeConnected=false;
     else if(name=="ruetz")c.trebleLegConnected=false;
     else if(name=="compensation")c.feedbackCompFarads=1e-7;
+    else throw std::invalid_argument("Unknown RAT variation: "+name);
     return c;
 }
 inline std::vector<std::string> fields(std::string row) {
@@ -47,7 +50,7 @@ inline ReferenceErrors spiceReferences() {
     std::getline(trans,row);std::string current;rat_detail::ClipStage stage;int sample=0;double sum=0;unsigned points=0;
     while(std::getline(trans,row)){
         const auto r=fields(row);lab::require(r.size()==6,"Bad transient reference row");
-        if(r[0]!=current){current=r[0];sample=0;const float filter=current=="filter_dark"?1.f:.5f;stage.prepare(192000,{.5f,filter,.7f},variation(current));}
+        if(r[0]!=current){current=r[0];sample=0;const float filter=current=="filter_dark"?1.f:.5f;stage.prepare(192000,{.5f,filter,.7f},variation(current=="filter_dark"?"healthy":current));}
         const int target=std::stoi(r[1]);double jack=0;
         for(;sample<=target;++sample)jack=stage.process(3*std::sin(2*pi*997*sample/192000));
         const double expected[]={std::stod(r[3]),std::stod(r[4]),std::stod(r[5])};

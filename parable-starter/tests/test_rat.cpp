@@ -11,6 +11,20 @@ void* operator new(std::size_t n){if(watching)++allocations;if(void* p=std::mall
 void operator delete(void* p) noexcept{std::free(p);}
 void operator delete(void* p,std::size_t) noexcept{std::free(p);}
 static void bounded(float v){CHECK(std::isfinite(v));CHECK(std::abs(v)<=1);}
+static void variationNames(){
+    for(const auto* name:{"healthy","diode_open","ruetz","compensation"}){
+        const auto c=ratlab::variation(name);
+        CHECK(c.positiveDiodeConnected==(std::string(name)!="diode_open"));
+        CHECK(c.negativeDiodeConnected);
+        CHECK(c.trebleLegConnected==(std::string(name)!="ruetz"));
+        CHECK(c.feedbackCompFarads==(std::string(name)=="compensation"?1e-7:RatCircuit{}.feedbackCompFarads));
+    }
+    for(const auto* name:{"","diode_opne","unknown","filter_dark"}){
+        bool rejected=false;
+        try{(void)ratlab::variation(name);}catch(const std::invalid_argument&){rejected=true;}
+        CHECK(rejected);
+    }
+}
 static void controlsAndState(){
     Rat a,b;CHECK(a.configure(48000));CHECK(b.configure(48000));
     CHECK(a.process(.1f)==b.process(.1f));
@@ -77,6 +91,6 @@ static void stoppedFaultTransitions(){
             CHECK(reused.process(x)==fresh.process(x));}
     }
 }
-int main(){controlsAndState();blocks();stress();slewBound();stoppedFaultTransitions();const auto e=ratlab::spiceReferences();
+int main(){variationNames();controlsAndState();blocks();stress();slewBound();stoppedFaultTransitions();const auto e=ratlab::spiceReferences();
     std::cout<<"RAT checks "<<testChecks<<", allocation count "<<allocations<<", SPICE errors gain dB "<<e.maxGainDb
         <<" phase deg "<<e.maxPhaseDegrees<<" transient RMS/peak V "<<e.transientRms<<'/'<<e.transientPeak<<'\n';}
