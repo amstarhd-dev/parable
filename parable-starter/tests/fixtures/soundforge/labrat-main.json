@@ -1,0 +1,35 @@
+{
+  "baseline_commit": "2ad06c55aa7ee2b78323201bbf158d535d9a76cb",
+  "compiler": "c++ (Debian 14.2.0-19) 14.2.0",
+  "config": "Default CLI: synthetic 9s mono PCM16 at 48000Hz, 11 cases; controls in renders.csv, model assumptions in ADR-003. Linux x86_64 GCC exact-output regression, not a cross-platform bit-identity claim.",
+  "outputs_sha256": {
+    "00_dry.wav": "bd5a995c3132b439680a27378ea30dcb12c3cb887232cd4859b69283fca060af",
+    "01_healthy_low.wav": "fcfb27b0fcc13e21f4a8b2a78658169b7965336f9a9a48dea68ce1f91d8698ea",
+    "02_healthy_medium.wav": "6323c78d77ce1e9a88a8c55584be636a539b345ccf02d0d1785b470a858b24a8",
+    "03_healthy_high.wav": "c18edc0f08a2d8e670a0961b4f8e71de1a4f716ace188b77eab4cc28693b51b7",
+    "04_filter_bright.wav": "1f00daeea5b817324805207d1eefae777723f563404303f428c8734252ff6f67",
+    "05_filter_dark.wav": "34c0341b3d3d5cae6f3b685ac974bf3ec46ef722010d2c80dfc44663efe080a6",
+    "06_weak_input.wav": "4e89fb43c3951e9bcc5b90a97cc08f43fde4499a32e4edf3f84a53b768fde7ad",
+    "07_strong_input.wav": "250143e193e0603c23eb0722a82d6550ac8d1df1bb273ddb12a0228d02c6b6bc",
+    "08_diode_open.wav": "995a805f8b3889047a4207701537ee88454aa20d19ef14b5ff5502ed7570ff19",
+    "09_ruetz.wav": "88c688e9268b94628b950d460f30e8c40371d5077958bcb41b7f8458699c340c",
+    "10_compensation.wav": "4df3b8091d13de9c9ae74cbdaa25472860fe1b326ba6296477cd11cedcbffba0",
+    "LISTEN.txt": "0952479724e25abb00c66e5e253f7c054ffc963bf975fd2015d7f80798528832",
+    "diode-transfer.csv": "4ec00317cbe9e6ead6f2da4b9b3d6a5609bf216f643fa68564748317caf8ee2e",
+    "frequency-and-level.csv": "67158b8997ca08ac04a97e362fb5004224a024fa20ea1853cb4007ddef2eea78",
+    "measurements.json": "7df995f026bc1a12df42a1f0b6caac9444afccd9c1aa980861ff8ad58f987a3f",
+    "renders.csv": "7ec6cc5ef9a66cc29b28fb5346752029d9c0ee9727d7b805766d73291c13ffd4"
+  },
+  "protected_sha256": {
+    "include/parable_rat.h": "3959350952136fedd276b0590851e022ee32b1cb081bd26729ec4481dff87979",
+    "src/parable_rat.cpp": "7506e15675576d41ef1350ad08b893651556ed77b272b8b85e0030b0a26ece4b",
+    "src/rat_circuit_math.h": "753b159feba8f9db9c9d367c7e67fadae4a3aae9af752273c5f3a4e00abe89c1",
+    "tools/lab_wav.h": "3072142c8aca0eaa04fb13df30a478c189ade8cdabb50d0b8dd009d917b525bf",
+    "tools/rat_measure.h": "b762683c1dc0631e308e156057f7b64343df982ecc23eab6c5d9019d6cf958c8",
+    "tools/rat_spice_reference.py": "84e4928c302b7f8d097867ee77fbfabbbd52f7b57d080bbd8a7426fd68155063",
+    "tests/test_rat.cpp": "03b35972e2dd09affe26098264db40e8882b536f042533b5c18adc5bf8e45c53",
+    "tests/fixtures/rat/preamp-ac.csv": "b235b0b751b34a9b42b276cfc80aa02bdcbb0c6c7c5eca0dc2f3e0fecdd7f94d",
+    "tests/fixtures/rat/clip-transient.csv": "0d6a2f9f5d7c75ecb762b08950210333d2ac0aa14ae89c7d6bb7556b5ab56188",
+    "tests/fixtures/rat/spice-manifest.json": "2b4b3814a8e0aa86dda6e3f09c6918c3f7d8cc0d055a4a057a4678cec576a651"
+  }
+}

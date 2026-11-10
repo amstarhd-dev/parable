@@ -1,5 +1,18 @@
 # Implementation status and reproducible baseline
 
+## SF-001 — host Soundforge bootstrap
+
+Main after PR #13 is the measured starting point. Shared host-only statistics/dB/
+RMS matching and unchanged PCM16 I/O, a three-asset offline evidence/provenance
+registry, independent utility/negative registry tests, and a next-model recipe are
+implemented. Fresh Debug/Release suites pass **10/10**; all sixteen original LabRAT
+render/report files and protected DSP/reference hashes match the pre-edit baseline.
+The pinned ARM build passes with unchanged object/instance sizes and firmware
+binary bytes. No hardware, real-guitar or new musical acceptance is claimed.
+See [SOUNDFORGE_BASELINE.md](SOUNDFORGE_BASELINE.md) and
+[the host facility/recipe](../tools/soundforge/README.md). Productivity improvement
+requires the next distinct effect; no universal solver or runtime integration added.
+
 ## PAR-007 LabRAT — circuit-derived processor and fault laboratory
 
 Founder-supplied LabRAT brief supersedes the prior PAR-007 generic-drive integration

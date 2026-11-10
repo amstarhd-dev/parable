@@ -20,5 +20,5 @@ You are working on a real-time embedded guitar-effects product targeting Daisy S
 - Musical fidelity evidence, or explicit 'not auditioned'.
 - Risks, limitations and the next smallest test.
 
-## First assignment
-Read README and tests. Build the host C++ core, run tests, and report actual results before changing code. Then draft ADR-001 (patch schema / versioning / serialization / authoritative runtime snapshot) with exactly two options and tradeoffs; do not implement until architecture is approved. Identify a smallest independently testable follow-up change.
+## Task onboarding
+Read README, the current implementation status, relevant decision records and the assigned issue. Build and test the current branch before edits; report actual results. ADR-001 is already selected; follow the issue's scope rather than restarting the first assignment. For model/laboratory work, follow tools/soundforge/README.md (borrow, adapt, independently validate, then audition). Identify the next smallest independently testable change.

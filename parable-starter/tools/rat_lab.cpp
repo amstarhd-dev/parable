@@ -1,12 +1,12 @@
 #include "rat_measure.h"
+#include "soundforge/analysis.h"
 #include <iomanip>
 #include <array>
 using namespace parable::dsp;
 namespace {
 constexpr double pi=ratlab::pi;
-struct Stats {double rms=0,peak=0,mean=0;};
-Stats stats(const std::vector<float>& values){Stats s;for(float x:values){lab::require(std::isfinite(x),"Nonfinite sample");s.rms+=double(x)*x;s.peak=std::max(s.peak,std::abs(double(x)));s.mean+=x;}s.rms=std::sqrt(s.rms/values.size());s.mean/=values.size();return s;}
-double db(double x){return 20*std::log10(std::max(x,1e-15));}
+using soundforge::stats;
+using soundforge::db;
 lab::Wave synthetic() {
     lab::Wave w; w.samples.resize(w.rate*9);
     const double strings[] = {82.4069,110,146.8324,195.9977,246.9417,329.6276};
@@ -104,12 +104,12 @@ void auditions(const std::filesystem::path& output,const std::filesystem::path& 
         Rat rat;lab::require(rat.configure(float(wave.rate),controls[i],ratlab::variation(variation)),"Audition configuration rejected");
         signals[i].resize(wave.samples.size());const float inputGain=i==6?.1f:i==7?2.f:1.f;
         for(std::size_t sample=0;sample<wave.samples.size();++sample)signals[i][sample]=rat.process(wave.samples[sample]*inputGain);}
-    double target=std::pow(10.,-22./20);for(const auto& s:signals){const auto m=stats(s);if(m.peak>0)target=std::min(target,.89*m.rms/m.peak);}
+    const double target=soundforge::rmsTarget(signals,std::pow(10.,-22./20),.89);
     std::filesystem::create_directories(output);std::ofstream manifest(output/"renders.csv");lab::require(bool(manifest),"Cannot write render manifest");manifest<<std::setprecision(10);
     manifest<<"# "<<kind<<"\n# rate="<<wave.rate<<", frames="<<wave.samples.size()<<"; 4x circuit; nominal FIR delay 48 base samples plus circuit delay\n";
     manifest<<"file,distortion,filter,volume,input_gain,positive_diode_connected,treble_leg_connected,feedback_comp_farads,raw_rms_dbfs,post_gain,rms_dbfs,peak_dbfs,mean\n";
     for(unsigned i=0;i<signals.size();++i){const auto c=ratlab::variation(i==8?"diode_open":i==9?"ruetz":i==10?"compensation":"healthy");
-        const auto raw=stats(signals[i]);const double gain=raw.rms>0?target/raw.rms:1;
+        const auto raw=stats(signals[i]);const double gain=soundforge::rmsGain(raw,target);
         for(auto& v:signals[i])v=static_cast<float>(v*gain);
         const auto final=stats(signals[i]);
         lab::require(final.peak<=.890001,"WAV headroom exceeded");lab::write(output/(names[i]+".wav"),{wave.rate,signals[i]});

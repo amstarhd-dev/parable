@@ -57,3 +57,13 @@ target_link_libraries(parable_rat_lab PRIVATE parable_rat)
 target_compile_options(parable_rat_lab PRIVATE -Wall -Wextra -Wpedantic)
 target_compile_definitions(parable_rat_lab PRIVATE RAT_FIXTURES="${CMAKE_CURRENT_SOURCE_DIR}/tests/fixtures/rat")
 add_test(NAME rat_lab_measurements COMMAND parable_rat_lab --self-test)
+
+# Soundforge remains a host-only lab: the generic target has no RAT link/include.
+find_package(Python3 3.9 REQUIRED COMPONENTS Interpreter)
+add_executable(parable_soundforge_test tests/test_soundforge.cpp)
+target_include_directories(parable_soundforge_test PRIVATE tools)
+target_compile_options(parable_soundforge_test PRIVATE -Wall -Wextra -Wpedantic)
+add_test(NAME soundforge_utilities COMMAND parable_soundforge_test)
+add_test(NAME soundforge_registry COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/soundforge/validate_registry.py)
+add_test(NAME soundforge_registry_negative COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_soundforge_registry.py)
+add_test(NAME labrat_output_preservation COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/soundforge/check_labrat.py --executable $<TARGET_FILE:parable_rat_lab>)
