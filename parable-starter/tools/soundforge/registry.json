@@ -1,0 +1,250 @@
+{
+  "format": "parable.soundforge",
+  "version": 1,
+  "project_license": {
+    "status": "unspecified",
+    "notes": "Repository has no global LICENSE. Referenced upstream notices cover borrowed portions only; do not infer ownership or distribution permission for all of Parable."
+  },
+  "assets": [
+    {
+      "id": "labrat",
+      "type": "model",
+      "paths": [
+        "parable-starter/include/parable_rat.h",
+        "parable-starter/src/parable_rat.cpp",
+        "parable-starter/src/rat_circuit_math.h",
+        "parable-starter/tools/rat_lab.cpp",
+        "parable-starter/tools/rat_measure.h",
+        "parable-starter/tests/test_rat.cpp",
+        "parable-starter/docs/LABRAT_SOURCE_AUDIT.md",
+        "parable-starter/docs/adr/ADR-003-labrat-circuit-model.md"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/labrat/provenance.json",
+          "candidate": 0,
+          "relationship": "used",
+          "notice_paths": [
+            "parable-starter/third_party/labrat/PiRAT-LICENSE.txt"
+          ],
+          "scope": "Narrow feedback analog polynomial and pot law port. Other UI/transfer/spline code audited; not wholesale imported."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/labrat/provenance.json",
+          "candidate": 1,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/labrat/Rodent-LICENSE.txt"
+          ],
+          "scope": "MIT origin of feedback polynomial/pot law via PiRAT; no .NET/VST host or schematic image imported."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/labrat/provenance.json",
+          "candidate": 2,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "BYOD WDF alternative and component cross-check; no GPL code or graphics imported."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/labrat/provenance.json",
+          "candidate": 3,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "AudioLib transitive-license gap; no code imported. Bilinear substitution independently implemented."
+        }
+      ],
+      "ownership_notes": "Parable-local adaptations/derivations with BSD/MIT notices. Global Parable license unspecified. Circuit names identify references; no upstream graphics/assets imported. Existing provenance also pins offline ngspice and PR #11 neutral lab reuse; generic PAR-006 DSP absent.",
+      "physics_notes": "Nominal classic LM308/silicon RAT 100k variant reconstruction, not authenticated factory year/BOM. Finite-A followed by approximate rail/slew; idealized JFET buffer. Three component-causal prepared modes; no universal solver.",
+      "behavior": "Stopped preparation; bounded fixed-capacity native kernel and 4x oversampling. Healthy, diode open, Ruetz and feedback-compensation wrong-part experiment.",
+      "limitations": [
+        "Full LM308 saturated-feedback recovery and JFET headroom unverified, materially important under diode-open excursions.",
+        "Exact 1N914 calibration and historical circuit revision unverified; primary ElectroSmash access blocked in PAR-007.",
+        "Supply/bias/external 30pF fault fidelity unsupported. Auditions synthetic, not founder-approved or pedal-grade."
+      ],
+      "dependencies": {
+        "assets": [
+          "host.pcm16",
+          "host.signal-analysis"
+        ],
+        "external": [
+          "C++17 standard math for DSP; host utilities only in audition runner.",
+          "ngspice 44.2 only for offline fixture regeneration; exact package pin in linked provenance.",
+          "Pinned xPack/libDaisy only for ARM build; pins/notices in firmware dependencies and ARM dependency report."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Host checks only; independent generic signals for primitives, circuit/safety gates for LabRAT.",
+          "paths": [
+            "parable-starter/tests/test_rat.cpp",
+            "parable-starter/tools/rat_measure.h",
+            "parable-starter/docs/LABRAT_REPORT.md"
+          ]
+        },
+        "independent_circuit": {
+          "status": "reduced-section-compared",
+          "scope": "333 finite-A preamp AC points, 576 passive clipping/Filter transient points from ngspice 44.2. Same reduced assumptions, not full-chip or physical-pedal validation.",
+          "paths": [
+            "parable-starter/tools/rat_spice_reference.py",
+            "parable-starter/tests/fixtures/rat/preamp-ac.csv",
+            "parable-starter/tests/fixtures/rat/clip-transient.csv",
+            "parable-starter/tests/fixtures/rat/spice-manifest.json",
+            "parable-starter/docs/LABRAT_REPORT.md"
+          ]
+        },
+        "synthetic_audition": {
+          "status": "generated",
+          "scope": "11 synthetic 9-second PCM16 pluck/strum files; RMS matched, not LUFS matched. Founder musical approval pending. Settings/gains in renders.csv; no WAV binaries committed.",
+          "paths": [
+            "parable-starter/tools/rat_lab.cpp",
+            "parable-starter/docs/LABRAT_REPORT.md",
+            "parable-starter/tests/fixtures/soundforge/labrat-main.json"
+          ]
+        },
+        "real_guitar_audition": {
+          "status": "not-performed",
+          "scope": "No real guitar recording or founder real-guitar listening acceptance.",
+          "paths": []
+        },
+        "arm_cross_compile": {
+          "status": "compiled",
+          "scope": "Pinned Cortex-M7 object, not linked into or activated in audio firmware; 6452/0/0 object bytes, 10752-byte instance; CPU not measured.",
+          "paths": [
+            "parable-starter/firmware/build.py",
+            "parable-starter/firmware/dependencies.json",
+            "parable-starter/docs/LABRAT_REPORT.md"
+          ]
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No flashing, boot, callback, noise, latency, power or runtime CPU/stack measurements.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "Outside closed patch v1 and Engine/preparation registry; no storage or live activation.",
+          "paths": []
+        }
+      }
+    },
+    {
+      "id": "host.pcm16",
+      "type": "primitive",
+      "paths": [
+        "parable-starter/tools/lab_wav.h"
+      ],
+      "sources": [],
+      "ownership_notes": "Extracted/reused Parable host code from main 2ad06c55aa7ee2b78323201bbf158d535d9a76cb after PR #13. Global license unspecified; no new external code imported.",
+      "physics_notes": "Signal arithmetic/file I/O only, not circuit physics.",
+      "behavior": "Existing bounded mono PCM16 read/write/parser, retained unchanged.",
+      "limitations": [
+        "No stereo, float/24-bit/extensible WAV, resampling or provenance/recording-rights verification; max 30 seconds and 6 MiB input."
+      ],
+      "dependencies": {
+        "assets": [],
+        "external": [
+          "C++17 standard library; host-only."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Host checks only; independent generic signals for primitives, circuit/safety gates for LabRAT.",
+          "paths": [
+            "parable-starter/tests/test_soundforge.cpp"
+          ]
+        },
+        "independent_circuit": {
+          "status": "not-applicable",
+          "scope": "Signal utility, not a circuit model.",
+          "paths": []
+        },
+        "synthetic_audition": {
+          "status": "not-applicable",
+          "scope": "Utility, no independent sonic identity.",
+          "paths": []
+        },
+        "real_guitar_audition": {
+          "status": "not-applicable",
+          "scope": "Utility; no real-guitar acceptance is claimed.",
+          "paths": []
+        },
+        "arm_cross_compile": {
+          "status": "not-applicable",
+          "scope": "Host-only utility, not linked into firmware.",
+          "paths": []
+        },
+        "physical_daisy": {
+          "status": "not-applicable",
+          "scope": "Host-only utility; no physical run claimed.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-applicable",
+          "scope": "Host laboratory only.",
+          "paths": []
+        }
+      }
+    },
+    {
+      "id": "host.signal-analysis",
+      "type": "primitive",
+      "paths": [
+        "parable-starter/tools/soundforge/analysis.h"
+      ],
+      "sources": [],
+      "ownership_notes": "Extracted/reused Parable host code from main 2ad06c55aa7ee2b78323201bbf158d535d9a76cb after PR #13. Global license unspecified; no new external code imported.",
+      "physics_notes": "Signal arithmetic/file I/O only, not circuit physics.",
+      "behavior": "Whole-wave RMS/peak/mean, finite checks, amplitude dB and explicit shared RMS-target/gain calculation.",
+      "limitations": [
+        "Not perceptual loudness, LUFS, limiting, alignment or real-time processing. Caller records raw statistics and applies explicit gains; stats reject empty/nonfinite signals."
+      ],
+      "dependencies": {
+        "assets": [],
+        "external": [
+          "C++17 standard library; host-only."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Host checks only; independent generic signals for primitives, circuit/safety gates for LabRAT.",
+          "paths": [
+            "parable-starter/tests/test_soundforge.cpp"
+          ]
+        },
+        "independent_circuit": {
+          "status": "not-applicable",
+          "scope": "Signal utility, not a circuit model.",
+          "paths": []
+        },
+        "synthetic_audition": {
+          "status": "not-applicable",
+          "scope": "Utility, no independent sonic identity.",
+          "paths": []
+        },
+        "real_guitar_audition": {
+          "status": "not-applicable",
+          "scope": "Utility; no real-guitar acceptance is claimed.",
+          "paths": []
+        },
+        "arm_cross_compile": {
+          "status": "not-applicable",
+          "scope": "Host-only utility, not linked into firmware.",
+          "paths": []
+        },
+        "physical_daisy": {
+          "status": "not-applicable",
+          "scope": "Host-only utility; no physical run claimed.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-applicable",
+          "scope": "Host laboratory only.",
+          "paths": []
+        }
+      }
+    }
+  ]
+}

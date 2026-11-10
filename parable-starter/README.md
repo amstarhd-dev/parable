@@ -10,7 +10,7 @@ This is the first **portable C++ code brick**, not a finished Parable SDK and no
 - Atomic acceptance/rejection of individual edits to a stored patch.
 
 ## Host tests (run without Daisy hardware)
-From the repository root, with CMake >= 3.15 and a C++17 compiler:
+From the repository root, with CMake >= 3.15, a C++17 compiler and Python >= 3.9:
 ```bash
 cd parable-starter
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
@@ -112,6 +112,12 @@ Design rule: one patch language, many composers. Astro, manual workshop, future 
 For the first cloud task, see [`docs/CODEX_KICKOFF.md`](docs/CODEX_KICKOFF.md). This is an engineering baseline, **not** complete product firmware.
 
 ## LabRAT circuit and malfunction auditions (PAR-007)
+
+The host laboratory now uses [DSP Soundforge](tools/soundforge/README.md): shared
+signal analysis, the existing PCM16 I/O, and an offline evidence/provenance
+registry. See the [before/after baseline](docs/SOUNDFORGE_BASELINE.md) and next-model
+recipe. This infrastructure does not add an effect, solver or patch integration;
+LabRAT DSP and all sixteen original audition/report outputs are regression-checked.
 
 [Source audit](docs/LABRAT_SOURCE_AUDIT.md) -> [proposed ADR-003](docs/adr/ADR-003-labrat-circuit-model.md)
 -> [listening/measurement report](docs/LABRAT_REPORT.md). Eleven synthetic dry,
