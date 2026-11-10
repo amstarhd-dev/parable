@@ -125,6 +125,16 @@ agreement or PCM equality. ARM compiled is not ARM measured.
 
 All times below are ns/base sample. Speedup=libm time/candidate time; below1 is a regression. Per-trial/best/median/worst for every condition are committed in the O2/O3 JSON. Initial clean-main trials are retained separately; compare the paired reference to each candidate, not absolute timings taken at different VM times.
 
+Local O2/O3 records are the measured source snapshot before the final GCC13
+warning cleanup (c282cf7). CI reported a possible dangling reference through
+a temporary lambda, although its result referred to static table storage.
+Replacing that selector with an explicit static-table pointer removes the
+ambiguity. All five ARM objects and the local O2 benchmark binary remain
+byte-identical after the cleanup; the O3 binary changes. Retain those local O3
+records as historical observations, and use the **final-head CI O2/O3 artifacts**
+linked in the PR for measurements of the final compiler output. No unchanged-O3
+binary claim is made. Default libm and the scientific gates remain unchanged.
+
 | Evaluator | Fixed coefficient bytes | O2 device operating median ns | O2 healthy nominal full median ns | Full speedup | ARM text incl rodata | Mathematical result |
 | --- | ---: | ---: | ---: | ---: | ---: | --- |
 | libm | 0 | 45.25 | 3884.5 | 1.000x | 7108 | reference |

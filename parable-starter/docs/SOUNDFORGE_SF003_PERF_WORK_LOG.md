@@ -26,6 +26,11 @@ human labor or a productivity comparison. CI/PR work follows that checkpoint.
 7. Final Debug21/21, Release21/21, ASan/UBSan8/8; actual pinned ARM objects and
    disassembly. All54 original WAV/report files byte-identical; generate40
    candidate WAVs with existing lab code. Report limitations and no-go.
+8. CI on GCC13 exposed a static-table reference warning through a temporary
+   selector lambda. Use an explicit table pointer; preserve all arithmetic.
+   Re-run affected Debug/Release/sanitizer checks and CI. All5 ARM objects and
+   local O2 benchmark remain byte-identical; O3 output differs, so preserve
+   original O3 observations as historical and publish final-head CI measurements.
 
 Actual reuse: same153-line circuit engine, only include/two call identifiers
 change. Reuse unchanged118-line native lab renderer,135-line independent circuit

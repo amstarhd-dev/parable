@@ -27,7 +27,10 @@ template<unsigned Cells> struct HermiteReduced {
         if(a==0)return {a,1}; // preserve the sign of expm1(-0)
         const bool negative=std::signbit(a);
         unsigned i=static_cast<unsigned>(std::abs(a)*(1/h));if(i>=Cells)i=Cells-1;
-        const auto& c=[negative](unsigned index)->const tables::Cubic&{if constexpr(Cells==32)return negative?tables::hermite32negative[index]:tables::hermite32[index];else return negative?tables::hermite64negative[index]:tables::hermite64[index];}(i);
+        const tables::Cubic* cells;
+        if constexpr(Cells==32)cells=negative?tables::hermite32negative.data():tables::hermite32.data();
+        else cells=negative?tables::hermite64negative.data():tables::hermite64.data();
+        const auto& c=cells[i]; // explicit pointer into static readonly storage
         const double d=a-(negative?-double(i):double(i))*h;
         return {c.a0+d*(c.a1+d*(c.a2+d*c.a3)),c.a1+d*(2*c.a2+3*d*c.a3)};
     }
