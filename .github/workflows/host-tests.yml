@@ -74,11 +74,14 @@ jobs:
           git rev-parse HEAD > build/germanium-auditions/SOURCE_COMMIT
           printenv HEAD_COMMIT > build/germanium-auditions/HEAD_COMMIT
           c++ --version > build/germanium-auditions/HOST_COMPILER.txt
-          sha256sum src/parable_germanium.cpp src/germanium_device.h include/parable_germanium.h tools/germanium_lab.cpp tools/germanium_measure.h tools/germanium_spice_reference.py tools/rat_spice_reference.py tools/lab_wav.h tools/soundforge/analysis.h tools/soundforge/excitation.h tools/soundforge/registry.json third_party/germanium/* tests/fixtures/germanium/*.csv tests/fixtures/germanium/spice-manifest.json tests/fixtures/germanium/netlists/* > build/germanium-auditions/SOURCE_SHA256SUMS
+          sha256sum src/parable_germanium.cpp src/germanium_device.h src/germanium_device_select.h include/parable_germanium.h tools/germanium_lab.cpp tools/germanium_measure.h tools/germanium_spice_reference.py tools/rat_spice_reference.py tools/lab_wav.h tools/soundforge/analysis.h tools/soundforge/excitation.h tools/soundforge/registry.json third_party/germanium/* tests/fixtures/germanium/*.csv tests/fixtures/germanium/spice-manifest.json tests/fixtures/germanium/netlists/* > build/germanium-auditions/SOURCE_SHA256SUMS
           cp third_party/germanium/* tests/fixtures/germanium/spice-manifest.json build/germanium-auditions/
           cp -r tests/fixtures/germanium/netlists build/germanium-auditions/
           cp tools/soundforge/registry.json build/germanium-auditions/soundforge-registry.json
           (cd build/germanium-auditions && sha256sum ./*.wav) > build/germanium-auditions/SHA256SUMS
+      - name: Verify unchanged-main original audition and report bytes
+        if: matrix.build_type == 'Release'
+        run: python3 tools/germanium_perf/preservation.py --rat build/rat-auditions --cmos build/cmos-auditions --germanium build/germanium-auditions
       - name: Publish experimental germanium listening material
         if: matrix.build_type == 'Release'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2

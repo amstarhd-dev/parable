@@ -1,5 +1,5 @@
 #include "parable_germanium.h"
-#include "germanium_device.h"
+#include "germanium_device_select.h"
 #include <algorithm>
 #include <cmath>
 
@@ -73,8 +73,8 @@ bool Germanium::solve(Vector& x,const Vector& rhs,const Matrix& passive,unsigned
     for(loops=0;loops<=budget;++loops){
         Matrix j=passive;Vector f{};
         for(unsigned a=0;a<4;++a){f[a]=-rhs[a];for(unsigned b=0;b<4;++b)f[a]+=passive[a][b]*x[b];}
-        const auto q1=germanium_detail::device(x[0],x[0]-x[1],circuit_.q1);
-        const auto q2=germanium_detail::device(x[1]-x[2],x[1]-x[3],circuit_.q2);
+        const auto q1=germanium_detail::deviceSelected(x[0],x[0]-x[1],circuit_.q1);
+        const auto q2=germanium_detail::deviceSelected(x[1]-x[2],x[1]-x[3],circuit_.q2);
         if(!q1.valid||!q2.valid)return false;
         f[0]+=q1.base;f[1]+=q1.collector+q2.base;f[2]-=q2.collector+q2.base;f[3]+=q2.collector;
         j[0][0]+=q1.baseE+q1.baseC;j[0][1]-=q1.baseC;

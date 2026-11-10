@@ -1,0 +1,66 @@
+{
+  "simulator": "******\n** ngspice-44.2 : Circuit level simulation program\n** Compiled with KLU Direct Linear Solver\n** The U. C. Berkeley CAD Group\n** Copyright 1985-1994, Regents of the University of California.\n** Copyright 2001-2024, The ngspice team.\n** Please get your ngspice manual from https://ngspice.sourceforge.io/docs.html\n** Please file your bug-reports at http://ngspice.sourceforge.net/bugrep.html\n** Creation Date: Sun Jan 12 08:19:15 UTC 2025\n******",
+  "scope": "Independent ngspice solution of SAME reduced GP circuit, not physical calibration",
+  "maximum_step_seconds": 2.5e-07,
+  "original_equations": "tools/germanium_spice_reference.py",
+  "cases": [
+    {
+      "name": "healthy_lowrail",
+      "rail": 6,
+      "source": 100,
+      "fuzz": 1,
+      "level": 0.05,
+      "leak": 7.546e-06,
+      "feedback": 100000,
+      "beta1": 229.6,
+      "beta2": 229.6
+    },
+    {
+      "name": "leaky_highsource_lowrail",
+      "rail": 6,
+      "source": 100000,
+      "fuzz": 0.8,
+      "level": 0.05,
+      "leak": 7.546e-05,
+      "feedback": 100000,
+      "beta1": 229.6,
+      "beta2": 229.6
+    },
+    {
+      "name": "feedback_highsource",
+      "rail": 9,
+      "source": 100000,
+      "fuzz": 0.8,
+      "level": 0.05,
+      "leak": 7.546e-06,
+      "feedback": 10000,
+      "beta1": 229.6,
+      "beta2": 229.6
+    },
+    {
+      "name": "mixed_gain_lowrail",
+      "rail": 6,
+      "source": 1000,
+      "fuzz": 0.8,
+      "level": 0.005,
+      "leak": 0.0001,
+      "feedback": 100000,
+      "beta1": 40,
+      "beta2": 300
+    }
+  ],
+  "netlists_sha256": {
+    "bias-feedback_highsource.cir": "3141c1c62d17a053de17a2763c3ff9b60ea67191409ac6dc30350a9ea11e3174",
+    "bias-healthy_lowrail.cir": "29c283d75d31075166d5b856f374c825a49059e40a51684ed908e3bf186972bf",
+    "bias-leaky_highsource_lowrail.cir": "6347f9e0727d6ab68c21774a41dd0b8f3419bcb712d71b769ef3d61279cf3438",
+    "bias-mixed_gain_lowrail.cir": "af808077c0e321d2dcfaecba5ab7d8e11f1e9e1749f17476b0ad2335301c00de",
+    "transient-feedback_highsource.cir": "ee1b28bc5854ff14a0e104fae618dec725e296781cbdd219d409abf6735caa25",
+    "transient-healthy_lowrail.cir": "86f87a791756e73210a39c53d986e252f24376a26654f7abc417c05b1b9790a2",
+    "transient-leaky_highsource_lowrail.cir": "5047a54dc2f2372dba9e4d94c30b84ced2d0fdd9f4e38e9f1f2f2c8628b29424",
+    "transient-mixed_gain_lowrail.cir": "c1a0065c6c5b55989bc227f0c327d942fba728ec405672c966f8a5e787a70185"
+  },
+  "fixtures_sha256": {
+    "bias.csv": "fc5f3d75ee9bbaeb4ab9315b597750118c072900d9944a44eea88696b3d6bb36",
+    "transient.csv": "997fb5c7871123bcde95ba61a2447bfe95bfe175f2d5c8b85913cc5b69b7f3b3"
+  }
+}

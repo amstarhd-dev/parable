@@ -550,11 +550,13 @@
       "evidence": {
         "host_numerical": {
           "status": "passed",
-          "scope": "Configuration/state/parameter/source-loading/Fuzz/safety/derivatives and scientific checks, with explicit counters and rejected coarse diagnostic.",
+          "scope": "Configuration/state/parameter/source-loading/Fuzz/safety/derivatives and scientific checks, with explicit counters and rejected coarse diagnostic. SF003-PERF preserves libm default; private numerical candidates and the performance no-go are reported separately.",
           "paths": [
             "parable-starter/tests/test_germanium.cpp",
             "parable-starter/tests/test_germanium_cli.py",
-            "parable-starter/tools/germanium_measure.h"
+            "parable-starter/tools/germanium_measure.h",
+            "parable-starter/tools/germanium_perf/accuracy.cpp",
+            "parable-starter/docs/GERMANIUM_PERF_REPORT.md"
           ]
         },
         "independent_circuit": {

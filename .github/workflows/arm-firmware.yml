@@ -17,6 +17,8 @@ jobs:
           persist-credentials: false
       - name: Build pinned ARM firmware and produce resource evidence
         run: python3 parable-starter/firmware/build.py
+      - name: Compare experimental germanium ARM numerical objects
+        run: python3 parable-starter/tools/germanium_perf/arm.py --cache parable-starter/build/arm-cache --output parable-starter/build/arm/germanium-perf
       - name: Retain ARM binaries, maps, logs and notices
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2

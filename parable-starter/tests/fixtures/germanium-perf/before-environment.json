@@ -1,0 +1,21 @@
+{
+  "source_commit": "440a99221af7cc3f3b7123db327bb161306d4856",
+  "dirty": false,
+  "compiler": "c++ (Debian 14.2.0-19) 14.2.0",
+  "flags": "-std=c++17 -O3 -DNDEBUG -fno-fast-math -fno-finite-math-only; separate TUs; no LTO",
+  "cpu_affinity": [
+    0
+  ],
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+  "hardware_timing": "host VM only, not ARM",
+  "source_sha256": {
+    "parable-starter/src/parable_germanium.cpp": "b9521af43b566c5e91d0e64d0e098fa1a1f13deb19c3f4ba8b0befa610b452b0",
+    "parable-starter/src/germanium_device.h": "89ed1c3fc29d8135bf00ac133ac88b19e32f0f0802183de06add5fd1a84007f0",
+    "parable-starter/include/parable_germanium.h": "3ac41d2eb8eb8b0b66d5bf0e4cab6cfc0b5a47dec2d2f89359275fa0f73cd45b"
+  },
+  "harness_sha256": {
+    "perf_bridge.cpp": "cdaf4e539798fa0b524da871f621ab88fde3092a7bd03692b76707ef3a073895",
+    "germanium_bench.cpp": "70c066d375fd92a2a4f49ef38a774d2bcfe2bc3ff2b885f527d2d379b225e97a"
+  }
+}

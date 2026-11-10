@@ -1,0 +1,76 @@
+name: Germanium evaluator experiment
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  paired-host-benchmarks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        optimization: [O2, O3]
+    defaults:
+      run:
+        working-directory: parable-starter
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Build uninstrumented variants with identical flags
+        run: |
+          cmake -S . -B build/perf -DCMAKE_BUILD_TYPE=Release '-DCMAKE_CXX_FLAGS_RELEASE=-${{ matrix.optimization }} -DNDEBUG' -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+          cmake --build build/perf --target parable_germanium_bench parable_germanium_accuracy parable_germanium_corners parable_germanium_lab_h64 parable_germanium_lab_p12 -j2
+      - name: Measure real processBlock and device throughput
+        run: |
+          python3 tools/germanium_perf/run.py --build build/perf --output build/perf-evidence/timing --trials 7 --repeats 32
+          ./build/perf/tools/germanium_perf/parable_germanium_accuracy hermite64 polynomial12 > build/perf-evidence/accuracy.json
+          ./build/perf/tools/germanium_perf/parable_germanium_corners > build/perf-evidence/spice-corners.json
+      - name: Count actual operations separately from timing
+        run: |
+          cmake -S . -B build/count -DCMAKE_BUILD_TYPE=Release '-DCMAKE_CXX_FLAGS_RELEASE=-${{ matrix.optimization }} -DNDEBUG' -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DPARABLE_GERMANIUM_COUNT_BENCH=ON
+          cmake --build build/count --target parable_germanium_bench -j2
+          python3 tools/germanium_perf/run.py --build build/count --output build/perf-evidence/counts --trials 3 --repeats 1
+      - name: Retain candidate raw-relative and matched WAVs
+        if: matrix.optimization == 'O2'
+        run: |
+          ./build/perf/tools/germanium_perf/parable_germanium_lab_h64 --output build/perf-evidence/hermite64-auditions
+          ./build/perf/tools/germanium_perf/parable_germanium_lab_p12 --output build/perf-evidence/polynomial12-auditions
+          cp -r third_party/germanium build/perf-evidence/notices
+          cp -r tests/fixtures/germanium-perf/spice-corners build/perf-evidence/independent-corners
+      - name: Record identity
+        env:
+          HEAD_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          git rev-parse HEAD > build/perf-evidence/SOURCE_COMMIT
+          printenv HEAD_COMMIT > build/perf-evidence/HEAD_COMMIT
+          git ls-files -z src include tools/germanium* tests/fixtures/germanium tests/fixtures/germanium-perf/spice-corners third_party/germanium | xargs -0 sha256sum > build/perf-evidence/SOURCE_SHA256SUMS
+          (cd build/perf-evidence && find . -name '*.wav' -exec sha256sum {} +) > build/perf-evidence/WAV_SHA256SUMS
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
+        with:
+          name: germanium-perf-${{ matrix.optimization }}
+          path: parable-starter/build/perf-evidence/
+          if-no-files-found: error
+          retention-days: 7
+
+  evaluator-sanitizers:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Build scientific and safety checks with ASan and UBSan
+        run: |
+          cmake -S parable-starter -B build/sanitize -DCMAKE_BUILD_TYPE=Debug '-DCMAKE_CXX_FLAGS=-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie' '-DCMAKE_EXE_LINKER_FLAGS=-fsanitize=address,undefined -no-pie'
+          cmake --build build/sanitize --target parable_germanium_test parable_germanium_lab parable_germanium_accuracy parable_germanium_corners parable_germanium_lab_h64 parable_germanium_lab_p12 -j2
+      - name: Test sanitizer build
+        env:
+          ASAN_OPTIONS: detect_leaks=1
+          UBSAN_OPTIONS: halt_on_error=1
+        run: ctest --test-dir build/sanitize -R '^germanium_' --output-on-failure --no-tests=error
