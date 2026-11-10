@@ -1,5 +1,6 @@
 #include "rat_measure.h"
 #include "soundforge/analysis.h"
+#include "soundforge/excitation.h"
 #include <iomanip>
 #include <array>
 using namespace parable::dsp;
@@ -7,29 +8,7 @@ namespace {
 constexpr double pi=ratlab::pi;
 using soundforge::stats;
 using soundforge::db;
-lab::Wave synthetic() {
-    lab::Wave w; w.samples.resize(w.rate*9);
-    const double strings[] = {82.4069,110,146.8324,195.9977,246.9417,329.6276};
-    for (std::size_t i = 0; i < w.samples.size(); ++i) {
-        const double t = double(i)/w.rate; double x = 0;
-        for (int event = 0; event < 5; ++event) {
-            const bool strum = event >= 2; const double start = .25+event*1.55;
-            for (int string = 0; string < (strum ? 6 : 1); ++string) {
-                const double age = t-start-string*.012;
-                if (age < 0 || age > 2) continue;
-                const double f = strings[string] * (event==1 ? 1.5 : 1.);
-                const double release = age <= 1.9 ? 1. : .5*(1+std::cos(pi*(age-1.9)/.1));
-                for (int harmonic=1; harmonic<=10; ++harmonic)
-                    x += release * (event%2 ? .55 : 1.) * (1-std::exp(-age*600))
-                         * std::exp(-age*(2.2+.26*harmonic)) / std::pow(harmonic,1.3)
-                         * std::sin(2*pi*f*harmonic*age+.13*harmonic*harmonic);
-            }
-        }
-        w.samples[i] = static_cast<float>(x);
-    }
-    const auto s = stats(w.samples); for(auto& x:w.samples)x=static_cast<float>(x*.15/s.peak);
-    return w;
-}
+
 struct Measurements {
     ratlab::ReferenceErrors reference;
     std::array<ratlab::Spectrum,4> faults;
@@ -91,7 +70,7 @@ void selfTest(){const auto m=measure();std::cout<<"Independent SPICE gain/phase/
         bool failed=false;try{lab::decode(bad);}catch(const std::exception&){failed=true;}lab::require(failed,"Invalid PCM accepted");}
 }
 void auditions(const std::filesystem::path& output,const std::filesystem::path& input){
-    const auto wave=input.empty()?synthetic():lab::read(input);
+    const auto wave=input.empty()?soundforge::syntheticPlucks():lab::read(input);
     const std::string kind=input.empty()?"SYNTHETIC plucks/strums, 0.15 model-volts peak; not recorded guitar":"USER-PROVIDED mono PCM16; provenance unverified; 1 amplitude unit = 1 model volt";
     const std::array<std::string,11> names{"00_dry","01_healthy_low","02_healthy_medium","03_healthy_high","04_filter_bright","05_filter_dark","06_weak_input","07_strong_input","08_diode_open","09_ruetz","10_compensation"};
     const std::array<RatControls,11> controls{{{0,0,0},{.02f,.5f,.7f},{.35f,.5f,.7f},{.9f,.5f,.7f},{.35f,0,.7f},{.35f,1,.7f},{.35f,.5f,.7f},{.35f,.5f,.7f},{.35f,.5f,.7f},{.35f,.5f,.7f},{.35f,.5f,.7f}}};

@@ -1,4 +1,5 @@
 #include "soundforge/analysis.h"
+#include "soundforge/excitation.h"
 #include "lab_wav.h"
 #include "test_check.h"
 #include <array>
@@ -61,5 +62,9 @@ int main() {
     const lab::Wave pcm{48000, {0, .25f, -.5f}};
     const auto decoded = lab::decode(lab::encode(pcm));
     CHECK(decoded.rate == pcm.rate && decoded.samples == pcm.samples);
+    const auto excitation = syntheticPlucks(.05);
+    CHECK(excitation.rate == 48000 && excitation.samples.size() == 432000);
+    CHECK(std::abs(stats(excitation.samples).peak-.05) < 1e-8);
+    for (double bad : {0., -1., 1., double(NAN)}) rejects([&] { syntheticPlucks(bad); });
     std::cout << "Soundforge independent utility checks: " << testChecks << '\n';
 }

@@ -32,7 +32,7 @@ jobs:
           python3 tools/soundforge/check_labrat.py --directory build/rat-auditions > build/rat-auditions/LABRAT_COMPATIBILITY.json
           git rev-parse HEAD > build/rat-auditions/SOURCE_COMMIT
           c++ --version > build/rat-auditions/HOST_COMPILER.txt
-          sha256sum src/parable_rat.cpp src/rat_circuit_math.h include/parable_rat.h tools/rat_lab.cpp tools/rat_measure.h tools/lab_wav.h tools/soundforge/analysis.h tools/soundforge/validate_registry.py tools/soundforge/check_labrat.py tools/soundforge/registry.json tests/fixtures/soundforge/labrat-main.json tests/fixtures/rat/*.csv > build/rat-auditions/SOURCE_SHA256SUMS
+          sha256sum src/parable_rat.cpp src/rat_circuit_math.h include/parable_rat.h tools/rat_lab.cpp tools/rat_measure.h tools/lab_wav.h tools/soundforge/analysis.h tools/soundforge/excitation.h tools/soundforge/validate_registry.py tools/soundforge/check_labrat.py tools/soundforge/registry.json tests/fixtures/soundforge/labrat-main.json tests/fixtures/rat/*.csv > build/rat-auditions/SOURCE_SHA256SUMS
           cp third_party/labrat/*LICENSE.txt third_party/labrat/provenance.json tests/fixtures/rat/spice-manifest.json build/rat-auditions/
           cp tools/soundforge/registry.json build/rat-auditions/soundforge-registry.json
           (cd build/rat-auditions && sha256sum ./*.wav) > build/rat-auditions/SHA256SUMS
@@ -42,5 +42,26 @@ jobs:
         with:
           name: parable-labrat-auditions
           path: parable-starter/build/rat-auditions/
+          if-no-files-found: error
+          retention-days: 7
+      - name: Render shared-kernel CMOS auditions and independent comparisons
+        if: matrix.build_type == 'Release'
+        env:
+          HEAD_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          ./build/parable_cmos_lab --output build/cmos-auditions
+          git rev-parse HEAD > build/cmos-auditions/SOURCE_COMMIT
+          printenv HEAD_COMMIT > build/cmos-auditions/HEAD_COMMIT
+          c++ --version > build/cmos-auditions/HOST_COMPILER.txt
+          sha256sum src/parable_cmos.cpp src/cmos_device.h include/parable_cmos.h tools/cmos_lab.cpp tools/cmos_measure.h tools/cmos_spice_reference.py tools/rat_spice_reference.py tools/lab_wav.h tools/soundforge/analysis.h tools/soundforge/excitation.h tools/soundforge/registry.json third_party/cmos/* tests/fixtures/cmos/* > build/cmos-auditions/SOURCE_SHA256SUMS
+          cp third_party/cmos/* tests/fixtures/cmos/spice-manifest.json build/cmos-auditions/
+          cp tools/soundforge/registry.json build/cmos-auditions/soundforge-registry.json
+          (cd build/cmos-auditions && sha256sum ./*.wav) > build/cmos-auditions/SHA256SUMS
+      - name: Publish experimental CMOS listening material
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-cmos-auditions
+          path: parable-starter/build/cmos-auditions/
           if-no-files-found: error
           retention-days: 7

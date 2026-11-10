@@ -119,6 +119,22 @@ def build(cache, output):
     instance = re.search(r"\b([0-9a-f]+) B parable_rat_instance\b", symbols)
     if not instance:
         raise RuntimeError("Missing ARM RAT instance measurement")
+    # SF-002 remains standalone, with the same pins/flags and no firmware activation.
+    run([compiler, *flags, "-I", PROJECT / "include", "-c", PROJECT / "src/parable_cmos.cpp",
+         "-o", output / "cmos.o"], output / "cmos-compile.log")
+    run([toolbin / "arm-none-eabi-size", output / "cmos.o"], output / "cmos-size.txt")
+    run([toolbin / "arm-none-eabi-readelf", "-h", "-A", output / "cmos.o"], output / "cmos-elf-header.txt")
+    run([toolbin / "arm-none-eabi-nm", "-C", "-u", output / "cmos.o"], output / "cmos-undefined.txt")
+    if re.search(r"operator new|malloc|calloc|realloc|__cxa_throw|pthread|printf|fstream", (output / "cmos-undefined.txt").read_text()):
+        raise RuntimeError("Unexpected allocation/exception/I/O dependency in CMOS object")
+    cmos_layout = output / "cmos-layout.cpp"
+    cmos_layout.write_text('#include "parable_cmos.h"\nextern "C" { char parable_cmos_instance[sizeof(parable::dsp::Cmos)]; }\n')
+    run([compiler, *flags, "-I", PROJECT / "include", "-c", cmos_layout,
+         "-o", output / "cmos-layout.o"], output / "cmos-layout.log")
+    cmos_symbols = subprocess.check_output([toolbin / "arm-none-eabi-nm", "-S", output / "cmos-layout.o"], text=True)
+    cmos_instance = re.search(r"\b([0-9a-f]+) B parable_cmos_instance\b", cmos_symbols)
+    if not cmos_instance:
+        raise RuntimeError("Missing ARM CMOS instance measurement")
     # A diagnostic, never-shipping full-codec image. Only its known FLASH overflow
     # is a non-gating outcome; unexpected compile/API/link failures still fail CI.
     probe = output / "codec-probe"
@@ -144,6 +160,9 @@ def build(cache, output):
     report["rat_kernel"] = dict(object_size=(output / "rat-size.txt").read_text().splitlines()[-1].split()[:4],
                               instance_bytes=int(instance[1],16), linked_into_audio_firmware=False,
                               hardware_execution="not performed", target_cpu_cost="not measured")
+    report["cmos_kernel"] = dict(object_size=(output / "cmos-size.txt").read_text().splitlines()[-1].split()[:4],
+                               instance_bytes=int(cmos_instance[1],16), linked_into_audio_firmware=False,
+                               hardware_execution="not performed", target_cpu_cost="not measured")
     report["codec_probe"] = dict(status="flash_overflow" if status else "linked",
                                   make_exit_code=status, flash_overflow_bytes=int(overflow[1]) if overflow else 0,
                                   hardware_execution="not performed")
@@ -158,6 +177,7 @@ def build(cache, output):
               "firmware/dependencies.json", "include/parable_core.h", "include/parable_patch.h", "include/parable_prepare.h",
               "src/parable_prepare.cpp", "src/prepare_internal.h", "src/parable_patch.cpp", "src/patch_json.cpp", "src/patch_json.h",
               "include/parable_rat.h", "src/parable_rat.cpp", "src/rat_circuit_math.h"]
+    inputs += ["include/parable_cmos.h", "src/parable_cmos.cpp", "src/cmos_device.h"]
     report["source_sha256"] = {name: hashlib.sha256((PROJECT / name).read_bytes()).hexdigest() for name in inputs}
     report["linker_sha256"] = {mode: hashlib.sha256((lib / path).read_bytes()).hexdigest()
                                for mode, path in layouts.items()}
@@ -174,10 +194,11 @@ def build(cache, output):
     shutil.copyfile(jsonroot / "LICENSE.MIT", notices / "nlohmann-json-LICENSE.MIT")
     shutil.copyfile(PROJECT / "third_party/ARM_DEPENDENCIES.md", notices / "ARM_DEPENDENCIES.md")
     shutil.copytree(PROJECT / "third_party/labrat", notices / "labrat", dirs_exist_ok=True)
+    shutil.copytree(PROJECT / "third_party/cmos", notices / "cmos", dirs_exist_ok=True)
     print(json.dumps({"images": {name: {k: image[k] for k in (
         "app_type", "execution_location", "berkeley_size", "image_load_span_bytes", "text_including_rodata_bytes",
         "included_input_rodata_bytes", "static_placement_bytes", "static_region_span_bytes")}
-        for name, image in images.items()}, "rat_kernel": report["rat_kernel"],
+        for name, image in images.items()}, "rat_kernel": report["rat_kernel"], "cmos_kernel": report["cmos_kernel"],
         "internal_flash_codec_probe": report["codec_probe"]}, indent=2))
     print(f"Build-only evidence: {output}; no flashing or hardware execution performed")
 

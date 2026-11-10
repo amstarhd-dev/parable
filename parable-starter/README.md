@@ -2,6 +2,13 @@
 
 This is the first **portable C++ code brick**, not a finished Parable SDK and not a commercial DSP effect. It contains no astrology or browser implementation. A separate experimental circuit-derived LabRAT listening laboratory is described below.
 
+SF-002 adds a standalone experimental CD4049 inverter laboratory through
+Soundforge: [research/limitations/tests](docs/CMOS_REPORT.md),
+[observed reuse](docs/SOUNDFORGE_SF002_WORK_LOG.md). It has no patch-runtime
+integration or founder musical approval. Run `parable_cmos_lab --output DIR`
+from the host build for synthetic listening WAVs; optional `--input` accepts
+owned mono PCM16 through the existing reader. CI publishes the audition artifact.
+
 ## Purpose
 - A versioned, validated patch snapshot (`schema=2` for this native proof; **not** yet the final JSON/Wire format).
 - Four independent in-memory performance slots.

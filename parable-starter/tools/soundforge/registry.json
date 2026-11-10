@@ -64,7 +64,8 @@
       "dependencies": {
         "assets": [
           "host.pcm16",
-          "host.signal-analysis"
+          "host.signal-analysis",
+          "host.synthetic-plucks"
         ],
         "external": [
           "C++17 standard math for DSP; host utilities only in audition runner.",
@@ -242,6 +243,209 @@
         "patch_runtime": {
           "status": "not-applicable",
           "scope": "Host laboratory only.",
+          "paths": []
+        }
+      }
+    },
+    {
+      "id": "host.synthetic-plucks",
+      "type": "primitive",
+      "paths": [
+        "parable-starter/tools/soundforge/excitation.h"
+      ],
+      "sources": [],
+      "ownership_notes": "Parable-local neutral excitation from main 2cc9412 / PAR-007 runner; global project license unspecified. No external recordings or model code.",
+      "physics_notes": "Signal arithmetic/file I/O only, not circuit physics.",
+      "behavior": "Owned deterministic harmonic-stack plucks/strums extracted from the existing LabRAT runner and now used by two models.",
+      "limitations": [
+        "Synthetic test excitation only: no recorded guitar, string/pickup calibration or musical acceptance. Fixed 9s/48kHz; explicit raw peak."
+      ],
+      "dependencies": {
+        "assets": [],
+        "external": [
+          "C++17 standard library; host-only."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Host checks only; independent generic signals for primitives, circuit/safety gates for LabRAT.",
+          "paths": [
+            "parable-starter/tests/test_soundforge.cpp"
+          ]
+        },
+        "independent_circuit": {
+          "status": "not-applicable",
+          "scope": "Signal utility, not a circuit model.",
+          "paths": []
+        },
+        "synthetic_audition": {
+          "status": "not-applicable",
+          "scope": "Utility, no independent sonic identity.",
+          "paths": []
+        },
+        "real_guitar_audition": {
+          "status": "not-applicable",
+          "scope": "Utility; no real-guitar acceptance is claimed.",
+          "paths": []
+        },
+        "arm_cross_compile": {
+          "status": "not-applicable",
+          "scope": "Host-only utility, not linked into firmware.",
+          "paths": []
+        },
+        "physical_daisy": {
+          "status": "not-applicable",
+          "scope": "Host-only utility; no physical run claimed.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-applicable",
+          "scope": "Host laboratory only.",
+          "paths": []
+        }
+      }
+    },
+    {
+      "id": "cmos-4049",
+      "type": "model",
+      "paths": [
+        "parable-starter/include/parable_cmos.h",
+        "parable-starter/src/parable_cmos.cpp",
+        "parable-starter/src/cmos_device.h",
+        "parable-starter/tools/cmos_lab.cpp",
+        "parable-starter/tools/cmos_measure.h",
+        "parable-starter/tests/test_cmos.cpp",
+        "parable-starter/docs/adr/ADR-004-cmos-inverter-model.md"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/cmos/provenance.json",
+          "candidate": 0,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/cmos/ACME-LICENSE.md",
+            "parable-starter/third_party/cmos/ATTRIBUTION.md"
+          ],
+          "scope": "Narrow MIT MOSFET current/Jacobian adaptation"
+        },
+        {
+          "provenance_path": "parable-starter/third_party/cmos/provenance.json",
+          "candidate": 1,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Reference/evaluation only; no code, graphics or recordings imported. See pinned candidate notes and ADR-004."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/cmos/provenance.json",
+          "candidate": 2,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Reference/evaluation only; no code, graphics or recordings imported. See pinned candidate notes and ADR-004."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/cmos/provenance.json",
+          "candidate": 3,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Reference/evaluation only; no code, graphics or recordings imported. See pinned candidate notes and ADR-004."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/cmos/provenance.json",
+          "candidate": 4,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Reference/evaluation only; no code, graphics or recordings imported. See pinned candidate notes and ADR-004."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/cmos/provenance.json",
+          "candidate": 5,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Reference/evaluation only; no code, graphics or recordings imported. See pinned candidate notes and ADR-004."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/cmos/provenance.json",
+          "candidate": 6,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Reference/evaluation only; no code, graphics or recordings imported. See pinned candidate notes and ADR-004."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/cmos/provenance.json",
+          "candidate": 7,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Reference/evaluation only; no code, graphics or recordings imported. See pinned candidate notes and ADR-004."
+        }
+      ],
+      "ownership_notes": "Parable-local two-node solver/runner plus MIT ACME adaptation, with scientific attribution to Koeper/Holters. Global project LICENSE unspecified; no AGPL, TI, Tonepad or unlicensed listing imported.",
+      "physics_notes": "Published extended CD4049 fit in a two-inverter reduced signal path. Stiff 9V IC rail, not original battery/dropper circuit. Parameters freeze outside |Vgs|=2.5..6V; no CD4069 substitution or arbitrary curve per fault.",
+      "behavior": "Healthy Drive/Volume plus interstage 33nF->330pF and second feedback 1Meg->100k experiments, same bounded prepared circuit path, 4x oversampling.",
+      "limitations": [
+        "Reduced model, no new physical calibration or full commercial clone. Battery/dropper dynamics, intrinsic capacitances, protection/body currents, thermal/noise/tolerance behavior omitted.",
+        "Parameter freezing is unvalidated extrapolation outside measured gate range. Numerical input/output rails and bounded-solver reset are safety behavior, not physical effects; normal reference/audition cases require zero fallback.",
+        "No real guitar, physical hardware, target CPU/latency or founder approval. No patch/Engine integration."
+      ],
+      "dependencies": {
+        "assets": [
+          "host.pcm16",
+          "host.signal-analysis",
+          "host.synthetic-plucks"
+        ],
+        "external": [
+          "C++17 standard math, allocation-free native kernel; Julia/ACME framework not linked.",
+          "Existing pinned ngspice 44.2 only for offline reference generation, reusing the unchanged simulator wrapper.",
+          "Existing pinned xPack/libDaisy ARM build, no firmware activation."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Standalone configuration/state/edge/allocation and coherent numerical measurements; existing LabRAT bytes remain a separate immutable regression.",
+          "paths": [
+            "parable-starter/tests/test_cmos.cpp",
+            "parable-starter/tools/cmos_measure.h",
+            "parable-starter/tools/cmos_lab.cpp"
+          ]
+        },
+        "independent_circuit": {
+          "status": "reduced-section-compared",
+          "scope": "362 ngspice DC and 960 transient sample rows, literal circuit/current equations, 96k native reference against <=0.5us adaptive steps; source-fit model, not physical factory validation.",
+          "paths": [
+            "parable-starter/tools/cmos_spice_reference.py",
+            "parable-starter/tests/fixtures/cmos/inverter-dc.csv",
+            "parable-starter/tests/fixtures/cmos/circuit-transient.csv",
+            "parable-starter/tests/fixtures/cmos/spice-manifest.json"
+          ]
+        },
+        "synthetic_audition": {
+          "status": "generated",
+          "scope": "8 same-kernel synthetic PCM16 WAVs with raw/final levels, explicit gains/configuration and zero solver fallback; no perceptual matching or human approval.",
+          "paths": [
+            "parable-starter/tools/cmos_lab.cpp"
+          ]
+        },
+        "real_guitar_audition": {
+          "status": "not-performed",
+          "scope": "No recorded guitar supplied or founder guitar listening acceptance.",
+          "paths": []
+        },
+        "arm_cross_compile": {
+          "status": "compiled",
+          "scope": "Pinned Cortex-M7 object text/data/BSS 5604/0/0 bytes, ARM instance 2128 bytes; standalone object only, not linked into audio firmware or executed. Target CPU not measured.",
+          "paths": [
+            "parable-starter/firmware/build.py"
+          ]
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No flashing, boot, physical audio, latency/noise/power or target timing.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "Separate standalone specimen, no Engine/preparation/schema or astrology change.",
           "paths": []
         }
       }
