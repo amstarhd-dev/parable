@@ -2,6 +2,34 @@
 
 This is the first **portable C++ code brick**, not a finished Parable SDK and not a commercial DSP effect. It contains no astrology or browser implementation. A separate experimental circuit-derived LabRAT listening laboratory is described below.
 
+PAR-009 prepares a [Seed3 first-day procedure](docs/SEED3_FIRST_DAY.md) and
+[prior-art/firmware audit](docs/PAR009_GATE0.md), with three BOOT_NONE images:
+standalone LED/recovery, mono bypass, and the unchanged RAT composite. The pinned
+ARM command below produces `build/arm/first-boot/`; CI publishes
+**seed3-first-boot-kit** for 30 days. It includes checksums, manifest, maps, static
+frames, licenses and the original bypass rollback. **Nothing has been flashed or
+physically tested.** The native Mac DFU candidate's deployment metadata is audited,
+not an execution/USB guarantee for macOS 10.13.
+
+Only the two new audio targets compile the DWT hooks. They capture and freeze the
+first 30,000 callbacks, then publish once using a lock-free flag; USB CDC starts
+after capture and repeats an immutable integer report. DSP continues. No callback
+allocation/IO/locks/float reporting; the actual ARM accounting object has no
+external helpers or floating instructions. The normal empty-patch bypass still
+links generic Engine/RAT capability but configures/processes **no RAT**. Legacy
+targets have no hooks and retain their binary hashes. The LED target has no
+Engine/RAT/codec or external-memory initialization.
+
+Timing spans callback-body entry through its final DWT timestamp/output barrier,
+excluding bookkeeping/return/SDK ISR and later USB. Counter wrap requires intervals
+<2^31 cycles; stopped load adds a millisecond wrap guard. RCC-derived core clock
+and configured sample rate are not independent physical clock measurements.
+Worst observed isn't worst possible or true p99. Postcapture CDC uses a short
+control-side IRQ guard; the SDK USB class uses malloc/free. Its IRQ/heap/driver
+robustness and guard latency remain unproven; they do not enter the captured
+window. No claimed target utilization, latency/noise, heap/stack high-water or
+guitar/musical approval. See the guide before connecting any carrier/power/audio.
+
 PAR-008 adds one experimental RAT to the canonical serial patch engine, reusing
 the unchanged LabRAT kernel. See [Gate 0](docs/adr/ADR-001-par008-gate0.md) and
 [commands/evidence/limits](docs/PAR008_EVIDENCE.md). Run
