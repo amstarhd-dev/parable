@@ -122,3 +122,7 @@ and hardware-rate queries remain future work; see the implementation status.
 PAR-010 separately implements [host journal logic](PRESET_JOURNAL.md) around these
 unchanged canonical bytes, with a distinct versioned storage envelope. Native Bank
 is still RAM-only; there is no hardware flash adapter or runtime activation.
+
+PAR-011 adds [prepared bundle activation on the host](PREPARED_ACTIVATION.md)
+around this same Codec/prepare/Engine path. It is not a patch-v1 change: runtime
+tokens, ownership state and transient DSP histories never enter saved documents.

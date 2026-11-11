@@ -1,5 +1,28 @@
 # Implementation status and reproducible baseline
 
+## PAR-011 — host prepared-bundle ownership/activation
+
+Main `c288eb1`, after PR #31; clean baseline **20/20 Debug/Release**.
+[Gate 0](adr/ADR-001-par011-gate0.md), [protocol/API](PREPARED_ACTIVATION.md),
+[exact evidence/commands](PAR011_EVIDENCE.md).
+
+- **Specified/implemented:** fixed four-bundle pool, canonical decode/prepare and
+  inactive Engine configuration on control, bounded block-boundary adoption,
+  generation ACK/reclamation, Busy/defer and joined stop/restart. Saved slots and
+  runtime tokens remain separate; no serialization, journal or DSP change.
+- **Host-tested:** **23/23 Debug/Release**, **12/12 ASan/UBSan**, **2/2 TSAN**;
+  real DSP/reference stress with 4,096 publications per run and four joined epochs,
+  allocation/lock/IO guards, failure/ABA/full-retirement coverage. Eight prior
+  Engine WAV/patch files per configuration match baseline byte for byte.
+- **ARM compile-inspected:** pinned M7 uint32 atomics lock-free; loads/stores/DMB,
+  no exclusive retry or atomic helper. Runtime **45,224 B**; audio object **712 B**
+  text, direct static frame **72 B**. New Runtime not linked into firmware.
+- **Hardware-tested/musically auditioned:** none. No physical ISR/lifecycle/cache,
+  RAM/stack high-water, deadline, switching transient/tail, noise or listening proof.
+
+This supersedes earlier statements that host activation is wholly deferred.
+Hardware flash/audio integration and living modulation remain unimplemented.
+
 ## PAR-010 — host four-slot persistence logic
 
 Gate 0 on main `156fa08` (merged PR #30): existing 19/19 Debug and Release pass.

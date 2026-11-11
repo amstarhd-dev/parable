@@ -10,7 +10,7 @@ permissions:
 jobs:
   host-tests:
     runs-on: ubuntu-24.04
-    timeout-minutes: 5
+    timeout-minutes: 10
     strategy:
       matrix:
         build_type: [Debug, Release]
@@ -25,6 +25,26 @@ jobs:
         run: cmake --build build
       - name: Test
         run: ctest --test-dir build --output-on-failure --no-tests=error
+      - name: Record real DSP activation evidence
+        if: matrix.build_type == 'Release'
+        run: |
+          mkdir -p build/activation-evidence
+          ./build/parable_activation_test > build/activation-evidence/contract-layout-timing.txt
+          ./build/parable_activation_test --stress build/activation-evidence/ownership.csv > build/activation-evidence/stress.txt
+          ./build/parable_activation_demo 0 2 1 3 0 > build/activation-evidence/demo.txt
+          ./build/parable_activation_demo 0 2 1 3 0 > build/activation-evidence/demo-repeat.txt
+          cmp build/activation-evidence/demo.txt build/activation-evidence/demo-repeat.txt
+          git rev-parse HEAD > build/activation-evidence/SOURCE_COMMIT
+          c++ --version > build/activation-evidence/HOST_COMPILER.txt
+          sha256sum include/parable_activation.h src/parable_activation*.cpp tests/test_activation.cpp tests/activation_guard.* tools/activation_demo.cpp > build/activation-evidence/SOURCE_SHA256SUMS
+      - name: Publish activation host evidence
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-activation-evidence
+          path: parable-starter/build/activation-evidence/
+          if-no-files-found: error
+          retention-days: 30
       - name: Repeat deterministic preset fault matrix
         if: matrix.build_type == 'Release'
         run: |
@@ -127,7 +147,7 @@ jobs:
 
   integration-sanitizers:
     runs-on: ubuntu-24.04
-    timeout-minutes: 5
+    timeout-minutes: 10
     defaults:
       run:
         working-directory: parable-starter
@@ -136,9 +156,26 @@ jobs:
       - name: Configure ASan and UBSan
         run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
       - name: Build integration and existing affected tests
-        run: cmake --build build --target parable_core_test parable_audio_safety_test parable_patch_test parable_prepare_test parable_rat_test parable_rat_integration_test parable_patch_audition parable_firmware_measurement_test parable_presets_test -j2
+        run: cmake --build build --target parable_core_test parable_audio_safety_test parable_patch_test parable_prepare_test parable_rat_test parable_rat_integration_test parable_patch_audition parable_firmware_measurement_test parable_presets_test parable_activation_test parable_activation_demo -j2
       - name: Test integration and affected boundaries
         env:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1
-        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^(firmware_measurement_math_status|core_validation|audio_safety|patch_contract|host_preparation|rat_patch_integration|patch_audio_evidence|rat_circuit_and_safety|preset_journal)$'
+        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^(firmware_measurement_math_status|core_validation|audio_safety|patch_contract|host_preparation|rat_patch_integration|patch_audio_evidence|rat_circuit_and_safety|preset_journal|activation_contract|activation_concurrency|activation_demo)$'
+
+  activation-tsan:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: parable-starter
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure ThreadSanitizer
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="-fsanitize=thread -fno-omit-frame-pointer -fno-pie -O1" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=thread -no-pie"
+      - name: Build actual activation and DSP tests
+        run: cmake --build build --target parable_activation_test -j2
+      - name: Test actual activation with ThreadSanitizer
+        env:
+          TSAN_OPTIONS: halt_on_error=1
+        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^activation_(contract|concurrency)$'

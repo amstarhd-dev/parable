@@ -59,6 +59,16 @@ It stages complete documents in independent A/B banks and tests interrupted writ
 using deterministic simulated flash. It does not add a Seed3 driver, live switching
 or physical persistence evidence. The existing native Bank remains RAM-only.
 
+PAR-011 implements [host prepared-bundle activation](docs/PREPARED_ACTIVATION.md)
+using the actual canonical Codec, prepare bridge and Engine. A fixed four-entry
+pool separates active/pending/staging/retired ownership. Control prepares; audio
+adopts once per block and acknowledges retirement. This is not clickless or
+hardware-tested. [Evidence and commands](docs/PAR011_EVIDENCE.md) include concurrent
+DSP/reference checks, sanitizers, memory and pinned ARM compile inspection.
+After building, `./build/parable_activation_demo 0 2 1 3 0` selects saved fixture
+presets by number and renders blocks with deterministic receipts. No live flash,
+Volume/Register/modulation lane or firmware integration is added.
+
 ## Purpose
 - A versioned, validated patch snapshot (`schema=2` for this native proof; **not** yet the final JSON/Wire format).
 - Four independent in-memory performance slots.
@@ -94,7 +104,7 @@ See [`docs/IMPLEMENTATION_STATUS.md`](docs/IMPLEMENTATION_STATUS.md) for the
 source inventory, measured baseline and untested behavior, and
 [`docs/adr/ADR-001-patch-authority.md`](docs/adr/ADR-001-patch-authority.md) for
 the selected Option A decision. The data contract and temporary native preparation
-bridge and host journal logic are implemented; live activation and real flash storage remain deferred.
+bridge, host journal and host bundle activation are implemented; hardware activation and real flash storage remain deferred.
 
 ## JSON patch contract (PAR-002)
 
