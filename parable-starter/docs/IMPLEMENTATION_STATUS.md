@@ -1,5 +1,38 @@
 # Implementation status and reproducible baseline
 
+## PAR-009 — prepared Seed3 first-boot kit, physical results pending
+
+Started on main `0f84cb0` after #27 merged. [Prior-art/firmware Gate 0](PAR009_GATE0.md)
+preceded source edits: unchanged Debug/Release **18/18** and pinned ARM baseline.
+The same build now adds three BOOT_NONE images: independent onboard LED/recovery,
+mono empty-patch bypass, and the **unchanged** Gain1.8/RAT.35/.5/.7/Lowpass1800,
+trim.8 chain. Original four firmware binaries and three model objects match
+baseline bytes. No kernel, canonical contract, correspondence or bootloader change.
+
+Full Debug/Release **19/19**, affected ASan/UBSan **8/8**. New host simulations
+cover clock/rate budget math, wrap/invalid intervals, bounded frozen publication
+and status pulse patterns. Actual ARM links: LED **51,592 B**, instrumented bypass
+**109,600 B**, RAT composite **109,784 B** load spans within 128 KiB. Capture state
+**52 B**; accounting object has no external helpers/floating instructions. Audio
+callback direct frame **64 B**, not measured cumulative/IRQ stack or runtime CPU.
+The callback path contains actual RAT processing; no reporting or IRQ masking.
+
+Only first-boot audio builds capture the first 30,000 callback bodies, freeze a
+summary and publish once to control. USB CDC reporting begins afterward, using
+existing pinned middleware and immutable text. Original rollback has no hooks.
+SDK USB class allocation/IRQs and control-side send guard are outside capture;
+their heap/latency/driver robustness still require hardware evidence.
+
+[Founder procedure](SEED3_FIRST_DAY.md) covers USB-only ROM DFU/LED recovery,
+the audited native Intel Mac utility candidate plus concrete Ubuntu fallback,
+carrier rail/orientation/power gates and a pending-observation template. CI's
+`seed3-first-boot-kit` keeps checksummed images/maps/logs/licenses/manifest and
+rollback for 30 days. **No flashing, physical DFU/CDC or High Sierra execution,
+audio/noise/headroom, callback deadline/CPU, heap/stack high-water or musical
+approval has been tested.** No full-ISR/p99/latency inference from body counters.
+Next: founder's standalone USB first-boot gate, then #26's verified carrier/power
+plan before real-guitar audio and USB coexistence. No fourth effect/migration.
+
 ## PAR-008 — canonical RAT serial integration (software evidence)
 
 Main `440a992` baseline passes 16/16 Debug/Release. [Gate 0](adr/ADR-001-par008-gate0.md)

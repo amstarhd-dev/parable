@@ -13,20 +13,32 @@
 using namespace daisy;
 static DaisySeed hardware;
 static std::optional<parable::Engine> audioEngine; // Fixed storage; emplace before StartAudio.
+#ifdef PARABLE_FIRST_BOOT
+#include "first_boot_audio.h"
+#endif
 void AudioCallback(AudioHandle::InputBuffer in,
                    AudioHandle::OutputBuffer out,
                    size_t size) {
+#ifdef PARABLE_FIRST_BOOT
+    const auto timing = first_boot_runtime::begin();
+#endif
     for (size_t i = 0; i < size; ++i) {
         out[0][i] = audioEngine->process(in[0][i]);
         // Mono input 0 duplicated to both outputs; no stereo-state claim.
         out[1][i] = out[0][i];
     }
+#ifdef PARABLE_FIRST_BOOT
+    first_boot_runtime::end(timing, size);
+#endif
 }
 int main() {
     hardware.Init(true); // Request 480 MHz; actual clock/electrical operation unmeasured.
     hardware.SetAudioBlockSize(48);
     // This API reports configured SAI rate, not a physical clock measurement.
     const float rate = hardware.AudioSampleRate();
+#ifdef PARABLE_FIRST_BOOT
+    first_boot_runtime::initialize(rate);
+#endif
     audioEngine.emplace(rate);
 #ifdef PARABLE_CODEC_LINK_PROBE
     const auto decoded = parable::patch::Codec::decode(
@@ -46,10 +58,22 @@ int main() {
     patch.stages[1].type = parable::Type::Rat;
     patch.stages[1].rat = {.35f, .5f, .7f};
     patch.stages[2] = {parable::Type::OnePoleLowpass, 1800.f, true};
+#ifdef PARABLE_FIRST_BOOT
+    first_boot_runtime::load(patch);
+#else
     if (audioEngine->load(patch) != parable::Status::Ok) while (true) {}
+#endif
+#else
+#ifdef PARABLE_FIRST_BOOT
+    first_boot_runtime::load(parable::makeBypassPatch());
 #else
     if (audioEngine->load(parable::makeBypassPatch()) != parable::Status::Ok) while (true) {}
 #endif
+#endif
+#ifdef PARABLE_FIRST_BOOT
+    first_boot_runtime::run(AudioCallback);
+#else
     hardware.StartAudio(AudioCallback);
     while (true) { }
+#endif
 }

@@ -118,9 +118,9 @@ jobs:
       - name: Configure ASan and UBSan
         run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
       - name: Build integration and existing affected tests
-        run: cmake --build build --target parable_core_test parable_audio_safety_test parable_patch_test parable_prepare_test parable_rat_test parable_rat_integration_test parable_patch_audition -j2
+        run: cmake --build build --target parable_core_test parable_audio_safety_test parable_patch_test parable_prepare_test parable_rat_test parable_rat_integration_test parable_patch_audition parable_firmware_measurement_test -j2
       - name: Test integration and affected boundaries
         env:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1
-        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^(core_validation|audio_safety|patch_contract|host_preparation|rat_patch_integration|patch_audio_evidence|rat_circuit_and_safety)$'
+        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^(firmware_measurement_math_status|core_validation|audio_safety|patch_contract|host_preparation|rat_patch_integration|patch_audio_evidence|rat_circuit_and_safety)$'

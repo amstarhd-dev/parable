@@ -33,7 +33,25 @@ def inspect(toolbin, build, target="parable_seed3_minimal", app_type="BOOT_NONE"
         raise RuntimeError("Diagnostic must retain JSON decoding and native preparation")
     if outputs["undefined.txt"].strip():
         raise RuntimeError("Final ARM image has unresolved symbols")
-    active_rat = target.endswith("rat_probe")
+    active_rat = target.endswith("rat_probe") or target == "parable_seed3_rat_composite"
+    first_boot = target in ("parable_seed3_led", "parable_seed3_bypass", "parable_seed3_rat_composite")
+    if first_boot and ("Codec::" in outputs["symbols.txt"] or "nlohmann::" in outputs["symbols.txt"]):
+        raise RuntimeError("Parser unexpectedly linked into first-boot kit")
+    if target == "parable_seed3_led":
+        for forbidden in ("AudioCallback(", "Rat::", "Engine::", "ConfigureAudio()", "QSPIHandle::Init(", "SdramHandle::Init("):
+            if forbidden in outputs["symbols.txt"]:
+                raise RuntimeError("LED image unexpectedly retains audio/external-memory initialization: " + forbidden)
+        if "DaisySeed::CheckBoardVersion()" not in outputs["symbols.txt"]:
+            raise RuntimeError("LED image must retain pinned board-version detection")
+    if first_boot and target != "parable_seed3_led":
+        if not re.search(r"\be000100[04]\b", outputs["disassembly.txt"]):
+            raise RuntimeError("Missing actual DWT counter register reference")
+        if "UsbHandle::TransmitInternal(" not in outputs["symbols.txt"]:
+            raise RuntimeError("Missing existing control-side USB CDC retrieval path")
+        callback = next((body for body in re.split(r"(?m)^[0-9a-f]+ <", outputs["disassembly.txt"])
+                         if body.startswith("AudioCallback(")), None)
+        if not callback or re.search(r"\bcpsid\b|<[^>]*(?:printf|malloc|operator new|UsbHandle::|Logger|tryReport)", callback):
+            raise RuntimeError("Callback unexpectedly disables interrupts or calls reporting/allocation")
     if active_rat:
         if has_codec or "nlohmann::" in outputs["symbols.txt"]:
             raise RuntimeError("Static RAT probe must not contain the JSON codec")

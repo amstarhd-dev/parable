@@ -59,6 +59,12 @@ def build(cache, output):
     os.environ["GIT_TERMINAL_PROMPT"] = "0"
     cache.mkdir(parents=True, exist_ok=True)
     output.mkdir(parents=True, exist_ok=True)
+    # Failed rebuilds must not retain a stale complete-kit receipt.
+    (output / "report.json").unlink(missing_ok=True)
+    kit = output / "first-boot"
+    kit.mkdir(exist_ok=True)
+    for name in ("manifest.json", "SHA256SUMS"):
+        (kit / name).unlink(missing_ok=True)
     toolroot = archive(cache, PINS["toolchain"], "arm-toolchain.tar.gz")
     toolbin = toolroot / "bin"
     compiler = toolbin / "arm-none-eabi-g++"
@@ -200,6 +206,35 @@ def build(cache, output):
         if not match:
             raise RuntimeError("Missing ARM layout measurement: " + label)
         sizes[label + "_bytes"] = int(match[1], 16)
+    first_boot_targets = {"led_recovery": "parable_seed3_led", "mono_bypass": "parable_seed3_bypass",
+                          "rat_composite": "parable_seed3_rat_composite"}
+    for name, target in first_boot_targets.items():
+        directory = kit / name
+        # No automatic layout fallback in this kit. Any 128 KiB overflow FAILS.
+        run([*image_args(directory, "BOOT_NONE"), f"FIRST_BOOT_IMAGE={name}"], output / (name + "-build.log"))
+        shutil.copyfile(output / (name + "-build.log"), directory / "build.log")
+        images["first_boot_" + name] = inspect(toolbin, directory, target, "BOOT_NONE")
+    # Actual compiled integer-only hook audit, supplementary to the linked images.
+    measurement = output / "measurement-probe.cpp"
+    measurement.write_text('#include "runtime_measurement.h"\nextern "C" {\n'
+        'char parable_capture_instance[sizeof(parable::first_boot::Capture)];\n'
+        'void parable_measure_record(parable::first_boot::Capture* c, unsigned a, unsigned b, unsigned frames) '
+        '{ c->observe(a,b,frames); }\n}\n')
+    run([compiler, *flags, "-I", FIRMWARE, "-c", measurement, "-o", output / "measurement-probe.o"],
+        output / "measurement-probe.log")
+    run([toolbin / "arm-none-eabi-objdump", "-d", "-C", output / "measurement-probe.o"],
+        output / "measurement-disassembly.txt")
+    run([toolbin / "arm-none-eabi-nm", "-C", "-u", output / "measurement-probe.o"], output / "measurement-undefined.txt")
+    # run() prefixes its command; strip that before checking actual nm output.
+    if (output / "measurement-undefined.txt").read_text().splitlines()[1:]:
+        raise RuntimeError("Callback integer accounting unexpectedly needs external helpers")
+    if re.search(r"\tv[a-z0-9]+\.[a-z0-9]+\b", (output / "measurement-disassembly.txt").read_text()):
+        raise RuntimeError("Unexpected floating instructions in callback accounting")
+    measure_symbols = subprocess.check_output([toolbin / "arm-none-eabi-nm", "-S", output / "measurement-probe.o"], text=True)
+    (output / "measurement-symbols.txt").write_text(measure_symbols)
+    capture_size = re.search(r"\b([0-9a-f]+) B parable_capture_instance\b", measure_symbols)
+    if not capture_size:
+        raise RuntimeError("Missing actual ARM capture layout")
     report = dict(images=images)
     report["rat_kernel"] = dict(object_size=(output / "rat-size.txt").read_text().splitlines()[-1].split()[:4],
                               instance_bytes=int(instance[1],16), linked_into_audio_firmware=True,
@@ -210,6 +245,11 @@ def build(cache, output):
         canonical_host_fixture="tests/fixtures/patch-v1/rat-composite.json",
         firmware_fixture="static native build-only probe, not editable/save authority",
         callback_deadline="not measured", hardware_execution="not performed")
+    report["first_boot"] = dict(capture_bytes=int(capture_size[1], 16), capture_limit_callbacks=30000,
+        counter="DWT CYCCNT; CM7 SystemCoreClockUpdate RCC readback", interval_contract="each callback <2^31 cycles",
+        publication="one frozen summary, release/acquire completion, no ongoing mutable reader",
+        retrieval="control-side existing USB CDC, initialized only after capture; immutable text repeated",
+        callback_cpu="not measured", glitches="not observed/tested", hardware_execution="not performed")
     report["cmos_kernel"] = dict(object_size=(output / "cmos-size.txt").read_text().splitlines()[-1].split()[:4],
                                instance_bytes=int(cmos_instance[1],16), linked_into_audio_firmware=False,
                                hardware_execution="not performed", target_cpu_cost="not measured")
@@ -225,6 +265,7 @@ def build(cache, output):
                                 make=subprocess.check_output(["make", "--version"], text=True).splitlines()[0],
                                 git=subprocess.check_output(["git", "--version"], text=True).strip())
     report["source_commit"] = git(PROJECT, "rev-parse", "HEAD")
+    report["source_head_commit"] = os.environ.get("HEAD_COMMIT", report["source_commit"])
     report["source_worktree_dirty"] = bool(git(PROJECT, "status", "--porcelain"))
     inputs = ["firmware/daisy_pass_through.cpp", "firmware/Makefile", "firmware/build.py", "firmware/report.py",
               "firmware/dependencies.json", "include/parable_core.h", "include/parable_patch.h", "include/parable_prepare.h",
@@ -233,6 +274,8 @@ def build(cache, output):
     inputs += ["include/parable_cmos.h", "src/parable_cmos.cpp", "src/cmos_device.h"]
     inputs += ["include/parable_germanium.h", "src/parable_germanium.cpp", "src/germanium_device.h"]
     inputs += ["tests/fixtures/patch-v1/rat-composite.json"]
+    inputs += ["firmware/seed3_led.cpp", "firmware/first_boot_audio.h", "firmware/runtime_measurement.h",
+               "docs/PAR009_GATE0.md", "docs/SEED3_FIRST_DAY.md", "tests/test_firmware_measurement.cpp"]
     report["source_sha256"] = {name: hashlib.sha256((PROJECT / name).read_bytes()).hexdigest() for name in inputs}
     report["linker_sha256"] = {mode: hashlib.sha256((lib / path).read_bytes()).hexdigest()
                                for mode, path in layouts.items()}
@@ -251,6 +294,33 @@ def build(cache, output):
     shutil.copytree(PROJECT / "third_party/labrat", notices / "labrat", dirs_exist_ok=True)
     shutil.copytree(PROJECT / "third_party/cmos", notices / "cmos", dirs_exist_ok=True)
     shutil.copytree(PROJECT / "third_party/germanium", notices / "germanium", dirs_exist_ok=True)
+    shutil.copytree(notices, kit / "licenses", dirs_exist_ok=True)
+    for name in ("SEED3_FIRST_DAY.md", "PAR009_GATE0.md"):
+        shutil.copyfile(PROJECT / "docs" / name, kit / name)
+    rollback = kit / "rollback"
+    rollback.mkdir(exist_ok=True)
+    shutil.copyfile(minimal / "parable_seed3_minimal.bin", rollback / "parable_seed3_minimal.bin")
+    manifest = {key: report[key] for key in ("source_commit", "source_head_commit", "source_worktree_dirty",
+                                            "source_sha256", "linker_sha256", "compiler", "pins", "first_boot")}
+    manifest.update(format="parable.seed3-first-boot", version=1, boot_mode="BOOT_NONE",
+                    rom_dfu_address="0x08000000", software_bootloader_included=False,
+                    runtime_evidence="PENDING PHYSICAL TEST", images={})
+    for name, target in first_boot_targets.items():
+        image = images["first_boot_" + name]
+        entry = {key: image[key] for key in ("bin_sha256", "berkeley_size", "image_load_span_bytes",
+            "execution_location", "static_placement_bytes", "static_region_span_bytes", "compiler_application_frames",
+            "stack_top", "rat_enabled_at_startup", "unresolved_symbols")}
+        entry["binary"] = f"{name}/{target}.bin"
+        entry["map"] = f"{name}/{target}.map"
+        entry["build_log"] = f"{name}/build.log"
+        manifest["images"][name] = entry
+    manifest["rollback"] = dict(binary="rollback/parable_seed3_minimal.bin", **images["minimal_internal_flash"])
+    (kit / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
+    for name in ("measurement-disassembly.txt", "measurement-undefined.txt", "measurement-symbols.txt"):
+        shutil.copyfile(output / name, kit / name)
+    checksum_paths = sorted(path for path in kit.rglob("*") if path.is_file() and path.name != "SHA256SUMS")
+    (kit / "SHA256SUMS").write_text("".join(hashlib.sha256(path.read_bytes()).hexdigest()
+        + "  " + path.relative_to(kit).as_posix() + "\n" for path in checksum_paths))
     print(json.dumps({"images": {name: {k: image[k] for k in (
         "app_type", "execution_location", "berkeley_size", "image_load_span_bytes", "text_including_rodata_bytes",
         "included_input_rodata_bytes", "static_placement_bytes", "static_region_span_bytes")}
