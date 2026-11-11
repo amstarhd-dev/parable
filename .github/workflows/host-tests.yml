@@ -25,6 +25,25 @@ jobs:
         run: cmake --build build
       - name: Test
         run: ctest --test-dir build --output-on-failure --no-tests=error
+      - name: Record canonical Engine listening evidence
+        if: matrix.build_type == 'Release'
+        env:
+          HEAD_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          git rev-parse HEAD > build/patch-auditions/SOURCE_COMMIT
+          printenv HEAD_COMMIT > build/patch-auditions/HEAD_COMMIT
+          c++ --version > build/patch-auditions/HOST_COMPILER.txt
+          sha256sum include/parable_core.h include/parable_patch.h src/parable_patch.cpp src/patch_json.cpp src/parable_prepare.cpp include/parable_rat.h src/parable_rat.cpp src/rat_circuit_math.h tools/patch_audition.cpp tools/lab_wav.h tools/soundforge/analysis.h tools/soundforge/excitation.h tests/fixtures/patch-v1/rat* > build/patch-auditions/SOURCE_SHA256SUMS
+          cp third_party/labrat/*LICENSE.txt third_party/labrat/provenance.json build/patch-auditions/
+          (cd build/patch-auditions && sha256sum ./*.wav ./*.patch.json) > build/patch-auditions/SHA256SUMS
+      - name: Publish canonical Engine listening evidence
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-patch-rat-auditions
+          path: parable-starter/build/patch-auditions/
+          if-no-files-found: error
+          retention-days: 7
       - name: Render shared-kernel LabRAT auditions and circuit measurements
         if: matrix.build_type == 'Release'
         run: |
@@ -87,3 +106,21 @@ jobs:
           path: parable-starter/build/germanium-auditions/
           if-no-files-found: error
           retention-days: 7
+
+  integration-sanitizers:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: parable-starter
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure ASan and UBSan
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
+      - name: Build integration and existing affected tests
+        run: cmake --build build --target parable_core_test parable_audio_safety_test parable_patch_test parable_prepare_test parable_rat_test parable_rat_integration_test parable_patch_audition -j2
+      - name: Test integration and affected boundaries
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
+          UBSAN_OPTIONS: halt_on_error=1
+        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^(core_validation|audio_safety|patch_contract|host_preparation|rat_patch_integration|patch_audio_evidence|rat_circuit_and_safety)$'

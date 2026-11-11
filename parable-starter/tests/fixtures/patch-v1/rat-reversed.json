@@ -1,0 +1,76 @@
+{
+  "format": "parable.patch",
+  "version": 1,
+  "sampleRate": {
+    "unit": "Hz",
+    "value": 48000
+  },
+  "outputTrim": {
+    "unit": "linear",
+    "value": 0.8
+  },
+  "processors": [
+    {
+      "id": 40,
+      "type": "Gain",
+      "revision": 1,
+      "enabled": true,
+      "parameters": {
+        "gain": {
+          "unit": "linear",
+          "value": 1.8
+        }
+      }
+    },
+    {
+      "id": 7,
+      "type": "Rat",
+      "revision": 1,
+      "enabled": true,
+      "parameters": {
+        "distortion": {
+          "unit": "normalized",
+          "value": 0.35
+        },
+        "filter": {
+          "unit": "normalized",
+          "value": 0.5
+        },
+        "volume": {
+          "unit": "normalized",
+          "value": 0.7
+        }
+      }
+    },
+    {
+      "id": 3,
+      "type": "OnePoleLowpass",
+      "revision": 1,
+      "enabled": true,
+      "parameters": {
+        "cutoff": {
+          "unit": "Hz",
+          "value": 1800.0
+        }
+      }
+    }
+  ],
+  "routing": [
+    {
+      "from": "input",
+      "to": 3
+    },
+    {
+      "from": 3,
+      "to": 7
+    },
+    {
+      "from": 7,
+      "to": 40
+    },
+    {
+      "from": 40,
+      "to": "output"
+    }
+  ]
+}

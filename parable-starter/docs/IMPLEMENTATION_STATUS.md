@@ -1,5 +1,24 @@
 # Implementation status and reproducible baseline
 
+## PAR-008 — canonical RAT serial integration (software evidence)
+
+Main `440a992` baseline passes 16/16 Debug/Release. [Gate 0](adr/ADR-001-par008-gate0.md)
+cleared before source edits. The unchanged experimental LabRAT kernel now has an
+explicit additive patch-v1 `Rat` revision 1 with three normalized controls, stable
+IDs/order and strict one-instance/rate/parameter validation. Stopped preparation
+and Engine loading preserve failure atomicity; disabled RAT does not advance state.
+Eight utility stages/four RAM patch configurations remain; no live switching/storage.
+
+Host suites pass **18/18 Debug/Release**, affected ASan/UBSan **7/7**. Four canonical
+Engine synthetic WAVs include dry, RAT-only and both composite orders; standalone
+RAT-only output matches exactly. Old RAT16/CMOS13/germanium25 render/report bytes
+and standalone ARM objects match baseline. The actual active Engine+RAT Cortex-M7
+image links in BOOT_NONE: **95,356 B load span**, **11,040 B Engine**; the bypass
+startup target remains available with increased footprint. [Evidence/commands](PAR008_EVIDENCE.md)
+record sections, state, static frames, expected full-codec overflow and warnings.
+No hardware boot/run, CPU/deadline/latency/noise or real-guitar/founder approval.
+Earlier sections below are historical; RAT's model/fidelity limitations still apply.
+
 ## SF-003 — positive-ground germanium fuzz specimen
 
 Started on main `d628ffc3`, after PR #17 merged; clean Debug/Release **13/13** and

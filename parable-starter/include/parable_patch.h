@@ -19,13 +19,17 @@ inline constexpr size_t kMaxStringBytes = 64;
 struct Bypass {};
 struct Gain { float linear; };
 struct OnePoleLowpass { float cutoffHz; };
+struct Rat { float distortion, filter, volume; }; // Normalized model controls [0,1].
 inline bool operator==(Bypass, Bypass) noexcept { return true; }
 inline bool operator==(Gain a, Gain b) noexcept { return a.linear == b.linear; }
 inline bool operator==(OnePoleLowpass a, OnePoleLowpass b) noexcept { return a.cutoffHz == b.cutoffHz; }
+inline bool operator==(Rat a, Rat b) noexcept {
+    return a.distortion == b.distortion && a.filter == b.filter && a.volume == b.volume;
+}
 struct Processor {
     uint32_t id = 0;
     bool enabled = false;
-    std::variant<Bypass, Gain, OnePoleLowpass> settings;
+    std::variant<Bypass, Gain, OnePoleLowpass, Rat> settings;
 };
 inline bool operator==(const Processor& a, const Processor& b) noexcept {
     return a.id == b.id && a.enabled == b.enabled && a.settings == b.settings;

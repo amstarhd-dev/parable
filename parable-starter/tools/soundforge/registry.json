@@ -80,7 +80,8 @@
           "paths": [
             "parable-starter/tests/test_rat.cpp",
             "parable-starter/tools/rat_measure.h",
-            "parable-starter/docs/LABRAT_REPORT.md"
+            "parable-starter/docs/LABRAT_REPORT.md",
+            "parable-starter/tests/test_rat_integration.cpp"
           ]
         },
         "independent_circuit": {
@@ -96,11 +97,12 @@
         },
         "synthetic_audition": {
           "status": "generated",
-          "scope": "11 synthetic 9-second PCM16 pluck/strum files; RMS matched, not LUFS matched. Founder musical approval pending. Settings/gains in renders.csv; no WAV binaries committed.",
+          "scope": "11 synthetic 9-second PCM16 pluck/strum files; RMS matched, not LUFS matched. Founder musical approval pending. Settings/gains in renders.csv; no WAV binaries committed. PAR-008 also renders 4 canonical Engine WAVs at raw relative levels, including composite/reversed chains; no human approval.",
           "paths": [
             "parable-starter/tools/rat_lab.cpp",
             "parable-starter/docs/LABRAT_REPORT.md",
-            "parable-starter/tests/fixtures/soundforge/labrat-main.json"
+            "parable-starter/tests/fixtures/soundforge/labrat-main.json",
+            "parable-starter/tools/patch_audition.cpp"
           ]
         },
         "real_guitar_audition": {
@@ -110,11 +112,13 @@
         },
         "arm_cross_compile": {
           "status": "compiled",
-          "scope": "Pinned Cortex-M7 object, not linked into or activated in audio firmware; 6452/0/0 object bytes, 10752-byte instance; CPU not measured.",
+          "scope": "Pinned unchanged Cortex-M7 kernel object plus actual Engine+RAT-linked active test image; build report gives full linked sections/state/stack. No flashing, execution or target timing.",
           "paths": [
             "parable-starter/firmware/build.py",
             "parable-starter/firmware/dependencies.json",
-            "parable-starter/docs/LABRAT_REPORT.md"
+            "parable-starter/docs/LABRAT_REPORT.md",
+            "parable-starter/docs/adr/ADR-001-par008-gate0.md",
+            "parable-starter/docs/PAR008_EVIDENCE.md"
           ]
         },
         "physical_daisy": {
@@ -123,9 +127,13 @@
           "paths": []
         },
         "patch_runtime": {
-          "status": "not-integrated",
-          "scope": "Outside closed patch v1 and Engine/preparation registry; no storage or live activation.",
-          "paths": []
+          "status": "integrated",
+          "scope": "PAR-008 canonical Rat revision 1 -> stopped preparation -> serial Engine, max one instance. Synthetic host audio and active ARM link only; no storage/live activation/hardware execution.",
+          "paths": [
+            "parable-starter/tests/test_rat_integration.cpp",
+            "parable-starter/tools/patch_audition.cpp",
+            "parable-starter/docs/adr/ADR-001-par008-gate0.md"
+          ]
         }
       }
     },

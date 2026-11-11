@@ -8,7 +8,9 @@ never edited by decode. The result exposes const accessors and holds named
 `Gain::linear` or `OnePoleLowpass::cutoffHz` settings with stable instance IDs.
 Canonical JSON is the interchange authority; typed data is its derived value.
 PAR-004 adds a separate [temporary native preparation bridge](../include/parable_prepare.h)
-for stopped-audio host playback. This document's wire rules are unchanged.
+for stopped-audio host playback. PAR-008 adds the explicit revision-1 `Rat` type
+under the [Gate 0 decision](adr/ADR-001-par008-gate0.md); prior type semantics and
+canonical bytes are unchanged. Older v1 readers reject the unfamiliar type.
 
 ## Required fields
 
@@ -25,12 +27,26 @@ order and edge declaration order have no semantic significance.
 | Bypass parameters | Exactly `{}`. |
 | Gain parameters | Exactly `{"gain":{"unit":"linear","value":number}}`, range [0,2]. |
 | OnePoleLowpass parameters | Exactly `{"cutoff":{"unit":"Hz","value":number}}`, cutoff >=20 and strictly < `0.45f * sampleRateHz`. Bounds match the existing native validation, not the old header's fixed-20000-Hz comment. |
+| Rat parameters (PAR-008) | Exactly `distortion`, `filter`, `volume`, each `{"unit":"normalized","value":number}` in binary32 [0,1]. All mandatory; nominal circuit and fixed 4x oversampling. No component/fault settings. |
 | Each routing edge | Exactly `{"from":endpoint,"to":endpoint}`. A source is `"input"` or an existing processor's integer ID. A destination is an existing processor's integer ID or `"output"`. |
 
-Type names are exactly `Bypass`, `Gain`, `OnePoleLowpass` (case-sensitive).
+Type names are exactly `Bypass`, `Gain`, `OnePoleLowpass`, `Rat` (case-sensitive).
 Units are exact, case-sensitive strings. `linear` means amplitude ratio, not dB
 or UI percent. IDs/version/revisions require integer JSON tokens without decimal
 points or exponents. Identity belongs to `id`, never type or array index.
+
+`normalized` is a dimensionless model-control position, not a linear audio gain.
+Distortion/Filter use the existing RAT pot law; Volume is electrical wiper fraction.
+RAT patches require 32000–96000 Hz, and at most **one Rat declaration including
+disabled instances**; utility-only patches retain eight processors and 8000–192000
+Hz. Unsupported control fields, processor revisions and formats fail closed.
+Registration is additive; changing an existing processor's semantics requires a
+new revision/version. There is no migration or fallback to another effect.
+
+The native adapter maps one engine unit to one modeled input volt, saturates RAT
+input to +/-4 V and retains the kernel's bounded jack-volts/4 output. This is an
+explicit software scale, not calibrated hardware I/O. No RMS matching or automatic
+gain is inserted; trim/master Volume/final output bounds remain separate.
 
 Routing must be one input-to-output serial path visiting every declared processor
 exactly once, including disabled processors. There are exactly N+1 edges for N
@@ -42,6 +58,9 @@ fields reject. Reordering requires editing edges; it does not renumber instances
 See [the manual example](../tests/fixtures/patch-v1/manual.json),
 [all utility types](../tests/fixtures/patch-v1/utilities.json), and
 [canonical output](../tests/fixtures/patch-v1/utilities.canonical.json).
+PAR-008 adds independent golden bytes for [RAT alone](../tests/fixtures/patch-v1/rat.json),
+[Gain -> RAT -> Lowpass](../tests/fixtures/patch-v1/rat-composite.json) and
+[reversed order](../tests/fixtures/patch-v1/rat-reversed.json); old fixtures are retained.
 
 ## Numeric and canonical byte rules
 
@@ -87,9 +106,10 @@ Only the first error is returned; callers must check the result variant.
 The codec allocates a bounded-input DOM and uses control-side error handling.
 Resource exhaustion may propagate allocation exceptions without mutating prior
 validated data. It must never run inside audio. Only `parable_patch` links the
-JSON dependency; existing core/audio targets do not link or call it. ARM toolchain
-support (including floating `charconv`), memory footprint and processing costs
-remain unbuilt/unmeasured. A limit on JSON size is not proof of MCU fit.
+JSON dependency; core/audio processing does not call it. The pinned ARM recipe
+links the codec in separate startup diagnostics; the active RAT integration image
+has no parser. See ARM build evidence for footprint; runtime cost is unmeasured.
+A limit on JSON size is not proof of MCU fit.
 
 Four independently held encoded strings are demonstrated in host tests. They
 are RAM payloads; no bank-file format, nonvolatile storage, activation protocol,
