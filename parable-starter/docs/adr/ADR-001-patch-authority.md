@@ -187,6 +187,12 @@ overflow before claiming safety. Current output clamping is not that proof.
 
 ## Durable four-slot protocol required by either option
 
+PAR-010 implements this protocol in a [host-only fixed A/B journal](../PRESET_JOURNAL.md),
+following its [Gate 0 audit](../PAR010_GATE0.md). Its separate envelope does not
+change Option A or patch-v1. Host policy refuses generation wrap and commits an
+independent final granule without assuming multi-byte atomicity. Physical geometry,
+partition/endurance and execute/write restrictions remain future adapter gates.
+
 Each slot has an independent generation history. Write a new image to an
 inactive journal region with format version, slot ID, generation, payload
 length and CRC. Read back and validate the payload, then write a storage-adapter

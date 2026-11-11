@@ -105,7 +105,7 @@ Only the first error is returned; callers must check the result variant.
 
 The codec allocates a bounded-input DOM and uses control-side error handling.
 Resource exhaustion may propagate allocation exceptions without mutating prior
-validated data. It must never run inside audio. Only `parable_patch` links the
+validated data. It must never run inside audio. Only the control-side patch and preset libraries link the
 JSON dependency; core/audio processing does not call it. The pinned ARM recipe
 links the codec in separate startup diagnostics; the active RAT integration image
 has no parser. See ARM build evidence for footprint; runtime cost is unmeasured.
@@ -118,3 +118,7 @@ The PAR-004 bridge requires exact declaration/target-rate equality and native
 validation before returning a separate prototype patch. Callers must keep that
 rate consistent with the stopped Engine they load. Measured resource budgets
 and hardware-rate queries remain future work; see the implementation status.
+
+PAR-010 separately implements [host journal logic](PRESET_JOURNAL.md) around these
+unchanged canonical bytes, with a distinct versioned storage envelope. Native Bank
+is still RAM-only; there is no hardware flash adapter or runtime activation.
