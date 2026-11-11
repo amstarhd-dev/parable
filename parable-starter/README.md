@@ -69,6 +69,12 @@ After building, `./build/parable_activation_demo 0 2 1 3 0` selects saved fixtur
 presets by number and renders blocks with deterministic receipts. No live flash,
 Volume/Register/modulation lane or firmware integration is added.
 
+PAR-WEAR-001 is a [research-only Apple Watch direct optical PPG feasibility report](docs/research/PAR-WEAR-001-apple-watch-live-ppg.md), with a pinned source ledger.
+Its current decision is **NO-GO for an ordinary commercially distributed live-PPG
+app**: research export is delayed, and the internal exception found in published
+artefacts does not establish third-party live access. No sensing adapter or DSP
+mapping is implemented.
+
 ## Purpose
 - A versioned, validated patch snapshot (`schema=2` for this native proof; **not** yet the final JSON/Wire format).
 - Four independent in-memory performance slots.
