@@ -25,6 +25,24 @@ jobs:
         run: cmake --build build
       - name: Test
         run: ctest --test-dir build --output-on-failure --no-tests=error
+      - name: Repeat deterministic preset fault matrix
+        if: matrix.build_type == 'Release'
+        run: |
+          mkdir -p build/preset-evidence
+          ./build/parable_presets_test > build/preset-evidence/fault-matrix.txt
+          ./build/parable_presets_test > build/preset-evidence/repeat.txt
+          cmp build/preset-evidence/fault-matrix.txt build/preset-evidence/repeat.txt
+          git rev-parse HEAD > build/preset-evidence/SOURCE_COMMIT
+          c++ --version > build/preset-evidence/HOST_COMPILER.txt
+          sha256sum include/parable_presets.h include/parable_flash_sim.h src/parable_presets.cpp src/parable_flash_sim.cpp src/preset_crc.h tests/test_presets.cpp tests/fixtures/presets/* > build/preset-evidence/SOURCE_SHA256SUMS
+      - name: Publish preset journal host evidence
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-preset-journal-evidence
+          path: parable-starter/build/preset-evidence/
+          if-no-files-found: error
+          retention-days: 30
       - name: Record canonical Engine listening evidence
         if: matrix.build_type == 'Release'
         env:
@@ -118,9 +136,9 @@ jobs:
       - name: Configure ASan and UBSan
         run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
       - name: Build integration and existing affected tests
-        run: cmake --build build --target parable_core_test parable_audio_safety_test parable_patch_test parable_prepare_test parable_rat_test parable_rat_integration_test parable_patch_audition parable_firmware_measurement_test -j2
+        run: cmake --build build --target parable_core_test parable_audio_safety_test parable_patch_test parable_prepare_test parable_rat_test parable_rat_integration_test parable_patch_audition parable_firmware_measurement_test parable_presets_test -j2
       - name: Test integration and affected boundaries
         env:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1
-        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^(firmware_measurement_math_status|core_validation|audio_safety|patch_contract|host_preparation|rat_patch_integration|patch_audio_evidence|rat_circuit_and_safety)$'
+        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^(firmware_measurement_math_status|core_validation|audio_safety|patch_contract|host_preparation|rat_patch_integration|patch_audio_evidence|rat_circuit_and_safety|preset_journal)$'

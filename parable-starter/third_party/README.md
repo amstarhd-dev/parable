@@ -19,3 +19,7 @@ pre-extract that same verified archive and configure with
 That override is the caller's responsibility; CMake does not reverify its contents.
 No dependency update is implicit. No JSON library is linked to the audio targets,
 and no MCU footprint/compatibility claim is made.
+
+PAR-010 narrowly reuses the MIT CRC32 evaluator with pinned source/notice and
+adaptation details in [crc32/README.md](crc32/README.md). Its journal remains a
+control-side library; no storage/JSON dependency enters existing audio targets.

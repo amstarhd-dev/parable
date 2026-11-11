@@ -53,6 +53,12 @@ and [measured reuse](docs/SOUNDFORGE_SF003_WORK_LOG.md). Run
 WAVs; optional owned mono PCM16 input uses the existing reader. Musical/physical
 approval and patch integration remain separate gates.
 
+PAR-010 adds a host-only [four-slot canonical preset journal](docs/PRESET_JOURNAL.md),
+with [Gate 0 audit](docs/PAR010_GATE0.md) and [reproducible evidence](docs/PAR010_EVIDENCE.md).
+It stages complete documents in independent A/B banks and tests interrupted writes
+using deterministic simulated flash. It does not add a Seed3 driver, live switching
+or physical persistence evidence. The existing native Bank remains RAM-only.
+
 ## Purpose
 - A versioned, validated patch snapshot (`schema=2` for this native proof; **not** yet the final JSON/Wire format).
 - Four independent in-memory performance slots.
@@ -88,7 +94,7 @@ See [`docs/IMPLEMENTATION_STATUS.md`](docs/IMPLEMENTATION_STATUS.md) for the
 source inventory, measured baseline and untested behavior, and
 [`docs/adr/ADR-001-patch-authority.md`](docs/adr/ADR-001-patch-authority.md) for
 the selected Option A decision. The data contract and temporary native preparation
-bridge are implemented; live activation and durable storage remain deferred.
+bridge and host journal logic are implemented; live activation and real flash storage remain deferred.
 
 ## JSON patch contract (PAR-002)
 

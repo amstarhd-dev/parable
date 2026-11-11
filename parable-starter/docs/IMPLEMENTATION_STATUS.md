@@ -1,5 +1,24 @@
 # Implementation status and reproducible baseline
 
+## PAR-010 — host four-slot persistence logic
+
+Gate 0 on main `156fa08` (merged PR #30): existing 19/19 Debug and Release pass.
+[Journal protocol/API](PRESET_JOURNAL.md), [prior-art audit](PAR010_GATE0.md) and
+[commands/results](PAR010_EVIDENCE.md) distinguish the evidence levels:
+
+- **Specified/implemented:** four independent owned canonical documents; bounded
+  A/B envelope, CRC, generation, verify-before-commit, explicit recovery/default/
+  unsupported statuses and separate tombstone clear. No native struct storage.
+- **Host-tested:** full Debug/Release regression, targeted ASan/UBSan, exact golden
+  envelopes/patch bytes, deterministic byte/operation power cuts, corruption,
+  future schemas, generation exhaustion, capacity and simulated wear failures.
+- **Hardware-tested:** none. No flash adapter/partition, real power cuts, endurance,
+  callback timing, MCU heap/stack or execute/write safety measurements.
+- **Musically auditioned:** not applicable to this storage change; DSP unchanged.
+
+This supersedes historical statements below that durable protocol logic is wholly
+unimplemented; real nonvolatile storage and live bundle activation remain deferred.
+
 ## PAR-009 — prepared Seed3 first-boot kit, physical results pending
 
 Started on main `0f84cb0` after #27 merged. [Prior-art/firmware Gate 0](PAR009_GATE0.md)
