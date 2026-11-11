@@ -1,0 +1,274 @@
+{
+  "schema": 1,
+  "main": "440a99221af7cc3f3b7123db327bb161306d4856",
+  "measured_hardware": false,
+  "workload": {
+    "expm1_per_base": 125.53515625,
+    "coupled_evaluations_per_base": 15.69189453125,
+    "coupled_evaluations_per_second": 753210.9375,
+    "individual_device_evaluations_per_second": 1506421.875,
+    "expm1_per_second": 6025687.5,
+    "base_period_us": 20.833333333333332,
+    "internal_period_us": 5.208333333333333
+  },
+  "direct_rates": [
+    {
+      "method": "current_only",
+      "states_per_coupled_evaluation": 1,
+      "pair_states_per_second_nominal": 753210.9375,
+      "pair_states_per_second_static_bound": 4800000,
+      "maximum_mean_latency_nominal_ns": 1327.6493346194936,
+      "maximum_mean_latency_static_bound_ns": 208.33333333333334,
+      "payload_4dac_4current_4voltage_16bit_mbps": 144.6165
+    },
+    {
+      "method": "forward_jacobian",
+      "states_per_coupled_evaluation": 3,
+      "pair_states_per_second_nominal": 2259632.8125,
+      "pair_states_per_second_static_bound": 14400000,
+      "maximum_mean_latency_nominal_ns": 442.5497782064979,
+      "maximum_mean_latency_static_bound_ns": 69.44444444444444,
+      "payload_4dac_4current_4voltage_16bit_mbps": 433.8495
+    },
+    {
+      "method": "central_jacobian",
+      "states_per_coupled_evaluation": 5,
+      "pair_states_per_second_nominal": 3766054.6875,
+      "pair_states_per_second_static_bound": 24000000,
+      "maximum_mean_latency_nominal_ns": 265.52986692389874,
+      "maximum_mean_latency_static_bound_ns": 41.666666666666664,
+      "payload_4dac_4current_4voltage_16bit_mbps": 723.0825
+    }
+  ],
+  "codec_filter_delays": [
+    {
+      "fs": 48000,
+      "filter_mode": "linear",
+      "adc_group_delay_frames": 17,
+      "dac_group_delay_frames": 17.3,
+      "filter_only_round_trip_us": 714.5833333333333
+    },
+    {
+      "fs": 48000,
+      "filter_mode": "low_latency",
+      "adc_group_delay_frames": 6.6,
+      "dac_group_delay_frames": 7.19,
+      "filter_only_round_trip_us": 287.29166666666663
+    },
+    {
+      "fs": 192000,
+      "filter_mode": "linear",
+      "adc_group_delay_frames": 11.6,
+      "dac_group_delay_frames": 10.7,
+      "filter_only_round_trip_us": 116.14583333333333
+    },
+    {
+      "fs": 192000,
+      "filter_mode": "low_latency",
+      "adc_group_delay_frames": 6.8,
+      "dac_group_delay_frames": 5.41,
+      "filter_only_round_trip_us": 63.593750000000014
+    }
+  ],
+  "dc_bias_and_currents": [
+    {
+      "case": "healthy_low",
+      "node_volts": [
+        -0.0732178398,
+        -0.211472011,
+        -0.161834159,
+        -7.55228031
+      ],
+      "ve_vc_q1": [
+        0.0732178398,
+        -0.1382541712
+      ],
+      "ve_vc_q2": [
+        0.04963785199999998,
+        -7.340808299000001
+      ],
+      "positive_out_of_device_amps": {
+        "q1_base": 8.86163192e-07,
+        "q1_collector": 0.0002705790638752578,
+        "q2_base": -4.260033905560857e-06,
+        "q2_collector": 0.00016698035609756087
+      }
+    },
+    {
+      "case": "healthy_mid",
+      "node_volts": [
+        -0.0732178398,
+        -0.211472011,
+        -0.161834159,
+        -7.55228031
+      ],
+      "ve_vc_q1": [
+        0.0732178398,
+        -0.1382541712
+      ],
+      "ve_vc_q2": [
+        0.04963785199999998,
+        -7.340808299000001
+      ],
+      "positive_out_of_device_amps": {
+        "q1_base": 8.86163192e-07,
+        "q1_collector": 0.0002705790638752578,
+        "q2_base": -4.260033905560857e-06,
+        "q2_collector": 0.00016698035609756087
+      }
+    },
+    {
+      "case": "healthy_high",
+      "node_volts": [
+        -0.0732178398,
+        -0.211472011,
+        -0.161834159,
+        -7.55228031
+      ],
+      "ve_vc_q1": [
+        0.0732178398,
+        -0.1382541712
+      ],
+      "ve_vc_q2": [
+        0.04963785199999998,
+        -7.340808299000001
+      ],
+      "positive_out_of_device_amps": {
+        "q1_base": 8.86163192e-07,
+        "q1_collector": 0.0002705790638752578,
+        "q2_base": -4.260033905560857e-06,
+        "q2_collector": 0.00016698035609756087
+      }
+    },
+    {
+      "case": "source_high",
+      "node_volts": [
+        -0.0732178398,
+        -0.211472011,
+        -0.161834159,
+        -7.55228031
+      ],
+      "ve_vc_q1": [
+        0.0732178398,
+        -0.1382541712
+      ],
+      "ve_vc_q2": [
+        0.04963785199999998,
+        -7.340808299000001
+      ],
+      "positive_out_of_device_amps": {
+        "q1_base": 8.86163192e-07,
+        "q1_collector": 0.0002705790638752578,
+        "q2_base": -4.260033905560857e-06,
+        "q2_collector": 0.00016698035609756087
+      }
+    },
+    {
+      "case": "weak_input",
+      "node_volts": [
+        -0.0732178398,
+        -0.211472011,
+        -0.161834159,
+        -7.55228031
+      ],
+      "ve_vc_q1": [
+        0.0732178398,
+        -0.1382541712
+      ],
+      "ve_vc_q2": [
+        0.04963785199999998,
+        -7.340808299000001
+      ],
+      "positive_out_of_device_amps": {
+        "q1_base": 8.86163192e-07,
+        "q1_collector": 0.0002705790638752578,
+        "q2_base": -4.260033905560857e-06,
+        "q2_collector": 0.00016698035609756087
+      }
+    },
+    {
+      "case": "q1_leaky",
+      "node_volts": [
+        -0.0758165085,
+        -0.0809476668,
+        -0.0607034016,
+        -8.40871598
+      ],
+      "ve_vc_q1": [
+        0.0758165085,
+        -0.005131158299999994
+      ],
+      "ve_vc_q2": [
+        0.0202442652,
+        -8.3277683132
+      ],
+      "positive_out_of_device_amps": {
+        "q1_base": -1.5113106900000007e-07,
+        "q1_collector": 0.0002779208913767605,
+        "q2_base": -7.646578249487763e-06,
+        "q2_collector": 6.819884878048776e-05
+      }
+    },
+    {
+      "case": "feedback_wrong",
+      "node_volts": [
+        -0.0742000566,
+        -0.134746699,
+        -0.0992545599,
+        -8.06420849
+      ],
+      "ve_vc_q1": [
+        0.0742000566,
+        -0.0605466424
+      ],
+      "ve_vc_q2": [
+        0.0354921391,
+        -7.9294617910000005
+      ],
+      "positive_out_of_device_amps": {
+        "q1_base": 2.5054503300000004e-06,
+        "q1_collector": 0.00027481845968204733,
+        "q2_base": -6.1744202578049005e-06,
+        "q2_collector": 0.00010793443048780491
+      }
+    }
+  ],
+  "companion": [
+    {
+      "fuzz": 0,
+      "emitter_companion_siemens": 0.001,
+      "equivalent_resistance_ohms": 1000.0,
+      "shunt_current_at_bias_amps": 0.000161834159,
+      "opposing_history_injection_at_bias_amps": 0.0
+    },
+    {
+      "fuzz": 0.8,
+      "emitter_companion_siemens": 0.004996747438607905,
+      "equivalent_resistance_ohms": 200.13018714401946,
+      "shunt_current_at_bias_amps": 0.0008086444194625145,
+      "opposing_history_injection_at_bias_amps": 0.0006468102604625146
+    },
+    {
+      "fuzz": 1,
+      "emitter_companion_siemens": 7.681000000000001,
+      "equivalent_resistance_ohms": 0.1301913813305559,
+      "shunt_current_at_bias_amps": 1.2430481752790001,
+      "opposing_history_injection_at_bias_amps": 1.2428863411200002
+    }
+  ],
+  "precision": {
+    "illustrative_current_span_amps": 0.002,
+    "ideal_16bit_lsb_amps": 3.0517578125e-08,
+    "delta_volts": 0.0001,
+    "central_jacobian_quantization_bound_siemens": 0.000152587890625,
+    "ideal_bits_for_100pa_residual": 25,
+    "ideal_bits_for_1pa_math_floor": 31,
+    "shot_noise_270ua_1mhz_amps": 9.301480432490302e-09
+  },
+  "caveats": [
+    "workload counts are host observations, not measured Daisy CPU deadlines",
+    "group-delay sums exclude buffering, analog stages and sample/hold; modes not verified on a board",
+    "ADC bit depths are ideal quantization, not ENOB or current-sensor specifications",
+    "physical current/voltage ranges here cover selected states, never authorize probing the full GP guard domain"
+  ]
+}

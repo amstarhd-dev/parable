@@ -1,0 +1,260 @@
+{
+  "schema": 1,
+  "scope": "virtual HIL stand-in, ONE delayed source-impedance port; NOT hardware",
+  "simulator": "******\n** ngspice-44.2 : Circuit level simulation program\n** Compiled with KLU Direct Linear Solver\n** The U. C. Berkeley CAD Group\n** Copyright 1985-1994, Regents of the University of California.\n** Copyright 2001-2024, The ngspice team.\n** Please get your ngspice manual from https://ngspice.sourceforge.io/docs.html\n** Please file your bug-reports at http://ngspice.sourceforge.net/bugrep.html\n** Creation Date: Sun Jan 12 08:19:15 UTC 2025\n******",
+  "assumptions": "tools/sf004/PLAN.md",
+  "cases": [
+    {
+      "case": "healthy_low",
+      "mode": {
+        "name": "continuous",
+        "rate": 0,
+        "delay": 0,
+        "bits": 0,
+        "driver_tau": 0,
+        "sensor_tau": 0,
+        "offset": 0,
+        "gain": 0,
+        "extra_r": 0
+      },
+      "raw": {
+        "node_rms_v": 2.943667938111624e-06,
+        "node_peak_v": 3.5182666083599656e-05,
+        "jack_rms_v": 1.5789468920893863e-07,
+        "jack_peak_v": 8.465462903398807e-07,
+        "input_rms_a": 4.469167936273001e-12
+      },
+      "boundary": {
+        "node_rms_v": 2.943667938111624e-06,
+        "node_peak_v": 3.5182666083599656e-05,
+        "jack_rms_v": 1.5789468920893863e-07,
+        "jack_peak_v": 8.465462903398807e-07,
+        "input_rms_a": 4.469167936273001e-12
+      },
+      "dc_peak_v": 0.0,
+      "saturated_row_fraction": 0.0,
+      "original_fixture_gate": true,
+      "boundary_gate": true,
+      "passes": true,
+      "same_source_boundary_pass": true,
+      "raw_rows": 59096,
+      "raw_sha256": "68851cbeb634f7ff8ff94845bb05e3ae7ce2f0a5cf620e8dda190dd40084fd99"
+    },
+    {
+      "case": "healthy_mid",
+      "mode": {
+        "name": "continuous",
+        "rate": 0,
+        "delay": 0,
+        "bits": 0,
+        "driver_tau": 0,
+        "sensor_tau": 0,
+        "offset": 0,
+        "gain": 0,
+        "extra_r": 0
+      },
+      "raw": {
+        "node_rms_v": 4.801766872314482e-06,
+        "node_peak_v": 5.2901776098401854e-05,
+        "jack_rms_v": 2.6322912563674623e-07,
+        "jack_peak_v": 1.2732583062370628e-06,
+        "input_rms_a": 1.1795204131936726e-11
+      },
+      "boundary": {
+        "node_rms_v": 4.801766872314482e-06,
+        "node_peak_v": 5.2901776098401854e-05,
+        "jack_rms_v": 2.6322912563674623e-07,
+        "jack_peak_v": 1.2732583062370628e-06,
+        "input_rms_a": 1.1795204131936726e-11
+      },
+      "dc_peak_v": 0.0,
+      "saturated_row_fraction": 0.0,
+      "original_fixture_gate": true,
+      "boundary_gate": true,
+      "passes": true,
+      "same_source_boundary_pass": true,
+      "raw_rows": 59780,
+      "raw_sha256": "93fc2d0398335842592c90b5239e212073ec485cba148a42144bf05f0770533b"
+    },
+    {
+      "case": "healthy_high",
+      "mode": {
+        "name": "continuous",
+        "rate": 0,
+        "delay": 0,
+        "bits": 0,
+        "driver_tau": 0,
+        "sensor_tau": 0,
+        "offset": 0,
+        "gain": 0,
+        "extra_r": 0
+      },
+      "raw": {
+        "node_rms_v": 7.926824582406476e-06,
+        "node_peak_v": 9.349273909808886e-05,
+        "jack_rms_v": 4.306145692055639e-07,
+        "jack_peak_v": 2.258947892765789e-06,
+        "input_rms_a": 1.0436239910614909e-11
+      },
+      "boundary": {
+        "node_rms_v": 7.926824582406476e-06,
+        "node_peak_v": 9.349273909808886e-05,
+        "jack_rms_v": 4.306145692055639e-07,
+        "jack_peak_v": 2.258947892765789e-06,
+        "input_rms_a": 1.0436239910614909e-11
+      },
+      "dc_peak_v": 0.0,
+      "saturated_row_fraction": 0.0,
+      "original_fixture_gate": true,
+      "boundary_gate": true,
+      "passes": true,
+      "same_source_boundary_pass": true,
+      "raw_rows": 62495,
+      "raw_sha256": "6e943c05fb4affb7cffcd50ab13bc0d2de4aff0290287d896485fd508ccfe8c7"
+    },
+    {
+      "case": "source_high",
+      "mode": {
+        "name": "continuous",
+        "rate": 0,
+        "delay": 0,
+        "bits": 0,
+        "driver_tau": 0,
+        "sensor_tau": 0,
+        "offset": 0,
+        "gain": 0,
+        "extra_r": 0
+      },
+      "raw": {
+        "node_rms_v": 1.949993851652153e-07,
+        "node_peak_v": 5.223778466678652e-06,
+        "jack_rms_v": 1.0638084341143136e-08,
+        "jack_peak_v": 1.2596557010945315e-07,
+        "input_rms_a": 1.0966712495204744e-13
+      },
+      "boundary": {
+        "node_rms_v": 1.949993851652153e-07,
+        "node_peak_v": 5.223778466678652e-06,
+        "jack_rms_v": 1.0638084341143136e-08,
+        "jack_peak_v": 1.2596557010945315e-07,
+        "input_rms_a": 1.0966712495204744e-13
+      },
+      "dc_peak_v": 0.0,
+      "saturated_row_fraction": 0.0,
+      "original_fixture_gate": true,
+      "boundary_gate": true,
+      "passes": true,
+      "same_source_boundary_pass": true,
+      "raw_rows": 48009,
+      "raw_sha256": "ef429d43216dbc596a6b3d2b82592cd2770608e4eabcb5717e5046df84e69eca"
+    },
+    {
+      "case": "weak_input",
+      "mode": {
+        "name": "continuous",
+        "rate": 0,
+        "delay": 0,
+        "bits": 0,
+        "driver_tau": 0,
+        "sensor_tau": 0,
+        "offset": 0,
+        "gain": 0,
+        "extra_r": 0
+      },
+      "raw": {
+        "node_rms_v": 4.987543296171078e-07,
+        "node_peak_v": 1.0515056956705848e-05,
+        "jack_rms_v": 2.7487719915137957e-08,
+        "jack_peak_v": 2.5348594008436746e-07,
+        "input_rms_a": 4.251669957042646e-13
+      },
+      "boundary": {
+        "node_rms_v": 4.987543296171078e-07,
+        "node_peak_v": 1.0515056956705848e-05,
+        "jack_rms_v": 2.7487719915137957e-08,
+        "jack_peak_v": 2.5348594008436746e-07,
+        "input_rms_a": 4.251669957042646e-13
+      },
+      "dc_peak_v": 0.0,
+      "saturated_row_fraction": 0.0,
+      "original_fixture_gate": true,
+      "boundary_gate": true,
+      "passes": true,
+      "same_source_boundary_pass": true,
+      "raw_rows": 48013,
+      "raw_sha256": "62dfe52cd3ad0286d1bee65c63ecfa1d1626c756989ccfd8b3b6d68a87f8be6e"
+    },
+    {
+      "case": "q1_leaky",
+      "mode": {
+        "name": "continuous",
+        "rate": 0,
+        "delay": 0,
+        "bits": 0,
+        "driver_tau": 0,
+        "sensor_tau": 0,
+        "offset": 0,
+        "gain": 0,
+        "extra_r": 0
+      },
+      "raw": {
+        "node_rms_v": 2.2338624412907556e-08,
+        "node_peak_v": 1.5240386730397404e-07,
+        "jack_rms_v": 1.2327692876805244e-09,
+        "jack_peak_v": 3.5833851996791566e-09,
+        "input_rms_a": 5.380665385017806e-12
+      },
+      "boundary": {
+        "node_rms_v": 2.2338624412907556e-08,
+        "node_peak_v": 1.5240386730397404e-07,
+        "jack_rms_v": 1.2327692876805244e-09,
+        "jack_peak_v": 3.5833851996791566e-09,
+        "input_rms_a": 5.380665385017806e-12
+      },
+      "dc_peak_v": 0.0,
+      "saturated_row_fraction": 0.0,
+      "original_fixture_gate": true,
+      "boundary_gate": true,
+      "passes": true,
+      "same_source_boundary_pass": true,
+      "raw_rows": 48035,
+      "raw_sha256": "5c5048f47a8cb1c06a8ca9dd1d60825bdb88521058d81648ff5ee434dcf8bdd3"
+    },
+    {
+      "case": "feedback_wrong",
+      "mode": {
+        "name": "continuous",
+        "rate": 0,
+        "delay": 0,
+        "bits": 0,
+        "driver_tau": 0,
+        "sensor_tau": 0,
+        "offset": 0,
+        "gain": 0,
+        "extra_r": 0
+      },
+      "raw": {
+        "node_rms_v": 1.7157973170420233e-06,
+        "node_peak_v": 2.5317794674961647e-05,
+        "jack_rms_v": 9.614550905133193e-08,
+        "jack_peak_v": 6.19087226857995e-07,
+        "input_rms_a": 6.9912998624771154e-12
+      },
+      "boundary": {
+        "node_rms_v": 1.7157973170420233e-06,
+        "node_peak_v": 2.5317794674961647e-05,
+        "jack_rms_v": 9.614550905133193e-08,
+        "jack_peak_v": 6.19087226857995e-07,
+        "input_rms_a": 6.9912998624771154e-12
+      },
+      "dc_peak_v": 0.0,
+      "saturated_row_fraction": 0.0,
+      "original_fixture_gate": true,
+      "boundary_gate": true,
+      "passes": true,
+      "same_source_boundary_pass": true,
+      "raw_rows": 58765,
+      "raw_sha256": "52e3255de00ae8b2ac2c593f4b809e4a03ce9be7460940ca1dc9409014fbad84"
+    }
+  ]
+}

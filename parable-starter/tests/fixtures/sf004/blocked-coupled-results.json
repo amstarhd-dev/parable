@@ -1,0 +1,37 @@
+{
+  "scope": "Unvalidated sampled nonlinear SPICE attempts; integration aborts are NOT physical instability",
+  "cases": [
+    {
+      "case": "healthy_mid",
+      "mode": {
+        "name": "fast_192k",
+        "rate": 192000,
+        "delay": 1e-06,
+        "bits": 16,
+        "driver_tau": 2e-07,
+        "sensor_tau": 1e-07,
+        "offset": 1e-09,
+        "gain": 0.0001,
+        "extra_r": 1
+      },
+      "passes": false,
+      "error": "NUMERICAL BLOCKER, not physical instability: doAnalyses: TRAN:  Timestep too small; time = 0.000511417, timestep = 3.125e-19: trouble with node \"intermediate\""
+    },
+    {
+      "case": "healthy_mid",
+      "mode": {
+        "name": "codec_48k",
+        "rate": 48000,
+        "delay": 0.0003,
+        "bits": 16,
+        "driver_tau": 2e-07,
+        "sensor_tau": 1e-07,
+        "offset": 1e-09,
+        "gain": 0.0001,
+        "extra_r": 1
+      },
+      "passes": false,
+      "error": "NUMERICAL BLOCKER, not physical instability: doAnalyses: TRAN:  Timestep too small; time = 0.003175, timestep = 3.125e-19: trouble with node \"intermediate\""
+    }
+  ]
+}
