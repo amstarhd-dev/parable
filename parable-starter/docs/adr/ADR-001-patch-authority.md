@@ -150,6 +150,12 @@ remove the need for semantic validation or native preparation.
 
 ## Activation protocol required by either option
 
+PAR-011 implements this existing decision as a host-tested fixed prepared-bundle
+pool. Its [prior-art/ownership addendum](ADR-001-par011-gate0.md) preceded code;
+[API and proof boundaries](../PREPARED_ACTIVATION.md) distinguish compiler/host
+proof from pending physical ISR, deadline, memory-placement and listening gates.
+Option A, patch-v1 and all correspondence semantics remain unchanged.
+
 1. A single control-side owner receives a complete edit/compiler result. Decode,
    migrate if explicitly supported, validate, check target sample rate/resource
    profile, prepare coefficients, and initialize a new plan/state bundle outside
