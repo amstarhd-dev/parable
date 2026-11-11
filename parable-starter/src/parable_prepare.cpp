@@ -69,6 +69,10 @@ Result detail::prepare(SourceView source, float actualSampleRate) {
             stage.type = Type::OnePoleLowpass;
             stage.parameter = lowpass->cutoffHz;
             parameter = "cutoffHz";
+        } else if (const auto* rat = std::get_if<patch::Rat>(&processor->settings)) {
+            stage.type = Type::Rat;
+            stage.rat = {rat->distortion, rat->filter, rat->volume};
+            parameter = "rat.controls";
         } else {
             return error(ErrorCode::UnsupportedProcessor, location(id) + ".settings",
                          "no native mapping for these processor settings", id);
@@ -77,6 +81,12 @@ Result detail::prepare(SourceView source, float actualSampleRate) {
         prepared.count = static_cast<uint8_t>(i + 1);
         // Revalidate each prefix at the actual rate so a failure names its instance/parameter.
         const auto status = validate(prepared, actualSampleRate);
+        if (status == Status::TooManyRats)
+            return error(ErrorCode::CapacityExceeded, location(id) + ".settings",
+                         "at most one Rat per patch, including disabled instances", id, status);
+        if (status == Status::UnsupportedRatRate)
+            return error(ErrorCode::NativeValidationFailed, "document.sampleRateHz",
+                         "Rat requires [32000,96000] Hz at the actual target rate", id, status);
         if (status != Status::Ok)
             return error(ErrorCode::NativeValidationFailed, location(id) + "." + parameter,
                          "mapped stage rejected by native validation at the actual rate", id, status);

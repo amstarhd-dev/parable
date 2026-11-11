@@ -4,6 +4,11 @@ Status: **SELECTED — Option A, authorized by the founder for PAR-002 / issue #
 Date: 2026-11-08
 Scope: canonical patch data, validation, preparation, activation and four-slot storage.
 
+PAR-008's [Gate 0 addendum](ADR-001-par008-gate0.md) records the bounded additive
+`Rat` revision-1 registration, single-instance resource policy, software level
+mapping and evidence gate. JSON remains the only canonical save authority;
+stopped-audio preparation is extended without introducing live activation.
+
 Decision amendment (PAR-002, separately reviewable): implement canonical versioned
 JSON and validated typed control-side data first. The decision is selected;
 this PR's implementation still requires review. Prepared runtime plans, activation

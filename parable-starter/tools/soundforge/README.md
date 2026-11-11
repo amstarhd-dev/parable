@@ -1,7 +1,10 @@
 # DSP Soundforge — host laboratory and evidence registry
 
 SF-001 shares a small laboratory; it does not prescribe a shared electrical solver
-or runtime processor abstraction. LabRAT is the first specimen; SF-002 adds an
+or runtime processor abstraction. LabRAT is the first specimen; PAR-008 separately
+integrates that unchanged kernel into the bounded serial patch engine (see
+[Gate 0](../../docs/adr/ADR-001-par008-gate0.md) and
+[evidence](../../docs/PAR008_EVIDENCE.md)). SF-002 adds an
 experimental CD4049 specimen. See its [report](../../docs/CMOS_REPORT.md) and
 [measured reuse log](../../docs/SOUNDFORGE_SF002_WORK_LOG.md).
 SF-003 is the third circuit architecture: [germanium report](../../docs/GERMANIUM_REPORT.md)
@@ -65,8 +68,9 @@ explicit, and the global project license remains **unspecified**.
 The validator checks required fields/types/version, IDs/dependencies, source
 references, statuses and all declared local files. It does not browse, authenticate
 claims, verify copyright ownership or infer evidence from a passing test. The
-models explicitly have no real-guitar audition, physical Daisy run or patch runtime
-integration. Reduced-section SPICE agreement is not full physical-circuit validation.
+models explicitly have no real-guitar audition or physical Daisy run. RAT has
+bounded host patch integration and an active ARM link; CMOS/germanium remain
+standalone. Reduced-section SPICE agreement is not full physical-circuit validation.
 
 ## Reproduce
 

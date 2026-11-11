@@ -18,6 +18,7 @@ def inspect(toolbin, build, target="parable_seed3_minimal", app_type="BOOT_NONE"
         "elf-header.txt": [prefix + "readelf", "-h", "-A", str(elf)],
         "symbols.txt": [prefix + "nm", "-C", "-S", str(elf)],
         "disassembly.txt": [prefix + "objdump", "-d", "-C", str(elf)],
+        "undefined.txt": [prefix + "nm", "-u", str(elf)],
     }.items():
         outputs[name] = subprocess.check_output(command, text=True)
         (build / name).write_text(outputs[name])
@@ -30,6 +31,22 @@ def inspect(toolbin, build, target="parable_seed3_minimal", app_type="BOOT_NONE"
         raise RuntimeError("JSON unexpectedly linked into minimal image")
     if target.endswith("codec_probe") and not has_codec:
         raise RuntimeError("Diagnostic must retain JSON decoding and native preparation")
+    if outputs["undefined.txt"].strip():
+        raise RuntimeError("Final ARM image has unresolved symbols")
+    active_rat = target.endswith("rat_probe")
+    if active_rat:
+        if has_codec or "nlohmann::" in outputs["symbols.txt"]:
+            raise RuntimeError("Static RAT probe must not contain the JSON codec")
+        for symbol in ("parable::dsp::Rat::process(float)", "parable::dsp::Rat::configure(", "AudioCallback("):
+            if symbol not in outputs["symbols.txt"]:
+                raise RuntimeError("Missing integrated ARM path: " + symbol)
+        # GCC can inline Engine::process into AudioCallback. Either way, retain
+        # a real branch to Rat::process in the callback/Engine processing body.
+        bodies = re.split(r"(?m)^[0-9a-f]+ <", outputs["disassembly.txt"])
+        if not any((body.startswith("AudioCallback(") or body.startswith("parable::Engine::process("))
+                   and re.search(r"\bb(?:l|\.w|l\.w)?\s+[^\n]*<parable::dsp::Rat::process\(float\)>", body)
+                   for body in bodies):
+            raise RuntimeError("No compiled callback/Engine call to RAT processing")
     sections = {}
     lines = outputs["objdump.txt"].splitlines()
     for i, line in enumerate(lines):
@@ -87,9 +104,10 @@ def inspect(toolbin, build, target="parable_seed3_minimal", app_type="BOOT_NONE"
     if not 0 < rodata <= sections[".text"]["bytes"]:
         raise RuntimeError("Map .rodata accounting disagrees with output .text")
     frames = []
-    for line in (build / "daisy_pass_through.su").read_text().splitlines():
-        function, size, kind = line.rsplit("\t", 2)
-        frames.append(dict(function=function, bytes=int(size), qualifier=kind))
+    for source in sorted(build.glob("*.su")):
+        for line in source.read_text().splitlines():
+            function, size, kind = line.rsplit("\t", 2)
+            frames.append(dict(source=source.name, function=function, bytes=int(size), qualifier=kind))
     (build / "application-stack-usage.json").write_text(json.dumps(frames, indent=2) + "\n")
     return dict(app_type=app_type, sections=sections, image_load_origin=origin,
                 initial_sp=initial_sp, reset_vector=reset_vector,
@@ -102,5 +120,6 @@ def inspect(toolbin, build, target="parable_seed3_minimal", app_type="BOOT_NONE"
                 included_input_rodata_bytes=rodata, static_placement_bytes=placement,
                 static_region_first_address=first, static_region_span_bytes=spans,
                 compiler_application_frames=frames, stack_top="0x20020000 (DTCM)",
+                rat_enabled_at_startup=active_rat, unresolved_symbols=[],
                 runtime_stack_high_water="not measured", runtime_heap_high_water="not measured",
                 bin_sha256=hashlib.sha256(binary.read_bytes()).hexdigest())

@@ -2,6 +2,15 @@
 
 This is the first **portable C++ code brick**, not a finished Parable SDK and not a commercial DSP effect. It contains no astrology or browser implementation. A separate experimental circuit-derived LabRAT listening laboratory is described below.
 
+PAR-008 adds one experimental RAT to the canonical serial patch engine, reusing
+the unchanged LabRAT kernel. See [Gate 0](docs/adr/ADR-001-par008-gate0.md) and
+[commands/evidence/limits](docs/PAR008_EVIDENCE.md). Run
+`./build/parable_patch_audition --output build/patch-auditions` after a host build:
+dry, RAT-only, Gain -> RAT -> Lowpass and reversed-order synthetic WAVs use actual
+decode -> prepare -> Engine playback, with raw levels and no RMS matching.
+Release CI publishes **parable-patch-rat-auditions**. Real-guitar/founder approval
+and Daisy execution remain unproven.
+
 SF-002 adds a standalone experimental CD4049 inverter laboratory through
 Soundforge: [research/limitations/tests](docs/CMOS_REPORT.md),
 [observed reuse](docs/SOUNDFORGE_SF002_WORK_LOG.md). It has no patch-runtime
@@ -20,7 +29,7 @@ approval and patch integration remain separate gates.
 - A versioned, validated patch snapshot (`schema=2` for this native proof; **not** yet the final JSON/Wire format).
 - Four independent in-memory performance slots.
 - Fixed-capacity ordered stages and deterministic processing with no allocation in the audio callback.
-- A separate target adapter for libDaisy firmware and a host test harness sharing the **same header**.
+- A separate target adapter for libDaisy firmware and host tests sharing the same portable Engine/RAT implementation (link `parable_rat`; the Engine is no longer header-only).
 - Atomic acceptance/rejection of individual edits to a stored patch.
 
 ## Host tests (run without Daisy hardware)
@@ -80,7 +89,9 @@ stopped**, call `Engine::load` and check its status. The Engine must use that sa
 actual sample rate. The native prototype patch carries neither rate nor IDs;
 retain the validated document as authority. No Engine is changed by preparation.
 The bridge library does not link JSON; host end-to-end tests explicitly link both.
-This is a temporary boundary, not the final immutable plan or live/clickless
+PAR-008 maps the additive `Rat` settings with a one-instance limit; utility-only
+capacity stays eight. The Engine reserves one optional RAT state's storage even
+for a utility patch. Load configures it only with processing stopped. This is a temporary boundary, not the final immutable plan or live/clickless
 activation. PAR-005 cross-compiles preparation to an ARM object and links the
 minimal native firmware; runtime CPU/RAM, hardware and musical audition remain unproven.
 
@@ -102,12 +113,15 @@ The same diagnostic exceeds the 128 KiB BOOT_NONE limit: this is a layout limit,
 not Daisy's total capacity. Seed3 bootloader/hardware operation remains unverified.
 The planned ESP32-S3 could own JSON/control work; no controller or transport is
 implemented here, and canonical JSON functionality remains unchanged.
+PAR-008 additionally links an explicitly active static Gain/RAT/Lowpass test patch
+as `rat_integration/parable_seed3_rat_probe.elf`, retaining the bypass-startup
+`minimal/` image. This build-only native fixture is not a save/transport contract.
 
 ## Not implemented / not validated
 - **Daisy adapter is ARM-linked but has not been flashed or hardware-tested.**
 - No persistent flash, power-loss safety, USB/Wi-Fi transfer, phone editor, footswitches, or Register.
 - No dynamic graph, parallel routing, effect resource estimator, smoothing/clickless patch switching, DSP load metrics or hardware sample-rate query.
-- LabRAT is a separate experimental circuit-derived processor; no factory-fidelity/pedal-grade drive, compressor, delay, reverb, Moon, or astrology is proven.
+- LabRAT is experimental and now available as one canonical serial processor; no factory-fidelity/pedal-grade drive, compressor, delay, reverb, Moon, or astrology is proven.
 - The one-pole filter and gain nodes are **plumbing**, not an effect catalog.
 - `Engine::load` must only be called while the audio callback is stopped; cross-thread patch exchange is not yet implemented. The prototype uses a mono signal and copies it to both outputs.
 - `schema=2` is a provisional code-internal tag; does not yet specify durable wire compatibility.
@@ -150,6 +164,6 @@ ctest --test-dir parable-starter/build/rat-release --output-on-failure --no-test
 Open the WAVs in a player/DAW, or download **parable-labrat-auditions** from the
 passing Release Host tests workflow (seven-day retention). `--input dry-guitar.wav`
 accepts bounded mono PCM16 without changing DSP code. No real-guitar or hardware
-proof is claimed. Patch v1 and the existing Engine are unchanged; the PAR-006
+proof is claimed. PAR-008 adds the explicit patch-v1/Engine adapter; the PAR-006
 processor is not substituted for the RAT. Historical factory revision, full
 LM308/JFET dynamics and faulty-buffer headroom remain unverified.

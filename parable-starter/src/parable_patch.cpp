@@ -11,7 +11,7 @@ namespace {
 using detail::Json;
 struct Descriptor { const char* type; const char* parameter; const char* unit; };
 constexpr Descriptor types[] = {
-    {"Bypass", "", ""}, {"Gain", "gain", "linear"}, {"OnePoleLowpass", "cutoff", "Hz"}
+    {"Bypass", "", ""}, {"Gain", "gain", "linear"}, {"OnePoleLowpass", "cutoff", "Hz"}, {"Rat", "", ""}
 };
 [[noreturn]] void fail(ErrorCode code, const std::string& field, const std::string& rule) {
     throw Error{code, field, rule};
@@ -82,6 +82,7 @@ Draft validate(const detail::Document& doc) {
     if (!processors.is_array()) fail(ErrorCode::WrongType, "$/processors", "array required");
     draft.count = processors.size();
     if (draft.count > kMaxProcessors) fail(ErrorCode::LimitExceeded, "$/processors", "at most 8 processors");
+    size_t rats = 0;
     for (size_t i = 0; i < draft.count; ++i) {
         const auto& source = processors[i];
         const auto path = "$/processors/" + std::to_string(i);
@@ -104,6 +105,16 @@ Draft validate(const detail::Document& doc) {
         if (type == 0) {
             keys(parameters, paramPath, {});
             p.settings = Bypass{};
+        } else if (type == 3) {
+            if (++rats > 1)
+                fail(ErrorCode::LimitExceeded, path + "/type", "at most one Rat per patch, including disabled instances");
+            if (draft.rate < 32000.f || draft.rate > 96000.f)
+                fail(ErrorCode::OutOfRange, "$/sampleRate/value", "Rat requires [32000,96000] Hz");
+            keys(parameters, paramPath, {"distortion", "filter", "volume"});
+            p.settings = Rat{
+                quantity(doc, parameters["distortion"], paramPath + "/distortion", "normalized", 0.f, 1.f),
+                quantity(doc, parameters["filter"], paramPath + "/filter", "normalized", 0.f, 1.f),
+                quantity(doc, parameters["volume"], paramPath + "/volume", "normalized", 0.f, 1.f)};
         } else {
             const auto& descriptor = types[type];
             keys(parameters, paramPath, {descriptor.parameter});
@@ -193,6 +204,10 @@ std::string Codec::encode(const ValidatedPatch& patch) {
         text += "{\"enabled\":" + std::string(p.enabled ? "true" : "false") + ",\"id\":" + std::to_string(p.id) + ",\"parameters\":{";
         if (const auto* gain = std::get_if<Gain>(&p.settings)) text += "\"gain\":" + quantity(gain->linear, "linear");
         if (const auto* lowpass = std::get_if<OnePoleLowpass>(&p.settings)) text += "\"cutoff\":" + quantity(lowpass->cutoffHz, "Hz");
+        if (const auto* rat = std::get_if<Rat>(&p.settings))
+            text += "\"distortion\":" + quantity(rat->distortion, "normalized")
+                + ",\"filter\":" + quantity(rat->filter, "normalized")
+                + ",\"volume\":" + quantity(rat->volume, "normalized");
         text += "},\"revision\":1,\"type\":\"" + std::string(types[type].type) + "\"}";
     }
     text += "],\"routing\":[";

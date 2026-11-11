@@ -36,6 +36,17 @@ int main() {
     const auto prepared = parable::preparation::prepare(*document, rate);
     const auto* native = std::get_if<parable::Patch>(&prepared);
     if (!native || audioEngine->load(*native) != parable::Status::Ok) while (true) {}
+#elif defined(PARABLE_RAT_LINK_PROBE)
+    // Build-only fixture matching patch-v1/rat-composite.json. No editor/save
+    // authority or parser in this image; control-side load precedes StartAudio.
+    parable::Patch patch;
+    patch.count = 3;
+    patch.outputTrim = .8f;
+    patch.stages[0] = {parable::Type::Gain, 1.8f, true};
+    patch.stages[1].type = parable::Type::Rat;
+    patch.stages[1].rat = {.35f, .5f, .7f};
+    patch.stages[2] = {parable::Type::OnePoleLowpass, 1800.f, true};
+    if (audioEngine->load(patch) != parable::Status::Ok) while (true) {}
 #else
     if (audioEngine->load(parable::makeBypassPatch()) != parable::Status::Ok) while (true) {}
 #endif

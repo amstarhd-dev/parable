@@ -104,7 +104,7 @@ def build(cache, output):
          "-o", output / "preparation.o"], output / "preparation-compile.log")
     run([toolbin / "arm-none-eabi-size", output / "preparation.o"], output / "preparation-size.txt")
     run([toolbin / "arm-none-eabi-readelf", "-h", "-A", output / "preparation.o"], output / "preparation-elf-header.txt")
-    # LabRAT is compiled independently; it is not silently activated/registered.
+    # Keep the standalone object receipt; a separate active image below proves linking.
     run([compiler, *flags, "-I", PROJECT / "include", "-c", PROJECT / "src/parable_rat.cpp",
          "-o", output / "rat.o"], output / "rat-compile.log")
     run([toolbin / "arm-none-eabi-size", output / "rat.o"], output / "rat-size.txt")
@@ -172,10 +172,44 @@ def build(cache, output):
         run([*image_args(directory, app_type), "CODEC_LINK_PROBE=1", f"JSON_DIR={jsonroot}"],
             output / (name + "-build.log"))
         images[name] = inspect(toolbin, directory, "parable_seed3_codec_probe", app_type)
+    # Narrow production-shaped integration target: active fixed Gain/Rat/LP path,
+    # the same callback/Engine/kernel, no JSON. Preserve the bypass startup image.
+    rat_image = output / "rat_integration"
+    rat_status = run([*image_args(rat_image, "BOOT_NONE"), "RAT_LINK_PROBE=1"],
+                     output / "rat-integration-build.log", allow_failure=True)
+    rat_log = (output / "rat-integration-build.log").read_text()
+    rat_overflow = re.search(r"region `FLASH' overflowed by (\d+) bytes", rat_log)
+    if rat_status:
+        if not rat_overflow or "undefined reference" in rat_log or any(
+                "error:" in line and not line.startswith("collect2: error: ld returned") for line in rat_log.splitlines()):
+            raise RuntimeError("Unexpected integrated RAT link failure")
+        rat_image = output / "rat_integration_sram"
+        run([*image_args(rat_image, "BOOT_SRAM"), "RAT_LINK_PROBE=1"], output / "rat-integration-sram-build.log")
+    images["rat_integration"] = inspect(toolbin, rat_image, "parable_seed3_rat_probe",
+                                        "BOOT_SRAM" if rat_status else "BOOT_NONE")
+    engine_layout = output / "engine-layout.cpp"
+    engine_layout.write_text('#include "parable_core.h"\nextern "C" { char parable_engine_instance[sizeof(parable::Engine)]; '
+                             'char parable_patch_instance[sizeof(parable::Patch)]; }\n')
+    run([compiler, *flags, "-I", PROJECT / "include", "-c", engine_layout, "-o", output / "engine-layout.o"],
+        output / "engine-layout.log")
+    layout_symbols = subprocess.check_output([toolbin / "arm-none-eabi-nm", "-S", output / "engine-layout.o"], text=True)
+    (output / "engine-layout-symbols.txt").write_text(layout_symbols)
+    sizes = {}
+    for label in ("engine", "patch"):
+        match = re.search(r"\b([0-9a-f]+) B parable_" + label + r"_instance\b", layout_symbols)
+        if not match:
+            raise RuntimeError("Missing ARM layout measurement: " + label)
+        sizes[label + "_bytes"] = int(match[1], 16)
     report = dict(images=images)
     report["rat_kernel"] = dict(object_size=(output / "rat-size.txt").read_text().splitlines()[-1].split()[:4],
-                              instance_bytes=int(instance[1],16), linked_into_audio_firmware=False,
+                              instance_bytes=int(instance[1],16), linked_into_audio_firmware=True,
                               hardware_execution="not performed", target_cpu_cost="not measured")
+    report["rat_integration"] = dict(**sizes, native_rat_limit=1,
+        boot_none_make_exit_code=rat_status, boot_none_overflow_bytes=int(rat_overflow[1]) if rat_overflow else 0,
+        startup_patch="Gain(1.8) -> Rat(.35,.5,.7) -> OnePoleLowpass(1800 Hz); trim=.8",
+        canonical_host_fixture="tests/fixtures/patch-v1/rat-composite.json",
+        firmware_fixture="static native build-only probe, not editable/save authority",
+        callback_deadline="not measured", hardware_execution="not performed")
     report["cmos_kernel"] = dict(object_size=(output / "cmos-size.txt").read_text().splitlines()[-1].split()[:4],
                                instance_bytes=int(cmos_instance[1],16), linked_into_audio_firmware=False,
                                hardware_execution="not performed", target_cpu_cost="not measured")
@@ -198,6 +232,7 @@ def build(cache, output):
               "include/parable_rat.h", "src/parable_rat.cpp", "src/rat_circuit_math.h"]
     inputs += ["include/parable_cmos.h", "src/parable_cmos.cpp", "src/cmos_device.h"]
     inputs += ["include/parable_germanium.h", "src/parable_germanium.cpp", "src/germanium_device.h"]
+    inputs += ["tests/fixtures/patch-v1/rat-composite.json"]
     report["source_sha256"] = {name: hashlib.sha256((PROJECT / name).read_bytes()).hexdigest() for name in inputs}
     report["linker_sha256"] = {mode: hashlib.sha256((lib / path).read_bytes()).hexdigest()
                                for mode, path in layouts.items()}
