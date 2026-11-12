@@ -1,5 +1,28 @@
 # Implementation status and reproducible baseline
 
+## PAR-012 — experimental host living-source/control lane
+
+Main `8f94368` (merged #33); clean baseline **23/23 Debug/Release**.
+[Gate 0](PAR012_GATE0.md), [source/cadence contract and limits](LIVING_SOURCE_REQUIREMENTS.md),
+[reproduction/evidence](PAR012_EVIDENCE.md).
+
+- **Specified/implemented:** heterogeneous source facts and explicit clock/epoch,
+  consent, quality and freshness; bounded ingest/ordered replay, SPSC controls and
+  test-only pre/post gain wrapper around actual PAR-011 Runtime. Normalized test
+  controls are supplied directly; no physiological feature extraction or mappings.
+- **Host-tested:** **26/26 Debug/Release**, **15/15 ASan/UBSan**, **4/4 TSAN**;
+  8,192 concurrent controls/four joined epochs, bitwise unity, distinct synthetic
+  saved-RAT-patch WAV/traces, complete chunk 1/7/256 repeatability, budget/overflow
+  stimuli. Existing DSP, canonical, journal and firmware sources remain unchanged.
+- **ARM compile-inspected:** fixed layout, lock-free aligned uint32 publication and
+  exact callback undefined-symbol/disassembly audit. No new firmware integration.
+- **Hardware-tested/musically auditioned:** none. No observed wearable, network,
+  phone, real guitar, M7 runtime/deadline/cache/lifecycle, clinical inference or
+  founder musical approval. Body Language remains founder-owned and unimplemented.
+
+This supersedes earlier statements that a living-control extension is entirely
+absent. It does not add a biometric compiler or change April pilot commitments.
+
 ## PAR-011 — host prepared-bundle ownership/activation
 
 Main `c288eb1`, after PR #31; clean baseline **20/20 Debug/Release**.
@@ -21,7 +44,8 @@ Main `c288eb1`, after PR #31; clean baseline **20/20 Debug/Release**.
   RAM/stack high-water, deadline, switching transient/tail, noise or listening proof.
 
 This supersedes earlier statements that host activation is wholly deferred.
-Hardware flash/audio integration and living modulation remain unimplemented.
+Hardware flash/audio integration remains unimplemented; PAR-012's experimental
+host control wrapper is described above.
 
 ## PAR-010 — host four-slot persistence logic
 

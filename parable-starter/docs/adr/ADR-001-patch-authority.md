@@ -150,6 +150,12 @@ remove the need for semantic validation or native preparation.
 
 ## Activation protocol required by either option
 
+PAR-012's [Gate 0](../PAR012_GATE0.md) and [source-lane contract](../LIVING_SOURCE_REQUIREMENTS.md)
+add a separate experimental host control lane around the prepared Runtime.
+Temporary test envelopes never mutate bundle configuration or saved authority;
+production/persistent mappings require a separately reviewed schema decision.
+Option A, patch-v1, Engine, DSP and stored documents remain unchanged.
+
 PAR-011 implements this existing decision as a host-tested fixed prepared-bundle
 pool. Its [prior-art/ownership addendum](ADR-001-par011-gate0.md) preceded code;
 [API and proof boundaries](../PREPARED_ACTIVATION.md) distinguish compiler/host

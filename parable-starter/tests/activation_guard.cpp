@@ -15,10 +15,13 @@ void selfTest() {
     pthread_mutex_t mutex=PTHREAD_MUTEX_INITIALIZER;
     callback=true;
     void* volatile p=std::malloc(7); std::free(p);
+    // std::stable_sort's temporary buffer uses this overload. Keep allocation
+    // and deletion in the same interposition family under ASan as well.
+    void* volatile q=::operator new(7,std::nothrow); ::operator delete(q);
     pthread_mutex_lock(&mutex); pthread_mutex_unlock(&mutex);
     const auto ignored=::write(-1,"",0); (void)ignored;
     callback=false;
-    if(!audio.cAlloc || !audio.cFree || !audio.locks || !audio.io) std::abort();
+    if(!audio.cppAlloc || !audio.cppFree || !audio.cAlloc || !audio.cFree || !audio.locks || !audio.io) std::abort();
     audio={}; pthread_mutex_destroy(&mutex);
 }
 }
@@ -34,6 +37,14 @@ void* operator new(size_t n,std::align_val_t a) {
     void* p=nullptr;if(posix_memalign(&p,size_t(a),n?n:1)==0)return p;throw std::bad_alloc();
 }
 void* operator new[](size_t n,std::align_val_t a){return ::operator new(n,a);}
+void* operator new(size_t n,const std::nothrow_t&) noexcept {
+    try{return ::operator new(n);}catch(...){return nullptr;}
+}
+void* operator new[](size_t n,const std::nothrow_t& tag) noexcept {return ::operator new(n,tag);}
+void* operator new(size_t n,std::align_val_t a,const std::nothrow_t&) noexcept {
+    try{return ::operator new(n,a);}catch(...){return nullptr;}
+}
+void* operator new[](size_t n,std::align_val_t a,const std::nothrow_t& tag) noexcept {return ::operator new(n,a,tag);}
 static void drop(void* p) noexcept {
     if(auto* c=activation_guard::watching())++c->cppFree;
     std::free(p);
@@ -42,6 +53,8 @@ void operator delete(void* p) noexcept{drop(p);} void operator delete[](void* p)
 void operator delete(void* p,size_t) noexcept{drop(p);} void operator delete[](void* p,size_t) noexcept{drop(p);}
 void operator delete(void* p,std::align_val_t) noexcept{drop(p);} void operator delete[](void* p,std::align_val_t) noexcept{drop(p);}
 void operator delete(void* p,size_t,std::align_val_t) noexcept{drop(p);} void operator delete[](void* p,size_t,std::align_val_t) noexcept{drop(p);}
+void operator delete(void* p,const std::nothrow_t&) noexcept{drop(p);} void operator delete[](void* p,const std::nothrow_t&) noexcept{drop(p);}
+void operator delete(void* p,std::align_val_t,const std::nothrow_t&) noexcept{drop(p);} void operator delete[](void* p,std::align_val_t,const std::nothrow_t&) noexcept{drop(p);}
 extern "C" {
 void* __real_malloc(size_t); void* __real_calloc(size_t,size_t); void* __real_realloc(void*,size_t); void __real_free(void*);
 void* __wrap_malloc(size_t n){if(auto*c=activation_guard::watching())++c->cAlloc;return __real_malloc(n);}

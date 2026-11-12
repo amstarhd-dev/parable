@@ -1,0 +1,171 @@
+[
+  {
+    "id": "apple-workout",
+    "url": "https://developer.apple.com/tutorials/data/documentation/healthkit/hkliveworkoutbuilder.json",
+    "resolved_url": "https://developer.apple.com/tutorials/data/documentation/healthkit/hkliveworkoutbuilder.json",
+    "status": 200,
+    "sha256": "39c2d6b76b87aafacad1f1df2b7d1c9c894aebb1311fe08c23b908a8928366b9",
+    "bytes": 35136,
+    "retrieved_at_utc": "2026-11-12T00:46:28.789419+00:00",
+    "retrieval_time_note": "UTC timestamp of saved response file; null for failed shell retrieval."
+  },
+  {
+    "id": "apple-beats",
+    "url": "https://developer.apple.com/tutorials/data/documentation/healthkit/hkheartbeatseriesquery.json",
+    "resolved_url": "https://developer.apple.com/tutorials/data/documentation/healthkit/hkheartbeatseriesquery.json",
+    "status": 200,
+    "sha256": "57470e078aa107543b2248b3874a769ca618802b0dfefcb87c30b8835cb0297e",
+    "bytes": 25663,
+    "retrieved_at_utc": "2026-11-12T00:46:28.770478+00:00",
+    "retrieval_time_note": "UTC timestamp of saved response file; null for failed shell retrieval."
+  },
+  {
+    "id": "apple-hold",
+    "url": "https://developer.apple.com/tutorials/data/documentation/sensorkit/srfetchrequest.json",
+    "resolved_url": "https://developer.apple.com/tutorials/data/documentation/sensorkit/srfetchrequest.json",
+    "status": 200,
+    "sha256": "61f27851550324c27e17e16bf5a878050d3407f754eb99e73feee9704330629d",
+    "bytes": 31222,
+    "retrieved_at_utc": "2026-11-12T00:46:28.777438+00:00",
+    "retrieval_time_note": "UTC timestamp of saved response file; null for failed shell retrieval."
+  },
+  {
+    "id": "apple-wc",
+    "url": "https://developer.apple.com/tutorials/data/documentation/watchconnectivity/wcsession.json",
+    "resolved_url": "https://developer.apple.com/tutorials/data/documentation/watchconnectivity/wcsession.json",
+    "status": 200,
+    "sha256": "3325ffb87c9fa7e9f4666698fea7635f43d4f565bce860d51f1a227eb1292865",
+    "bytes": 79877,
+    "retrieved_at_utc": "2026-11-12T00:46:28.803970+00:00",
+    "retrieval_time_note": "UTC timestamp of saved response file; null for failed shell retrieval."
+  },
+  {
+    "id": "samsung-data",
+    "url": "https://developer.samsung.com/health/sensor/guide/data-specifications.html",
+    "resolved_url": "https://developer.samsung.com/login?redirectURL=/health/sensor/guide/data-specifications.html",
+    "status": 200,
+    "sha256": "53d1d8f05da5f249fa5bf446f4f709d3c937894adbc201b5948eb250af261a3c",
+    "bytes": 590,
+    "verification": "Shell retrieval redirected to login (hash is login response, not specifications). Specifications independently read with web tool, sections Continuous/On-demand Tracker Types.",
+    "retrieved_at_utc": "2026-11-12T00:46:29.373818+00:00",
+    "retrieval_time_note": "UTC timestamp of saved response file; null for failed shell retrieval."
+  },
+  {
+    "id": "samsung-batch",
+    "url": "https://developer.samsung.com/health/sensor/guide/tracking-data.html",
+    "resolved_url": "https://developer.samsung.com/health/sensor/guide/tracking-data.html",
+    "status": 200,
+    "sha256": "2488a3c1c8d4667332d6f87ac6227468e43c9c9e149a52457e7f5526b63fffc1",
+    "bytes": 99655,
+    "retrieved_at_utc": "2026-11-12T00:46:29.409160+00:00",
+    "retrieval_time_note": "UTC timestamp of saved response file; null for failed shell retrieval."
+  },
+  {
+    "id": "samsung-partner",
+    "url": "https://developer.samsung.com/health/sensor/overview.html",
+    "resolved_url": "https://developer.samsung.com/health/sensor/overview.html",
+    "status": 200,
+    "sha256": "25d4eb5152a71a078800420530af347ecfc7591ee3b9a92a5027b8be524e7471",
+    "bytes": 198368,
+    "retrieved_at_utc": "2026-11-12T00:46:29.871253+00:00",
+    "retrieval_time_note": "UTC timestamp of saved response file; null for failed shell retrieval."
+  },
+  {
+    "id": "samsung-ibi",
+    "url": "https://developer.samsung.com/health/sensor/api-reference/com/samsung/android/service/health/tracking/data/ValueKey.HeartRateSet.html",
+    "resolved_url": "https://developer.samsung.com/health/sensor/api-reference/com/samsung/android/service/health/tracking/data/ValueKey.HeartRateSet.html",
+    "status": 200,
+    "sha256": "1b5160e023d8d8eb3a67dcd3872d5077824ae66cf2197acc851e75f17f1c2397",
+    "bytes": 143948,
+    "retrieved_at_utc": "2026-11-12T00:46:29.474772+00:00",
+    "retrieval_time_note": "UTC timestamp of saved response file; null for failed shell retrieval."
+  },
+  {
+    "id": "ble-hrs",
+    "url": "https://www.bluetooth.com/wp-content/uploads/Files/Specification/HTML/HRS_v1.0/out/en/index-en.html",
+    "error": "HTTP Error 403: Forbidden",
+    "verification": "Shell 403. Independently read with web tool: HRS V10r00 sections 3.1.1.4, 3.1.1.5 and 3.4.",
+    "retrieved_at_utc": null,
+    "retrieval_time_note": "UTC timestamp of saved response file; null for failed shell retrieval."
+  },
+  {
+    "id": "polar-h10",
+    "url": "https://raw.githubusercontent.com/polarofficial/polar-ble-sdk/master/documentation/products/PolarH10.md",
+    "resolved_url": "https://raw.githubusercontent.com/polarofficial/polar-ble-sdk/master/documentation/products/PolarH10.md",
+    "status": 200,
+    "sha256": "26c6e49f2886ce67960b8326a7573d241a0a49cad8970d4c81582e3c21490994",
+    "bytes": 826,
+    "retrieved_at_utc": "2026-11-12T00:46:29.117833+00:00",
+    "retrieval_time_note": "UTC timestamp of saved response file; null for failed shell retrieval."
+  },
+  {
+    "id": "garmin",
+    "url": "https://developer.garmin.com/connect-iq/api-docs/Toybox/Sensor.html",
+    "resolved_url": "https://developer.garmin.com/connect-iq/api-docs/Toybox/Sensor.html",
+    "status": 200,
+    "sha256": "c8fea974159aa9443e7b6eebd34172b216bfae8fa0da08c7f726a51ddbe795e9",
+    "bytes": 89754,
+    "retrieved_at_utc": "2026-11-12T00:46:29.221047+00:00",
+    "retrieval_time_note": "UTC timestamp of saved response file; null for failed shell retrieval."
+  },
+  {
+    "id": "wear-os",
+    "url": "https://developer.android.com/health-and-fitness/health-services/compatibility",
+    "resolved_url": "https://developer.android.com/health-and-fitness/health-services/compatibility",
+    "status": 200,
+    "sha256": "9c97b2fdcc39dab9c8e5c64acd19cbe1ccdf3f04180405f0eb7fafb3d33c3ec0",
+    "bytes": 284798,
+    "retrieved_at_utc": "2026-11-12T00:46:29.512534+00:00",
+    "retrieval_time_note": "UTC timestamp of saved response file; null for failed shell retrieval."
+  },
+  {
+    "id": "fitbit",
+    "url": "https://dev.fitbit.com/build/reference/web-api/intraday/get-heartrate-intraday-by-date-range/",
+    "resolved_url": "https://dev.fitbit.com/build/reference/web-api/intraday/get-heartrate-intraday-by-date-range/",
+    "status": 200,
+    "sha256": "a06ffc4fc4e2b8883d61f5b40a0a195aa6c6b0e3c8a7f7b5b96f23e3829e09d1",
+    "bytes": 39452,
+    "retrieved_at_utc": "2026-11-12T00:46:29.687492+00:00",
+    "retrieval_time_note": "UTC timestamp of saved response file; null for failed shell retrieval."
+  },
+  {
+    "id": "e4",
+    "url": "https://www.empatica.com/blog/decoding-wearable-sensor-signals-what-to-expect-from-your-e4-data/",
+    "resolved_url": "https://www.empatica.com/blog/decoding-wearable-sensor-signals-what-to-expect-from-your-e4-data/",
+    "status": 200,
+    "sha256": "31df1fea30cd1d28353bc09091492ed2df97a26c466816b5c83958b7be740a13",
+    "bytes": 641419,
+    "retrieved_at_utc": "2026-11-12T00:46:31.326589+00:00",
+    "retrieval_time_note": "UTC timestamp of saved response file; null for failed shell retrieval."
+  },
+  {
+    "id": "safari",
+    "url": "https://caniuse.com/web-bluetooth",
+    "resolved_url": "https://caniuse.com/web-bluetooth",
+    "status": 200,
+    "sha256": "2e943d9fea5016bb0dac08283bcd03b29a88e7bcb7f78d5f6590d47d8ec71319",
+    "bytes": 33577,
+    "retrieved_at_utc": "2026-11-12T00:46:34.269888+00:00",
+    "retrieval_time_note": "UTC timestamp of saved response file; null for failed shell retrieval."
+  },
+  {
+    "id": "apple-current",
+    "url": "https://support.apple.com/en-ca/120277",
+    "resolved_url": "https://support.apple.com/en-ca/120277",
+    "status": 200,
+    "sha256": "cc19c694ecf4a20481da29ebe7b665ff9a921be8879ef194688e27006e04c164",
+    "bytes": 164634,
+    "retrieved_at_utc": "2026-11-12T00:47:42.312828+00:00",
+    "retrieval_time_note": "UTC timestamp of saved response file; null for failed shell retrieval."
+  },
+  {
+    "id": "apple-s12",
+    "url": "https://www.apple.com/uk/apple-watch-series-12/",
+    "resolved_url": "https://www.apple.com/uk/apple-watch-series-12/",
+    "status": 200,
+    "sha256": "62c1e54f1325a74fd2e7266c1b5e3c04d2b5a80ab6fa6e1932787c88f9735fa3",
+    "bytes": 627035,
+    "retrieved_at_utc": "2026-11-12T00:47:43.175531+00:00",
+    "retrieval_time_note": "UTC timestamp of saved response file; null for failed shell retrieval."
+  }
+]
