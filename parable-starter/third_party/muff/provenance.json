@@ -1,0 +1,54 @@
+{
+  "candidates": [
+    {
+      "url": "https://github.com/HSU-ANT/ACME.jl",
+      "revision": "3832ccafb952ee2ca0a27286c091d613062c23fd",
+      "license": "MIT",
+      "notes": "src/elements.jl bjt Ebers-Moll specialization/analytic exponential derivatives. Retain complete Expat notice, already audited in merged CMOS/Ge. Transport Is convention explicit: ACME terminal Is=transport Is/alpha. New model uses nominal silicon, not fitted Ge values. No Julia framework or generic solver imported."
+    },
+    {
+      "url": "https://github.com/mstratman/electrosmash-pdf-backups",
+      "revision": "ebf6b8604d663c1832d06682e74940830cdc5490",
+      "license": "Reference only; no drawing/code grant inferred",
+      "files_sha256": {
+        "images/big-muff-pi-analysis/big-muff-pi-v3-circuit-stages.png": "8b01ada743fada0e1e585433b63ab8430c802081fd5458d64682a7833baab053"
+      },
+      "notes": "American V3 drawing facts transcribed to a new numerical network; no image/PCB/artwork/text/listing redistributed. Image Git blob522df7b5d32239b617c23f9dd17a921eb8b310ea independently matches retrieved PNG. Use image R11=10k/R7=430k over inconsistent article prose. Original URL502; maintained archive retrieved. InputQ4 ->clipQ3 ->SECOND clipQ2 ->recoveryQ1.",
+      "observed_archive_page_url": "https://electrosmash.mas-effects.com/big-muff-pi-analysis.html",
+      "observed_archive_page_sha256": "59a5d81a2ce9a5b85c85d49b7b44cbc6b224d4a8368619bdd9e1dc5cbd3cc297"
+    },
+    {
+      "url": "https://github.com/Chowdhury-DSP/BYOD",
+      "revision": "1cf22b6ac802b9dc33cfc9f8dd6af5b3c3e40bc9",
+      "license": "GPL-3.0; audit only",
+      "notes": "Inspected sim/BigMuff/BigMuffClip.h and root grant. This legacy simulation uses fixed gain/bias, not sufficient DC/charge behavior for the requested experiment. No source, fitted transfer, framework or parameters copied. This does not characterize every current BYOD processor."
+    }
+  ],
+  "references": [
+    "https://www.electrosmash.com/big-muff-pi-analysis",
+    "https://electrosmash.mas-effects.com/big-muff-pi-analysis.html",
+    "https://www.kitrae.net/music/big_muff_guts.html"
+  ],
+  "decision": "parable-starter/docs/adr/ADR-009-big-muff-bias.md",
+  "original_gap": "One fixed full17-node loaded circuit reduced algebraically to10 nonlinear ports, all13 external caps, independent SPICE and honest failed bias-choke hypothesis. No compatible complete licensed model selected from inspected sources.",
+  "internal_reuse": [
+    "unchanged tools/lab_wav.h, soundforge/analysis.h, soundforge/excitation.h",
+    "unchanged tests/activation_guard.* and tools/rat_spice_reference.py:run_spice",
+    "owned merged germanium pivoting/forward-junction damping/companion idioms",
+    "owned RAT/CMOS/Ge193-tap FIR technique, unchanged seven-line FFT",
+    "merged rotary CLI/ARM/CI conventions"
+  ],
+  "independent_tool": "Same SHA-pinned ngspice44.2 Debian package described in third_party/labrat/provenance.json; no new runtime dependency.",
+  "audio": {
+    "dataset": "Guitar-TECHS",
+    "doi": "10.5281/zenodo.14963133",
+    "record_version": "v1",
+    "license": "CC-BY-4.0",
+    "notice": "AUDIO_NOTICE.md",
+    "archive_sha256": "033489e22600751fb5a1633e7d856b901c6782e0486fa02135e830780d9dbfe2",
+    "member": "P3_music/audio/directinput/directinput_11.wav",
+    "original_sha256": "0842bfb4e73142205123d6d362ff8f007e277ce022a4e40dd70b824ecb7543d8",
+    "prepared_sha256": "f0299640eaebf29328716567fbf60e0a5639e916ed5d2f81bf37b8ef032ab2bc"
+  },
+  "ownership": "Local fixed-circuit numerical code with MIT-derived device foundation. Global Parable license remains unspecified. Code eligibility allowlist unchanged; separately licensed audio is data, not a code-policy exception. No unlicensed or GPL source imported."
+}

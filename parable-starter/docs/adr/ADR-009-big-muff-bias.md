@@ -69,3 +69,34 @@ or calibrated commercial EHX/Seed3 compatibility. No canonical/native Engine
 registration or pool refactor. Existing seven firmware links and all original
 DSP/journal/living output contracts remain. New source recording replaces only
 this demo; prior audition archives and fixtures remain intact.
+
+## Observed numerical refinements / results
+
+Runtime capacitor states and node changes are stored relative to the solved DC
+point. Nonlinear currents remain evaluated at actual junction voltages; subtract
+the prepared DC current only as an exact coordinate translation, not a static
+curve, block linearization, gate or speculative cache. This removes avoidable
+cancellation of large charged-capacitor DC terms. An initial fresh-zero test saw
+up to3.74e-8 normalized numerical output; the translated representation restores
+quiet reset without hiding state or adding an output filter. Final currents from
+each Newton solve are reused exactly for node reconstruction, avoiding duplicate
+math evaluations; no approximation introduced.
+
+Native uses modern SI kT/q at300K (.025851999786V); ngspice44's constants differ
+slightly. Device stress-current error up to~10ppm and DC node error1.60uV are
+reported rather than calling them physical calibration. Independent full network
+uses built-in BJT/diode devices, Gear2/fine adaptive steps, not native stamps.
+Uniform reference resampling prevents adaptive-step density from biasing RMS.
+
+At96/192/384k scientific1x, all-node RMS error38.17/8.04/2.07uV and peak
+3.172/.607/.100mV; normal48k4x uses192k integration plus its explicit FIR.
+Loaded tone ratio at100/1k/10k approximately.290/.145/.363, showing the scoop;
+maximum complex AC error3.45% at192k (includes high-frequency warping). The fully
+loaded result need not equal the article's simplified unloaded plot.
+
+Actual pinned M7 object7008B text/0data/0BSS, complete processor8832B. Application
+static frames: process72, sample1072, solve1240, currents256B; sum2640B along that
+path excludes libm/interrupt/ABI high-water. Control prepare9352 plus matrices6232B
+also needs separate stack placement. Fits the raw10752B optional RAT capacity,
+not an approved shared-state design or CPU budget. Worst100 device evaluations/
+base frame and1200 expm1 calls; normal runs are lower. No target timing claim.

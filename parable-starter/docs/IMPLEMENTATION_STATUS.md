@@ -1,5 +1,29 @@
 # Implementation status and reproducible baseline
 
+## SF-009 — standalone V3 four-transistor fuzz / R15 experiment
+
+Main `a17f64f`, #42/#48 open and untouched; baseline30/30 Debug/Release.
+[Gate0](SF009_GATE0.md), [ADR-009](adr/ADR-009-big-muff-bias.md),
+[commands/results/audio](SF009_REPORT.md).
+
+- **Specified/implemented:** one pinned American V3 drawing, full loaded four-NPN/
+  two-diode-pair/all13-external-cap network. Exact prepared linear elimination,
+  bounded Newton/4x FIR, one high-R15 second-clipping-stage bias experiment.
+- **Host-tested:** independent standard-BJT/diode/DC/all-node/transient/tone/
+  controls, recovery/refinement/guards/zero/reset/extremes; actual C++ guitar and
+  synthetic WAVs. New attributed Guitar-TECHS DI, original and conversion receipt.
+- **Failed musical hypothesis:** R15=1M scarcely changes history;2.2M nearly cuts
+  off the transistor but overload temporarily ENHANCES the next weak probe.
+  Intended congested/choking suppression is unproven; no added gate/third candidate.
+- **ARM compile-inspected:**7008B object text, data/BSS0,8832B complete state.
+  Audio calls include bounded expm1/memcpy/memset, no allocator/IO/locks. Existing
+  Engine/bundle/Runtime11040/11288/45224 and seven firmware images unchanged;
+  those firmware links do not contain Muff. No admission based on raw state alone.
+- **Hardware-tested/musically auditioned:** none. No calibrated BC239/EHX unit,
+  physical failure mechanism, actual M7 deadline/IO/stack high-water or founder
+  Big Muff recognition/approval. Nominal reduced devices omit intrinsic charge,
+  Early/high injection/noise/supply dynamics; physics agreement has that scope.
+
 ## SF-007 — standalone rotary with reduced worn-output-belt mechanics
 
 Main `fadcb99` (approved #44), #42 open and untouched; baseline28/28 Debug/Release.
