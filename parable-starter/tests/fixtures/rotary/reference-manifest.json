@@ -1,0 +1,14 @@
+{
+  "reference": "Exact clipped linear ODE when locked; independent RK4/event-interpolated fault at192k, exact trig/unwrapped angles",
+  "coarse_reference_rate": 96000,
+  "fine_reference_rate": 192000,
+  "refinement_peak_rad_s": 0.001979924609571526,
+  "refinement_peak_rad": 5.63488208911167e-05,
+  "physical_calibration": false,
+  "events": 14,
+  "generator_sha256": "289ac96517819637b0448c8c7a117c26a7037098290fa0356c09163b7a2bd082",
+  "files": {
+    "mechanics.csv": "3bb07a39880087a193e284915c332e9e592c73d88d8ae3eee94df9bafecfec55",
+    "events.csv": "f55c8c4476b33376e0fdb18c51c6a90e2bbec7ca610e40683c5133705c1d38e1"
+  }
+}

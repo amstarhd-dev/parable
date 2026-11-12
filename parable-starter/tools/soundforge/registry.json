@@ -708,6 +708,117 @@
           "paths": []
         }
       }
+    },
+    {
+      "id": "rotary",
+      "type": "model",
+      "paths": [
+        "parable-starter/include/parable_rotary.h",
+        "parable-starter/src/parable_rotary.cpp",
+        "parable-starter/src/rotary_delay.h",
+        "parable-starter/tools/rotary_lab.cpp",
+        "parable-starter/tools/rotary_reference.py",
+        "parable-starter/tests/test_rotary.cpp",
+        "parable-starter/docs/SF007_REPORT.md",
+        "parable-starter/docs/adr/ADR-007-rotary-belt-model.md"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/rotary/provenance.json",
+          "candidate": 0,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/rotary/algo-dsp-LICENSE.txt"
+          ],
+          "scope": "Narrow MIT two-band/directivity/Doppler acoustic adaptation, not Go/framework or LFO mechanics."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/rotary/provenance.json",
+          "candidate": 1,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/rotary/DaisySP-LICENSE.txt"
+          ],
+          "scope": "Previously audited MIT ring/one-pole idioms, fixed linear read."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/rotary/provenance.json",
+          "candidate": 2,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "LeslieSim project license not located; no listing imported."
+        }
+      ],
+      "ownership_notes": "Parable-local reduced mechanics/proof with MIT acoustic/primitive adaptations and retained notices. Global Parable license unspecified; source MIT claim is not independent ownership authentication.",
+      "physics_notes": "Two inertial drive assemblies. One worn horn-output pulley contact with motor-advected material phase; no measured motor/belt/cabinet fidelity or astrology activation.",
+      "behavior": "Stopped preparation, 32-96kHz, own fixed 384-cell histories and 257-point trig table, deterministic stick/slip/capture and mono Doppler/coloration. No Engine registration.",
+      "limitations": [
+        "Uncalibrated equivalent torque/inertia/wear; no exact motor electrical circuit, belt elasticity/capstan, cabinet/mic/retarded radiation.",
+        "Linear audio interpolation and no oversampling: measured near-Nyquist alias risk.",
+        "Founder musical approval and actual M7/Seed3 runtime untested."
+      ],
+      "dependencies": {
+        "assets": [
+          "host.pcm16",
+          "host.signal-analysis",
+          "host.synthetic-plucks"
+        ],
+        "external": [
+          "C++17 math only for stopped preparation; Python stdlib exact/RK4 independent reference.",
+          "Existing pinned ARM compiler/libDaisy recipe, no new DSP runtime dependency."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Reference mechanics, phase/events/convergence, interpolation/continuity/guards/reset/bounds; not physical validation.",
+          "paths": [
+            "parable-starter/tests/test_rotary.cpp",
+            "parable-starter/tests/test_rotary_cli.py"
+          ]
+        },
+        "independent_circuit": {
+          "status": "reduced-section-compared",
+          "scope": "Independent electromechanical equations/reference, NOT a circuit or measured Leslie comparison.",
+          "paths": [
+            "parable-starter/tools/rotary_reference.py",
+            "parable-starter/tests/fixtures/rotary/mechanics.csv",
+            "parable-starter/tests/fixtures/rotary/reference-manifest.json"
+          ]
+        },
+        "synthetic_audition": {
+          "status": "generated",
+          "scope": "Owned transient/steady input and actual healthy/fault outputs; not human musical approval.",
+          "paths": [
+            "parable-starter/tools/rotary_lab.cpp"
+          ]
+        },
+        "real_guitar_audition": {
+          "status": "not-performed",
+          "scope": "Permitted pinned real DI rendered into downloadable full/band A/B; human/founder listening not performed.",
+          "paths": [
+            "parable-starter/third_party/rotary/AUDIO_NOTICE.md",
+            "parable-starter/docs/SF007_REPORT.md"
+          ]
+        },
+        "arm_cross_compile": {
+          "status": "compiled",
+          "scope": "Actual M7 object/layout/internal audio-call graph, no new firmware integration or execution.",
+          "paths": [
+            "parable-starter/tools/check_rotary_arm.py"
+          ]
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No physical target boot/CPU/cache/deadline/IO measurement.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "Current optional-RAT/pool constraints preserved; raw state fits but admission/shared-state/controls need separate settled-boundary review.",
+          "paths": []
+        }
+      }
     }
   ]
 }

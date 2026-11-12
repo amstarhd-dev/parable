@@ -1,0 +1,52 @@
+{
+  "candidates": [
+    {
+      "url": "https://github.com/cwbudde/algo-dsp",
+      "revision": "455d4a569936db8e74edbf204476a78258deed78",
+      "license": "MIT",
+      "files_sha256": {
+        "LICENSE": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+        "dsp/effects/modulation/rotary_speaker.go": "365479ab15cd9bf822ea6d30e31373c1f1725510ca20231bf23463841dd93531"
+      },
+      "notes": "Adapt two-band 800Hz/directivity/Doppler acoustic layout, default speeds and fixed mono histories. No Go package, heap allocator, stereo/reflection voices, tanh or speed-LFO ramp. Root grant inspected; source model not physical calibration."
+    },
+    {
+      "url": "https://github.com/daisyaudio/DaisySP",
+      "revision": "2c72eaf9eac5fc0dca1919d65d606da907832618",
+      "license": "MIT",
+      "notes": "Narrow fixed-wrap linear DelayLine/one-pole idioms already audited in SF006; exact upstream source/notice hashes in third_party/tape/provenance.json. Local notice trailing whitespace normalized only."
+    },
+    {
+      "url": "https://github.com/miccio-dk/LeslieSim",
+      "revision": "c82211a42a14a40914be8c857b2f69f69f3d97e0",
+      "license": "Unreviewed project grant; audit only",
+      "notes": "FAUST/JUCE alternative evaluated, no root LICENSE retrieved; no source listing or framework copied."
+    },
+    {
+      "url": "https://www.dsprelated.com/freebooks/pasp/Rotating_Horn_Simulation.html",
+      "revision": "b6f5c0fd1c7e1e1a24ade8fb1c694b32e2cc9b9c",
+      "revision_kind": "content-sha1",
+      "sha256": "b032c869e12dcd57011c03298cd032e031b75de9c0fe23c93a7157af8493cce4",
+      "license": "Reference only",
+      "notes": "Smith rotating-horn text, far-field Doppler/directivity factual reference only; no text/graphics/data fit imported."
+    },
+    {
+      "url": "https://doc.modelica.org/Modelica%204.0.0/Resources/helpOM/Modelica.Mechanics.Rotational.Components.Clutch.html",
+      "revision": "f32ca384a62ba72bdb636a42244e63acac577338",
+      "revision_kind": "content-sha1",
+      "sha256": "68663bcb42b6046ca4e359f5b8d9c1a530a3bc037478507a535f4e277642a4cf",
+      "license": "Reference only",
+      "notes": "Static/kinetic friction, torque balance and locking concepts only; no Modelica code/framework/parameters imported."
+    }
+  ],
+  "decision": "parable-starter/docs/adr/ADR-007-rotary-belt-model.md",
+  "original_gap": "Two-inertia torque/friction/clutch with one localized worn belt section. No measured Leslie motor or belt law available from chosen MIT acoustic reference.",
+  "internal_reuse": [
+    "tools/lab_wav.h",
+    "tools/soundforge/analysis.h",
+    "tools/soundforge/excitation.h",
+    "tests/activation_guard.*",
+    "unchanged seven-line FFT copied from tools/rat_measure.h"
+  ],
+  "ownership": "Source-declared MIT notices retained for imported portions. Global Parable license remains unspecified; no GPL/unlicensed listing imported."
+}

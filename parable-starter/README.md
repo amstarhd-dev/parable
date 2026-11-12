@@ -2,6 +2,13 @@
 
 This is the first **portable C++ code brick**, not a finished Parable SDK and not a commercial DSP effect. It contains no astrology or browser implementation. A separate experimental circuit-derived LabRAT listening laboratory is described below.
 
+SF-007 adds a standalone [two-rotor rotary / worn horn-belt experiment](docs/SF007_REPORT.md).
+`parable_rotary_lab --input permitted-mono-pcm16.wav --output DIR` renders the
+same guitar healthy/faulted, raw/matched and band taps, with actual motor/rotor
+torque-motion CSV/SVG and synthetic probes. CI publishes **parable-rotary-auditions**.
+[ADR-007](docs/adr/ADR-007-rotary-belt-model.md) records the reduced model and
+limits. No Engine/canonical registration, physical motor fit or founder approval.
+
 SF-006 adds a standalone [reduced tape echo / weak erase experiment](docs/SF006_REPORT.md).
 Run `parable_tape_lab --input permitted-mono-pcm16.wav --output DIR`: healthy/fault
 raw and RMS-matched audio, plus a feedback-zero A→different-B medium-memory proof.
