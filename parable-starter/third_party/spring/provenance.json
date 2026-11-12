@@ -1,0 +1,35 @@
+{
+  "candidates": [
+    {
+      "url": "https://github.com/pichenettes/eurorack",
+      "revision": "f4cfa7697095a28d292bff758beb51deb49b5a86",
+      "license": "MIT",
+      "files_sha256": {"rings/dsp/resonator.cc": "f75160f7c96e90dcb45c522b3ad0658f7ede32a32a283b62fead958ee1309074"},
+      "notes": "File-level MIT grant, Copyright2015 Emilie Gillet, retained in Rings-MIT.txt (comment markers/whitespace normalized). Narrow positive stiffness/stretch recurrence and cosine mode-position foundation. No bandpass filter/UI/LUT/framework dependency port. Explicit energy coordinates, contact and safety proof are local work. Modal resonance foundation is not calibrated helical spring fidelity."
+    },
+    {
+      "url": "https://github.com/audiojs/reverb",
+      "revision": "29597c9f7038facbdda6cdf3ef361f72cf35482f",
+      "license": "MIT; audit only",
+      "notes": "packages/reverb-spring/spring.js inspected:24 allpasses plus fixed feedback paths. LICENSE explicitly says its preamble does not override MIT. No listing imported; lacks displacement/energy coordinates for mechanical contact. Source's calibrated label is not independent validation."
+    },
+    {
+      "url": "https://github.com/jacobmcquillan/physical-modelling-of-a-spring-reverb-tank",
+      "revision": "6b16988986a59aabaece645981a4c0fbe01dd6a7",
+      "license": "No project grant located; audit only",
+      "notes": "Tree inspected: MATLAB modal/eigenvalue model and tank recordings. No LICENSE found; no code, fitted constants or recordings imported."
+    },
+    {
+      "url": "https://aaltodoc.aalto.fi/server/api/core/bitstreams/e8636a13-6965-4d67-abdf-7ff48b43816c/content",
+      "revision": "7a6b04c464bf38c058671fb605679517f7f1e971d",
+      "revision_kind": "sha256-prefix40",
+      "sha256": "7a6b04c464bf38c058671fb605679517f7f1e971d409d6952e90e9d18eb753e8",
+      "license": "Reference only",
+      "notes": "Bilbao/Parker, A Virtual Model of Spring Reverberation: helical longitudinal/transverse coupling and dispersion. Factual source for omissions, no listing, text, graph or recording copied. Edinburgh mirror returned404; alternate PDF retrieved."
+    }
+  ],
+  "decision": "parable-starter/docs/adr/ADR-008-spring-contact.md",
+  "original_gap": "Energy-bearing modal body, unilateral support displacement, passive restitution, separately accounted overshoot projection and bounded input/return. No compatible imported mechanical crash implementation selected.",
+  "internal_reuse": ["unchanged tools/lab_wav.h", "unchanged tools/soundforge/analysis.h", "unchanged tools/soundforge/excitation.h", "unchanged tests/activation_guard.*", "unchanged seven-line FFT from tools/rat_measure.h", "narrow193-tap Blackman FIR idiom from protected RAT/CMOS", "adapted existing rotary CLI/audit/CI recipe"],
+  "ownership": "Per-file MIT permission retained for derived Rings portion. Global Parable license unspecified. No unlicensed/GPL/commercial source copied."
+}

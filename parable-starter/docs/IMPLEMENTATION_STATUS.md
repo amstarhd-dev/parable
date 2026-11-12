@@ -1,5 +1,27 @@
 # Implementation status and reproducible baseline
 
+## SF-008 — standalone passive modal spring / displaced support
+
+Main `a17f64f` includes approved #46; #42 remains open and untouched. Fresh
+baseline30/30 Debug/Release. [Gate0](SF008_GATE0.md), [ADR-008](adr/ADR-008-spring-contact.md),
+[commands/results/listening](SF008_REPORT.md).
+
+- **Specified/implemented:** two source-derived dispersed modal paths; only one
+  positive support clearance changes. Passive rigid restitution and explicit
+  numerical position-projection loss, bounded input energy/return and six-second
+  stored tail. Full fixed state; no crash sample/noise/extra feedback loop.
+- **Host-tested:** independent Decimal contact and continuous untouched-path
+  convolution, multi-rate passivity/decay/contact/HF probes, bounds/reset/guard
+  and real native WAV receipts. Twenty-one DI/synthetic raw/matched WAVs generated.
+- **ARM compile-inspected:** standalone3392-byte object text/18736-byte full state,
+  data/BSS0; existing Engine/bundle/Runtime11040/11288/45224 unchanged. State
+  exceeds optional RAT allocation; no integration or production pool expansion.
+  The seven existing images are separately linked, do not contain Spring.
+- **Hardware-tested/musically auditioned:** none. Measured tank/coil/suspension
+  calibration, helical coupling, full waveform sample-rate invariance, M7 timing,
+  real audio IO and founder spring/crash approval remain unproven. Source-derived
+  modal resonance plus passive contact is a reduced model, not tank certification.
+
 ## SF-007 — standalone rotary with reduced worn-output-belt mechanics
 
 Main `fadcb99` (approved #44), #42 open and untouched; baseline28/28 Debug/Release.
