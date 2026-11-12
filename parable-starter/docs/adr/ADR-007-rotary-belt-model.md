@@ -32,6 +32,14 @@ spatial worn section passing the contact, **not an independent time LFO**. Motor
 motion while the rotor lags carries the worn patch away, restoring traction and
 allowing catch-up. Bass has its own unchanged healthy assembly throughout.
 
+The damaged contact is specifically the **belt-to-horn-output pulley**. The motor
+pulley is assumed to drive the massless belt without slip; belt material speed is
+therefore motor-side speed, even when the output pulley lags. The belt's reflected
+mass is included in Jm. This assumption is essential to the chosen material-phase
+advection; it would be wrong to infer belt speed from the motor if slip instead
+occurred at the motor pulley. Contact-wrap averaging is the smooth spatial lobe,
+not a capstan/tension/material simulation.
+
 Horn: Jm=.0002/Jr=.002, K=.12 N m s/rad, Tmax=.14 N m, b=.001 N m s/rad,
 C=.02 N m. Bass: .001/.015, K=.12, Tmax=.22, b=.002, C=.02. These are explicit
 experimental equivalents, **not measured component/BOM values**. Start at the

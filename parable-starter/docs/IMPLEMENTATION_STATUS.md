@@ -1,5 +1,26 @@
 # Implementation status and reproducible baseline
 
+## SF-007 — standalone rotary with reduced worn-output-belt mechanics
+
+Main `fadcb99` (approved #44), #42 open and untouched; baseline28/28 Debug/Release.
+[Gate0](SF007_GATE0.md), [ADR-007](adr/ADR-007-rotary-belt-model.md),
+[listening/commands/evidence](SF007_REPORT.md).
+
+- **Specified/implemented:** two independent motor/rotor inertias with bounded
+  drive/load, static/kinetic transmission and one localized worn horn-output belt
+  section. Source-adapted mono two-band coloration/AM/Doppler, fixed own buffers.
+- **Host-tested:** exact locked/RK4 step references at32/44.1/48/96 kHz, repeated
+  slip/capture, unchanged drum, phase/energy/interpolation/bounds/reset/guards.
+  Twelve permitted-guitar/band/probe WAVs, raw/matched levels and actual motion plot.
+- **ARM compile-inspected:** 3152-byte object text,4392-byte complete state;
+  callback call graph only internal methods, no math-library/IO/allocator helpers.
+  Existing firmware separately linked unchanged; it does not contain Rotary.
+- **Hardware-tested/musically auditioned:** none. No measured motor/cabinet fit,
+  full-band alias quality, M7 CPU/deadline or founder acceptance. Engine/patch and
+  saved-slot/Runtime layout unchanged. Affliction activation remains undecided.
+
+This supersedes absence of a host rotary specimen, not integration/hardware gates.
+
 ## SF-006 — standalone reduced tape medium, external-memory integration deferred
 
 Main `0def50b` (merged #40), #42 open/unmerged and not imported. Baseline **26/26

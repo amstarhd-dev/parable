@@ -1,0 +1,12 @@
+{
+  "repository": "https://huggingface.co/datasets/Julian-br/GuitarJam",
+  "revision": "2d467bfec90af19301b01123494f4b2ba64c5a3a",
+  "license": "CC0-1.0",
+  "url": "https://huggingface.co/datasets/Julian-br/GuitarJam/resolve/2d467bfec90af19301b01123494f4b2ba64c5a3a/guitar_jam/test/050.wav",
+  "sha256": "22e7b845fc2d71200c72c13fedbeb5f8ac593e48a01f99875f857e0cc5dfecd0",
+  "dataset_card_path": "parable-starter/third_party/tape/GuitarJam-README.md",
+  "card_sha256": "e6df26337b6307b41b58bdb0f5d9d7e185f5784028f5b2dcba13d2f21e7e78f8",
+  "recording": "Author describes clean Stratocaster/Scarlett Solo/Audacity DI, no amp/effects; ownership not independently authenticated.",
+  "calibration": "same whole source; peak .25 normalized; equal2s tail, no resampling/physical voltage claim",
+  "approval": "Founder listening not performed"
+}
