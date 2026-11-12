@@ -238,6 +238,10 @@ python3 parable-starter/tools/check_muff_arm.py --compiler parable-starter/build
 Use the firmware script's `--cache`/`--help` to find the downloaded pinned compiler;
 CI uses its explicit cache. A second complete local generation reproduced all fixture numeric values exactly
 (max error0), with identical netlists/simulator; no goldens refreshed.
+Initial remote PR Debug passed32/32 in533.90s, Release32/32 in94.74s.
+The duplicate push Debug job reached the original10min job timeout during the
+last audio test (no assertion failure). Host job ceiling increased to15min,
+with every test/setting retained; final revised-head CI is linked in the PR.
 CI checks committed reference/netlist hashes and runs
 actual native comparisons; **it does not regenerate SPICE**. Final CI outcomes
 and verified artifact SHA/downloads are in the PR. No unexplained failure accepted.
