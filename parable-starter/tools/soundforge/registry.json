@@ -606,6 +606,108 @@
           "paths": []
         }
       }
+    },
+    {
+      "id": "tape",
+      "type": "model",
+      "paths": [
+        "parable-starter/include/parable_tape.h",
+        "parable-starter/src/parable_tape.cpp",
+        "parable-starter/tools/tape_lab.cpp",
+        "parable-starter/tools/tape_reference.py",
+        "parable-starter/tests/test_tape.cpp",
+        "parable-starter/docs/SF006_REPORT.md",
+        "parable-starter/docs/adr/ADR-006-reduced-tape-medium.md"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/tape/provenance.json",
+          "candidate": 0,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/tape/DaisySP-LICENSE.txt"
+          ],
+          "scope": "Narrow circular storage/reset, one-pole and SoftClip adaptation. Partial-overwrite/erase mechanism is original reduced modeling, not a borrowed calibrated tape model."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/tape/provenance.json",
+          "candidate": 1,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "GPL CHOWTape alternative audited, no code/curve/fit imported."
+        }
+      ],
+      "ownership_notes": "Parable-local reduced medium and proof, MIT DaisySP primitive adaptation; global Parable license unspecified. CC0 listening input is separate, not a DSP-code import exception.",
+      "physics_notes": "Three spatial heads with retained remanence and finite write reorientation. Scalar r=0/.85, write fraction .6; not measured hysteresis, field/current, alignment or machine fidelity.",
+      "behavior": "Standalone mono normalized-input processor, fixed 32-96 kHz rate, loop .1-2s, bounded feedback. Caller-owned <=768000-byte medium prepared/reset outside audio; no copy/move aliases.",
+      "limitations": [
+        "No physical tape calibration, bias oscillator/minor loops/depth/noise/wow/flutter. Finite overwrite and erase values are experimental assumptions.",
+        "No canonical Engine/Runtime integration, external-memory placement/ownership or physical Seed3 timing.",
+        "Real-guitar files generated and downloadable; human/founder listening approval not performed."
+      ],
+      "dependencies": {
+        "assets": [
+          "host.pcm16",
+          "host.signal-analysis",
+          "host.synthetic-plucks"
+        ],
+        "external": [
+          "C++17 math only, no DSP library download. Python Decimal only for independent fixture generation.",
+          "Pinned xPack Cortex-M7 compile, separate unchanged libDaisy firmware recipe."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Independent 50-digit reference, feedback-zero A/B residual, reset/bounds/endpoints/callback guards.",
+          "paths": [
+            "parable-starter/tests/test_tape.cpp",
+            "parable-starter/tests/test_tape_cli.py"
+          ]
+        },
+        "independent_circuit": {
+          "status": "reduced-section-compared",
+          "scope": "Independent material/event recurrence, NOT a circuit/physical tape comparison: 13356 values at 44.1/48/96 kHz, peak error 5.92e-8.",
+          "paths": [
+            "parable-starter/tools/tape_reference.py",
+            "parable-starter/tests/fixtures/tape/reference.csv",
+            "parable-starter/tests/fixtures/tape/reference-manifest.json"
+          ]
+        },
+        "synthetic_audition": {
+          "status": "generated",
+          "scope": "CLI regression generates owned 440/660 Hz source and actual medium A/B WAVs; not human musical acceptance.",
+          "paths": [
+            "parable-starter/tests/test_tape_cli.py"
+          ]
+        },
+        "real_guitar_audition": {
+          "status": "not-performed",
+          "scope": "Pinned permitted clean DI processed to eleven music/proof files; founder listening not performed, see report and artifact.",
+          "paths": [
+            "parable-starter/tools/tape_lab.cpp",
+            "parable-starter/third_party/tape/AUDIO_NOTICE.md"
+          ]
+        },
+        "arm_cross_compile": {
+          "status": "compiled",
+          "scope": "Actual standalone M7 object/layout/disassembly, not firmware integration/target runtime.",
+          "paths": [
+            "parable-starter/tools/check_tape_arm.py",
+            "parable-starter/docs/SF006_REPORT.md"
+          ]
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No board execution, SDRAM access, CPU/deadline/stack/IO evidence.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "Gate 0 closes integration until external-memory placement and prepared-bundle lifetime are separately approved.",
+          "paths": []
+        }
+      }
     }
   ]
 }

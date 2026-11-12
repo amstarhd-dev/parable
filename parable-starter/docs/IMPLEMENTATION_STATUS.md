@@ -1,5 +1,28 @@
 # Implementation status and reproducible baseline
 
+## SF-006 — standalone reduced tape medium, external-memory integration deferred
+
+Main `0def50b` (merged #40), #42 open/unmerged and not imported. Baseline **26/26
+Debug/Release**. [Gate 0](SF006_GATE0.md), [ADR-006](adr/ADR-006-reduced-tape-medium.md),
+[listening/reproduction/evidence](SF006_REPORT.md).
+
+- **Specified/implemented:** one cyclic normalized magnetic medium, erase/write/
+  playback heads, finite partial overwrite, healthy erase and one weak-erase
+  retention fault. Minimal deterministic saturation/bandwidth loss/feedback.
+- **Host-tested:** independent 50-digit medium/event reference, 13,356 values,
+  peak error 5.92e-8; feedback-zero A under different B, geometric residual decay,
+  reset/rate/geometry/endpoint safety and callback guards. Eleven reproducible
+  guitar/proof WAVs with raw/matched gains, traces and separate B-only control.
+- **ARM compile-inspected:** standalone 1292-byte text / 120-byte object plus
+  external storage; process no external calls. Memory <=768000 B; unchanged
+  production firmware links separately, not with Tape. Target cycles unmeasured.
+- **Hardware-tested/musically auditioned:** none. No physical medium fit, Seed3
+  access/deadline/noise or founder approval. No canonical/Engine registration or
+  prepared-bundle allocation/lifetime change. Four saved slots/Runtime unchanged.
+
+This supersedes statements that no host tape processor exists, not the native
+integration/physical performance gates. No correspondence or living-source change.
+
 ## PAR-012 — experimental host living-source/control lane
 
 Main `8f94368` (merged #33); clean baseline **23/23 Debug/Release**.

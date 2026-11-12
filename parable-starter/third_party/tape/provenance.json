@@ -1,0 +1,59 @@
+{
+  "candidates": [
+    {
+      "url": "https://github.com/daisyaudio/DaisySP",
+      "revision": "2c72eaf9eac5fc0dca1919d65d606da907832618",
+      "license": "MIT",
+      "files_sha256": {
+        "LICENSE": "ae36576d7394109775a8cc86c31c94f016de256526e86d11ee554ef25d429570",
+        "Source/Utility/delayline.h": "fe4fec65cd93c7bb9ededd265a848e57df859e52e43142bbd9b9e1657cd3c075",
+        "Source/Utility/dsp.h": "534f0f76b7794939a5fff9b128b8fddb23ae0e63ad3354f663445d417924099a"
+      },
+      "notes": "Narrowly adapt ring/reset, one-pole and rational SoftClip only; no entire DaisySP, LGPL extension or transitive module imported."
+    },
+    {
+      "url": "https://github.com/jatinchowdhury18/AnalogTapeModel",
+      "revision": "604372e4ffd9690c3e283362e4598cb43edbb475",
+      "license": "GPL-3.0",
+      "files_sha256": {
+        "LICENSE": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+      },
+      "notes": "Audit-only full hysteresis plugin; no implementation/curve/constants imported."
+    },
+    {
+      "url": "https://hyperphysics.phy-astr.gsu.edu/hbase/Audio/tape.html",
+      "revision": "5af53e2ea7d941f142e297348d7497b377092ef8",
+      "revision_kind": "content-sha1",
+      "sha256": "2901a7a1903fe3a13d7f65a1329254f1c1bbd5bc452ad8858ae03fc8a6003c9e",
+      "license": "Reference only; no text or graphics imported",
+      "notes": "Georgia State HyperPhysics: erase-before-record, high-frequency AC field and history."
+    },
+    {
+      "url": "https://hyperphysics.phy-astr.gsu.edu/hbase/Audio/bias.html",
+      "revision": "15b750c4dabdfc3e7a04d546539d691abd5f9b33",
+      "revision_kind": "content-sha1",
+      "sha256": "8737915162331c35595c948007fa91821ea19ed2a31b8a354f02b76fe699e5ed",
+      "license": "Reference only; no text or graphics imported",
+      "notes": "Bias and magnetic history; conceptual source only, not a reduced-model fit."
+    },
+    {
+      "url": "https://research.utwente.nl/en/publications/modeling-and-analysis-of-overwrite-behavior-versus-increasing-hea/",
+      "revision": "f00dd63ed7b54fa64522a9b148abe7b4fa2ad5fe",
+      "revision_kind": "content-sha1",
+      "sha256": "1314d182dc764ee056d21d0acb825f6602ae6770df130c15e682de1f4d325bc4",
+      "license": "Reference only; no text, models or graphics imported",
+      "notes": "Lalbahadoersing et al. 1999, Modeling and analysis of overwrite behavior versus increasing head field in thin MP tape. Abstract describes depth-dependent residual; supports partial overwrite concept, NOT a calibration of write fraction .6 or erase retention .85."
+    }
+  ],
+  "decision_record": "parable-starter/docs/adr/ADR-006-reduced-tape-medium.md",
+  "internal_reuse": [
+    "tools/lab_wav.h unchanged",
+    "tools/soundforge/analysis.h unchanged",
+    "tools/soundforge/excitation.h unchanged",
+    "tools/rat_measure.h FFT: narrow unchanged copy; protected source not moved",
+    "tests/activation_guard.* unchanged"
+  ],
+  "original_gap": "Three material heads, erase/finite-overwrite state, proof fixture and reference; ordinary delay Write discards old state. Scalar retention is not an imported calibrated tape model.",
+  "ownership": "MIT notices cover borrowed portions only. Global Parable LICENSE remains unspecified.",
+  "notice_normalization": "Local DaisySP-LICENSE.txt removes trailing whitespace only; source hash above is the exact upstream LICENSE bytes."
+}

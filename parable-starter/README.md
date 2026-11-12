@@ -2,6 +2,13 @@
 
 This is the first **portable C++ code brick**, not a finished Parable SDK and not a commercial DSP effect. It contains no astrology or browser implementation. A separate experimental circuit-derived LabRAT listening laboratory is described below.
 
+SF-006 adds a standalone [reduced tape echo / weak erase experiment](docs/SF006_REPORT.md).
+Run `parable_tape_lab --input permitted-mono-pcm16.wav --output DIR`: healthy/fault
+raw and RMS-matched audio, plus a feedback-zero A→different-B medium-memory proof.
+CI publishes **parable-tape-auditions** with a pinned CC0 real-guitar recording,
+WAVs/receipts/provenance. No Engine/patch integration, physical tape calibration,
+SDRAM operation or founder musical approval is claimed. See [ADR-006](docs/adr/ADR-006-reduced-tape-medium.md).
+
 PAR-009 prepares a [Seed3 first-day procedure](docs/SEED3_FIRST_DAY.md) and
 [prior-art/firmware audit](docs/PAR009_GATE0.md), with three BOOT_NONE images:
 standalone LED/recovery, mono bypass, and the unchanged RAT composite. The pinned
