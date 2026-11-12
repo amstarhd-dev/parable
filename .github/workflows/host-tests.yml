@@ -25,6 +25,36 @@ jobs:
         run: cmake --build build
       - name: Test
         run: ctest --test-dir build --output-on-failure --no-tests=error
+      - name: Render tape echo and isolate feedback-zero magnetic ghost
+        if: matrix.build_type == 'Release'
+        env:
+          HEAD_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          mkdir -p build/tape-input
+          curl --fail --show-error --location https://huggingface.co/datasets/Julian-br/GuitarJam/resolve/2d467bfec90af19301b01123494f4b2ba64c5a3a/guitar_jam/test/050.wav --output build/tape-input/050.wav
+          echo '22e7b845fc2d71200c72c13fedbeb5f8ac593e48a01f99875f857e0cc5dfecd0  build/tape-input/050.wav' | sha256sum -c -
+          ./build/parable_tape_lab --input build/tape-input/050.wav --output build/tape-auditions
+          ./build/parable_tape_lab --input build/tape-input/050.wav --output build/tape-repeat
+          for file in build/tape-auditions/*.wav; do cmp "$file" "build/tape-repeat/$(basename "$file")"; done
+          python3 tools/tape_reference.py --output build/tape-reference
+          cmp tests/fixtures/tape/reference.csv build/tape-reference/reference.csv
+          cmp tests/fixtures/tape/reference-manifest.json build/tape-reference/reference-manifest.json
+          ./build/parable_tape_test > build/tape-auditions/tests-and-layout.txt
+          cp build/tape-input/050.wav build/tape-auditions/source-original.wav
+          cp third_party/tape/* tests/fixtures/tape/reference-manifest.json docs/SF006_REPORT.md docs/SF006_GATE0.md docs/adr/ADR-006-reduced-tape-medium.md build/tape-auditions/
+          git rev-parse HEAD > build/tape-auditions/SOURCE_COMMIT
+          printenv HEAD_COMMIT > build/tape-auditions/HEAD_COMMIT
+          c++ --version > build/tape-auditions/HOST_COMPILER.txt
+          sha256sum include/parable_tape.h src/parable_tape.cpp tools/tape_lab.cpp tools/tape_reference.py tools/check_tape_arm.py tests/test_tape* tests/fixtures/tape/* tests/activation_guard.* tools/lab_wav.h tools/rat_measure.h tools/soundforge/analysis.h tools/soundforge/excitation.h third_party/tape/* include/parable_core.h include/parable_activation.h src/parable_activation*.cpp > build/tape-auditions/SOURCE_SHA256SUMS
+          (cd build/tape-auditions && sha256sum ./*.wav ./*.csv ./*.json) > build/tape-auditions/SHA256SUMS
+      - name: Publish healthy and defective tape listening evidence
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-tape-auditions
+          path: parable-starter/build/tape-auditions/
+          if-no-files-found: error
+          retention-days: 30
       - name: Record real DSP activation evidence
         if: matrix.build_type == 'Release'
         run: |
@@ -181,12 +211,12 @@ jobs:
       - name: Configure ASan and UBSan
         run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
       - name: Build integration and existing affected tests
-        run: cmake --build build --target parable_core_test parable_audio_safety_test parable_patch_test parable_prepare_test parable_rat_test parable_rat_integration_test parable_patch_audition parable_firmware_measurement_test parable_presets_test parable_activation_test parable_activation_demo parable_living_test parable_living_demo -j2
+        run: cmake --build build --target parable_core_test parable_audio_safety_test parable_patch_test parable_prepare_test parable_rat_test parable_rat_integration_test parable_patch_audition parable_firmware_measurement_test parable_presets_test parable_activation_test parable_activation_demo parable_living_test parable_living_demo parable_tape_test parable_tape_lab -j2
       - name: Test integration and affected boundaries
         env:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1
-        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^(firmware_measurement_math_status|core_validation|audio_safety|patch_contract|host_preparation|rat_patch_integration|patch_audio_evidence|rat_circuit_and_safety|preset_journal|activation_contract|activation_concurrency|activation_demo|living_contract|living_concurrency|living_audio_evidence)$'
+        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^(firmware_measurement_math_status|core_validation|audio_safety|patch_contract|host_preparation|rat_patch_integration|patch_audio_evidence|rat_circuit_and_safety|preset_journal|activation_contract|activation_concurrency|activation_demo|living_contract|living_concurrency|living_audio_evidence|tape_medium_and_safety|tape_listening_cli)$'
 
   activation-tsan:
     runs-on: ubuntu-24.04

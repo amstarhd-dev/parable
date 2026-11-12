@@ -1,0 +1,24 @@
+{
+  "repository": "https://huggingface.co/datasets/Julian-br/GuitarJam",
+  "revision": "2d467bfec90af19301b01123494f4b2ba64c5a3a",
+  "license": "CC0-1.0",
+  "files": [
+    {
+      "file": "GuitarJam-README.md",
+      "url": "https://huggingface.co/datasets/Julian-br/GuitarJam/raw/2d467bfec90af19301b01123494f4b2ba64c5a3a/README.md",
+      "sha256": "e6df26337b6307b41b58bdb0f5d9d7e185f5784028f5b2dcba13d2f21e7e78f8",
+      "bytes": 493
+    },
+    {
+      "file": "050.wav",
+      "url": "https://huggingface.co/datasets/Julian-br/GuitarJam/resolve/2d467bfec90af19301b01123494f4b2ba64c5a3a/guitar_jam/test/050.wav",
+      "sha256": "22e7b845fc2d71200c72c13fedbeb5f8ac593e48a01f99875f857e0cc5dfecd0",
+      "bytes": 987046
+    }
+  ],
+  "scope": "External host listening input only; no DSP code import; Soundforge MIT/BSD code import policy unchanged",
+  "software_input_calibration": "peak=0.25 normalized input; uncalibrated DI PCM16, no physical input voltage claim",
+  "selection": "same entire recording for both musical states; equal 4.8 s zero tail; no resampling. Feedback-zero proof: first second A, second B from halfway through source, loop 2 s.",
+  "attribution": "GuitarJam by Julian-br; dataset card declares CC0-1.0; original Fender Stratocaster neck/middle -> Focusrite Scarlett Solo -> Audacity",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+}

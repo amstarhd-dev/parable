@@ -21,6 +21,8 @@ jobs:
         run: python3 parable-starter/firmware/build.py
       - name: Compile and inspect prepared activation (no firmware integration)
         run: python3 parable-starter/tools/check_activation_arm.py --living --compiler parable-starter/build/arm-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++ --output parable-starter/build/arm/activation-audit
+      - name: Compile and inspect standalone tape medium (not firmware integrated)
+        run: python3 parable-starter/tools/check_tape_arm.py --compiler parable-starter/build/arm-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++ --output parable-starter/build/arm/tape-audit
       - name: Publish first-boot kit candidate (never flash here)
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:

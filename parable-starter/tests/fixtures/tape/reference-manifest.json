@@ -1,0 +1,15 @@
+{
+  "reference": "Python standard-library Decimal, 50 significant digits",
+  "algorithm": "chronological write history, analytical erase retention, scheduled replay; no native ring/code/output",
+  "model": "ADR-006, normalized remanence; mathematical reference, not a measured tape",
+  "sha256": "ff843b5eb73d890fb1c8d9a6c7463297f067866c31d1a2eb4a5f65e1d1fdaade",
+  "generator_sha256": "b35eb7a1f9e863815ad068921bc824dc3310f52ca0c38853a3ae1ca2aaea8054",
+  "rates": [
+    44100,
+    48000,
+    96000
+  ],
+  "loop_seconds": 0.1,
+  "delay_seconds": 0.02,
+  "erase_to_write_seconds": 0.015
+}
