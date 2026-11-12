@@ -37,6 +37,31 @@ jobs:
           git rev-parse HEAD > build/activation-evidence/SOURCE_COMMIT
           c++ --version > build/activation-evidence/HOST_COMPILER.txt
           sha256sum include/parable_activation.h src/parable_activation*.cpp tests/test_activation.cpp tests/activation_guard.* tools/activation_demo.cpp > build/activation-evidence/SOURCE_SHA256SUMS
+      - name: Repeat and record synthetic living-source evidence
+        if: matrix.build_type == 'Release'
+        env:
+          HEAD_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          ./build/parable_living_demo --output build/living-repeat-1 --chunk 1
+          ./build/parable_living_demo --output build/living-repeat-256 --chunk 256
+          diff -rq build/living-evidence build/living-repeat-1
+          diff -rq build/living-evidence build/living-repeat-256
+          ./build/parable_living_test > build/living-evidence/contract-layout-throughput.txt
+          ./build/parable_living_test --stress > build/living-evidence/concurrency.txt
+          git rev-parse HEAD > build/living-evidence/SOURCE_COMMIT
+          printenv HEAD_COMMIT > build/living-evidence/HEAD_COMMIT
+          c++ --version > build/living-evidence/HOST_COMPILER.txt
+          sha256sum include/parable_living.h src/parable_living*.cpp tools/living_fixture.h tools/living_demo.cpp tests/test_living.cpp tests/activation_guard.* tests/fixtures/living/* include/parable_core.h include/parable_rat.h src/parable_rat.cpp src/rat_circuit_math.h include/parable_activation.h src/parable_activation*.cpp tools/soundforge/excitation.h tools/soundforge/analysis.h tools/lab_wav.h > build/living-evidence/SOURCE_SHA256SUMS
+          cp third_party/labrat/*LICENSE.txt third_party/labrat/provenance.json build/living-evidence/
+          (cd build/living-evidence && sha256sum ./*.wav ./*.csv ./*.json) > build/living-evidence/SHA256SUMS
+      - name: Publish synthetic living-source listening and timing evidence
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-living-source-evidence
+          path: parable-starter/build/living-evidence/
+          if-no-files-found: error
+          retention-days: 30
       - name: Publish activation host evidence
         if: matrix.build_type == 'Release'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
@@ -156,12 +181,12 @@ jobs:
       - name: Configure ASan and UBSan
         run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
       - name: Build integration and existing affected tests
-        run: cmake --build build --target parable_core_test parable_audio_safety_test parable_patch_test parable_prepare_test parable_rat_test parable_rat_integration_test parable_patch_audition parable_firmware_measurement_test parable_presets_test parable_activation_test parable_activation_demo -j2
+        run: cmake --build build --target parable_core_test parable_audio_safety_test parable_patch_test parable_prepare_test parable_rat_test parable_rat_integration_test parable_patch_audition parable_firmware_measurement_test parable_presets_test parable_activation_test parable_activation_demo parable_living_test parable_living_demo -j2
       - name: Test integration and affected boundaries
         env:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1
-        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^(firmware_measurement_math_status|core_validation|audio_safety|patch_contract|host_preparation|rat_patch_integration|patch_audio_evidence|rat_circuit_and_safety|preset_journal|activation_contract|activation_concurrency|activation_demo)$'
+        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^(firmware_measurement_math_status|core_validation|audio_safety|patch_contract|host_preparation|rat_patch_integration|patch_audio_evidence|rat_circuit_and_safety|preset_journal|activation_contract|activation_concurrency|activation_demo|living_contract|living_concurrency|living_audio_evidence)$'
 
   activation-tsan:
     runs-on: ubuntu-24.04
@@ -174,8 +199,8 @@ jobs:
       - name: Configure ThreadSanitizer
         run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="-fsanitize=thread -fno-omit-frame-pointer -fno-pie -O1" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=thread -no-pie"
       - name: Build actual activation and DSP tests
-        run: cmake --build build --target parable_activation_test -j2
+        run: cmake --build build --target parable_activation_test parable_living_test -j2
       - name: Test actual activation with ThreadSanitizer
         env:
           TSAN_OPTIONS: halt_on_error=1
-        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^activation_(contract|concurrency)$'
+        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^(activation|living)_(contract|concurrency)$'

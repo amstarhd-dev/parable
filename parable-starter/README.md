@@ -70,6 +70,17 @@ presets by number and renders blocks with deterministic receipts. No live flash,
 Volume/Register/modulation lane or firmware integration is added.
 
 ## Purpose
+
+PAR-012 adds an experimental host [living-source lane](docs/LIVING_SOURCE_REQUIREMENTS.md)
+around the unchanged prepared Runtime: heterogeneous source facts, deterministic
+replay, consent/freshness and bounded test gain envelopes. Run
+`./build/parable_living_demo --output build/living-evidence` for synthetic WAVs,
+the same saved canonical RAT patch and timestamped explanation traces.
+[Evidence/commands/limits](docs/PAR012_EVIDENCE.md); Release CI publishes
+**parable-living-source-evidence** for 30 days. No wearable acquisition, Body
+Language grammar, physiological mapping, firmware integration or listening
+approval is claimed.
+
 - A versioned, validated patch snapshot (`schema=2` for this native proof; **not** yet the final JSON/Wire format).
 - Four independent in-memory performance slots.
 - Fixed-capacity ordered stages and deterministic processing with no allocation in the audio callback.
