@@ -1,0 +1,10 @@
+{
+  "method": "60-digit Decimal orthogonal energy projection/restitution; continuous complex exponential convolution for untouched second path",
+  "linear_decimal_places": 12,
+  "native_inputs": "none",
+  "independence": "No native helper, split-step, rendered output or fitted constants. Equivalent assumptions shared, not measured tank/SPICE truth.",
+  "files_sha256": {
+    "contact.csv": "eee87faacadb343bbb443617377178067d22b13baaed8ab827dff443542c3cf2",
+    "linear.csv": "a6dee43fe29dbe19929bacefb45b7395eb40373aa0a304ef4c27fd9446b245c0"
+  }
+}

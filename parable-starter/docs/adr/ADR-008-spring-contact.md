@@ -14,7 +14,7 @@ tank poles. No generic Schroeder hall is relabeled as a physical spring tank.
 
 Each mode has equivalent mass .0003 kg and frequency w. Store mass-normalized
 `x=w*sqrt(m)*q` and `v=sqrt(m)*qdot`; **E=.5*sum(x²+v²)** joules. Source/receiver
-weights are cosine spatial projections, source position .03, pickup .91; support
+weights are cosine spatial projections, source position .03, pickup .91/.88; support
 contact at .37 of path0. Force divides equally across paths, full-scale .002 N.
 These are explicit equivalent assumptions, not coil/tank measurements.
 
@@ -27,9 +27,9 @@ and measure sampling/contact approximation rather than invent full fidelity.
 
 ## One support change / passive impact
 
-Only clearance changes: healthy5 mm -> displaced path0 support20 micrometres.
+Only clearance changes: healthy5 mm -> displaced path0 support5 micrometres.
 Path1 has no changed support. Contact displacement y=sum(d*x), d=shape/(w*sqrt(m));
-point velocity u=sum(c*v), c=shape/sqrt(m), both restricted to path0. If |y|>gap:
+point velocity u=sum(c*v), c=shape/sqrt(m), both restricted to path0. For this ONE positive wall, if y>gap:
 
 1. Project position along d onto the boundary; removes potential energy
    `(y²-gap²)/(2*dot(d,d))`. This is **numerical overshoot correction**, reported
@@ -65,3 +65,24 @@ multi-rate convergence, weak/strong/impulse, IR/energy/HF traces and same DI gui
 must establish the mechanism. Founder judges whether it sounds like a convincing
 spring crash. Keep full host specimen standalone; separately propose a smaller
 embedded approximation after real CPU/state admission and A/B, no pool rewrite.
+
+## Probe refinement retained
+
+The initial20um proposal produced **zero** contacts on peak.25 DI (maximum
+positive displacement2.201um). At peak.8 it still would not contact (7.044um).
+Selected clearance **5um**, input peak.8 for both states: guitar141 impacts,
+weak5ms half-sine peak.05 has0, strong peak.8 has1689 at48k. Only clearance differs
+between healthy/fault. These equivalent force/clearance assumptions are not tank
+measurements or a rule for severity. Only path0's positive support exists; no
+symmetric negative wall or path1 wall is introduced. The earlier absolute-value
+Gate0 sketch was refined before validation; all delivered experiments use this
+same one-sided model.
+
+At32/44.1/48/96k the strong probe's restitution loss8.777/8.167/7.988/6.908nJ and
+numerical projection1.054/.794/.758/.426nJ show step-dependent contact behavior.
+HF kinetic increment at the largest impact is stable near1.243nJ. Projection
+shrinks with refinement, but impact counts and the entire crash waveform are
+**not proven sample-rate invariant**. Rigid-stop chatter and point-contact modal
+truncation remain limitations, not new physical phenomena. The independent
+continuous untouched-path convolution and exact three-coordinate collision
+fixtures validate distinct parts; neither calibrates a real spring tank.

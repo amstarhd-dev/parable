@@ -2,6 +2,13 @@
 
 This is the first **portable C++ code brick**, not a finished Parable SDK and not a commercial DSP effect. It contains no astrology or browser implementation. A separate experimental circuit-derived LabRAT listening laboratory is described below.
 
+SF-008 adds a standalone [modal spring / displaced-support contact experiment](docs/SF008_REPORT.md).
+`parable_spring_lab --input permitted-mono-pcm16.wav --output DIR` produces
+healthy/fault raw and RMS-matched guitar, weak/strong/impulse WAVs and actual
+impact/energy traces. CI publishes **parable-spring-auditions**. [ADR-008](docs/adr/ADR-008-spring-contact.md)
+records the passive reduced model and its limitations. No Engine/patch integration,
+measured tank fidelity, target runtime performance or founder approval.
+
 SF-007 adds a standalone [two-rotor rotary / worn horn-belt experiment](docs/SF007_REPORT.md).
 `parable_rotary_lab --input permitted-mono-pcm16.wav --output DIR` renders the
 same guitar healthy/faulted, raw/matched and band taps, with actual motor/rotor

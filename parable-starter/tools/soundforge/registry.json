@@ -819,6 +819,113 @@
           "paths": []
         }
       }
+    },
+    {
+      "id": "spring.modal-contact",
+      "type": "model",
+      "paths": [
+        "parable-starter/include/parable_spring.h",
+        "parable-starter/src/parable_spring.cpp",
+        "parable-starter/src/spring_contact.h",
+        "parable-starter/tools/spring_lab.cpp",
+        "parable-starter/tests/test_spring.cpp",
+        "parable-starter/docs/adr/ADR-008-spring-contact.md"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/spring/provenance.json",
+          "candidate": 0,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/spring/Rings-MIT.txt"
+          ],
+          "scope": "Narrow MIT positive-stiffness modal placement/cosine foundation; no framework/filter port."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/spring/provenance.json",
+          "candidate": 1,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Evaluated alternative; no listing imported."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/spring/provenance.json",
+          "candidate": 2,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Evaluated alternative; no listing imported."
+        }
+      ],
+      "ownership_notes": "Local energy/contact model with retained per-file MIT modal-source notice; global Parable license unspecified.",
+      "physics_notes": "Two equivalent dispersed modal paths; one reduced positive support clearance, passive impulse and separately measured projection loss. No measured helical tank calibration.",
+      "behavior": "Standalone fixed192-mode,2x,193-tap return; explicit2uJ input budget/six-second tail. No Engine registration.",
+      "limitations": [
+        "Helical coupling, transducer circuit, gravity/shell and finite-duration contact omitted.",
+        "Step-dependent contact chatter, unmeasured physical parameters and subjective spring/crash quality.",
+        "Full state exceeds existing optional RAT capacity; target CPU unmeasured."
+      ],
+      "dependencies": {
+        "assets": [
+          "host.pcm16",
+          "host.signal-analysis",
+          "host.synthetic-plucks"
+        ],
+        "external": [
+          "C++17 math; Python stdlib independent Decimal/convolution fixtures.",
+          "Unchanged pinned ARM/libDaisy recipe, no new runtime dependency."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Independent contact/convolution, passivity/decay/bounds, guard/reset/extremes and actual WAV receipts.",
+          "paths": [
+            "parable-starter/tests/test_spring.cpp",
+            "parable-starter/tests/test_spring_cli.py"
+          ]
+        },
+        "independent_circuit": {
+          "status": "reduced-section-compared",
+          "scope": "Independent Decimal impact/projection and continuous untouched-path convolution, not circuit/tank calibration.",
+          "paths": [
+            "parable-starter/tools/spring_reference.py",
+            "parable-starter/tests/fixtures/spring/contact.csv",
+            "parable-starter/tests/fixtures/spring/reference-manifest.json"
+          ]
+        },
+        "synthetic_audition": {
+          "status": "generated",
+          "scope": "Weak/strong/impulse actual native audio, not human listening.",
+          "paths": [
+            "parable-starter/tools/spring_lab.cpp"
+          ]
+        },
+        "real_guitar_audition": {
+          "status": "not-performed",
+          "scope": "Permitted DI WAVs generated; founder/listener approval pending.",
+          "paths": [
+            "parable-starter/third_party/spring/AUDIO_NOTICE.md",
+            "parable-starter/docs/SF008_REPORT.md"
+          ]
+        },
+        "arm_cross_compile": {
+          "status": "compiled",
+          "scope": "Actual standalone M7 object/state/call audit; no spring firmware link or execution.",
+          "paths": [
+            "parable-starter/tools/check_spring_arm.py"
+          ]
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No target runtime/boot/IO/CPU measurement.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "Standalone; optional-RAT/pool/schema/firmware unchanged.",
+          "paths": []
+        }
+      }
     }
   ]
 }
