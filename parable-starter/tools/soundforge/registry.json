@@ -324,7 +324,10 @@
         "parable-starter/tools/cmos_lab.cpp",
         "parable-starter/tools/cmos_measure.h",
         "parable-starter/tests/test_cmos.cpp",
-        "parable-starter/docs/adr/ADR-004-cmos-inverter-model.md"
+        "parable-starter/docs/adr/ADR-004-cmos-inverter-model.md",
+        "parable-starter/tools/gemini_lab.cpp",
+        "parable-starter/tests/test_gemini.cpp",
+        "parable-starter/docs/SF005_REPORT.md"
       ],
       "sources": [
         {
@@ -389,11 +392,11 @@
       ],
       "ownership_notes": "Parable-local two-node solver/runner plus MIT ACME adaptation, with scientific attribution to Koeper/Holters. Global project LICENSE unspecified; no AGPL, TI, Tonepad or unlicensed listing imported.",
       "physics_notes": "Published extended CD4049 fit in a two-inverter reduced signal path. Stiff 9V IC rail, not original battery/dropper circuit. Parameters freeze outside |Vgs|=2.5..6V; no CD4069 substitution or arbitrary curve per fault.",
-      "behavior": "Healthy Drive/Volume plus interstage 33nF->330pF and second feedback 1Meg->100k experiments, same bounded prepared circuit path, 4x oversampling.",
+      "behavior": "Healthy Drive/Volume plus interstage 33nF->330pF and second feedback 1Meg->100k experiments, same bounded prepared circuit path, 4x oversampling. SF-005 adds one gate-2-to-VSS 220kohm bias-leak experiment, matched/raw real-DI listening and bounded GeminiCmos registration.",
       "limitations": [
         "Reduced model, no new physical calibration or full commercial clone. Battery/dropper dynamics, intrinsic capacitances, protection/body currents, thermal/noise/tolerance behavior omitted.",
         "Parameter freezing is unvalidated extrapolation outside measured gate range. Numerical input/output rails and bounded-solver reset are safety behavior, not physical effects; normal reference/audition cases require zero fallback.",
-        "No real guitar, physical hardware, target CPU/latency or founder approval. No patch/Engine integration."
+        "Recorded CC0 DI rendered; no founder listening acceptance, physical hardware, target CPU or latency measurement. One shared nonlinear slot; mixed RAT/CMOS graphs reject."
       ],
       "dependencies": {
         "assets": [
@@ -404,7 +407,7 @@
         "external": [
           "C++17 standard math, allocation-free native kernel; Julia/ACME framework not linked.",
           "Existing pinned ngspice 44.2 only for offline reference generation, reusing the unchanged simulator wrapper.",
-          "Existing pinned xPack/libDaisy ARM build, no firmware activation."
+          "Existing pinned xPack/libDaisy ARM build; dedicated active Gemini Engine link probe, never flashed/executed."
         ]
       },
       "evidence": {
@@ -414,17 +417,22 @@
           "paths": [
             "parable-starter/tests/test_cmos.cpp",
             "parable-starter/tools/cmos_measure.h",
-            "parable-starter/tools/cmos_lab.cpp"
+            "parable-starter/tools/cmos_lab.cpp",
+            "parable-starter/tests/test_gemini.cpp"
           ]
         },
         "independent_circuit": {
           "status": "reduced-section-compared",
-          "scope": "362 ngspice DC and 960 transient sample rows, literal circuit/current equations, 96k native reference against <=0.5us adaptive steps; source-fit model, not physical factory validation.",
+          "scope": "362 ngspice DC and 960 transient sample rows, literal circuit/current equations, 96k native reference against <=0.5us adaptive steps; source-fit model, not physical factory validation. SF-005: independent loaded DC and 4x last-phase nodes with analytic FIR delay alignment; RMS/peak 0.000274758/0.0137115 V. Lower-bandwidth 1x peak 0.056716 V disclosed separately.",
           "paths": [
             "parable-starter/tools/cmos_spice_reference.py",
             "parable-starter/tests/fixtures/cmos/inverter-dc.csv",
             "parable-starter/tests/fixtures/cmos/circuit-transient.csv",
-            "parable-starter/tests/fixtures/cmos/spice-manifest.json"
+            "parable-starter/tests/fixtures/cmos/spice-manifest.json",
+            "parable-starter/tools/gemini_spice_reference.py",
+            "parable-starter/tests/fixtures/gemini/bias-dc.csv",
+            "parable-starter/tests/fixtures/gemini/bias-production-4x.csv",
+            "parable-starter/tests/fixtures/gemini/spice-manifest.json"
           ]
         },
         "synthetic_audition": {
@@ -436,12 +444,15 @@
         },
         "real_guitar_audition": {
           "status": "not-performed",
-          "scope": "No recorded guitar supplied or founder guitar listening acceptance.",
-          "paths": []
+          "scope": "Pinned CC0 clean DI processed into reproducible healthy/fault raw and matched WAVs for audition. No human/founder listening approval; not marked auditioned.",
+          "paths": [
+            "parable-starter/tools/gemini_lab.cpp",
+            "parable-starter/third_party/gemini/audio-provenance.json"
+          ]
         },
         "arm_cross_compile": {
           "status": "compiled",
-          "scope": "Pinned Cortex-M7 object text/data/BSS 5604/0/0 bytes, ARM instance 2128 bytes; standalone object only, not linked into audio firmware or executed. Target CPU not measured.",
+          "scope": "Pinned M7 object 5548/0/0 text/data/BSS; CMOS 2152 B. Actual Gemini Engine image linked in 128KiB internal FLASH, 101300 B load span. Runtime pool unchanged 45224 B. No physical execution/timing.",
           "paths": [
             "parable-starter/firmware/build.py"
           ]
@@ -452,9 +463,14 @@
           "paths": []
         },
         "patch_runtime": {
-          "status": "not-integrated",
-          "scope": "Separate standalone specimen, no Engine/preparation/schema or astrology change.",
-          "paths": []
+          "status": "integrated",
+          "scope": "GeminiCmos revision1, strict drive/volume/biasLeak; existing Codec/prepare/Engine and four-slot Runtime. Shared RAT-or-CMOS state; old canonical bytes preserved. No correspondence or UI work.",
+          "paths": [
+            "parable-starter/include/parable_core.h",
+            "parable-starter/src/parable_patch.cpp",
+            "parable-starter/src/parable_prepare.cpp",
+            "parable-starter/tests/test_gemini.cpp"
+          ]
         }
       }
     },

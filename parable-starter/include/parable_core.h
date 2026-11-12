@@ -7,20 +7,31 @@
 #include <cstddef>
 #include <cstdint>
 #include <optional>
+#include <variant>
+#include <new>
 #include "parable_rat.h"
+#include "parable_cmos.h"
 
 namespace parable {
 constexpr uint32_t kSchema = 2;
 constexpr size_t kMaxStages = 8;
 constexpr size_t kPresets = 4;
 
-enum class Type : uint8_t { Bypass = 0, Gain = 1, OnePoleLowpass = 2, Rat = 3 };
+enum class Type : uint8_t { Bypass = 0, Gain = 1, OnePoleLowpass = 2, Rat = 3, GeminiCmos = 4 };
+struct GeminiStageControls { float drive, volume; bool biasLeak; };
 
 struct Stage {
     Type type = Type::Bypass;
     float parameter = 1.0f;   // Gain: linear amplitude 0..2; lowpass: cutoff Hz 20..20000
     bool enabled = true;
-    dsp::RatControls rat{}; // Used only by Rat; configured with processing stopped.
+    // Same 12-byte parameter space. Explicit setters establish union lifetimes.
+    union { dsp::RatControls rat{}; GeminiStageControls gemini; };
+    Stage(Type t=Type::Bypass,float p=1.f,bool on=true,dsp::RatControls controls={}) noexcept
+        :type(t),parameter(p),enabled(on),rat(controls) {
+        if(t==Type::GeminiCmos)setGemini({.5f,.5f,false});
+    }
+    void setRat(dsp::RatControls controls) noexcept {::new(static_cast<void*>(&rat)) dsp::RatControls(controls);type=Type::Rat;}
+    void setGemini(GeminiStageControls controls) noexcept {::new(static_cast<void*>(&gemini)) GeminiStageControls(controls);type=Type::GeminiCmos;}
 };
 
 struct Patch {
@@ -32,7 +43,8 @@ struct Patch {
 
 enum class Status : uint8_t {
     Ok, SchemaMismatch, TooManyStages, InvalidParameter, InvalidType,
-    InvalidSlot, CorruptImage, ImageVersionMismatch, TooManyRats, UnsupportedRatRate
+    InvalidSlot, CorruptImage, ImageVersionMismatch, TooManyRats, UnsupportedRatRate,
+    TooManyNonlinear, UnsupportedCmosRate
 };
 
 inline bool finite(float v) noexcept { return std::isfinite(v); }
@@ -44,7 +56,7 @@ inline Status validate(const Patch& p, float sampleRate) noexcept {
         return Status::InvalidParameter;
     if (!finite(sampleRate) || sampleRate < 8000.f || sampleRate > 192000.f)
         return Status::InvalidParameter;
-    size_t rats = 0;
+    size_t rats = 0,cmos = 0;
     for (size_t i = 0; i < p.count; ++i) {
         const Stage& s = p.stages[i];
         if (!finite(s.parameter)) return Status::InvalidParameter;
@@ -59,9 +71,16 @@ inline Status validate(const Patch& p, float sampleRate) noexcept {
                 break;
             case Type::Rat:
                 if (++rats > 1) return Status::TooManyRats; // Disabled declarations also consume the slot.
+                if(cmos) return Status::TooManyNonlinear;
                 if (sampleRate < 32000.f || sampleRate > 96000.f) return Status::UnsupportedRatRate;
                 for (float control : {s.rat.distortion, s.rat.filter, s.rat.volume})
                     if (!finite(control) || control < 0.f || control > 1.f) return Status::InvalidParameter;
+                break;
+            case Type::GeminiCmos:
+                if(++cmos+rats>1) return Status::TooManyNonlinear;
+                if(sampleRate<32000.f || sampleRate>96000.f)return Status::UnsupportedCmosRate;
+                for(float control:{s.gemini.drive,s.gemini.volume})
+                    if(!finite(control)||control<0||control>1)return Status::InvalidParameter;
                 break;
             default: return Status::InvalidType;
         }
@@ -106,19 +125,27 @@ public:
     Status load(const Patch& patch) noexcept {
         Status status = validate(patch, sampleRate_);
         if (status != Status::Ok) return status;
-        const Stage* ratStage = nullptr;
+        const Stage* ratStage = nullptr;const Stage* cmosStage=nullptr;
         for (size_t i = 0; i < patch.count; ++i)
             if (patch.stages[i].type == Type::Rat) ratStage = &patch.stages[i];
+            else if(patch.stages[i].type==Type::GeminiCmos)cmosStage=&patch.stages[i];
         if (ratStage) {
-            const bool existed = rat_.has_value();
-            if (!existed) rat_.emplace(); // Fixed storage; control side only.
+            const bool existed = std::get_if<dsp::Rat>(&nonlinear_)!=nullptr;
+            if (!existed) nonlinear_.emplace<dsp::Rat>(); // Fixed shared storage; control side only.
             // Rat::configure rejects without changing existing state. Nothing
             // after this successful configuration can reject the native commit.
-            if (!rat_->configure(sampleRate_, ratStage->rat, {}, dsp::RatRate::Oversampled4x)) {
-                if (!existed) rat_.reset();
+            if (!std::get_if<dsp::Rat>(&nonlinear_)->configure(sampleRate_, ratStage->rat, {}, dsp::RatRate::Oversampled4x)) {
+                if (!existed) nonlinear_.emplace<std::monostate>();
                 return Status::InvalidParameter;
             }
-        } else rat_.reset();
+        } else if(cmosStage) {
+            // Small control-stack candidate; a failed DC preparation cannot destroy
+            // the current alternative/history. No second persistent DSP allocation.
+            dsp::Cmos prepared;
+            if(!prepared.configure(sampleRate_,{cmosStage->gemini.drive,cmosStage->gemini.volume},
+                dsp::geminiCircuit(cmosStage->gemini.biasLeak),dsp::CmosRate::Oversampled4x))return Status::InvalidParameter;
+            nonlinear_.emplace<dsp::Cmos>(prepared);
+        } else nonlinear_.emplace<std::monostate>();
         patch_ = patch;
         states_.fill(0.f);
         for (size_t i=0;i<patch_.count;++i) {
@@ -151,7 +178,12 @@ public:
                 case Type::Rat:
                     // Explicit software convention: 1 engine unit = 1 model V.
                     // Rat returns bounded jack volts / 4; no extra normalization.
-                    x = rat_->process(clip(x, -4.f, 4.f));
+                    if(auto* rat=std::get_if<dsp::Rat>(&nonlinear_))x=rat->process(clip(x,-4.f,4.f));
+                    else x=0;
+                    break;
+                case Type::GeminiCmos:
+                    if(auto* cmos=std::get_if<dsp::Cmos>(&nonlinear_))x=cmos->process(clip(x,-2.f,2.f));
+                    else x=0;
                     break;
             }
         }
@@ -160,7 +192,8 @@ public:
     }
     const Patch& loaded() const noexcept { return patch_; }
     // Read-only same-thread diagnostics, including disabled-state regression.
-    dsp::RatNodes ratNodes() const noexcept { return rat_ ? rat_->lastNodes() : dsp::RatNodes{}; }
+    dsp::RatNodes ratNodes() const noexcept {const auto* r=std::get_if<dsp::Rat>(&nonlinear_);return r?r->lastNodes():dsp::RatNodes{};}
+    dsp::CmosNodes cmosNodes() const noexcept {const auto* c=std::get_if<dsp::Cmos>(&nonlinear_);return c?c->lastNodes():dsp::CmosNodes{};}
 private:
     // Numerical safety rail: 2^8 permits all eight gain-2 stages for |input| <= 1.
     // Bounding input, stages and filter history keeps float intermediates finite.
@@ -172,6 +205,7 @@ private:
     Patch patch_{};
     std::array<float,kMaxStages> states_{};
     std::array<float,kMaxStages> a_{};
-    std::optional<dsp::Rat> rat_; // Capacity for ONE instance, never one per stage/preset.
+    static_assert(sizeof(dsp::Cmos)<=sizeof(dsp::Rat),"Gemini must fit the existing nonlinear state budget");
+    std::variant<std::monostate,dsp::Rat,dsp::Cmos> nonlinear_; // ONE alternative, not one per effect/stage.
 };
 } // namespace parable

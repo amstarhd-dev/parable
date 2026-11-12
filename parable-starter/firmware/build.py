@@ -125,7 +125,7 @@ def build(cache, output):
     instance = re.search(r"\b([0-9a-f]+) B parable_rat_instance\b", symbols)
     if not instance:
         raise RuntimeError("Missing ARM RAT instance measurement")
-    # SF-002 remains standalone, with the same pins/flags and no firmware activation.
+    # Standalone object receipt plus SF-005's separate active native Engine link below.
     run([compiler, *flags, "-I", PROJECT / "include", "-c", PROJECT / "src/parable_cmos.cpp",
          "-o", output / "cmos.o"], output / "cmos-compile.log")
     run([toolbin / "arm-none-eabi-size", output / "cmos.o"], output / "cmos-size.txt")
@@ -193,6 +193,9 @@ def build(cache, output):
         run([*image_args(rat_image, "BOOT_SRAM"), "RAT_LINK_PROBE=1"], output / "rat-integration-sram-build.log")
     images["rat_integration"] = inspect(toolbin, rat_image, "parable_seed3_rat_probe",
                                         "BOOT_SRAM" if rat_status else "BOOT_NONE")
+    gemini_image = output / "gemini_integration"
+    run([*image_args(gemini_image, "BOOT_NONE"), "GEMINI_LINK_PROBE=1"], output / "gemini-integration-build.log")
+    images["gemini_integration"] = inspect(toolbin, gemini_image, "parable_seed3_gemini_probe", "BOOT_NONE")
     engine_layout = output / "engine-layout.cpp"
     engine_layout.write_text('#include "parable_core.h"\nextern "C" { char parable_engine_instance[sizeof(parable::Engine)]; '
                              'char parable_patch_instance[sizeof(parable::Patch)]; }\n')
@@ -251,7 +254,7 @@ def build(cache, output):
         retrieval="control-side existing USB CDC, initialized only after capture; immutable text repeated",
         callback_cpu="not measured", glitches="not observed/tested", hardware_execution="not performed")
     report["cmos_kernel"] = dict(object_size=(output / "cmos-size.txt").read_text().splitlines()[-1].split()[:4],
-                               instance_bytes=int(cmos_instance[1],16), linked_into_audio_firmware=False,
+                               instance_bytes=int(cmos_instance[1],16), linked_into_audio_firmware=True,
                                hardware_execution="not performed", target_cpu_cost="not measured")
     report["germanium_kernel"] = dict(object_size=(output / "germanium-size.txt").read_text().splitlines()[-1].split()[:4],
                                     instance_bytes=int(germanium_instance[1],16), linked_into_audio_firmware=False,

@@ -34,6 +34,7 @@ def inspect(toolbin, build, target="parable_seed3_minimal", app_type="BOOT_NONE"
     if outputs["undefined.txt"].strip():
         raise RuntimeError("Final ARM image has unresolved symbols")
     active_rat = target.endswith("rat_probe") or target == "parable_seed3_rat_composite"
+    active_gemini = target.endswith("gemini_probe")
     first_boot = target in ("parable_seed3_led", "parable_seed3_bypass", "parable_seed3_rat_composite")
     if first_boot and ("Codec::" in outputs["symbols.txt"] or "nlohmann::" in outputs["symbols.txt"]):
         raise RuntimeError("Parser unexpectedly linked into first-boot kit")
@@ -52,19 +53,20 @@ def inspect(toolbin, build, target="parable_seed3_minimal", app_type="BOOT_NONE"
                          if body.startswith("AudioCallback(")), None)
         if not callback or re.search(r"\bcpsid\b|<[^>]*(?:printf|malloc|operator new|UsbHandle::|Logger|tryReport)", callback):
             raise RuntimeError("Callback unexpectedly disables interrupts or calls reporting/allocation")
-    if active_rat:
+    if active_rat or active_gemini:
+        effect = "Cmos" if active_gemini else "Rat"
         if has_codec or "nlohmann::" in outputs["symbols.txt"]:
-            raise RuntimeError("Static RAT probe must not contain the JSON codec")
-        for symbol in ("parable::dsp::Rat::process(float)", "parable::dsp::Rat::configure(", "AudioCallback("):
+            raise RuntimeError("Static drive probe must not contain the JSON codec")
+        for symbol in (f"parable::dsp::{effect}::process(float)", f"parable::dsp::{effect}::configure(", "AudioCallback("):
             if symbol not in outputs["symbols.txt"]:
                 raise RuntimeError("Missing integrated ARM path: " + symbol)
         # GCC can inline Engine::process into AudioCallback. Either way, retain
         # a real branch to Rat::process in the callback/Engine processing body.
         bodies = re.split(r"(?m)^[0-9a-f]+ <", outputs["disassembly.txt"])
         if not any((body.startswith("AudioCallback(") or body.startswith("parable::Engine::process("))
-                   and re.search(r"\bb(?:l|\.w|l\.w)?\s+[^\n]*<parable::dsp::Rat::process\(float\)>", body)
+                   and re.search(r"\bb(?:l|\.w|l\.w)?\s+[^\n]*<parable::dsp::" + effect + r"::process\(float\)>", body)
                    for body in bodies):
-            raise RuntimeError("No compiled callback/Engine call to RAT processing")
+            raise RuntimeError("No compiled callback/Engine call to " + effect + " processing")
     sections = {}
     lines = outputs["objdump.txt"].splitlines()
     for i, line in enumerate(lines):
@@ -138,6 +140,6 @@ def inspect(toolbin, build, target="parable_seed3_minimal", app_type="BOOT_NONE"
                 included_input_rodata_bytes=rodata, static_placement_bytes=placement,
                 static_region_first_address=first, static_region_span_bytes=spans,
                 compiler_application_frames=frames, stack_top="0x20020000 (DTCM)",
-                rat_enabled_at_startup=active_rat, unresolved_symbols=[],
+                rat_enabled_at_startup=active_rat, cmos_enabled_at_startup=active_gemini, unresolved_symbols=[],
                 runtime_stack_high_water="not measured", runtime_heap_high_water="not measured",
                 bin_sha256=hashlib.sha256(binary.read_bytes()).hexdigest())

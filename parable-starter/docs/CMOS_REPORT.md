@@ -1,5 +1,12 @@
 # SF-002 — experimental CD4049 inverter distortion
 
+Historical SF-002 report below. SF-005 adds the separate experimental
+[Gemini A/B and bounded native integration](SF005_REPORT.md), using the same
+physical model with one additional gate-to-VSS leakage path. Legacy eight WAVs,
+frequency/level/configuration receipts remain byte-identical; only truthful
+instance-size metadata changes. Founder musical approval and hardware validation
+remain pending. The old `feedback_low` experiment is not the selected bias fault.
+
 This is a standalone, source-derived **reduced two-inverter signal path**, not a
 calibrated commercial clone or approved Gemini voice. No Engine, patch format,
 correspondence, astrology, hardware adapter or LabRAT DSP changes. The research

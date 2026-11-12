@@ -1,0 +1,44 @@
+{
+  "format": "parable.patch",
+  "version": 1,
+  "sampleRate": {
+    "unit": "Hz",
+    "value": 48000
+  },
+  "outputTrim": {
+    "unit": "linear",
+    "value": 0.8
+  },
+  "processors": [
+    {
+      "id": 7,
+      "type": "GeminiCmos",
+      "revision": 1,
+      "enabled": true,
+      "parameters": {
+        "drive": {
+          "unit": "normalized",
+          "value": 0.75
+        },
+        "volume": {
+          "unit": "normalized",
+          "value": 0.5
+        },
+        "biasLeak": {
+          "unit": "boolean",
+          "value": true
+        }
+      }
+    }
+  ],
+  "routing": [
+    {
+      "from": "input",
+      "to": 7
+    },
+    {
+      "from": 7,
+      "to": "output"
+    }
+  ]
+}

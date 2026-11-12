@@ -14,7 +14,8 @@ bool valid(const CmosCircuit& c) noexcept {
         &&between(c.drivePotOhms,100e3,1e6)&&between(c.firstFeedbackFarads,25e-12,200e-12)
         &&between(c.interstageFarads,330e-12,100e-9)&&between(c.secondFeedbackOhms,100e3,2e6)
         &&between(c.secondFeedbackFarads,50e-12,220e-12)&&between(c.outputFarads,1e-6,22e-6)
-        &&between(c.volumePotOhms,5e3,20e3)&&between(c.loadOhms,100e3,2e6);
+        &&between(c.volumePotOhms,5e3,20e3)&&between(c.loadOhms,100e3,2e6)
+        &&between(c.secondBiasSiemens,0,1./100e3);
 }
 }
 Cmos::Cmos() noexcept {configure(48000);}
@@ -25,7 +26,23 @@ bool Cmos::configure(float sampleRate,CmosControls controls,const CmosCircuit& c
     double lo=0,hi=c.railVolts;
     for(int i=0;i<64;++i){const double v=(lo+hi)/2;
         if(cmos_detail::inverter(v,v,c.railVolts).value>0)hi=v;else lo=v;}
-    circuit_=c;mode_=mode;bias_=(lo+hi)/2;
+    const double firstBias=(lo+hi)/2;
+    double secondOutput=firstBias,secondGate=firstBias;
+    if(c.secondBiasSiemens>0) {
+        const double gf=1/c.secondFeedbackOhms;
+        const double ratio=gf/(gf+c.secondBiasSiemens);
+        lo=0;hi=c.railVolts;
+        for(int i=0;i<64;++i) {
+            const double out=(lo+hi)/2,gate=ratio*out;
+            const double residual=cmos_detail::inverter(gate,out,c.railVolts).value+gf*(out-gate);
+            if(residual>0)hi=out;else lo=out;
+        }
+        secondOutput=(lo+hi)/2;secondGate=ratio*secondOutput;
+        // Refuse an invalid prepared operating point before modifying state.
+        if(std::abs(cmos_detail::inverter(secondGate,secondOutput,c.railVolts).value
+                    +gf*(secondOutput-secondGate))>1e-10)return false;
+    }
+    circuit_=c;mode_=mode;bias_=firstBias;biasGate2_=secondGate;biasOutput2_=secondOutput;
     rate_=sampleRate*(mode==CmosRate::Oversampled4x?4:1);
     const double k=2*rate_;
     cfin_=k*c.inputFarads;gin_=1/(c.inputOhms+1/cfin_);
@@ -36,7 +53,7 @@ bool Cmos::configure(float sampleRate,CmosControls controls,const CmosCircuit& c
     rout_=c.volumePotOhms*(1-controls.volume)+bottom_;
     gout_=1/(rout_+1/(k*c.outputFarads));
     a1_=gin_/(gin_+gf1_);b1_=gf1_/(gin_+gf1_);
-    a2_=link_/(link_+gf2_);b2_=gf2_/(link_+gf2_);
+    a2_=link_/(link_+gf2_+c.secondBiasSiemens);b2_=gf2_/(link_+gf2_+c.secondBiasSiemens);
     // Owned PAR-007 FIR technique reused without changing the protected RAT code.
     double sum=0;
     for(std::size_t i=0;i<kTaps;++i){const double n=double(i)-(kTaps-1)/2.;
@@ -47,16 +64,16 @@ bool Cmos::configure(float sampleRate,CmosControls controls,const CmosCircuit& c
     reset();return true;
 }
 void Cmos::resetState() noexcept {
-    zInput_=-bias_;zFirst_=zLink_=zSecond_=0;zOutput_=bias_;
-    previous1_=previous2_=bias_;
-    nodes_={bias_,bias_,bias_,bias_,0,0,0,true};
+    zInput_=-bias_;zFirst_=0;zLink_=bias_-biasGate2_;zSecond_=biasGate2_-biasOutput2_;zOutput_=biasOutput2_;
+    previous1_=bias_;previous2_=biasOutput2_;
+    nodes_={bias_,bias_,biasGate2_,biasOutput2_,0,0,0,true};
 }
 void Cmos::reset() noexcept {
     resetState();up_.fill(0);down_.fill(0);upIndex_=downIndex_=0;failed_=calls_=evaluations_=0;maximum_=0;
 }
 double Cmos::circuitSample(double x) noexcept {
     const double h1=(-gin_*zInput_+cf1_*zFirst_)/(gin_+gf1_);
-    const double h2=(-link_*zLink_+cf2_*zSecond_)/(link_+gf2_);
+    const double h2=(-link_*zLink_+cf2_*zSecond_)/(link_+gf2_+circuit_.secondBiasSiemens);
     double o1=previous1_,o2=previous2_,g1=0,g2=0,f1=0,f2=0;
     unsigned iteration=0;
     // Dedicated 2x2 Newton solve, at most 16 iterations; no general netlist engine.

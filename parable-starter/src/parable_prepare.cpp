@@ -70,9 +70,11 @@ Result detail::prepare(SourceView source, float actualSampleRate) {
             stage.parameter = lowpass->cutoffHz;
             parameter = "cutoffHz";
         } else if (const auto* rat = std::get_if<patch::Rat>(&processor->settings)) {
-            stage.type = Type::Rat;
-            stage.rat = {rat->distortion, rat->filter, rat->volume};
+            stage.setRat({rat->distortion, rat->filter, rat->volume});
             parameter = "rat.controls";
+        } else if(const auto* cmos=std::get_if<patch::GeminiCmos>(&processor->settings)) {
+            stage.setGemini({cmos->drive,cmos->volume,cmos->biasLeak});
+            parameter="gemini.controls";
         } else {
             return error(ErrorCode::UnsupportedProcessor, location(id) + ".settings",
                          "no native mapping for these processor settings", id);
@@ -84,6 +86,10 @@ Result detail::prepare(SourceView source, float actualSampleRate) {
         if (status == Status::TooManyRats)
             return error(ErrorCode::CapacityExceeded, location(id) + ".settings",
                          "at most one Rat per patch, including disabled instances", id, status);
+        if(status==Status::TooManyNonlinear)return error(ErrorCode::CapacityExceeded,location(id)+".settings",
+            "one shared nonlinear slot: Rat OR GeminiCmos, including disabled instances",id,status);
+        if(status==Status::UnsupportedCmosRate)return error(ErrorCode::NativeValidationFailed,"document.sampleRateHz",
+            "GeminiCmos requires [32000,96000] Hz at the actual target rate",id,status);
         if (status == Status::UnsupportedRatRate)
             return error(ErrorCode::NativeValidationFailed, "document.sampleRateHz",
                          "Rat requires [32000,96000] Hz at the actual target rate", id, status);

@@ -11,7 +11,7 @@ namespace {
 using detail::Json;
 struct Descriptor { const char* type; const char* parameter; const char* unit; };
 constexpr Descriptor types[] = {
-    {"Bypass", "", ""}, {"Gain", "gain", "linear"}, {"OnePoleLowpass", "cutoff", "Hz"}, {"Rat", "", ""}
+    {"Bypass", "", ""}, {"Gain", "gain", "linear"}, {"OnePoleLowpass", "cutoff", "Hz"}, {"Rat", "", ""}, {"GeminiCmos", "", ""}
 };
 [[noreturn]] void fail(ErrorCode code, const std::string& field, const std::string& rule) {
     throw Error{code, field, rule};
@@ -82,7 +82,7 @@ Draft validate(const detail::Document& doc) {
     if (!processors.is_array()) fail(ErrorCode::WrongType, "$/processors", "array required");
     draft.count = processors.size();
     if (draft.count > kMaxProcessors) fail(ErrorCode::LimitExceeded, "$/processors", "at most 8 processors");
-    size_t rats = 0;
+    size_t rats = 0,cmos = 0;
     for (size_t i = 0; i < draft.count; ++i) {
         const auto& source = processors[i];
         const auto path = "$/processors/" + std::to_string(i);
@@ -108,6 +108,7 @@ Draft validate(const detail::Document& doc) {
         } else if (type == 3) {
             if (++rats > 1)
                 fail(ErrorCode::LimitExceeded, path + "/type", "at most one Rat per patch, including disabled instances");
+            if(cmos)fail(ErrorCode::LimitExceeded,path+"/type","one shared nonlinear slot: Rat OR GeminiCmos, including disabled instances");
             if (draft.rate < 32000.f || draft.rate > 96000.f)
                 fail(ErrorCode::OutOfRange, "$/sampleRate/value", "Rat requires [32000,96000] Hz");
             keys(parameters, paramPath, {"distortion", "filter", "volume"});
@@ -115,6 +116,16 @@ Draft validate(const detail::Document& doc) {
                 quantity(doc, parameters["distortion"], paramPath + "/distortion", "normalized", 0.f, 1.f),
                 quantity(doc, parameters["filter"], paramPath + "/filter", "normalized", 0.f, 1.f),
                 quantity(doc, parameters["volume"], paramPath + "/volume", "normalized", 0.f, 1.f)};
+        } else if(type==4) {
+            if(++cmos+rats>1)fail(ErrorCode::LimitExceeded,path+"/type","one shared nonlinear slot: Rat OR GeminiCmos, including disabled instances");
+            if(draft.rate<32000.f||draft.rate>96000.f)fail(ErrorCode::OutOfRange,"$/sampleRate/value","GeminiCmos requires [32000,96000] Hz");
+            keys(parameters,paramPath,{"drive","volume","biasLeak"});
+            const auto& leak=parameters["biasLeak"];
+            keys(leak,paramPath+"/biasLeak",{"unit","value"});
+            literal(leak["unit"],paramPath+"/biasLeak/unit","boolean",ErrorCode::InvalidUnit);
+            if(!leak["value"].is_boolean())fail(ErrorCode::WrongType,paramPath+"/biasLeak/value","strict boolean required; no severity interpolation");
+            p.settings=GeminiCmos{quantity(doc,parameters["drive"],paramPath+"/drive","normalized",0.f,1.f),
+                quantity(doc,parameters["volume"],paramPath+"/volume","normalized",0.f,1.f),leak["value"].get<bool>()};
         } else {
             const auto& descriptor = types[type];
             keys(parameters, paramPath, {descriptor.parameter});
@@ -208,6 +219,9 @@ std::string Codec::encode(const ValidatedPatch& patch) {
             text += "\"distortion\":" + quantity(rat->distortion, "normalized")
                 + ",\"filter\":" + quantity(rat->filter, "normalized")
                 + ",\"volume\":" + quantity(rat->volume, "normalized");
+        if(const auto* cmos=std::get_if<GeminiCmos>(&p.settings))
+            text+="\"biasLeak\":{\"unit\":\"boolean\",\"value\":"+std::string(cmos->biasLeak?"true":"false")+"},\"drive\":"
+                +quantity(cmos->drive,"normalized")+",\"volume\":"+quantity(cmos->volume,"normalized");
         text += "},\"revision\":1,\"type\":\"" + std::string(types[type].type) + "\"}";
     }
     text += "],\"routing\":[";

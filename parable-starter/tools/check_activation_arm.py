@@ -33,10 +33,11 @@ source.write_text('#include "parable_activation.h"\nextern "C" const uint32_t la
 run([compiler, *flags, '-c', source, '-o', out / 'layout.o'])
 run([tool('objcopy'), '--dump-section', '.rodata=' + str(out / 'layout.bin'), out / 'layout.o'])
 layout = dict(zip(('engine','typed_document','bundle','pool','runtime','atomic'), struct.unpack('<6I', (out / 'layout.bin').read_bytes())))
+assert layout == dict(engine=11040, typed_document=236, bundle=11288, pool=45152, runtime=45224, atomic=4), 'SF-005 must preserve the pinned M7 prepared-pool budget'
 audio = out / 'parable_activation_audio.o'
 undefined = run([tool('nm'), '-u', audio])
 names = {line.split()[-1] for line in undefined.splitlines()}
-assert names <= {'_ZN7parable3dsp3Rat7processEf', 'memset'}, undefined
+assert names <= {'_ZN7parable3dsp3Rat7processEf', '_ZN7parable3dsp4Cmos7processEf', 'memset'}, undefined
 assembly = run([tool('objdump'), '-dr', audio])
 assert 'dmb' in assembly
 assert not any(x in assembly.lower() for x in ('ldrex','strex','__atomic','__sync'))
