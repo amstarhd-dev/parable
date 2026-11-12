@@ -12,15 +12,22 @@ struct CmosCircuit {
     double firstFeedbackOhms=100e3, drivePotOhms=1e6, firstFeedbackFarads=51e-12;
     double interstageFarads=33e-9;
     double secondFeedbackOhms=1e6, secondFeedbackFarads=100e-12;
+    double secondBiasSiemens=0; // Leakage from gate 2 to ground; zero means open.
     double outputFarads=10e-6, volumePotOhms=10e3, loadOhms=1e6;
 };
+// One experimental Gemini malfunction: damaged gate-2 insulation/bias path to VSS.
+// NOT a severity curve or an astrology rule. Prepared only, never toggled in audio.
+inline constexpr double kGeminiBiasLeakOhms=220e3;
+inline CmosCircuit geminiCircuit(bool biasLeak) noexcept {
+    CmosCircuit c;c.secondBiasSiemens=biasLeak?1/kGeminiBiasLeakOhms:0;return c;
+}
 struct CmosNodes {
     double gate1=0, output1=0, gate2=0, output2=0, jackVolts=0, residualAmps=0;
     unsigned iterations=0;
     bool converged=true;
 };
 
-// Experimental two-inverter reduced signal path. No Engine/patch registration.
+// Experimental two-inverter reduced signal path; GeminiCmos is a narrow Engine registration.
 // configure/reset require stopped audio. Instances are neither shared nor atomic.
 class Cmos {
 public:
@@ -37,13 +44,15 @@ public:
     unsigned maximumLoopEvaluations() const noexcept { return maximum_; }
     const CmosCircuit& circuit() const noexcept { return circuit_; }
     double biasVolts() const noexcept { return bias_; }
+    double secondGateBiasVolts() const noexcept { return biasGate2_; }
+    double secondOutputBiasVolts() const noexcept { return biasOutput2_; }
 private:
     void resetState() noexcept;
     double circuitSample(double input) noexcept;
     static constexpr std::size_t kTaps=193;
     CmosCircuit circuit_{};
     CmosRate mode_=CmosRate::Oversampled4x;
-    double rate_=192000, bias_=0;
+    double rate_=192000, bias_=0, biasGate2_=0, biasOutput2_=0;
     double gin_=0, cfin_=0, gf1_=0, cf1_=0, link_=0, gf2_=0, cf2_=0;
     double gout_=0, rout_=0, bottom_=0, a1_=0, b1_=0, a2_=0, b2_=0;
     double zInput_=0, zFirst_=0, zLink_=0, zSecond_=0, zOutput_=0;

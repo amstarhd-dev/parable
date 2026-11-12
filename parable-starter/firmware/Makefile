@@ -2,7 +2,7 @@ TARGET = parable_seed3_minimal
 ifndef LIBDAISY_DIR
 $(error Run python3 firmware/build.py or provide the pinned LIBDAISY_DIR explicitly)
 endif
-CPP_SOURCES = daisy_pass_through.cpp ../src/parable_rat.cpp
+CPP_SOURCES = daisy_pass_through.cpp ../src/parable_rat.cpp ../src/parable_cmos.cpp
 C_INCLUDES = -I../include
 C_DEFS = -DNDEBUG
 SYSTEM_FILES_DIR = $(LIBDAISY_DIR)/core
@@ -22,8 +22,13 @@ TARGET = parable_seed3_rat_probe
 C_DEFS += -DPARABLE_RAT_LINK_PROBE
 endif
 
+ifeq ($(GEMINI_LINK_PROBE),1)
+TARGET = parable_seed3_gemini_probe
+C_DEFS += -DPARABLE_GEMINI_LINK_PROBE
+endif
+
 ifneq ($(FIRST_BOOT_IMAGE),)
-ifneq ($(filter 1,$(CODEC_LINK_PROBE) $(RAT_LINK_PROBE)),)
+ifneq ($(filter 1,$(CODEC_LINK_PROBE) $(RAT_LINK_PROBE) $(GEMINI_LINK_PROBE)),)
 $(error FIRST_BOOT_IMAGE cannot be combined with legacy link-probe selectors)
 endif
 ifneq ($(APP_TYPE),BOOT_NONE)

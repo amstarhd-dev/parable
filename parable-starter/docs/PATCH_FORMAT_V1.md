@@ -28,9 +28,10 @@ order and edge declaration order have no semantic significance.
 | Gain parameters | Exactly `{"gain":{"unit":"linear","value":number}}`, range [0,2]. |
 | OnePoleLowpass parameters | Exactly `{"cutoff":{"unit":"Hz","value":number}}`, cutoff >=20 and strictly < `0.45f * sampleRateHz`. Bounds match the existing native validation, not the old header's fixed-20000-Hz comment. |
 | Rat parameters (PAR-008) | Exactly `distortion`, `filter`, `volume`, each `{"unit":"normalized","value":number}` in binary32 [0,1]. All mandatory; nominal circuit and fixed 4x oversampling. No component/fault settings. |
+| GeminiCmos parameters (SF-005) | Exactly `drive`, `volume` normalized binary32 [0,1] quantities, plus `biasLeak:{"unit":"boolean","value":boolean}`. All mandatory. `false`: healthy; `true`: one fixed gate-2-to-VSS 220 kohm leakage. Strict boolean, no numeric/string coercion or severity. Fixed 9 V reduced circuit/4x. |
 | Each routing edge | Exactly `{"from":endpoint,"to":endpoint}`. A source is `"input"` or an existing processor's integer ID. A destination is an existing processor's integer ID or `"output"`. |
 
-Type names are exactly `Bypass`, `Gain`, `OnePoleLowpass`, `Rat` (case-sensitive).
+Type names are exactly `Bypass`, `Gain`, `OnePoleLowpass`, `Rat`, `GeminiCmos` (case-sensitive).
 Units are exact, case-sensitive strings. `linear` means amplitude ratio, not dB
 or UI percent. IDs/version/revisions require integer JSON tokens without decimal
 points or exponents. Identity belongs to `id`, never type or array index.
@@ -47,6 +48,17 @@ The native adapter maps one engine unit to one modeled input volt, saturates RAT
 input to +/-4 V and retains the kernel's bounded jack-volts/4 output. This is an
 explicit software scale, not calibrated hardware I/O. No RMS matching or automatic
 gain is inserted; trim/master Volume/final output bounds remain separate.
+
+SF-005's [ADR-004 amendment](adr/ADR-004-cmos-inverter-model.md) adds `GeminiCmos`
+revision 1 at 32000–96000 Hz. One nonlinear slot is shared: **Rat OR GeminiCmos**,
+including disabled declarations. Two Rats retain their original rejection rule;
+two CMOS or mixed RAT/CMOS graphs reject rather than allocate extra state.
+`biasLeak` is the sole boolean-quantity exception: its exact unit is `boolean`
+and value is JSON true/false, never numeric/string coercion. It selects open versus
+220 kohm gate-2-to-VSS leakage in the fixed 9 V reduced model. Drive/Volume are
+electrical linear fractions, not calibrated taper/severity. Native input saturates
+to +/-2 model V; output is unchanged kernel jack V/4. Existing float numeric rules,
+all old canonical bytes, IDs/routing and schema/root authority remain unchanged.
 
 Routing must be one input-to-output serial path visiting every declared processor
 exactly once, including disabled processors. There are exactly N+1 edges for N

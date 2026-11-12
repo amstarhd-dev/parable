@@ -1,0 +1,26 @@
+{
+  "simulator": "******\n** ngspice-44.2 : Circuit level simulation program\n** Compiled with KLU Direct Linear Solver\n** The U. C. Berkeley CAD Group\n** Copyright 1985-1994, Regents of the University of California.\n** Copyright 2001-2024, The ngspice team.\n** Please get your ngspice manual from https://ngspice.sourceforge.io/docs.html\n** Please file your bug-reports at http://ngspice.sourceforge.net/bugrep.html\n** Creation Date: Sun Jan 12 08:19:15 UTC 2025\n******",
+  "scope": "Independent solver of extended SF-002 reduced model; not physical hardware validation",
+  "component_change": "gate2-to-VSS normally open -> 220000 ohm leakage",
+  "max_step_seconds": 5e-07,
+  "production_alignment": "native phase 3 at (sample-24+0.75)/96000 seconds; FIR group delay, no fitted shift",
+  "netlists_sha256": {
+    "dc-bias_leak-6.cir": "22c29c3283e92c206f4e118bfbd856d7cb8168c822af05afb7a0aa38f516ec43",
+    "dc-bias_leak-9.cir": "c969d6ae2ae8a7432f166f74cbfe3085aa7fa9593a8f49bb986e505a377c784f",
+    "dc-feedback_low-6.cir": "4cec75bc0048983bb0aee9e32392b4e4623ade3d9d24d25a94d44ed645a2f2b2",
+    "dc-feedback_low-9.cir": "d803fb6f5cc13d368f48a8206946c09f7a2d5a8d66493a0254bd6f9240a9243d",
+    "dc-healthy-6.cir": "29b1c8ca3d41b1507bcda6a5007ad121d0d993c13ddb43bf39de517dfac3b8c7",
+    "dc-healthy-9.cir": "0d55616393e6a68b83951f4ab90680ab317bc290e4df5920243fdcf72e475269",
+    "transient-bias_leak-0.05.cir": "617c07c7be830fda62b5d5040be9ec8ffbe0c4a09354513c9cea927df9f5d231",
+    "transient-bias_leak-0.15.cir": "40cd0f4f2f93c62fa7521125ea2d8d6e264e9b6cd87c96e8226282ec036a288c",
+    "transient-healthy-0.05.cir": "fa4f0805fd5d89ef15c56d28aabdda0a8aeec6a8c21e3522d639ba8011ddf73f",
+    "transient-healthy-0.15.cir": "12d5dd47104f250a0080604a0db34ed66c3b96aabc1afd34daf2b0023f4d2242"
+  },
+  "fixtures_sha256": {
+    "bias-dc.csv": "47ada8e1ea416038a8e98026c4ea23be9b033d5617e81aa9b3ea27fa6d771c24",
+    "bias-playback-4x.csv": "6148b5381af4fcd6eff72a74bd56fd26eee2b4a00fda79cf51cbd05dcb2043e6",
+    "bias-production-4x.csv": "c91ded975a2a49ee8ffa57da82820826b646d0ef598a8be31ecfcf06edc72384",
+    "bias-transient.csv": "1e75a10b3e1ada2b989254b4d989fa98796cb1d77b4b944abb05ce581a8b1a43"
+  },
+  "playback_alignment": "native phase 3 at (sample-24+0.75)/rate; exact 44100/48000 Hz"
+}

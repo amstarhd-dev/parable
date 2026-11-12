@@ -2,6 +2,16 @@
 
 This is the first **portable C++ code brick**, not a finished Parable SDK and not a commercial DSP effect. It contains no astrology or browser implementation. A separate experimental circuit-derived LabRAT listening laboratory is described below.
 
+SF-005 supplies [Gemini CMOS healthy/fault listening comparisons](docs/SF005_REPORT.md)
+from one clean CC0 DI recording, including raw and matched-level WAVs and exact
+electrical receipts. It reuses SF-002's device model; a 220 kohm gate-to-VSS leak
+shifts bias and suppresses quiet input. `GeminiCmos` revision 1 is a bounded native
+Engine alternative sharing the existing RAT state budget; no extra prepared-pool
+RAM. Release CI publishes **parable-gemini-auditions** for 30 days. Reproduce with
+`parable_gemini_lab --input owned-mono-pcm16.wav --output gemini-auditions` after
+building; omit input for labelled synthetic plucks. Founder approval and physical
+Daisy execution remain unproven. No astrology or wearable work is included.
+
 PAR-009 prepares a [Seed3 first-day procedure](docs/SEED3_FIRST_DAY.md) and
 [prior-art/firmware audit](docs/PAR009_GATE0.md), with three BOOT_NONE images:
 standalone LED/recovery, mono bypass, and the unchanged RAT composite. The pinned

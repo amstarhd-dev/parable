@@ -45,6 +45,36 @@ jobs:
           path: parable-starter/build/activation-evidence/
           if-no-files-found: error
           retention-days: 30
+      - name: Render healthy and damaged Gemini from pinned CC0 clean DI
+        if: matrix.build_type == 'Release'
+        env:
+          HEAD_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          mkdir -p build/gemini-input
+          curl --fail --show-error --location --retry 3 https://huggingface.co/datasets/Julian-br/GuitarJam/resolve/2d467bfec90af19301b01123494f4b2ba64c5a3a/guitar_jam/test/050.wav --output build/gemini-input/050.wav
+          echo '22e7b845fc2d71200c72c13fedbeb5f8ac593e48a01f99875f857e0cc5dfecd0  build/gemini-input/050.wav' | sha256sum -c -
+          ./build/parable_gemini_lab --input build/gemini-input/050.wav --output build/gemini-auditions
+          ./build/parable_gemini_lab --input build/gemini-input/050.wav --output build/gemini-repeat
+          cmp build/gemini-auditions/04_healthy_matched.wav build/gemini-repeat/04_healthy_matched.wav
+          cmp build/gemini-auditions/05_bias_leak_matched.wav build/gemini-repeat/05_bias_leak_matched.wav
+          ./build/parable_gemini_test > build/gemini-auditions/tests-and-layout.txt
+          ./build/parable_activation_test --gemini-stress > build/gemini-auditions/activation.txt
+          cp build/gemini-input/050.wav build/gemini-auditions/source-original.wav
+          cp third_party/gemini/* third_party/cmos/* build/gemini-auditions/
+          cp tests/fixtures/gemini/spice-manifest.json build/gemini-auditions/
+          git rev-parse HEAD > build/gemini-auditions/SOURCE_COMMIT
+          printenv HEAD_COMMIT > build/gemini-auditions/HEAD_COMMIT
+          c++ --version > build/gemini-auditions/HOST_COMPILER.txt
+          sha256sum include/parable_cmos.h src/parable_cmos.cpp src/cmos_device.h include/parable_core.h include/parable_patch.h src/parable_patch.cpp src/parable_prepare.cpp tools/gemini_lab.cpp tools/gemini_spice_reference.py tools/cmos_spice_reference.py tools/cmos_measure.h tools/lab_wav.h tools/soundforge/analysis.h tests/test_gemini.cpp tests/fixtures/gemini/* tests/fixtures/patch-v1/gemini* > build/gemini-auditions/SOURCE_SHA256SUMS
+          (cd build/gemini-auditions && sha256sum ./*.wav ./*.csv ./*.json) > build/gemini-auditions/SHA256SUMS
+      - name: Publish Gemini healthy versus bias-leak listening receipts
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-gemini-auditions
+          path: parable-starter/build/gemini-auditions/
+          if-no-files-found: error
+          retention-days: 30
       - name: Repeat deterministic preset fault matrix
         if: matrix.build_type == 'Release'
         run: |
@@ -156,12 +186,12 @@ jobs:
       - name: Configure ASan and UBSan
         run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
       - name: Build integration and existing affected tests
-        run: cmake --build build --target parable_core_test parable_audio_safety_test parable_patch_test parable_prepare_test parable_rat_test parable_rat_integration_test parable_patch_audition parable_firmware_measurement_test parable_presets_test parable_activation_test parable_activation_demo -j2
+        run: cmake --build build --target parable_core_test parable_audio_safety_test parable_patch_test parable_prepare_test parable_rat_test parable_rat_integration_test parable_patch_audition parable_firmware_measurement_test parable_presets_test parable_activation_test parable_activation_demo parable_cmos_test parable_cmos_lab parable_gemini_test parable_gemini_lab -j2
       - name: Test integration and affected boundaries
         env:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1
-        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^(firmware_measurement_math_status|core_validation|audio_safety|patch_contract|host_preparation|rat_patch_integration|patch_audio_evidence|rat_circuit_and_safety|preset_journal|activation_contract|activation_concurrency|activation_demo)$'
+        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^(firmware_measurement_math_status|core_validation|audio_safety|patch_contract|host_preparation|rat_patch_integration|patch_audio_evidence|rat_circuit_and_safety|preset_journal|activation_contract|activation_concurrency|activation_demo|cmos_circuit_and_safety|cmos_lab_measurements|cmos_lab_cli|gemini_circuit_and_integration|gemini_activation_concurrency|gemini_listening_cli)$'
 
   activation-tsan:
     runs-on: ubuntu-24.04
@@ -178,4 +208,4 @@ jobs:
       - name: Test actual activation with ThreadSanitizer
         env:
           TSAN_OPTIONS: halt_on_error=1
-        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^activation_(contract|concurrency)$'
+        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^(activation_(contract|concurrency)|gemini_activation_concurrency)$'

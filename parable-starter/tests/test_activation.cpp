@@ -27,10 +27,10 @@ static patch::ValidatedPatch decode(const std::string& text) {
 struct Documents {
     std::array<std::string,4> json;
     std::array<Patch,4> native;
-    Documents() {
+    explicit Documents(bool gemini=false) {
         const auto safe=decode(fixture("empty.json"));
         presets::Geometry geo{163840,4096,256};presets::SimulatedFlash flash(geo);presets::Journal journal(flash,safe);
-        const char* names[]={"manual.json","utilities.json","rat-composite.json","rat-reversed.json"};
+        const char* names[]={gemini?"gemini-healthy.json":"manual.json",gemini?"gemini-fault.json":"utilities.json","rat-composite.json",gemini?"utilities.json":"rat-reversed.json"};
         for(size_t i=0;i<4;++i) CHECK(journal.save(i,fixture(names[i])).status==presets::Status::Saved);
         flash.powerCycle();presets::Journal reboot(flash,safe);
         for(size_t i=0;i<4;++i) {
@@ -182,4 +182,4 @@ static void stress(const Documents& docs,const char* path) {
     std::cout<<"stress publications="<<published<<" adopted="<<adopted<<" busy="<<busy<<" retirement_acks="<<acks<<" frames="<<totalFrames<<" joined_restarts=4 callback_allocations=0 callback_locks=0 callback_io=0\n";
     std::cout<<"test_log_capacity_bytes="<<(control.capacity()+audio.capacity())*sizeof(Event)<<" mapping_bytes="<<sizeof(mapping)<<" worker_io_buffers=512 reference_engine="<<sizeof(Engine)<<'\n';
 }
-int main(int argc,char**argv){const Documents docs;if(argc>1 && std::string(argv[1])=="--stress")stress(docs,argc>2?argv[2]:nullptr);else {contract(docs);stopAndTiming(docs);}}
+int main(int argc,char**argv){const bool gemini=argc>1&&std::string(argv[1])=="--gemini-stress";const Documents docs(gemini);if(argc>1 && (std::string(argv[1])=="--stress"||gemini))stress(docs,argc>2?argv[2]:nullptr);else {contract(docs);stopAndTiming(docs);}}

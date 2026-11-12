@@ -1,5 +1,28 @@
 # Implementation status and reproducible baseline
 
+## SF-005 — experimental Gemini CMOS healthy / bias-leak audio
+
+Main `8f94368`, merged #33. [Gate 0](SF005_GATE0.md) before source edits;
+[electrical/audio/evidence and exact commands](SF005_REPORT.md), ADR-004 amendment.
+
+- **Specified/implemented:** reuse SF-002 device math/solver/FIR; one gate-2-to-VSS
+  leak (open -> 220 kohm), physically loaded bias/companion histories. Additive
+  `GeminiCmos` rev1, stopped canonical preparation and fixed RAT-or-CMOS Engine
+  state; no growth of the four-bundle Runtime (45,224 ARM bytes).
+- **Host-tested:** 26/26 Debug/Release, 18/18 ASan/UBSan, 3/3 TSAN; independent
+  DC/actual 4x-node SPICE, no-fallback recorded clean DI raw/matched WAVs,
+  reference-identical Engine and actual four-slot mixed activation stress.
+  Existing protected sound/codec data preserved; CMOS size metadata updated.
+- **ARM-linked/inspected:** active damaged Gemini image 101,300 B in unchanged
+  128 KiB internal FLASH; callback/atomic audit, actual layouts/static frames.
+  Existing image capability grows in code; full-codec FLASH overflow reported.
+- **Hardware-tested / human-musically-auditioned:** none. Real CC0 guitar is used
+  as input to generated listening files; founder acceptance remains pending.
+  Damaged-bias fit extrapolation, real die failure, calibrated IO and physical
+  Seed3 boot/deadline/noise/power/stack remain unproven. No astrology/biometrics.
+
+Earlier standalone-only CMOS descriptions are historical SF-002 evidence.
+
 ## PAR-011 — host prepared-bundle ownership/activation
 
 Main `c288eb1`, after PR #31; clean baseline **20/20 Debug/Release**.

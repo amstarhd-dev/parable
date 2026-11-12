@@ -6,6 +6,51 @@ Research gate recorded before native DSP implementation. Start: main
 license allowlist. Clean host Debug/Release 10/10 and full pinned ARM build passed.
 No missing issue-required repository files. No astrology or patch integration.
 
+## SF-005 amendment — experimental Gemini healthy / bias leak
+
+Issue #41 authorizes a narrow playable A/B and conditional native registration.
+[SF-005 Gate 0](../SF005_GATE0.md) preceded source edits; [measurements/commands/
+limits](../SF005_REPORT.md) record the outcome. **Founder musical approval remains
+pending.** This amendment does not approve an astrology/fault rule or a commercial
+clone. The original SF-002 research and three laboratory states below remain.
+
+Keep the same MIT-adapted device equations, stiff 9 V reduced network, 4x FIR and
+bounded 2x2 trapezoidal/Newton solve. Add one physical leakage conductance from
+second gate to VSS. Healthy is open (0 S); damaged is **220 kohm**. A 330 kohm
+candidate shifted bias but gated less strongly; 100 kohm nearly muted the source.
+The selected value is an inspectable experiment, not a characterized failed IC.
+
+The old 1 Mohm -> 100 kohm feedback resistor changes AC gain, **not DC bias**:
+at DC the capacitors open and zero gate current requires gate=output. With the new
+shunt, gate2=output2*Gfeedback/(Gfeedback+Gleak); output KCL determines the loaded
+operating point. At 9 V, healthy gate/output are 3.482808651 V; damaged gate is
+1.622727171 V and output 8.998759769 V. The modeled NMOS is off at rest, so larger
+input attacks are needed to enter conduction. Coupling/feedback capacitor histories
+are initialized to this split equilibrium; the same branch participates in every
+audio solve/Jacobian. No random glitch, post gate or numerical fallback creates
+the sound. Poorly calibrated extrapolation outside measured |Vgs|=2.5..6 V remains
+an explicit physical limitation, especially in the damaged state.
+
+Register `GeminiCmos`, revision 1, additively in patch-v1: required normalized
+`drive`, `volume`, and strict `biasLeak` boolean quantity. The boolean selects
+these **fixed** electrical states; no severity, hidden defaults or mid-callback
+reconfiguration. Old readers reject the unknown type; old bytes/semantics remain.
+Changing the selected component interpretation after acceptance requires a new
+revision. This experiment does not ratify missing Parable Lexicon semantics.
+
+Use one fixed tagged RAT-or-CMOS state in Engine, with native control values
+sharing their existing 12-byte space. At most one nonlinear declaration total,
+including disabled stages; do not silently allocate another effect or enlarge the
+four-bundle pool. Stopped control preparation and existing PAR-011 ownership remain.
+ARM measurements confirm unchanged Engine 11,040 B / Runtime 45,224 B. Mixed
+RAT/CMOS chains require a future measured resource decision, not this increment.
+
+Use the same openly licensed DI recording for both states and publish raw/common
+gain **and** matched-level WAVs. RMS matching is offline listening treatment,
+never inserted into Engine. Reject normalization of fallback, rail clipping or
+near-silent numerical residue. Real-recording provenance is separate from the
+unchanged Soundforge DSP-code import allowlist. No wearable or new framework work.
+
 ## Research and choice
 
 | Source inspected | Evidence and decision |
