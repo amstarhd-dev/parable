@@ -1,5 +1,29 @@
 # Implementation status and reproducible baseline
 
+## SF-010 — experimental standalone TS808 / true open D2
+
+Initial main a17f64f; main advanced to ca666a2 with #50 merged during work.
+Updated branch preserves merged Muff; #42/#48 remain untouched. [Gate0](SF010_GATE0.md),
+[ADR010](adr/ADR-010-ts808-open-diode.md), [commands/evidence/limits](SF010_REPORT.md).
+
+- **Specified/implemented:** selected TS808 signal path with documented true-bypass
+  reduction, two nominal NPN buffers, nine signal caps, loaded controls, finite
+  op-amp pole/slew/rail behavior and clipping diodes IN feedback. Only D2 opens.
+- **Host-tested:** independent builtin-device SPICE/DC/transient/tone/control/
+  harmonic comparisons, finite bounds/guards/reset/silence and coherent alias
+  probe; same C++ healthy/fault guitar and synthetic WAVs. Full results in report.
+- **ARM compile-inspected:**9096B object text/0data/0BSS,8104B complete state.
+  Audio call graph includes bounded expm1/memcpy/memset, no allocator/IO/locks.
+  Engine/bundle/Runtime11040/11288/45224B unchanged; no new firmware integration.
+- **Tradeoffs:**16x/769tap symmetric FIR required for the hard10kHz/.8V accuracy
+  budget; coarser diagnostic grids show larger error and can fail extreme solves.
+  State fits8KiB, but target CPU/admission is not proven. No approximate math.
+- **Hardware-tested/musically auditioned:**none. No measured vintage TS808/JRC4558,
+  original JFET bypass/loading,9V op-amp calibration, Seed3 cycles/deadline/audio/
+  stack high-water or founder recognition/approval. Ideal supply and reduced
+  nominal devices omit intrinsic charge, noise/bias/offset/common-mode/current
+  limit and detailed recovery. No correspondence/storage/living/patch changes.
+
 ## SF-009 — standalone V3 four-transistor fuzz / R15 experiment
 
 Main `a17f64f`, #42/#48 open and untouched; baseline30/30 Debug/Release.

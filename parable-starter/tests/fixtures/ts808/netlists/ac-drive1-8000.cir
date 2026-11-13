@@ -1,0 +1,64 @@
+ElectroSmash TS808 true-bypass drawing, effect-on only, explicit nominal devices
+Vcc rail 0 9
+Vref ref 0 4.5
+Vsrc source 0 SIN(0 0.20000000000000001 1000) AC 1
+Rsource source in 1k
+C1 in ci 20n
+R1 ci b1 1k
+R2 ref b1 510k
+Q1 rail b1 e1 silicon
+R3 e1 0 10k
+C2 e1 plus 1u
+R5 plus ref 10k
+R4 cr 0 4.7k
+C3 minus cr 47n
+R6 minus o1 551000
+C4 minus o1 51p
+D1 minus o1 diode
+D2 o1 minus diode
+R8 o1 tp 1k
+C5 tp 0 220n
+R9 tp ref 10k
+R10 cc 0 220
+C6 tw cc 220n
+R11 tm o2 1k
+Rtone1 tp tw 10000
+Rtone2 tw tm 10000
+C7 o2 cp 1u
+R12 cp leveltop 1k
+Rlevel1 leveltop lw 50000
+Rlevel2 lw 0 50000
+C8 lw b3 100n
+R13 ref b3 510k
+Q3 rail b3 e3 silicon
+R14 e3 0 10k
+RB e3 ob 100
+C9 ob jack 10u
+RC jack 0 10k
+Rload jack 0 1Meg
+.model silicon NPN(IS=1e-14 BF=350 BR=4 VAF=0 VAR=0 CJE=0 CJC=0 TF=0 TR=0 TNOM=26.85)
+.model diode D(IS=2.52n N=1.752 RS=0 CJO=0 TT=0 TNOM=26.85)
+Rdiff1 plus minus 5Meg
+Cpole1 u1 0 1n
+Bamp1 0 u1 I={1e-9*(max(-1e6,min(1e6,188.4955592153876*(1e5*v(plus,minus)-v(u1))))-1e9*(v(u1)-max(-3,min(3,v(u1)))) )}
+Eamp1 drive1 ref u1 0 1
+Rout1 drive1 o1 75
+Rdiff2 tp tm 5Meg
+Cpole2 u2 0 1n
+Bamp2 0 u2 I={1e-9*(max(-1e6,min(1e6,188.4955592153876*(1e5*v(tp,tm)-v(u2))))-1e9*(v(u2)-max(-3,min(3,v(u2)))) )}
+Eamp2 drive2 ref u2 0 1
+Rout2 drive2 o2 75
+
+.save all @d1[id] @d2[id]
+
+.options reltol=1e-8 abstol=1e-13 vntol=1e-10 gmin=1e-14
+.temp 26.85
+.control
+set noaskquit
+set wr_singlescale
+set wr_vecnames
+ac lin 1 8000 8000
+wrdata ac-drive1-8000.txt real(v(e1)) imag(v(e1)) real(v(o1)) imag(v(o1)) real(v(o2)) imag(v(o2)) real(v(jack)) imag(v(jack))
+quit
+.endc
+.end

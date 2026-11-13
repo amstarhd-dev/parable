@@ -1,0 +1,18 @@
+{
+  "candidates": [
+    {"url":"https://github.com/HSU-ANT/ACME.jl","revision":"3832ccafb952ee2ca0a27286c091d613062c23fd","license":"MIT","notes":"src/elements.jl diode/bjt/finite-gain and gain-bandwidth opamp foundation. Narrow transport-current specialization and derivative adaptation, full existing audited Expat notice retained. No Julia/framework or tanh opamp import."},
+    {"url":"https://github.com/mstratman/electrosmash-pdf-backups","revision":"ebf6b8604d663c1832d06682e74940830cdc5490","license":"Reference only; no drawing/code grant inferred","files_sha256":{"images/tube-screamer-analysis/tube-screamer-true-bypass-schematic.png":"87399df12eb0c2317238d363893da1eab9db44f16df353f31ddcc34b866c42a9"},"notes":"TS808 true-bypass/effect-on drawing, Git blob6aaba1337b9a0ca4e8c717784e77913a36040a9d. Numerical facts only, no diagram/layout/text import. C1=20n; RA=0, RB=100, RC=10k. D2 anode output/cathode minus, despite conflicting article polarity prose. No mixed TS9/clone BOM."},
+    {"url":"https://github.com/Chowdhury-DSP/BYOD","revision":"1cf22b6ac802b9dc33cfc9f8dd6af5b3c3e40bc9","license":"GPL-3.0; audit-only","notes":"Inspected root grant and src/processors/drive/tube_screamer/TubeScreamerWDF.h; no import of its scattering matrix, fixed amplifier assumptions or symmetric diode adapter."},
+    {"url":"https://github.com/JamesStubbsEng/TS-808-Ultra","revision":"1a9dfe314f7f85083a2f51ec0b496226afdfaccf","license":"GPL-3.0; audit-only","notes":"Inspected grant and project provenance. No source imported or extra mix/compression/filters adopted."}
+  ],
+  "references": [
+    {"url":"https://electrosmash.mas-effects.com/tube-screamer-analysis.html","sha256":"3b0a4c72783dceeca9e9468539768d27fb0204bf0f9ba52683f94de4c43f0662","scope":"Retrieved archive HTML, not asserted byte-identical to pinned repository HTML."},
+    {"url":"http://www.geofex.com/Article_Folders/TStech/tsxtech.htm","sha256":"bbb567f88a26a5be0fd0837ef14a875d437ba03d9664ec8acb8f7fafe9465ca4","scope":"R.G.Keen original technical analysis corroborates feedback clipping/selective gain; not copied text or a second BOM."},
+    {"url":"https://www.nisshinbo-microdevices.co.jp/en/pdf/datasheet/NJM4558_E.pdf","sha256":"9d73cf4cc7b5fa8c9fac83c0f5bd58e8571e7076fca57456a2b689cb5c39acbe","scope":"Manufacturer20260723 revision:100dB,3MHz,1V/us,5Mohm typical at±15V. Not vintage die authentication or9V swing calibration.75ohm/±3V headroom are explicit model assumptions."}
+  ],
+  "decision":"parable-starter/docs/adr/ADR-010-ts808-open-diode.md",
+  "internal_reuse":["unchanged main PCM/statistics/excitation/guard and run_spice wrapper","main's owned partial pivot/companion/junction damping/FIR idioms","unchanged owned seven-line FFT; existing CLI/CI/ARM evidence conventions"],
+  "original_gap":"One fixed fully loaded circuit; exact passive and piecewise-linear amplifier elimination around five nonlinear junctions, independent literal SPICE, one true open D2. No generic analog framework.",
+  "audio":{"record":"14963133","version":"v1","license":"CC-BY-4.0","notice":"AUDIO_NOTICE.md","member":"P3_music/audio/directinput/directinput_06.wav","original_sha256":"2fd88dc725f475e13686f50ce6c88e7fed3d6b635b62147a69d42e29a5dd6254","prepared_excerpt_sha256":"b1162cf7dfdd5921638e403581541c36c2de73022f3bffd0e111e66302048364"},
+  "ownership":"Parable-owned fixed-network code with MIT-derived device foundation. Global project license unspecified; conservative code-import allowlist unchanged. CC-BY audio is independently licensed data, not a code-policy exception. Open #42/#48/#50 not imported or changed."
+}

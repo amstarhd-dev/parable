@@ -2,6 +2,13 @@
 
 This is the first **portable C++ code brick**, not a finished Parable SDK and not a commercial DSP effect. It contains no astrology or browser implementation. A separate experimental circuit-derived LabRAT listening laboratory is described below.
 
+SF-010 adds an experimental standalone [TS808 / one truly open feedback diode](docs/SF010_REPORT.md).
+CI publishes **parable-ts808-auditions**: a new Guitar-TECHS take06, raw/matched
+healthy/fault WAVs, controlled polarity/current/harmonic evidence and references.
+[ADR-010](docs/adr/ADR-010-ts808-open-diode.md) records the documented signal-path
+reduction, finite op-amp assumptions and16x accuracy/resource tradeoff. No patch/
+Engine integration, physical vintage-unit matching or founder listening approval.
+
 SF-009 adds a standalone [V3 sustain fuzz / R15 bias-starvation experiment](docs/SF009_REPORT.md).
 CI publishes **parable-muff-auditions**, using a **new Guitar-TECHS DI performance**,
 raw/matched guitar and controlled history probes. The actual fault primes the
