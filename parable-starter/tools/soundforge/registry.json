@@ -819,6 +819,115 @@
           "paths": []
         }
       }
+    },
+    {
+      "id": "muff.v3",
+      "type": "model",
+      "paths": [
+        "parable-starter/include/parable_muff.h",
+        "parable-starter/src/parable_muff.cpp",
+        "parable-starter/src/muff_device.h",
+        "parable-starter/tools/muff_lab.cpp",
+        "parable-starter/tools/muff_spice_reference.py",
+        "parable-starter/tests/test_muff.cpp",
+        "parable-starter/docs/adr/ADR-009-big-muff-bias.md"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/muff/provenance.json",
+          "candidate": 0,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/muff/ACME-LICENSE.md"
+          ],
+          "scope": "MIT NPN Ebers-Moll specialization/analytic exponential derivatives, no Julia/framework port."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/muff/provenance.json",
+          "candidate": 1,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Reference facts or rejected GPL specimen; no drawing/listing imported."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/muff/provenance.json",
+          "candidate": 2,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Reference facts or rejected GPL specimen; no drawing/listing imported."
+        }
+      ],
+      "ownership_notes": "Local fixed-circuit network/solver with retained MIT device notice; no global project license inferred. Separately attributed new CC-BY audio, not a code-policy exception.",
+      "physics_notes": "Source-pinned American V3 four NPN/two diode-feedback stages/all13 external capacitors, full loaded interstage/pot coupling. Nominal reduced silicon, not measured EHX calibration.",
+      "behavior": "Standalone fixed17-node/10-port prepared elimination,4x,24 Newton updates+evaluation. Q2 R15 only470k->2.2M. DC-shift/history demonstrated; post-overload suppression hypothesis failed (priming observed).",
+      "limitations": [
+        "No Early/high-injection/intrinsic charge/noise/battery dynamics or commercial BC239 fit.",
+        "Intended choking/suppression is not verified; actual fault produces priming under the controlled probe.",
+        "Founder musical approval, target CPU/stack/IO and optional Engine admission untested."
+      ],
+      "dependencies": {
+        "assets": [
+          "host.pcm16",
+          "host.signal-analysis",
+          "host.synthetic-plucks"
+        ],
+        "external": [
+          "C++17 expm1 math only; fixed native matrices, no DSP runtime framework.",
+          "Existing pinned ARM/ngspice44.2 recipe; Python stdlib reference/input preparation."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Independent built-in NPN/diode/DC/all-node/transient/tone/controls, refinement/guards/reset/extremes and actual audio receipts.",
+          "paths": [
+            "parable-starter/tests/test_muff.cpp",
+            "parable-starter/tests/test_muff_cli.py"
+          ]
+        },
+        "independent_circuit": {
+          "status": "reduced-section-compared",
+          "scope": "Whole selected signal-path reduction compared using independent standard BJT/diode SPICE; not measured full BC239/EHX fidelity.",
+          "paths": [
+            "parable-starter/tools/muff_spice_reference.py",
+            "parable-starter/tests/fixtures/muff/spice-manifest.json",
+            "parable-starter/tests/fixtures/muff/transient.csv"
+          ]
+        },
+        "synthetic_audition": {
+          "status": "generated",
+          "scope": "Same-native two-attack/probe/decay, measured priming and failed suppression hypothesis; no human acceptance.",
+          "paths": [
+            "parable-starter/tools/muff_lab.cpp"
+          ]
+        },
+        "real_guitar_audition": {
+          "status": "not-performed",
+          "scope": "Different permitted Guitar-TECHS music DI rendered; founder/listening approval pending.",
+          "paths": [
+            "parable-starter/third_party/muff/AUDIO_NOTICE.md",
+            "parable-starter/tools/muff_input.py",
+            "parable-starter/docs/SF009_REPORT.md"
+          ]
+        },
+        "arm_cross_compile": {
+          "status": "compiled",
+          "scope": "Actual standalone M7 object/layout/math-call audit; not firmware integrated or executed.",
+          "paths": [
+            "parable-starter/tools/check_muff_arm.py"
+          ]
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No boot/runtime/deadline/IO/stack-high-water measurement.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "No Engine/patch/pool/storage/living/firmware change; pending registrations untouched.",
+          "paths": []
+        }
+      }
     }
   ]
 }

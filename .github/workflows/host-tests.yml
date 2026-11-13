@@ -10,7 +10,7 @@ permissions:
 jobs:
   host-tests:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 15
     strategy:
       matrix:
         build_type: [Debug, Release]
@@ -25,6 +25,42 @@ jobs:
         run: cmake --build build
       - name: Test
         run: ctest --test-dir build --output-on-failure --no-tests=error
+      - name: Render V3 fuzz with NEW Guitar-TECHS DI and honest bias-history evidence
+        if: matrix.build_type == 'Release'
+        env:
+          HEAD_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          mkdir -p build/muff-input
+          curl --fail --show-error --location https://zenodo.org/api/records/14963133/files/P3_music.zip/content --output build/muff-input/P3_music.zip
+          python3 tools/muff_input.py --archive build/muff-input/P3_music.zip --output build/muff-input
+          ./build/parable_muff_lab --input build/muff-input/guitar-techs-mono16.wav --output build/muff-auditions
+          ./build/parable_muff_lab --input build/muff-input/guitar-techs-mono16.wav --output build/muff-repeat
+          for file in build/muff-auditions/*.wav; do cmp "$file" "build/muff-repeat/$(basename "$file")"; done
+          ./build/parable_muff_test > build/muff-auditions/tests-and-layout.txt
+          python3 - <<'PYREF'
+          import hashlib,json
+          from pathlib import Path
+          root=Path('tests/fixtures/muff')
+          manifest=json.loads((root/'spice-manifest.json').read_text())
+          for name,digest in manifest['fixture_sha256'].items(): assert hashlib.sha256((root/name).read_bytes()).hexdigest()==digest
+          for name,digest in manifest['netlist_sha256'].items(): assert hashlib.sha256((root/'netlists'/name).read_bytes()).hexdigest()==digest
+          PYREF
+          cp build/muff-input/source-original-stereo24.wav build/muff-input/guitar-techs-mono16.wav build/muff-input/input-receipt.json build/muff-auditions/
+          cp third_party/muff/* tests/fixtures/muff/spice-manifest.json docs/SF009_REPORT.md docs/SF009_GATE0.md docs/adr/ADR-009-big-muff-bias.md build/muff-auditions/
+          cp -r tests/fixtures/muff build/muff-auditions/independent-reference
+          git rev-parse HEAD > build/muff-auditions/SOURCE_COMMIT
+          printenv HEAD_COMMIT > build/muff-auditions/HEAD_COMMIT
+          c++ --version > build/muff-auditions/HOST_COMPILER.txt
+          sha256sum include/parable_muff.h src/parable_muff.cpp src/muff_device.h tools/muff_lab.cpp tools/muff_stimulus.h tools/muff_input.py tools/muff_spice_reference.py tools/check_muff_arm.py tests/test_muff* tests/fixtures/muff/*.csv tests/fixtures/muff/*.json tests/fixtures/muff/netlists/* tests/activation_guard.* tools/lab_wav.h tools/rat_spice_reference.py tools/rat_measure.h tools/soundforge/analysis.h tools/soundforge/excitation.h third_party/muff/* include/parable_core.h > build/muff-auditions/SOURCE_SHA256SUMS
+          (cd build/muff-auditions && sha256sum ./*.wav ./*.csv ./*.json) > build/muff-auditions/SHA256SUMS
+      - name: Publish V3 sustain fuzz and high-R15 listening study
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-muff-auditions
+          path: parable-starter/build/muff-auditions/
+          if-no-files-found: error
+          retention-days: 30
       - name: Render rotary motor-belt A/B and independent motion proof
         if: matrix.build_type == 'Release'
         env:
@@ -231,7 +267,7 @@ jobs:
 
   integration-sanitizers:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 15
     defaults:
       run:
         working-directory: parable-starter
@@ -246,6 +282,16 @@ jobs:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1
         run: ctest --test-dir build --output-on-failure --no-tests=error -R '^(firmware_measurement_math_status|core_validation|audio_safety|patch_contract|host_preparation|rat_patch_integration|patch_audio_evidence|rat_circuit_and_safety|preset_journal|activation_contract|activation_concurrency|activation_demo|living_contract|living_concurrency|living_audio_evidence|tape_medium_and_safety|tape_listening_cli|rotary_mechanics_and_safety|rotary_listening_cli)$'
+
+      - name: Configure focused Muff ASan and UBSan at O1
+        run: cmake -S . -B build/muff-sanitized -DCMAKE_BUILD_TYPE=Debug -DFETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON="$PWD/build/_deps/nlohmann_json-src" -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -O1" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
+      - name: Build focused Muff sanitizer targets
+        run: cmake --build build/muff-sanitized --target parable_muff_test parable_muff_lab -j2
+      - name: Test Muff physical and audio boundaries with sanitizers
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
+          UBSAN_OPTIONS: halt_on_error=1
+        run: ctest --test-dir build/muff-sanitized --output-on-failure --no-tests=error -R '^muff_'
 
   activation-tsan:
     runs-on: ubuntu-24.04
