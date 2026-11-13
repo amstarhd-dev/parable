@@ -1,0 +1,17 @@
+Independent builtin nominal NPN
+Vb b 0 0
+Vc c 0 0.1
+Q c b 0 silicon
+.model silicon NPN(IS=1e-14 BF=350 BR=4 VAF=0 VAR=0 CJE=0 CJC=0 TF=0 TR=0 TNOM=26.85)
+
+.options reltol=1e-8 abstol=1e-13 vntol=1e-10 gmin=1e-14
+.temp 26.85
+.control
+set noaskquit
+set wr_singlescale
+set wr_vecnames
+dc Vb -.1 .7 .1
+wrdata device-0.1.txt v(b) v(c) i(Vb) i(Vc)
+quit
+.endc
+.end

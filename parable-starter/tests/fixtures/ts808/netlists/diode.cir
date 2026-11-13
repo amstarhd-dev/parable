@@ -1,0 +1,16 @@
+Independent builtin feedback diode
+Vd a 0 0
+D a 0 silicon
+.model silicon D(IS=2.52n N=1.752 RS=0 CJO=0 TT=0 TNOM=26.85)
+
+.options reltol=1e-8 abstol=1e-13 vntol=1e-10 gmin=1e-14
+.temp 26.85
+.control
+set noaskquit
+set wr_singlescale
+set wr_vecnames
+dc Vd -.8 .8 .05
+wrdata diode.txt v(a) i(Vd)
+quit
+.endc
+.end

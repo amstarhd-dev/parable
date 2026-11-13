@@ -2,6 +2,13 @@
 
 This is the first **portable C++ code brick**, not a finished Parable SDK and not a commercial DSP effect. It contains no astrology or browser implementation. A separate experimental circuit-derived LabRAT listening laboratory is described below.
 
+SF-010 adds an experimental standalone [TS808 / one truly open feedback diode](docs/SF010_REPORT.md).
+CI publishes **parable-ts808-auditions**: a new Guitar-TECHS take06, raw/matched
+healthy/fault WAVs, controlled polarity/current/harmonic evidence and references.
+[ADR-010](docs/adr/ADR-010-ts808-open-diode.md) records the documented signal-path
+reduction, finite op-amp assumptions and16x accuracy/resource tradeoff. No patch/
+Engine integration, physical vintage-unit matching or founder listening approval.
+
 SF-007 adds a standalone [two-rotor rotary / worn horn-belt experiment](docs/SF007_REPORT.md).
 `parable_rotary_lab --input permitted-mono-pcm16.wav --output DIR` renders the
 same guitar healthy/faulted, raw/matched and band taps, with actual motor/rotor

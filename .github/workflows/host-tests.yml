@@ -10,7 +10,7 @@ permissions:
 jobs:
   host-tests:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 40
     strategy:
       matrix:
         build_type: [Debug, Release]
@@ -25,6 +25,45 @@ jobs:
         run: cmake --build build
       - name: Test
         run: ctest --test-dir build --output-on-failure --no-tests=error
+      - name: Render source-derived TS808 and truly open D2 with NEW guitar take06
+        if: matrix.build_type == 'Release'
+        env:
+          HEAD_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          mkdir -p build/ts808-input
+          curl --fail --show-error --location https://zenodo.org/api/records/14963133/files/P3_music.zip/content --output build/ts808-input/P3_music.zip
+          python3 tools/ts808_input.py --archive build/ts808-input/P3_music.zip --output build/ts808-input
+          ./build/parable_ts808_lab --input build/ts808-input/take06-26s-mono16.wav --output build/ts808-auditions
+          ./build/parable_ts808_lab --input build/ts808-input/take06-26s-mono16.wav --output build/ts808-repeat
+          for file in build/ts808-auditions/*; do
+            if [ "$(basename "$file")" != renders.csv ]; then cmp "$file" "build/ts808-repeat/$(basename "$file")"; fi
+          done
+          python3 - <<'PYREF'
+          import hashlib,json
+          from pathlib import Path
+          root=Path('tests/fixtures/ts808')
+          manifest=json.loads((root/'spice-manifest.json').read_text())
+          for name,digest in manifest['fixture_sha256'].items(): assert hashlib.sha256((root/name).read_bytes()).hexdigest()==digest
+          for name,digest in manifest['netlist_sha256'].items(): assert hashlib.sha256((root/'netlists'/name).read_bytes()).hexdigest()==digest
+          PYREF
+          cp build/ts808-measurements/*.csv build/ts808-auditions/
+          cp build/Testing/Temporary/LastTest.log build/ts808-auditions/HOST_TESTS.txt
+          cp build/ts808-input/source-original-stereo24.wav build/ts808-input/take06-26s-mono16.wav build/ts808-input/source-receipt.json build/ts808-auditions/
+          cp third_party/ts808/* docs/SF010_REPORT.md docs/SF010_GATE0.md docs/adr/ADR-010-ts808-open-diode.md build/ts808-auditions/
+          cp -r tests/fixtures/ts808 build/ts808-auditions/independent-reference
+          git rev-parse HEAD > build/ts808-auditions/SOURCE_COMMIT
+          printenv HEAD_COMMIT > build/ts808-auditions/HEAD_COMMIT
+          c++ --version > build/ts808-auditions/HOST_COMPILER.txt
+          sha256sum include/parable_ts808.h src/parable_ts808.cpp src/ts808_device.h tools/ts808_lab.cpp tools/ts808_stimulus.h tools/ts808_input.py tools/ts808_spice_reference.py tools/check_ts808_arm.py tests/test_ts808* tests/fixtures/ts808/*.csv tests/fixtures/ts808/*.json tests/fixtures/ts808/netlists/* tests/activation_guard.* tools/lab_wav.h tools/rat_spice_reference.py tools/soundforge/analysis.h tools/soundforge/excitation.h third_party/ts808/* include/parable_core.h > build/ts808-auditions/SOURCE_SHA256SUMS
+          (cd build/ts808-auditions && sha256sum ./*.wav ./*.csv ./*.json ./*.svg) > build/ts808-auditions/SHA256SUMS
+      - name: Publish TS808 healthy and open-D2 audio and circuit evidence
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-ts808-auditions
+          path: parable-starter/build/ts808-auditions/
+          if-no-files-found: error
+          retention-days: 30
       - name: Render rotary motor-belt A/B and independent motion proof
         if: matrix.build_type == 'Release'
         env:
@@ -231,7 +270,7 @@ jobs:
 
   integration-sanitizers:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 40
     defaults:
       run:
         working-directory: parable-starter
@@ -246,6 +285,16 @@ jobs:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1
         run: ctest --test-dir build --output-on-failure --no-tests=error -R '^(firmware_measurement_math_status|core_validation|audio_safety|patch_contract|host_preparation|rat_patch_integration|patch_audio_evidence|rat_circuit_and_safety|preset_journal|activation_contract|activation_concurrency|activation_demo|living_contract|living_concurrency|living_audio_evidence|tape_medium_and_safety|tape_listening_cli|rotary_mechanics_and_safety|rotary_listening_cli)$'
+
+      - name: Configure focused TS808 ASan and UBSan at O1
+        run: cmake -S . -B build/ts808-sanitized -DCMAKE_BUILD_TYPE=Debug -DFETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON="$PWD/build/_deps/nlohmann_json-src" -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -O1" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
+      - name: Build focused TS808 sanitizer targets
+        run: cmake --build build/ts808-sanitized --target parable_ts808_test parable_ts808_lab -j2
+      - name: Test TS808 circuit and listening boundaries with sanitizers
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
+          UBSAN_OPTIONS: halt_on_error=1
+        run: ctest --test-dir build/ts808-sanitized --output-on-failure --no-tests=error -R '^ts808_'
 
   activation-tsan:
     runs-on: ubuntu-24.04

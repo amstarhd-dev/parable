@@ -819,6 +819,124 @@
           "paths": []
         }
       }
+    },
+    {
+      "id": "ts808",
+      "type": "model",
+      "paths": [
+        "parable-starter/include/parable_ts808.h",
+        "parable-starter/src/parable_ts808.cpp",
+        "parable-starter/src/ts808_device.h",
+        "parable-starter/tools/ts808_lab.cpp",
+        "parable-starter/tools/ts808_spice_reference.py",
+        "parable-starter/tools/ts808_input.py",
+        "parable-starter/tests/test_ts808.cpp",
+        "parable-starter/tests/test_ts808_cli.py",
+        "parable-starter/docs/SF010_REPORT.md",
+        "parable-starter/docs/adr/ADR-010-ts808-open-diode.md"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/ts808/provenance.json",
+          "candidate": 0,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/ts808/ACME-LICENSE.md"
+          ],
+          "scope": "Narrow MIT diode/BJT/finite-pole foundation, not Julia or generic netlist framework."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/ts808/provenance.json",
+          "candidate": 1,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Drawing facts only; no artwork/layout/text import or license inference."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/ts808/provenance.json",
+          "candidate": 2,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "GPL candidate not imported."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/ts808/provenance.json",
+          "candidate": 3,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "GPL candidate not imported."
+        }
+      ],
+      "ownership_notes": "Parable-owned fixed network with MIT device foundation; root project license unspecified. CC-BY recording rights are independently documented data.",
+      "physics_notes": "Selected TS808 true-bypass effect-on network, full nominal NPN buffers and loading, nine signal capacitors, exact piecewise-linear finite-pole/slew/rail amplifiers inside nonlinear diode feedback. Only D2 truly open; no fault-specific gain/gate.",
+      "behavior": "Stopped preparation,44.1-96k normal16x/769tap symmetric FIR; five bounded nonlinear junctions and exact2x2 amplifier-region elimination; Drive/Tone/Level. No Engine registration.",
+      "limitations": [
+        "Nominal uncalibrated silicon and reduced4558; ideal9V/4.5V rails omit bias sag, intrinsic charge, Early/high injection, noise/bias/offset/common-mode/current-limit and detailed overload recovery.",
+        "Coarse diagnostic1x is not the normal audible path; high-level/high-frequency fidelity requires the validated fine grids and actual failure counters.",
+        "No founder musical approval, measured physical pedal or M7 execution/deadline evidence."
+      ],
+      "dependencies": {
+        "assets": [
+          "host.pcm16",
+          "host.signal-analysis",
+          "host.synthetic-plucks"
+        ],
+        "external": [
+          "C++17 libm, no new DSP runtime dependency.",
+          "Pinned offline ngspice44.2; existing ARM compiler/libDaisy recipe."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Independent devices/DC/transient/control/harmonics/alias, finite bounds/guards/reset/input/silence. Reduced model only.",
+          "paths": [
+            "parable-starter/tests/test_ts808.cpp",
+            "parable-starter/tests/test_ts808_cli.py"
+          ]
+        },
+        "independent_circuit": {
+          "status": "reduced-section-compared",
+          "scope": "Full selected signal network with independent builtin SPICE devices and continuous reduced op-amp macro; not measured vintage TS808/4558.",
+          "paths": [
+            "parable-starter/tools/ts808_spice_reference.py",
+            "parable-starter/tests/fixtures/ts808/spice-manifest.json",
+            "parable-starter/tests/fixtures/ts808/transient.csv"
+          ]
+        },
+        "synthetic_audition": {
+          "status": "generated",
+          "scope": "Actual healthy/open-D2 C++ outputs with balanced attacks/notes/sine/triangle, raw/common gain. No human approval.",
+          "paths": [
+            "parable-starter/tools/ts808_lab.cpp"
+          ]
+        },
+        "real_guitar_audition": {
+          "status": "not-performed",
+          "scope": "Distinct permitted take06 rendered; original and explicit excerpt retained. Human/founder audition pending.",
+          "paths": [
+            "parable-starter/third_party/ts808/AUDIO_NOTICE.md",
+            "parable-starter/tools/ts808_input.py"
+          ]
+        },
+        "arm_cross_compile": {
+          "status": "compiled",
+          "scope": "Actual pinned M7 object/layout/audio-call/static-frame inspection; separate original firmware links, not TS808 integration/execution.",
+          "paths": [
+            "parable-starter/tools/check_ts808_arm.py"
+          ]
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No physical boot/audio/deadline/stack or electrical calibration.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "Engine/canonical/pools/storage/living/firmware unchanged; raw state fit is not CPU or shared-state admission.",
+          "paths": []
+        }
+      }
     }
   ]
 }
