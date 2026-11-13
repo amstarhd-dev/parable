@@ -9,6 +9,13 @@ healthy/fault WAVs, controlled polarity/current/harmonic evidence and references
 reduction, finite op-amp assumptions and16x accuracy/resource tradeoff. No patch/
 Engine integration, physical vintage-unit matching or founder listening approval.
 
+SF-009 adds a standalone [V3 sustain fuzz / R15 bias-starvation experiment](docs/SF009_REPORT.md).
+CI publishes **parable-muff-auditions**, using a **new Guitar-TECHS DI performance**,
+raw/matched guitar and controlled history probes. The actual fault primes the
+following weak probe; intended post-overload suppression is **not established**.
+[ADR-009](docs/adr/ADR-009-big-muff-bias.md) records the source and failed hypothesis.
+No Engine/patch integration, measured EHX/Seed3 fidelity or founder approval.
+
 SF-007 adds a standalone [two-rotor rotary / worn horn-belt experiment](docs/SF007_REPORT.md).
 `parable_rotary_lab --input permitted-mono-pcm16.wav --output DIR` renders the
 same guitar healthy/faulted, raw/matched and band taps, with actual motor/rotor

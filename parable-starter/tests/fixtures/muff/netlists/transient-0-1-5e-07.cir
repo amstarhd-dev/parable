@@ -1,0 +1,72 @@
+ElectroSmash V3 drawing522df7b5, factual topology; no artwork import
+Vcc rail 0 9
+Bsrc drive 0 V={0.02*sin(2*PI*223*(time-0.08))*(time>0.08) + ((time>0.02)&&(time<0.070000000000000007) ? 0.7*sin(2*PI*110*(time-0.02))*sin(PI*(time-0.02)/0.05)^2 : 0) + ((time>0.22)&&(time<0.27000000000000002) ? 0.7*sin(2*PI*110*(time-0.22))*sin(PI*(time-0.22)/0.05)^2 : 0)}
+Vsignal source drive 0 AC 1
+Rexternal source in 1k
+R2 in ci 39k
+C1 ci b4 1u
+Q4 c4 b4 e4 silicon
+R13 rail c4 10k
+R14 b4 0 47k
+R9 b4 c4 470k
+R22 e4 0 100
+C10 b4 c4 470p
+C4 c4 st 1u
+Rsu st sw 25000
+Rsl sw sb 75000
+R23 sb 0 1k
+C5 sw i3 100n
+R19 i3 b3 10k
+Q3 c3 b3 e3 silicon
+R18 rail c3 10k
+R20 b3 0 100k
+R17 b3 c3 470k
+R21 e3 0 150
+C12 b3 c3 470p
+C6 b3 d3 1u
+D3 d3 c3 pair
+D4 c3 d3 pair
+C13 c3 i2 100n
+R12 i2 b2 10k
+Q2 c2 b2 e2 silicon
+R11 rail c2 10k
+R16 b2 0 100k
+R15 b2 c2 470000
+R10 e2 0 150
+C11 b2 c2 470p
+C7 b2 d2 1u
+D1 d2 c2 pair
+D2 c2 d2 pair
+R8 c2 low 39k
+C8 low 0 10n
+C9 c2 high 4n
+R5 high 0 22k
+Rth high tone 50000
+Rtl tone low 50000
+C3 tone b1 100n
+Q1 c1 b1 e1 silicon
+R7 rail b1 430k
+R3 b1 0 100k
+R6 rail c1 15k
+R4 e1 0 3.3k
+C2 c1 vt 100n
+Rvtop vt jack 50000
+Rvbot jack 0 50000
+Rload jack 0 1Meg
+.model silicon NPN(IS=1e-14 BF=300 BR=4 NF=1 NR=1 VAF=0 VAR=0 IKF=0 IKR=0 CJE=0 CJC=0 TF=0 TR=0 TNOM=26.85)
+.model pair D(IS=2.52n N=1.752 RS=0 CJO=0 TT=0 TNOM=26.85)
+
+.options reltol=1e-8 abstol=1e-13 vntol=1e-10 gmin=1e-14
+.temp 26.85
+.control
+set noaskquit
+set wr_singlescale
+set wr_vecnames
+save all @d1[id] @d2[id] @d3[id] @d4[id]
+option method=gear maxord=2 reltol=1e-6 abstol=1e-11 vntol=1e-7 gmin=1e-12
+tran 5u 0.65 0 4.9999999999999998e-07
+linearize
+wrdata transient-0-1-5e-07.txt v(b4) v(c4) v(e4) v(b3) v(c3) v(e3) v(b2) v(c2) v(e2) v(b1) v(c1) v(e1) v(sw) v(low) v(high) v(d3) v(d2) v(b2,d2) v(c3,i2) v(tone) v(jack) i(Bsrc) @d3[id] @d4[id] @d1[id] @d2[id]
+quit
+.endc
+.end

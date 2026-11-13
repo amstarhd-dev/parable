@@ -3,8 +3,11 @@
 Experimental standalone voice from main `a17f64fe222dc5c9867c693fb3b0e4e69c71f465`.
 [Gate 0](SF010_GATE0.md) was committed before native implementation;
 [ADR-010](adr/ADR-010-ts808-open-diode.md) records the selected circuit and the
-observed numerical revisions. No other PR was imported, changed or merged.
-#42/#48/#50 were open at the audit; Muff is not a main dependency.
+observed numerical revisions. No other PR was merged by this work. #42/#48/#50 were open at the audit.
+Main advanced during implementation: #50 was independently merged as ca666a2.
+The branch was updated to that main, retaining all merged Muff code/tests/audio/
+ARM/sanitizer wiring unchanged. #42/#48 remain untouched. The original baseline
+below is explicitly against a17f64f; final combined regression has34 tests.
 
 ## Result and admission boundary
 
