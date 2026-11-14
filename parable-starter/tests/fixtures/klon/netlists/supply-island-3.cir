@@ -1,0 +1,37 @@
+Independent original S698 inverter+doubler topology; illustrative IC switches
+V9 p9 0 9
+Vclock clock 0 PULSE(1 0 0 20n 20n 4.9979999999999999e-05 0.0001)
+Bbar bar 0 V=1-v(clock)
+S1 p9 cp clock 0 sw
+S2 cm 0 clock 0 sw
+S3 cp 0 bar 0 sw
+S4 cm neg bar 0 sw
+.model sw SW(RON=23 ROFF=1e12 VT=.5 VH=.01)
+R21 cp c21r 1
+C21 c21r cm 1u
+R19 neg c19r 1
+C19 c19r 0 1u
+R20 cp c20r 1
+C20 c20r mid 1u
+D5 p9 mid rectifier
+D6 mid pos rectifier
+R22 pos c22r 1
+C22 c22r 0 1u
+.model rectifier D(IS=10n N=2 RS=1 CJO=0 TT=0)
+Iload pos neg 0.0028
+RleakP pos 0 1e9
+RleakN neg 0 1e9
+
+.options reltol=1e-8 abstol=1e-13 vntol=1e-10 gmin=1e-14
+.temp 26.85
+.control
+set noaskquit
+set wr_singlescale
+set wr_vecnames
+option reltol=1e-5 abstol=1e-10 vntol=1e-7
+option method=gear maxord=2
+tran .5u .03 0 .5u uic
+wrdata supply-island-3.txt v(pos) v(neg)
+quit
+.endc
+.end

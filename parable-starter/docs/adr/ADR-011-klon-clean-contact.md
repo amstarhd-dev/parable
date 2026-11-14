@@ -41,3 +41,22 @@ near silence, numerical containment or another gain change. No forced musical
 verdict. No Engine/canonical/slots/storage/pools/firmware/living integration or
 other PR edits. Next gate is founder audition, then separately measured hardware
 admission if the sound merits it.
+
+Observed refinement:4x/176.4k and192k exceed the preregistered harsh jack10mV
+peak budget (41.39/32.96mV).8x/384k reduces it to7.20mV, with16x/768k
+further improvement;44.1k's352800Hz grid is separately required. Use8x/385taps
+if that complete grid passes. This doubles Gate0's initial static candidate/exp
+bound (1544/3088 per base frame) and must not be concealed as hardware admission.
+The four local amplifier feedback terms are analytically eliminated exactly;
+remaining cross-loading/diode coupling is still jointly solved, not block-linearized.
+Independent DC/AC uses explicit G/R/C/E linearization without nodeset, avoiding
+SPICE behavioral/pseudo-transient false bias. Internal reference capacitance/current
+scale was refined together from1n to1u for conditioning; continuous law is identical.
+
+The separately tested44.1k×8 grid still misses the hard jack budget(18.02mV).
+The final candidate is **12x/577taps**:529200/576000/1152000Hz probe jack
+peaks8.12/4.60/1.35mV, within the original10mV limit, without changing the
+circuit/diode/amp equations. Full final grids remain required. Complete state
+fits the original12KiB ceiling; initial4x compute-bound budget is missed by3x
+(2316 device evaluations/4632expm1 worst case/base frame). This remains a
+host-fidelity research baseline; no embedded approximation/admission is implied.

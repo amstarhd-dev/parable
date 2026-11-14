@@ -1,0 +1,1 @@
+Optional offline plots: Matplotlib 3.10.8; NumPy 2.3.5

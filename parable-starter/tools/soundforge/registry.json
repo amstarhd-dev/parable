@@ -1046,6 +1046,117 @@
           "paths": []
         }
       }
+    },
+    {
+      "id": "klon",
+      "type": "model",
+      "paths": [
+        "parable-starter/include/parable_klon.h",
+        "parable-starter/src/parable_klon.cpp",
+        "parable-starter/src/klon_device.h",
+        "parable-starter/tools/klon_lab.cpp",
+        "parable-starter/tools/klon_spice_reference.py",
+        "parable-starter/tools/klon_input.py",
+        "parable-starter/tests/test_klon.cpp",
+        "parable-starter/tests/test_klon_cli.py",
+        "parable-starter/docs/SF011_REPORT.md",
+        "parable-starter/docs/adr/ADR-011-klon-clean-contact.md"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/klon/provenance.json",
+          "candidate": 0,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/klon/ACME-LICENSE.md"
+          ],
+          "scope": "MIT diode/finite-pole foundation; owned fixed circuit and exact loading."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/klon/provenance.json",
+          "candidate": 1,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "BSD-3 prior art audit-only; separate WDF terminations not imported."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/klon/provenance.json",
+          "candidate": 2,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Independent annotated diagram, not a mixed clone BOM."
+        }
+      ],
+      "ownership_notes": "Parable-owned circuit with MIT device foundation; global license unspecified, independently licensed CC-BY recording. No policy expansion.",
+      "physics_notes": "Pinned April2009 S698, loaded21-node17-cap network including passive Vref and fixed nominal pump-domain headroom. One P1A wiper contact0-to100k; P1B unchanged. Actual loaded current groups/KCL/feedback decomposition, not output mixing.",
+      "behavior": "Stopped preparation,44.1-96k normal12x/577tap FIR; bounded five-variable coupled solve, four exact local amplifier feedback eliminations, Gain/Treble/Output. Standalone only.",
+      "limitations": [
+        "Generic Ge and reduced legacy TL072, no measured original unit. Fixed supply domain with illustrative offline pump/rail sensitivity; no calibrated pump current/ripple/PSRR, intrinsic charge/noise/offset/common-mode reversal/current limiting/recovery.",
+        "4x/8x hard-grid misses are recorded; final12x is a host-fidelity baseline with initial compute-bound budget missed by3x. No embedded approximation hidden.",
+        "No founder musical approval or M7 execution/cycles/deadline; state fit/compile is not pedal admission."
+      ],
+      "dependencies": {
+        "assets": [
+          "host.pcm16",
+          "host.signal-analysis",
+          "host.synthetic-plucks"
+        ],
+        "external": [
+          "C++17 libm, no new DSP runtime dependency.",
+          "Pinned offline ngspice44.2; existing ARM compiler/libDaisy recipe."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Independent DC/AC/whole-stage transients/harmonics/control/phase/KCL/refinement/alias, rate/reset/NaN/extreme/silence/guard and actual listening CLI checks.",
+          "paths": [
+            "parable-starter/tests/test_klon.cpp",
+            "parable-starter/tests/test_klon_cli.py"
+          ]
+        },
+        "independent_circuit": {
+          "status": "reduced-section-compared",
+          "scope": "Original signal network against independent builtin Ge and continuous TL072 macro, plus illustrative pump and rail sensitivity; not calibrated physical pedal.",
+          "paths": [
+            "parable-starter/tools/klon_spice_reference.py",
+            "parable-starter/tests/fixtures/klon/spice-manifest.json",
+            "parable-starter/tests/fixtures/klon/transient-576000.csv"
+          ]
+        },
+        "synthetic_audition": {
+          "status": "generated",
+          "scope": "Native attacks/long-note/impulse-release/polyphonic chord and balanced waveform; raw/common levels and analysis-only loaded path taps, no human approval.",
+          "paths": [
+            "parable-starter/tools/klon_lab.cpp"
+          ]
+        },
+        "real_guitar_audition": {
+          "status": "not-performed",
+          "scope": "Distinct permitted take03 with original/20s transformation retained; three Gain pairs and low/high guitar levels rendered; human listening pending.",
+          "paths": [
+            "parable-starter/third_party/klon/AUDIO_NOTICE.md",
+            "parable-starter/tools/klon_input.py"
+          ]
+        },
+        "arm_cross_compile": {
+          "status": "compiled",
+          "scope": "Pinned M7 object/layout/audio calls/static frames; no new voice firmware integration or execution.",
+          "paths": [
+            "parable-starter/tools/check_klon_arm.py"
+          ]
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No physical audio/boot/deadline/stack/pedal or supply calibration.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "Engine/canonical/pools/storage/living/firmware unchanged; raw state fit is not CPU or shared-state admission.",
+          "paths": []
+        }
+      }
     }
   ]
 }

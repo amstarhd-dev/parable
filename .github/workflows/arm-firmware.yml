@@ -29,6 +29,8 @@ jobs:
         run: python3 parable-starter/tools/check_muff_arm.py --compiler parable-starter/build/arm-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++ --output parable-starter/build/arm/muff-audit
       - name: Compile and inspect standalone TS808 (not firmware integrated)
         run: python3 parable-starter/tools/check_ts808_arm.py --compiler parable-starter/build/arm-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++ --output parable-starter/build/arm/ts808-audit
+      - name: Compile and inspect standalone S698 Klon contact model (not firmware integrated)
+        run: python3 parable-starter/tools/check_klon_arm.py --compiler parable-starter/build/arm-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++ --output parable-starter/build/arm/klon-audit
       - name: Publish first-boot kit candidate (never flash here)
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:

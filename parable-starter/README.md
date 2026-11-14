@@ -2,6 +2,13 @@
 
 This is the first **portable C++ code brick**, not a finished Parable SDK and not a commercial DSP effect. It contains no astrology or browser implementation. A separate experimental circuit-derived LabRAT listening laboratory is described below.
 
+SF-011 adds an experimental standalone [original-style Centaur / one clean-wiper contact](docs/SF011_REPORT.md).
+CI publishes **parable-klon-auditions**: three Gain pairs on new Guitar-TECHS take03,
+raw/matched files, loaded path diagnostics, independent SPICE and source receipts.
+[ADR-011](docs/adr/ADR-011-klon-clean-contact.md) records the selected S698 circuit,
+100kΩ contact and12x accuracy/cost tradeoff. No Engine/patch integration,
+physical supply/vintage-unit equivalence, Seed3 admission or founder approval.
+
 SF-010 adds an experimental standalone [TS808 / one truly open feedback diode](docs/SF010_REPORT.md).
 CI publishes **parable-ts808-auditions**: a new Guitar-TECHS take06, raw/matched
 healthy/fault WAVs, controlled polarity/current/harmonic evidence and references.
