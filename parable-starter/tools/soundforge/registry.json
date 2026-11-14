@@ -1157,6 +1157,123 @@
           "paths": []
         }
       }
+    },
+    {
+      "id": "model.moving-tape-saturation",
+      "type": "model",
+      "paths": [
+        "parable-starter/include/parable_tape_saturation.h",
+        "parable-starter/src/parable_tape_saturation.cpp",
+        "parable-starter/src/tape_saturation_material.h"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/tape_saturation/provenance.json",
+          "candidate": 0,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/tape_saturation/Kramer-LICENSE.txt"
+          ],
+          "scope": "Positive relay foundation condensed into Gaussian rows; see pinned audit."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/tape_saturation/provenance.json",
+          "candidate": 1,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Alternative model/source audit only, no import."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/tape_saturation/provenance.json",
+          "candidate": 2,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Alternative model/source audit only, no import."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/tape_saturation/provenance.json",
+          "candidate": 3,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Alternative model/source audit only, no import."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/tape_saturation/provenance.json",
+          "candidate": 4,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Alternative model/source audit only, no import."
+        }
+      ],
+      "ownership_notes": "MIT2023 Isaac Kramer relay foundation adapted by Parable; global project license unspecified. Source CC-BY4 take03 intentionally identical to SF011 per founder addendum.",
+      "physics_notes": "Fresh erased moving parcels, scalar Karlqvist fringe, positive Gaussian Preisach remanence, AC bias12->6mA only, fixed lead/pickup/induction/leaky flux EQ. One effective record depth, uniform playback thickness, not a calibrated SM911 deck.",
+      "behavior": "44.1/48/96k standalone4x bounded event/phase expectation, stopped preparation, finite buffers, physical pickup response. Raw/common/RMS-matched native renders.",
+      "limitations": [
+        "Numerical agreement shares physical assumptions; no vector/depth/dynamic-demagnetization/deck calibration. Limited coherent full-carrier probes; no arbitrary bias/audio beat guarantee.",
+        "Host-fidelity reference; large fixed sample cost and20KiB preparation frame are not embedded admission.",
+        "Human/founder listening, M7 cycles and hardware audio/latency unproven."
+      ],
+      "dependencies": {
+        "assets": [
+          "host.pcm16",
+          "host.signal-analysis",
+          "host.synthetic-plucks"
+        ],
+        "external": [
+          "C++17 libm during stopped preparation only; no new runtime dependency.",
+          "Offline long-double independent reference, standard-library Python analysis; existing pinned M7 compiler."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Independent relays/loops/passivity, long-double material at all rates, physical pickup response, safety/guard/lifecycle and native WAV CLI.",
+          "paths": [
+            "parable-starter/tests/test_tape_saturation.cpp",
+            "parable-starter/tests/test_tape_saturation_cli.py"
+          ]
+        },
+        "independent_circuit": {
+          "status": "reduced-section-compared",
+          "scope": "Independent dense full-field/continuous-carrier and refinement, sharing declared magnetic assumptions; not a measured circuit/deck.",
+          "paths": [
+            "parable-starter/tools/tape_saturation_reference.cpp",
+            "parable-starter/tests/fixtures/tape-saturation/reference-manifest.json"
+          ]
+        },
+        "synthetic_audition": {
+          "status": "generated",
+          "scope": "Native attacks/sustain/chord/twotone/sweep, raw/common gains; human listening pending.",
+          "paths": [
+            "parable-starter/tools/tape_saturation_lab.cpp"
+          ]
+        },
+        "real_guitar_audition": {
+          "status": "not-performed",
+          "scope": "Identical founder-preferred Centaur take03 rendered at3 input levels; new voice listening approval pending.",
+          "paths": [
+            "parable-starter/third_party/tape_saturation/AUDIO_NOTICE.md",
+            "parable-starter/tools/klon_input.py"
+          ]
+        },
+        "arm_cross_compile": {
+          "status": "compiled",
+          "scope": "Actual pinned M7 object/layout/call/stack audit, no new voice firmware link/execution.",
+          "paths": [
+            "parable-starter/tools/check_tape_saturation_arm.py"
+          ]
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No target audio, cycles, deadline, stack highwater or tape deck measurement.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "No Engine, patch, storage, firmware, living or correspondence changes.",
+          "paths": []
+        }
+      }
     }
   ]
 }

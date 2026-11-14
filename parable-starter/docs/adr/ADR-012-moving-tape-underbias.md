@@ -13,6 +13,10 @@ stationary magnetization driven indefinitely. A parcel remembers its own field
 history over~210us; source history and playback filters are transient audio
 memory. Remanence after the parcel leaves forms the recorded spatial pattern.
 No repeating tape loop, feedback, weak erase or borrowed SF006 ghost mechanism.
+The declared finite fringe ends with an explicit return to exterior zero field.
+An initial prototype omitted that projection and could report in-field rather
+than remanent magnetization at extreme drive; reject its evidence for delivery.
+Weak residual cycles outside the finite fringe are omitted, not measured absent.
 
 The boundary `p=clamp(p,H-r,H+r)` tracks real switching/hold intervals. The
 erf output integrates a continuous switching-center distribution; positivity

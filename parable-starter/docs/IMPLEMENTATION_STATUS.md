@@ -1,5 +1,26 @@
 # Implementation status and reproducible baseline
 
+## SF012 — experimental moving magnetic tape / underbiased record driver
+
+[Gate0](SF012_GATE0.md), [ADR012](adr/ADR-012-moving-tape-underbias.md),
+[commands/evidence/limits](SF012_REPORT.md), issue55. Main c3aaca1 includes merged54;
+open42/48 untouched.
+
+- **Specified/implemented:** positive hysteretic material in fresh moving parcels,
+  AC record bias, fixed lead/physical pickup/induction/leaky flux EQ. One bias-only
+  driver current12→6mA. Standalone; no Engine/patch/firmware integration.
+- **Host-tested:** independent long-double dense and continuously phased carrier,
+  relay/passivity/minor/remanence loops,44.1/48/96k and physical pickup response,
+  guarded audio/reset/finite extremes and57 native WAVs. Same Centaur take03,
+  three input levels, raw/common/RMS versions and separate controlled stimuli.
+- **ARM compile-inspected:**6048B object text,11880B state; no callback libm calls.
+  Fixed expensive work, stopped prepare20224B static frame: host fidelity research,
+  no2000cycle admission, target execution or new voice firmware link implied.
+- **Hardware-tested/musically approved:**none. Numerical validation shares declared
+  physical assumptions; single effective recording depth is not a fitted deck.
+  Classic underbias HF brightening, arbitrary carrier beats, calibrated electronics,
+  M7 timing/stack/audio and founder listening remain open.
+
 ## SF-011 — experimental standalone Centaur / P1A wiper contact
 
 Main dbde343 includes independently merged #50/#52. #42/#48 untouched.

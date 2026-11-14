@@ -1,0 +1,108 @@
+{
+  "candidates": [
+    {
+      "url": "https://github.com/isaackramer/python-preisach",
+      "revision": "0b27d738319e78160236068192aa7be3058bbbc9",
+      "license": "MIT",
+      "files": [
+        "LICENSE.txt",
+        "preisach/preisach_python.py",
+        "preisach/weights.py"
+      ],
+      "notes": "Derived: positive normalized relay switching/hold foundation condensed into Gaussian coercivity rows. MIT2023 Isaac Kramer notice retained. Soil hysteresis application, not fitted tape."
+    },
+    {
+      "url": "https://github.com/romanszewczyk/JAmodel",
+      "revision": "4bbe905d420ce27c66ee93d8b25ef44b553f9175",
+      "license": "MIT",
+      "files": [
+        "LICENSE",
+        "1_isotropic/dMdH.m",
+        "1_isotropic/Mah_iso.m",
+        "1_isotropic/dMah_iso.m",
+        "1_isotropic/JAsolver.m"
+      ],
+      "notes": "Audit-only. ODE/Langevin derivative and adaptive/50step RK4, no tape calibration. Preisach selected for bounded exact row state/passivity, not proof JA impossible."
+    },
+    {
+      "url": "https://github.com/kiluam/Preisach-model-of-hysteresis",
+      "revision": "fcbd61293300b7c949a300c7fabd97750fb6c9d7",
+      "license": "MIT",
+      "files": [
+        "LICENSE",
+        "Preisach.cpp",
+        "Property.h",
+        "Property.cpp"
+      ],
+      "notes": "Audit-only interactive reversal-stack, no weighted magnetic output; empty Property files. No code imported."
+    },
+    {
+      "url": "https://github.com/jatinchowdhury18/AnalogTapeModel",
+      "revision": "604372e4ffd9690c3e283362e4598cb43edbb475",
+      "license": "GPL-3.0",
+      "files": [
+        "LICENSE",
+        "Notes/Digitizing Hysteresis.md"
+      ],
+      "notes": "Audit-only, no code import. Exploratory note explicitly flags wrong formulas. Separate published DAFx paper CC-BY3 does not relicense repository."
+    },
+    {
+      "url": "https://github.com/grame-cncm/faustlibraries",
+      "revision": "452a85cc98068a05c30803a4485d94c2ab3f9636",
+      "license": "LGPL-2.1-with-Faust-generated-code-exception",
+      "files": [
+        "hysteresis.lib"
+      ],
+      "notes": "Audit-only outside unchanged MIT/BSD2 import policy. Acknowledge generated-code exception; no import or policy expansion."
+    }
+  ],
+  "references": {
+    "mcknight-biasing.pdf": {
+      "url": "https://cdn.shopify.com/s/files/1/0720/0627/1232/files/mcknight_biasing.pdf?v=1763068428",
+      "bytes": 395546,
+      "sha256": "94ea85389578bc48136aee42dbe45d38a0c89d4d26d6aa855df0611f8d8a569a"
+    },
+    "rtm-sm911-2022.pdf": {
+      "url": "https://www.duplication.com/resources/rtm/Data%20Sheet%20Info/fiche_sm911_rtm_2022.pdf",
+      "bytes": 545700,
+      "sha256": "7ed8d9562a278184637a1519702d0fc89da1d554917f561ac51e76448fb9d5d4"
+    },
+    "chow-tape-dafx2019.pdf": {
+      "url": "https://www.dafx.de/paper-archive/2019/DAFx2019_paper_3.pdf",
+      "bytes": 640587,
+      "sha256": "a915d63daee36556a4f267d9a52f07b1000988ecb48013589d926951a10d613c"
+    },
+    "karlqvist-revisited.pdf": {
+      "url": "https://arxiv.org/pdf/1504.07625",
+      "bytes": 507383,
+      "sha256": "6026cdfeac13ea37e29d7383b4fecedb6d7b376e53635532a9f4e782090c7f56"
+    }
+  },
+  "reference_only": [
+    {
+      "url": "https://archive.nptel.ac.in/content/storage2/courses/115103038/module4/lec29/2.html",
+      "scope": "Karlqvist arctangent field explanation, no text/artwork import"
+    },
+    {
+      "url": "https://tapeplugin.com/blog/how-it-works/",
+      "scope": "Commercial Infinite Digits moving cells/Preisach explanation. Related idea, no source grant or code/text/plot import; do not claim novelty."
+    }
+  ],
+  "decision": "parable-starter/docs/adr/ADR-012-moving-tape-underbias.md",
+  "internal_reuse": [
+    "unchanged lab_wav.h, soundforge/analysis.h and excitation.h",
+    "unchanged activation guard/check harness",
+    "owned prior FIR/FFT/CLI/ARM audit/evidence patterns",
+    "unchanged klon_input.py and exact take03 recording per founder addendum"
+  ],
+  "original_gap": "Specialize MIT relay law into positive Gaussian population and finite moving parcels, bias-envelope event reduction, physical head response, independent carrier and listening studies. No generic magnetic framework, Engine integration or stationary forever-driven audio hysteresis.",
+  "audio": {
+    "notice": "AUDIO_NOTICE.md",
+    "record": "14963133",
+    "license": "CC-BY-4.0",
+    "archive_sha256": "033489e22600751fb5a1633e7d856b901c6782e0486fa02135e830780d9dbfe2",
+    "original_sha256": "84980b5468f3315171e4e546a1d38d54e4c368ccb5fee72c759e0915f346fad0",
+    "prepared_excerpt_sha256": "75ae5e73c72e6774fb75e6318dc91ba66347fb65290949e947144033eb648f52"
+  },
+  "ownership": "Parable specializations with MIT2023 Isaac Kramer relay foundation; global repository license unspecified. References not redistributed; data separately CC-BY4."
+}

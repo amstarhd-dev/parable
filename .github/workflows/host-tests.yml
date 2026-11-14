@@ -398,6 +398,61 @@ jobs:
           UBSAN_OPTIONS: halt_on_error=1
         run: ctest --test-dir build/klon-sanitized --output-on-failure --no-tests=error -R '^klon_'
 
+  tape-saturation-sanitizers:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: parable-starter
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Configure focused SF012 ASan and UBSan
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -O1" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
+      - name: Build actual magnetic kernel and laboratory
+        run: cmake --build build --target parable_tape_saturation_test parable_tape_saturation_lab -j2
+      - name: Test material and listening boundaries
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
+          UBSAN_OPTIONS: halt_on_error=1
+        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^tape_saturation_'
+
+  tape-saturation-evidence:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: parable-starter
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Build actual Release kernel and independent offline reference
+        run: |
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+          cmake --build build --target parable_tape_saturation_test parable_tape_saturation_lab -j2
+          c++ -std=c++17 -O3 -Wall -Wextra -Wpedantic tools/tape_saturation_reference.cpp -o build/tape-reference
+          ctest --test-dir build --output-on-failure --no-tests=error -R '^tape_saturation_'
+      - name: Reproduce independent fixtures and resolved carrier
+        run: |
+          python3 tools/tape_saturation_evidence.py reference --reference build/tape-reference --output build/tape-saturation-research
+          ./build/parable_tape_saturation_lab --measure build/tape-saturation-research/native
+          python3 tools/tape_saturation_compare.py --carrier build/tape-saturation-research/carrier --native build/tape-saturation-research/native --output build/tape-saturation-research/comparison
+      - name: Render identical Centaur take03 through healthy and weak-bias material
+        env:
+          HEAD_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          mkdir -p build/tape-saturation-input
+          curl --fail --show-error --location https://zenodo.org/api/records/14963133/files/P3_music.zip/content --output build/tape-saturation-input/P3_music.zip
+          python3 tools/klon_input.py --archive build/tape-saturation-input/P3_music.zip --output build/tape-saturation-input
+          ./build/parable_tape_saturation_lab --input build/tape-saturation-input/take03-20s-mono16.wav --output build/tape-saturation-auditions
+          ./build/parable_tape_saturation_lab --input build/tape-saturation-input/take03-20s-mono16.wav --output build/tape-saturation-repeat
+          python3 tools/tape_saturation_evidence.py package --audio build/tape-saturation-auditions --repeat build/tape-saturation-repeat --input build/tape-saturation-input --research build/tape-saturation-research
+      - name: Publish magnetic tape listening and independent evidence
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-tape-saturation-auditions
+          path: parable-starter/build/tape-saturation-auditions/
+          if-no-files-found: error
+          retention-days: 30
+
   activation-tsan:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
