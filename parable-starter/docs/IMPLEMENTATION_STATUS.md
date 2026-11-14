@@ -1,5 +1,28 @@
 # Implementation status and reproducible baseline
 
+## SF-011 — experimental standalone Centaur / P1A wiper contact
+
+Main dbde343 includes independently merged #50/#52. #42/#48 untouched.
+[Gate0](SF011_GATE0.md), [ADR011](adr/ADR-011-klon-clean-contact.md),
+[commands/results/limits](SF011_REPORT.md).
+
+- **Specified/implemented:** original S698 loaded dual-gang circuit, both clean
+  feedforward paths, shunt Ge clipping, finite legacy-TL072 law, tone/output/bleed,
+  passive Vref; only clean wiper contact0→100kΩ. Standalone, same C++ for both voices.
+- **Host-tested:** independent builtin-diode/DC/complex AC/loaded-current/KCL/
+  nonlinear transient/harmonic/supply-domain probes;44.1/48/96k endpoints, guards,
+  reset/invalid/silence and actual guitar/controlled WAVs. Founder audition pending.
+- **ARM compile-inspected:**9808B text,0data/0BSS,11808B complete state; bounded
+  expm1/memcpy/memset audio calls. Engine/bundle/Runtime/RAT unchanged. No Klon link.
+- **Failed initial compute budget:**4x and8x miss the hard44.1k accuracy gate;
+  final12x passes without changing equations but triples the initial static bound.
+  Host fidelity research, no inferred2000cycle target admission.
+- **Hardware-tested/musically approved:**none. Fixed−8.6/+16.2V rails are explicit
+  assumptions with offline domain/sensitivity evidence, not physical pump equivalence.
+  No calibrated Ge/TL072 sample, PSRR/clock/sag/current/recovery/common-mode proof,
+  physical Seed3 timing/audio/stack high-water or founder recognition/preference.
+  No firmware/canonical/activation/storage/living/correspondence changes.
+
 ## SF-010 — experimental standalone TS808 / true open D2
 
 Initial main a17f64f; main advanced to ca666a2 with #50 merged during work.

@@ -10,7 +10,7 @@ permissions:
 jobs:
   host-tests:
     runs-on: ubuntu-24.04
-    timeout-minutes: 40
+    timeout-minutes: 60
     strategy:
       matrix:
         build_type: [Debug, Release]
@@ -25,6 +25,52 @@ jobs:
         run: cmake --build build
       - name: Test
         run: ctest --test-dir build --output-on-failure --no-tests=error
+      - name: Render S698 Klon three Gain pairs and one clean-wiper contact with NEW take03
+        if: matrix.build_type == 'Release'
+        env:
+          HEAD_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          mkdir -p build/klon-input
+          curl --fail --show-error --location https://zenodo.org/api/records/14963133/files/P3_music.zip/content --output build/klon-input/P3_music.zip
+          python3 tools/klon_input.py --archive build/klon-input/P3_music.zip --output build/klon-input
+          ./build/parable_klon_lab --input build/klon-input/take03-20s-mono16.wav --output build/klon-auditions
+          ./build/parable_klon_lab --input build/klon-input/take03-20s-mono16.wav --output build/klon-repeat
+          python3 - <<'PYVERIFY'
+          import hashlib,json
+          from pathlib import Path
+          one=Path('build/klon-auditions');two=Path('build/klon-repeat')
+          for path in one.rglob('*'):
+            if path.is_file() and path.name!='renders.csv': assert path.read_bytes()==(two/path.relative_to(one)).read_bytes(),path
+          root=Path('tests/fixtures/klon');manifest=json.loads((root/'spice-manifest.json').read_text())
+          for name,digest in manifest['fixture_sha256'].items(): assert hashlib.sha256((root/name).read_bytes()).hexdigest()==digest
+          for name,digest in manifest['netlist_sha256'].items(): assert hashlib.sha256((root/'netlists'/name).read_bytes()).hexdigest()==digest
+          PYVERIFY
+          cp build/klon-measurements/*.csv build/klon-auditions/
+          cp build/Testing/Temporary/LastTest.log build/klon-auditions/HOST_TESTS.txt
+          cp build/klon-input/source-original-stereo24.wav build/klon-input/take03-20s-mono16.wav build/klon-input/source-receipt.json build/klon-auditions/
+          cp third_party/klon/* docs/SF011_REPORT.md docs/SF011_GATE0.md docs/adr/ADR-011-klon-clean-contact.md build/klon-auditions/
+          cp -r tests/fixtures/klon build/klon-auditions/independent-reference
+          cp -r docs/figures/sf011 build/klon-auditions/figures
+          git rev-parse HEAD > build/klon-auditions/SOURCE_COMMIT
+          printenv HEAD_COMMIT > build/klon-auditions/HEAD_COMMIT
+          c++ --version > build/klon-auditions/HOST_COMPILER.txt
+          sha256sum include/parable_klon.h src/parable_klon.cpp src/klon_device.h tools/klon_*.py tools/klon_lab.cpp tools/klon_stimulus.h tools/check_klon_arm.py tests/test_klon* tests/fixtures/klon/*.csv tests/fixtures/klon/*.json tests/fixtures/klon/netlists/* tests/activation_guard.* tools/lab_wav.h tools/rat_spice_reference.py tools/soundforge/analysis.h tools/soundforge/excitation.h third_party/klon/* include/parable_core.h > build/klon-auditions/SOURCE_SHA256SUMS
+          python3 - <<'PYSHA'
+          import hashlib
+          from pathlib import Path
+          root=Path('build/klon-auditions')
+          with (root/'SHA256SUMS').open('w') as f:
+            for p in sorted(root.rglob('*')):
+              if p.is_file() and p.name!='SHA256SUMS': f.write(hashlib.sha256(p.read_bytes()).hexdigest()+'  '+str(p.relative_to(root))+'\n')
+          PYSHA
+      - name: Publish Klon healthy and resistive-contact listening and electrical evidence
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-klon-auditions
+          path: parable-starter/build/klon-auditions/
+          if-no-files-found: error
+          retention-days: 30
       - name: Render source-derived TS808 and truly open D2 with NEW guitar take06
         if: matrix.build_type == 'Release'
         env:
@@ -306,7 +352,7 @@ jobs:
 
   integration-sanitizers:
     runs-on: ubuntu-24.04
-    timeout-minutes: 40
+    timeout-minutes: 60
     defaults:
       run:
         working-directory: parable-starter
@@ -341,6 +387,16 @@ jobs:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1
         run: ctest --test-dir build/ts808-sanitized --output-on-failure --no-tests=error -R '^ts808_'
+
+      - name: Configure focused Klon ASan and UBSan at O1
+        run: cmake -S . -B build/klon-sanitized -DCMAKE_BUILD_TYPE=Debug -DFETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON="$PWD/build/_deps/nlohmann_json-src" -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -O1" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
+      - name: Build focused Klon sanitizer targets
+        run: cmake --build build/klon-sanitized --target parable_klon_test parable_klon_lab -j2
+      - name: Test Klon actual circuit and listening boundaries with sanitizers
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
+          UBSAN_OPTIONS: halt_on_error=1
+        run: ctest --test-dir build/klon-sanitized --output-on-failure --no-tests=error -R '^klon_'
 
   activation-tsan:
     runs-on: ubuntu-24.04

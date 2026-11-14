@@ -1,0 +1,93 @@
+Independent S698 Chittum April15 2009 effect-on; fixed nominal pump rails
+V9 p9 0 9
+.global p9
+V18 p18 0 16.2
+VN neg 0 -8.6
+R29 p9 ref 27k
+R30 ref 0 27k
+C18 ref 0 47u
+Vsrc src 0 SIN(0 0.14999999999999999 1000) AC 1
+Rsource src jackin 1k
+R1 jackin ci 10k
+C1 ci ip 100n
+R2 ip ref 1meg
+XU1A ip buf buf amp LO=-3 HI=3
+C2 buf bh 4.7u
+R3 bh 0 100k
+R4 bh byp 560
+C3 buf pre 100n
+R5 pre cu 5.1k
+C4 pre cu 68n
+R6 pre dp 10k
+C5 pre dp 68n
+R7 pre ff1 1.5k
+C16 ff1 0 1u
+R19 ff1 sm 15k
+R8 cu ref 1.5k
+C6 cu c6low 390n
+R9 c6low ref 1k
+RP1Btop dp ref 50000
+RP1Bbottom pb ref 50000
+R10 pb fbn 2k
+R11 fbn dm 15k
+C7 fbn dm 82n
+R12 dm dout 422k
+C8 dm dout 390p
+XU1B dp dm dout amp LO=-3 HI=3
+C9 dout c9r 1u
+R13 c9r clip 1k
+D2 0 clip Ge
+D3 clip 0 Ge
+C10 clip pc 1u
+R16 pc sm 47k
+C11 pc c11r 2.2n
+R15 c11r cw 22k
+R17 sm cw 27k
+C12 sm c12r 27n
+R18 c12r cw 12k
+RP1Atop cu track 50000
+RP1Abottom track ref 50000
+RP1Acontact track cw 1000000
+R20 sm so 392k
+C13 sm so 820p
+XU2A ref sm so amp LO=-11.6 HI=10.2
+R21 so p2b 1.8k
+R22 so tm 100k
+R23 p2t tout 4.7k
+R241 tm tout 100k
+RP2top p2t p2w 5000
+RP2bottom p2w p2b 5000
+C14 p2w tm 3.9n
+XU2B ref tm tout amp LO=-11.6 HI=10.2
+C15 tout co 4.7u
+R25 co lev 560
+RP3top lev out 5000
+RP3bottom out 0 5000
+R26 byp out 68k
+R27 lev out 68k
+R28 out 0 100k
+Rload out 0 1meg
+.model Ge D(IS=600n N=1.5 EG=.67 CJO=0 TT=0 TNOM=26.85)
+.subckt amp p n o params: LO=-3 HI=3
+Rin p n 1e12
+Gerr 0 u p n 18.8495559215388
+Rstate u 0 10610.3295394597
+Cstate u 0 1u
+Ecenter center 0 p9 0 .5
+Edrive internal center u 0 1
+Rout internal o 50
+.ends
+
+
+.options reltol=1e-8 abstol=1e-13 vntol=1e-10 gmin=1e-14
+.temp 26.85
+.control
+set noaskquit
+set wr_singlescale
+set wr_vecnames
+option reltol=1e-9 abstol=1e-15 vntol=1e-12
+ac dec 10 100 10000
+wrdata candidate-g0.5-rc1000000.txt v(ip) v(buf) v(pre) v(cu) v(dp) v(fbn) v(dm) v(dout) v(clip) v(pc) v(cw) v(ff1) v(sm) v(so) v(tm) v(tout) v(lev) v(bh) v(byp) v(out) v(ref) v(xu1a.u) v(xu1b.u) v(xu2a.u) v(xu2b.u) v(c11r) v(c12r)
+quit
+.endc
+.end

@@ -1,0 +1,72 @@
+{
+  "candidates": [
+    {
+      "url": "https://github.com/HSU-ANT/ACME.jl",
+      "revision": "3832ccafb952ee2ca0a27286c091d613062c23fd",
+      "license": "MIT",
+      "notes": "Audited src/elements.jl diode and finite gain/GBW foundation; narrow adaptation, full existing Expat notice. No Julia/framework or tanh opamp import."
+    },
+    {
+      "url": "https://github.com/jatinchowdhury18/KlonCentaur",
+      "revision": "f3bb633a593b6fbb22a44c1ef9d1dbedbfe92d5b",
+      "license": "BSD-3-Clause",
+      "notes": "Audit-only: root LICENSE blob872610cbe51070aa0f8560ac1e5a838eb10d0d80 and GainStageProc/AmpStage/FeedForward2/PreAmpStage/ClippingStage/DiodePair/SummingAmp. Credible prior art, outside unchanged MIT/BSD-2 import allowlist. WDF separate-path terminations/endpoint floors/JUCE/RNN not imported; full mutually loaded contact requires adaptation."
+    },
+    {
+      "url": "https://github.com/mstratman/electrosmash-pdf-backups",
+      "revision": "ebf6b8604d663c1832d06682e74940830cdc5490",
+      "license": "Reference only; no drawing/code grant inferred",
+      "files_sha256": {
+        "images/klon-centaur-analysis/Klon-Centaur-Schematic-Big.png": "69e2ec4527bcb7a7a14d61d4be00b08dc5919e90ea6731b52cd0addafb7ec673",
+        "klon-centaur-analysis.html": "55a710f4203d7c52168d7a0b2bf8e5a65c5c595c8800d2a08b387263d8502c2f"
+      },
+      "notes": "Independent annotated analysis, different gang/reference labels and MAX1044 vs original ICL7660S. Not a second mixed BOM. Full drawing Git blob031457771c4f06fcb2b15ae9af2b811124323bfe."
+    }
+  ],
+  "references": [
+    {
+      "url": "https://aionfx.com/app/files/schematics/klon-centaur-schematic.png",
+      "sha256": "20f736382cd5ccb74d143d519cc9d39135f153ef8422a18d7be175272e83eb39",
+      "scope": "Original trace, component facts only; P1A clean/P1B drive, R241 feedback and R26/R27 retained. No image/layout/text import.",
+      "drawing_date": "2009-04-15",
+      "traced_unit": "S698"
+    },
+    {
+      "url": "https://www.ti.com/lit/ds/symlink/tl072.pdf",
+      "sha256": "d6e672f79ba4941d864de72e5d93983e5fd3dbe50f3bcbaac3d83d5007333689",
+      "scope": "SLOS080W July2025. LEGACY TL072 typical3MHz/13Vus/200k gain/1T input; not TL072H. Values at specified datasheet conditions, not vintage9V calibration;50ohm output and rail macro reduced assumptions."
+    },
+    {
+      "url": "https://www.renesas.com/en/document/dst/icl7660s-icl7660a-datasheet",
+      "sha256": "deab14980df4c62ee9025a0b49e0ea89d33982cd100bdac7cc89ac2ae3567334",
+      "scope": "FN3179 Rev7.01 Feb10 2020. Combined inverter/doubler, four switches,1/(fC) loss;5V typical10k oscillator,BOOST~3.5x,pump=fosc/2,23ohm switch. Offline23ohm/17.5k/ESR1/load2.8mA illustration is not measured9V equivalence."
+    },
+    {
+      "url": "https://aionfx.com/project/refractor-professional-overdrive/",
+      "sha256": "58cebd10c49573537aee72a18418b5e363e29c8f872dbdcd47e680ea71bef03a",
+      "scope": "Original S698 trace provenance and diode~.35V at5mA discussion. Nominal IS600n/n1.5 matches that one point approximately, not empirical calibration or unit-variance proof."
+    },
+    {
+      "url": "https://tiburonboy.github.io/Symbolic-Modified-Nodal-Analysis-using-Python/Klon%20Centaur%20part%201.html",
+      "scope": "Independent MNA/phase/topology cross-check only; no notebook/code/artwork imported."
+    }
+  ],
+  "decision": "parable-starter/docs/adr/ADR-011-klon-clean-contact.md",
+  "internal_reuse": [
+    "unchanged PCM/statistics/excitation/callback guard and20-line run_spice wrapper",
+    "owned main fixed-network inverse, companion histories, pivot/damping, FIR and FFT patterns",
+    "TS808 exact local PWL pole/slew/rail response, specialized self-feedback algebra; no TS808 signal topology imported"
+  ],
+  "original_gap": "One fixed21-node/17-cap circuit, exact pot endpoints, passive Vref, coupled finite amp/diode solution, local contact conductance and loaded current/feedback decomposition. No generic analog framework or output dry/wet blend.",
+  "audio": {
+    "record": "14963133",
+    "observed_metadata_revision": 12,
+    "license": "CC-BY-4.0",
+    "notice": "AUDIO_NOTICE.md",
+    "member": "P3_music/audio/directinput/directinput_03.wav",
+    "archive_sha256": "033489e22600751fb5a1633e7d856b901c6782e0486fa02135e830780d9dbfe2",
+    "original_sha256": "84980b5468f3315171e4e546a1d38d54e4c368ccb5fee72c759e0915f346fad0",
+    "prepared_excerpt_sha256": "75ae5e73c72e6774fb75e6318dc91ba66347fb65290949e947144033eb648f52"
+  },
+  "ownership": "Parable-owned fixed network with MIT device/pole foundation; global project license unspecified. CC-BY audio permission is independently licensed data. #42/#48 unchanged; #50/#52 already merged on initial main, not merged by this work."
+}

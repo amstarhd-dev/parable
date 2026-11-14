@@ -23,7 +23,7 @@ class RegistryTests(unittest.TestCase):
             registry.validate(catalog)
 
     def test_committed_catalog(self):
-        self.assertEqual(registry.validate(self.catalog), 10)
+        self.assertEqual(registry.validate(self.catalog), 11)
 
     def test_format_and_missing_fields(self):
         for version in (0, 2, True, "1"):
