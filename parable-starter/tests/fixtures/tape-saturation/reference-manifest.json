@@ -1,0 +1,25 @@
+{
+  "generator": "C++17 long-double independent resolved-field reference; no native headers",
+  "compiler": "GCC14.2.0 Linux x86_64",
+  "source_sha256": {
+    "tools/tape_saturation_reference.cpp": "617b71f23281a0c36e91c1d68da8add7693ba26eac5254c990b9d8209cf88ea9"
+  },
+  "fixture_sha256": {
+    "candidates.csv": "6b2aa82a9504d6ae5f0c3d8264371b78ad84d237b60e7355e22170276fdf7178",
+    "material.csv": "4b363b58d56dce9cb019f34cd4d5f6a52fa11e4aedd922723a7c475add8e2a85",
+    "refinement.csv": "9ef6aeda6550d10be86abce4ac6617985dc679f6f90e794d6fa080961ab4452e"
+  },
+  "commands": [
+    "c++ -std=c++17 -O3 tools/tape_saturation_reference.cpp -o build/tape-reference",
+    "build/tape-reference --fixtures build/independent-reference"
+  ],
+  "assumptions_shared": "8 positive Gaussian coercivity rows, one effective recording depth, scalar Karlqvist field, finite80um fringe then H=0. Numerical cross-validation, not physical deck calibration.",
+  "resolution": {
+    "ordinary_carrier_steps_per_cycle": 128,
+    "ordinary_phases": 32,
+    "refined_steps": 256,
+    "refined_phases": 64
+  },
+  "units": "SI except normalized M/Ms; current-driven record voltage measured before lead electronics",
+  "SPICE": "not applicable to phenomenological material law; no identified measured bias oscillator schematic. Exact fundamental-current analogue, not a claimed diagnosed component unit."
+}

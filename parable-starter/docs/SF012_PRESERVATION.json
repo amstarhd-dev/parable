@@ -1,0 +1,57 @@
+{
+  "base_commit": "c3aaca164e7a3f7d5b0106b3dd8dc89b7e1ef940",
+  "comparison_artifact": {
+    "file": "sf011-arm-ci-final.zip",
+    "sha256": "fd199fc3ef38f80a3179fdd39622e0f4cbfba0dca49e3e28872ad4e0509bf099",
+    "run_id": 43531318849,
+    "artifact_id": 14087562616
+  },
+  "binary_comparisons": [
+    {
+      "path": "diagnostic_qspi/parable_seed3_codec_probe.bin",
+      "equal": true,
+      "sha256": "e5b65a2b7829a2862fca32fc4030a626722e404bf94207096c79238a7aa32454"
+    },
+    {
+      "path": "diagnostic_sram/parable_seed3_codec_probe.bin",
+      "equal": true,
+      "sha256": "c147850abc043255793c8ed4fe0d1589ea9ca96d72458b8078c8b183716397b5"
+    },
+    {
+      "path": "first-boot/led_recovery/parable_seed3_led.bin",
+      "equal": true,
+      "sha256": "12a160b05cf44739facdc7c9c4e47db6fa820c6684115bd7723348d9c3a131f1"
+    },
+    {
+      "path": "first-boot/mono_bypass/parable_seed3_bypass.bin",
+      "equal": true,
+      "sha256": "f78e6785e629d369a4dd30c51d4c465f58fd820a8e8841c6bdb7eafb2040d301"
+    },
+    {
+      "path": "first-boot/rat_composite/parable_seed3_rat_composite.bin",
+      "equal": true,
+      "sha256": "57ab965bbd3b6b9dfca57c3c78b4f12c310591f268202ada872278cf4dfefdd6"
+    },
+    {
+      "path": "first-boot/rollback/parable_seed3_minimal.bin",
+      "equal": true,
+      "sha256": "9a9192b11d2d2f5a6a39118c8810dff810dc3484085e5ea7e10c383468564d1c"
+    },
+    {
+      "path": "minimal/parable_seed3_minimal.bin",
+      "equal": true,
+      "sha256": "9a9192b11d2d2f5a6a39118c8810dff810dc3484085e5ea7e10c383468564d1c"
+    },
+    {
+      "path": "rat_integration/parable_seed3_rat_probe.bin",
+      "equal": true,
+      "sha256": "9cf71b5712b70d3d6c46a5b7ce6355ee519a25e73f1fc1899baf7a852ec8bcc2"
+    }
+  ],
+  "existing_objects_after_strip_debug_equal": 41,
+  "existing_objects_after_strip_debug_different": [],
+  "raw_debug_objects_different": 32,
+  "protected_sources": 389,
+  "canonical_living_outputs": 27,
+  "scope": "Local fresh pinned recipe versus previously downloaded and checksum-verified SF011 CI ZIP; no new tape voice firmware link or hardware execution. Source path/DWARF differences do not alter binary output."
+}

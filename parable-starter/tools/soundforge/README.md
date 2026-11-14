@@ -13,6 +13,12 @@ and adds no general transistor solver or runtime integration.
 
 ## Facilities
 
+SF012 adds a standalone [moving tape/underbias specimen](../../docs/SF012_REPORT.md)
+with positive hysteretic material, independent resolved-carrier evidence and the
+identical founder-preferred Centaur take03. It does not reuse SF006's echo/erase
+fault or enter the Engine. Twelve registry assets; hearing/physical tape/Daisy
+timing approval remain separate from numerical and compilation evidence.
+
 - `analysis.h`: model-independent C++17 whole-wave RMS/peak/mean, finite checks,
   amplitude dB (floor 1e-15 / -300 dB), shared RMS target and explicit matching gain.
   Empty/nonfinite signals and invalid requests reject. Sample accumulation order
