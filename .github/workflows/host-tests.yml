@@ -71,6 +71,22 @@ jobs:
           path: parable-starter/build/klon-auditions/
           if-no-files-found: error
           retention-days: 30
+      - name: Render one loaded Lockhart and one feed-resistor fault with the SAME take03
+        if: matrix.build_type == 'Release'
+        env:
+          HEAD_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          ./build/parable_wavefolder_lab --input build/klon-input/take03-20s-mono16.wav --output build/wavefolder-auditions --compare-existing
+          ./build/parable_wavefolder_lab --input build/klon-input/take03-20s-mono16.wav --output build/wavefolder-repeat --compare-existing
+          python3 tools/wavefolder_evidence.py --renders build/wavefolder-auditions --repeat build/wavefolder-repeat --input build/klon-input --tests build/Testing/Temporary/LastTest.log
+      - name: Publish Lockhart same-take guitar, raw/common/RMS and independent evidence
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-wavefolder-auditions
+          path: parable-starter/build/wavefolder-auditions/
+          if-no-files-found: error
+          retention-days: 30
       - name: Render source-derived TS808 and truly open D2 with NEW guitar take06
         if: matrix.build_type == 'Release'
         env:
@@ -397,6 +413,16 @@ jobs:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1
         run: ctest --test-dir build/klon-sanitized --output-on-failure --no-tests=error -R '^klon_'
+
+      - name: Configure focused wavefolder ASan and UBSan at O1
+        run: cmake -S . -B build/wavefolder-sanitized -DCMAKE_BUILD_TYPE=Debug -DFETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON="$PWD/build/_deps/nlohmann_json-src" -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -O1" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
+      - name: Build focused wavefolder sanitizer targets
+        run: cmake --build build/wavefolder-sanitized --target parable_wavefolder_test parable_wavefolder_lab -j2
+      - name: Test wavefolder circuit and listening boundaries with sanitizers
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
+          UBSAN_OPTIONS: halt_on_error=1
+        run: ctest --test-dir build/wavefolder-sanitized --output-on-failure --no-tests=error -R '^wavefolder_'
 
   activation-tsan:
     runs-on: ubuntu-24.04

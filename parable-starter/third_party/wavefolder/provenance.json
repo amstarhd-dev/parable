@@ -1,0 +1,53 @@
+{
+  "candidates": [
+    {
+      "url": "https://github.com/HSU-ANT/ACME.jl",
+      "revision": "3832ccafb952ee2ca0a27286c091d613062c23fd",
+      "license": "MIT",
+      "notes": "Narrow reciprocal Ebers-Moll transport/terminal currents and analytic derivatives adapted from src/elements.jl:bjt, then specialized to three-node loaded complementary Lockhart. No Julia/framework imported."
+    },
+    {
+      "url": "https://github.com/danmohd/LockhartWavefolderJUCE",
+      "revision": "caa89c683a70eb077dc05806dfa58d92f05c43b0",
+      "license": "No root license; audit only",
+      "notes": "Inspected actual Source/Lockhart.h/.cpp. Symmetric Lambert-W/ADAA reference, no code/coefficients imported."
+    },
+    {
+      "url": "https://github.com/madskjeldgaard/portedplugins",
+      "revision": "c6c0d7430e9bc8e8aaeae3db8263e1dbb8f398eb",
+      "license": "GPL-3.0",
+      "notes": "Inspected actual LockhartCell.cpp and LICENSE:1000 Halley iterations and exp-overflow FIXME. No import."
+    },
+    {
+      "url": "https://github.com/annaobara/Buchla-259-Wavefolder",
+      "revision": "c3f4045e2d09bf367e46a2625ffbd4b3d06edfa5",
+      "license": "MIT",
+      "notes": "Audited LICENSE and src/wavefolder.m. Different five-branch topology and known-sine-crossing polyBLAMP, not an arbitrary-input guitar cell. No import."
+    }
+  ],
+  "references": [
+    {
+      "url": "https://doi.org/10.3390/app7121328",
+      "pdf_sha256": "2e9a1465f9190381c402d478fbacb114fdc758656ad006638c80d75d9b3b19b6",
+      "scope": "Esqueda/Pontynen/Parker/Bilbao2017; actual complementary Lockhart topology/resistors/ADAA facts. Paper CC-BY4.0 is not a license to import linked source code. No drawings or prose copied."
+    }
+  ],
+  "decision": "parable-starter/docs/adr/ADR-014-lockhart-feed-resistor.md",
+  "internal_reuse": [
+    "Unchanged lab_wav.h/analysis.h/excitation.h/activation_guard/run_spice/klon_input.py",
+    "Owned main symmetric FIR and FFT patterns; no new generic solver",
+    "Unchanged RAT/Muff/CMOS native models linked only by host comparison runner"
+  ],
+  "original_gap": "One fixed loaded three-node reciprocal BJT cell, exact implicit derivatives, stopped Hermite+primitive preparation, bounded callback and one upper feed resistor fault.",
+  "audio": {
+    "record": "14963133",
+    "observed_metadata_revision": 12,
+    "license": "CC-BY-4.0",
+    "notice": "AUDIO_NOTICE.md",
+    "member": "P3_music/audio/directinput/directinput_03.wav",
+    "archive_sha256": "033489e22600751fb5a1633e7d856b901c6782e0486fa02135e830780d9dbfe2",
+    "original_sha256": "84980b5468f3315171e4e546a1d38d54e4c368ccb5fee72c759e0915f346fad0",
+    "prepared_excerpt_sha256": "75ae5e73c72e6774fb75e6318dc91ba66347fb65290949e947144033eb648f52"
+  },
+  "ownership": "MIT notice applies to narrow borrowed foundation. Parable-local specialization; global project license remains unspecified. No open PR code merged/cherry-picked."
+}

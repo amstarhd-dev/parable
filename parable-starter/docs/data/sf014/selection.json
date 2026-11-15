@@ -1,0 +1,1491 @@
+{
+  "native_output_divisor": 8,
+  "paper_symmetric_Lambert_W_peak_V": 0.0038833995200984184,
+  "paper_note": "Different ideal symmetry/finite-beta approximations; not a paper error. No asymmetric post-shift allowed.",
+  "tables": [
+    {
+      "Rplus": 15000,
+      "intervals": 256,
+      "lookup_bytes": 4112,
+      "peak_V": 4.831770858088058e-05,
+      "RMS_V": 2.9938750714486506e-06
+    },
+    {
+      "Rplus": 15000,
+      "intervals": 512,
+      "lookup_bytes": 8208,
+      "peak_V": 3.6840585834196915e-06,
+      "RMS_V": 3.20499530691171e-07
+    },
+    {
+      "Rplus": 15000,
+      "intervals": 1024,
+      "lookup_bytes": 16400,
+      "peak_V": 3.924639404573327e-07,
+      "RMS_V": 2.529135761908136e-07
+    },
+    {
+      "Rplus": 22000,
+      "intervals": 256,
+      "lookup_bytes": 4112,
+      "peak_V": 3.689333125489469e-05,
+      "RMS_V": 2.337052486035164e-06
+    },
+    {
+      "Rplus": 22000,
+      "intervals": 512,
+      "lookup_bytes": 8208,
+      "peak_V": 2.5363991176252654e-06,
+      "RMS_V": 2.881661442362622e-07
+    },
+    {
+      "Rplus": 22000,
+      "intervals": 1024,
+      "lookup_bytes": 16400,
+      "peak_V": 3.8830933801747847e-07,
+      "RMS_V": 2.5247640503399485e-07
+    }
+  ],
+  "sampling": [
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 0,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": 1754.9560546875,
+      "relative_RMS": 0.04068267358740413,
+      "spur_dBr_reference_RMS": -29.967161985063644
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 0,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": 1754.9560546875,
+      "relative_RMS": 0.046133444906555354,
+      "spur_dBr_reference_RMS": -36.204604560245095
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 0,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": 1754.9560546875,
+      "relative_RMS": 0.004077874195740878,
+      "spur_dBr_reference_RMS": -50.22329157551507
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 0,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": 1754.9560546875,
+      "relative_RMS": 0.010854165484694022,
+      "spur_dBr_reference_RMS": -65.03205326749732
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 0,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": 1754.9560546875,
+      "relative_RMS": 0.0002583277872360114,
+      "spur_dBr_reference_RMS": -74.76786172437023
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 0,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": 1754.9560546875,
+      "relative_RMS": 0.0027215963231773683,
+      "spur_dBr_reference_RMS": -98.57881410484575
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 1,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": 3509.912109375,
+      "relative_RMS": 0.18605264461364374,
+      "spur_dBr_reference_RMS": -12.589541822300383
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 1,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": 3509.912109375,
+      "relative_RMS": 0.16101663273830322,
+      "spur_dBr_reference_RMS": -18.103936433379964
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 1,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": 3509.912109375,
+      "relative_RMS": 0.015299734581074958,
+      "spur_dBr_reference_RMS": -35.29490222028461
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 1,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": 3509.912109375,
+      "relative_RMS": 0.02940827480076485,
+      "spur_dBr_reference_RMS": -50.600076154231786
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 1,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": 3509.912109375,
+      "relative_RMS": 0.001921879471109369,
+      "spur_dBr_reference_RMS": -54.16806051750981
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 1,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": 3509.912109375,
+      "relative_RMS": 0.007364345756814551,
+      "spur_dBr_reference_RMS": -78.2855354860819
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 2,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": 7999.5849609375,
+      "relative_RMS": 1.4110234338809973,
+      "spur_dBr_reference_RMS": 4.927862019803181
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 2,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": 7999.5849609375,
+      "relative_RMS": 0.8592738476640894,
+      "spur_dBr_reference_RMS": -0.8325793595549837
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 2,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": 7999.5849609375,
+      "relative_RMS": 0.1233347581083278,
+      "spur_dBr_reference_RMS": -15.722356757324507
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 2,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": 7999.5849609375,
+      "relative_RMS": 0.15074849338463617,
+      "spur_dBr_reference_RMS": -32.00992076330438
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 2,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": 7999.5849609375,
+      "relative_RMS": 0.022004947463635724,
+      "spur_dBr_reference_RMS": -31.056218895706678
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 2,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": 7999.5849609375,
+      "relative_RMS": 0.03792838858160933,
+      "spur_dBr_reference_RMS": -60.799276698576676
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 3,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": null,
+      "relative_RMS": 0.012755779271337505,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 3,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": null,
+      "relative_RMS": 0.018417815577116307,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 3,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": null,
+      "relative_RMS": 0.0009549828142621841,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 3,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": null,
+      "relative_RMS": 0.004266754503406632,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 3,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": null,
+      "relative_RMS": 7.436540301965362e-05,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "kind": 3,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": null,
+      "relative_RMS": 0.0010731716616237841,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 0,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": 1754.9560546875,
+      "relative_RMS": 0.0031975671465028564,
+      "spur_dBr_reference_RMS": -50.32183831506848
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 0,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": 1754.9560546875,
+      "relative_RMS": 0.008453136544409075,
+      "spur_dBr_reference_RMS": -55.39737508889199
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 0,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": 1754.9560546875,
+      "relative_RMS": 6.238385427089205e-05,
+      "spur_dBr_reference_RMS": -87.5316081483566
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 0,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": 1754.9560546875,
+      "relative_RMS": 0.0020517250467800147,
+      "spur_dBr_reference_RMS": -104.26883306349276
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 0,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": 1754.9560546875,
+      "relative_RMS": 3.542032973595458e-07,
+      "spur_dBr_reference_RMS": -134.0058049050253
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 0,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": 1754.9560546875,
+      "relative_RMS": 0.0005135584474030083,
+      "spur_dBr_reference_RMS": -143.51518662816804
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 1,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": 3509.912109375,
+      "relative_RMS": 0.011687589154267167,
+      "spur_dBr_reference_RMS": -37.35574620138462
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 1,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": 3509.912109375,
+      "relative_RMS": 0.032064368339872355,
+      "spur_dBr_reference_RMS": -43.12679944418956
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 1,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": 3509.912109375,
+      "relative_RMS": 0.0007847231054490243,
+      "spur_dBr_reference_RMS": -62.835935054691035
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 1,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": 3509.912109375,
+      "relative_RMS": 0.007560133650085939,
+      "spur_dBr_reference_RMS": -79.26229155612953
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 1,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": 3509.912109375,
+      "relative_RMS": 2.6036484931002522e-05,
+      "spur_dBr_reference_RMS": -94.6843842669575
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 1,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": 3509.912109375,
+      "relative_RMS": 0.0018976776384045985,
+      "spur_dBr_reference_RMS": -114.0156595438254
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 2,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": 7999.5849609375,
+      "relative_RMS": 0.06454316435713017,
+      "spur_dBr_reference_RMS": -23.82719642224579
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 2,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": 7999.5849609375,
+      "relative_RMS": 0.1319449240661772,
+      "spur_dBr_reference_RMS": -44.795752128027104
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 2,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": 7999.5849609375,
+      "relative_RMS": 0.004101034111654823,
+      "spur_dBr_reference_RMS": -49.68604103326429
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 2,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": 7999.5849609375,
+      "relative_RMS": 0.031045906496685656,
+      "spur_dBr_reference_RMS": -58.56173627764241
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 2,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": 7999.5849609375,
+      "relative_RMS": 0.0008606796274675025,
+      "spur_dBr_reference_RMS": -62.39184926829162
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 2,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": 7999.5849609375,
+      "relative_RMS": 0.007724728343178902,
+      "spur_dBr_reference_RMS": -95.62991331239056
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 3,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": null,
+      "relative_RMS": 0.00045697999652820456,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 3,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": null,
+      "relative_RMS": 0.0061567384390869995,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 3,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": null,
+      "relative_RMS": 7.423901611706332e-06,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 3,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": null,
+      "relative_RMS": 0.001545463453877679,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 3,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": null,
+      "relative_RMS": 1.4120470732469168e-07,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "kind": 3,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": null,
+      "relative_RMS": 0.0003868385720068243,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 0,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 0.039462957693759654,
+      "spur_dBr_reference_RMS": -29.967585208168444
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 0,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 0.040806562744884964,
+      "spur_dBr_reference_RMS": -35.2016345321979
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 0,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 0.0029606393530245754,
+      "spur_dBr_reference_RMS": -51.369777515990236
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 0,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 0.00922764859454003,
+      "spur_dBr_reference_RMS": -65.35690367031927
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 0,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 0.00016839582852978615,
+      "spur_dBr_reference_RMS": -78.18073622653996
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 0,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 0.0023132779093720263,
+      "spur_dBr_reference_RMS": -98.22294175928943
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 1,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.18605253729039425,
+      "spur_dBr_reference_RMS": -12.589541206592358
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 1,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.1525935912830655,
+      "spur_dBr_reference_RMS": -17.13208468032061
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 1,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.010563383905372281,
+      "spur_dBr_reference_RMS": -41.68903304905341
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 1,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.028667811930944767,
+      "spur_dBr_reference_RMS": -59.92645227455717
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 1,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.0017207492842068732,
+      "spur_dBr_reference_RMS": -57.29665584631184
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 1,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.007204574889639978,
+      "spur_dBr_reference_RMS": -81.53623323159397
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 2,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.4130399694379245,
+      "spur_dBr_reference_RMS": -5.802524063190223
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 2,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.44525809838109653,
+      "spur_dBr_reference_RMS": -25.35945123306865
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 2,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.0360414503261921,
+      "spur_dBr_reference_RMS": -27.383322957962115
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 2,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.12645545880003606,
+      "spur_dBr_reference_RMS": -63.386746891347855
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 2,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.00865385922136937,
+      "spur_dBr_reference_RMS": -38.77119500435337
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 2,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.031972014122548964,
+      "spur_dBr_reference_RMS": -76.75031930463041
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 3,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": null,
+      "relative_RMS": 0.012754332061372536,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 3,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": null,
+      "relative_RMS": 0.018415877480166994,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 3,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": null,
+      "relative_RMS": 0.000954882839572582,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 3,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": null,
+      "relative_RMS": 0.004266314072687586,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 3,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": null,
+      "relative_RMS": 7.435850653461266e-05,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "kind": 3,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": null,
+      "relative_RMS": 0.0010730604750746593,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 0,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 0.002362526203194938,
+      "spur_dBr_reference_RMS": -52.47187966194648
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 0,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 0.007195188251210332,
+      "spur_dBr_reference_RMS": -56.786548812230286
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 0,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 3.686248964213378e-05,
+      "spur_dBr_reference_RMS": -92.26600522284153
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 0,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 0.0017437564847828004,
+      "spur_dBr_reference_RMS": -105.0126752049024
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 0,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 2.3451311777615353e-07,
+      "spur_dBr_reference_RMS": -140.59496573286583
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 0,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 0.0004364465771562161,
+      "spur_dBr_reference_RMS": -140.97226171925377
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 1,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.011687595084243052,
+      "spur_dBr_reference_RMS": -37.355747305672196
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 1,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.027603773814065584,
+      "spur_dBr_reference_RMS": -41.997078532903906
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 1,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.0005055218861908813,
+      "spur_dBr_reference_RMS": -68.39799033841102
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 1,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.006620078285194425,
+      "spur_dBr_reference_RMS": -80.86378122399411
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 1,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 2.3183829657004252e-05,
+      "spur_dBr_reference_RMS": -94.6834981390729
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 1,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.0016613886266523712,
+      "spur_dBr_reference_RMS": -118.30732845305315
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 2,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.0454287539287605,
+      "spur_dBr_reference_RMS": -26.465981848166958
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 2,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.11608151597492486,
+      "spur_dBr_reference_RMS": -47.29175367776393
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 2,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.004165083137699874,
+      "spur_dBr_reference_RMS": -49.81259399138401
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 2,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.02630220758027299,
+      "spur_dBr_reference_RMS": -61.80893580228787
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 2,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.00046717421743589155,
+      "spur_dBr_reference_RMS": -65.49755961873365
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 2,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.006557333676444598,
+      "spur_dBr_reference_RMS": -86.08610660817288
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 3,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": null,
+      "relative_RMS": 0.000456972181035635,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 3,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": null,
+      "relative_RMS": 0.006156668152098351,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 3,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": null,
+      "relative_RMS": 7.4228607004189e-06,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 3,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": null,
+      "relative_RMS": 0.0015454452019397049,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 3,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": null,
+      "relative_RMS": 1.416224468181154e-07,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "kind": 3,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": null,
+      "relative_RMS": 0.00038683418042821286,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 0,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 0.010243237666757898,
+      "spur_dBr_reference_RMS": -41.871750958637165
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 0,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 0.01242353430434539,
+      "spur_dBr_reference_RMS": -46.33452435467948
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 0,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 0.00028730195273687833,
+      "spur_dBr_reference_RMS": -74.77611441036422
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 0,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 0.0027872007002418494,
+      "spur_dBr_reference_RMS": -91.48959496191686
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 0,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 3.9927409405456855e-06,
+      "spur_dBr_reference_RMS": -112.24855950584475
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 0,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 0.0006994778657680812,
+      "spur_dBr_reference_RMS": -128.97435834478824
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 1,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.03946265423781651,
+      "spur_dBr_reference_RMS": -29.967687973072824
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 1,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.040806258309154825,
+      "spur_dBr_reference_RMS": -35.20173729320162
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 1,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.0029606683073243115,
+      "spur_dBr_reference_RMS": -51.369882118801165
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 1,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.009227588748453138,
+      "spur_dBr_reference_RMS": -65.35699659603614
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 1,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.0001684111884083106,
+      "spur_dBr_reference_RMS": -78.18073500793187
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 1,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.002313261207068728,
+      "spur_dBr_reference_RMS": -98.22356514280486
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 2,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.1860521142485737,
+      "spur_dBr_reference_RMS": -12.589568688802563
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 2,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.167618868797971,
+      "spur_dBr_reference_RMS": -18.732988996828634
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 2,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.01486681947531851,
+      "spur_dBr_reference_RMS": -35.154111298942865
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 2,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.02971649795330685,
+      "spur_dBr_reference_RMS": -53.32216347768126
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 2,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.002616387729197246,
+      "spur_dBr_reference_RMS": -50.692060041820724
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 2,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.007439947279209539,
+      "spur_dBr_reference_RMS": -74.58006990837605
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 3,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": null,
+      "relative_RMS": 0.012748122053566402,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 3,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": null,
+      "relative_RMS": 0.018407617260980186,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 3,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": null,
+      "relative_RMS": 0.0009544538296632179,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 3,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": null,
+      "relative_RMS": 0.004264442687916671,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 3,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": null,
+      "relative_RMS": 7.433134705633455e-05,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "kind": 3,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": null,
+      "relative_RMS": 0.001072588656521972,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 0,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 0.000305737085390088,
+      "spur_dBr_reference_RMS": -71.58777475147987
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 0,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 0.00182570716232135,
+      "spur_dBr_reference_RMS": -75.99025267167926
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 0,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 5.127388650283096e-07,
+      "spur_dBr_reference_RMS": -130.37385657504385
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 0,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 0.00045413669676105554,
+      "spur_dBr_reference_RMS": -143.7747328396189
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 0,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 1.888926616236759e-07,
+      "spur_dBr_reference_RMS": -149.13734864712367
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 0,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": 1757.8125,
+      "relative_RMS": 0.0001136121853982093,
+      "spur_dBr_reference_RMS": -159.70079784992234
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 1,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.0023624611973018066,
+      "spur_dBr_reference_RMS": -52.472143491472316
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 1,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.007195056564175329,
+      "spur_dBr_reference_RMS": -56.786819262834236
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 1,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 3.6861911126792406e-05,
+      "spur_dBr_reference_RMS": -92.26584856548085
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 1,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.0017437266598624526,
+      "spur_dBr_reference_RMS": -105.01327409694697
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 1,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 2.354075386735498e-07,
+      "spur_dBr_reference_RMS": -140.56145603197547
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 1,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": 3515.625,
+      "relative_RMS": 0.0004364387812079133,
+      "spur_dBr_reference_RMS": -140.9194198431942
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 2,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.011681118289229736,
+      "spur_dBr_reference_RMS": -37.35581512154567
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 2,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.03482752467667157,
+      "spur_dBr_reference_RMS": -43.88855187735787
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 2,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.0009451472565691714,
+      "spur_dBr_reference_RMS": -61.75962408990727
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 2,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.00815618853886008,
+      "spur_dBr_reference_RMS": -80.92864434286403
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 2,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 3.860781381234461e-05,
+      "spur_dBr_reference_RMS": -89.37936191065033
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 2,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": 7992.1875,
+      "relative_RMS": 0.002047686877745462,
+      "spur_dBr_reference_RMS": -110.02227854298611
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 3,
+      "factor": 1,
+      "ADAA": 0,
+      "actual_Hz": null,
+      "relative_RMS": 0.00045694153248775917,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 3,
+      "factor": 1,
+      "ADAA": 1,
+      "actual_Hz": null,
+      "relative_RMS": 0.006156391730959425,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 3,
+      "factor": 2,
+      "ADAA": 0,
+      "actual_Hz": null,
+      "relative_RMS": 7.423026149062276e-06,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 3,
+      "factor": 2,
+      "ADAA": 1,
+      "actual_Hz": null,
+      "relative_RMS": 0.0015453762189426153,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 3,
+      "factor": 4,
+      "ADAA": 0,
+      "actual_Hz": null,
+      "relative_RMS": 1.4104767683958816e-07,
+      "spur_dBr_reference_RMS": null
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "kind": 3,
+      "factor": 4,
+      "ADAA": 1,
+      "actual_Hz": null,
+      "relative_RMS": 0.00038681561351200865,
+      "spur_dBr_reference_RMS": null
+    }
+  ]
+}

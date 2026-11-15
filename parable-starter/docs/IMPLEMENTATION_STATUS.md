@@ -1,5 +1,24 @@
 # Implementation status and reproducible baseline
 
+## SF-014 — experimental standalone Lockhart / one feed resistor
+
+[Gate0](SF014_GATE0.md), [ADR014](adr/ADR-014-lockhart-feed-resistor.md),
+[results/commands/limits](SF014_REPORT.md). Main baseline c3aaca1; open42/48/56
+untouched,57 parked. No Engine/canonical/firmware/storage/living rule change.
+
+- **Specified/implemented:** one loaded complementary transistor cell, reciprocal
+  nominal Ebers–Moll; upper PNP feed15k→22kΩ only. Prepared512interval Hermite
+  with exact primitive, normal4x+ADAA and common isolated output coupling.
+- **Host-tested:** independent SPICE DC/loads/rails/currents/fold/harmonics and
+  high-rate alias;44.1/48/96k controls/reset/invalid/silence/extremes and guard;
+  actual same-take guitar/synthetic native WAVs. Raw/common/RMS separately labeled.
+- **ARM compile-inspected:**3904B text,9704B full state,200B known callback
+  static-frame chain. No callback solver/exp. Full Seed3 performance not measured;
+  conditional10000cycle planning estimate is not WCET or2000cycle admission.
+- **Hardware-tested/musically approved:**none. Founder listening pending;
+  nominal static transistor behavior is not calibrated physical pedal fidelity.
+
+
 ## SF-011 — experimental standalone Centaur / P1A wiper contact
 
 Main dbde343 includes independently merged #50/#52. #42/#48 untouched.
