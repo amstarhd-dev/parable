@@ -264,3 +264,12 @@ accepts bounded mono PCM16 without changing DSP code. No real-guitar or hardware
 proof is claimed. PAR-008 adds the explicit patch-v1/Engine adapter; the PAR-006
 processor is not substituted for the RAT. Historical factory revision, full
 LM308/JFET dynamics and faulty-buffer headroom remain unverified.
+
+## SF-016 standalone Blender research
+
+[Report](docs/SF016_REPORT.md)/[ADR016](docs/adr/ADR-016-original-blender.md): one
+original-style five-transistor octave fuzz and open D1, actual same-take WAVs.
+**Experimental and scientifically failed**, with original high-note gates retained.
+`parable_blender_lab`/`parable_blender_study` are host laboratories, not Engine
+processors or firmware. Full CTest now includes its strict failing reference test;
+passing safety/PCM checks do not establish acceptance. No founder/target approval.

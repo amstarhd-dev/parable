@@ -1,3 +1,24 @@
+# SF-016 — Blender research increment, 2026-11-15
+
+**Scientific acceptance FAILED; draft independent review required.** One documented
+original-style five-NPN/four-Ge-diode native Blender and one physically open D1,
+standalone.81 actual audition WAVs/83 with exact source files; healthy/fault raw,
+common and RMS versions, deterministic repeats and actual PCM receipts. Founder
+listening/physical fidelity/Seed3 runtime not approved or tested.
+
+80 independent DC conditions pass;46/48 transient conditions pass,21 high8kHz
+field gates fail. Selected8x passes28/48 combined sampling gates;14 fine references
+lack required convergence. Strict tests remain failing, no relaxed gate. Native
+safety/CLI pass. Full Release40/41,586.35s; Debug 40/41,1906.97s;
+ASan/UBSan2/3,569.35s, same scientific miss/no sanitizer diagnostics. All38 previous
+host regressions preserved. Actual M7 object10576B/0/0, instance19880B, known local
+callback frame chain5352B before libm/IRQ; no target timing/firmware integration.
+
+No Engine/canonical/storage/living/firmware/correspondence changes;427 protected
+old files match main. Read [full report](SF016_REPORT.md), [Gate0](SF016_GATE0.md)
+and [ADR016](adr/ADR-016-original-blender.md). The rest of this document preserves
+prior implementation history; it does not turn this failed research gate into a pass.
+
 # Implementation status and reproducible baseline
 
 ## SF-014 — experimental standalone Lockhart / one feed resistor

@@ -1,0 +1,348 @@
+{
+  "scientific_verdict": "FAILED",
+  "transient_conditions": 48,
+  "passing_conditions": 46,
+  "failed_fields": 21,
+  "DC_KCL_snapshots": 48,
+  "DC_KCL_peak_A": 5.054128610851999e-11,
+  "DC_KCL_gate": true,
+  "observation_quantization": "Float32 native/reference trace; primary C++ gates use double accumulation before trace rounding.",
+  "conditions": [
+    {
+      "case": 0,
+      "kind": "held-low",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 5.254099735604646e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 1,
+      "kind": "held-high",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 0.0005637320590894049,
+      "jack_gate": true
+    },
+    {
+      "case": 2,
+      "kind": "quiet",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 1.1914107177183295e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 3,
+      "kind": "hard",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 0.0002509338252406056,
+      "jack_gate": true
+    },
+    {
+      "case": 4,
+      "kind": "pluck",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 3.30656811027119e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 5,
+      "kind": "chord",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 5.6491795911165545e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 6,
+      "kind": "sustain0",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 1.628294256143419e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 7,
+      "kind": "sustain1",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 0.0001612720306344631,
+      "jack_gate": true
+    },
+    {
+      "case": 8,
+      "kind": "tone0",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 6.0162137219031044e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 9,
+      "kind": "tone1",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 0.00013493533558904633,
+      "jack_gate": true
+    },
+    {
+      "case": 10,
+      "kind": "boost",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 3.173696828628496e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 11,
+      "kind": "blend0",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 9.282739327222115e-07,
+      "jack_gate": true
+    },
+    {
+      "case": 12,
+      "kind": "blend1",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 0.0001489562966793339,
+      "jack_gate": true
+    },
+    {
+      "case": 13,
+      "kind": "level0",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 8.873117582586398e-08,
+      "jack_gate": true
+    },
+    {
+      "case": 14,
+      "kind": "level1",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 0.000221951558535298,
+      "jack_gate": true
+    },
+    {
+      "case": 15,
+      "kind": "source-load",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 6.632831775087899e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 16,
+      "kind": "cold",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 0.00010967870677075076,
+      "jack_gate": true
+    },
+    {
+      "case": 17,
+      "kind": "hot",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 8.036676425265812e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 18,
+      "kind": "half-junction-caps",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 6.765524565753208e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 19,
+      "kind": "double-junction-caps",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 0.00011752801925080461,
+      "jack_gate": true
+    },
+    {
+      "case": 20,
+      "kind": "held-low",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 3.5706304282059835e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 21,
+      "kind": "held-high",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 0.0004877062818067823,
+      "jack_gate": true
+    },
+    {
+      "case": 22,
+      "kind": "quiet",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 1.4657566978553317e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 23,
+      "kind": "hard",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 0.00021775190471631545,
+      "jack_gate": true
+    },
+    {
+      "case": 24,
+      "kind": "pluck",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 3.3043066130144284e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 25,
+      "kind": "chord",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 7.125848274051849e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 26,
+      "kind": "sustain0",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 1.7272331943271498e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 27,
+      "kind": "sustain1",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 0.0001695078826814593,
+      "jack_gate": true
+    },
+    {
+      "case": 28,
+      "kind": "tone0",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 5.2834794971936935e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 29,
+      "kind": "tone1",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 0.0001066702892509147,
+      "jack_gate": true
+    },
+    {
+      "case": 30,
+      "kind": "boost",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 3.108136409153251e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 31,
+      "kind": "blend0",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 8.176366892776978e-07,
+      "jack_gate": true
+    },
+    {
+      "case": 32,
+      "kind": "blend1",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 0.0001258360003994037,
+      "jack_gate": true
+    },
+    {
+      "case": 33,
+      "kind": "level0",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 9.33952781036967e-08,
+      "jack_gate": true
+    },
+    {
+      "case": 34,
+      "kind": "level1",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 0.0002533076618199367,
+      "jack_gate": true
+    },
+    {
+      "case": 35,
+      "kind": "source-load",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 7.623680555006676e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 36,
+      "kind": "cold",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 0.00012316949335872834,
+      "jack_gate": true
+    },
+    {
+      "case": 37,
+      "kind": "hot",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 7.809656732004873e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 38,
+      "kind": "half-junction-caps",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 7.345196880980584e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 39,
+      "kind": "double-junction-caps",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 9.839492993819198e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 40,
+      "kind": "high",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 8.781818160887471e-05,
+      "jack_gate": true
+    },
+    {
+      "case": 41,
+      "kind": "high",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 0.00017846018893415033,
+      "jack_gate": true
+    },
+    {
+      "case": 42,
+      "kind": "high",
+      "failed_fields": 10,
+      "jack_RMS_error_V": 0.0010348639909613065,
+      "jack_gate": true
+    },
+    {
+      "case": 43,
+      "kind": "bypass",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 3.6797276998264006e-09,
+      "jack_gate": true
+    },
+    {
+      "case": 44,
+      "kind": "high",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 0.0001075315038823442,
+      "jack_gate": true
+    },
+    {
+      "case": 45,
+      "kind": "high",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 0.0001740561127203106,
+      "jack_gate": true
+    },
+    {
+      "case": 46,
+      "kind": "high",
+      "failed_fields": 11,
+      "jack_RMS_error_V": 0.0014888047899027554,
+      "jack_gate": false
+    },
+    {
+      "case": 47,
+      "kind": "bypass",
+      "failed_fields": 0,
+      "jack_RMS_error_V": 3.80222720254981e-09,
+      "jack_gate": true
+    }
+  ]
+}

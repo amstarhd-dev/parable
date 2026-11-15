@@ -1334,15 +1334,15 @@
           ]
         },
         "synthetic_audition": {
-          "status": "not-performed",
-          "scope": "Full synthetic generation pending final delivery verification; quick native PCM tests already pass. Human listening separate.",
+          "status": "generated",
+          "scope": "Full native low/high/pluck/chord raw/common WAVs generated and exactly repeated; founder listening not performed.",
           "paths": [
             "parable-starter/tools/blender_lab.cpp"
           ]
         },
         "real_guitar_audition": {
           "status": "not-performed",
-          "scope": "Exact take03 native rendering in progress; founder listening not performed.",
+          "scope": "Exact same take03: five settings, healthy/D1-open/dry raw/common/RMS plus main comparisons generated. Actual human/founder audition not performed.",
           "paths": [
             "parable-starter/third_party/blender/AUDIO_NOTICE.md"
           ]

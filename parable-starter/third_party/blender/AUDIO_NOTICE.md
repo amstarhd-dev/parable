@@ -9,8 +9,8 @@ Preserve this credit, source, license and change notice with redistributed audio
 No repository-wide code license or code-policy exception is inferred.
 
 Player3 musical performance03 direct-input, not an amp recording, GuitarJam050,
-Muff take11 or TS808 take06. Same player/dataset, genuinely different performance;
-no asserted different player or founder pleasantness approval. Source-declared
+Muff take11 or TS808 take06. Intentionally the same performance as Klon/Aquarius/Cancer;
+no new recording, different player or founder pleasantness approval is asserted. Source-declared
 Player3 setup: SireT7/bridge-neck/UMC202HD; not our hardware measurements.
 
 Archive https://zenodo.org/api/records/14963133/files/P3_music.zip/content

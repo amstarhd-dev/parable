@@ -1,0 +1,100 @@
+SF016 independently transcribed factory-style drawing 1015, documented-original-style
+Vcc rail 0 9
+Bsrc source 0 v={0.05*sin(2*PI*196*time)*(1-exp(-time/.002))}
+Rsource source input 1000
+R1 input ci 15k
+C1 ci b1 100n
+R2 b1 0 150k
+R3 b1 fb 560k
+R4 e1 0 1500
+R5 rail c1 47k
+R6 e2 fb 120k
+C2 fb 0 50n
+R7 e2 0 10k
+Q1 c1 b1 e1 silicon
+Q2 rail c1 e2 silicon
+C3 e2 st 10u
+VSU st sw 0
+RSL sw dry 10000
+R8 dry 0 680
+C4 sw b3 100n
+R9 b3 0 150k
+R10 rail b3 220k
+R11 rail c3 8200
+R12 e3 0 8200
+Q3 c3 b3 e3 silicon
+C5 c3 dc 10u
+C6 e3 de 10u
+R13 dc 0 27k
+R14 de 0 27k
+R15 rail b4 100k
+Q4 c4 b4 e4 silicon
+R16 rail c4 10k
+R17 e4 0 820
+C7 e4 0 10u
+C8 c4 clip 10u
+C9 clip tin 10u
+R18 tin low 27k
+R19 low dark 3900
+C10 low 0 100n
+C11 tin bright 2.7n
+RTL dark tone 12500
+RTH tone bright 12500
+R21 tone level 100k
+Vboost tone level 0
+R20 tin toneunused 47k
+RLU level lw 25000
+RLL lw 0 25000
+C12 lw lb 10u
+R22 lb b5 10k
+R23 b5 0 18k
+R24 rail b5 150k
+R25 b5 f5 3900
+C13 f5 c5 1n
+R26 rail c5 10k
+R27 e5 0 820
+Q5 c5 b5 e5 silicon
+C14 e5 0 10u
+C15 c5 wet 10u
+RBU wet bw 50000
+RBL bw dry 50000
+C17 bw jack 100n
+Rload jack 0 1000000.0
+D1 b4 dc germanium
+RL1 b4 dc 800k
+CJ1 b4 dc 5.7983728977605605e-13
+D2 b4 de germanium
+RL2 b4 de 800k
+CJ2 b4 de 5.7983728977605605e-13
+D3 0 clip germanium
+RL3 0 clip 800k
+CJ3 0 clip 5.7983728977605605e-13
+D4 clip 0 germanium
+RL4 clip 0 800k
+CJ4 clip 0 5.7983728977605605e-13
+CBC1 b1 c1 3.9999999999999999e-12
+CBE1 b1 e1 1.9999999999999999e-11
+CBC2 c1 rail 3.9999999999999999e-12
+CBE2 c1 e2 1.9999999999999999e-11
+CBC3 b3 c3 3.9999999999999999e-12
+CBE3 b3 e3 1.9999999999999999e-11
+CBC4 b4 c4 3.9999999999999999e-12
+CBE4 b4 e4 1.9999999999999999e-11
+CBC5 b5 c5 3.9999999999999999e-12
+CBE5 b5 e5 1.9999999999999999e-11
+.model silicon NPN(IS=1e-14 BF=350 BR=4 NF=1 NR=1 CJE=0 CJC=0 TF=0 TR=0 TNOM=26.85)
+.model germanium D(IS=560n N=1.2088039709948002 RS=0 TT=4.0625n CJO=0 EG=.67 TNOM=26.85)
+.options TEMP=26.85 TNOM=26.85 method=gear maxord=2 reltol=1e-7 abstol=1e-13 vntol=1e-9 gmin=1e-12
+.save all @q1[ib] @q1[ic] @q1[ie] @q2[ib] @q2[ic] @q2[ie] @q3[ib] @q3[ic] @q3[ie] @q4[ib] @q4[ic] @q4[ie] @q5[ib] @q5[ic] @q5[ie] @d1[id] @d2[id] @d3[id] @d4[id]
+
+.control
+set noaskquit
+set numdgt=17
+set wr_singlescale
+set wr_vecnames
+tran 2u 0.08 0 2u
+let zero = v(jack)*0
+wrdata tran-0-sustain1.txt v(input) v(b1) v(c1) v(e1) v(e2) v(fb) v(st) v(dry) v(sw) v(b3) v(c3) v(e3) v(dc) v(de) v(b4) v(c4) v(e4) v(clip) v(tin) v(low) v(dark) v(bright) v(tone) v(level) v(lw) v(b5) v(c5) v(e5) v(wet) v(bw) v(jack) @q1[ib] @q1[ic] @q1[ie] @q2[ib] @q2[ic] @q2[ie] @q3[ib] @q3[ic] @q3[ie] @q4[ib] @q4[ic] @q4[ie] @q5[ib] @q5[ic] @q5[ie] @d1[id] @d2[id] @d3[id] @d4[id]
+quit
+.endc
+.end
