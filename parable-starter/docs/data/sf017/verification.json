@@ -1,0 +1,45 @@
+{
+  "source_commit": "07a228ce6d738e80735a8f03fd9477b4fa172fbf",
+  "protected_previous_files": 427,
+  "host_compiler": "GNU14.2.0",
+  "cmake": "3.31.6",
+  "new_tests": [
+    "scorpio_circuit_and_safety",
+    "scorpio_listening_cli"
+  ],
+  "full_Debug": {
+    "initial_full_passed": 39,
+    "total": 40,
+    "initial_failed": [
+      "soundforge_registry_negative"
+    ],
+    "initial_exit_code": 8,
+    "wall_seconds": 1488.94,
+    "correction": "Expected asset inventory12->13 only; no policy/physics threshold change",
+    "final_rerun_failed_passed": 1,
+    "final_rerun_failed_exit_code": 0
+  },
+  "full_Release": {
+    "initial_full_passed": 39,
+    "total": 40,
+    "initial_failed": [
+      "soundforge_registry_negative"
+    ],
+    "initial_exit_code": 8,
+    "wall_seconds": 270.55,
+    "correction": "Expected asset inventory12->13 only; no policy/physics threshold change",
+    "final_rerun_failed_passed": 1,
+    "final_rerun_failed_exit_code": 0
+  },
+  "affected_sanitizers": "ASan+UBSan, both tests passed",
+  "hardware": "not tested",
+  "audition": "native files generated; founder listening pending",
+  "build_cache": "Unmodified public nlohmann_json3.11.3 sources only; no open-PR DSP imported",
+  "inventory_correction": "Only expected asset count12->13; all negative policy checks and physical tests unchanged",
+  "host_cpu": "AMD EPYC9V74, Linux x86_64 container,2CPU quota; clock not controlled",
+  "CLI_portability": "New test uses os.link (also supported by Python3.9); latest direct native CLI check passed",
+  "result": "All40 required cases have passing results across one complete run and the focused inventory correction, in each configuration. Original failure logs retained; no second full run.",
+  "full_regression_start_UTC": "2026-11-15T20:55:49Z",
+  "full_regression_end_UTC": "2026-11-15T21:21:54Z",
+  "remote_CI": "Failed/cancelled jobs with no recorded step/log data at observed head; see remote-ci.json. Not verified remotely."
+}

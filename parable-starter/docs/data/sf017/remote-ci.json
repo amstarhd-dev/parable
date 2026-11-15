@@ -1,0 +1,63 @@
+{
+  "head": "ae66709194cfd26f055d38148affe09c6f27c57d",
+  "runs": [
+    {
+      "id": 43761216020,
+      "url": "https://github.com/amstarhd-dev/parable/actions/runs/43761216020",
+      "jobs": [
+        {
+          "id": 132956243201,
+          "name": "integration-sanitizers",
+          "status": "completed",
+          "conclusion": "failure",
+          "run_id": 43761216020,
+          "logs_url": null,
+          "steps": null
+        },
+        {
+          "id": 132956243422,
+          "name": "activation-tsan",
+          "status": "completed",
+          "conclusion": "failure",
+          "run_id": 43761216020,
+          "logs_url": null,
+          "steps": null
+        },
+        {
+          "id": 132956243445,
+          "name": "host-tests (Debug)",
+          "status": "completed",
+          "conclusion": "failure",
+          "run_id": 43761216020,
+          "logs_url": null,
+          "steps": null
+        },
+        {
+          "id": 132956243490,
+          "name": "host-tests (Release)",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "run_id": 43761216020,
+          "logs_url": null,
+          "steps": null
+        }
+      ]
+    },
+    {
+      "id": 43761216009,
+      "url": "https://github.com/amstarhd-dev/parable/actions/runs/43761216009",
+      "jobs": [
+        {
+          "id": 132956243327,
+          "name": "seed3-cross-build",
+          "status": "completed",
+          "conclusion": "failure",
+          "run_id": 43761216009,
+          "logs_url": null,
+          "steps": null
+        }
+      ]
+    }
+  ],
+  "interpretation": "GitHub reports failure/cancellation with no recorded step or log data; remote verification is unfulfilled. No assertion about DSP execution or provider-side cause."
+}

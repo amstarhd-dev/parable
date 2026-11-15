@@ -1,0 +1,104 @@
+Internal ctest changing into directory: /workspace/work/sf017-debug
+Test project /workspace/work/sf017-debug
+      Start  1: firmware_measurement_math_status
+      Start  2: core_validation
+ 1/40 Test  #1: firmware_measurement_math_status ...   Passed    0.00 sec
+      Start  3: audio_safety
+ 2/40 Test  #2: core_validation ....................   Passed    0.00 sec
+      Start  4: patch_contract
+ 3/40 Test  #3: audio_safety .......................   Passed    0.10 sec
+      Start  5: host_preparation
+ 4/40 Test  #5: host_preparation ...................   Passed    0.05 sec
+      Start  6: rat_patch_integration
+ 5/40 Test  #4: patch_contract .....................   Passed    2.02 sec
+      Start  7: patch_audio_evidence
+ 6/40 Test  #6: rat_patch_integration ..............   Passed    3.05 sec
+      Start  8: rat_circuit_and_safety
+ 7/40 Test  #8: rat_circuit_and_safety .............   Passed    3.27 sec
+      Start  9: rat_lab_measurements
+ 8/40 Test  #9: rat_lab_measurements ...............   Passed    5.97 sec
+      Start 10: soundforge_utilities
+ 9/40 Test #10: soundforge_utilities ...............   Passed    1.54 sec
+      Start 11: soundforge_registry
+10/40 Test #11: soundforge_registry ................   Passed    0.08 sec
+      Start 12: soundforge_registry_negative
+11/40 Test #12: soundforge_registry_negative .......***Failed    0.29 sec
+.F.....
+======================================================================
+FAIL: test_committed_catalog (__main__.RegistryTests.test_committed_catalog)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/parable-sf017/parable-starter/tests/test_soundforge_registry.py", line 26, in test_committed_catalog
+    self.assertEqual(registry.validate(self.catalog), 12)
+AssertionError: 13 != 12
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.155s
+
+FAILED (failures=1)
+
+      Start 13: labrat_output_preservation
+12/40 Test  #7: patch_audio_evidence ...............   Passed   13.82 sec
+      Start 14: cmos_circuit_and_safety
+13/40 Test #14: cmos_circuit_and_safety ............   Passed    1.68 sec
+      Start 15: cmos_lab_measurements
+14/40 Test #15: cmos_lab_measurements ..............   Passed    6.87 sec
+      Start 16: cmos_lab_cli
+15/40 Test #16: cmos_lab_cli .......................   Passed   21.93 sec
+      Start 17: germanium_circuit_and_safety
+16/40 Test #13: labrat_output_preservation .........   Passed   33.81 sec
+      Start 18: germanium_lab_measurements
+17/40 Test #17: germanium_circuit_and_safety .......   Passed   14.76 sec
+      Start 19: germanium_lab_cli
+18/40 Test #18: germanium_lab_measurements .........   Passed   13.61 sec
+      Start 20: preset_journal
+19/40 Test #19: germanium_lab_cli ..................   Passed   31.81 sec
+      Start 21: activation_contract
+20/40 Test #21: activation_contract ................   Passed    0.50 sec
+      Start 22: activation_concurrency
+21/40 Test #20: preset_journal .....................   Passed   38.58 sec
+      Start 23: activation_demo
+22/40 Test #23: activation_demo ....................   Passed    0.04 sec
+      Start 24: living_contract
+23/40 Test #24: living_contract ....................   Passed    2.55 sec
+      Start 25: living_concurrency
+24/40 Test #25: living_concurrency .................   Passed    8.30 sec
+      Start 26: living_audio_evidence
+25/40 Test #26: living_audio_evidence ..............   Passed   18.62 sec
+      Start 27: tape_medium_and_safety
+26/40 Test #27: tape_medium_and_safety .............   Passed    0.40 sec
+      Start 28: tape_listening_cli
+27/40 Test #28: tape_listening_cli .................   Passed    4.10 sec
+      Start 29: rotary_mechanics_and_safety
+28/40 Test #29: rotary_mechanics_and_safety ........   Passed   10.41 sec
+      Start 30: rotary_listening_cli
+29/40 Test #30: rotary_listening_cli ...............   Passed   12.59 sec
+      Start 31: muff_circuit_and_safety
+30/40 Test #22: activation_concurrency .............   Passed   75.90 sec
+      Start 32: muff_listening_cli
+31/40 Test #31: muff_circuit_and_safety ............   Passed  232.28 sec
+      Start 33: ts808_circuit_and_safety
+32/40 Test #32: muff_listening_cli .................   Passed  248.81 sec
+      Start 34: ts808_listening_cli
+33/40 Test #33: ts808_circuit_and_safety ...........   Passed  532.83 sec
+      Start 35: klon_circuit_and_safety
+34/40 Test #34: ts808_listening_cli ................   Passed  592.18 sec
+      Start 36: klon_listening_cli
+35/40 Test #35: klon_circuit_and_safety ............   Passed  393.86 sec
+      Start 37: wavefolder_circuit_and_safety
+36/40 Test #37: wavefolder_circuit_and_safety ......   Passed   16.71 sec
+      Start 38: wavefolder_listening_cli
+37/40 Test #38: wavefolder_listening_cli ...........   Passed   17.56 sec
+      Start 39: scorpio_circuit_and_safety
+38/40 Test #39: scorpio_circuit_and_safety .........   Passed    1.60 sec
+      Start 40: scorpio_listening_cli
+39/40 Test #40: scorpio_listening_cli ..............   Passed    2.41 sec
+40/40 Test #36: klon_listening_cli .................   Passed  478.63 sec
+
+98% tests passed, 1 tests failed out of 40
+
+Total Test time (real) = 1488.94 sec
+
+The following tests FAILED:
+	 12 - soundforge_registry_negative (Failed)
+Errors while running CTest

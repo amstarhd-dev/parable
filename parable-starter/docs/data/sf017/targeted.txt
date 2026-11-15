@@ -1,0 +1,12 @@
+AC 0 100 actual=(98.9602,39.5005) expected=(98.9613,39.5017) magnitude_error=1.39179e-05
+AC 0 1000 actual=(309.475,312.683) expected=(309.436,312.667) magnitude_error=8.75533e-05
+AC 0 5000 actual=(246.302,-400.441) expected=(247.502,-401.003) magnitude_error=0.00235145
+AC 1 100 actual=(71.7808,20.4878) expected=(71.9945,20.5553) magnitude_error=0.0029912
+AC 1 1000 actual=(154.852,36.2481) expected=(155.385,36.3913) magnitude_error=0.00345491
+AC 1 5000 actual=(158.142,-51.7403) expected=(158.684,-51.9572) magnitude_error=0.00349262
+DC peakV=5.09816e-05 curve peakV=0.00730364 AC relative=0.00349262 transient peakV=1.17297e-05
+Magnetic linear/nonlinear RMS_difference=0.00727496 nonlinear_current_A=2.75676e-05 max_stored_J=2.9156e-07
+High-note spur fault=0 1x/4x_dBr=-26.1977/-72.0213
+High-note spur fault=1 1x/4x_dBr=-14.2003/-68.3947
+Rate/control corners, finite stress, rejected prepare, reset/silence and callback guards pass; state=9224 bytes
+Scorpio checks=289 passed

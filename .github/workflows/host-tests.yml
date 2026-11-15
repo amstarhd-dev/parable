@@ -87,6 +87,22 @@ jobs:
           path: parable-starter/build/wavefolder-auditions/
           if-no-files-found: error
           retention-days: 30
+      - name: Render ten Scorpio same-take raw and matched listening files
+        if: matrix.build_type == 'Release'
+        run: |
+          ./build/parable_scorpio_lab --input build/klon-input/take03-20s-mono16.wav --output build/scorpio-auditions
+          cp third_party/scorpio/AUDIO_NOTICE.md build/klon-input/source-receipt.json build/scorpio-auditions/
+          git rev-parse HEAD > build/scorpio-auditions/SOURCE_COMMIT
+          sha256sum include/parable_scorpio.h src/parable_scorpio.cpp src/scorpio_circuit.h tools/scorpio_lab.cpp tools/lab_wav.h tools/soundforge/analysis.h > build/scorpio-auditions/SOURCE_SHA256SUMS
+          (cd build/scorpio-auditions && sha256sum ./*.wav ./*.csv ./*.json AUDIO_NOTICE.md SOURCE_COMMIT SOURCE_SHA256SUMS) > build/scorpio-auditions/SHA256SUMS
+      - name: Publish Scorpio listening files
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-scorpio-auditions
+          path: parable-starter/build/scorpio-auditions/
+          if-no-files-found: error
+          retention-days: 30
       - name: Render source-derived TS808 and truly open D2 with NEW guitar take06
         if: matrix.build_type == 'Release'
         env:
@@ -423,6 +439,16 @@ jobs:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1
         run: ctest --test-dir build/wavefolder-sanitized --output-on-failure --no-tests=error -R '^wavefolder_'
+
+      - name: Configure focused Scorpio ASan and UBSan at O1
+        run: cmake -S . -B build/scorpio-sanitized -DCMAKE_BUILD_TYPE=Debug -DFETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON="$PWD/build/_deps/nlohmann_json-src" -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -O1" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
+      - name: Build focused Scorpio sanitizer targets
+        run: cmake --build build/scorpio-sanitized --target parable_scorpio_test parable_scorpio_lab -j2
+      - name: Test Scorpio electrical and audio boundaries with sanitizers
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
+          UBSAN_OPTIONS: halt_on_error=1
+        run: ctest --test-dir build/scorpio-sanitized --output-on-failure --no-tests=error -R '^scorpio_' -j2
 
   activation-tsan:
     runs-on: ubuntu-24.04

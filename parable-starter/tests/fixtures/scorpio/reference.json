@@ -1,0 +1,40 @@
+{
+  "simulator": "******\n** ngspice-44.2 : Circuit level simulation program\n** Compiled with KLU Direct Linear Solver\n** The U. C. Berkeley CAD Group\n** Copyright 1985-1994, Regents of the University of California.\n** Copyright 2001-2024, The ngspice team.\n** Please get your ngspice manual from https://ngspice.sourceforge.io/docs.html\n** Please file your bug-reports at http://ngspice.sourceforge.net/bugrep.html\n** Creation Date: Sun Jan 12 08:19:15 UTC 2025\n******\n",
+  "executable_sha256": "5854f6506e3e54e0553b687401a5d82aec82229c2c28a93b7eb37b6e079dda84",
+  "source": "builtin ngspice BJTs, separate node solve; C4/C6 and supply decoupling1F implement explicit AC-short reduction; not a whole-Hudson calibration",
+  "rows": {
+    "bias": 2,
+    "curve": 36,
+    "ac": 6,
+    "transient": 6
+  },
+  "output_impedance": {
+    "(0, 0.1)": 3933.345000266287,
+    "(0, 0.9)": 5301.620595111571,
+    "(1, 0.1)": 2326.572536063398,
+    "(1, 0.9)": 2763.288134457541
+  },
+  "sha256": {
+    "curve-1-0.9.cir": "2d4917d1421366add7d0090b8fc828f620441a08896a488d9473a14fe4ccd643",
+    "impedance-0-0.1.cir": "c965c534d2cc77e50f75587f4e576d2d83d1b0ef17ba5e2e341887bd4dbf0ebb",
+    "transient.csv": "d318ba66df5fc89b386d19618136fd25c33242c531ff04fe8a4234e36aa02bc0",
+    "ac-0-100.cir": "921f908839fac6734528d2cc03cd00cc965d324d70aa427a04a0c4f8c7522083",
+    "bias.csv": "38be3377ae7c1fcb860da3b78cec18bfc53b8bc7b51bb1ceef8144bf2042bc73",
+    "curve-1-0.1.cir": "65f47615ff410f219d86a24e57bb3b95c50c85884c8dde06099ecb18d039ac38",
+    "curve.csv": "4ce6b18e95cce029b407c7c600d63d8538b56b2ef82f9c0f28bb54b360eb9d14",
+    "ac-1-1000.cir": "c1e7f826e8875b16fbd80699b0888088fb36441ffaa34b73067e312c99b2390b",
+    "ac.csv": "5ebde6b66f60e264840f4514091ed59d7c7d2804ce30c4214f7d1dd340dd8835",
+    "impedance-1-0.1.cir": "d82901842b29b7602a269a7ebc34b62caf06a2d12e58b40855c31fcab9327dcf",
+    "ac-1-100.cir": "2af9175f86dadd6e641b9796948793dd28ef0a4e5b4e3570dddedbbd0e072f94",
+    "ac-0-5000.cir": "366f6a16c40d4860387322e15f9fd4dc10408f089f2f2aca3f25ae829b512408",
+    "ac-1-5000.cir": "7f5f1c318a95a7a86fc023cc574f60e7d04243ee635ab2694a7e88ed46a44151",
+    "bias-0.cir": "999c8bb14d7bd7b4344c6c671a93b553f6b799c04c6b08390a55ca8d45890eba",
+    "ac-0-1000.cir": "c607f4e5813c6621530ad25e2938eb433e3fe1ea09eeefd5b3967f3789a537f4",
+    "impedance-0-0.9.cir": "7e9305113c81303b30f7d0323f7730fbf2b7758c85f8aa60927950faf968ba4d",
+    "curve-0-0.9.cir": "ec420a76bec7ad2bb25f43ab4e39342f5d5fb586b43d49baff18abd2844eb2a9",
+    "curve-0-0.1.cir": "615e54851394702538c39cf917349b7e7464cdce856e93a2ae2ad46ba061ed33",
+    "bias-1.cir": "e945da116f8f87ec310dc8a9967acdf3ff8c921ccb1f356ed092880b76c817c6",
+    "impedance-1-0.9.cir": "eae3a96e035a5dbff3a412dc52975597d07c3889783df3e17396ac493d9ffcee",
+    "transient.cir": "c2debff88988a5017e7f83a6e3236ef8b5490605f4d3d4eb63841223948aee29"
+  }
+}

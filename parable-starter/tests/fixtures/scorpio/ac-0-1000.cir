@@ -1,0 +1,37 @@
+SF017 independent reduced reference
+Vrail va 0 9
+R11 va vc 1k
+R12 vc vd 56k
+R13 vd 0 33k
+R1 vd b 220k
+R3 vc x 5600
+R2 e f 5.6k
+Rtrim f 0 68
+R7 va ep 4.7k
+R6 y 0 5.6k
+Q1 x b e N
+Q2 y x ep P
+Ileak ep y 50u
+Vin in 0 AC 1
+Rsource in ci 1k
+C2 ci b 1u
+C3 b 0 330p
+C4 e f 1
+C6 y fb 1
+R8_GAIN f fb 130600.0
+C7 f fb 1n
+C8 ep va 330n
+Rlow ep lc 3500.65
+C9 lc va 330u
+C11 vc 0 1
+C12 vd 0 1
+.model N NPN(IS=1e-14 BF=400 BR=4 TNOM=26.85)
+.model P PNP(IS=1e-9 BF=100 BR=4 TNOM=26.85)
+.temp 26.85
+.control
+set numdgt=15
+ac lin 1 1000 1000
+print real(v(y)) imag(v(y))
+quit
+.endc
+.end

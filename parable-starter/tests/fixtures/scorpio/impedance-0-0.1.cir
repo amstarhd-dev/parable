@@ -1,0 +1,28 @@
+SF017 independent reduced reference
+Vsig source 0 2.912630265704243
+Vvc vc 0 8.507053308661465
+Vvd vd 0 3.133458453980944
+Ve ve 0 2.2540597059440706
+Vep vep 0 7.6362639968221355
+Rsource source b 1k
+R1 vd b 220k
+R3 vc x 5600
+Re e ve 68
+Rep ep vep 2006.311085096913
+R6 y 0 5600
+Voffset y fb 0.52838925941629
+Rfeedback fb e 30600.0
+Q1 x b e N
+Q2 y x ep P
+Ileak ep y 50u
+Iprobe 0 y 0
+.model N NPN(IS=1e-14 BF=400 BR=4 TNOM=26.85)
+.model P PNP(IS=1e-9 BF=100 BR=4 TNOM=26.85)
+.temp 26.85
+.control
+set numdgt=15
+tf v(y) Vsig
+print all
+quit
+.endc
+.end

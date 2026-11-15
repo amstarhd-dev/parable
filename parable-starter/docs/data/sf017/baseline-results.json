@@ -1,0 +1,316 @@
+{
+  "Debug": {
+    "source": "af159d833bdd0b0e17ccc59fcf7edfa506ed98f5",
+    "results": [
+      {
+        "name": "activation_concurrency",
+        "exit_code": 0
+      },
+      {
+        "name": "activation_contract",
+        "exit_code": 0
+      },
+      {
+        "name": "activation_demo",
+        "exit_code": 0
+      },
+      {
+        "name": "audio_safety",
+        "exit_code": 0
+      },
+      {
+        "name": "cmos_circuit_and_safety",
+        "exit_code": 0
+      },
+      {
+        "name": "cmos_lab_cli",
+        "exit_code": 0
+      },
+      {
+        "name": "cmos_lab_measurements",
+        "exit_code": 0
+      },
+      {
+        "name": "core_validation",
+        "exit_code": 0
+      },
+      {
+        "name": "firmware_measurement_math_status",
+        "exit_code": 0
+      },
+      {
+        "name": "germanium_circuit_and_safety",
+        "exit_code": 0
+      },
+      {
+        "name": "germanium_lab_cli",
+        "exit_code": 0
+      },
+      {
+        "name": "germanium_lab_measurements",
+        "exit_code": 0
+      },
+      {
+        "name": "host_preparation",
+        "exit_code": 0
+      },
+      {
+        "name": "klon_circuit_and_safety",
+        "exit_code": 0
+      },
+      {
+        "name": "klon_listening_cli",
+        "exit_code": 0
+      },
+      {
+        "name": "labrat_output_preservation",
+        "exit_code": 0
+      },
+      {
+        "name": "living_audio_evidence",
+        "exit_code": 0
+      },
+      {
+        "name": "living_concurrency",
+        "exit_code": 0
+      },
+      {
+        "name": "living_contract",
+        "exit_code": 0
+      },
+      {
+        "name": "muff_circuit_and_safety",
+        "exit_code": 0
+      },
+      {
+        "name": "muff_listening_cli",
+        "exit_code": 0
+      },
+      {
+        "name": "patch_audio_evidence",
+        "exit_code": 0
+      },
+      {
+        "name": "patch_contract",
+        "exit_code": 0
+      },
+      {
+        "name": "preset_journal",
+        "exit_code": 0
+      },
+      {
+        "name": "rat_circuit_and_safety",
+        "exit_code": 0
+      },
+      {
+        "name": "rat_lab_measurements",
+        "exit_code": 0
+      },
+      {
+        "name": "rat_patch_integration",
+        "exit_code": 0
+      },
+      {
+        "name": "rotary_listening_cli",
+        "exit_code": 0
+      },
+      {
+        "name": "rotary_mechanics_and_safety",
+        "exit_code": 0
+      },
+      {
+        "name": "soundforge_registry",
+        "exit_code": 0
+      },
+      {
+        "name": "soundforge_registry_negative",
+        "exit_code": 0
+      },
+      {
+        "name": "soundforge_utilities",
+        "exit_code": 0
+      },
+      {
+        "name": "tape_listening_cli",
+        "exit_code": 0
+      },
+      {
+        "name": "tape_medium_and_safety",
+        "exit_code": 0
+      },
+      {
+        "name": "ts808_circuit_and_safety",
+        "exit_code": 0
+      },
+      {
+        "name": "ts808_listening_cli",
+        "exit_code": 0
+      },
+      {
+        "name": "wavefolder_circuit_and_safety",
+        "exit_code": 0
+      },
+      {
+        "name": "wavefolder_listening_cli",
+        "exit_code": 0
+      }
+    ]
+  },
+  "Release": {
+    "source": "af159d833bdd0b0e17ccc59fcf7edfa506ed98f5",
+    "results": [
+      {
+        "name": "activation_concurrency",
+        "exit_code": 0
+      },
+      {
+        "name": "activation_contract",
+        "exit_code": 0
+      },
+      {
+        "name": "activation_demo",
+        "exit_code": 0
+      },
+      {
+        "name": "audio_safety",
+        "exit_code": 0
+      },
+      {
+        "name": "cmos_circuit_and_safety",
+        "exit_code": 0
+      },
+      {
+        "name": "cmos_lab_cli",
+        "exit_code": 0
+      },
+      {
+        "name": "cmos_lab_measurements",
+        "exit_code": 0
+      },
+      {
+        "name": "core_validation",
+        "exit_code": 0
+      },
+      {
+        "name": "firmware_measurement_math_status",
+        "exit_code": 0
+      },
+      {
+        "name": "germanium_circuit_and_safety",
+        "exit_code": 0
+      },
+      {
+        "name": "germanium_lab_cli",
+        "exit_code": 0
+      },
+      {
+        "name": "germanium_lab_measurements",
+        "exit_code": 0
+      },
+      {
+        "name": "host_preparation",
+        "exit_code": 0
+      },
+      {
+        "name": "klon_circuit_and_safety",
+        "exit_code": 0
+      },
+      {
+        "name": "klon_listening_cli",
+        "exit_code": 0
+      },
+      {
+        "name": "labrat_output_preservation",
+        "exit_code": 0
+      },
+      {
+        "name": "living_audio_evidence",
+        "exit_code": 0
+      },
+      {
+        "name": "living_concurrency",
+        "exit_code": 0
+      },
+      {
+        "name": "living_contract",
+        "exit_code": 0
+      },
+      {
+        "name": "muff_circuit_and_safety",
+        "exit_code": 0
+      },
+      {
+        "name": "muff_listening_cli",
+        "exit_code": 0
+      },
+      {
+        "name": "patch_audio_evidence",
+        "exit_code": 0
+      },
+      {
+        "name": "patch_contract",
+        "exit_code": 0
+      },
+      {
+        "name": "preset_journal",
+        "exit_code": 0
+      },
+      {
+        "name": "rat_circuit_and_safety",
+        "exit_code": 0
+      },
+      {
+        "name": "rat_lab_measurements",
+        "exit_code": 0
+      },
+      {
+        "name": "rat_patch_integration",
+        "exit_code": 0
+      },
+      {
+        "name": "rotary_listening_cli",
+        "exit_code": 0
+      },
+      {
+        "name": "rotary_mechanics_and_safety",
+        "exit_code": 0
+      },
+      {
+        "name": "soundforge_registry",
+        "exit_code": 0
+      },
+      {
+        "name": "soundforge_registry_negative",
+        "exit_code": 0
+      },
+      {
+        "name": "soundforge_utilities",
+        "exit_code": 0
+      },
+      {
+        "name": "tape_listening_cli",
+        "exit_code": 0
+      },
+      {
+        "name": "tape_medium_and_safety",
+        "exit_code": 0
+      },
+      {
+        "name": "ts808_circuit_and_safety",
+        "exit_code": 0
+      },
+      {
+        "name": "ts808_listening_cli",
+        "exit_code": 0
+      },
+      {
+        "name": "wavefolder_circuit_and_safety",
+        "exit_code": 0
+      },
+      {
+        "name": "wavefolder_listening_cli",
+        "exit_code": 0
+      }
+    ]
+  }
+}

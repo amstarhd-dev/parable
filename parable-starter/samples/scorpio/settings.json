@@ -1,0 +1,1 @@
+{"source":"caller-supplied monoPCM16; published recipe verifies take03","excerpt_seconds_max":8,"tail_seconds":1,"input_peak_model_V":0.03,"input_gain":0.112928202182654,"output_volts_per_unit":8,"low_gain":0.0,"high_gain":1.0,"low_cut":0.35,"level":0.8,"R3_healthy_ohms":5600,"R3_fault_ohms":10000,"L0_H":20,"flux_scale_Vs":0.008,"factor":4,"ADAA":true,"state_bytes":9224}
