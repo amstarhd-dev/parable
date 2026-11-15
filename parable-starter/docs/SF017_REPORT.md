@@ -29,7 +29,7 @@ has0.00727 normalized RMS difference and positive stored energy/loading. High-no
 These compact checks establish the reduction, not measured device/transformer fit.
 
 **Cost:** full native repeat-pass host cost0.527–0.558µs/frame (GNU14.2.0 Release,
-48kHz, four states/presets,432000 frames each; not target timing or WCET).
+48kHz, four Gain/fault combinations,432000 frames each; not target timing or WCET).
 Pinned ARM14.2.1 M7 object text7968B, data/BSS0; instance9224B. Static callback
 frames40+72+24=136B before caller/interrupt margin; stopped prepare has10920B
 own frame plus callees. Four internal steps:194 FIR products,140 state MACs,

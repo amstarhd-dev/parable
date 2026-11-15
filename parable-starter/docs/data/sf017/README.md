@@ -58,3 +58,18 @@ any open-PR implementation or verification profile. The full final suite found
 one stale registry **asset-count assertion** (12 rather than13); only that count
 was corrected. Original full logs plus focused two-test registry reruns in both
 configurations are retained. No negative-policy, physics or audio threshold changed.
+
+Final full-run results: **39/40 initially in each configuration**; Debug1488.94s,
+Release270.55s. Only the stale catalog count failed. After the count correction:
+
+```sh
+ctest --test-dir /workspace/work/sf017-debug --rerun-failed --output-on-failure --no-tests=error -j2
+ctest --test-dir /workspace/work/sf017-release --rerun-failed --output-on-failure --no-tests=error -j2
+```
+
+Both final reruns **1/1 pass**; all40 cases have passing results. No second complete
+suite was run for a metadata-count correction. `actual-full-run-commands.sh`
+captures the exact original invocation/cache paths; final focused sanitizers2/2
+pass after the Python3.9-compatible hard-link test adjustment. CLI portability
+stdout is retained. `remote-ci.json` separately records GitHub failures/cancellation
+with no reported job steps/logs; local results do not establish remote CI success.

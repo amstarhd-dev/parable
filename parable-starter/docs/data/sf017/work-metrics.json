@@ -49,7 +49,8 @@
     "Prototype193tap FIR shortened to97 before final independent/safety/audio gates",
     "Full regression inventory test expected12 assets; updated13 only; original failure and focused passes retained",
     "Disk pressure: reversible SHA-verified gzip archive of completed generated build objects; source/audio retained",
-    "Remote workflows failed/cancelled with no recorded steps; not treated as local test success"
+    "Remote workflows failed/cancelled with no recorded steps; not treated as local test success",
+    "New CLI test uses Python3.9-compatible os.link instead of Path.hardlink_to; final CLI and ASan/UBSan checks pass"
   ],
   "comparison": "Physical line counts include comments/blanks; not an effort fraction or claimed historical productivity speedup.",
   "acceptance": {
@@ -57,5 +58,7 @@
     "founder_listening": "pending",
     "physical_daisy": "not tested",
     "patch_integration": "out of scope"
-  }
+  },
+  "full_regression_end_UTC": "2026-11-15T21:21:54Z",
+  "final_local_validation_UTC": "2026-11-15T21:23:20.646219+00:00"
 }

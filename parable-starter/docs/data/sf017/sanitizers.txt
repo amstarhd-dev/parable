@@ -1,10 +1,10 @@
 Internal ctest changing into directory: /workspace/work/sf017-sanitized
 Test project /workspace/work/sf017-sanitized
-    Start 39: scorpio_circuit_and_safety
     Start 40: scorpio_listening_cli
-1/2 Test #39: scorpio_circuit_and_safety .......   Passed    3.61 sec
-2/2 Test #40: scorpio_listening_cli ............   Passed    4.72 sec
+    Start 39: scorpio_circuit_and_safety
+1/2 Test #39: scorpio_circuit_and_safety .......   Passed    2.13 sec
+2/2 Test #40: scorpio_listening_cli ............   Passed    2.78 sec
 
 100% tests passed, 0 tests failed out of 2
 
-Total Test time (real) =   4.73 sec
+Total Test time (real) =   2.79 sec

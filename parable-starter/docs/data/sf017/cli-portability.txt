@@ -1,0 +1,1 @@
+10 native WAVs, raw/matched levels, gain/fault pairs, PCM receipts, fixture integrity and source protection passed
