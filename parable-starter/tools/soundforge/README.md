@@ -130,3 +130,13 @@ separately; neither metadata nor a successful test-merge means the PR was merged
    [`SOUNDFORGE_BASELINE.md`](../../docs/SOUNDFORGE_BASELINE.md). Open an unmerged
    PR reporting what reusable knowledge was gained. Permanent patch integration
    requires its own approved ticket; no correspondence rules are invented here.
+
+
+## Canonical verification contract
+
+Use [Soundforge full verification profile v1](../../docs/SOUNDFORGE_VERIFICATION_PROFILE.md)
+for the complete gate contract. Issue-specific scientific thresholds remain
+binding. `benchmark.py --build BUILD --output NEW_EVIDENCE_DIR --jobs 2` measures
+the actual unfiltered suite and preserves failures; it does not cache a pass.
+Use separate build/evidence directories. All old audio renders and repeats remain;
+CI reuses only one checksum-verified Guitar-TECHS source archive within the job.

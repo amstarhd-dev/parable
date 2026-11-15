@@ -22,9 +22,9 @@ jobs:
       - name: Configure
         run: cmake -S . -B build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
       - name: Build
-        run: cmake --build build
+        run: cmake --build build -j2
       - name: Test
-        run: ctest --test-dir build --output-on-failure --no-tests=error
+        run: ctest --test-dir build -j2 --output-on-failure --no-tests=error
       - name: Render S698 Klon three Gain pairs and one clean-wiper contact with NEW take03
         if: matrix.build_type == 'Release'
         env:
@@ -93,8 +93,7 @@ jobs:
           HEAD_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
           mkdir -p build/ts808-input
-          curl --fail --show-error --location https://zenodo.org/api/records/14963133/files/P3_music.zip/content --output build/ts808-input/P3_music.zip
-          python3 tools/ts808_input.py --archive build/ts808-input/P3_music.zip --output build/ts808-input
+          python3 tools/ts808_input.py --archive build/klon-input/P3_music.zip --output build/ts808-input
           ./build/parable_ts808_lab --input build/ts808-input/take06-26s-mono16.wav --output build/ts808-auditions
           ./build/parable_ts808_lab --input build/ts808-input/take06-26s-mono16.wav --output build/ts808-repeat
           for file in build/ts808-auditions/*; do
@@ -132,8 +131,7 @@ jobs:
           HEAD_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
           mkdir -p build/muff-input
-          curl --fail --show-error --location https://zenodo.org/api/records/14963133/files/P3_music.zip/content --output build/muff-input/P3_music.zip
-          python3 tools/muff_input.py --archive build/muff-input/P3_music.zip --output build/muff-input
+          python3 tools/muff_input.py --archive build/klon-input/P3_music.zip --output build/muff-input
           ./build/parable_muff_lab --input build/muff-input/guitar-techs-mono16.wav --output build/muff-auditions
           ./build/parable_muff_lab --input build/muff-input/guitar-techs-mono16.wav --output build/muff-repeat
           for file in build/muff-auditions/*.wav; do cmp "$file" "build/muff-repeat/$(basename "$file")"; done
@@ -382,7 +380,7 @@ jobs:
         env:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1
-        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^(firmware_measurement_math_status|core_validation|audio_safety|patch_contract|host_preparation|rat_patch_integration|patch_audio_evidence|rat_circuit_and_safety|preset_journal|activation_contract|activation_concurrency|activation_demo|living_contract|living_concurrency|living_audio_evidence|tape_medium_and_safety|tape_listening_cli|rotary_mechanics_and_safety|rotary_listening_cli)$'
+        run: ctest --test-dir build -j2 --output-on-failure --no-tests=error -R '^(firmware_measurement_math_status|core_validation|audio_safety|patch_contract|host_preparation|rat_patch_integration|patch_audio_evidence|rat_circuit_and_safety|preset_journal|activation_contract|activation_concurrency|activation_demo|living_contract|living_concurrency|living_audio_evidence|tape_medium_and_safety|tape_listening_cli|rotary_mechanics_and_safety|rotary_listening_cli)$'
 
       - name: Configure focused Muff ASan and UBSan at O1
         run: cmake -S . -B build/muff-sanitized -DCMAKE_BUILD_TYPE=Debug -DFETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON="$PWD/build/_deps/nlohmann_json-src" -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -O1" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
@@ -392,7 +390,7 @@ jobs:
         env:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1
-        run: ctest --test-dir build/muff-sanitized --output-on-failure --no-tests=error -R '^muff_'
+        run: ctest --test-dir build/muff-sanitized -j2 --output-on-failure --no-tests=error -R '^muff_'
 
       - name: Configure focused TS808 ASan and UBSan at O1
         run: cmake -S . -B build/ts808-sanitized -DCMAKE_BUILD_TYPE=Debug -DFETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON="$PWD/build/_deps/nlohmann_json-src" -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -O1" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
@@ -402,7 +400,7 @@ jobs:
         env:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1
-        run: ctest --test-dir build/ts808-sanitized --output-on-failure --no-tests=error -R '^ts808_'
+        run: ctest --test-dir build/ts808-sanitized -j2 --output-on-failure --no-tests=error -R '^ts808_'
 
       - name: Configure focused Klon ASan and UBSan at O1
         run: cmake -S . -B build/klon-sanitized -DCMAKE_BUILD_TYPE=Debug -DFETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON="$PWD/build/_deps/nlohmann_json-src" -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -O1" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
@@ -412,7 +410,7 @@ jobs:
         env:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1
-        run: ctest --test-dir build/klon-sanitized --output-on-failure --no-tests=error -R '^klon_'
+        run: ctest --test-dir build/klon-sanitized -j2 --output-on-failure --no-tests=error -R '^klon_'
 
       - name: Configure focused wavefolder ASan and UBSan at O1
         run: cmake -S . -B build/wavefolder-sanitized -DCMAKE_BUILD_TYPE=Debug -DFETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON="$PWD/build/_deps/nlohmann_json-src" -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -O1" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
@@ -422,7 +420,7 @@ jobs:
         env:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1
-        run: ctest --test-dir build/wavefolder-sanitized --output-on-failure --no-tests=error -R '^wavefolder_'
+        run: ctest --test-dir build/wavefolder-sanitized -j2 --output-on-failure --no-tests=error -R '^wavefolder_'
 
   activation-tsan:
     runs-on: ubuntu-24.04
@@ -439,4 +437,4 @@ jobs:
       - name: Test actual activation with ThreadSanitizer
         env:
           TSAN_OPTIONS: halt_on_error=1
-        run: ctest --test-dir build --output-on-failure --no-tests=error -R '^(activation|living)_(contract|concurrency)$'
+        run: ctest --test-dir build -j2 --output-on-failure --no-tests=error -R '^(activation|living)_(contract|concurrency)$'

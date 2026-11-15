@@ -64,10 +64,13 @@ static void transients() {
         for(const auto& row:rows) {
             CHECK(row.size()==38);const auto group=row[0]+row[1];
             if(group!=key){finish();key=group;next=0;sums={};minima.fill(99);maxima.fill(-99);harmonicCount=0;CHECK(m.prepare(float(rate),{float(val(row,2)),float(val(row,3)),float(val(row,4)),val(row,1)!=0},KlonRate::Reference1x));}
+            // Parse fixed fixture parameters once, preserving all native samples
+            // and the original electrical/callback checks at their exact points.
+            const double amplitude=val(row,5),frequency=val(row,6);const bool triangle=val(row,7)!=0;
             const auto target=unsigned(std::llround(val(row,8)*rate));
-            for(;next<=target;++next){const double t=double(next)/rate;guard::begin();const auto y=m.process(klonlab::periodic(t,val(row,5),val(row,6),val(row,7)!=0));guard::end();CHECK(guard::clean()&&std::isfinite(y)&&std::abs(y)<=1);
+            for(;next<=target;++next){const double t=double(next)/rate;guard::begin();const auto y=m.process(klonlab::periodic(t,amplitude,frequency,triangle));guard::end();CHECK(guard::clean()&&std::isfinite(y)&&std::abs(y)<=1);
                 CHECK(std::abs(m.mixResidualAmps())<1e-10);const auto& p=m.feedbackContributions();CHECK(std::abs(p[0]+p[1]+p[2]-m.nodes()[Klon::SumOut]+m.nodes()[Klon::SumMinus])<1e-5);
-                if(rate==768000&&next>=30720&&next<46080){const auto& c=m.mixCurrents();const double values[]={m.nodes()[Klon::Clip],m.nodes()[Klon::SumOut],m.nodes()[Klon::Jack],c[0],c[1],c[2]};const auto root=std::polar(1.,-2*klonlab::pi*val(row,6)*t);std::complex<double> phase=1;unsigned slot=0;
+                if(rate==768000&&next>=30720&&next<46080){const auto& c=m.mixCurrents();const double values[]={m.nodes()[Klon::Clip],m.nodes()[Klon::SumOut],m.nodes()[Klon::Jack],c[0],c[1],c[2]};const auto root=std::polar(1.,-2*klonlab::pi*frequency*t);std::complex<double> phase=1;unsigned slot=0;
                     for(unsigned h=1;h<=7;++h){phase*=root;if(h==4||h==6)continue;for(unsigned n=0;n<6;++n)sums[n][slot]+=values[n]*phase;++slot;}
                     for(unsigned n=0;n<6;++n){minima[n]=std::min(minima[n],values[n]);maxima[n]=std::max(maxima[n],values[n]);}++harmonicCount;}
             }

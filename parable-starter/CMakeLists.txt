@@ -301,3 +301,24 @@ target_link_options(parable_wavefolder_test PRIVATE -Wl,--wrap=malloc,--wrap=cal
 add_test(NAME wavefolder_circuit_and_safety COMMAND parable_wavefolder_test)
 endif()
 add_test(NAME wavefolder_listening_cli COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_wavefolder_cli.py $<TARGET_FILE:parable_wavefolder_lab>)
+
+# SF-TEST-PERF-001: every existing gate remains unconditional. Costs are measured
+# main Debug seconds rounded up; they prioritize long tests on fresh CI builds.
+set_tests_properties(ts808_listening_cli PROPERTIES COST 557 LABELS "soundforge;cpu;listening")
+set_tests_properties(klon_listening_cli PROPERTIES COST 474 LABELS "soundforge;cpu;listening")
+set_tests_properties(muff_listening_cli PROPERTIES COST 188 LABELS "soundforge;cpu;listening")
+set_tests_properties(wavefolder_listening_cli PROPERTIES COST 18 LABELS "soundforge;cpu")
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    set_tests_properties(ts808_circuit_and_safety PROPERTIES COST 511 LABELS "soundforge;cpu;science;safety")
+    set_tests_properties(klon_circuit_and_safety PROPERTIES COST 391 LABELS "soundforge;cpu;science;safety")
+    set_tests_properties(muff_circuit_and_safety PROPERTIES COST 165 LABELS "soundforge;cpu;science;safety")
+    set_tests_properties(wavefolder_circuit_and_safety PROPERTIES COST 18 LABELS "soundforge;cpu")
+    # These actual concurrent-DSP tests already use multiple CPU threads.
+    set_tests_properties(activation_concurrency living_concurrency PROPERTIES PROCESSORS 2 LABELS "concurrency")
+endif()
+if(UNIX)
+    add_test(NAME soundforge_benchmark_contract COMMAND ${Python3_EXECUTABLE}
+        ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_soundforge_benchmark.py
+        ${CMAKE_CURRENT_SOURCE_DIR}/tools/soundforge/benchmark.py)
+    set_tests_properties(soundforge_benchmark_contract PROPERTIES PROCESSORS 2 LABELS "verification")
+endif()
