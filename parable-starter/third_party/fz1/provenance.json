@@ -1,0 +1,73 @@
+{
+  "candidates": [
+    {
+      "url": "https://github.com/HSU-ANT/ACME.jl",
+      "revision": "3832ccafb952ee2ca0a27286c091d613062c23fd",
+      "license": "MIT",
+      "notes": "Existing unchanged main germanium evaluator; narrow two-port terminal-resistance relation. Notice ../germanium/ACME-LICENSE.md."
+    },
+    {
+      "url": "https://github.com/grwhitehead/germaniumbjts",
+      "revision": "7838a40f939eaee39b37afef1dac031ef45c276a",
+      "license": "MIT",
+      "notes": "Existing measured AC128 parameter transcription, notice ../germanium/WHITEHEAD-LICENSE.md. No new sample claim."
+    },
+    {
+      "url": "https://patents.google.com/patent/US3213181A/en",
+      "revision": "64bff41839f48ad065b9d9971de6239d64c17dc1bd390bb2b284479aa451587f",
+      "revision_kind": "content-sha256",
+      "license": "Reference only; no import rights assumed",
+      "sha256": "64bff41839f48ad065b9d9971de6239d64c17dc1bd390bb2b284479aa451587f",
+      "notes": "Facts audited, no code/artwork/audio/text imported."
+    },
+    {
+      "url": "https://ftp.amplifiedparts.com/pedal-guides/build-project-maestro-fz-1-fuzz-tone",
+      "revision": "98dc21ff4e71686ab89405033b35330069576b97ec2f52311badcd6067bf4d83",
+      "revision_kind": "content-sha256",
+      "license": "Reference only; no import rights assumed",
+      "sha256": "98dc21ff4e71686ab89405033b35330069576b97ec2f52311badcd6067bf4d83",
+      "notes": "Facts audited, no code/artwork/audio/text imported."
+    },
+    {
+      "url": "https://sites.google.com/site/davidmorrinoldsite/home/trouble/troubleeffects/maestro-fuzz-tone",
+      "revision": "51d3c2543ea02b56bb830072529b298933502fee11ae7c6d5bc5cfd927c2c384",
+      "revision_kind": "content-sha256",
+      "license": "Reference only; no import rights assumed",
+      "sha256": "51d3c2543ea02b56bb830072529b298933502fee11ae7c6d5bc5cfd927c2c384",
+      "notes": "Facts audited, no code/artwork/audio/text imported."
+    },
+    {
+      "url": "https://www.coda-effects.com/2016/12/vintage-maestro-fuzz-tone-fz1-1966.html",
+      "revision": "231994a25404c5ff932388b91685530f88177dce98d94c1728d378c5bd141d29",
+      "revision_kind": "content-sha256",
+      "license": "Reference only; no import rights assumed",
+      "sha256": "231994a25404c5ff932388b91685530f88177dce98d94c1728d378c5bd141d29",
+      "notes": "Facts audited, no code/artwork/audio/text imported."
+    },
+    {
+      "url": "https://bench.swellamps.com/fuzz-ge-3t-1962/",
+      "revision": "71485d42e7358057bad7eb3f04338291c7204bf4a99ab55326be31b4dabde570",
+      "revision_kind": "content-sha256",
+      "license": "Reference only; no import rights assumed",
+      "sha256": "71485d42e7358057bad7eb3f04338291c7204bf4a99ab55326be31b4dabde570",
+      "notes": "Facts audited, no code/artwork/audio/text imported."
+    },
+    {
+      "url": "https://www.vintageguitar.com/17397/maestro-fuzz-tone/",
+      "revision": "cca389fc78f5009284b41e0b77bd1d85587b13e39422d712ac1188a5fa80bd22",
+      "revision_kind": "content-sha256",
+      "license": "Reference only; no import rights assumed",
+      "sha256": "cca389fc78f5009284b41e0b77bd1d85587b13e39422d712ac1188a5fa80bd22",
+      "notes": "Facts audited, no code/artwork/audio/text imported."
+    },
+    {
+      "url": "https://github.com/grwhitehead/us3213181",
+      "revision": "661e93501aaefea5d9389ea68966b47cc496fd37",
+      "license": "MIT root; separately attributed new device card unresolved",
+      "notes": "Audit-only actual netlist/web/license. New GertWillmann2N270 card not imported. Earlier4c97863186a248d4e0d5b1d2933e273915c03748 has retuned passives, also not imported."
+    }
+  ],
+  "patent_scan_sha256": "c910500639caac4c784ee811bf4d337a6578785128fd8612f58558094f6f31bf",
+  "drawing_sha256": "9083c74ad279e9b34b57976a9c8fc70490a56daf66f46455db8d37dbe2f0e299",
+  "paper_sha256": "2d73c9df818243477704566db72c05f5410d579c1b2c44cbd75a88e1e5bdad97"
+}
