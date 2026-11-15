@@ -1,8 +1,29 @@
 #!/usr/bin/env python3
 """SF015 original-FZ1-style independent built-in PNP reference, not native DSP."""
-import argparse,bisect,csv,hashlib,json,math,subprocess
+import argparse,bisect,csv,hashlib,json,math,os,subprocess
 from pathlib import Path
-from rat_spice_reference import run_spice
+# Narrow adaptation of owned RAT process/log wrapper only: full3PNP transients
+# need a bounded300s deadline under two-core contention. RAT source is unchanged.
+def run_spice(exe, output, name, circuit, analysis, vector):
+    raw=output/(name+'.txt')
+    netlist=circuit+f'''\n.options reltol=1e-8 abstol=1e-13 vntol=1e-10 gmin=1e-14
+.temp 26.85
+.control
+set noaskquit
+set wr_singlescale
+set wr_vecnames
+{analysis}
+wrdata {raw.name} {vector}
+quit
+.endc
+.end
+'''
+    path=output/(name+'.cir');path.write_text(netlist)
+    env=dict(os.environ,SPICE_SCRIPTS=str(output.resolve()))
+    result=subprocess.run([exe,'-n','-b',str(path.resolve())],cwd=output.resolve(),env=env,capture_output=True,text=True,timeout=300)
+    (output/(name+'.log')).write_text(result.stdout+result.stderr)
+    if result.returncode or not raw.exists(): raise RuntimeError(f'ngspice failed: {name}')
+    return [[float(x) for x in row.split()] for row in raw.read_text().splitlines()[1:]]
 TEMP=.0255/(1.380649e-23/1.602176634e-19)-273.15
 CARD='IS=20.66u BF=229.6 BR=14.66 NF=1.133 NR=1.140 VAF=19.68 VAR=88.28 IKF=.463 IKR=.2415 ISE=2.190u NE=1.796 NC=1.364 RB=1.885 RE=.3064 RC=.000001727 CJE=0 CJC=100p MJC=0'
 def circuit(attack=.5,bias=470e3,supply=3,source=1000,load=1e6,volume=.5,leakage=1,signal='0'):
@@ -39,7 +60,7 @@ Rload out 0 {load:.17g}
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def table(path,head,rows):
     with path.open('w',newline='') as f:w=csv.writer(f,lineterminator='\n');w.writerow(head);w.writerows(rows)
-def generate(exe,out,fixtures,dc_only=False):
+def generate(exe,out,fixtures,dc_only=False,repair_only=False):
     out.mkdir(parents=True,exist_ok=True);fixtures.mkdir(parents=True,exist_ok=True);(out/'spinit').write_text('set num_threads=1\n')
     rows=[];temps=[];candidates=[]
     for fault in [0,1]:
@@ -69,21 +90,26 @@ def generate(exe,out,fixtures,dc_only=False):
             for volume in [0,1]:cases.append((f'volume-{fault}-{volume}',fault,.5,.1,1000,1e6,volume,'sine',.12))
         index=[]
         for name,fault,attack,level,source,load,volume,kind,duration in cases:
+            if repair_only and name not in ['sine-1-0.1','loaded-1']:continue
             s=circuit(attack,math.inf if fault else 470e3,source=source,load=load,volume=volume)
             if kind=='pluck':s=s.replace('Vin input 0 0',f'Binput input 0 V={{time<.01?0:{level}*(1-exp(-(time-.01)*3000))*exp(-(time-.01)/.12)*sin(2*3.141592653589793*110*(time-.01))}}')
             else:s=s.replace('Vin input 0 0',f'Vin input 0 SIN(0 {level} 196)')
+            # Exact tiny RC can ill-condition SPICE at cutoff in these two cases.
+            # Replacing1.727micro-ohm by0 drops <2nV at1mA; native remains finite.
+            if name in ['sine-1-0.1','loaded-1']:s=s.replace('RC=.000001727','RC=0')
             data=run_spice(exe,out,name,s,f'set temp={TEMP:.17g}\nset numdgt=16\noption method=gear reltol=1e-6 abstol=1e-12 vntol=1e-8\ntran 4u {duration} 0 4u','v(input) v(b1) v(e1) v(b2) v(c2) v(b3) v(c3) v(out) @q1[ic] @q2[ic] @q3[ic]')
             times=[r[0] for r in data];sampled=[]
-            # Native192k uniform physical sample times; compact fixture every48 samples.
-            for sample in range(0,round(duration*192000),48):
+            if not times[0]<=0 or times[-1]<duration-1e-10:raise RuntimeError('Incomplete SPICE transient: '+name)
+            # Native192k uniform physical sample times; compact whole-history grid plus2049 full-rate samples over complete110Hz cycle.
+            for sample in sorted(set(range(0,round(duration*192000),48)) | set(range(6000,min(8049,round(duration*192000))))):
                 t=sample/192000;hi=min(bisect.bisect_left(times,t),len(times)-1);lo=max(0,hi-1);f=(t-times[lo])/(times[hi]-times[lo]) if hi!=lo else 0
                 sampled.append([sample,t,*[data[lo][i]+f*(data[hi][i]-data[lo][i]) for i in range(1,len(data[0]))]])
             table(fixtures/(name+'.csv'),['sample_192k','seconds','input_V',*nodes,'out_V',*currents[:3]],sampled)
             index.append(dict(name=name,fault=fault,attack=attack,input_V=level,source_Ohm=source,load_Ohm=load,volume=volume,kind=kind,duration_s=duration))
             (out/(name+'.txt')).unlink() # raw adaptive data reproducible; keep netlist+log.
             print('reference',name,flush=True)
-        (fixtures/'transients.json').write_text(json.dumps(index,indent=2)+'\n')
-    manifest=dict(simulator=subprocess.check_output([exe,'--version'],text=True).strip(),reference='Built-in PNP Gummel-Poon, measured AC128 template; not an empirical 2N270 or complete physical pedal',temperature_C=TEMP,netlists={p.name:digest(p) for p in sorted(out.glob('*.cir'))},fixtures={p.name:digest(p) for p in sorted(fixtures.glob('*.csv'))},native_equations_imported=False)
+        if not repair_only:(fixtures/'transients.json').write_text(json.dumps(index,indent=2)+'\n')
+    manifest=dict(simulator=subprocess.check_output([exe,'--version'],text=True).strip(),reference='Built-in PNP Gummel-Poon, measured AC128 template; not an empirical 2N270 or complete physical pedal',temperature_C=TEMP,netlists={p.name:digest(p) for p in sorted(out.glob('*.cir'))},fixtures={p.name:digest(p) for p in sorted(fixtures.glob('*.csv')) if not p.name.startswith(('equations-','alias-'))},source_sha256=digest(Path(__file__)),native_equations_imported=False,stiff_reference_cases_rc_short=['sine-1-0.1','loaded-1'])
     (fixtures/'spice-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--ngspice',required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--fixtures',type=Path,required=True);p.add_argument('--dc-only',action='store_true');a=p.parse_args();generate(a.ngspice,a.output,a.fixtures,a.dc_only)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--ngspice',required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--fixtures',type=Path,required=True);p.add_argument('--dc-only',action='store_true');p.add_argument('--repair-only',action='store_true',help='Regenerate only documented two stiff-RC transient cases');a=p.parse_args();generate(a.ngspice,a.output,a.fixtures,a.dc_only,a.repair_only)
