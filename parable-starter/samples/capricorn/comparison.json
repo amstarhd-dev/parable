@@ -1,0 +1,20 @@
+{
+  "method": "PCM16, first8s, identical Hann window, rFFT power summed over specified band; matched pair, not LUFS or a hearing verdict",
+  "numpy": "2.3.5",
+  "pairs": {
+    "low": {
+      "raw_level_change_dB": 0.6051638112793962,
+      "matched_difference_relative_RMS": 0.22756528417932373,
+      "matched_correlation": 0.9741068910499447,
+      "matched_band_2000_8000_energy_change_dB": 2.3980674440283027,
+      "matched_band_6000_12000_energy_change_dB": 3.9052341694491677
+    },
+    "high": {
+      "raw_level_change_dB": 0.06423931647791181,
+      "matched_difference_relative_RMS": 0.3086676845249492,
+      "matched_correlation": 0.9523620687088226,
+      "matched_band_2000_8000_energy_change_dB": 1.576207554493822,
+      "matched_band_6000_12000_energy_change_dB": 2.915849639338559
+    }
+  }
+}

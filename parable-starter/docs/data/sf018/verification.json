@@ -1,0 +1,45 @@
+{
+  "base": "af159d833bdd0b0e17ccc59fcf7edfa506ed98f5",
+  "native_audio_code_commit": "bc0bcf1cbfb4020ad803e771b73d5ad9f94c6905",
+  "host_compiler": "GNU14.2.0",
+  "cmake": "3.31.6",
+  "host_cpu": "Linux x86_64 AMD EPYC9V74 container;2CPU quota; clock uncontrolled",
+  "pre_edit": "utility/registry3/3",
+  "final_Debug": "capricorn and registry4/4",
+  "final_Release": "capricorn and registry4/4",
+  "final_ASan_UBSan": "capricorn2/2",
+  "all_Release_targets_build": true,
+  "legacy_circuit_suites": "Not run locally, as issue68 requires for unchanged standalone dependencies",
+  "protected_previous_source_and_fixture_files": 427,
+  "target_cycles": "not measured",
+  "hardware": "not tested",
+  "musical_approval": "pending; no human audition claim",
+  "first_audio": {
+    "task_start_UTC": "2026-11-15T21:30:40+00:00",
+    "first_native_healthy_WAV_UTC": "2026-11-15T21:41:23.027823+00:00",
+    "seconds_to_first_native_WAV": 643.027823,
+    "human_listening": "Founder approval pending"
+  },
+  "actual_rework": [
+    "FFT header needs existing RAT_FIXTURES compile definition; unused RAT helpers are not executed",
+    "Initial8x trial retained97-sample decimator wrap; tests rejected containment. Corrected to active tap count; final1x/4x/8x and sanitizer tests pass"
+  ],
+  "reuse": {
+    "unchanged_helpers": [
+      "tools/lab_wav.h",
+      "tools/soundforge/analysis.h",
+      "tools/klon_input.py",
+      "tools/rat_spice_reference.py::run_spice",
+      "tools/rat_measure.h::fft",
+      "tests/activation_guard.*"
+    ],
+    "line_count_method": "Physical lines include blanks/comments, not effort or saved-hours estimates",
+    "shared_reused_lines": {
+      "tools/lab_wav.h": 83,
+      "tools/soundforge/analysis.h": 58,
+      "tools/klon_input.py": 39
+    },
+    "active_labor": "not tracked; no estimate"
+  },
+  "remote_CI": "Not yet checked for PR head; report separately in PR"
+}
