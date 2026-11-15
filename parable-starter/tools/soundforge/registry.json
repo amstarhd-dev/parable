@@ -1270,6 +1270,102 @@
           "paths": []
         }
       }
+    },
+    {
+      "id": "blender",
+      "type": "model",
+      "paths": [
+        "parable-starter/include/parable_blender.h",
+        "parable-starter/src/parable_blender.cpp",
+        "parable-starter/src/blender_device.h",
+        "parable-starter/tools/blender_lab.cpp",
+        "parable-starter/tools/blender_spice_reference.py",
+        "parable-starter/tests/test_blender.cpp",
+        "parable-starter/docs/SF016_GATE0.md",
+        "parable-starter/docs/adr/ADR-016-original-blender.md"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/blender/provenance.json",
+          "candidate": 0,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/blender/ACME-LICENSE.md"
+          ],
+          "scope": "Narrow MIT reciprocal EM current/derivative foundation via merged main Muff; no Julia/framework or draft61 source."
+        }
+      ],
+      "ownership_notes": "Parable-local fixed circuit and owned laboratory adaptations; narrow MIT foundation notice retained. No restricted Swell/GPL/drawing import. Global project license unspecified.",
+      "physics_notes": "Documented original-style four-knob five-NPN/four-1N276 circuit, actual phase splitter and rectifier/loading/clip/Tone/Blend. Declared nominal device/storage assumptions, not measured vintage calibration. Exactly D1 true open, all other components unchanged.",
+      "behavior": "Stopped passive elimination to14 junction ports, BDF2 histories/nonlinear diode charge, bounded Newton and experimental8x FIR. Standalone; strict high-note gates fail.",
+      "limitations": [
+        "21 field gate misses in two8kHz physical conditions; only28/48 combined sampling gates passed;14/48 fine references lack required convergence. Not scientifically admitted.",
+        "Severe measured host cost,19880B state and compiler frames; no target cycles/stack high-water/physical pedal or founder approval.",
+        "Nominal EM/constant BJT capacitance and source-transcribed1N276 assumptions omit empirical device calibration, nonlinear BJT charge/noise/thermal/supply dynamics."
+      ],
+      "dependencies": {
+        "assets": [
+          "host.pcm16",
+          "host.signal-analysis",
+          "host.synthetic-plucks"
+        ],
+        "external": [
+          "C++17/libm; actual callback expm1, no new runtime parser/framework.",
+          "Offline pinned ngspice44.2/NumPy2.3.5 for independent references; pinned existing ARM compiler."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "failed",
+          "scope": "Actual safety/PCM/guard checks pass, but strict independent8kHz transient and high-note sampling gates fail. Passing safety is not numerical acceptance.",
+          "paths": [
+            "parable-starter/tests/test_blender.cpp",
+            "parable-starter/tools/blender_alias.py",
+            "parable-starter/docs/data/sf016/refined-physical-gates.log",
+            "parable-starter/docs/data/sf016/alias-summary.json"
+          ]
+        },
+        "independent_circuit": {
+          "status": "full-circuit-compared",
+          "scope": "80 DC and48 full-history/dense-cycle conditions against built-in ngspice, including terminal currents;21 field misses retained. Solver agreement does not establish vintage-unit fidelity.",
+          "paths": [
+            "parable-starter/tools/blender_spice_reference.py",
+            "parable-starter/tests/fixtures/blender/spice-manifest.json"
+          ]
+        },
+        "synthetic_audition": {
+          "status": "not-performed",
+          "scope": "Full synthetic generation pending final delivery verification; quick native PCM tests already pass. Human listening separate.",
+          "paths": [
+            "parable-starter/tools/blender_lab.cpp"
+          ]
+        },
+        "real_guitar_audition": {
+          "status": "not-performed",
+          "scope": "Exact take03 native rendering in progress; founder listening not performed.",
+          "paths": [
+            "parable-starter/third_party/blender/AUDIO_NOTICE.md"
+          ]
+        },
+        "arm_cross_compile": {
+          "status": "compiled",
+          "scope": "Actual pinned M7 object, complete resolved/relocated callback graph, layout and compiler frames. No firmware link or execution.",
+          "paths": [
+            "parable-starter/tools/check_blender_arm.py",
+            "parable-starter/docs/data/sf016/arm.json"
+          ]
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No target audio/cycles/stack/boot/analog calibration or physical pedal. ",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "Engine, canonical contract, state pools, presets, living and firmware unchanged.",
+          "paths": []
+        }
+      }
     }
   ]
 }

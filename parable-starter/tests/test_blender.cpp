@@ -49,9 +49,12 @@ static float stimulus(const Row& c,unsigned frame) {
     if(c[1]=="chord")x=a/3*(std::sin(6.2831853071795864769*110*t)+std::sin(6.2831853071795864769*138.59*t)+std::sin(6.2831853071795864769*164.81*t));
     x*=1-std::exp(-t/.002);if(c[1]=="pluck")x*=std::exp(-t/.12);return float(x);
 }
-static void transients() {
+static void transients(const char* evidence=nullptr) {
     const auto cases=csv("cases.csv");CHECK(cases.size()==48);std::ifstream in(std::string(BLENDER_FIXTURES)+"/transient.f32",std::ios::binary);CHECK(bool(in));char magic[8]{};in.read(magic,8);CHECK(std::memcmp(magic,"SF016F32",8)==0);
     const auto rows=u32(in);CHECK(rows>30000&&rows<150000);CHECK(u32(in)==50);
+    std::ofstream trace;
+    const auto writeU32=[&](uint32_t v){for(unsigned j=0;j<4;++j)trace.put(char(v>>(8*j)));};
+    if(evidence){trace.open(evidence,std::ios::binary);CHECK(bool(trace));trace.write("SF016F32",8);writeU32(rows);writeU32(50);}
     struct Sum {double square=0,reference=0,referenceSquare=0;};std::array<Sum,50> sums{};std::array<double,50> peak{};
     Blender m;unsigned group=999,next=0,count=0,misses=0;double worstRatio=0;std::size_t groups=0;
     const auto finish=[&]{if(!count)return;for(std::size_t k=0;k<50;++k){const auto& s=sums[k];const double rms=std::sqrt(s.square/count),ac=std::sqrt(std::max(0.,s.referenceSquare/count-std::pow(s.reference/count,2))),limit=.03*ac+(k==Blender::Jack?50e-6:k<31?.0005:.1e-6);worstRatio=std::max(worstRatio,rms/limit);if(rms>limit){++misses;std::cout<<"MISS case="<<group<<' '<<cases[group][1]<<" field="<<k<<" rms="<<rms<<" limit="<<limit<<" peak="<<peak[k]<<'\n';}}};
@@ -60,10 +63,11 @@ static void transients() {
         if(id!=group){finish();group=id;next=count=0;sums={};peak={};CHECK(unsigned(val(cases[id],0))==id);CHECK(m.prepare(float(val(cases[id],5)),config(cases[id],6,true),BlenderRate::Direct));++groups;}
         CHECK(frame>=next||frame==0);
         for(;next<=frame;++next){const float x=stimulus(cases[id],next);guard::begin();const auto y=m.process(x);guard::end();CHECK(guard::clean());CHECK(std::isfinite(y)&&std::abs(y)<=1);}
-        for(std::size_t k=0;k<50;++k){const double actual=observed(m,k),e=actual-expected[k];sums[k].square+=e*e;sums[k].reference+=expected[k];sums[k].referenceSquare+=expected[k]*expected[k];peak[k]=std::max(peak[k],std::abs(e));}
+        if(evidence){writeU32(id);writeU32(frame);}
+        for(std::size_t k=0;k<50;++k){const double actual=observed(m,k),e=actual-expected[k];CHECK(std::isfinite(actual));sums[k].square+=e*e;sums[k].reference+=expected[k];sums[k].referenceSquare+=expected[k]*expected[k];peak[k]=std::max(peak[k],std::abs(e));if(evidence){const float v=float(actual);uint32_t bits=0;std::memcpy(&bits,&v,4);writeU32(bits);}}
         ++count;CHECK(!m.failures()&&!m.inputClamps()&&!m.outputClamps()&&!m.invalidInputs());CHECK(m.maximumEvaluations()<=Blender::kUpdates+1);
     }
-    finish();CHECK(in.peek()==std::char_traits<char>::eof());std::cout<<"SPICE full-history/dense-cycle groups="<<groups<<" rows="<<rows<<" gate_misses="<<misses<<" worst_error/limit="<<worstRatio<<std::endl;CHECK(groups==48);CHECK(misses==0);
+    finish();if(evidence){trace.flush();CHECK(bool(trace));}CHECK(in.peek()==std::char_traits<char>::eof());std::cout<<"SPICE full-history/dense-cycle groups="<<groups<<" rows="<<rows<<" gate_misses="<<misses<<" worst_error/limit="<<worstRatio<<std::endl;CHECK(groups==48);CHECK(misses==0);
 }
 static void safetyAndHistory() {
     const float nan=std::numeric_limits<float>::quiet_NaN(),inf=std::numeric_limits<float>::infinity();
@@ -88,4 +92,4 @@ static void safetyAndHistory() {
     // Real electrical endpoints, switches, supply/temperature/source/load extremes.
     for(bool fault:{false,true})for(bool boost:{false,true})for(float end:{0.f,1.f}){BlenderConfig c;c.d1Open=fault;c.boost=boost;c.sustain=c.tone=c.blend=c.level=end;c.supplyVolts=end?10:7.5f;c.temperatureC=end?40:5;c.sourceOhms=end?10000:100;c.loadOhms=end?2000000:100000;Blender m;CHECK(m.prepare(48000,c));for(unsigned n=0;n<1024;++n){guard::begin();const auto y=m.process(float(.05*std::sin(n*.03)));guard::end();CHECK(std::isfinite(y));CHECK(guard::clean());}CHECK(!m.failures()&&!m.outputClamps());}
 }
-int main(int argc,char** argv){CHECK(argc==1||(argc==2&&std::string(argv[1])=="--safety-only"));guard::selfTest();devicesAndBias();if(argc==1)transients();safetyAndHistory();std::cout<<"SF016 state/safety checks passed; circuit reference "<<(argc==1?"checked":"not requested")<<'\n';}
+int main(int argc,char** argv){const bool safety=argc==2&&std::string(argv[1])=="--safety-only",evidence=argc==3&&std::string(argv[1])=="--evidence";CHECK(argc==1||safety||evidence);guard::selfTest();devicesAndBias();if(!safety)transients(evidence?argv[2]:nullptr);safetyAndHistory();std::cout<<"SF016 state/safety checks passed; circuit reference "<<(!safety?"checked":"not requested")<<'\n';}

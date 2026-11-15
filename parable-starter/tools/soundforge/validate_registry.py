@@ -12,7 +12,7 @@ REGISTRY = Path(__file__).with_name("registry.json")
 # this structural guard is not legal clearance or an SPDX expression evaluator.
 IMPORT_LICENSES = frozenset({"MIT", "BSD-2-Clause"})
 EVIDENCE = {
-    "host_numerical": {"passed", "not-performed", "not-applicable"},
+    "host_numerical": {"passed", "failed", "not-performed", "not-applicable"},
     "independent_circuit": {"reduced-section-compared", "full-circuit-compared", "not-performed", "not-applicable"},
     "synthetic_audition": {"generated", "not-performed", "not-applicable"},
     "real_guitar_audition": {"auditioned", "not-performed", "not-applicable"},

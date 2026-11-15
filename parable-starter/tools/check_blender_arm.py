@@ -50,7 +50,7 @@ for i, h in enumerate(headers):
         target = re.sub(r"\+0x[0-9a-f]+$", "", target)
         if target != name:
             calls.add(target)
-    if re.search(r"\bblx\s+r\d+\b", body):
+    if re.search(r"\b(?:blx|bx)\s+r(?:[0-9]|1[0-3])\b|\b(?:tbb|tbh)\b|\bmov(?:s|\.w)?\s+pc,", body):
         indirect.add(name)
     graph[name] = sorted(calls)
     ops[name] = {op: len(re.findall(r"\b" + op + r"\.", body)) for op in ["vdiv", "vmul", "vadd", "vsub", "vcvt"]}

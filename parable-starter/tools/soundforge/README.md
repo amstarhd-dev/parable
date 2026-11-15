@@ -68,6 +68,10 @@ explicit, and the global project license remains **unspecified**.
 The validator checks required fields/types/version, IDs/dependencies, source
 references, statuses and all declared local files. It does not browse, authenticate
 claims, verify copyright ownership or infer evidence from a passing test. The
+`host_numerical` category additionally accepts `failed`: SF016's attempted strict
+scientific gates missed. This records a failure without disguising it as missing
+work or a narrower safety pass; no code-import eligibility rule changes.
+The
 models explicitly have no real-guitar audition or physical Daisy run. RAT has
 bounded host patch integration and an active ARM link; CMOS/germanium remain
 standalone. Reduced-section SPICE agreement is not full physical-circuit validation.

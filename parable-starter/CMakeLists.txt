@@ -312,7 +312,7 @@ target_compile_definitions(parable_blender_test PRIVATE BLENDER_FIXTURES="${CMAK
 target_link_libraries(parable_blender_test PRIVATE parable_blender Threads::Threads)
 target_compile_options(parable_blender_test PRIVATE -Wall -Wextra -Wpedantic)
 target_link_options(parable_blender_test PRIVATE -Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=pthread_mutex_lock,--wrap=pthread_mutex_trylock,--wrap=pthread_cond_wait,--wrap=read,--wrap=write,--wrap=fopen,--wrap=fwrite)
-add_test(NAME blender_circuit_reference COMMAND parable_blender_test)
+add_test(NAME blender_circuit_reference COMMAND parable_blender_test --evidence ${CMAKE_CURRENT_BINARY_DIR}/blender-native.f32)
 add_test(NAME blender_state_and_safety COMMAND parable_blender_test --safety-only)
 add_executable(parable_blender_lab tools/blender_lab.cpp)
 target_include_directories(parable_blender_lab PRIVATE tools)
