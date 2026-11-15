@@ -1,0 +1,37 @@
+{
+  "sources": [
+    {
+      "url": "https://aionfx.com/app/files/docs/skywave_documentation.pdf",
+      "revision": "1.1.0 2024-01-21 p7",
+      "sha256": "5254f5ed372e795294e2821c1a7ebf43d0d9c3b5b51355036d638a7208725220",
+      "use": "facts only; no artwork/code import"
+    },
+    {
+      "url": "https://catalog.triadmagnetics.com/Asset/TY-141P.pdf",
+      "revision": "2019-05-31",
+      "sha256": "1199c1ed60d4c0b800c6156171601b070b63bc3ca2ef47d819beb4442ee0b455",
+      "use": "DCR/ratio/specification facts; magnetics uncalibrated"
+    },
+    {
+      "url": "https://hudsonelectronicsuk.com/product/broadcast/",
+      "use": "manufacturer sound description, not calibration"
+    },
+    {
+      "url": "https://github.com/HSU-ANT/ACME.jl",
+      "revision": "3832ccafb952ee2ca0a27286c091d613062c23fd",
+      "license": "MIT",
+      "use": "Ebers-Moll transport-current adaptation via main"
+    },
+    {
+      "url": "https://github.com/Paulllux/fetcomp-dsp",
+      "revision": "de18f5ac793e36397c725abdca7fcb8c08760ce2",
+      "license": "MIT",
+      "files": [
+        "FetLimiterDsp.h",
+        "LICENSE"
+      ],
+      "use": "audit only; no imported code"
+    }
+  ],
+  "limitations": "Reduced physical family model. No measured TY-141P,2N404A,2N5088 or Hudson unit; no hardware admission."
+}
