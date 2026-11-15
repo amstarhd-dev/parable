@@ -1,0 +1,13 @@
+/workspace/work/parable-sf016/parable-starter/src/parable_blender.cpp:44:22:parable::dsp::Blender::matrices(bool)::<lambda(int, int, double)>	4	static
+/workspace/work/parable-sf016/parable-starter/src/parable_blender.cpp:14:8:double parable::dsp::Blender::node(const Nodes&, int, bool) const	0	static
+/workspace/work/parable-sf016/parable-starter/src/parable_blender.cpp:15:16:parable::dsp::Blender::Ports parable::dsp::Blender::ports(const Nodes&, bool) const	24	static
+/workspace/work/parable-sf016/parable-starter/src/parable_blender.cpp:18:6:bool parable::dsp::Blender::matrices(bool)	20368	static
+/workspace/work/parable-sf016/parable-starter/src/parable_blender.cpp:111:6:bool parable::dsp::Blender::evaluate(const Ports&, bool, Evaluation&) const	96	static
+/workspace/work/parable-sf016/parable-starter/src/parable_blender.cpp:121:6:bool parable::dsp::Blender::solve(Ports&, const Ports&, bool, double&, uint32_t&, Evaluation&) const	2344	static
+/workspace/work/parable-sf016/parable-starter/src/parable_blender.cpp:139:16:parable::dsp::Blender::Nodes parable::dsp::Blender::reconstruct(const Nodes&, const Ports&) const	16	static
+/workspace/work/parable-sf016/parable-starter/src/parable_blender.cpp:142:6:void parable::dsp::Blender::observe(const Ports&, const Ports&, const Ports&)	16	static
+/workspace/work/parable-sf016/parable-starter/src/parable_blender.cpp:150:6:void parable::dsp::Blender::resetCircuit()	16	static
+/workspace/work/parable-sf016/parable-starter/src/parable_blender.cpp:81:6:bool parable::dsp::Blender::prepare(float, parable::dsp::BlenderConfig, parable::dsp::BlenderRate)	20968	static
+/workspace/work/parable-sf016/parable-starter/src/parable_blender.cpp:154:6:void parable::dsp::Blender::reset()	16	static
+/workspace/work/parable-sf016/parable-starter/src/parable_blender.cpp:157:8:double parable::dsp::Blender::sample(double)	2840	static
+/workspace/work/parable-sf016/parable-starter/src/parable_blender.cpp:175:7:float parable::dsp::Blender::process(float)	72	static

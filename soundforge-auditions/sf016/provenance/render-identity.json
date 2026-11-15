@@ -1,0 +1,15 @@
+{
+  "source_commit": "50336e8cf137fb9a25bffdf04f38dda6a971db31",
+  "components": {
+    "include/parable_blender.h": "9b4a55ea913219f4269b5230ff8a5e851f15ab73dfd98c3cdc546d7bdb95c740",
+    "src/parable_blender.cpp": "90481ab455df5a63de433621c1a8aefd36cd7410994b7116ae3c44a8600f4a3f",
+    "src/blender_device.h": "de7225310c667fd4bc7a30e0a9f556a67afc786961242575eaf305ae84590aea",
+    "tools/blender_lab.cpp": "86e28dfb0807dd0ab5c1688a62c65a27efd791fc02c3161e9f00d0fbfe148494",
+    "tools/blender_study.cpp": "8234d34cf23b6eed8f9b11be5cabb845f95642d3e47631d80aa798a85a803db6",
+    "tools/lab_wav.h": "3072142c8aca0eaa04fb13df30a478c189ade8cdabb50d0b8dd009d917b525bf",
+    "tools/soundforge/analysis.h": "39cfadfad368e5f7725d9efd334dd2026d0becf942bdb1d129750fbc6ce29deb",
+    "tools/klon_input.py": "a7fb49d36e80674107485df82bd0ebcc39852f15d15a0aeaf0305554d5d74d22"
+  },
+  "binary_sha256": "9be60fd6ad5b1a0b179964b61a154abbbaa613fb24aac6860098cb73b6caeeb4",
+  "input_sha256": "75ae5e73c72e6774fb75e6318dc91ba66347fb65290949e947144033eb648f52"
+}

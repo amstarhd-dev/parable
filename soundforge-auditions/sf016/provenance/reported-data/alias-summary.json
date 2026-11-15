@@ -1,0 +1,467 @@
+{
+  "gates": "original Gate0 thresholds unchanged",
+  "future_target_cycles": "not measured",
+  "converged_reference_cases": 34,
+  "reference_cases": 48,
+  "selected_factor": 8,
+  "factors": {
+    "1": {
+      "passed": 2,
+      "cases": 48,
+      "worst_fullband_relative_RMS": 3.1585815089398137,
+      "worst_nonharmonic_error_line_dBr": 0.43621258511889305
+    },
+    "2": {
+      "passed": 13,
+      "cases": 48,
+      "worst_fullband_relative_RMS": 2.6002018278675982,
+      "worst_nonharmonic_error_line_dBr": 3.6437079199581035
+    },
+    "4": {
+      "passed": 22,
+      "cases": 48,
+      "worst_fullband_relative_RMS": 0.2104019697916458,
+      "worst_nonharmonic_error_line_dBr": -11.16273662176396
+    },
+    "8": {
+      "passed": 28,
+      "cases": 48,
+      "worst_fullband_relative_RMS": 0.1272572585447269,
+      "worst_nonharmonic_error_line_dBr": -27.030246097655528
+    }
+  },
+  "convergence": [
+    {
+      "rate": 44100,
+      "fault": 0,
+      "amplitude": 0.05,
+      "kind": 0,
+      "RMS_16x_32x": 7.516159281432405e-06,
+      "relative_RMS": 0.0018216593238214519,
+      "gate": true
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "amplitude": 0.05,
+      "kind": 1,
+      "RMS_16x_32x": 9.278257523039468e-05,
+      "relative_RMS": 0.02715484667254572,
+      "gate": false
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "amplitude": 0.05,
+      "kind": 2,
+      "RMS_16x_32x": 5.5968876147356675e-05,
+      "relative_RMS": 0.018264175966237493,
+      "gate": false
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "amplitude": 0.05,
+      "kind": 3,
+      "RMS_16x_32x": 2.157413907650873e-06,
+      "relative_RMS": 0.00029114680174955053,
+      "gate": true
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "amplitude": 0.2,
+      "kind": 0,
+      "RMS_16x_32x": 1.8628456201220716e-05,
+      "relative_RMS": 0.002275705179553714,
+      "gate": true
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "amplitude": 0.2,
+      "kind": 1,
+      "RMS_16x_32x": 0.0002146885036810105,
+      "relative_RMS": 0.02644422565545803,
+      "gate": false
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "amplitude": 0.2,
+      "kind": 2,
+      "RMS_16x_32x": 7.337233462455525e-05,
+      "relative_RMS": 0.009170769076385366,
+      "gate": false
+    },
+    {
+      "rate": 44100,
+      "fault": 0,
+      "amplitude": 0.2,
+      "kind": 3,
+      "RMS_16x_32x": 8.887088228587803e-06,
+      "relative_RMS": 0.0013288071958253449,
+      "gate": true
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "amplitude": 0.05,
+      "kind": 0,
+      "RMS_16x_32x": 9.173783433507478e-06,
+      "relative_RMS": 0.0010419793922368148,
+      "gate": true
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "amplitude": 0.05,
+      "kind": 1,
+      "RMS_16x_32x": 8.82741274399765e-05,
+      "relative_RMS": 0.012844886289516057,
+      "gate": false
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "amplitude": 0.05,
+      "kind": 2,
+      "RMS_16x_32x": 4.5739544907293526e-05,
+      "relative_RMS": 0.010044058541378782,
+      "gate": false
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "amplitude": 0.05,
+      "kind": 3,
+      "RMS_16x_32x": 3.032056025313081e-06,
+      "relative_RMS": 0.0004026469234703016,
+      "gate": true
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "amplitude": 0.2,
+      "kind": 0,
+      "RMS_16x_32x": 1.6949029478282083e-05,
+      "relative_RMS": 0.001237042087635814,
+      "gate": true
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "amplitude": 0.2,
+      "kind": 1,
+      "RMS_16x_32x": 0.00013199204138109096,
+      "relative_RMS": 0.011407833471465527,
+      "gate": false
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "amplitude": 0.2,
+      "kind": 2,
+      "RMS_16x_32x": 7.050038224642464e-05,
+      "relative_RMS": 0.00757089776381783,
+      "gate": false
+    },
+    {
+      "rate": 44100,
+      "fault": 1,
+      "amplitude": 0.2,
+      "kind": 3,
+      "RMS_16x_32x": 1.0815803337939338e-05,
+      "relative_RMS": 0.0010130154086118411,
+      "gate": true
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "amplitude": 0.05,
+      "kind": 0,
+      "RMS_16x_32x": 1.530790374137034e-05,
+      "relative_RMS": 0.0037188771967148313,
+      "gate": true
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "amplitude": 0.05,
+      "kind": 1,
+      "RMS_16x_32x": 3.417783523214641e-05,
+      "relative_RMS": 0.010017413690746307,
+      "gate": false
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "amplitude": 0.05,
+      "kind": 2,
+      "RMS_16x_32x": 3.0300509080880805e-05,
+      "relative_RMS": 0.009884801648497879,
+      "gate": false
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "amplitude": 0.05,
+      "kind": 3,
+      "RMS_16x_32x": 2.8643517677392447e-06,
+      "relative_RMS": 0.0004130170921053648,
+      "gate": true
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "amplitude": 0.2,
+      "kind": 0,
+      "RMS_16x_32x": 4.629626793454492e-05,
+      "relative_RMS": 0.005655168084326472,
+      "gate": false
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "amplitude": 0.2,
+      "kind": 1,
+      "RMS_16x_32x": 6.0154538053417176e-05,
+      "relative_RMS": 0.0074094123478661575,
+      "gate": false
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "amplitude": 0.2,
+      "kind": 2,
+      "RMS_16x_32x": 8.471116650041293e-05,
+      "relative_RMS": 0.010505940503929187,
+      "gate": false
+    },
+    {
+      "rate": 48000,
+      "fault": 0,
+      "amplitude": 0.2,
+      "kind": 3,
+      "RMS_16x_32x": 1.0079702972967138e-05,
+      "relative_RMS": 0.0015527245229623467,
+      "gate": true
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "amplitude": 0.05,
+      "kind": 0,
+      "RMS_16x_32x": 1.5051154975207413e-05,
+      "relative_RMS": 0.0017120613232422413,
+      "gate": true
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "amplitude": 0.05,
+      "kind": 1,
+      "RMS_16x_32x": 2.4499537573109576e-05,
+      "relative_RMS": 0.0035793076931692424,
+      "gate": true
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "amplitude": 0.05,
+      "kind": 2,
+      "RMS_16x_32x": 2.5176006717220602e-05,
+      "relative_RMS": 0.00551601994363979,
+      "gate": false
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "amplitude": 0.05,
+      "kind": 3,
+      "RMS_16x_32x": 2.648036390999593e-06,
+      "relative_RMS": 0.00034755657400227654,
+      "gate": true
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "amplitude": 0.2,
+      "kind": 0,
+      "RMS_16x_32x": 4.8164220718382856e-05,
+      "relative_RMS": 0.0035193975968042723,
+      "gate": true
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "amplitude": 0.2,
+      "kind": 1,
+      "RMS_16x_32x": 4.89231816553763e-05,
+      "relative_RMS": 0.0042387297500185135,
+      "gate": true
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "amplitude": 0.2,
+      "kind": 2,
+      "RMS_16x_32x": 4.270753820322682e-05,
+      "relative_RMS": 0.004549761876845205,
+      "gate": true
+    },
+    {
+      "rate": 48000,
+      "fault": 1,
+      "amplitude": 0.2,
+      "kind": 3,
+      "RMS_16x_32x": 9.858418653914397e-06,
+      "relative_RMS": 0.0009157093613935315,
+      "gate": true
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "amplitude": 0.05,
+      "kind": 0,
+      "RMS_16x_32x": 1.177290047074703e-06,
+      "relative_RMS": 0.0002842995461989379,
+      "gate": true
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "amplitude": 0.05,
+      "kind": 1,
+      "RMS_16x_32x": 4.329597411865561e-06,
+      "relative_RMS": 0.0012624976137778994,
+      "gate": true
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "amplitude": 0.05,
+      "kind": 2,
+      "RMS_16x_32x": 1.2996963747911054e-05,
+      "relative_RMS": 0.004202271742383913,
+      "gate": true
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "amplitude": 0.05,
+      "kind": 3,
+      "RMS_16x_32x": 1.0894465024041834e-06,
+      "relative_RMS": 0.00018189209559680943,
+      "gate": true
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "amplitude": 0.2,
+      "kind": 0,
+      "RMS_16x_32x": 4.819200345838604e-06,
+      "relative_RMS": 0.0005880863070753913,
+      "gate": true
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "amplitude": 0.2,
+      "kind": 1,
+      "RMS_16x_32x": 1.605663193103786e-05,
+      "relative_RMS": 0.0019744514649171004,
+      "gate": true
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "amplitude": 0.2,
+      "kind": 2,
+      "RMS_16x_32x": 2.0062305587902268e-05,
+      "relative_RMS": 0.0024832133527971007,
+      "gate": true
+    },
+    {
+      "rate": 96000,
+      "fault": 0,
+      "amplitude": 0.2,
+      "kind": 3,
+      "RMS_16x_32x": 5.450652983451126e-06,
+      "relative_RMS": 0.0008950319413385359,
+      "gate": true
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "amplitude": 0.05,
+      "kind": 0,
+      "RMS_16x_32x": 1.7594722709966626e-06,
+      "relative_RMS": 0.00019961859766148634,
+      "gate": true
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "amplitude": 0.05,
+      "kind": 1,
+      "RMS_16x_32x": 6.4468495191011065e-06,
+      "relative_RMS": 0.0009386102555576818,
+      "gate": true
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "amplitude": 0.05,
+      "kind": 2,
+      "RMS_16x_32x": 1.173782016795864e-05,
+      "relative_RMS": 0.0025741885706501728,
+      "gate": true
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "amplitude": 0.05,
+      "kind": 3,
+      "RMS_16x_32x": 1.6523974109056525e-06,
+      "relative_RMS": 0.00023273870012360196,
+      "gate": true
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "amplitude": 0.2,
+      "kind": 0,
+      "RMS_16x_32x": 5.986185313756939e-06,
+      "relative_RMS": 0.00043653163166699696,
+      "gate": true
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "amplitude": 0.2,
+      "kind": 1,
+      "RMS_16x_32x": 1.362506494104078e-05,
+      "relative_RMS": 0.0011780253618099905,
+      "gate": true
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "amplitude": 0.2,
+      "kind": 2,
+      "RMS_16x_32x": 2.220312206159074e-05,
+      "relative_RMS": 0.0023643051397807804,
+      "gate": true
+    },
+    {
+      "rate": 96000,
+      "fault": 1,
+      "amplitude": 0.2,
+      "kind": 3,
+      "RMS_16x_32x": 6.134905891313473e-06,
+      "relative_RMS": 0.0006165468915399565,
+      "gate": true
+    }
+  ]
+}
