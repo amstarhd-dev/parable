@@ -1,0 +1,127 @@
+{
+  "candidates": [
+    {
+      "url": "https://github.com/HSU-ANT/ACME.jl",
+      "revision": "3832ccafb952ee2ca0a27286c091d613062c23fd",
+      "license": "MIT",
+      "files_sha256": {
+        "src/elements.jl": "82811f557cfd2042c28c6170dadd657eb4362acd3b5f541a8ac111eefc20ec06",
+        "LICENSE.md": "e51f6b71f5e59e9d8c43843fe8218f6708b5ee8388ef1823e9c0c5dff521788d"
+      },
+      "notes": "Actual bjt/derivatives and license inspected; narrow EM foundation via merged main Muff. No Julia/framework/draft61 import."
+    }
+  ],
+  "references": [
+    {
+      "name": "fender",
+      "url": "https://www.fender.com/articles/behind-the-scenes/vintage-fender-effects-from-the-1950s-1980s",
+      "status": 200,
+      "bytes": 194372,
+      "sha256": "239c3deed2bd4def5f8c41f9dba7975daff5ad130b2aba29c75e4f44a68ce313"
+    },
+    {
+      "name": "morrin",
+      "url": "https://sites.google.com/site/davidmorrinoldsite/home/trouble/troubleeffects/fender-blender",
+      "status": 200,
+      "bytes": 251487,
+      "sha256": "8a48c3b9b26e5ee7bc1e64848558968e06f7e9e57ad00680fa66ef97a4630599"
+    },
+    {
+      "name": "vintage",
+      "url": "https://www.vintageguitar.com/25190/",
+      "status": 200,
+      "bytes": 139768,
+      "sha256": "9ed634dcdc4e7b5b33e5ce4882eae9d8c8513b4d2819ae95eb7816399237dd2e"
+    },
+    {
+      "name": "redraw",
+      "url": "https://www.experimentalistsanonymous.com/diy/Schematics/Fuzz%20and%20Fuzzy%20Noisemakers/Fender%20Blender.pdf",
+      "status": 200,
+      "bytes": 12354,
+      "sha256": "9a9c1837d9030e056baba097f84d40d3878f22f55db31e06f59f3a8550db81d7"
+    },
+    {
+      "name": "jmk",
+      "url": "https://jmkpcbs.com/wp-content/uploads/2014/02/Flender-Bender.pdf",
+      "status": 200,
+      "bytes": 514956,
+      "sha256": "21ebeb4d74a223bc07f8709179768faf46c21eb394cfd5dfc6c9ab6e59c7bff4"
+    },
+    {
+      "name": "shields",
+      "url": "https://www.fmicassets.com/Damroot/Original/10018/OM_0234552000_Shields-Blender_English.pdf",
+      "status": 200,
+      "bytes": 8758806,
+      "sha256": "6c6e253728c5a0ff4a99d7c1ade579c0098837b4c2cb16839bccbf349348233e"
+    },
+    {
+      "name": "swell",
+      "url": "https://bench.swellamps.com/fuzz-octave-blend-1968/",
+      "status": 200,
+      "bytes": 217742,
+      "sha256": "38b88828856d531a62f71bd3a8d90f7f3ec832263dc5e1825b644382909f0335"
+    },
+    {
+      "name": "factory",
+      "url": "https://schematicheaven.net/effects/fender_blender_fuzz.pdf",
+      "bytes": 509459,
+      "sha256": "2dfcb85539cc5d87c09a0812a08b66827fc9eab1e0815b7b6e0b4b42a7724be8"
+    },
+    {
+      "name": "fuzzcentral-schematic",
+      "url": "https://fuzzcentral.ssguitar.com/blender/blenderschem.gif",
+      "bytes": 12511,
+      "sha256": "4b474cca021b9e0790956d0e8073c4c62dfa645ec4e9750c473f532e98c6ba63"
+    },
+    {
+      "name": "sceptre",
+      "url": "https://www.thm.de/iem/images/user/novender-978/SCEPTRE-beispiele.pdf",
+      "bytes": 8398694,
+      "sha256": "083c147988165b37e28611fcbd83e314ba550feaf44fa6966df6b65776d01a14"
+    },
+    {
+      "name": "datasheet",
+      "url": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/927/2N3390-2N3393.pdf",
+      "bytes": 303468,
+      "sha256": "e390f2aa8e7a97e5212d17e35da8a1d4a6131bad3ef809c3776df03926b35b1c"
+    },
+    {
+      "name": "central",
+      "url": "https://www.mouser.com/datasheet/2/68/1n276-876360.pdf",
+      "bytes": 445781,
+      "sha256": "b70a577afa6957d992e1bce2d7d3cb7edc3f787f775b970463a625f9f0b53c1f"
+    },
+    {
+      "name": "manual1974",
+      "url": "https://www.fmicassets.com/Damroot/Original/10001/OM_leg_fxaccy_Fender_Blender_1974.pdf",
+      "bytes": 137309,
+      "sha256": "a10fcbbfd714af5633c899b60f673810943ab63ec3e9cb74327e38dd9d7313d4"
+    },
+    {
+      "name": "pisotones",
+      "url": "https://www.pisotones.com/FenderBlender/mbello/FB.htm",
+      "bytes": 13091,
+      "sha256": "b47164bf9456af91eddf90b2e84960fa2cc8425e755f80af7694a0081432b886"
+    }
+  ],
+  "decision": "parable-starter/docs/adr/ADR-016-original-blender.md",
+  "internal_reuse": [
+    "unchanged main PCM/stats/excitation/activation_guard/klon_input.py",
+    "owned main Muff elimination/DC/pivot, TS808 BDF2 and FIR/FFT/lab/ARM patterns",
+    "unchanged main RAT/Muff/CMOS/Aquarius comparison kernels only"
+  ],
+  "original_gap": "One fixed complete original-style31-node/14-port Blender with physical open D1; no eligible exact licensed full implementation found.",
+  "ownership": "No restricted Swell code/models/netlists/parameters, historical artwork or GPL code imported. Component facts transcribed independently. MIT notice retained; global Parable license unspecified.",
+  "independent_tool": {
+    "version": "ngspice44.2",
+    "package_url": "https://deb.debian.org/debian/pool/main/n/ngspice/ngspice_44.2+ds-1_amd64.deb",
+    "package_sha256": "4d76721dd91416055b1088cfc58626d4db47b91afda7c73258c0968ba6e4d24e"
+  },
+  "audio": {
+    "record": "14963133",
+    "member": "P3_music/audio/directinput/directinput_03.wav",
+    "license": "CC-BY-4.0",
+    "notice": "AUDIO_NOTICE.md",
+    "prepared_sha256": "75ae5e73c72e6774fb75e6318dc91ba66347fb65290949e947144033eb648f52"
+  }
+}

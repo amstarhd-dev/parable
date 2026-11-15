@@ -23,7 +23,11 @@ class RegistryTests(unittest.TestCase):
             registry.validate(catalog)
 
     def test_committed_catalog(self):
-        self.assertEqual(registry.validate(self.catalog), 12)
+        self.assertEqual(registry.validate(self.catalog), 13)
+
+    def test_attempted_numerical_failure_is_not_missing_work_or_a_pass(self):
+        self.assertEqual(self.catalog["assets"][-1]["evidence"]["host_numerical"]["status"], "failed")
+        self.rejected(lambda c: c["assets"][0]["evidence"]["physical_daisy"].update(status="failed"), "evidence status")
 
     def test_format_and_missing_fields(self):
         for version in (0, 2, True, "1"):

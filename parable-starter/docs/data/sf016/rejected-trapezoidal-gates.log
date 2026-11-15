@@ -1,0 +1,40 @@
+SPICE DC values=4000 peak_V=3.11448e-06 peak_A=3.01656e-10
+MISS case=3 hard field=49 rms=1.29266e-05 limit=4.00062e-06 peak=1.86939e-05
+MISS case=4 pluck field=49 rms=9.98227e-06 limit=6.03101e-06 peak=1.212e-05
+MISS case=24 pluck field=48 rms=2.53161e-05 limit=1.71479e-05 peak=7.59423e-05
+MISS case=24 pluck field=49 rms=1.96446e-05 limit=7.65901e-06 peak=2.397e-05
+MISS case=27 sustain1 field=49 rms=1.17788e-05 limit=1.14877e-05 peak=1.86927e-05
+MISS case=40 high field=49 rms=9.27025e-06 limit=6.87186e-06 peak=3.27805e-05
+MISS case=41 high field=48 rms=4.05643e-05 limit=3.19672e-05 peak=0.000209332
+MISS case=41 high field=49 rms=2.53544e-05 limit=6.76928e-06 peak=6.36566e-05
+MISS case=42 high field=15 rms=0.00754549 limit=0.00564914 peak=0.0719167
+MISS case=42 high field=17 rms=0.0075653 limit=0.00553396 peak=0.0721236
+MISS case=42 high field=18 rms=0.00756155 limit=0.00553389 peak=0.0720901
+MISS case=42 high field=19 rms=0.00126575 limit=0.000836769 peak=0.00139027
+MISS case=42 high field=20 rms=0.00134618 limit=0.0011338 peak=0.00892568
+MISS case=42 high field=21 rms=0.00742996 limit=0.00550652 peak=0.070276
+MISS case=42 high field=22 rms=0.00348103 limit=0.00283669 peak=0.0331848
+MISS case=42 high field=23 rms=0.00348103 limit=0.00283669 peak=0.0331848
+MISS case=42 high field=26 rms=0.00224844 limit=0.00203751 peak=0.00557647
+MISS case=42 high field=28 rms=0.00222267 limit=0.00204667 peak=0.00556377
+MISS case=42 high field=41 rms=6.85519e-05 limit=3.74597e-05 peak=0.00035795
+MISS case=42 high field=42 rms=6.87478e-05 limit=3.75665e-05 peak=0.000358973
+MISS case=42 high field=46 rms=3.38521e-06 limit=1.29753e-06 peak=4.63393e-06
+MISS case=42 high field=48 rms=0.00171068 limit=3.15573e-05 peak=0.00240776
+MISS case=42 high field=49 rms=0.00161694 limit=6.73743e-06 peak=0.00201779
+MISS case=44 high field=49 rms=1.51434e-05 limit=1.12666e-05 peak=4.88072e-05
+MISS case=46 high field=15 rms=0.00897371 limit=0.00692471 peak=0.141257
+MISS case=46 high field=17 rms=0.00897406 limit=0.00692832 peak=0.14122
+MISS case=46 high field=18 rms=0.00897385 limit=0.00692805 peak=0.141219
+MISS case=46 high field=21 rms=0.0089242 limit=0.00664541 peak=0.139739
+MISS case=46 high field=22 rms=0.00414841 limit=0.00335741 peak=0.0651227
+MISS case=46 high field=23 rms=0.00414841 limit=0.00335741 peak=0.0651227
+MISS case=46 high field=26 rms=0.00321689 limit=0.00202461 peak=0.00908531
+MISS case=46 high field=28 rms=0.00321811 limit=0.00202442 peak=0.00908027
+MISS case=46 high field=30 rms=0.00157931 limit=0.00121458 peak=0.00446402
+MISS case=46 high field=44 rms=3.70977e-07 limit=2.80713e-07 peak=2.38804e-06
+MISS case=46 high field=45 rms=3.72036e-07 limit=2.8123e-07 peak=2.39488e-06
+MISS case=46 high field=48 rms=0.000109208 limit=8.19692e-06 peak=0.000173642
+MISS case=46 high field=49 rms=7.50972e-05 limit=1.12934e-05 peak=0.000157763
+SPICE full-history/dense-cycle groups=48 rows=63626 gate_misses=37 worst_error/limit=239.994
+CHECK failed at line 66: misses==0

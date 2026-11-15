@@ -1,0 +1,189 @@
+{
+  "unchanged_facilities": [
+    {
+      "path": "tools/lab_wav.h",
+      "lines": 83,
+      "nonblank_lines": 83,
+      "sha256": "3072142c8aca0eaa04fb13df30a478c189ade8cdabb50d0b8dd009d917b525bf"
+    },
+    {
+      "path": "tools/soundforge/analysis.h",
+      "lines": 58,
+      "nonblank_lines": 52,
+      "sha256": "39cfadfad368e5f7725d9efd334dd2026d0becf942bdb1d129750fbc6ce29deb"
+    },
+    {
+      "path": "tools/soundforge/excitation.h",
+      "lines": 31,
+      "nonblank_lines": 31,
+      "sha256": "89d3b0edd9b88555442079c002b5246bf44edd7efb07ad8881b624f2b65b5580"
+    },
+    {
+      "path": "tests/test_check.h",
+      "lines": 16,
+      "nonblank_lines": 14,
+      "sha256": "963794d15b8a63736c253a53e1cfabc3042c5db237b0b767f3fa9f7632110a41"
+    },
+    {
+      "path": "tests/activation_guard.h",
+      "lines": 12,
+      "nonblank_lines": 12,
+      "sha256": "f8d1866b07679813c2cae92fff6253b5ac8b4fadcdea198b7c394c15a4517fe0"
+    },
+    {
+      "path": "tests/activation_guard.cpp",
+      "lines": 75,
+      "nonblank_lines": 75,
+      "sha256": "e8230904b127c610a5fded7d40ddeafbc0dd23923beeb0ecd6a1a6b811d86806"
+    },
+    {
+      "path": "tools/klon_input.py",
+      "lines": 39,
+      "nonblank_lines": 39,
+      "sha256": "a7fb49d36e80674107485df82bd0ebcc39852f15d15a0aeaf0305554d5d74d22"
+    }
+  ],
+  "unchanged_comparison_sources": [
+    {
+      "path": "include/parable_rat.h",
+      "lines": 74,
+      "nonblank_lines": 74,
+      "sha256": "3959350952136fedd276b0590851e022ee32b1cb081bd26729ec4481dff87979"
+    },
+    {
+      "path": "src/parable_rat.cpp",
+      "lines": 164,
+      "nonblank_lines": 163,
+      "sha256": "7506e15675576d41ef1350ad08b893651556ed77b272b8b85e0030b0a26ece4b"
+    },
+    {
+      "path": "include/parable_muff.h",
+      "lines": 61,
+      "nonblank_lines": 61,
+      "sha256": "02cd65fb559daf00ef263b3dfe318817c4c07e80ffe5fd66d428f9e9782fd12f"
+    },
+    {
+      "path": "src/parable_muff.cpp",
+      "lines": 206,
+      "nonblank_lines": 206,
+      "sha256": "d80d9a7a55eb5c252bd4fcaa0b17ccfbab48efe14cb3ce9398ab8c4edda3fd7d"
+    },
+    {
+      "path": "include/parable_cmos.h",
+      "lines": 59,
+      "nonblank_lines": 57,
+      "sha256": "a3d12cbaa1328c5f7437af078f78992008a8aa94d1dd618e2bf06e87bc34caa6"
+    },
+    {
+      "path": "src/parable_cmos.cpp",
+      "lines": 116,
+      "nonblank_lines": 115,
+      "sha256": "abbd25e1d51b0463babecda411bb501236115d0331879e37fb2340c036a2517a"
+    },
+    {
+      "path": "include/parable_wavefolder.h",
+      "lines": 51,
+      "nonblank_lines": 51,
+      "sha256": "dd79d1f7b5ac696f89e3ecc3b93a7aa7589ed4a6d2c9f150f85c4616602d4719"
+    },
+    {
+      "path": "src/parable_wavefolder.cpp",
+      "lines": 66,
+      "nonblank_lines": 66,
+      "sha256": "4f86b1d9565e4260a3cf0d6da675677f06f3baff88934d3ed5a4943a8690281f"
+    }
+  ],
+  "new": {
+    "native": [
+      {
+        "path": "include/parable_blender.h",
+        "lines": 79,
+        "nonblank_lines": 79,
+        "sha256": "9b4a55ea913219f4269b5230ff8a5e851f15ab73dfd98c3cdc546d7bdb95c740"
+      },
+      {
+        "path": "src/parable_blender.cpp",
+        "lines": 192,
+        "nonblank_lines": 192,
+        "sha256": "90481ab455df5a63de433621c1a8aefd36cd7410994b7116ae3c44a8600f4a3f"
+      },
+      {
+        "path": "src/blender_device.h",
+        "lines": 17,
+        "nonblank_lines": 17,
+        "sha256": "de7225310c667fd4bc7a30e0a9f556a67afc786961242575eaf305ae84590aea"
+      }
+    ],
+    "host_tools": [
+      {
+        "path": "tools/blender_alias.py",
+        "lines": 100,
+        "nonblank_lines": 88,
+        "sha256": "31a0bfc2273cf38577a271681183d89b5ae453837c96b7af3379c16d649add8f"
+      },
+      {
+        "path": "tools/blender_evidence.py",
+        "lines": 150,
+        "nonblank_lines": 141,
+        "sha256": "77290ebfc29c8b3a95fe8ce9a4a22f98ee6126c2e252fc36e5c2a885ac0b53dc"
+      },
+      {
+        "path": "tools/blender_lab.cpp",
+        "lines": 83,
+        "nonblank_lines": 83,
+        "sha256": "86e28dfb0807dd0ab5c1688a62c65a27efd791fc02c3161e9f00d0fbfe148494"
+      },
+      {
+        "path": "tools/blender_plot.py",
+        "lines": 130,
+        "nonblank_lines": 119,
+        "sha256": "58f2ce57db65bbdecdbd33567efc55e71774f7be27cd83b55473cceb763defe8"
+      },
+      {
+        "path": "tools/blender_schematic.py",
+        "lines": 63,
+        "nonblank_lines": 57,
+        "sha256": "47149593cb75897419a5d679bfd37b25b01a89b5a6d66e909f16cab342b31066"
+      },
+      {
+        "path": "tools/blender_spice_reference.py",
+        "lines": 165,
+        "nonblank_lines": 162,
+        "sha256": "77fb0a7c2a0117f0b365a4047fce73259c22cb75ea86607878ebf0fc9a12cc8e"
+      },
+      {
+        "path": "tools/blender_study.cpp",
+        "lines": 40,
+        "nonblank_lines": 40,
+        "sha256": "8234d34cf23b6eed8f9b11be5cabb845f95642d3e47631d80aa798a85a803db6"
+      },
+      {
+        "path": "tools/blender_validation.py",
+        "lines": 111,
+        "nonblank_lines": 95,
+        "sha256": "d5c3fc51f72309b65382811ad1a01ea50d5f938646b0f9982b013dd0032e3f27"
+      },
+      {
+        "path": "tools/check_blender_arm.py",
+        "lines": 107,
+        "nonblank_lines": 93,
+        "sha256": "fab756ed9e3ab942e30bd878540c39590938097eb7d915b84f8079f6dde76234"
+      }
+    ],
+    "tests": [
+      {
+        "path": "tests/test_blender.cpp",
+        "lines": 95,
+        "nonblank_lines": 95,
+        "sha256": "c3ac394fe60e3cc468a2a12eaa67c9cf89a404472ee419eb9a7b4eba6e7c77b3"
+      },
+      {
+        "path": "tests/test_blender_cli.py",
+        "lines": 101,
+        "nonblank_lines": 90,
+        "sha256": "a788d9dc0a494f2555ba0b58ed1c29db79d5a6c3e9ba803741c599980a0ac726"
+      }
+    ]
+  },
+  "note": "Line counts, not productivity/fidelity. Comparator source reuse is not Blender circuit implementation. Owned numerical idioms are adaptations, not a claimed drop-in existing Blender."
+}

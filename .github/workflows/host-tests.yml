@@ -424,6 +424,60 @@ jobs:
           UBSAN_OPTIONS: halt_on_error=1
         run: ctest --test-dir build/wavefolder-sanitized --output-on-failure --no-tests=error -R '^wavefolder_'
 
+      - name: Configure focused Blender ASan and UBSan at O1
+        run: cmake -S . -B build/blender-sanitized -DCMAKE_BUILD_TYPE=Debug -DFETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON="$PWD/build/_deps/nlohmann_json-src" -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -O1" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
+      - name: Build focused Blender sanitizer targets
+        run: cmake --build build/blender-sanitized --target parable_blender_test parable_blender_lab -j2
+      - name: Test Blender boundaries and unchanged strict scientific gates
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
+          UBSAN_OPTIONS: halt_on_error=1
+        run: ctest --test-dir build/blender-sanitized --output-on-failure --no-tests=error -R '^blender_'
+
+  blender-research:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: parable-starter
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure and build standalone Blender laboratory
+        run: |
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+          cmake --build build --target parable_blender_lab parable_blender_study parable_blender_test -j2
+          python3 -m venv build/research-env
+          build/research-env/bin/python -m pip install numpy==2.3.5
+      - name: Obtain the unchanged SHA-checked take03 source
+        run: |
+          curl --fail --location --retry 3 https://zenodo.org/api/records/14963133/files/P3_music.zip/content --output build/P3_music.zip
+          python3 tools/klon_input.py --archive build/P3_music.zip --output build/klon-input
+      - name: Render and exactly repeat actual guitar and synthetic auditions
+        run: ./build/parable_blender_lab --input build/klon-input/take03-20s-mono16.wav --output build/blender-auditions --compare-existing
+      - name: Run all scientific experiments and retain their failures
+        run: |
+          set +e
+          ./build/parable_blender_study build/blender-study > build/blender-study.log 2>&1
+          parable_study_status=$?
+          ./build/parable_blender_test --evidence build/blender-native.f32 > build/blender-physical.log 2>&1
+          parable_physical_status=$?
+          build/research-env/bin/python tools/blender_alias.py --study build/blender-study --output build/blender-sampling --require-gates > build/blender-sampling.log 2>&1
+          parable_sampling_status=$?
+          cat build/blender-physical.log build/blender-sampling.log
+          test "$parable_study_status" -eq 0 && test "$parable_physical_status" -eq 0 && test "$parable_sampling_status" -eq 0
+      - name: Verify complete audio package despite scientific rejection
+        id: package
+        if: always()
+        run: python3 tools/blender_evidence.py --renders build/blender-auditions --input build/klon-input --tests build/blender-physical.log --tests build/blender-sampling.log --native build/blender-native.f32 --study build/blender-study
+      - name: Publish verified experimental listening material, never approval
+        if: always() && steps.package.outcome == 'success'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-blender-experimental-auditions
+          path: parable-starter/build/blender-auditions/
+          if-no-files-found: error
+          retention-days: 30
+
   activation-tsan:
     runs-on: ubuntu-24.04
     timeout-minutes: 10

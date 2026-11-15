@@ -33,6 +33,8 @@ jobs:
         run: python3 parable-starter/tools/check_klon_arm.py --compiler parable-starter/build/arm-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++ --output parable-starter/build/arm/klon-audit
       - name: Compile and inspect standalone Lockhart cell (not firmware integrated)
         run: python3 parable-starter/tools/check_wavefolder_arm.py --compiler parable-starter/build/arm-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++ --output parable-starter/build/arm/wavefolder-audit
+      - name: Compile and inspect standalone experimental Blender (not firmware integrated)
+        run: python3 parable-starter/tools/check_blender_arm.py --compiler parable-starter/build/arm-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++ --output parable-starter/build/arm/blender-audit
       - name: Publish first-boot kit candidate (never flash here)
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:

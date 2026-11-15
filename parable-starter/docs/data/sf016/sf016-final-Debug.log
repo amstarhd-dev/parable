@@ -1,0 +1,181 @@
+-- Using the multi-header code from /workspace/work/sf015-deps/nlohmann_json-src/include/
+-- Configuring done (0.3s)
+-- Generating done (0.2s)
+-- Build files have been written to: /workspace/work/sf016-baseline-Debug
+[  2%] Built target parable_rat
+[  4%] Built target parable_firmware_measurement_test
+[  7%] Built target parable_patch
+[  9%] Built target parable_prepare
+[ 10%] Built target parable_rat_test
+[ 12%] Built target parable_rat_lab
+[ 13%] Built target parable_soundforge_test
+[ 15%] Built target parable_cmos
+[ 16%] Built target parable_germanium
+[ 18%] Built target parable_presets
+[ 20%] Built target parable_flash_sim
+[ 22%] Built target parable_activation
+[ 24%] Built target parable_rotary
+[ 26%] Built target parable_tape
+[ 28%] Built target parable_ts808
+[ 30%] Built target parable_muff
+[ 32%] Built target parable_klon
+[ 33%] Built target parable_wavefolder
+[ 34%] Building CXX object CMakeFiles/parable_blender.dir/src/parable_blender.cpp.o
+[ 36%] Built target parable_core_test
+[ 37%] Built target parable_audio_safety_test
+[ 38%] Built target parable_patch_test
+[ 40%] Built target parable_prepare_test
+[ 42%] Built target parable_rat_integration_test
+[ 44%] Built target parable_patch_audition
+[ 45%] Built target parable_cmos_test
+[ 47%] Built target parable_cmos_lab
+[ 49%] Built target parable_germanium_test
+[ 51%] Built target parable_germanium_lab
+[ 52%] Built target parable_presets_test
+[ 55%] Built target parable_activation_test
+[ 57%] Built target parable_activation_demo
+[ 60%] Built target parable_living
+[ 62%] Built target parable_tape_lab
+[ 64%] Built target parable_tape_test
+[ 65%] Linking CXX static library libparable_blender.a
+[ 67%] Built target parable_rotary_lab
+[ 70%] Built target parable_blender
+[ 70%] Built target parable_rotary_test
+[ 72%] Built target parable_muff_test
+[ 74%] Built target parable_muff_lab
+[ 76%] Built target parable_ts808_lab
+[ 79%] Built target parable_ts808_test
+[ 82%] Built target parable_klon_test
+[ 83%] Built target parable_klon_lab
+[ 85%] Built target parable_wavefolder_lab
+[ 88%] Built target parable_wavefolder_test
+[ 90%] Built target parable_wavefolder_study
+[ 90%] Building CXX object CMakeFiles/parable_blender_test.dir/tests/test_blender.cpp.o
+[ 91%] Building CXX object CMakeFiles/parable_blender_lab.dir/tools/blender_lab.cpp.o
+[ 92%] Building CXX object CMakeFiles/parable_blender_test.dir/tests/activation_guard.cpp.o
+[ 93%] Linking CXX executable parable_blender_test
+[ 93%] Built target parable_blender_test
+[ 94%] Building CXX object CMakeFiles/parable_blender_study.dir/tools/blender_study.cpp.o
+[ 95%] Linking CXX executable parable_blender_lab
+[ 95%] Built target parable_blender_lab
+[ 98%] Built target parable_living_test
+[ 99%] Built target parable_living_demo
+[100%] Linking CXX executable parable_blender_study
+[100%] Built target parable_blender_study
+Internal ctest changing into directory: /workspace/work/sf016-baseline-Debug
+Test project /workspace/work/sf016-baseline-Debug
+      Start 34: ts808_listening_cli
+      Start 33: ts808_circuit_and_safety
+ 1/41 Test #33: ts808_circuit_and_safety ...........   Passed  915.23 sec
+      Start 36: klon_listening_cli
+ 2/41 Test #34: ts808_listening_cli ................   Passed  918.16 sec
+      Start 35: klon_circuit_and_safety
+ 3/41 Test #35: klon_circuit_and_safety ............   Passed  393.76 sec
+      Start 32: muff_listening_cli
+ 4/41 Test #36: klon_listening_cli .................   Passed  486.57 sec
+      Start 31: muff_circuit_and_safety
+ 5/41 Test #32: muff_listening_cli .................   Passed  193.71 sec
+      Start 22: activation_concurrency
+ 6/41 Test #22: activation_concurrency .............   Passed   36.21 sec
+      Start 13: labrat_output_preservation
+ 7/41 Test #13: labrat_output_preservation .........   Passed   16.92 sec
+      Start 38: wavefolder_listening_cli
+ 8/41 Test #38: wavefolder_listening_cli ...........   Passed   17.54 sec
+      Start 20: preset_journal
+ 9/41 Test #31: muff_circuit_and_safety ............   Passed  176.26 sec
+      Start 37: wavefolder_circuit_and_safety
+10/41 Test #20: preset_journal .....................   Passed   15.38 sec
+      Start 19: germanium_lab_cli
+11/41 Test #37: wavefolder_circuit_and_safety ......   Passed   16.66 sec
+      Start 16: cmos_lab_cli
+12/41 Test #16: cmos_lab_cli .......................   Passed   10.35 sec
+      Start 26: living_audio_evidence
+13/41 Test #19: germanium_lab_cli ..................   Passed   13.75 sec
+      Start 17: germanium_circuit_and_safety
+14/41 Test #26: living_audio_evidence ..............   Passed    6.10 sec
+      Start  7: patch_audio_evidence
+15/41 Test #17: germanium_circuit_and_safety .......   Passed    6.79 sec
+      Start 18: germanium_lab_measurements
+16/41 Test  #7: patch_audio_evidence ...............   Passed    6.12 sec
+      Start 30: rotary_listening_cli
+17/41 Test #18: germanium_lab_measurements .........   Passed    6.76 sec
+      Start 29: rotary_mechanics_and_safety
+18/41 Test #30: rotary_listening_cli ...............   Passed    4.35 sec
+      Start 25: living_concurrency
+19/41 Test #29: rotary_mechanics_and_safety ........   Passed    4.37 sec
+      Start  9: rat_lab_measurements
+20/41 Test #25: living_concurrency .................   Passed    3.50 sec
+      Start 15: cmos_lab_measurements
+21/41 Test  #9: rat_lab_measurements ...............   Passed    4.03 sec
+      Start  8: rat_circuit_and_safety
+22/41 Test #15: cmos_lab_measurements ..............   Passed    3.46 sec
+      Start 28: tape_listening_cli
+23/41 Test  #8: rat_circuit_and_safety .............   Passed    2.14 sec
+      Start  6: rat_patch_integration
+24/41 Test #28: tape_listening_cli .................   Passed    1.42 sec
+      Start 24: living_contract
+25/41 Test #24: living_contract ....................   Passed    0.99 sec
+      Start 14: cmos_circuit_and_safety
+26/41 Test  #6: rat_patch_integration ..............   Passed    1.83 sec
+      Start  4: patch_contract
+27/41 Test #14: cmos_circuit_and_safety ............   Passed    1.09 sec
+      Start 10: soundforge_utilities
+28/41 Test  #4: patch_contract .....................   Passed    1.03 sec
+      Start 12: soundforge_registry_negative
+29/41 Test #12: soundforge_registry_negative .......   Passed    0.17 sec
+      Start 27: tape_medium_and_safety
+30/41 Test #27: tape_medium_and_safety .............   Passed    0.12 sec
+      Start 21: activation_contract
+31/41 Test #21: activation_contract ................   Passed    0.16 sec
+      Start  3: audio_safety
+32/41 Test  #3: audio_safety .......................   Passed    0.06 sec
+      Start 11: soundforge_registry
+33/41 Test #11: soundforge_registry ................   Passed    0.05 sec
+      Start  5: host_preparation
+34/41 Test  #5: host_preparation ...................   Passed    0.03 sec
+      Start 23: activation_demo
+35/41 Test #23: activation_demo ....................   Passed    0.03 sec
+      Start  1: firmware_measurement_math_status
+36/41 Test  #1: firmware_measurement_math_status ...   Passed    0.00 sec
+      Start  2: core_validation
+37/41 Test  #2: core_validation ....................   Passed    0.00 sec
+      Start 39: blender_circuit_reference
+38/41 Test #10: soundforge_utilities ...............   Passed    1.03 sec
+      Start 40: blender_state_and_safety
+39/41 Test #40: blender_state_and_safety ...........   Passed   25.92 sec
+      Start 41: blender_listening_cli
+40/41 Test #39: blender_circuit_reference ..........***Failed   43.85 sec
+SPICE DC values=4000 peak_V=3.11448e-06 peak_A=3.01656e-10
+MISS case=42 high field=15 rms=0.00942194 limit=0.00566832 peak=0.0962066
+MISS case=42 high field=17 rms=0.00943573 limit=0.00555282 peak=0.0963757
+MISS case=42 high field=18 rms=0.00943251 limit=0.00555274 peak=0.0963403
+MISS case=42 high field=19 rms=0.00130807 limit=0.000836767 peak=0.00146102
+MISS case=42 high field=20 rms=0.00150229 limit=0.00113584 peak=0.0115439
+MISS case=42 high field=21 rms=0.00923467 limit=0.00552656 peak=0.0932284
+MISS case=42 high field=22 rms=0.00431652 limit=0.00284603 peak=0.0438928
+MISS case=42 high field=23 rms=0.00431652 limit=0.00284603 peak=0.0438928
+MISS case=42 high field=26 rms=0.00234516 limit=0.00203745 peak=0.00719969
+MISS case=42 high field=28 rms=0.00231892 limit=0.00204661 peak=0.00717157
+MISS case=46 high field=15 rms=0.00808504 limit=0.00694164 peak=0.159125
+MISS case=46 high field=17 rms=0.00808204 limit=0.00694457 peak=0.159072
+MISS case=46 high field=18 rms=0.00808201 limit=0.00694431 peak=0.15907
+MISS case=46 high field=21 rms=0.00803296 limit=0.00665959 peak=0.156129
+MISS case=46 high field=22 rms=0.0037342 limit=0.00336396 peak=0.0727331
+MISS case=46 high field=23 rms=0.0037342 limit=0.00336396 peak=0.0727331
+MISS case=46 high field=26 rms=0.00303598 limit=0.00202499 peak=0.00997279
+MISS case=46 high field=28 rms=0.00303696 limit=0.00202479 peak=0.00996767
+MISS case=46 high field=30 rms=0.0014888 limit=0.0012148 peak=0.00494466
+MISS case=46 high field=44 rms=3.46804e-07 limit=2.80905e-07 peak=2.64058e-06
+MISS case=46 high field=45 rms=3.47794e-07 limit=2.81422e-07 peak=2.64813e-06
+SPICE full-history/dense-cycle groups=48 rows=63626 gate_misses=21 worst_error/limit=1.69927
+CHECK failed at line 70: misses==0
+
+41/41 Test #41: blender_listening_cli ..............   Passed  247.89 sec
+
+98% tests passed, 1 tests failed out of 41
+
+Total Test time (real) = 1906.97 sec
+
+The following tests FAILED:
+	 39 - blender_circuit_reference (Failed)
+Errors while running CTest
