@@ -1,5 +1,26 @@
 # Implementation status and reproducible baseline
 
+## SF-015 — experimental original-FZ1-style, one open bias feed
+
+[Gate0](SF015_GATE0.md), [ADR015](adr/ADR-015-original-fz1.md),
+[results/commands/limits](SF015_REPORT.md), [reuse/rework](SF015_WORK_LOG.md).
+
+- **Specified/implemented:** original3V3PNP topology, measured AC128 template,
+  finite-beta/leakage GP, real coupling/Attack/loaded output; only470k Q2 feed open.
+  Standalone8x, no Engine/patch/firmware/correspondence change.
+- **Host-tested:** full existing regressions, independent builtin and exact-GP
+  SPICE, whole-history plus full-rate clipping-cycle checks, boundaries/guards,
+  actual same-take102 native WAVs with raw/common/RMS receipts. All18 pure-tone
+  false-spur checks pass, but **12/24 original full-band RMS gates MISS**; strict
+  scientific command exits1. Builtin DC2µV gate also misses; exact-GP MNA passes.
+- **ARM compile-inspected:**7720B object text,0data/BSS,5136B full state; bounded
+  solver/expm1 and inspected calls/frames. No new firmware link or target timing.
+- **Hardware-tested/musically approved:**none. Abrupt healthy gating not
+  demonstrated; sample has finite smooth tail. Founder listening/bandwidth decision,
+  empirical2N270/pedal agreement and actual Seed3 CPU/stack/audio remain open.
+  Independent GitHub CI execution unproved due job-startup failures.
+
+
 ## SF-014 — experimental standalone Lockhart / one feed resistor
 
 [Gate0](SF014_GATE0.md), [ADR014](adr/ADR-014-lockhart-feed-resistor.md),

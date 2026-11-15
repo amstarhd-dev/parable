@@ -94,7 +94,7 @@ of a completely specified transistor sample. No claim every vintage unit agrees.
 ## Germanium model choice and rejected calibration
 
 Use unchanged, **measured AC128 template**, all three devices, at Vt25.5mV
-(**22.765210°C**, computed exactly in generator). Not an accurately measured2N270.
+(**22.765212°C**, computed exactly in generator). Not an accurately measured2N270.
 IS20.66µA, BF229.6, BR14.66, NF1.133, NR1.140, VAF19.68V, VAR88.28V,
 IKF.463A, IKR.2415A, ISE2.190µA/NE1.796, ISC7.546µA/NC1.364;
 RB1.885Ω, RE.3064Ω, RC1.727µΩ; constant CBC100pF, CBE0.
@@ -176,3 +176,18 @@ Predeclare, **do not weaken after seeing results**:
 Next smallest change: implement this fixed stopped-prepared circuit, compare its
 DC and full transient against independent built-in PNP, then render actual guitar
 immediately. No unrelated processor or architecture work.
+
+## Post-Gate0 findings (thresholds unchanged)
+
+The independent built-in SPICE reverse continuation differs from full exponential
+GP; its2µV DC gate misses. Additional explicit-equation SPICE MNA, preserving the
+published law, agrees within7nV. Full-history fixtures were strengthened with a
+2049-sample192k cycle window and validated span before interpolation. Tiny reference
+RC shorts and bounded300s process deadline are reported in SF015_REPORT.
+
+4x misses the false-spur limit; selected8x385-tap playback clears it against a16x
+reference. Scientific1x rate ceiling1.536MHz supports that offline comparison;
+normal audio rates remain44.1–96k. Complete state5136B/object7720B fit initial
+ceilings. Original full-band RMS gate still misses12/24 cases; strict command exits1.
+No threshold was changed to certify the result. Abrupt healthy gating remains
+undemonstrated. Founder listening and bandwidth acceptance are unresolved.

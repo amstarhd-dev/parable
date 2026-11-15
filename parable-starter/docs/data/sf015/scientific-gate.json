@@ -1,0 +1,16 @@
+{
+  "command": [
+    "python3",
+    "parable-starter/tools/fz1_alias.py",
+    "--study",
+    "/workspace/work/sf015-strict-gate-study",
+    "--fixtures",
+    "/workspace/work/sf015-strict-gate-reference",
+    "--require-gates"
+  ],
+  "exit_code": 1,
+  "full_band_RMS_misses": 12,
+  "false_spur_misses": 0,
+  "thresholds_unchanged": true,
+  "script_sha256": "8b9c9e6e6bd2304b6081070cce711750e28446e45a12c4b9e8f268bf6ebdbe22"
+}

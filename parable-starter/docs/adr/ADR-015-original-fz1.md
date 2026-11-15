@@ -29,3 +29,11 @@ Engine. No patch, firmware, storage, living-source or correspondence changes.
 Actual guitar audition decides musical acceptance; a separate measured-hardware
 cost/fidelity decision would precede any integration. Recording associations other
 than independently supported history are tonal references, not provenance claims.
+
+Sampling decision after comparison: normal8x/385taps, with the same48-base-frame
+FIR delay as4x. All pure-tone false-spur checks pass−45dBrms against16x reference.
+Original full-band RMS gates remain failed12/24, largely intentional FIR bandwidth;
+this is not silently reclassified as acceptance. Host cost rises, target admission
+is unproved. Source law, parts, fault and capacitor state equations are unchanged.
+Accepting that bandwidth and the less-gated healthy voice requires independent
+review/founder listening; no runtime/correspondence integration is authorized here.

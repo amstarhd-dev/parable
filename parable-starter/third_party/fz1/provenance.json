@@ -81,5 +81,11 @@
   ],
   "patent_scan_sha256": "c910500639caac4c784ee811bf4d337a6578785128fd8612f58558094f6f31bf",
   "drawing_sha256": "9083c74ad279e9b34b57976a9c8fc70490a56daf66f46455db8d37dbe2f0e299",
-  "paper_sha256": "2d73c9df818243477704566db72c05f5410d579c1b2c44cbd75a88e1e5bdad97"
+  "paper_sha256": "2d73c9df818243477704566db72c05f5410d579c1b2c44cbd75a88e1e5bdad97",
+  "simulator": {
+    "url": "https://deb.debian.org/debian/pool/main/n/ngspice/ngspice_44.2+ds-1_amd64.deb",
+    "version": "ngspice44.2, Debian44.2+ds-1, amd64",
+    "sha256": "4d76721dd91416055b1088cfc58626d4db47b91afda7c73258c0968ba6e4d24e",
+    "role": "Offline independent reference tool, not linked into native processor"
+  }
 }

@@ -16,7 +16,7 @@ pairs=[]
 for label in ['attack_low','attack_mid','attack_high','input_low','input_mid','input_high']:
  rate,h=wav(label+'_healthy_raw.wav');_,f=wav(label+'_feed_open_raw.wav');scale=float(h@f/(h@h));residual=float(np.sqrt(np.mean((f-scale*h)**2))/np.sqrt(np.mean(f*f)))
  pairs.append(dict(group=label,fault_over_healthy_RMS_dB=float(20*np.log10(np.linalg.norm(f)/np.linalg.norm(h))),best_fader_fit=scale,remaining_relative_RMS=residual,correlation=float(np.corrcoef(h,f)[0,1])))
-with(data/'fault-shape.csv').open('w',newline='') as f:w=csv.DictWriter(f,fieldnames=list(pairs[0]));w.writeheader();w.writerows(pairs)
+with(data/'fault-shape.csv').open('w',newline='') as f:w=csv.DictWriter(f,fieldnames=list(pairs[0]),lineterminator="\n");w.writeheader();w.writerows(pairs)
 # Exact carrier fits describe independent dynamic reference, not a static curve.
 harmonics=[]
 for fault in [0,1]:
@@ -24,21 +24,22 @@ for fault in [0,1]:
   name=f'equations-sine-{fault}-{level}.csv';r=rows(fixtures/name);t=np.array([float(x['seconds']) for x in r]);y=np.array([float(x['out_V']) for x in r]);keep=t>=.07;t=t[keep];y=y[keep];basis=[np.ones_like(t),t-np.mean(t)]
   for h in range(1,10):basis.extend([np.sin(2*np.pi*196*h*t),np.cos(2*np.pi*196*h*t)])
   c=np.linalg.lstsq(np.asarray(basis).T,y,rcond=None)[0];v=[float(np.hypot(c[2*h],c[2*h+1])) for h in range(1,10)];harmonics.append(dict(fault=fault,input_peak_V=level,H1_V=v[0],H2_over_H1_dB=float(20*np.log10(v[1]/v[0])),H3_over_H1_dB=float(20*np.log10(v[2]/v[0])),H5_over_H1_dB=float(20*np.log10(v[4]/v[0])),window_start_s=.07,window_end_s=.12))
-with(data/'reference-harmonics.csv').open('w',newline='') as f:w=csv.DictWriter(f,fieldnames=list(harmonics[0]));w.writeheader();w.writerows(harmonics)
+with(data/'reference-harmonics.csv').open('w',newline='') as f:w=csv.DictWriter(f,fieldnames=list(harmonics[0]),lineterminator="\n");w.writeheader();w.writerows(harmonics)
 # Decay is quantified as real output/input gain, no arbitrary silence threshold.
 decays=[]
 fig,ax=plt.subplots(2,2,figsize=(12,8),constrained_layout=True)
 for fault,color in [(0,'#16708d'),(1,'#bc5a28')]:
  r=rows(fixtures/f'equations-pluck-{fault}-0.5.csv');t=np.array([float(x['seconds']) for x in r]);x=np.array([float(x['input_V']) for x in r]);y=np.array([float(x['out_V']) for x in r]);b3=np.array([float(x['b3']) for x in r]);c3=np.array([float(x['c3']) for x in r]);name='healthy' if not fault else 'Q2 feed open';mid=[];rr=[];ii=[]
+ uniform=np.array([int(v['sample_192k'])%48==0 for v in r])
  for start in np.arange(.02,.83,.02):
-  k=(t>=start)&(t<start+.02);xr=float(np.sqrt(np.mean(x[k]**2)));yr=float(np.sqrt(np.mean(y[k]**2)));mid.append(start+.01);rr.append(yr);ii.append(xr);decays.append(dict(fault=fault,t_s=start+.01,input_RMS_V=xr,out_RMS_V=yr,gain=yr/xr))
+  k=(t>=start)&(t<start+.02)&uniform;xr=float(np.sqrt(np.mean(x[k]**2)));yr=float(np.sqrt(np.mean(y[k]**2)));mid.append(start+.01);rr.append(yr);ii.append(xr);decays.append(dict(fault=fault,t_s=start+.01,input_RMS_V=xr,out_RMS_V=yr,gain=yr/xr))
  ax[0,0].semilogy(mid,rr,label=name,color=color);ax[0,1].plot(t,c3,label=name,color=color);k=(t>=.03)&(t<.08);ax[1,0].plot(t[k]*1000,y[k],label=name,color=color,marker='.',markersize=2)
  # Actual delivered PCM after normal FIR,4V divisor restored; shift known48frame latency.
  rate,native=wav('pluck_decay_'+('healthy' if not fault else 'feed_open')+'_raw.wav');tn=np.arange(len(native))/rate-48/rate;kn=(tn>=.03)&(tn<.08);ax[1,1].plot(tn[kn]*1000,native[kn]*4,label=name,color=color)
-ax[0,0].semilogy(mid,ii,'k--',label='input');ax[0,0].set(title='Full SPICE pluck: finite tail, no hard gate',xlabel='seconds',ylabel='20ms RMS volts');ax[0,1].set(title='Q3 collector recovery',xlabel='seconds',ylabel='physical volts');ax[1,0].set(title='Independent full-GP SPICE output',xlabel='milliseconds',ylabel='jack volts');ax[1,1].set(title='Delivered native4x output (known latency aligned)',xlabel='milliseconds',ylabel='jack volts after FIR')
+ax[0,0].semilogy(mid,ii,'k--',label='input');ax[0,0].set(title='Full SPICE pluck: finite tail, no hard gate',xlabel='seconds',ylabel='20ms RMS volts');ax[0,1].set(title='Q3 collector recovery',xlabel='seconds',ylabel='physical volts');ax[1,0].set(title='Independent full-GP SPICE output',xlabel='milliseconds',ylabel='jack volts');ax[1,1].set(title='Delivered native8x output (known latency aligned)',xlabel='milliseconds',ylabel='jack volts after FIR')
 for q in ax.flat:q.grid(alpha=.2);q.legend(fontsize=8)
 fig.savefig(figs/'decay.png',dpi=140);plt.close(fig)
-with(data/'decay.csv').open('w',newline='') as f:w=csv.DictWriter(f,fieldnames=list(decays[0]));w.writeheader();w.writerows(decays)
+with(data/'decay.csv').open('w',newline='') as f:w=csv.DictWriter(f,fieldnames=list(decays[0]),lineterminator="\n");w.writeheader();w.writerows(decays)
 # Bias and documented sensitivity; source/load effects separately compared in tests.
 fig,ax=plt.subplots(2,2,figsize=(12,8),constrained_layout=True);dc=rows(fixtures/'equations-dc.csv');temp=rows(fixtures/'temperature.csv')
 for fault,color in [(0,'#16708d'),(1,'#bc5a28')]:
@@ -54,5 +55,5 @@ for name,color in [('dry','#555555'),('healthy','#16708d'),('feed_open','#bc5a28
 ax[0].set(title='Actual take03, Attack0.5, matched levels',xlabel='seconds',ylabel='normalized PCM');ax[1].set(title='Same take segment, spectra normalized to each peak (shape only)',xlabel='Hz',ylabel='dB relative own spectrum peak',xlim=(0,20000),ylim=(-100,2))
 for q in ax:q.grid(alpha=.2);q.legend(fontsize=8)
 fig.savefig(figs/'guitar.png',dpi=140);plt.close(fig)
-summary=dict(fault_shape=pairs,independent_reference_harmonics=harmonics,decay_tail=[v for v in decays if v['t_s']>.8],listening_status='Generated actual native WAVs; no human/founder approval or hard-gating claim',full_band_sampling_gate_misses_4x=sum(r['factor']=='4' and r['gate_pass']=='False' for r in rows(a.study/'alias.csv')),hardware_runtime='not measured',plot_note='PCM quantization zeros are not a physical gate; synthetic transient versus native normal FIR is labeled, not an assertion of sample identity.')
+summary=dict(fault_shape=pairs,independent_reference_harmonics=harmonics,decay_tail=[v for v in decays if v['t_s']>.8],listening_status='Generated actual native WAVs; no human/founder approval or hard-gating claim',full_band_sampling_gate_misses_8x=sum(r['factor']=='8' and r['gate_pass']=='False' for r in rows(a.study/'alias.csv')),hardware_runtime='not measured',plot_note='PCM quantization zeros are not a physical gate; synthetic transient versus native normal FIR is labeled, not an assertion of sample identity.')
 (data/'summary.json').write_text(json.dumps(summary,indent=2)+'\n');print(json.dumps(summary,indent=2))
