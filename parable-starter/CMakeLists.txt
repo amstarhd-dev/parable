@@ -301,3 +301,12 @@ target_link_options(parable_wavefolder_test PRIVATE -Wl,--wrap=malloc,--wrap=cal
 add_test(NAME wavefolder_circuit_and_safety COMMAND parable_wavefolder_test)
 endif()
 add_test(NAME wavefolder_listening_cli COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_wavefolder_cli.py $<TARGET_FILE:parable_wavefolder_lab>)
+
+# SF017 proportional standalone laboratory; no Engine/firmware registration.
+add_library(parable_scorpio STATIC src/parable_scorpio.cpp)
+target_include_directories(parable_scorpio PUBLIC include)
+target_compile_options(parable_scorpio PRIVATE -Wall -Wextra -Wpedantic -fno-fast-math -fno-finite-math-only)
+add_executable(parable_scorpio_lab tools/scorpio_lab.cpp)
+target_link_libraries(parable_scorpio_lab PRIVATE parable_scorpio)
+target_include_directories(parable_scorpio_lab PRIVATE tools)
+target_compile_options(parable_scorpio_lab PRIVATE -Wall -Wextra -Wpedantic)
