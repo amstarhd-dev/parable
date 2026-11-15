@@ -1,0 +1,7 @@
+{
+  "task_start_UTC": "2026-11-15T20:20:39+00:00",
+  "first_native_healthy_WAV_UTC": "2026-11-15T20:40:09.857043+00:00",
+  "seconds_to_first_native_healthy_WAV": 1170.857043,
+  "path": "/workspace/work/sf017-first-auditions/low_healthy_raw.wav",
+  "not_approval": "actual native PCM output; listening acceptance remains founder decision"
+}

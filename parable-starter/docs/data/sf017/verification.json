@@ -1,0 +1,16 @@
+{
+  "source_commit": "07a228ce6d738e80735a8f03fd9477b4fa172fbf",
+  "protected_previous_files": 427,
+  "host_compiler": "GNU14.2.0",
+  "cmake": "3.31.6",
+  "new_tests": [
+    "scorpio_circuit_and_safety",
+    "scorpio_listening_cli"
+  ],
+  "full_Debug": "running",
+  "full_Release": "running",
+  "affected_sanitizers": "ASan+UBSan, both tests passed",
+  "hardware": "not tested",
+  "audition": "native files generated; founder listening pending",
+  "build_cache": "Unmodified public nlohmann_json3.11.3 sources only; no open-PR DSP imported"
+}

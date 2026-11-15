@@ -942,3 +942,15 @@ The smallest separate safety follow-up is a regression and bounded-output fix
 for the overflow example above; it does not depend on approving the new patch
 architecture and should precede claims of audio safety. After codec approval and
 tests, isolate activation ownership and durable journaling into later tickets.
+
+## SF-017 — standalone Scorpio family experiment
+
+Specified: one9V Skywave-derived Si/Ge preamp and loaded nonlinear transformer,
+Gain/Low Cut/Level, oneR3 bias-resistor drift. Implemented: bounded native reduced
+model and ten same-take raw/RMS listening files; no Engine/firmware/correspondence
+integration. Host-tested: compact independent SPICE DC/curve/AC/transient,
+magnetic state/alias/stress/reset/callback and CLI checks; affected ASan+UBSan pass.
+Full final Debug/Release regressions are running; see[SF017_REPORT.md](SF017_REPORT.md)
+and[data/sf017](data/sf017/README.md) for final status. ARM object/layout/calls audited;
+hardware cycles/boot/audio and physical magnetic/device fidelity **not tested**.
+Founder musical audition/approval **pending**; generated audio is not approval.

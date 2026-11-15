@@ -19,6 +19,7 @@ for i,h in enumerate(headers):
     body=assembly[h.end():headers[i+1].start() if i+1<len(headers) else len(assembly)];calls=re.findall(r'R_ARM_THM_(?:CALL|JUMP24)\s+(.+)',body)
     assert all(c.startswith(('parable::dsp::Scorpio::sample(', 'parable::dsp::Scorpio::value(')) for c in calls),calls
     assert not any(s in body for s in ['expm1','exp','log','malloc','operator new','mutex','fopen','__atomic','__sync','throw'])
+    assert '.f64' not in body and '__aeabi_d' not in body, name
     audio[name]=calls;ops[name]={op:len(re.findall(r'\b'+op+r'\.',body)) for op in ['vdiv','vmul','vadd','vsub','vcvt','vmla']}
 for f in ['process','sample','value']:assert any(n.startswith('parable::dsp::Scorpio::'+f+'(') for n in audio),f
 source=out/'layout.cpp';source.write_text('#include "parable_scorpio.h"\n#include "parable_activation.h"\nextern "C" const uint32_t layout[]={sizeof(parable::dsp::Scorpio),sizeof(parable::Engine),parable::activation::Runtime::bundleBytes(),sizeof(parable::activation::Runtime)};\n')
