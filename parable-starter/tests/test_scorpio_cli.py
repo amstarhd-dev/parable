@@ -1,5 +1,5 @@
 """Ten native listening files, honest levels, immutable input and pinned fixtures."""
-import csv, hashlib, json, math, struct, subprocess, sys, tempfile, wave
+import csv, hashlib, json, math, os, struct, subprocess, sys, tempfile, wave
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
@@ -47,7 +47,7 @@ with tempfile.TemporaryDirectory(prefix='scorpio-cli-') as temporary:
     # Existing destination (including hard-linked source) is rejected before writing.
     protected = out/'high_healthy_raw.wav'
     protected.unlink()
-    protected.hardlink_to(source)
+    os.link(source, protected)
     run('--input', source, '--output', out, ok=False)
     assert hashlib.sha256(source.read_bytes()).hexdigest() == digest
     for args in [[], ['--unknown'], ['--input', source, '--output', source]]:

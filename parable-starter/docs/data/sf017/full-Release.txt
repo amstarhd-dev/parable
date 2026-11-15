@@ -1,0 +1,104 @@
+Internal ctest changing into directory: /workspace/work/sf017-release
+Test project /workspace/work/sf017-release
+      Start 40: scorpio_listening_cli
+      Start 39: scorpio_circuit_and_safety
+ 1/40 Test #39: scorpio_circuit_and_safety .........   Passed    0.60 sec
+      Start  1: firmware_measurement_math_status
+ 2/40 Test  #1: firmware_measurement_math_status ...   Passed    0.00 sec
+      Start  2: core_validation
+ 3/40 Test  #2: core_validation ....................   Passed    0.01 sec
+      Start  3: audio_safety
+ 4/40 Test  #3: audio_safety .......................   Passed    0.02 sec
+      Start  4: patch_contract
+ 5/40 Test  #4: patch_contract .....................   Passed    0.47 sec
+      Start  5: host_preparation
+ 6/40 Test  #5: host_preparation ...................   Passed    0.01 sec
+      Start  6: rat_patch_integration
+ 7/40 Test #40: scorpio_listening_cli ..............   Passed    1.12 sec
+      Start  7: patch_audio_evidence
+ 8/40 Test  #6: rat_patch_integration ..............   Passed    2.34 sec
+      Start  8: rat_circuit_and_safety
+ 9/40 Test  #8: rat_circuit_and_safety .............   Passed    1.84 sec
+      Start  9: rat_lab_measurements
+10/40 Test  #7: patch_audio_evidence ...............   Passed    4.88 sec
+      Start 10: soundforge_utilities
+11/40 Test #10: soundforge_utilities ...............   Passed    1.29 sec
+      Start 11: soundforge_registry
+12/40 Test #11: soundforge_registry ................   Passed    0.09 sec
+      Start 12: soundforge_registry_negative
+13/40 Test #12: soundforge_registry_negative .......***Failed    0.25 sec
+.F.....
+======================================================================
+FAIL: test_committed_catalog (__main__.RegistryTests.test_committed_catalog)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/parable-sf017/parable-starter/tests/test_soundforge_registry.py", line 26, in test_committed_catalog
+    self.assertEqual(registry.validate(self.catalog), 12)
+AssertionError: 13 != 12
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.146s
+
+FAILED (failures=1)
+
+      Start 13: labrat_output_preservation
+14/40 Test  #9: rat_lab_measurements ...............   Passed    2.90 sec
+      Start 14: cmos_circuit_and_safety
+15/40 Test #14: cmos_circuit_and_safety ............   Passed    0.91 sec
+      Start 15: cmos_lab_measurements
+16/40 Test #15: cmos_lab_measurements ..............   Passed    3.02 sec
+      Start 16: cmos_lab_cli
+17/40 Test #13: labrat_output_preservation .........   Passed    8.19 sec
+      Start 17: germanium_circuit_and_safety
+18/40 Test #17: germanium_circuit_and_safety .......   Passed    2.40 sec
+      Start 18: germanium_lab_measurements
+19/40 Test #16: cmos_lab_cli .......................   Passed    8.27 sec
+      Start 19: germanium_lab_cli
+20/40 Test #18: germanium_lab_measurements .........   Passed    2.48 sec
+      Start 20: preset_journal
+21/40 Test #20: preset_journal .....................   Passed    7.18 sec
+      Start 21: activation_contract
+22/40 Test #21: activation_contract ................   Passed    0.29 sec
+      Start 22: activation_concurrency
+23/40 Test #19: germanium_lab_cli ..................   Passed    9.32 sec
+      Start 23: activation_demo
+24/40 Test #23: activation_demo ....................   Passed    0.06 sec
+      Start 24: living_contract
+25/40 Test #24: living_contract ....................   Passed    0.60 sec
+      Start 25: living_concurrency
+26/40 Test #25: living_concurrency .................   Passed    1.55 sec
+      Start 26: living_audio_evidence
+27/40 Test #26: living_audio_evidence ..............   Passed    5.88 sec
+      Start 27: tape_medium_and_safety
+28/40 Test #27: tape_medium_and_safety .............   Passed    0.08 sec
+      Start 28: tape_listening_cli
+29/40 Test #28: tape_listening_cli .................   Passed    1.03 sec
+      Start 29: rotary_mechanics_and_safety
+30/40 Test #29: rotary_mechanics_and_safety ........   Passed    2.56 sec
+      Start 30: rotary_listening_cli
+31/40 Test #30: rotary_listening_cli ...............   Passed    2.92 sec
+      Start 31: muff_circuit_and_safety
+32/40 Test #31: muff_circuit_and_safety ............   Passed   41.50 sec
+      Start 32: muff_listening_cli
+33/40 Test #22: activation_concurrency .............   Passed   61.83 sec
+      Start 33: ts808_circuit_and_safety
+34/40 Test #32: muff_listening_cli .................   Passed   35.38 sec
+      Start 34: ts808_listening_cli
+35/40 Test #33: ts808_circuit_and_safety ...........   Passed   98.12 sec
+      Start 35: klon_circuit_and_safety
+36/40 Test #34: ts808_listening_cli ................   Passed   81.92 sec
+      Start 36: klon_listening_cli
+37/40 Test #36: klon_listening_cli .................   Passed   58.60 sec
+      Start 37: wavefolder_circuit_and_safety
+38/40 Test #37: wavefolder_circuit_and_safety ......   Passed    4.43 sec
+      Start 38: wavefolder_listening_cli
+39/40 Test #35: klon_circuit_and_safety ............   Passed   81.47 sec
+40/40 Test #38: wavefolder_listening_cli ...........   Passed    4.30 sec
+
+98% tests passed, 1 tests failed out of 40
+
+Total Test time (real) = 270.55 sec
+
+The following tests FAILED:
+	 12 - soundforge_registry_negative (Failed)
+Errors while running CTest

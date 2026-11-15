@@ -1,0 +1,10 @@
+Internal ctest changing into directory: /workspace/work/sf017-debug
+Test project /workspace/work/sf017-debug
+    Start 11: soundforge_registry
+    Start 12: soundforge_registry_negative
+1/2 Test #11: soundforge_registry ..............   Passed    0.04 sec
+2/2 Test #12: soundforge_registry_negative .....   Passed    0.34 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.35 sec

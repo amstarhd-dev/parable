@@ -49,3 +49,12 @@ frames and work counts; a compile/object audit, not firmware link or target run.
 `targeted.txt`, `sanitizers.txt`: actual focused results.
 `verification.json`: final results and evidence status; full logs added on completion.
 Remote CI state is reported separately in the PR, never inferred from local success.
+
+`work-metrics.json` records observed elapsed time, unchanged reused line counts,
+new model-specific code, copied/adapted helpers and known rework. Line counts are
+not labor percentages; active labor was not tracked. `baseline-results.json`
+retains the38 individual pre-edit main exits per configuration, without importing
+any open-PR implementation or verification profile. The full final suite found
+one stale registry **asset-count assertion** (12 rather than13); only that count
+was corrected. Original full logs plus focused two-test registry reruns in both
+configurations are retained. No negative-policy, physics or audio threshold changed.

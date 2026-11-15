@@ -1,0 +1,61 @@
+{
+  "task_start_UTC": "2026-11-15T20:20:39+00:00",
+  "first_audio_seconds": 1170.857043,
+  "first_audio_prototype_commit": "9521ad1",
+  "final_audio_producing_commit": "07a228c",
+  "first_independent_and_safety_log_mtime_UTC": "2026-11-15T20:50:35.223932+00:00",
+  "elapsed_to_checked_log_seconds": 1796.223932,
+  "active_labor_hours": "not tracked; no estimate",
+  "unchanged_reused_physical_lines": {
+    "tools/lab_wav.h": 83,
+    "tools/soundforge/analysis.h": 58,
+    "tools/klon_input.py": 39,
+    "tests/activation_guard.h": 12,
+    "tests/activation_guard.cpp": 75,
+    "tests/test_check.h": 16
+  },
+  "new_circuit_specific_physical_lines": {
+    "include/parable_scorpio.h": 44,
+    "src/scorpio_circuit.h": 55,
+    "src/parable_scorpio.cpp": 91,
+    "tools/scorpio_lab.cpp": 46,
+    "tools/scorpio_reference.py": 112,
+    "tests/test_scorpio.cpp": 52,
+    "tests/test_scorpio_cli.py": 55
+  },
+  "adapted_or_copied_helpers": [
+    {
+      "file": "tools/check_scorpio_arm.py",
+      "origin": "main tools/check_wavefolder_arm.py",
+      "lines": 33,
+      "reason": "Narrow standalone object/layout/call audit; no new audit framework"
+    },
+    {
+      "file": "tests/test_scorpio.cpp::fft",
+      "origin": "Owned main laboratory radix2 FFT pattern",
+      "reason": "One high-note check; no shared FFT architecture"
+    },
+    {
+      "file": "src/scorpio_circuit.h::transistor",
+      "origin": "MIT ACME transport foundation via main Muff/wavefolder",
+      "reason": "Nominal Si/Ge EM; measured AC128 GP constants intentionally not reused"
+    }
+  ],
+  "new_runtime_dependency": false,
+  "tooling_steps": "Exact commands in README; source facts downloaded/pinned, existing ngspice/ARM/compiler/input cache reused. Complete command count not tracked.",
+  "observed_rework": [
+    "Initial native compile: misplaced float-cast parenthesis, fixed before first WAV",
+    "Initial native lab compile: RMS template deduction from braced array, fixed by passing typed array before first WAV",
+    "Prototype193tap FIR shortened to97 before final independent/safety/audio gates",
+    "Full regression inventory test expected12 assets; updated13 only; original failure and focused passes retained",
+    "Disk pressure: reversible SHA-verified gzip archive of completed generated build objects; source/audio retained",
+    "Remote workflows failed/cancelled with no recorded steps; not treated as local test success"
+  ],
+  "comparison": "Physical line counts include comments/blanks; not an effort fraction or claimed historical productivity speedup.",
+  "acceptance": {
+    "real_guitar_files": "10 generated",
+    "founder_listening": "pending",
+    "physical_daisy": "not tested",
+    "patch_integration": "out of scope"
+  }
+}

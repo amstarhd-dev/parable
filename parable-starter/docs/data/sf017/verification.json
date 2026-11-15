@@ -8,9 +8,10 @@
     "scorpio_listening_cli"
   ],
   "full_Debug": "running",
-  "full_Release": "running",
+  "full_Release": "39/40 initial full run; sole failure was stale inventory count12, corrected13; focused registry rerun2/2 passed",
   "affected_sanitizers": "ASan+UBSan, both tests passed",
   "hardware": "not tested",
   "audition": "native files generated; founder listening pending",
-  "build_cache": "Unmodified public nlohmann_json3.11.3 sources only; no open-PR DSP imported"
+  "build_cache": "Unmodified public nlohmann_json3.11.3 sources only; no open-PR DSP imported",
+  "inventory_correction": "Only expected asset count12->13; all negative policy checks and physical tests unchanged"
 }

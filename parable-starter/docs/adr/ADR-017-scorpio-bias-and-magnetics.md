@@ -9,9 +9,10 @@ certified clone. Q1 is nominal2N5088 silicon NPN; Q2 nominal2N404A germanium
 PNP. Select gain-switch center-off, trim0Ω, C1 omitted/C2=1µF. The charge pump
 is outside this core. Gain is the actual5.6kΩ+250kΩ feedback branch; Low Cut
 is Q2 emitter degeneration, including C8/C9, not a post-distortion EQ.
+A1Ω Low Cut wiper/contact resistance is an explicit numerical/physical assumption.
 
 Choose a stopped5-node Ebers–Moll solve to prepare513 nonuniform Hermite knots
-and their consistent primitive. Retain finite1kΩ input-source loading, actual
+and their consistent primitive. Retain assumed1kΩ input-source loading, actual
 DC supply resistors and leakage, and linearize the capacitor/feedback network
 at each prepared bias. Runtime applies its five-state bilinear filter followed
 by the prepared nonlinear curve,4x FIR and first-order ADAA. Nonlinear transistor
