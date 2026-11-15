@@ -1,0 +1,10 @@
+Internal ctest changing into directory: /workspace/work/sf015-baseline-Debug
+Test project /workspace/work/sf015-baseline-Debug
+    Start 40: fz1_listening_cli
+    Start 39: fz1_circuit_and_safety
+1/2 Test #39: fz1_circuit_and_safety ...........   Passed   71.71 sec
+2/2 Test #40: fz1_listening_cli ................   Passed  492.12 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) = 492.13 sec

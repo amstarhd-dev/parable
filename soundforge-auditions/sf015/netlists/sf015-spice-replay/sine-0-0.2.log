@@ -1,0 +1,33 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: sf015 amplified parts original fz1 drawing; patent typo reconciled
+
+Doing analysis at TEMP = 22.765212 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+rail                                        -3
+input                                        0
+src                                          0
+inc                                          0
+b1                                    -1.98703
+e1                                    -1.92498
+b2                                  -0.0739423
+c2                                    -2.53784
+b3                                    -0.04688
+c3                                    -1.77364
+top                                          0
+out                                          0
+vin#branch                                   0
+vrail#branch                       0.000631452
+
+ Reference value :  8.33311e-02
+No. of Data Rows : 37220
+ngspice-44.2 done

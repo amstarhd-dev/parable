@@ -1,0 +1,248 @@
+-- The CXX compiler identification is GNU 14.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Using the multi-header code from /workspace/work/sf015-deps/nlohmann_json-src/include/
+-- Found Python3: /workspace/work/baseline-tools/bin/python3.12 (found suitable version "3.12.14", minimum required is "3.9") found components: Interpreter
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- Configuring done (0.6s)
+-- Generating done (0.1s)
+-- Build files have been written to: /workspace/work/sf015-baseline-Release
+[  1%] Building CXX object CMakeFiles/parable_rat.dir/src/parable_rat.cpp.o
+[  2%] Building CXX object CMakeFiles/parable_firmware_measurement_test.dir/tests/test_firmware_measurement.cpp.o
+[  3%] Linking CXX static library libparable_rat.a
+[  3%] Built target parable_rat
+[  4%] Building CXX object CMakeFiles/parable_patch.dir/src/patch_json.cpp.o
+[  5%] Linking CXX executable parable_firmware_measurement_test
+[  5%] Built target parable_firmware_measurement_test
+[  6%] Building CXX object CMakeFiles/parable_prepare.dir/src/parable_prepare.cpp.o
+[  7%] Linking CXX static library libparable_prepare.a
+[  7%] Built target parable_prepare
+[  8%] Building CXX object CMakeFiles/parable_rat_test.dir/tests/test_rat.cpp.o
+[  9%] Building CXX object CMakeFiles/parable_patch.dir/src/parable_patch.cpp.o
+[ 10%] Linking CXX executable parable_rat_test
+[ 10%] Built target parable_rat_test
+[ 11%] Building CXX object CMakeFiles/parable_rat_lab.dir/tools/rat_lab.cpp.o
+[ 12%] Linking CXX executable parable_rat_lab
+[ 12%] Built target parable_rat_lab
+[ 13%] Building CXX object CMakeFiles/parable_soundforge_test.dir/tests/test_soundforge.cpp.o
+[ 14%] Linking CXX executable parable_soundforge_test
+[ 14%] Built target parable_soundforge_test
+[ 15%] Building CXX object CMakeFiles/parable_cmos.dir/src/parable_cmos.cpp.o
+[ 16%] Linking CXX static library libparable_patch.a
+[ 16%] Built target parable_patch
+[ 17%] Building CXX object CMakeFiles/parable_germanium.dir/src/parable_germanium.cpp.o
+[ 18%] Linking CXX static library libparable_cmos.a
+[ 18%] Built target parable_cmos
+[ 19%] Building CXX object CMakeFiles/parable_presets.dir/src/parable_presets.cpp.o
+[ 20%] Linking CXX static library libparable_germanium.a
+[ 20%] Built target parable_germanium
+[ 21%] Building CXX object CMakeFiles/parable_flash_sim.dir/src/parable_flash_sim.cpp.o
+[ 21%] Linking CXX static library libparable_flash_sim.a
+[ 21%] Built target parable_flash_sim
+[ 21%] Building CXX object CMakeFiles/parable_activation.dir/src/parable_activation.cpp.o
+[ 22%] Linking CXX static library libparable_presets.a
+[ 22%] Built target parable_presets
+[ 23%] Building CXX object CMakeFiles/parable_tape.dir/src/parable_tape.cpp.o
+[ 24%] Linking CXX static library libparable_tape.a
+[ 24%] Built target parable_tape
+[ 25%] Building CXX object CMakeFiles/parable_rotary.dir/src/parable_rotary.cpp.o
+[ 26%] Linking CXX static library libparable_rotary.a
+[ 26%] Built target parable_rotary
+[ 27%] Building CXX object CMakeFiles/parable_muff.dir/src/parable_muff.cpp.o
+[ 28%] Building CXX object CMakeFiles/parable_activation.dir/src/parable_activation_audio.cpp.o
+[ 29%] Linking CXX static library libparable_muff.a
+[ 29%] Built target parable_muff
+[ 30%] Building CXX object CMakeFiles/parable_ts808.dir/src/parable_ts808.cpp.o
+[ 31%] Linking CXX static library libparable_activation.a
+[ 31%] Built target parable_activation
+[ 32%] Building CXX object CMakeFiles/parable_klon.dir/src/parable_klon.cpp.o
+[ 33%] Linking CXX static library libparable_ts808.a
+[ 33%] Built target parable_ts808
+[ 34%] Building CXX object CMakeFiles/parable_wavefolder.dir/src/parable_wavefolder.cpp.o
+[ 35%] Linking CXX static library libparable_klon.a
+[ 35%] Built target parable_klon
+[ 36%] Building CXX object CMakeFiles/parable_core_test.dir/tests/test_core.cpp.o
+[ 37%] Linking CXX static library libparable_wavefolder.a
+[ 37%] Built target parable_wavefolder
+[ 38%] Building CXX object CMakeFiles/parable_audio_safety_test.dir/tests/test_audio_safety.cpp.o
+[ 39%] Linking CXX executable parable_core_test
+[ 40%] Linking CXX executable parable_audio_safety_test
+[ 40%] Built target parable_core_test
+[ 41%] Building CXX object CMakeFiles/parable_patch_test.dir/tests/test_patch.cpp.o
+[ 41%] Built target parable_audio_safety_test
+[ 42%] Building CXX object CMakeFiles/parable_prepare_test.dir/tests/test_prepare.cpp.o
+[ 43%] Linking CXX executable parable_patch_test
+[ 43%] Built target parable_patch_test
+[ 44%] Building CXX object CMakeFiles/parable_rat_integration_test.dir/tests/test_rat_integration.cpp.o
+[ 45%] Linking CXX executable parable_prepare_test
+[ 45%] Built target parable_prepare_test
+[ 46%] Building CXX object CMakeFiles/parable_patch_audition.dir/tools/patch_audition.cpp.o
+[ 47%] Linking CXX executable parable_patch_audition
+[ 47%] Built target parable_patch_audition
+[ 48%] Building CXX object CMakeFiles/parable_cmos_test.dir/tests/test_cmos.cpp.o
+[ 49%] Linking CXX executable parable_cmos_test
+[ 49%] Built target parable_cmos_test
+[ 50%] Building CXX object CMakeFiles/parable_cmos_lab.dir/tools/cmos_lab.cpp.o
+[ 51%] Linking CXX executable parable_rat_integration_test
+[ 51%] Built target parable_rat_integration_test
+[ 52%] Building CXX object CMakeFiles/parable_germanium_test.dir/tests/test_germanium.cpp.o
+[ 53%] Linking CXX executable parable_cmos_lab
+[ 53%] Built target parable_cmos_lab
+[ 54%] Building CXX object CMakeFiles/parable_germanium_lab.dir/tools/germanium_lab.cpp.o
+[ 55%] Linking CXX executable parable_germanium_test
+[ 55%] Built target parable_germanium_test
+[ 55%] Building CXX object CMakeFiles/parable_presets_test.dir/tests/test_presets.cpp.o
+[ 56%] Linking CXX executable parable_presets_test
+[ 56%] Built target parable_presets_test
+[ 57%] Building CXX object CMakeFiles/parable_activation_test.dir/tests/test_activation.cpp.o
+[ 58%] Linking CXX executable parable_germanium_lab
+[ 58%] Built target parable_germanium_lab
+[ 59%] Building CXX object CMakeFiles/parable_activation_demo.dir/tools/activation_demo.cpp.o
+[ 60%] Building CXX object CMakeFiles/parable_activation_test.dir/tests/activation_guard.cpp.o
+[ 61%] Linking CXX executable parable_activation_test
+[ 61%] Built target parable_activation_test
+[ 62%] Building CXX object CMakeFiles/parable_living.dir/src/parable_living.cpp.o
+[ 63%] Linking CXX executable parable_activation_demo
+[ 63%] Built target parable_activation_demo
+[ 63%] Building CXX object CMakeFiles/parable_tape_lab.dir/tools/tape_lab.cpp.o
+[ 64%] Building CXX object CMakeFiles/parable_living.dir/src/parable_living_audio.cpp.o
+[ 65%] Linking CXX static library libparable_living.a
+[ 65%] Built target parable_living
+[ 66%] Building CXX object CMakeFiles/parable_tape_test.dir/tests/test_tape.cpp.o
+[ 67%] Building CXX object CMakeFiles/parable_tape_test.dir/tests/activation_guard.cpp.o
+[ 68%] Linking CXX executable parable_tape_test
+[ 68%] Built target parable_tape_test
+[ 69%] Building CXX object CMakeFiles/parable_rotary_lab.dir/tools/rotary_lab.cpp.o
+[ 70%] Linking CXX executable parable_tape_lab
+[ 70%] Built target parable_tape_lab
+[ 71%] Building CXX object CMakeFiles/parable_rotary_test.dir/tests/test_rotary.cpp.o
+[ 72%] Building CXX object CMakeFiles/parable_rotary_test.dir/tests/activation_guard.cpp.o
+[ 73%] Linking CXX executable parable_rotary_lab
+[ 74%] Linking CXX executable parable_rotary_test
+[ 74%] Built target parable_rotary_lab
+[ 74%] Built target parable_rotary_test
+[ 75%] Building CXX object CMakeFiles/parable_muff_lab.dir/tools/muff_lab.cpp.o
+[ 76%] Building CXX object CMakeFiles/parable_muff_test.dir/tests/test_muff.cpp.o
+[ 77%] Building CXX object CMakeFiles/parable_muff_test.dir/tests/activation_guard.cpp.o
+[ 78%] Linking CXX executable parable_muff_test
+[ 78%] Built target parable_muff_test
+[ 79%] Building CXX object CMakeFiles/parable_ts808_lab.dir/tools/ts808_lab.cpp.o
+[ 80%] Linking CXX executable parable_muff_lab
+[ 80%] Built target parable_muff_lab
+[ 81%] Building CXX object CMakeFiles/parable_ts808_test.dir/tests/test_ts808.cpp.o
+[ 82%] Linking CXX executable parable_ts808_lab
+[ 82%] Built target parable_ts808_lab
+[ 83%] Building CXX object CMakeFiles/parable_klon_test.dir/tests/test_klon.cpp.o
+[ 84%] Building CXX object CMakeFiles/parable_ts808_test.dir/tests/activation_guard.cpp.o
+[ 85%] Linking CXX executable parable_ts808_test
+[ 85%] Built target parable_ts808_test
+[ 86%] Building CXX object CMakeFiles/parable_klon_lab.dir/tools/klon_lab.cpp.o
+[ 87%] Building CXX object CMakeFiles/parable_klon_test.dir/tests/activation_guard.cpp.o
+[ 88%] Linking CXX executable parable_klon_test
+[ 88%] Built target parable_klon_test
+[ 89%] Building CXX object CMakeFiles/parable_wavefolder_lab.dir/tools/wavefolder_lab.cpp.o
+[ 90%] Linking CXX executable parable_klon_lab
+[ 90%] Built target parable_klon_lab
+[ 91%] Building CXX object CMakeFiles/parable_wavefolder_study.dir/tools/wavefolder_study.cpp.o
+[ 92%] Linking CXX executable parable_wavefolder_study
+[ 92%] Built target parable_wavefolder_study
+[ 93%] Building CXX object CMakeFiles/parable_wavefolder_test.dir/tests/test_wavefolder.cpp.o
+[ 94%] Linking CXX executable parable_wavefolder_lab
+[ 94%] Built target parable_wavefolder_lab
+[ 95%] Building CXX object CMakeFiles/parable_living_test.dir/tests/test_living.cpp.o
+[ 96%] Building CXX object CMakeFiles/parable_wavefolder_test.dir/tests/activation_guard.cpp.o
+[ 97%] Linking CXX executable parable_wavefolder_test
+[ 97%] Built target parable_wavefolder_test
+[ 98%] Building CXX object CMakeFiles/parable_living_demo.dir/tools/living_demo.cpp.o
+[ 99%] Building CXX object CMakeFiles/parable_living_test.dir/tests/activation_guard.cpp.o
+[ 99%] Linking CXX executable parable_living_test
+[ 99%] Built target parable_living_test
+[100%] Linking CXX executable parable_living_demo
+[100%] Built target parable_living_demo
+Internal ctest changing into directory: /workspace/work/sf015-baseline-Release
+Test project /workspace/work/sf015-baseline-Release
+      Start  1: firmware_measurement_math_status
+ 1/38 Test  #1: firmware_measurement_math_status ...   Passed    0.00 sec
+      Start  2: core_validation
+ 2/38 Test  #2: core_validation ....................   Passed    0.00 sec
+      Start  3: audio_safety
+ 3/38 Test  #3: audio_safety .......................   Passed    0.01 sec
+      Start  4: patch_contract
+ 4/38 Test  #4: patch_contract .....................   Passed    0.12 sec
+      Start  5: host_preparation
+ 5/38 Test  #5: host_preparation ...................   Passed    0.01 sec
+      Start  6: rat_patch_integration
+ 6/38 Test  #6: rat_patch_integration ..............   Passed    0.73 sec
+      Start  7: patch_audio_evidence
+ 7/38 Test  #7: patch_audio_evidence ...............   Passed    1.75 sec
+      Start  8: rat_circuit_and_safety
+ 8/38 Test  #8: rat_circuit_and_safety .............   Passed    0.57 sec
+      Start  9: rat_lab_measurements
+ 9/38 Test  #9: rat_lab_measurements ...............   Passed    0.83 sec
+      Start 10: soundforge_utilities
+10/38 Test #10: soundforge_utilities ...............   Passed    0.80 sec
+      Start 11: soundforge_registry
+11/38 Test #11: soundforge_registry ................   Passed    0.05 sec
+      Start 12: soundforge_registry_negative
+12/38 Test #12: soundforge_registry_negative .......   Passed    0.19 sec
+      Start 13: labrat_output_preservation
+13/38 Test #13: labrat_output_preservation .........   Passed    4.39 sec
+      Start 14: cmos_circuit_and_safety
+14/38 Test #14: cmos_circuit_and_safety ............   Passed    0.27 sec
+      Start 15: cmos_lab_measurements
+15/38 Test #15: cmos_lab_measurements ..............   Passed    0.91 sec
+      Start 16: cmos_lab_cli
+16/38 Test #16: cmos_lab_cli .......................   Passed    2.65 sec
+      Start 17: germanium_circuit_and_safety
+17/38 Test #17: germanium_circuit_and_safety .......   Passed    1.59 sec
+      Start 18: germanium_lab_measurements
+18/38 Test #18: germanium_lab_measurements .........   Passed    1.59 sec
+      Start 19: germanium_lab_cli
+19/38 Test #19: germanium_lab_cli ..................   Passed    3.55 sec
+      Start 20: preset_journal
+20/38 Test #20: preset_journal .....................   Passed    2.36 sec
+      Start 21: activation_contract
+21/38 Test #21: activation_contract ................   Passed    0.12 sec
+      Start 22: activation_concurrency
+22/38 Test #22: activation_concurrency .............   Passed   30.20 sec
+      Start 23: activation_demo
+23/38 Test #23: activation_demo ....................   Passed    0.04 sec
+      Start 24: living_contract
+24/38 Test #24: living_contract ....................   Passed    0.23 sec
+      Start 25: living_concurrency
+25/38 Test #25: living_concurrency .................   Passed    0.96 sec
+      Start 26: living_audio_evidence
+26/38 Test #26: living_audio_evidence ..............   Passed    1.85 sec
+      Start 27: tape_medium_and_safety
+27/38 Test #27: tape_medium_and_safety .............   Passed    0.03 sec
+      Start 28: tape_listening_cli
+28/38 Test #28: tape_listening_cli .................   Passed    0.75 sec
+      Start 29: rotary_mechanics_and_safety
+29/38 Test #29: rotary_mechanics_and_safety ........   Passed    0.98 sec
+      Start 30: rotary_listening_cli
+30/38 Test #30: rotary_listening_cli ...............   Passed    1.25 sec
+      Start 31: muff_circuit_and_safety
+31/38 Test #31: muff_circuit_and_safety ............   Passed   14.65 sec
+      Start 32: muff_listening_cli
+32/38 Test #32: muff_listening_cli .................   Passed   18.91 sec
+      Start 33: ts808_circuit_and_safety
+33/38 Test #33: ts808_circuit_and_safety ...........   Passed   51.87 sec
+      Start 34: ts808_listening_cli
+34/38 Test #34: ts808_listening_cli ................   Passed   39.67 sec
+      Start 35: klon_circuit_and_safety
+35/38 Test #35: klon_circuit_and_safety ............   Passed   31.26 sec
+      Start 36: klon_listening_cli
+36/38 Test #36: klon_listening_cli .................   Passed   37.67 sec
+      Start 37: wavefolder_circuit_and_safety
+37/38 Test #37: wavefolder_circuit_and_safety ......   Passed    2.82 sec
+      Start 38: wavefolder_listening_cli
+38/38 Test #38: wavefolder_listening_cli ...........   Passed    2.70 sec
+
+100% tests passed, 0 tests failed out of 38
+
+Total Test time (real) = 258.38 sec

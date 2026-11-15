@@ -1,0 +1,17 @@
+{
+  "correction": "Derived trace timestamp only, from previous4x phase3/4 to actual8x phase7/8; WAVs, voltages, currents, gains and kernel unchanged.",
+  "state_before_sha256": "53ad5f46a2c6103e51f532272f883278843edaf16e6c3d16e3810190ad3beb6f",
+  "state_after_sha256": "561004cfdc13c7699fd3f7899714280980f064925620d9036f90bd25995dd87c",
+  "WAVs_unchanged": true,
+  "render_source_commit": "1120ec2d7525713fb3d0c165b1de11bd2098ea36",
+  "render_build": {
+    "component_sha256": {
+      "include/parable_fz1.h": "b275c9e1ab7acc959b3ce7742c48dfd803d751e1aae4aceb26bf70af484f7d7b",
+      "src/parable_fz1.cpp": "de45561bfd30c239b221672d2435d42aaf93c1541c4525506264caa854cccaf5",
+      "src/germanium_device.h": "89ed1c3fc29d8135bf00ac133ac88b19e32f0f0802183de06add5fd1a84007f0",
+      "tools/fz1_lab.cpp": "eaa031e0b08c8936cb9348c1aed0ac247313630911893dd8b6cf187e944cda23"
+    },
+    "binary_sha256": "e174b6d9fdb2079e9c85a4854ac9f115daeeaaa52fee09bb60f3435f44c96a6b",
+    "note": "Actual final8x native render binary. Host trace-time receipt will be corrected from phase3/4 to phase7/8; DSP and all WAV samples unchanged. Producing source is preserved by the native implementation commit."
+  }
+}

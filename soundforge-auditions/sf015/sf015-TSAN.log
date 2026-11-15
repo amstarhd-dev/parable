@@ -1,0 +1,14 @@
+Internal ctest changing into directory: /workspace/work/sf015-TSAN
+Test project /workspace/work/sf015-TSAN
+    Start 21: activation_contract
+1/4 Test #21: activation_contract ..............   Passed    0.78 sec
+    Start 22: activation_concurrency
+2/4 Test #22: activation_concurrency ...........   Passed  112.28 sec
+    Start 24: living_contract
+3/4 Test #24: living_contract ..................   Passed    7.33 sec
+    Start 25: living_concurrency
+4/4 Test #25: living_concurrency ...............   Passed   17.48 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) = 137.87 sec

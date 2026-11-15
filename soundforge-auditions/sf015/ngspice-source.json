@@ -1,0 +1,9 @@
+{
+  "url": "https://deb.debian.org/debian/pool/main/n/ngspice/ngspice_44.2+ds.orig.tar.gz",
+  "sha256": "8a800a23ac479b8c340ac22c1703ec4d9e7441a368d7bf69a89998bb6a1799d5",
+  "files": {
+    "tmpknjl8584/src/spicelib/devices/bjt/bjtload.c": "1b557959b6bc5a7123673106f41c4cacb2170b7b53df3ec8448d7f27fed70be9",
+    "tmpknjl8584/src/include/ngspice/const.h": "000d6dda4b539e748c8aeabcea866c866dd7f5145aa745dcb575eb2a83947551"
+  },
+  "relationship": "audit-only source; none imported into native code"
+}

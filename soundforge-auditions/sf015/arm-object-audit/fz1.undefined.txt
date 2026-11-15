@@ -1,0 +1,6 @@
+         U cos
+         U expm1
+         U memcpy
+         U memset
+         U sin
+         U sqrt

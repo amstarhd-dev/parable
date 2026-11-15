@@ -1,0 +1,86 @@
+Internal ctest changing into directory: /workspace/work/sf015-baseline-Release
+Test project /workspace/work/sf015-baseline-Release
+      Start 33: ts808_circuit_and_safety
+      Start 36: klon_listening_cli
+ 1/40 Test #36: klon_listening_cli .................   Passed   62.40 sec
+      Start 34: ts808_listening_cli
+ 2/40 Test #33: ts808_circuit_and_safety ...........   Passed   64.53 sec
+      Start 35: klon_circuit_and_safety
+ 3/40 Test #35: klon_circuit_and_safety ............   Passed   37.61 sec
+      Start 22: activation_concurrency
+ 4/40 Test #34: ts808_listening_cli ................   Passed   47.24 sec
+      Start 32: muff_listening_cli
+ 5/40 Test #22: activation_concurrency .............   Passed   27.51 sec
+      Start 40: fz1_listening_cli
+ 6/40 Test #32: muff_listening_cli .................   Passed   22.87 sec
+      Start 31: muff_circuit_and_safety
+ 7/40 Test #31: muff_circuit_and_safety ............   Passed   14.23 sec
+      Start 39: fz1_circuit_and_safety
+ 8/40 Test #39: fz1_circuit_and_safety .............   Passed   10.89 sec
+      Start 13: labrat_output_preservation
+ 9/40 Test #13: labrat_output_preservation .........   Passed    4.33 sec
+      Start 19: germanium_lab_cli
+10/40 Test #19: germanium_lab_cli ..................   Passed    3.39 sec
+      Start 16: cmos_lab_cli
+11/40 Test #16: cmos_lab_cli .......................   Passed    2.67 sec
+      Start 26: living_audio_evidence
+12/40 Test #26: living_audio_evidence ..............   Passed    1.88 sec
+      Start 37: wavefolder_circuit_and_safety
+13/40 Test #37: wavefolder_circuit_and_safety ......   Passed    2.92 sec
+      Start 38: wavefolder_listening_cli
+14/40 Test #38: wavefolder_listening_cli ...........   Passed    3.02 sec
+      Start  7: patch_audio_evidence
+15/40 Test  #7: patch_audio_evidence ...............   Passed    1.81 sec
+      Start 20: preset_journal
+16/40 Test #20: preset_journal .....................   Passed    2.23 sec
+      Start 18: germanium_lab_measurements
+17/40 Test #18: germanium_lab_measurements .........   Passed    1.54 sec
+      Start 17: germanium_circuit_and_safety
+18/40 Test #17: germanium_circuit_and_safety .......   Passed    1.50 sec
+      Start 30: rotary_listening_cli
+19/40 Test #30: rotary_listening_cli ...............   Passed    1.23 sec
+      Start  6: rat_patch_integration
+20/40 Test  #6: rat_patch_integration ..............   Passed    0.75 sec
+      Start 29: rotary_mechanics_and_safety
+21/40 Test #29: rotary_mechanics_and_safety ........   Passed    0.99 sec
+      Start 15: cmos_lab_measurements
+22/40 Test #15: cmos_lab_measurements ..............   Passed    0.81 sec
+      Start 25: living_concurrency
+23/40 Test #25: living_concurrency .................   Passed    0.76 sec
+      Start  8: rat_circuit_and_safety
+24/40 Test  #8: rat_circuit_and_safety .............   Passed    0.59 sec
+      Start 10: soundforge_utilities
+25/40 Test #10: soundforge_utilities ...............   Passed    0.80 sec
+      Start  9: rat_lab_measurements
+26/40 Test  #9: rat_lab_measurements ...............   Passed    0.82 sec
+      Start 28: tape_listening_cli
+27/40 Test #28: tape_listening_cli .................   Passed    0.34 sec
+      Start 14: cmos_circuit_and_safety
+28/40 Test #14: cmos_circuit_and_safety ............   Passed    0.29 sec
+      Start 24: living_contract
+29/40 Test #24: living_contract ....................   Passed    0.22 sec
+      Start 12: soundforge_registry_negative
+30/40 Test #12: soundforge_registry_negative .......   Passed    0.19 sec
+      Start  4: patch_contract
+31/40 Test  #4: patch_contract .....................   Passed    0.14 sec
+      Start 21: activation_contract
+32/40 Test #21: activation_contract ................   Passed    0.10 sec
+      Start 11: soundforge_registry
+33/40 Test #11: soundforge_registry ................   Passed    0.05 sec
+      Start 27: tape_medium_and_safety
+34/40 Test #27: tape_medium_and_safety .............   Passed    0.04 sec
+      Start 23: activation_demo
+35/40 Test #23: activation_demo ....................   Passed    0.02 sec
+      Start  3: audio_safety
+36/40 Test  #3: audio_safety .......................   Passed    0.01 sec
+      Start  5: host_preparation
+37/40 Test  #5: host_preparation ...................   Passed    0.01 sec
+      Start  1: firmware_measurement_math_status
+38/40 Test  #1: firmware_measurement_math_status ...   Passed    0.00 sec
+      Start  2: core_validation
+39/40 Test  #2: core_validation ....................   Passed    0.00 sec
+40/40 Test #40: fz1_listening_cli ..................   Passed   69.39 sec
+
+100% tests passed, 0 tests failed out of 40
+
+Total Test time (real) = 199.05 sec

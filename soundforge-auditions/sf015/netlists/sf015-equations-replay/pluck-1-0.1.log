@@ -1,0 +1,122 @@
+
+Note: No compatibility mode selected!
+
+
+Circuit: sf015 amplified parts original fz1 drawing; patent typo reconciled
+
+Doing analysis at TEMP = 26.850000 and TNOM = 27.000000
+
+Using SPARSE 1.3 as Direct Linear Solver
+
+Initial Transient Solution
+--------------------------
+
+Node                                   Voltage
+----                                   -------
+rail                                        -3
+input                                        0
+src                                          0
+inc                                          0
+b1                                    -1.98714
+cq1                                         -3
+bq1                                   -1.98714
+xq1.bi                                -1.98714
+e1                                    -1.92509
+xq1.ei                                -1.92515
+xq1.ci                                      -3
+b2                                  -0.0373717
+c2                                    -2.85752
+cq2                                   -2.85752
+bq2                                 -0.0373717
+xq2.bi                               -0.037383
+xq2.ei                             -2.7278e-05
+xq2.ci                                -2.85752
+b3                                  -0.0468803
+c3                                    -1.77362
+cq3                                   -1.77362
+bq3                                 -0.0468803
+xq3.bi                              -0.0468892
+xq3.ei                            -3.61397e-05
+xq3.ci                                -1.77362
+top                                          0
+out                                          0
+binput#branch                                0
+v.xq3.vrc#branch                  -0.000122638
+vqb3#branch                        4.68803e-06
+vqc3#branch                       -0.000122638
+v.xq2.vrc#branch                  -9.49839e-05
+vqb2#branch                        5.95653e-06
+vqc2#branch                       -9.49839e-05
+v.xq1.vrc#branch                  -0.000194496
+vqb1#branch                        1.98714e-06
+vqc1#branch                       -0.000194496
+vrail#branch                       0.000412117
+
+ Reference value :  1.49032e-02
+ Reference value :  2.54888e-02
+ Reference value :  3.65629e-02
+ Reference value :  4.72217e-02
+ Reference value :  5.89257e-02
+ Reference value :  7.12045e-02
+ Reference value :  8.18211e-02
+ Reference value :  9.46300e-02
+ Reference value :  1.06888e-01
+ Reference value :  1.19292e-01
+ Reference value :  1.29592e-01
+ Reference value :  1.42748e-01
+ Reference value :  1.55871e-01
+ Reference value :  1.68081e-01
+ Reference value :  1.81819e-01
+ Reference value :  1.95067e-01
+ Reference value :  2.08131e-01
+ Reference value :  2.20111e-01
+ Reference value :  2.33071e-01
+ Reference value :  2.46391e-01
+ Reference value :  2.58611e-01
+ Reference value :  2.70123e-01
+ Reference value :  2.82271e-01
+ Reference value :  2.93759e-01
+ Reference value :  3.05055e-01
+ Reference value :  3.13835e-01
+ Reference value :  3.26575e-01
+ Reference value :  3.39043e-01
+ Reference value :  3.50139e-01
+ Reference value :  3.63907e-01
+ Reference value :  3.76947e-01
+ Reference value :  3.90131e-01
+ Reference value :  4.03931e-01
+ Reference value :  4.17467e-01
+ Reference value :  4.31183e-01
+ Reference value :  4.43811e-01
+ Reference value :  4.56355e-01
+ Reference value :  4.68855e-01
+ Reference value :  4.80619e-01
+ Reference value :  4.94599e-01
+ Reference value :  5.06391e-01
+ Reference value :  5.16631e-01
+ Reference value :  5.31535e-01
+ Reference value :  5.46279e-01
+ Reference value :  5.60087e-01
+ Reference value :  5.73187e-01
+ Reference value :  5.88079e-01
+ Reference value :  6.01351e-01
+ Reference value :  6.15483e-01
+ Reference value :  6.31927e-01
+ Reference value :  6.49951e-01
+ Reference value :  6.64279e-01
+ Reference value :  6.82463e-01
+ Reference value :  7.00019e-01
+ Reference value :  7.17147e-01
+ Reference value :  7.33319e-01
+ Reference value :  7.50679e-01
+ Reference value :  7.68535e-01
+ Reference value :  7.86211e-01
+ Reference value :  8.04227e-01
+ Reference value :  8.22063e-01
+ Reference value :  8.39831e-01
+No. of Data Rows : 214784
+ngspice-44.2 done
+Warning: singular matrix:  check node xq2.bi
+
+Note: Starting dynamic gmin stepping
+Note: Dynamic gmin stepping completed

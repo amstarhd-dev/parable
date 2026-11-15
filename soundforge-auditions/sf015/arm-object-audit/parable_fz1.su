@@ -1,0 +1,12 @@
+/workspace/work/parable-sf015/parable-starter/src/germanium_device.h:13:16:parable::dsp::germanium_detail::Current parable::dsp::germanium_detail::device(double, double, const parable::dsp::GermaniumDevice&)	104	static
+/workspace/work/parable-sf015/parable-starter/src/parable_fz1.cpp:76:25:parable::dsp::Fz1::solve(Ports&, const Ports&, unsigned int, double&, unsigned int&, Ports&) const::<lambda(const parable::dsp::Fz1::Ports&, parable::dsp::Fz1::Ports&, parable::dsp::Fz1::Ports&, parable::dsp::Fz1::Matrix&)>	224	static
+/workspace/work/parable-sf015/parable-starter/src/parable_fz1.cpp:15:6:bool parable::dsp::Fz1::matrices(bool)	696	static
+/workspace/work/parable-sf015/parable-starter/src/parable_fz1.cpp:74:6:bool parable::dsp::Fz1::solve(Ports&, const Ports&, unsigned int, double&, unsigned int&, Ports&) const	1032	static
+/workspace/work/parable-sf015/parable-starter/src/parable_fz1.cpp:117:12:parable::dsp::Fz1::Nodes parable::dsp::Fz1::reconstruct(const Nodes&, const Ports&) const	28	static
+/workspace/work/parable-sf015/parable-starter/src/parable_fz1.cpp:120:12:parable::dsp::Fz1::Nodes parable::dsp::Fz1::nodes() const	16	static
+/workspace/work/parable-sf015/parable-starter/src/parable_fz1.cpp:121:12:parable::dsp::Fz1::Nodes parable::dsp::Fz1::biasNodes() const	16	static
+/workspace/work/parable-sf015/parable-starter/src/parable_fz1.cpp:122:6:void parable::dsp::Fz1::resetCircuit()	36	static
+/workspace/work/parable-sf015/parable-starter/src/parable_fz1.cpp:126:6:void parable::dsp::Fz1::reset()	8	static
+/workspace/work/parable-sf015/parable-starter/src/parable_fz1.cpp:45:6:bool parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)	5480	static
+/workspace/work/parable-sf015/parable-starter/src/parable_fz1.cpp:130:8:double parable::dsp::Fz1::sample(double)	512	static
+/workspace/work/parable-sf015/parable-starter/src/parable_fz1.cpp:153:7:float parable::dsp::Fz1::process(float)	72	static

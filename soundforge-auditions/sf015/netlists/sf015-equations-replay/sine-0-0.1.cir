@@ -1,0 +1,55 @@
+SF015 Amplified Parts original FZ1 drawing; patent typo reconciled
+Vrail rail 0 -3
+Vin input 0 SIN(0 0.1 196)
+Rsource input src 1000
+R1 src inc 100k
+C1 inc b1 10n
+R2 b1 0 1Meg
+Vqc1 rail cq1 0
+Vqb1 b1 bq1 0
+Xq1 cq1 bq1 e1 GP le=1
+R3 e1 0 10k
+C2 e1 b2 20u
+Rbias rail b2 470000
+Rattack b2 0 13902.127659574468
+Vqc2 c2 cq2 0
+Vqb2 b2 bq2 0
+Xq2 cq2 bq2 0 GP le=1
+R6 c2 rail 1.5k
+C3 c2 b3 20u
+R7 b3 0 10k
+Vqc3 c3 cq3 0
+Vqb3 b3 bq3 0
+Xq3 cq3 bq3 0 GP le=1
+R8 c3 rail 10k
+C4 c3 top 3.3n
+R10 top 0 56k
+RVtop top out 250000
+RVbottom out 0 250000
+Rload out 0 1000000
+.subckt GP c b e le=1
+Rb b bi 1.885
+Re e ei .3064
+Vrc c ci 0
+.func fwd(x) {20.66u*(exp(x/(1.133*.0255))-1)}
+.func rev(x) {20.66u*(exp(x/(1.140*.0255))-1)}
+Btransport ci ei I={-2*(1-v(ei,bi)/88.28-v(ci,bi)/19.68)*(fwd(v(ei,bi))-rev(v(ci,bi)))/(1+sqrt(1+4*(fwd(v(ei,bi))/.463+rev(v(ci,bi))/.2415)))}
+Bbe bi ei I={-fwd(v(ei,bi))/229.6-2.190u*(exp(v(ei,bi)/(1.796*.0255))-1)}
+Bbc bi ci I={-rev(v(ci,bi))/14.66-le*7.546u*(exp(v(ci,bi)/(1.364*.0255))-1)}
+Cbc bi ci 100p
+.ends GP
+.save all
+
+.options reltol=1e-8 abstol=1e-13 vntol=1e-10 gmin=1e-14
+.temp 26.85
+.control
+set noaskquit
+set wr_singlescale
+set wr_vecnames
+set numdgt=16
+option method=gear reltol=1e-7 abstol=1e-13 vntol=1e-9
+tran 4u 0.12 0 4u
+wrdata sine-0-0.1.txt v(input) v(b1) v(e1) v(b2) v(c2) v(b3) v(c3) v(out) i(Vqc1) i(Vqc2) i(Vqc3)
+quit
+.endc
+.end

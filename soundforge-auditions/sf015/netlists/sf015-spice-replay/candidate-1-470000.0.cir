@@ -1,0 +1,39 @@
+SF015 Amplified Parts original FZ1 drawing; patent typo reconciled
+Vrail rail 0 -3
+Vin input 0 0
+Rsource input src 1000
+R1 src inc 100k
+C1 inc b1 10n
+R2 b1 0 1Meg
+Q1 rail b1 e1 Ge
+R3 e1 0 10k
+C2 e1 b2 20u
+Rbias rail b2 470000
+Rattack b2 0 17477.777777777777
+Q2 c2 b2 0 Ge
+R6 c2 rail 1.5k
+C3 c2 b3 20u
+R7 b3 0 10k
+Q3 c3 b3 0 Ge
+R8 c3 rail 10k
+C4 c3 top 3.3n
+R10 top 0 56k
+RVtop top out 250000
+RVbottom out 0 250000
+Rload out 0 1000000
+.model Ge PNP(IS=20.66u BF=229.6 BR=14.66 NF=1.133 NR=1.140 VAF=19.68 VAR=88.28 IKF=.463 IKR=.2415 ISE=2.190u NE=1.796 NC=1.364 RB=1.885 RE=.3064 RC=.000001727 CJE=0 CJC=100p MJC=0 ISC=7.5460000000000003e-06 TNOM=22.765212099527048 EG=.67 XTI=3 TF=0 TR=0)
+.save all @q1[ic] @q2[ic] @q3[ic] @q1[ib] @q2[ib] @q3[ib]
+
+.options reltol=1e-8 abstol=1e-13 vntol=1e-10 gmin=1e-14
+.temp 26.85
+.control
+set noaskquit
+set wr_singlescale
+set wr_vecnames
+set temp=22.765212099527048
+set numdgt=16
+op
+wrdata candidate-1-470000.0.txt v(b2) v(c2) @q2[ic] @q2[ib]
+quit
+.endc
+.end

@@ -1,0 +1,200 @@
+[
+  {
+    "name": "pluck-0-0.1",
+    "fault": 0,
+    "attack": 0.1,
+    "input_V": 0.2,
+    "source_Ohm": 1000,
+    "load_Ohm": 1000000.0,
+    "volume": 0.5,
+    "kind": "pluck",
+    "duration_s": 0.85
+  },
+  {
+    "name": "pluck-0-0.5",
+    "fault": 0,
+    "attack": 0.5,
+    "input_V": 0.2,
+    "source_Ohm": 1000,
+    "load_Ohm": 1000000.0,
+    "volume": 0.5,
+    "kind": "pluck",
+    "duration_s": 0.85
+  },
+  {
+    "name": "pluck-0-1",
+    "fault": 0,
+    "attack": 1,
+    "input_V": 0.2,
+    "source_Ohm": 1000,
+    "load_Ohm": 1000000.0,
+    "volume": 0.5,
+    "kind": "pluck",
+    "duration_s": 0.85
+  },
+  {
+    "name": "sine-0-0.02",
+    "fault": 0,
+    "attack": 0.5,
+    "input_V": 0.02,
+    "source_Ohm": 1000,
+    "load_Ohm": 1000000.0,
+    "volume": 0.5,
+    "kind": "sine",
+    "duration_s": 0.12
+  },
+  {
+    "name": "sine-0-0.1",
+    "fault": 0,
+    "attack": 0.5,
+    "input_V": 0.1,
+    "source_Ohm": 1000,
+    "load_Ohm": 1000000.0,
+    "volume": 0.5,
+    "kind": "sine",
+    "duration_s": 0.12
+  },
+  {
+    "name": "sine-0-0.2",
+    "fault": 0,
+    "attack": 0.5,
+    "input_V": 0.2,
+    "source_Ohm": 1000,
+    "load_Ohm": 1000000.0,
+    "volume": 0.5,
+    "kind": "sine",
+    "duration_s": 0.12
+  },
+  {
+    "name": "loaded-0",
+    "fault": 0,
+    "attack": 0.5,
+    "input_V": 0.1,
+    "source_Ohm": 10000,
+    "load_Ohm": 100000.0,
+    "volume": 0.5,
+    "kind": "sine",
+    "duration_s": 0.12
+  },
+  {
+    "name": "volume-0-0",
+    "fault": 0,
+    "attack": 0.5,
+    "input_V": 0.1,
+    "source_Ohm": 1000,
+    "load_Ohm": 1000000.0,
+    "volume": 0,
+    "kind": "sine",
+    "duration_s": 0.12
+  },
+  {
+    "name": "volume-0-1",
+    "fault": 0,
+    "attack": 0.5,
+    "input_V": 0.1,
+    "source_Ohm": 1000,
+    "load_Ohm": 1000000.0,
+    "volume": 1,
+    "kind": "sine",
+    "duration_s": 0.12
+  },
+  {
+    "name": "pluck-1-0.1",
+    "fault": 1,
+    "attack": 0.1,
+    "input_V": 0.2,
+    "source_Ohm": 1000,
+    "load_Ohm": 1000000.0,
+    "volume": 0.5,
+    "kind": "pluck",
+    "duration_s": 0.85
+  },
+  {
+    "name": "pluck-1-0.5",
+    "fault": 1,
+    "attack": 0.5,
+    "input_V": 0.2,
+    "source_Ohm": 1000,
+    "load_Ohm": 1000000.0,
+    "volume": 0.5,
+    "kind": "pluck",
+    "duration_s": 0.85
+  },
+  {
+    "name": "pluck-1-1",
+    "fault": 1,
+    "attack": 1,
+    "input_V": 0.2,
+    "source_Ohm": 1000,
+    "load_Ohm": 1000000.0,
+    "volume": 0.5,
+    "kind": "pluck",
+    "duration_s": 0.85
+  },
+  {
+    "name": "sine-1-0.02",
+    "fault": 1,
+    "attack": 0.5,
+    "input_V": 0.02,
+    "source_Ohm": 1000,
+    "load_Ohm": 1000000.0,
+    "volume": 0.5,
+    "kind": "sine",
+    "duration_s": 0.12
+  },
+  {
+    "name": "sine-1-0.1",
+    "fault": 1,
+    "attack": 0.5,
+    "input_V": 0.1,
+    "source_Ohm": 1000,
+    "load_Ohm": 1000000.0,
+    "volume": 0.5,
+    "kind": "sine",
+    "duration_s": 0.12
+  },
+  {
+    "name": "sine-1-0.2",
+    "fault": 1,
+    "attack": 0.5,
+    "input_V": 0.2,
+    "source_Ohm": 1000,
+    "load_Ohm": 1000000.0,
+    "volume": 0.5,
+    "kind": "sine",
+    "duration_s": 0.12
+  },
+  {
+    "name": "loaded-1",
+    "fault": 1,
+    "attack": 0.5,
+    "input_V": 0.1,
+    "source_Ohm": 10000,
+    "load_Ohm": 100000.0,
+    "volume": 0.5,
+    "kind": "sine",
+    "duration_s": 0.12
+  },
+  {
+    "name": "volume-1-0",
+    "fault": 1,
+    "attack": 0.5,
+    "input_V": 0.1,
+    "source_Ohm": 1000,
+    "load_Ohm": 1000000.0,
+    "volume": 0,
+    "kind": "sine",
+    "duration_s": 0.12
+  },
+  {
+    "name": "volume-1-1",
+    "fault": 1,
+    "attack": 0.5,
+    "input_V": 0.1,
+    "source_Ohm": 1000,
+    "load_Ohm": 1000000.0,
+    "volume": 1,
+    "kind": "sine",
+    "duration_s": 0.12
+  }
+]

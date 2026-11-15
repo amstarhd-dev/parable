@@ -1,0 +1,142 @@
+{
+  "fault_shape": [
+    {
+      "group": "attack_low",
+      "fault_over_healthy_RMS_dB": -1.4342473465470325,
+      "best_fader_fit": 0.8231956427341701,
+      "remaining_relative_RMS": 0.2391139842329189,
+      "correlation": 0.9709915048775941
+    },
+    {
+      "group": "attack_mid",
+      "fault_over_healthy_RMS_dB": -0.9105875994120867,
+      "best_fader_fit": 0.8724596785235605,
+      "remaining_relative_RMS": 0.2474893842715024,
+      "correlation": 0.9688906051112606
+    },
+    {
+      "group": "attack_high",
+      "fault_over_healthy_RMS_dB": -0.8126773420585165,
+      "best_fader_fit": 0.8810847569859755,
+      "remaining_relative_RMS": 0.2528660597543539,
+      "correlation": 0.9675012949993588
+    },
+    {
+      "group": "input_low",
+      "fault_over_healthy_RMS_dB": -4.632485650358541,
+      "best_fader_fit": 0.5775832821081208,
+      "remaining_relative_RMS": 0.17508939593694856,
+      "correlation": 0.9845525397003325
+    },
+    {
+      "group": "input_mid",
+      "fault_over_healthy_RMS_dB": -1.5215733081068605,
+      "best_fader_fit": 0.815290079007772,
+      "remaining_relative_RMS": 0.23751559565095864,
+      "correlation": 0.9713837253230685
+    },
+    {
+      "group": "input_high",
+      "fault_over_healthy_RMS_dB": -0.9105875994120867,
+      "best_fader_fit": 0.8724596785235605,
+      "remaining_relative_RMS": 0.2474893842715024,
+      "correlation": 0.9688906051112606
+    }
+  ],
+  "independent_reference_harmonics": [
+    {
+      "fault": 0,
+      "input_peak_V": 0.02,
+      "H1_V": 0.14449764032598822,
+      "H2_over_H1_dB": -10.063139528315679,
+      "H3_over_H1_dB": -8.02916253937167,
+      "H5_over_H1_dB": -31.115787505854602,
+      "window_start_s": 0.07,
+      "window_end_s": 0.12
+    },
+    {
+      "fault": 0,
+      "input_peak_V": 0.1,
+      "H1_V": 0.1598947373677159,
+      "H2_over_H1_dB": -10.331549841974248,
+      "H3_over_H1_dB": -2.7865055381764687,
+      "H5_over_H1_dB": -7.881946665681959,
+      "window_start_s": 0.07,
+      "window_end_s": 0.12
+    },
+    {
+      "fault": 0,
+      "input_peak_V": 0.2,
+      "H1_V": 0.1608693513239318,
+      "H2_over_H1_dB": -25.109139744601183,
+      "H3_over_H1_dB": -1.5443867524637738,
+      "H5_over_H1_dB": -3.705667579640965,
+      "window_start_s": 0.07,
+      "window_end_s": 0.12
+    },
+    {
+      "fault": 1,
+      "input_peak_V": 0.02,
+      "H1_V": 0.12468938349670206,
+      "H2_over_H1_dB": -10.611869052806966,
+      "H3_over_H1_dB": -17.099324196058244,
+      "H5_over_H1_dB": -20.995296539933005,
+      "window_start_s": 0.07,
+      "window_end_s": 0.12
+    },
+    {
+      "fault": 1,
+      "input_peak_V": 0.1,
+      "H1_V": 0.1580387608769801,
+      "H2_over_H1_dB": -16.01463771472561,
+      "H3_over_H1_dB": -2.517952148068658,
+      "H5_over_H1_dB": -6.680986467481645,
+      "window_start_s": 0.07,
+      "window_end_s": 0.12
+    },
+    {
+      "fault": 1,
+      "input_peak_V": 0.2,
+      "H1_V": 0.16041139955989336,
+      "H2_over_H1_dB": -19.29852888076127,
+      "H3_over_H1_dB": -1.7337751941551924,
+      "H5_over_H1_dB": -4.173058333889284,
+      "window_start_s": 0.07,
+      "window_end_s": 0.12
+    }
+  ],
+  "decay_tail": [
+    {
+      "fault": 0,
+      "t_s": 0.81,
+      "input_RMS_V": 0.0001738098880602532,
+      "out_RMS_V": 0.0010502639546418407,
+      "gain": 6.042601870140751
+    },
+    {
+      "fault": 0,
+      "t_s": 0.8300000000000001,
+      "input_RMS_V": 0.00015734554206648765,
+      "out_RMS_V": 0.0008558147749847984,
+      "gain": 5.439078627490869
+    },
+    {
+      "fault": 1,
+      "t_s": 0.81,
+      "input_RMS_V": 0.00017380990332393408,
+      "out_RMS_V": 0.0006317678990212925,
+      "gain": 3.6348210714084
+    },
+    {
+      "fault": 1,
+      "t_s": 0.8300000000000001,
+      "input_RMS_V": 0.00015734555563230834,
+      "out_RMS_V": 0.0005113720482158934,
+      "gain": 3.249993596329399
+    }
+  ],
+  "listening_status": "Generated actual native WAVs; no human/founder approval or hard-gating claim",
+  "full_band_sampling_gate_misses_8x": 12,
+  "hardware_runtime": "not measured",
+  "plot_note": "PCM quantization zeros are not a physical gate; synthetic transient versus native normal FIR is labeled, not an assertion of sample identity."
+}

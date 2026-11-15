@@ -1,0 +1,42 @@
+DC exact_MNA_peak_V=6.78973277601e-09 current_peak_A=4.52648877582e-12 KCL_A=4.06575814682e-19 builtin_peak_V=0.00778690156011 builtin_current_A=7.77875210949e-07 builtin_2uV_gate=MISS
+derivative_peak_absolute_A_per_V=3.22399884567e-11
+transient builtin-pluck-0-0.1 jack_error_V=6.05143857125e-05 relative=0.00121952083428 dense_jack_RMS_error_V=0.000100758939773 max_evaluations=5
+transient equations-pluck-0-0.1 jack_error_V=4.25573240826e-06 relative=8.57505972577e-05 dense_jack_RMS_error_V=1.25136319517e-05 max_evaluations=5
+transient builtin-pluck-0-0.5 jack_error_V=5.01950099719e-05 relative=0.000859535386424 dense_jack_RMS_error_V=0.000102832734684 max_evaluations=6
+transient equations-pluck-0-0.5 jack_error_V=4.42561620328e-06 relative=7.57702322089e-05 dense_jack_RMS_error_V=3.52473372012e-05 max_evaluations=6
+transient builtin-pluck-0-1 jack_error_V=5.02187971035e-05 relative=0.000841143877684 dense_jack_RMS_error_V=0.000101733369278 max_evaluations=6
+transient equations-pluck-0-1 jack_error_V=5.22862013897e-06 relative=8.7560886732e-05 dense_jack_RMS_error_V=3.117455455e-05 max_evaluations=6
+transient builtin-sine-0-0.02 jack_error_V=0.00012451550523 relative=0.00101718926753 dense_jack_RMS_error_V=0.000116956500077 max_evaluations=4
+transient equations-sine-0-0.02 jack_error_V=4.20780055146e-06 relative=3.43678653296e-05 dense_jack_RMS_error_V=4.25814441027e-06 max_evaluations=4
+transient builtin-sine-0-0.1 jack_error_V=0.000119092316093 relative=0.000657263518266 dense_jack_RMS_error_V=0.000105589736134 max_evaluations=7
+transient equations-sine-0-0.1 jack_error_V=8.88103510071e-05 relative=0.000490107763545 dense_jack_RMS_error_V=6.36522020704e-05 max_evaluations=7
+transient builtin-sine-0-0.2 jack_error_V=0.000221568237462 relative=0.00112196151862 dense_jack_RMS_error_V=0.000149259406226 max_evaluations=8
+transient equations-sine-0-0.2 jack_error_V=0.000214356006557 relative=0.00108526175594 dense_jack_RMS_error_V=0.000105262852637 max_evaluations=8
+transient builtin-loaded-0 jack_error_V=5.18562407096e-05 relative=0.000597745536423 dense_jack_RMS_error_V=5.05909215114e-05 max_evaluations=7
+transient equations-loaded-0 jack_error_V=3.01478177599e-05 relative=0.000347491771387 dense_jack_RMS_error_V=3.15274217135e-05 max_evaluations=7
+transient builtin-volume-0-0 jack_error_V=0 relative=0 dense_jack_RMS_error_V=0 max_evaluations=7
+transient equations-volume-0-0 jack_error_V=0 relative=0 dense_jack_RMS_error_V=0 max_evaluations=7
+transient builtin-volume-0-1 jack_error_V=0.000265100962354 relative=0.000667753596107 dense_jack_RMS_error_V=0.000239698978542 max_evaluations=7
+transient equations-volume-0-1 jack_error_V=0.000202821528291 relative=0.000510846435705 dense_jack_RMS_error_V=0.000150872203894 max_evaluations=7
+transient builtin-pluck-1-0.1 jack_error_V=5.45744490636e-05 relative=0.00136086730357 dense_jack_RMS_error_V=0.000121202950896 max_evaluations=5
+transient equations-pluck-1-0.1 jack_error_V=8.79475791548e-07 relative=2.19247016325e-05 dense_jack_RMS_error_V=4.03746339084e-06 max_evaluations=5
+transient builtin-pluck-1-0.5 jack_error_V=6.95220405028e-05 relative=0.00137428403478 dense_jack_RMS_error_V=0.000106885345542 max_evaluations=5
+transient equations-pluck-1-0.5 jack_error_V=7.42314510835e-06 relative=0.000146710622095 dense_jack_RMS_error_V=1.25638288263e-05 max_evaluations=5
+transient builtin-pluck-1-1 jack_error_V=7.12933521226e-05 relative=0.00136336551586 dense_jack_RMS_error_V=0.00010709087573 max_evaluations=5
+transient equations-pluck-1-1 jack_error_V=3.43726229728e-06 relative=6.57207352673e-05 dense_jack_RMS_error_V=1.52977129719e-05 max_evaluations=5
+transient builtin-sine-1-0.02 jack_error_V=0.000179924334195 relative=0.00189915431828 dense_jack_RMS_error_V=0.000171052890518 max_evaluations=4
+transient equations-sine-1-0.02 jack_error_V=9.71683314012e-07 relative=1.02522635494e-05 dense_jack_RMS_error_V=1.03552397321e-06 max_evaluations=4
+transient builtin-sine-1-0.1 jack_error_V=0.000106418226696 relative=0.000646740990637 dense_jack_RMS_error_V=0.00010240032922 max_evaluations=5
+transient equations-sine-1-0.1 jack_error_V=2.97349426693e-05 relative=0.000180686824606 dense_jack_RMS_error_V=2.35105537596e-05 max_evaluations=5
+transient builtin-sine-1-0.2 jack_error_V=0.000114078576905 relative=0.000611493613255 dense_jack_RMS_error_V=0.000113705245328 max_evaluations=7
+transient equations-sine-1-0.2 jack_error_V=5.43364733573e-05 relative=0.000291234486408 dense_jack_RMS_error_V=7.75843012968e-05 max_evaluations=7
+transient builtin-loaded-1 jack_error_V=4.88313964179e-05 relative=0.000618637083965 dense_jack_RMS_error_V=5.06893186201e-05 max_evaluations=5
+transient equations-loaded-1 jack_error_V=6.52001200336e-06 relative=8.25906925684e-05 dense_jack_RMS_error_V=1.07602307283e-05 max_evaluations=5
+transient builtin-volume-1-0 jack_error_V=0 relative=0 dense_jack_RMS_error_V=0 max_evaluations=5
+transient equations-volume-1-0 jack_error_V=0 relative=0 dense_jack_RMS_error_V=0 max_evaluations=5
+transient builtin-volume-1-1 jack_error_V=0.00023613033591 relative=0.000656483701272 dense_jack_RMS_error_V=0.000227053122283 max_evaluations=5
+transient equations-volume-1-1 jack_error_V=6.57064372473e-05 relative=0.000182652909715 dense_jack_RMS_error_V=5.32838651245e-05 max_evaluations=5
+transient_cases=36 jack_worst_relative=0.00189915431828 node_worst_RMS_V=0.000568627883665
+long_tail_normalized=1.50780383734e-08
+long_tail_normalized=8.53709636317e-09
+FZ1 checks=789690 state_bytes=5136

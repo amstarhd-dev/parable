@@ -1,0 +1,48 @@
+{
+  "source": "fc9f3eb4d583bf8307f8a5900255976683e47373",
+  "audio_kernel_source": "1120ec2d7525713fb3d0c165b1de11bd2098ea36",
+  "baseline_Debug": [
+    38,
+    38,
+    2439.85
+  ],
+  "baseline_Release": [
+    38,
+    38,
+    258.38
+  ],
+  "full_Debug": [
+    40,
+    40,
+    2613.06
+  ],
+  "full_final_Release": [
+    40,
+    40,
+    199.05
+  ],
+  "final_focused_Debug": [
+    2,
+    2,
+    492.13
+  ],
+  "ASan_UBSan": [
+    2,
+    2,
+    576.23
+  ],
+  "existing_TSan": [
+    4,
+    4,
+    137.87
+  ],
+  "native_electrical_safety_checks": 789690,
+  "ARM_text_bytes": 7720,
+  "ARM_instance_bytes": 5136,
+  "strict_scientific_gate_exit": 1,
+  "full_band_RMS_misses": 12,
+  "false_spur_misses": 0,
+  "abrupt_healthy_gating_demonstrated": false,
+  "hardware_tested": false,
+  "human_approved": false
+}

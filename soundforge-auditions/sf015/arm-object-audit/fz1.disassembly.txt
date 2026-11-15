@@ -1,0 +1,2312 @@
+
+/workspace/work/sf015-arm8/parable_fz1.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const::{lambda(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&)#1}::operator()(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&) const [clone .isra.0]>:
+       0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+       4:	ed2d 8b04 	vpush	{d8-d9}
+       8:	b0ab      	sub	sp, #172	@ 0xac
+       a:	460e      	mov	r6, r1
+       c:	2100      	movs	r1, #0
+       e:	461f      	mov	r7, r3
+      10:	9000      	str	r0, [sp, #0]
+      12:	a812      	add	r0, sp, #72	@ 0x48
+      14:	9202      	str	r2, [sp, #8]
+      16:	2260      	movs	r2, #96	@ 0x60
+      18:	f7ff fffe 	bl	0 <memset>
+			18: R_ARM_THM_CALL	memset
+      1c:	f241 33b0 	movw	r3, #5040	@ 0x13b0
+      20:	f506 62bd 	add.w	r2, r6, #1512	@ 0x5e8
+      24:	f506 6ba1 	add.w	fp, r6, #1288	@ 0x508
+      28:	f506 6aba 	add.w	sl, r6, #1488	@ 0x5d0
+      2c:	ad12      	add	r5, sp, #72	@ 0x48
+      2e:	f8dd 90e4 	ldr.w	r9, [sp, #228]	@ 0xe4
+      32:	46b8      	mov	r8, r7
+      34:	199c      	adds	r4, r3, r6
+      36:	9201      	str	r2, [sp, #4]
+      38:	9603      	str	r6, [sp, #12]
+      3a:	9900      	ldr	r1, [sp, #0]
+      3c:	a804      	add	r0, sp, #16
+      3e:	ed98 1b02 	vldr	d1, [r8, #8]
+      42:	ed98 0b00 	vldr	d0, [r8]
+      46:	f7ff fffe 	bl	0 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const::{lambda(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&)#1}::operator()(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&) const [clone .isra.0]>
+			46: R_ARM_THM_CALL	parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)
+      4a:	f89d 1040 	ldrb.w	r1, [sp, #64]	@ 0x40
+      4e:	2900      	cmp	r1, #0
+      50:	f000 80b9 	beq.w	1c6 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const::{lambda(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&)#1}::operator()(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&) const [clone .isra.0]+0x1c6>
+      54:	465b      	mov	r3, fp
+      56:	f108 0810 	add.w	r8, r8, #16
+      5a:	f109 0910 	add.w	r9, r9, #16
+      5e:	3520      	adds	r5, #32
+      60:	f10b 0b10 	add.w	fp, fp, #16
+      64:	ed9d 6b04 	vldr	d6, [sp, #16]
+      68:	ed9d 7b06 	vldr	d7, [sp, #24]
+      6c:	ed9d 3b0a 	vldr	d3, [sp, #40]	@ 0x28
+      70:	ed9d 5b0e 	vldr	d5, [sp, #56]	@ 0x38
+      74:	ee37 7b06 	vadd.f64	d7, d7, d6
+      78:	ee33 0b05 	vadd.f64	d0, d3, d5
+      7c:	ed09 7b04 	vstr	d7, [r9, #-16]
+      80:	ed93 9b00 	vldr	d9, [r3]
+      84:	ed18 7b02 	vldr	d7, [r8, #-8]
+      88:	ecba 8b02 	vldmia	sl!, {d8}
+      8c:	ed94 5b00 	vldr	d5, [r4]
+      90:	ee37 7b49 	vsub.f64	d7, d7, d9
+      94:	9b01      	ldr	r3, [sp, #4]
+      96:	ed9d 2b08 	vldr	d2, [sp, #32]
+      9a:	ee37 7b48 	vsub.f64	d7, d7, d8
+      9e:	459a      	cmp	sl, r3
+      a0:	ed9d 4b0c 	vldr	d4, [sp, #48]	@ 0x30
+      a4:	ee95 6b07 	vfnms.f64	d6, d5, d7
+      a8:	eeb1 1b42 	vneg.f64	d1, d2
+      ac:	ee34 4b02 	vadd.f64	d4, d4, d2
+      b0:	ed05 0b06 	vstr	d0, [r5, #-24]	@ 0xffffffe8
+      b4:	ed05 1b04 	vstr	d1, [r5, #-16]
+      b8:	ed05 4b08 	vstr	d4, [r5, #-32]	@ 0xffffffe0
+      bc:	ed09 6b02 	vstr	d6, [r9, #-8]
+      c0:	ed94 7b00 	vldr	d7, [r4]
+      c4:	ee37 7b43 	vsub.f64	d7, d7, d3
+      c8:	ed05 7b02 	vstr	d7, [r5, #-8]
+      cc:	d1b5      	bne.n	3a <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const::{lambda(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&)#1}::operator()(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&) const [clone .isra.0]+0x3a>
+      ce:	2100      	movs	r1, #0
+      d0:	f44f 7290 	mov.w	r2, #288	@ 0x120
+      d4:	983a      	ldr	r0, [sp, #232]	@ 0xe8
+      d6:	f506 7990 	add.w	r9, r6, #288	@ 0x120
+      da:	9c03      	ldr	r4, [sp, #12]
+      dc:	f7ff fffe 	bl	0 <memset>
+			dc: R_ARM_THM_CALL	memset
+      e0:	9d3a      	ldr	r5, [sp, #232]	@ 0xe8
+      e2:	eeb7 2b00 	vmov.f64	d2, #112	@ 0x3f800000  1.0
+      e6:	9b39      	ldr	r3, [sp, #228]	@ 0xe4
+      e8:	f506 66a6 	add.w	r6, r6, #1328	@ 0x530
+      ec:	f8dd 8008 	ldr.w	r8, [sp, #8]
+      f0:	46ae      	mov	lr, r5
+      f2:	9938      	ldr	r1, [sp, #224]	@ 0xe0
+      f4:	f103 0030 	add.w	r0, r3, #48	@ 0x30
+      f8:	f10d 0ca8 	add.w	ip, sp, #168	@ 0xa8
+      fc:	f8dd a0e4 	ldr.w	sl, [sp, #228]	@ 0xe4
+     100:	ed9f 0b35 	vldr	d0, [pc, #212]	@ 1d8 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const::{lambda(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&)#1}::operator()(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&) const [clone .isra.0]+0x1d8>
+     104:	ed9f 3b36 	vldr	d3, [pc, #216]	@ 1e0 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const::{lambda(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&)#1}::operator()(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&) const [clone .isra.0]+0x1e0>
+     108:	ecb7 6b02 	vldmia	r7!, {d6}
+     10c:	ecb8 7b02 	vldmia	r8!, {d7}
+     110:	f504 7b48 	add.w	fp, r4, #800	@ 0x320
+     114:	4632      	mov	r2, r6
+     116:	4653      	mov	r3, sl
+     118:	ee36 6b47 	vsub.f64	d6, d6, d7
+     11c:	eca1 6b02 	vstmia	r1!, {d6}
+     120:	ecb3 7b02 	vldmia	r3!, {d7}
+     124:	ecb2 4b02 	vldmia	r2!, {d4}
+     128:	ecbb 5b02 	vldmia	fp!, {d5}
+     12c:	4283      	cmp	r3, r0
+     12e:	ee37 7b44 	vsub.f64	d7, d7, d4
+     132:	eea5 6b07 	vfma.f64	d6, d5, d7
+     136:	ed01 6b02 	vstr	d6, [r1, #-8]
+     13a:	d1f1      	bne.n	120 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const::{lambda(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&)#1}::operator()(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&) const [clone .isra.0]+0x120>
+     13c:	46f3      	mov	fp, lr
+     13e:	4622      	mov	r2, r4
+     140:	ab12      	add	r3, sp, #72	@ 0x48
+     142:	3320      	adds	r3, #32
+     144:	3210      	adds	r2, #16
+     146:	f10b 0b10 	add.w	fp, fp, #16
+     14a:	ed92 4bc6 	vldr	d4, [r2, #792]	@ 0x318
+     14e:	ed13 6b04 	vldr	d6, [r3, #-16]
+     152:	ed92 5bc4 	vldr	d5, [r2, #784]	@ 0x310
+     156:	ed13 7b08 	vldr	d7, [r3, #-32]	@ 0xffffffe0
+     15a:	ee26 6b04 	vmul.f64	d6, d6, d4
+     15e:	ed13 8b02 	vldr	d8, [r3, #-8]
+     162:	ed13 1b06 	vldr	d1, [r3, #-24]	@ 0xffffffe8
+     166:	eea5 6b07 	vfma.f64	d6, d5, d7
+     16a:	4563      	cmp	r3, ip
+     16c:	ed0b 6b04 	vstr	d6, [fp, #-16]
+     170:	ed92 7bc6 	vldr	d7, [r2, #792]	@ 0x318
+     174:	ed92 6bc4 	vldr	d6, [r2, #784]	@ 0x310
+     178:	ee27 7b08 	vmul.f64	d7, d7, d8
+     17c:	eea6 7b01 	vfma.f64	d7, d6, d1
+     180:	ed0b 7b02 	vstr	d7, [fp, #-8]
+     184:	d1dd      	bne.n	142 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const::{lambda(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&)#1}::operator()(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&) const [clone .isra.0]+0x142>
+     186:	ed95 7b00 	vldr	d7, [r5]
+     18a:	ee37 7b02 	vadd.f64	d7, d7, d2
+     18e:	ed85 7b00 	vstr	d7, [r5]
+     192:	ed11 7b02 	vldr	d7, [r1, #-8]
+     196:	eeb0 7bc7 	vabs.f64	d7, d7
+     19a:	eeb4 7b43 	vcmp.f64	d7, d3
+     19e:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     1a2:	d810      	bhi.n	1c6 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const::{lambda(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&)#1}::operator()(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&) const [clone .isra.0]+0x1c6>
+     1a4:	eeb4 7bc0 	vcmpe.f64	d7, d0
+     1a8:	3430      	adds	r4, #48	@ 0x30
+     1aa:	3538      	adds	r5, #56	@ 0x38
+     1ac:	f10e 0e30 	add.w	lr, lr, #48	@ 0x30
+     1b0:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     1b4:	fe37 0b00 	vselgt.f64	d0, d7, d0
+     1b8:	454c      	cmp	r4, r9
+     1ba:	d1a5      	bne.n	108 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const::{lambda(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&)#1}::operator()(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&) const [clone .isra.0]+0x108>
+     1bc:	b02b      	add	sp, #172	@ 0xac
+     1be:	ecbd 8b04 	vpop	{d8-d9}
+     1c2:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+     1c6:	ed9f 0b08 	vldr	d0, [pc, #32]	@ 1e8 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const::{lambda(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&)#1}::operator()(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&) const [clone .isra.0]+0x1e8>
+     1ca:	b02b      	add	sp, #172	@ 0xac
+     1cc:	ecbd 8b04 	vpop	{d8-d9}
+     1d0:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+     1d4:	f3af 8000 	nop.w
+	...
+     1e0:	ffffffff 	.word	0xffffffff
+     1e4:	7fefffff 	.word	0x7fefffff
+     1e8:	00000000 	.word	0x00000000
+     1ec:	7ff00000 	.word	0x7ff00000
+
+000001f0 <parable::dsp::Fz1::matrices(bool)>:
+     1f0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+     1f4:	f5ad 7d25 	sub.w	sp, sp, #660	@ 0x294
+     1f8:	4605      	mov	r5, r0
+     1fa:	f44f 7290 	mov.w	r2, #288	@ 0x120
+     1fe:	460e      	mov	r6, r1
+     200:	f10d 0b50 	add.w	fp, sp, #80	@ 0x50
+     204:	2100      	movs	r1, #0
+     206:	4658      	mov	r0, fp
+     208:	f7ff fffe 	bl	0 <memset>
+			208: R_ARM_THM_CALL	memset
+     20c:	f44f 7290 	mov.w	r2, #288	@ 0x120
+     210:	2100      	movs	r1, #0
+     212:	a85c      	add	r0, sp, #368	@ 0x170
+     214:	f7ff fffe 	bl	0 <memset>
+			214: R_ARM_THM_CALL	memset
+     218:	2230      	movs	r2, #48	@ 0x30
+     21a:	2100      	movs	r1, #0
+     21c:	a808      	add	r0, sp, #32
+     21e:	f7ff fffe 	bl	0 <memset>
+			21e: R_ARM_THM_CALL	memset
+     222:	f505 5380 	add.w	r3, r5, #4096	@ 0x1000
+     226:	eddf 3a74 	vldr	s7, [pc, #464]	@ 3f8 <parable::dsp::Fz1::matrices(bool)+0x208>
+     22a:	eeb7 5b00 	vmov.f64	d5, #112	@ 0x3f800000  1.0
+     22e:	edd3 7ade 	vldr	s15, [r3, #888]	@ 0x378
+     232:	eddf 6a72 	vldr	s13, [pc, #456]	@ 3fc <parable::dsp::Fz1::matrices(bool)+0x20c>
+     236:	ed9f 7a72 	vldr	s14, [pc, #456]	@ 400 <parable::dsp::Fz1::matrices(bool)+0x210>
+     23a:	eee7 6aa3 	vfma.f32	s13, s15, s7
+     23e:	ed9f 6a71 	vldr	s12, [pc, #452]	@ 404 <parable::dsp::Fz1::matrices(bool)+0x214>
+     242:	ee67 7a87 	vmul.f32	s15, s15, s14
+     246:	f893 2380 	ldrb.w	r2, [r3, #896]	@ 0x380
+     24a:	f241 3390 	movw	r3, #5008	@ 0x1390
+     24e:	ed9f 4b56 	vldr	d4, [pc, #344]	@ 3a8 <parable::dsp::Fz1::matrices(bool)+0x1b8>
+     252:	a157      	add	r1, pc, #348	@ (adr r1, 3b0 <parable::dsp::Fz1::matrices(bool)+0x1c0>)
+     254:	e9d1 0100 	ldrd	r0, r1, [r1]
+     258:	ee87 7aa6 	vdiv.f32	s14, s15, s13
+     25c:	442b      	add	r3, r5
+     25e:	e9cb 0100 	strd	r0, r1, [fp]
+     262:	a155      	add	r1, pc, #340	@ (adr r1, 3b8 <parable::dsp::Fz1::matrices(bool)+0x1c8>)
+     264:	e9d1 0100 	ldrd	r0, r1, [r1]
+     268:	ed13 1b02 	vldr	d1, [r3, #-8]
+     26c:	e9cb 010e 	strd	r0, r1, [fp, #56]	@ 0x38
+     270:	ee37 7a06 	vadd.f32	s14, s14, s12
+     274:	eeb7 7ac7 	vcvt.f64.f32	d7, s14
+     278:	ee85 6b07 	vdiv.f64	d6, d5, d7
+     27c:	ee84 5b07 	vdiv.f64	d5, d4, d7
+     280:	ee36 7b04 	vadd.f64	d7, d6, d4
+     284:	ed8b 7b1c 	vstr	d7, [fp, #112]	@ 0x70
+     288:	ee35 6b04 	vadd.f64	d6, d5, d4
+     28c:	ed8d 6b0c 	vstr	d6, [sp, #48]	@ 0x30
+     290:	b96a      	cbnz	r2, 2ae <parable::dsp::Fz1::matrices(bool)+0xbe>
+     292:	ed9f 3b4b 	vldr	d3, [pc, #300]	@ 3c0 <parable::dsp::Fz1::matrices(bool)+0x1d0>
+     296:	ed9f 4b4c 	vldr	d4, [pc, #304]	@ 3c8 <parable::dsp::Fz1::matrices(bool)+0x1d8>
+     29a:	ee81 5b03 	vdiv.f64	d5, d1, d3
+     29e:	ee37 7b04 	vadd.f64	d7, d7, d4
+     2a2:	ed8b 7b1c 	vstr	d7, [fp, #112]	@ 0x70
+     2a6:	ee35 6b06 	vadd.f64	d6, d5, d6
+     2aa:	ed8d 6b0c 	vstr	d6, [sp, #48]	@ 0x30
+     2ae:	ed9f 7b48 	vldr	d7, [pc, #288]	@ 3d0 <parable::dsp::Fz1::matrices(bool)+0x1e0>
+     2b2:	ed9f 5b49 	vldr	d5, [pc, #292]	@ 3d8 <parable::dsp::Fz1::matrices(bool)+0x1e8>
+     2b6:	ed9f 2b3c 	vldr	d2, [pc, #240]	@ 3a8 <parable::dsp::Fz1::matrices(bool)+0x1b8>
+     2ba:	ee81 6b07 	vdiv.f64	d6, d1, d7
+     2be:	f241 38b0 	movw	r8, #5040	@ 0x13b0
+     2c2:	46ae      	mov	lr, r5
+     2c4:	462b      	mov	r3, r5
+     2c6:	44a8      	add	r8, r5
+     2c8:	f105 0030 	add.w	r0, r5, #48	@ 0x30
+     2cc:	f505 74a0 	add.w	r4, r5, #320	@ 0x140
+     2d0:	ee81 7b05 	vdiv.f64	d7, d1, d5
+     2d4:	eeb7 3b00 	vmov.f64	d3, #112	@ 0x3f800000  1.0
+     2d8:	ee36 6b02 	vadd.f64	d6, d6, d2
+     2dc:	ed8d 6b0e 	vstr	d6, [sp, #56]	@ 0x38
+     2e0:	ee37 7b02 	vadd.f64	d7, d7, d2
+     2e4:	ed8d 7b12 	vstr	d7, [sp, #72]	@ 0x48
+     2e8:	ed9f 7b33 	vldr	d7, [pc, #204]	@ 3b8 <parable::dsp::Fz1::matrices(bool)+0x1c8>
+     2ec:	ed8b 7b38 	vstr	d7, [fp, #224]	@ 0xe0
+     2f0:	ed8b 7b46 	vstr	d7, [fp, #280]	@ 0x118
+     2f4:	ed9f 7b3a 	vldr	d7, [pc, #232]	@ 3e0 <parable::dsp::Fz1::matrices(bool)+0x1f0>
+     2f8:	ed8b 7b2a 	vstr	d7, [fp, #168]	@ 0xa8
+     2fc:	2e00      	cmp	r6, #0
+     2fe:	f040 818b 	bne.w	618 <parable::dsp::Fz1::matrices(bool)+0x428>
+     302:	ed18 7b02 	vldr	d7, [r8, #-8]
+     306:	ed9e 5b0c 	vldr	d5, [lr, #48]	@ 0x30
+     30a:	ed9e 6b0e 	vldr	d6, [lr, #56]	@ 0x38
+     30e:	ee37 7b07 	vadd.f64	d7, d7, d7
+     312:	ee27 7b05 	vmul.f64	d7, d7, d5
+     316:	ee83 5b07 	vdiv.f64	d5, d3, d7
+     31a:	ee35 6b06 	vadd.f64	d6, d5, d6
+     31e:	ee83 4b06 	vdiv.f64	d4, d3, d6
+     322:	46dc      	mov	ip, fp
+     324:	4677      	mov	r7, lr
+     326:	ed8e 4b10 	vstr	d4, [lr, #64]	@ 0x40
+     32a:	ecb7 5b02 	vldmia	r7!, {d5}
+     32e:	4661      	mov	r1, ip
+     330:	4672      	mov	r2, lr
+     332:	ee25 5b04 	vmul.f64	d5, d5, d4
+     336:	ed91 7b00 	vldr	d7, [r1]
+     33a:	ecb2 6b02 	vldmia	r2!, {d6}
+     33e:	eea5 7b06 	vfma.f64	d7, d5, d6
+     342:	4282      	cmp	r2, r0
+     344:	eca1 7b02 	vstmia	r1!, {d7}
+     348:	d1f5      	bne.n	336 <parable::dsp::Fz1::matrices(bool)+0x146>
+     34a:	4297      	cmp	r7, r2
+     34c:	f10c 0c30 	add.w	ip, ip, #48	@ 0x30
+     350:	d1eb      	bne.n	32a <parable::dsp::Fz1::matrices(bool)+0x13a>
+     352:	f10e 0e50 	add.w	lr, lr, #80	@ 0x50
+     356:	f107 0050 	add.w	r0, r7, #80	@ 0x50
+     35a:	45a6      	cmp	lr, r4
+     35c:	d1ce      	bne.n	2fc <parable::dsp::Fz1::matrices(bool)+0x10c>
+     35e:	aa5c      	add	r2, sp, #368	@ 0x170
+     360:	afb0      	add	r7, sp, #704	@ 0x2c0
+     362:	2000      	movs	r0, #0
+     364:	4928      	ldr	r1, [pc, #160]	@ (408 <parable::dsp::Fz1::matrices(bool)+0x218>)
+     366:	9207      	str	r2, [sp, #28]
+     368:	e8e2 010e 	strd	r0, r1, [r2], #56	@ 0x38
+     36c:	42ba      	cmp	r2, r7
+     36e:	d1fb      	bne.n	368 <parable::dsp::Fz1::matrices(bool)+0x178>
+     370:	f04f 0a00 	mov.w	sl, #0
+     374:	f10b 0e30 	add.w	lr, fp, #48	@ 0x30
+     378:	a850      	add	r0, sp, #320	@ 0x140
+     37a:	4659      	mov	r1, fp
+     37c:	f50d 79b8 	add.w	r9, sp, #368	@ 0x170
+     380:	46d8      	mov	r8, fp
+     382:	4657      	mov	r7, sl
+     384:	4652      	mov	r2, sl
+     386:	9606      	str	r6, [sp, #24]
+     388:	ed9f 1b17 	vldr	d1, [pc, #92]	@ 3e8 <parable::dsp::Fz1::matrices(bool)+0x1f8>
+     38c:	ed9f 2b18 	vldr	d2, [pc, #96]	@ 3f0 <parable::dsp::Fz1::matrices(bool)+0x200>
+     390:	e9cd 3504 	strd	r3, r5, [sp, #16]
+     394:	4613      	mov	r3, r2
+     396:	3201      	adds	r2, #1
+     398:	2a06      	cmp	r2, #6
+     39a:	f000 8140 	beq.w	61e <parable::dsp::Fz1::matrices(bool)+0x42e>
+     39e:	460e      	mov	r6, r1
+     3a0:	4615      	mov	r5, r2
+     3a2:	ed91 4b00 	vldr	d4, [r1]
+     3a6:	e037      	b.n	418 <parable::dsp::Fz1::matrices(bool)+0x228>
+	...
+     3b0:	a0b5ed8d 	.word	0xa0b5ed8d
+     3b4:	3eb0c6f7 	.word	0x3eb0c6f7
+     3b8:	eb1c432d 	.word	0xeb1c432d
+     3bc:	3f1a36e2 	.word	0x3f1a36e2
+     3c0:	00000000 	.word	0x00000000
+     3c4:	411cafc0 	.word	0x411cafc0
+     3c8:	3895f745 	.word	0x3895f745
+     3cc:	3ec1d91d 	.word	0x3ec1d91d
+     3d0:	00000000 	.word	0x00000000
+     3d4:	40977000 	.word	0x40977000
+     3d8:	00000000 	.word	0x00000000
+     3dc:	40c38800 	.word	0x40c38800
+     3e0:	c3ece2a5 	.word	0xc3ece2a5
+     3e4:	3f45d867 	.word	0x3f45d867
+     3e8:	ffffffff 	.word	0xffffffff
+     3ec:	7fefffff 	.word	0x7fefffff
+     3f0:	d1d243ac 	.word	0xd1d243ac
+     3f4:	3c32725d 	.word	0x3c32725d
+     3f8:	47435000 	.word	0x47435000
+     3fc:	46abe000 	.word	0x46abe000
+     400:	4e832156 	.word	0x4e832156
+     404:	45098000 	.word	0x45098000
+     408:	3ff00000 	.word	0x3ff00000
+     40c:	3501      	adds	r5, #1
+     40e:	eeb0 7b45 	vmov.f64	d7, d5
+     412:	3630      	adds	r6, #48	@ 0x30
+     414:	2d06      	cmp	r5, #6
+     416:	d011      	beq.n	43c <parable::dsp::Fz1::matrices(bool)+0x24c>
+     418:	eeb0 5bc4 	vabs.f64	d5, d4
+     41c:	ed96 6b0c 	vldr	d6, [r6, #48]	@ 0x30
+     420:	eeb0 7bc6 	vabs.f64	d7, d6
+     424:	eeb4 5bc7 	vcmpe.f64	d5, d7
+     428:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     42c:	d5ee      	bpl.n	40c <parable::dsp::Fz1::matrices(bool)+0x21c>
+     42e:	462b      	mov	r3, r5
+     430:	3501      	adds	r5, #1
+     432:	eeb0 4b46 	vmov.f64	d4, d6
+     436:	3630      	adds	r6, #48	@ 0x30
+     438:	2d06      	cmp	r5, #6
+     43a:	d1ed      	bne.n	418 <parable::dsp::Fz1::matrices(bool)+0x228>
+     43c:	eeb4 7b41 	vcmp.f64	d7, d1
+     440:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     444:	f200 80f6 	bhi.w	634 <parable::dsp::Fz1::matrices(bool)+0x444>
+     448:	eeb4 7bc2 	vcmpe.f64	d7, d2
+     44c:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     450:	f100 80f0 	bmi.w	634 <parable::dsp::Fz1::matrices(bool)+0x444>
+     454:	eb03 0343 	add.w	r3, r3, r3, lsl #1
+     458:	4646      	mov	r6, r8
+     45a:	eb0b 1503 	add.w	r5, fp, r3, lsl #4
+     45e:	011b      	lsls	r3, r3, #4
+     460:	f105 0c30 	add.w	ip, r5, #48	@ 0x30
+     464:	ed96 7b00 	vldr	d7, [r6]
+     468:	ed95 6b00 	vldr	d6, [r5]
+     46c:	eca6 6b02 	vstmia	r6!, {d6}
+     470:	eca5 7b02 	vstmia	r5!, {d7}
+     474:	4565      	cmp	r5, ip
+     476:	d1f5      	bne.n	464 <parable::dsp::Fz1::matrices(bool)+0x274>
+     478:	ad5c      	add	r5, sp, #368	@ 0x170
+     47a:	442b      	add	r3, r5
+     47c:	464d      	mov	r5, r9
+     47e:	f103 0630 	add.w	r6, r3, #48	@ 0x30
+     482:	ed95 7b00 	vldr	d7, [r5]
+     486:	ed93 6b00 	vldr	d6, [r3]
+     48a:	eca5 6b02 	vstmia	r5!, {d6}
+     48e:	eca3 7b02 	vstmia	r3!, {d7}
+     492:	42b3      	cmp	r3, r6
+     494:	d1f5      	bne.n	482 <parable::dsp::Fz1::matrices(bool)+0x292>
+     496:	464d      	mov	r5, r9
+     498:	4643      	mov	r3, r8
+     49a:	ed91 7b00 	vldr	d7, [r1]
+     49e:	ed93 6b00 	vldr	d6, [r3]
+     4a2:	ed95 5b00 	vldr	d5, [r5]
+     4a6:	ee86 4b07 	vdiv.f64	d4, d6, d7
+     4aa:	ee85 6b07 	vdiv.f64	d6, d5, d7
+     4ae:	eca3 4b02 	vstmia	r3!, {d4}
+     4b2:	4573      	cmp	r3, lr
+     4b4:	eca5 6b02 	vstmia	r5!, {d6}
+     4b8:	d1f1      	bne.n	49e <parable::dsp::Fz1::matrices(bool)+0x2ae>
+     4ba:	f50d 7cb8 	add.w	ip, sp, #368	@ 0x170
+     4be:	465e      	mov	r6, fp
+     4c0:	2500      	movs	r5, #0
+     4c2:	9003      	str	r0, [sp, #12]
+     4c4:	e9cd 2101 	strd	r2, r1, [sp, #4]
+     4c8:	42bd      	cmp	r5, r7
+     4ca:	d019      	beq.n	500 <parable::dsp::Fz1::matrices(bool)+0x310>
+     4cc:	eb06 030a 	add.w	r3, r6, sl
+     4d0:	4661      	mov	r1, ip
+     4d2:	4648      	mov	r0, r9
+     4d4:	4632      	mov	r2, r6
+     4d6:	ed93 5b00 	vldr	d5, [r3]
+     4da:	4643      	mov	r3, r8
+     4dc:	ecb3 3b02 	vldmia	r3!, {d3}
+     4e0:	ed92 6b00 	vldr	d6, [r2]
+     4e4:	ecb0 4b02 	vldmia	r0!, {d4}
+     4e8:	ed91 7b00 	vldr	d7, [r1]
+     4ec:	eea3 6b45 	vfms.f64	d6, d3, d5
+     4f0:	4573      	cmp	r3, lr
+     4f2:	eea4 7b45 	vfms.f64	d7, d4, d5
+     4f6:	eca2 6b02 	vstmia	r2!, {d6}
+     4fa:	eca1 7b02 	vstmia	r1!, {d7}
+     4fe:	d1ed      	bne.n	4dc <parable::dsp::Fz1::matrices(bool)+0x2ec>
+     500:	3501      	adds	r5, #1
+     502:	3630      	adds	r6, #48	@ 0x30
+     504:	f10c 0c30 	add.w	ip, ip, #48	@ 0x30
+     508:	2d06      	cmp	r5, #6
+     50a:	d1dd      	bne.n	4c8 <parable::dsp::Fz1::matrices(bool)+0x2d8>
+     50c:	9803      	ldr	r0, [sp, #12]
+     50e:	3701      	adds	r7, #1
+     510:	f108 0830 	add.w	r8, r8, #48	@ 0x30
+     514:	f109 0930 	add.w	r9, r9, #48	@ 0x30
+     518:	f10e 0e30 	add.w	lr, lr, #48	@ 0x30
+     51c:	f10a 0a08 	add.w	sl, sl, #8
+     520:	3008      	adds	r0, #8
+     522:	e9dd 2101 	ldrd	r2, r1, [sp, #4]
+     526:	2a06      	cmp	r2, #6
+     528:	f101 0138 	add.w	r1, r1, #56	@ 0x38
+     52c:	f47f af32 	bne.w	394 <parable::dsp::Fz1::matrices(bool)+0x1a4>
+     530:	9b04      	ldr	r3, [sp, #16]
+     532:	2230      	movs	r2, #48	@ 0x30
+     534:	2100      	movs	r1, #0
+     536:	9301      	str	r3, [sp, #4]
+     538:	e9dd 5605 	ldrd	r5, r6, [sp, #20]
+     53c:	f505 6788 	add.w	r7, r5, #1088	@ 0x440
+     540:	f505 7900 	add.w	r9, r5, #512	@ 0x200
+     544:	f505 7848 	add.w	r8, r5, #800	@ 0x320
+     548:	4638      	mov	r0, r7
+     54a:	f7ff fffe 	bl	0 <memset>
+			54a: R_ARM_THM_CALL	memset
+     54e:	f44f 7290 	mov.w	r2, #288	@ 0x120
+     552:	2100      	movs	r1, #0
+     554:	4648      	mov	r0, r9
+     556:	f7ff fffe 	bl	0 <memset>
+			556: R_ARM_THM_CALL	memset
+     55a:	22c0      	movs	r2, #192	@ 0xc0
+     55c:	2100      	movs	r1, #0
+     55e:	4620      	mov	r0, r4
+     560:	f7ff fffe 	bl	0 <memset>
+			560: R_ARM_THM_CALL	memset
+     564:	f44f 7290 	mov.w	r2, #288	@ 0x120
+     568:	2100      	movs	r1, #0
+     56a:	4640      	mov	r0, r8
+     56c:	f7ff fffe 	bl	0 <memset>
+			56c: R_ARM_THM_CALL	memset
+     570:	9b01      	ldr	r3, [sp, #4]
+     572:	2e00      	cmp	r6, #0
+     574:	d163      	bne.n	63e <parable::dsp::Fz1::matrices(bool)+0x44e>
+     576:	f241 32b0 	movw	r2, #5040	@ 0x13b0
+     57a:	442a      	add	r2, r5
+     57c:	ed12 7b02 	vldr	d7, [r2, #-8]
+     580:	ed9f 6b61 	vldr	d6, [pc, #388]	@ 708 <parable::dsp::Fz1::matrices(bool)+0x518>
+     584:	ee37 7b07 	vadd.f64	d7, d7, d7
+     588:	ee27 7b06 	vmul.f64	d7, d7, d6
+     58c:	f505 618d 	add.w	r1, r5, #1128	@ 0x468
+     590:	46bc      	mov	ip, r7
+     592:	46a2      	mov	sl, r4
+     594:	f505 760c 	add.w	r6, r5, #560	@ 0x230
+     598:	468b      	mov	fp, r1
+     59a:	9303      	str	r3, [sp, #12]
+     59c:	f8cd 8010 	str.w	r8, [sp, #16]
+     5a0:	ed82 7b00 	vstr	d7, [r2]
+     5a4:	ed9f 7b5a 	vldr	d7, [pc, #360]	@ 710 <parable::dsp::Fz1::matrices(bool)+0x520>
+     5a8:	9a07      	ldr	r2, [sp, #28]
+     5aa:	4961      	ldr	r1, [pc, #388]	@ (730 <parable::dsp::Fz1::matrices(bool)+0x540>)
+     5ac:	f10d 0820 	add.w	r8, sp, #32
+     5b0:	4696      	mov	lr, r2
+     5b2:	2000      	movs	r0, #0
+     5b4:	460f      	mov	r7, r1
+     5b6:	e9cd 1201 	strd	r1, r2, [sp, #4]
+     5ba:	ecbe 5b02 	vldmia	lr!, {d5}
+     5be:	ecb8 6b02 	vldmia	r8!, {d6}
+     5c2:	464b      	mov	r3, r9
+     5c4:	463a      	mov	r2, r7
+     5c6:	eea5 7b06 	vfma.f64	d7, d5, d6
+     5ca:	ed8c 7b00 	vstr	d7, [ip]
+     5ce:	4611      	mov	r1, r2
+     5d0:	3230      	adds	r2, #48	@ 0x30
+     5d2:	ed93 7b00 	vldr	d7, [r3]
+     5d6:	ed91 6b00 	vldr	d6, [r1]
+     5da:	eea5 7b06 	vfma.f64	d7, d5, d6
+     5de:	eca3 7b02 	vstmia	r3!, {d7}
+     5e2:	42b3      	cmp	r3, r6
+     5e4:	d1f3      	bne.n	5ce <parable::dsp::Fz1::matrices(bool)+0x3de>
+     5e6:	4652      	mov	r2, sl
+     5e8:	462b      	mov	r3, r5
+     5ea:	1819      	adds	r1, r3, r0
+     5ec:	3350      	adds	r3, #80	@ 0x50
+     5ee:	ed91 6b00 	vldr	d6, [r1]
+     5f2:	ed13 4b04 	vldr	d4, [r3, #-16]
+     5f6:	ed92 7b00 	vldr	d7, [r2]
+     5fa:	ee25 6b06 	vmul.f64	d6, d5, d6
+     5fe:	42a3      	cmp	r3, r4
+     600:	eea6 7b04 	vfma.f64	d7, d6, d4
+     604:	eca2 7b02 	vstmia	r2!, {d7}
+     608:	d1ef      	bne.n	5ea <parable::dsp::Fz1::matrices(bool)+0x3fa>
+     60a:	3008      	adds	r0, #8
+     60c:	3708      	adds	r7, #8
+     60e:	2830      	cmp	r0, #48	@ 0x30
+     610:	d01b      	beq.n	64a <parable::dsp::Fz1::matrices(bool)+0x45a>
+     612:	ed9c 7b00 	vldr	d7, [ip]
+     616:	e7d0      	b.n	5ba <parable::dsp::Fz1::matrices(bool)+0x3ca>
+     618:	eeb0 4b42 	vmov.f64	d4, d2
+     61c:	e681      	b.n	322 <parable::dsp::Fz1::matrices(bool)+0x132>
+     61e:	ed90 7b00 	vldr	d7, [r0]
+     622:	2305      	movs	r3, #5
+     624:	eeb0 7bc7 	vabs.f64	d7, d7
+     628:	eeb4 7b41 	vcmp.f64	d7, d1
+     62c:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     630:	f67f af0a 	bls.w	448 <parable::dsp::Fz1::matrices(bool)+0x258>
+     634:	2000      	movs	r0, #0
+     636:	f50d 7d25 	add.w	sp, sp, #660	@ 0x294
+     63a:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+     63e:	f241 32b0 	movw	r2, #5040	@ 0x13b0
+     642:	ed9f 7b33 	vldr	d7, [pc, #204]	@ 710 <parable::dsp::Fz1::matrices(bool)+0x520>
+     646:	442a      	add	r2, r5
+     648:	e7a0      	b.n	58c <parable::dsp::Fz1::matrices(bool)+0x39c>
+     64a:	e9dd 1201 	ldrd	r1, r2, [sp, #4]
+     64e:	45dc      	cmp	ip, fp
+     650:	f10a 0a20 	add.w	sl, sl, #32
+     654:	f109 0930 	add.w	r9, r9, #48	@ 0x30
+     658:	f106 0630 	add.w	r6, r6, #48	@ 0x30
+     65c:	f102 0230 	add.w	r2, r2, #48	@ 0x30
+     660:	d004      	beq.n	66c <parable::dsp::Fz1::matrices(bool)+0x47c>
+     662:	f10c 0c08 	add.w	ip, ip, #8
+     666:	ed9c 7b00 	vldr	d7, [ip]
+     66a:	e79e      	b.n	5aa <parable::dsp::Fz1::matrices(bool)+0x3ba>
+     66c:	f505 7c90 	add.w	ip, r5, #288	@ 0x120
+     670:	9b03      	ldr	r3, [sp, #12]
+     672:	460a      	mov	r2, r1
+     674:	f8dd 8010 	ldr.w	r8, [sp, #16]
+     678:	2700      	movs	r7, #0
+     67a:	f505 75a8 	add.w	r5, r5, #336	@ 0x150
+     67e:	4664      	mov	r4, ip
+     680:	4646      	mov	r6, r8
+     682:	f5a4 7190 	sub.w	r1, r4, #288	@ 0x120
+     686:	4610      	mov	r0, r2
+     688:	ecb6 7b02 	vldmia	r6!, {d7}
+     68c:	ed91 6b80 	vldr	d6, [r1, #512]	@ 0x200
+     690:	ecb0 5b02 	vldmia	r0!, {d5}
+     694:	3130      	adds	r1, #48	@ 0x30
+     696:	eea5 7b06 	vfma.f64	d7, d5, d6
+     69a:	42a1      	cmp	r1, r4
+     69c:	ed06 7b02 	vstr	d7, [r6, #-8]
+     6a0:	d1f4      	bne.n	68c <parable::dsp::Fz1::matrices(bool)+0x49c>
+     6a2:	f101 0408 	add.w	r4, r1, #8
+     6a6:	42a5      	cmp	r5, r4
+     6a8:	d1eb      	bne.n	682 <parable::dsp::Fz1::matrices(bool)+0x492>
+     6aa:	3706      	adds	r7, #6
+     6ac:	3230      	adds	r2, #48	@ 0x30
+     6ae:	f108 0830 	add.w	r8, r8, #48	@ 0x30
+     6b2:	2f24      	cmp	r7, #36	@ 0x24
+     6b4:	d1e3      	bne.n	67e <parable::dsp::Fz1::matrices(bool)+0x48e>
+     6b6:	ed9f 1b18 	vldr	d1, [pc, #96]	@ 718 <parable::dsp::Fz1::matrices(bool)+0x528>
+     6ba:	ed9f 3b19 	vldr	d3, [pc, #100]	@ 720 <parable::dsp::Fz1::matrices(bool)+0x530>
+     6be:	ed9f 2b1a 	vldr	d2, [pc, #104]	@ 728 <parable::dsp::Fz1::matrices(bool)+0x538>
+     6c2:	ed93 4bc8 	vldr	d4, [r3, #800]	@ 0x320
+     6c6:	ed93 5bca 	vldr	d5, [r3, #808]	@ 0x328
+     6ca:	ed93 6bd4 	vldr	d6, [r3, #848]	@ 0x350
+     6ce:	ed93 7bd6 	vldr	d7, [r3, #856]	@ 0x358
+     6d2:	3370      	adds	r3, #112	@ 0x70
+     6d4:	ee34 4b01 	vadd.f64	d4, d4, d1
+     6d8:	ee35 5b03 	vadd.f64	d5, d5, d3
+     6dc:	ee36 6b03 	vadd.f64	d6, d6, d3
+     6e0:	42ab      	cmp	r3, r5
+     6e2:	ee37 7b02 	vadd.f64	d7, d7, d2
+     6e6:	ed83 4bac 	vstr	d4, [r3, #688]	@ 0x2b0
+     6ea:	ed83 5bae 	vstr	d5, [r3, #696]	@ 0x2b8
+     6ee:	ed83 6bb8 	vstr	d6, [r3, #736]	@ 0x2e0
+     6f2:	ed83 7bba 	vstr	d7, [r3, #744]	@ 0x2e8
+     6f6:	d1e4      	bne.n	6c2 <parable::dsp::Fz1::matrices(bool)+0x4d2>
+     6f8:	2001      	movs	r0, #1
+     6fa:	f50d 7d25 	add.w	sp, sp, #660	@ 0x294
+     6fe:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+     702:	bf00      	nop
+     704:	f3af 8000 	nop.w
+     708:	d9d7bdbb 	.word	0xd9d7bdbb
+     70c:	3ddb7cdf 	.word	0x3ddb7cdf
+	...
+     718:	b923a29c 	.word	0xb923a29c
+     71c:	400187fc 	.word	0x400187fc
+     720:	c28f5c29 	.word	0xc28f5c29
+     724:	3ffe28f5 	.word	0x3ffe28f5
+     728:	9225e575 	.word	0x9225e575
+     72c:	3ffe28f7 	.word	0x3ffe28f7
+     730:	00000000 	.word	0x00000000
+			730: R_ARM_ABS32	.rodata
+
+00000734 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const>:
+     734:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+     738:	ed2d 8b0a 	vpush	{d8-d12}
+     73c:	f5ad 7d6f 	sub.w	sp, sp, #956	@ 0x3bc
+     740:	461f      	mov	r7, r3
+     742:	4dd3      	ldr	r5, [pc, #844]	@ (a90 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x35c>)
+     744:	9308      	str	r3, [sp, #32]
+     746:	f500 539d 	add.w	r3, r0, #5024	@ 0x13a0
+     74a:	ac0c      	add	r4, sp, #48	@ 0x30
+     74c:	9207      	str	r2, [sp, #28]
+     74e:	2f78      	cmp	r7, #120	@ 0x78
+     750:	f8dd 640c 	ldr.w	r6, [sp, #1036]	@ 0x40c
+     754:	ed93 7b00 	vldr	d7, [r3]
+     758:	ed9f 6bc1 	vldr	d6, [pc, #772]	@ a60 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x32c>
+     75c:	e9cd 1005 	strd	r1, r0, [sp, #20]
+     760:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+     762:	ee27 7b06 	vmul.f64	d7, d7, d6
+     766:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+     768:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+     76a:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+     76c:	e895 0003 	ldmia.w	r5, {r0, r1}
+     770:	e884 0003 	stmia.w	r4, {r0, r1}
+     774:	ed8d 7b14 	vstr	d7, [sp, #80]	@ 0x50
+     778:	f000 816d 	beq.w	a56 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x322>
+     77c:	ed9f abba 	vldr	d10, [pc, #744]	@ a68 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x334>
+     780:	f50d 78bc 	add.w	r8, sp, #376	@ 0x178
+     784:	af16      	add	r7, sp, #88	@ 0x58
+     786:	f44f 7290 	mov.w	r2, #288	@ 0x120
+     78a:	2100      	movs	r1, #0
+     78c:	4640      	mov	r0, r8
+     78e:	f7ff fffe 	bl	0 <memset>
+			78e: R_ARM_THM_CALL	memset
+     792:	2230      	movs	r2, #48	@ 0x30
+     794:	2100      	movs	r1, #0
+     796:	4638      	mov	r0, r7
+     798:	f7ff fffe 	bl	0 <memset>
+			798: R_ARM_THM_CALL	memset
+     79c:	2230      	movs	r2, #48	@ 0x30
+     79e:	2100      	movs	r1, #0
+     7a0:	a822      	add	r0, sp, #136	@ 0x88
+     7a2:	f7ff fffe 	bl	0 <memset>
+			7a2: R_ARM_THM_CALL	memset
+     7a6:	ab22      	add	r3, sp, #136	@ 0x88
+     7a8:	a80c      	add	r0, sp, #48	@ 0x30
+     7aa:	f8cd 8008 	str.w	r8, [sp, #8]
+     7ae:	e9cd 7300 	strd	r7, r3, [sp]
+     7b2:	e9dd 1206 	ldrd	r1, r2, [sp, #24]
+     7b6:	9b05      	ldr	r3, [sp, #20]
+     7b8:	f7ff fc22 	bl	0 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const::{lambda(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&)#1}::operator()(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&) const [clone .isra.0]>
+     7bc:	eeb4 0bca 	vcmpe.f64	d0, d10
+     7c0:	f8dd 3408 	ldr.w	r3, [sp, #1032]	@ 0x408
+     7c4:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     7c8:	ed83 0b00 	vstr	d0, [r3]
+     7cc:	f04f 0301 	mov.w	r3, #1
+     7d0:	6033      	str	r3, [r6, #0]
+     7d2:	f240 81a4 	bls.w	b1e <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x3ea>
+     7d6:	9b08      	ldr	r3, [sp, #32]
+     7d8:	2b00      	cmp	r3, #0
+     7da:	f000 8097 	beq.w	90c <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x1d8>
+     7de:	eeb0 0bc0 	vabs.f64	d0, d0
+     7e2:	ed9f 8ba3 	vldr	d8, [pc, #652]	@ a70 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x33c>
+     7e6:	eeb4 0b48 	vcmp.f64	d0, d8
+     7ea:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     7ee:	f200 808d 	bhi.w	90c <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x1d8>
+     7f2:	2300      	movs	r3, #0
+     7f4:	ed9f 9ba0 	vldr	d9, [pc, #640]	@ a78 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x344>
+     7f8:	9309      	str	r3, [sp, #36]	@ 0x24
+     7fa:	2500      	movs	r5, #0
+     7fc:	f50d 7cc0 	add.w	ip, sp, #384	@ 0x180
+     800:	a96a      	add	r1, sp, #424	@ 0x1a8
+     802:	f50d 7a1a 	add.w	sl, sp, #616	@ 0x268
+     806:	2d05      	cmp	r5, #5
+     808:	463a      	mov	r2, r7
+     80a:	f10d 0988 	add.w	r9, sp, #136	@ 0x88
+     80e:	f105 0401 	add.w	r4, r5, #1
+     812:	d071      	beq.n	8f8 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x1c4>
+     814:	4660      	mov	r0, ip
+     816:	4623      	mov	r3, r4
+     818:	ed30 4b02 	vldmdb	r0!, {d4}
+     81c:	e005      	b.n	82a <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0xf6>
+     81e:	3301      	adds	r3, #1
+     820:	eeb0 7b45 	vmov.f64	d7, d5
+     824:	3030      	adds	r0, #48	@ 0x30
+     826:	2b06      	cmp	r3, #6
+     828:	d011      	beq.n	84e <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x11a>
+     82a:	eeb0 5bc4 	vabs.f64	d5, d4
+     82e:	ed90 6b0c 	vldr	d6, [r0, #48]	@ 0x30
+     832:	eeb0 7bc6 	vabs.f64	d7, d6
+     836:	eeb4 5bc7 	vcmpe.f64	d5, d7
+     83a:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     83e:	d5ee      	bpl.n	81e <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0xea>
+     840:	461d      	mov	r5, r3
+     842:	3301      	adds	r3, #1
+     844:	eeb0 4b46 	vmov.f64	d4, d6
+     848:	3030      	adds	r0, #48	@ 0x30
+     84a:	2b06      	cmp	r3, #6
+     84c:	d1ed      	bne.n	82a <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0xf6>
+     84e:	eeb4 7b48 	vcmp.f64	d7, d8
+     852:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     856:	d859      	bhi.n	90c <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x1d8>
+     858:	eeb4 7bc9 	vcmpe.f64	d7, d9
+     85c:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     860:	d454      	bmi.n	90c <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x1d8>
+     862:	eb05 0345 	add.w	r3, r5, r5, lsl #1
+     866:	f1a1 0030 	sub.w	r0, r1, #48	@ 0x30
+     86a:	eb08 1303 	add.w	r3, r8, r3, lsl #4
+     86e:	f103 0e30 	add.w	lr, r3, #48	@ 0x30
+     872:	ed90 7b00 	vldr	d7, [r0]
+     876:	ed93 6b00 	vldr	d6, [r3]
+     87a:	eca0 6b02 	vstmia	r0!, {d6}
+     87e:	eca3 7b02 	vstmia	r3!, {d7}
+     882:	4573      	cmp	r3, lr
+     884:	d1f5      	bne.n	872 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x13e>
+     886:	eb07 05c5 	add.w	r5, r7, r5, lsl #3
+     88a:	2c06      	cmp	r4, #6
+     88c:	4693      	mov	fp, r2
+     88e:	ed92 7b00 	vldr	d7, [r2]
+     892:	ed95 6b00 	vldr	d6, [r5]
+     896:	ed82 6b00 	vstr	d6, [r2]
+     89a:	ed85 7b00 	vstr	d7, [r5]
+     89e:	d03d      	beq.n	91c <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x1e8>
+     8a0:	3208      	adds	r2, #8
+     8a2:	f10c 0e30 	add.w	lr, ip, #48	@ 0x30
+     8a6:	4615      	mov	r5, r2
+     8a8:	4670      	mov	r0, lr
+     8aa:	4663      	mov	r3, ip
+     8ac:	ed1e 6b02 	vldr	d6, [lr, #-8]
+     8b0:	ed1c 7b02 	vldr	d7, [ip, #-8]
+     8b4:	ee86 5b07 	vdiv.f64	d5, d6, d7
+     8b8:	ecb3 6b02 	vldmia	r3!, {d6}
+     8bc:	ed90 7b00 	vldr	d7, [r0]
+     8c0:	428b      	cmp	r3, r1
+     8c2:	eea6 7b45 	vfms.f64	d7, d6, d5
+     8c6:	eca0 7b02 	vstmia	r0!, {d7}
+     8ca:	d1f5      	bne.n	8b8 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x184>
+     8cc:	f10e 0e30 	add.w	lr, lr, #48	@ 0x30
+     8d0:	ed95 7b00 	vldr	d7, [r5]
+     8d4:	ed9b 6b00 	vldr	d6, [fp]
+     8d8:	eea6 7b45 	vfms.f64	d7, d6, d5
+     8dc:	eca5 7b02 	vstmia	r5!, {d7}
+     8e0:	454d      	cmp	r5, r9
+     8e2:	d1e1      	bne.n	8a8 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x174>
+     8e4:	4625      	mov	r5, r4
+     8e6:	f10c 0c38 	add.w	ip, ip, #56	@ 0x38
+     8ea:	3130      	adds	r1, #48	@ 0x30
+     8ec:	f10a 0a08 	add.w	sl, sl, #8
+     8f0:	2d05      	cmp	r5, #5
+     8f2:	f105 0401 	add.w	r4, r5, #1
+     8f6:	d18d      	bne.n	814 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0xe0>
+     8f8:	2505      	movs	r5, #5
+     8fa:	ed9a 7b00 	vldr	d7, [sl]
+     8fe:	eeb0 7bc7 	vabs.f64	d7, d7
+     902:	eeb4 7b48 	vcmp.f64	d7, d8
+     906:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     90a:	d9a5      	bls.n	858 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x124>
+     90c:	2600      	movs	r6, #0
+     90e:	4630      	mov	r0, r6
+     910:	f50d 7d6f 	add.w	sp, sp, #956	@ 0x3bc
+     914:	ecbd 8b0a 	vpop	{d8-d12}
+     918:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+     91c:	2230      	movs	r2, #48	@ 0x30
+     91e:	2100      	movs	r1, #0
+     920:	a82e      	add	r0, sp, #184	@ 0xb8
+     922:	f10d 09e8 	add.w	r9, sp, #232	@ 0xe8
+     926:	f7ff fffe 	bl	0 <memset>
+			926: R_ARM_THM_CALL	memset
+     92a:	f50d 7b26 	add.w	fp, sp, #664	@ 0x298
+     92e:	f10d 0c80 	add.w	ip, sp, #128	@ 0x80
+     932:	464d      	mov	r5, r9
+     934:	4658      	mov	r0, fp
+     936:	ed9c 7b00 	vldr	d7, [ip]
+     93a:	ed10 5b02 	vldr	d5, [r0, #-8]
+     93e:	3c01      	subs	r4, #1
+     940:	f1a0 0038 	sub.w	r0, r0, #56	@ 0x38
+     944:	ee87 6b05 	vdiv.f64	d6, d7, d5
+     948:	ed25 6b02 	vstmdb	r5!, {d6}
+     94c:	d00c      	beq.n	968 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x234>
+     94e:	462b      	mov	r3, r5
+     950:	4602      	mov	r2, r0
+     952:	ed3c 7b02 	vldmdb	ip!, {d7}
+     956:	ecb3 6b02 	vldmia	r3!, {d6}
+     95a:	ecb2 5b02 	vldmia	r2!, {d5}
+     95e:	4599      	cmp	r9, r3
+     960:	eea5 7b46 	vfms.f64	d7, d5, d6
+     964:	d1f7      	bne.n	956 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x222>
+     966:	e7e8      	b.n	93a <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x206>
+     968:	9a05      	ldr	r2, [sp, #20]
+     96a:	eeb7 7b00 	vmov.f64	d7, #112	@ 0x3f800000  1.0
+     96e:	a92e      	add	r1, sp, #184	@ 0xb8
+     970:	f102 0430 	add.w	r4, r2, #48	@ 0x30
+     974:	ed9f 3b3e 	vldr	d3, [pc, #248]	@ a70 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x33c>
+     978:	ed9f 4b41 	vldr	d4, [pc, #260]	@ a80 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x34c>
+     97c:	ecb1 6b02 	vldmia	r1!, {d6}
+     980:	eeb1 2b46 	vneg.f64	d2, d6
+     984:	eeb0 6bc6 	vabs.f64	d6, d6
+     988:	eeb4 6b43 	vcmp.f64	d6, d3
+     98c:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     990:	d8bc      	bhi.n	90c <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x1d8>
+     992:	ecb2 5b02 	vldmia	r2!, {d5}
+     996:	ee34 5b45 	vsub.f64	d5, d4, d5
+     99a:	eeb4 5bc4 	vcmpe.f64	d5, d4
+     99e:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     9a2:	fe35 5b04 	vselgt.f64	d5, d5, d4
+     9a6:	ee82 1b05 	vdiv.f64	d1, d2, d5
+     9aa:	eeb4 1bc7 	vcmpe.f64	d1, d7
+     9ae:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     9b2:	fe31 7b07 	vselgt.f64	d7, d1, d7
+     9b6:	eeb4 7bc6 	vcmpe.f64	d7, d6
+     9ba:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     9be:	bf48      	it	mi
+     9c0:	eeb0 7b46 	vmovmi.f64	d7, d6
+     9c4:	42a2      	cmp	r2, r4
+     9c6:	d1d9      	bne.n	97c <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x248>
+     9c8:	eeb7 6b00 	vmov.f64	d6, #112	@ 0x3f800000  1.0
+     9cc:	2508      	movs	r5, #8
+     9ce:	f50d 7a8c 	add.w	sl, sp, #280	@ 0x118
+     9d2:	ee86 cb07 	vdiv.f64	d12, d6, d7
+     9d6:	ed9f bb26 	vldr	d11, [pc, #152]	@ a70 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x33c>
+     9da:	2230      	movs	r2, #48	@ 0x30
+     9dc:	2100      	movs	r1, #0
+     9de:	4648      	mov	r0, r9
+     9e0:	f7ff fffe 	bl	0 <memset>
+			9e0: R_ARM_THM_CALL	memset
+     9e4:	4649      	mov	r1, r9
+     9e6:	aa2e      	add	r2, sp, #184	@ 0xb8
+     9e8:	9b05      	ldr	r3, [sp, #20]
+     9ea:	ecb3 7b02 	vldmia	r3!, {d7}
+     9ee:	ecb2 6b02 	vldmia	r2!, {d6}
+     9f2:	429c      	cmp	r4, r3
+     9f4:	eea6 7b4c 	vfms.f64	d7, d6, d12
+     9f8:	eca1 7b02 	vstmia	r1!, {d7}
+     9fc:	d1f5      	bne.n	9ea <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x2b6>
+     9fe:	2230      	movs	r2, #48	@ 0x30
+     a00:	2100      	movs	r1, #0
+     a02:	4650      	mov	r0, sl
+     a04:	f7ff fffe 	bl	0 <memset>
+			a04: R_ARM_THM_CALL	memset
+     a08:	2230      	movs	r2, #48	@ 0x30
+     a0a:	2100      	movs	r1, #0
+     a0c:	a852      	add	r0, sp, #328	@ 0x148
+     a0e:	f7ff fffe 	bl	0 <memset>
+			a0e: R_ARM_THM_CALL	memset
+     a12:	f44f 7290 	mov.w	r2, #288	@ 0x120
+     a16:	2100      	movs	r1, #0
+     a18:	4658      	mov	r0, fp
+     a1a:	f7ff fffe 	bl	0 <memset>
+			a1a: R_ARM_THM_CALL	memset
+     a1e:	ab52      	add	r3, sp, #328	@ 0x148
+     a20:	a80c      	add	r0, sp, #48	@ 0x30
+     a22:	f8cd b008 	str.w	fp, [sp, #8]
+     a26:	e9cd a300 	strd	sl, r3, [sp]
+     a2a:	e9dd 1206 	ldrd	r1, r2, [sp, #24]
+     a2e:	464b      	mov	r3, r9
+     a30:	f7ff fae6 	bl	0 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const::{lambda(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&)#1}::operator()(std::array<double, 6u> const&, std::array<double, 6u>&, std::array<double, 6u>&, std::array<std::array<double, 6u>, 6u>&) const [clone .isra.0]>
+     a34:	eeb0 7bc0 	vabs.f64	d7, d0
+     a38:	6833      	ldr	r3, [r6, #0]
+     a3a:	eeb4 7b4b 	vcmp.f64	d7, d11
+     a3e:	3301      	adds	r3, #1
+     a40:	6033      	str	r3, [r6, #0]
+     a42:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     a46:	d925      	bls.n	a94 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x360>
+     a48:	eeb6 7b00 	vmov.f64	d7, #96	@ 0x3f000000  0.5
+     a4c:	3d01      	subs	r5, #1
+     a4e:	ee2c cb07 	vmul.f64	d12, d12, d7
+     a52:	d1c2      	bne.n	9da <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x2a6>
+     a54:	e75a      	b.n	90c <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x1d8>
+     a56:	ed9f ab0c 	vldr	d10, [pc, #48]	@ a88 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x354>
+     a5a:	e691      	b.n	780 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x4c>
+     a5c:	f3af 8000 	nop.w
+     a60:	af908d12 	.word	0xaf908d12
+     a64:	3edfa674 	.word	0x3edfa674
+     a68:	e826d695 	.word	0xe826d695
+     a6c:	3e112e0b 	.word	0x3e112e0b
+     a70:	ffffffff 	.word	0xffffffff
+     a74:	7fefffff 	.word	0x7fefffff
+     a78:	d1d243ac 	.word	0xd1d243ac
+     a7c:	3c32725d 	.word	0x3c32725d
+     a80:	9999999a 	.word	0x9999999a
+     a84:	3fa99999 	.word	0x3fa99999
+     a88:	812dea11 	.word	0x812dea11
+     a8c:	3d719799 	.word	0x3d719799
+     a90:	00000120 	.word	0x00000120
+			a90: R_ARM_ABS32	.rodata
+     a94:	46cc      	mov	ip, r9
+     a96:	f8dd e014 	ldr.w	lr, [sp, #20]
+     a9a:	463d      	mov	r5, r7
+     a9c:	f50d 79a4 	add.w	r9, sp, #328	@ 0x148
+     aa0:	ac22      	add	r4, sp, #136	@ 0x88
+     aa2:	e8bc 000f 	ldmia.w	ip!, {r0, r1, r2, r3}
+     aa6:	e8ae 000f 	stmia.w	lr!, {r0, r1, r2, r3}
+     aaa:	e8bc 000f 	ldmia.w	ip!, {r0, r1, r2, r3}
+     aae:	e8ae 000f 	stmia.w	lr!, {r0, r1, r2, r3}
+     ab2:	e89c 000f 	ldmia.w	ip, {r0, r1, r2, r3}
+     ab6:	e88e 000f 	stmia.w	lr, {r0, r1, r2, r3}
+     aba:	e8ba 000f 	ldmia.w	sl!, {r0, r1, r2, r3}
+     abe:	ed8d 0b0a 	vstr	d0, [sp, #40]	@ 0x28
+     ac2:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+     ac4:	e8ba 000f 	ldmia.w	sl!, {r0, r1, r2, r3}
+     ac8:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+     aca:	e89a 000f 	ldmia.w	sl, {r0, r1, r2, r3}
+     ace:	e885 000f 	stmia.w	r5, {r0, r1, r2, r3}
+     ad2:	e8b9 000f 	ldmia.w	r9!, {r0, r1, r2, r3}
+     ad6:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+     ad8:	e8b9 000f 	ldmia.w	r9!, {r0, r1, r2, r3}
+     adc:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+     ade:	e899 000f 	ldmia.w	r9, {r0, r1, r2, r3}
+     ae2:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
+     ae6:	f44f 7290 	mov.w	r2, #288	@ 0x120
+     aea:	4659      	mov	r1, fp
+     aec:	4640      	mov	r0, r8
+     aee:	f7ff fffe 	bl	0 <memcpy>
+			aee: R_ARM_THM_CALL	memcpy
+     af2:	9b09      	ldr	r3, [sp, #36]	@ 0x24
+     af4:	f8dd 2408 	ldr.w	r2, [sp, #1032]	@ 0x408
+     af8:	3301      	adds	r3, #1
+     afa:	ed9d 0b0a 	vldr	d0, [sp, #40]	@ 0x28
+     afe:	9309      	str	r3, [sp, #36]	@ 0x24
+     b00:	ed82 0b00 	vstr	d0, [r2]
+     b04:	9a08      	ldr	r2, [sp, #32]
+     b06:	429a      	cmp	r2, r3
+     b08:	f4ff af00 	bcc.w	90c <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x1d8>
+     b0c:	eeb4 abc0 	vcmpe.f64	d10, d0
+     b10:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     b14:	da03      	bge.n	b1e <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x3ea>
+     b16:	429a      	cmp	r2, r3
+     b18:	f47f ae6f 	bne.w	7fa <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0xc6>
+     b1c:	e6f6      	b.n	90c <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x1d8>
+     b1e:	ad22      	add	r5, sp, #136	@ 0x88
+     b20:	f8dd 4410 	ldr.w	r4, [sp, #1040]	@ 0x410
+     b24:	2601      	movs	r6, #1
+     b26:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+     b28:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+     b2a:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+     b2c:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+     b2e:	e895 000f 	ldmia.w	r5, {r0, r1, r2, r3}
+     b32:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
+     b36:	e6ea      	b.n	90e <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const+0x1da>
+
+00000b38 <parable::dsp::Fz1::reconstruct(std::array<double, 6u> const&, std::array<double, 6u> const&) const>:
+     b38:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+     b3c:	4615      	mov	r5, r2
+     b3e:	4606      	mov	r6, r0
+     b40:	4681      	mov	r9, r0
+     b42:	4698      	mov	r8, r3
+     b44:	4604      	mov	r4, r0
+     b46:	f501 7e00 	add.w	lr, r1, #512	@ 0x200
+     b4a:	f501 7748 	add.w	r7, r1, #800	@ 0x320
+     b4e:	f103 0c30 	add.w	ip, r3, #48	@ 0x30
+     b52:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+     b54:	c60f      	stmia	r6!, {r0, r1, r2, r3}
+     b56:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+     b58:	c60f      	stmia	r6!, {r0, r1, r2, r3}
+     b5a:	e895 000f 	ldmia.w	r5, {r0, r1, r2, r3}
+     b5e:	e886 000f 	stmia.w	r6, {r0, r1, r2, r3}
+     b62:	ecb4 7b02 	vldmia	r4!, {d7}
+     b66:	4642      	mov	r2, r8
+     b68:	4671      	mov	r1, lr
+     b6a:	ecb2 6b02 	vldmia	r2!, {d6}
+     b6e:	ecb1 5b02 	vldmia	r1!, {d5}
+     b72:	4562      	cmp	r2, ip
+     b74:	eea5 7b46 	vfms.f64	d7, d5, d6
+     b78:	d1f7      	bne.n	b6a <parable::dsp::Fz1::reconstruct(std::array<double, 6u> const&, std::array<double, 6u> const&) const+0x32>
+     b7a:	f10e 0e30 	add.w	lr, lr, #48	@ 0x30
+     b7e:	45be      	cmp	lr, r7
+     b80:	ed04 7b02 	vstr	d7, [r4, #-8]
+     b84:	d1ed      	bne.n	b62 <parable::dsp::Fz1::reconstruct(std::array<double, 6u> const&, std::array<double, 6u> const&) const+0x2a>
+     b86:	4648      	mov	r0, r9
+     b88:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+
+00000b8c <parable::dsp::Fz1::nodes() const>:
+     b8c:	b570      	push	{r4, r5, r6, lr}
+     b8e:	f501 6e94 	add.w	lr, r1, #1184	@ 0x4a0
+     b92:	4604      	mov	r4, r0
+     b94:	4606      	mov	r6, r0
+     b96:	4684      	mov	ip, r0
+     b98:	f100 0530 	add.w	r5, r0, #48	@ 0x30
+     b9c:	e8be 000f 	ldmia.w	lr!, {r0, r1, r2, r3}
+     ba0:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+     ba2:	e8be 000f 	ldmia.w	lr!, {r0, r1, r2, r3}
+     ba6:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+     ba8:	e89e 000f 	ldmia.w	lr, {r0, r1, r2, r3}
+     bac:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
+     bb0:	ed9c 7b00 	vldr	d7, [ip]
+     bb4:	eeb1 7b47 	vneg.f64	d7, d7
+     bb8:	ecac 7b02 	vstmia	ip!, {d7}
+     bbc:	45ac      	cmp	ip, r5
+     bbe:	d1f7      	bne.n	bb0 <parable::dsp::Fz1::nodes() const+0x24>
+     bc0:	4630      	mov	r0, r6
+     bc2:	bd70      	pop	{r4, r5, r6, pc}
+
+00000bc4 <parable::dsp::Fz1::biasNodes() const>:
+     bc4:	b570      	push	{r4, r5, r6, lr}
+     bc6:	f501 6e8e 	add.w	lr, r1, #1136	@ 0x470
+     bca:	4604      	mov	r4, r0
+     bcc:	4606      	mov	r6, r0
+     bce:	4684      	mov	ip, r0
+     bd0:	f100 0530 	add.w	r5, r0, #48	@ 0x30
+     bd4:	e8be 000f 	ldmia.w	lr!, {r0, r1, r2, r3}
+     bd8:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+     bda:	e8be 000f 	ldmia.w	lr!, {r0, r1, r2, r3}
+     bde:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+     be0:	e89e 000f 	ldmia.w	lr, {r0, r1, r2, r3}
+     be4:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
+     be8:	ed9c 7b00 	vldr	d7, [ip]
+     bec:	eeb1 7b47 	vneg.f64	d7, d7
+     bf0:	ecac 7b02 	vstmia	ip!, {d7}
+     bf4:	45ac      	cmp	ip, r5
+     bf6:	d1f7      	bne.n	be8 <parable::dsp::Fz1::biasNodes() const+0x24>
+     bf8:	4630      	mov	r0, r6
+     bfa:	bd70      	pop	{r4, r5, r6, pc}
+
+00000bfc <parable::dsp::Fz1::resetCircuit()>:
+     bfc:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+     c00:	f500 68a0 	add.w	r8, r0, #1280	@ 0x500
+     c04:	f241 3ad0 	movw	sl, #5072	@ 0x13d0
+     c08:	4684      	mov	ip, r0
+     c0a:	f500 679a 	add.w	r7, r0, #1232	@ 0x4d0
+     c0e:	4482      	add	sl, r0
+     c10:	f500 668e 	add.w	r6, r0, #1136	@ 0x470
+     c14:	f500 6594 	add.w	r5, r0, #1184	@ 0x4a0
+     c18:	f500 64a6 	add.w	r4, r0, #1328	@ 0x530
+     c1c:	f500 6eac 	add.w	lr, r0, #1376	@ 0x560
+     c20:	f04f 0b00 	mov.w	fp, #0
+     c24:	e8b8 000f 	ldmia.w	r8!, {r0, r1, r2, r3}
+     c28:	c70f      	stmia	r7!, {r0, r1, r2, r3}
+     c2a:	e8b8 000f 	ldmia.w	r8!, {r0, r1, r2, r3}
+     c2e:	c70f      	stmia	r7!, {r0, r1, r2, r3}
+     c30:	e898 000f 	ldmia.w	r8, {r0, r1, r2, r3}
+     c34:	e887 000f 	stmia.w	r7, {r0, r1, r2, r3}
+     c38:	ce0f      	ldmia	r6!, {r0, r1, r2, r3}
+     c3a:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+     c3c:	ce0f      	ldmia	r6!, {r0, r1, r2, r3}
+     c3e:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+     c40:	e896 000f 	ldmia.w	r6, {r0, r1, r2, r3}
+     c44:	e885 000f 	stmia.w	r5, {r0, r1, r2, r3}
+     c48:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+     c4a:	e8ae 000f 	stmia.w	lr!, {r0, r1, r2, r3}
+     c4e:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+     c50:	e8ae 000f 	stmia.w	lr!, {r0, r1, r2, r3}
+     c54:	e894 000f 	ldmia.w	r4, {r0, r1, r2, r3}
+     c58:	ed9f 7b21 	vldr	d7, [pc, #132]	@ ce0 <parable::dsp::Fz1::resetCircuit()+0xe4>
+     c5c:	e88e 000f 	stmia.w	lr, {r0, r1, r2, r3}
+     c60:	f50c 539e 	add.w	r3, ip, #5056	@ 0x13c0
+     c64:	f8cc b5d0 	str.w	fp, [ip, #1488]	@ 0x5d0
+     c68:	f8cc b5d4 	str.w	fp, [ip, #1492]	@ 0x5d4
+     c6c:	f8cc b5d8 	str.w	fp, [ip, #1496]	@ 0x5d8
+     c70:	f8cc b5dc 	str.w	fp, [ip, #1500]	@ 0x5dc
+     c74:	f8cc b5e0 	str.w	fp, [ip, #1504]	@ 0x5e0
+     c78:	f8cc b5e4 	str.w	fp, [ip, #1508]	@ 0x5e4
+     c7c:	ed8a 7b00 	vstr	d7, [sl]
+     c80:	ed0a 7b02 	vstr	d7, [sl, #-8]
+     c84:	ed83 7b00 	vstr	d7, [r3]
+     c88:	f8dc 05b0 	ldr.w	r0, [ip, #1456]	@ 0x5b0
+     c8c:	f8dc 15b4 	ldr.w	r1, [ip, #1460]	@ 0x5b4
+     c90:	f8dc 25b8 	ldr.w	r2, [ip, #1464]	@ 0x5b8
+     c94:	f8dc 35bc 	ldr.w	r3, [ip, #1468]	@ 0x5bc
+     c98:	f8cc 0590 	str.w	r0, [ip, #1424]	@ 0x590
+     c9c:	f8cc 1594 	str.w	r1, [ip, #1428]	@ 0x594
+     ca0:	f8dc 05c0 	ldr.w	r0, [ip, #1472]	@ 0x5c0
+     ca4:	f8dc 15c4 	ldr.w	r1, [ip, #1476]	@ 0x5c4
+     ca8:	f8cc 2598 	str.w	r2, [ip, #1432]	@ 0x598
+     cac:	f8cc 359c 	str.w	r3, [ip, #1436]	@ 0x59c
+     cb0:	f8dc 25c8 	ldr.w	r2, [ip, #1480]	@ 0x5c8
+     cb4:	ed8c 7b12 	vstr	d7, [ip, #72]	@ 0x48
+     cb8:	ed8c 7b26 	vstr	d7, [ip, #152]	@ 0x98
+     cbc:	ed8c 7b3a 	vstr	d7, [ip, #232]	@ 0xe8
+     cc0:	ed8c 7b4e 	vstr	d7, [ip, #312]	@ 0x138
+     cc4:	f8dc 35cc 	ldr.w	r3, [ip, #1484]	@ 0x5cc
+     cc8:	f8cc 05a0 	str.w	r0, [ip, #1440]	@ 0x5a0
+     ccc:	f8cc 15a4 	str.w	r1, [ip, #1444]	@ 0x5a4
+     cd0:	f8cc 25a8 	str.w	r2, [ip, #1448]	@ 0x5a8
+     cd4:	f8cc 35ac 	str.w	r3, [ip, #1452]	@ 0x5ac
+     cd8:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+     cdc:	f3af 8000 	nop.w
+	...
+
+00000ce8 <parable::dsp::Fz1::reset()>:
+     ce8:	b510      	push	{r4, lr}
+     cea:	4604      	mov	r4, r0
+     cec:	f7ff fffe 	bl	bfc <parable::dsp::Fz1::resetCircuit()>
+			cec: R_ARM_THM_CALL	parable::dsp::Fz1::resetCircuit()
+     cf0:	f241 10f0 	movw	r0, #4592	@ 0x11f0
+     cf4:	f44f 72c2 	mov.w	r2, #388	@ 0x184
+     cf8:	2100      	movs	r1, #0
+     cfa:	4420      	add	r0, r4
+     cfc:	f7ff fffe 	bl	0 <memset>
+			cfc: R_ARM_THM_CALL	memset
+     d00:	f240 6204 	movw	r2, #1540	@ 0x604
+     d04:	2100      	movs	r1, #0
+     d06:	f604 30ec 	addw	r0, r4, #3052	@ 0xbec
+     d0a:	f7ff fffe 	bl	0 <memset>
+			d0a: R_ARM_THM_CALL	memset
+     d0e:	2300      	movs	r3, #0
+     d10:	f504 5280 	add.w	r2, r4, #4096	@ 0x1000
+     d14:	f504 519f 	add.w	r1, r4, #5088	@ 0x13e0
+     d18:	f241 30f0 	movw	r0, #5104	@ 0x13f0
+     d1c:	f8c2 3404 	str.w	r3, [r2, #1028]	@ 0x404
+     d20:	e9c1 3301 	strd	r3, r3, [r1, #4]
+     d24:	1821      	adds	r1, r4, r0
+     d26:	f841 3c04 	str.w	r3, [r1, #-4]
+     d2a:	5023      	str	r3, [r4, r0]
+     d2c:	f504 54a0 	add.w	r4, r4, #5120	@ 0x1400
+     d30:	e9c1 3301 	strd	r3, r3, [r1, #4]
+     d34:	e944 3301 	strd	r3, r3, [r4, #-4]
+     d38:	f892 3408 	ldrb.w	r3, [r2, #1032]	@ 0x408
+     d3c:	f882 3409 	strb.w	r3, [r2, #1033]	@ 0x409
+     d40:	bd10      	pop	{r4, pc}
+     d42:	bf00      	nop
+
+00000d44 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)>:
+     d44:	b082      	sub	sp, #8
+     d46:	f241 5198 	movw	r1, #5528	@ 0x1598
+     d4a:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+     d4e:	ed2d 8b10 	vpush	{d8-d15}
+     d52:	f5ad 5da8 	sub.w	sp, sp, #5376	@ 0x1500
+     d56:	4606      	mov	r6, r0
+     d58:	b081      	sub	sp, #4
+     d5a:	4469      	add	r1, sp
+     d5c:	680d      	ldr	r5, [r1, #0]
+     d5e:	f241 5168 	movw	r1, #5480	@ 0x1568
+     d62:	1e6c      	subs	r4, r5, #1
+     d64:	4469      	add	r1, sp
+     d66:	2c01      	cmp	r4, #1
+     d68:	e881 000c 	stmia.w	r1, {r2, r3}
+     d6c:	d90f      	bls.n	d8e <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x4a>
+     d6e:	2d04      	cmp	r5, #4
+     d70:	d00d      	beq.n	d8e <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x4a>
+     d72:	2d08      	cmp	r5, #8
+     d74:	f000 82b1 	beq.w	12da <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x596>
+     d78:	2400      	movs	r4, #0
+     d7a:	4620      	mov	r0, r4
+     d7c:	f50d 5da8 	add.w	sp, sp, #5376	@ 0x1500
+     d80:	b001      	add	sp, #4
+     d82:	ecbd 8b10 	vpop	{d8-d15}
+     d86:	e8bd 4ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+     d8a:	b002      	add	sp, #8
+     d8c:	4770      	bx	lr
+     d8e:	2d01      	cmp	r5, #1
+     d90:	eeb7 6ac0 	vcvt.f64.f32	d6, s0
+     d94:	f000 82a6 	beq.w	12e4 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x5a0>
+     d98:	ed9f 4bc9 	vldr	d4, [pc, #804]	@ 10c0 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x37c>
+     d9c:	eeb0 7bc6 	vabs.f64	d7, d6
+     da0:	ed9f 5bc9 	vldr	d5, [pc, #804]	@ 10c8 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x384>
+     da4:	eeb4 7b45 	vcmp.f64	d7, d5
+     da8:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     dac:	d8e4      	bhi.n	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     dae:	eddf 7ae0 	vldr	s15, [pc, #896]	@ 1130 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x3ec>
+     db2:	ed8d 0a04 	vstr	s0, [sp, #16]
+     db6:	eeb4 0ae7 	vcmpe.f32	s0, s15
+     dba:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     dbe:	dbdb      	blt.n	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     dc0:	eeb4 4bc6 	vcmpe.f64	d4, d6
+     dc4:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     dc8:	dbd6      	blt.n	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     dca:	f241 5368 	movw	r3, #5480	@ 0x1568
+     dce:	446b      	add	r3, sp
+     dd0:	edd3 6a00 	vldr	s13, [r3]
+     dd4:	eeb7 7ae6 	vcvt.f64.f32	d7, s13
+     dd8:	eeb0 7bc7 	vabs.f64	d7, d7
+     ddc:	eeb4 7b45 	vcmp.f64	d7, d5
+     de0:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     de4:	d8c8      	bhi.n	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     de6:	eef5 6ac0 	vcmpe.f32	s13, #0.0
+     dea:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     dee:	dbc3      	blt.n	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     df0:	eef7 7a00 	vmov.f32	s15, #112	@ 0x3f800000  1.0
+     df4:	eef4 6ae7 	vcmpe.f32	s13, s15
+     df8:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     dfc:	d8bc      	bhi.n	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     dfe:	f241 536c 	movw	r3, #5484	@ 0x156c
+     e02:	446b      	add	r3, sp
+     e04:	ed93 8a00 	vldr	s16, [r3]
+     e08:	eeb7 9ac8 	vcvt.f64.f32	d9, s16
+     e0c:	eeb0 6bc9 	vabs.f64	d6, d9
+     e10:	eeb4 6b45 	vcmp.f64	d6, d5
+     e14:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     e18:	d8ae      	bhi.n	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     e1a:	eeb5 8ac0 	vcmpe.f32	s16, #0.0
+     e1e:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     e22:	dba9      	blt.n	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     e24:	eeb4 8ae7 	vcmpe.f32	s16, s15
+     e28:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     e2c:	d8a4      	bhi.n	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     e2e:	f241 5378 	movw	r3, #5496	@ 0x1578
+     e32:	446b      	add	r3, sp
+     e34:	ed93 cb00 	vldr	d12, [r3]
+     e38:	eeb0 7bcc 	vabs.f64	d7, d12
+     e3c:	eeb4 7b45 	vcmp.f64	d7, d5
+     e40:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     e44:	d898      	bhi.n	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     e46:	ed9f 7ba2 	vldr	d7, [pc, #648]	@ 10d0 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x38c>
+     e4a:	eeb4 cbc7 	vcmpe.f64	d12, d7
+     e4e:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     e52:	db91      	blt.n	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     e54:	ed9f 7ba0 	vldr	d7, [pc, #640]	@ 10d8 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x394>
+     e58:	eeb4 cbc7 	vcmpe.f64	d12, d7
+     e5c:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     e60:	d88a      	bhi.n	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     e62:	f50d 53ac 	add.w	r3, sp, #5504	@ 0x1580
+     e66:	eeb0 6b45 	vmov.f64	d6, d5
+     e6a:	ed93 bb00 	vldr	d11, [r3]
+     e6e:	eeb0 7bcb 	vabs.f64	d7, d11
+     e72:	eeb4 7b45 	vcmp.f64	d7, d5
+     e76:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     e7a:	f63f af7d 	bhi.w	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     e7e:	ed9f 7b98 	vldr	d7, [pc, #608]	@ 10e0 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x39c>
+     e82:	eeb4 bbc7 	vcmpe.f64	d11, d7
+     e86:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     e8a:	f6ff af75 	blt.w	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     e8e:	ed9f 7b96 	vldr	d7, [pc, #600]	@ 10e8 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x3a4>
+     e92:	eeb4 bbc7 	vcmpe.f64	d11, d7
+     e96:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     e9a:	f63f af6d 	bhi.w	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     e9e:	f241 5388 	movw	r3, #5512	@ 0x1588
+     ea2:	446b      	add	r3, sp
+     ea4:	ed93 ab00 	vldr	d10, [r3]
+     ea8:	eeb0 7bca 	vabs.f64	d7, d10
+     eac:	eeb4 7b45 	vcmp.f64	d7, d5
+     eb0:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     eb4:	f63f af60 	bhi.w	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     eb8:	ed9f 7b8d 	vldr	d7, [pc, #564]	@ 10f0 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x3ac>
+     ebc:	eeb4 abc7 	vcmpe.f64	d10, d7
+     ec0:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     ec4:	f6ff af58 	blt.w	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     ec8:	ed9f 7b8b 	vldr	d7, [pc, #556]	@ 10f8 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x3b4>
+     ecc:	eeb4 abc7 	vcmpe.f64	d10, d7
+     ed0:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     ed4:	f63f af50 	bhi.w	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     ed8:	f241 5390 	movw	r3, #5520	@ 0x1590
+     edc:	446b      	add	r3, sp
+     ede:	ed93 7b00 	vldr	d7, [r3]
+     ee2:	eeb0 5bc7 	vabs.f64	d5, d7
+     ee6:	eeb4 5b46 	vcmp.f64	d5, d6
+     eea:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     eee:	f63f af43 	bhi.w	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     ef2:	eeb6 6b00 	vmov.f64	d6, #96	@ 0x3f000000  0.5
+     ef6:	eeb4 7bc6 	vcmpe.f64	d7, d6
+     efa:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     efe:	f6ff af3b 	blt.w	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     f02:	eeb7 6b08 	vmov.f64	d6, #120	@ 0x3fc00000  1.5
+     f06:	eeb4 7bc6 	vcmpe.f64	d7, d6
+     f0a:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+     f0e:	f63f af33 	bhi.w	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+     f12:	f50d 67a0 	add.w	r7, sp, #1280	@ 0x500
+     f16:	2100      	movs	r1, #0
+     f18:	f241 4210 	movw	r2, #5136	@ 0x1410
+     f1c:	f04f 0a00 	mov.w	sl, #0
+     f20:	f5a7 6982 	sub.w	r9, r7, #1040	@ 0x410
+     f24:	f8df b210 	ldr.w	fp, [pc, #528]	@ 1138 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x3f4>
+     f28:	4648      	mov	r0, r9
+     f2a:	f7ff fffe 	bl	0 <memset>
+			f2a: R_ARM_THM_CALL	memset
+     f2e:	eeb7 7a00 	vmov.f32	s14, #112	@ 0x3f800000  1.0
+     f32:	f241 4210 	movw	r2, #5136	@ 0x1410
+     f36:	f50d 53a8 	add.w	r3, sp, #5376	@ 0x1500
+     f3a:	ee07 5a90 	vmov	s15, r5
+     f3e:	ed9d 0a04 	vldr	s0, [sp, #16]
+     f42:	1a9b      	subs	r3, r3, r2
+     f44:	ee77 4a48 	vsub.f32	s9, s14, s16
+     f48:	eeb8 7ae7 	vcvt.f32.s32	s14, s15
+     f4c:	f241 02f0 	movw	r2, #4336	@ 0x10f0
+     f50:	9307      	str	r3, [sp, #28]
+     f52:	f241 43c8 	movw	r3, #5320	@ 0x14c8
+     f56:	446a      	add	r2, sp
+     f58:	f241 5e68 	movw	lr, #5480	@ 0x1568
+     f5c:	446b      	add	r3, sp
+     f5e:	ee27 7a00 	vmul.f32	s14, s14, s0
+     f62:	44ee      	add	lr, sp
+     f64:	f241 4c68 	movw	ip, #5224	@ 0x1468
+     f68:	601d      	str	r5, [r3, #0]
+     f6a:	f241 4398 	movw	r3, #5272	@ 0x1498
+     f6e:	eeb7 7ac7 	vcvt.f64.f32	d7, s14
+     f72:	44ec      	add	ip, sp
+     f74:	446b      	add	r3, sp
+     f76:	ed9f 5b62 	vldr	d5, [pc, #392]	@ 1100 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x3bc>
+     f7a:	ed83 7b00 	vstr	d7, [r3]
+     f7e:	eeb7 7ae4 	vcvt.f64.f32	d7, s9
+     f82:	2330      	movs	r3, #48	@ 0x30
+     f84:	ee29 9b05 	vmul.f64	d9, d9, d5
+     f88:	fb03 f305 	mul.w	r3, r3, r5
+     f8c:	f103 0801 	add.w	r8, r3, #1
+     f90:	ee08 3a10 	vmov	s16, r3
+     f94:	ed9f 6b5c 	vldr	d6, [pc, #368]	@ 1108 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x3c4>
+     f98:	ee2a 3b09 	vmul.f64	d3, d10, d9
+     f9c:	eb04 0308 	add.w	r3, r4, r8
+     fa0:	f8c2 83dc 	str.w	r8, [r2, #988]	@ 0x3dc
+     fa4:	ee3a ab09 	vadd.f64	d10, d10, d9
+     fa8:	fbb3 f3f5 	udiv	r3, r3, r5
+     fac:	ee83 4b0a 	vdiv.f64	d4, d3, d10
+     fb0:	f8c2 33e0 	str.w	r3, [r2, #992]	@ 0x3e0
+     fb4:	f241 43a8 	movw	r3, #5288	@ 0x14a8
+     fb8:	446b      	add	r3, sp
+     fba:	eeb0 3b44 	vmov.f64	d3, d4
+     fbe:	eea7 3b05 	vfma.f64	d3, d7, d5
+     fc2:	ed9f 7b4b 	vldr	d7, [pc, #300]	@ 10f0 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x3ac>
+     fc6:	ee3b bb07 	vadd.f64	d11, d11, d7
+     fca:	ee23 7b06 	vmul.f64	d7, d3, d6
+     fce:	ee33 6b06 	vadd.f64	d6, d3, d6
+     fd2:	ed89 bb0e 	vstr	d11, [r9, #56]	@ 0x38
+     fd6:	ee87 5b06 	vdiv.f64	d5, d7, d6
+     fda:	ed9f 6b4d 	vldr	d6, [pc, #308]	@ 1110 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x3cc>
+     fde:	ee24 4b05 	vmul.f64	d4, d4, d5
+     fe2:	ee84 7b03 	vdiv.f64	d7, d4, d3
+     fe6:	ed9f 4b4c 	vldr	d4, [pc, #304]	@ 1118 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x3d4>
+     fea:	ed83 7b00 	vstr	d7, [r3]
+     fee:	a34c      	add	r3, pc, #304	@ (adr r3, 1120 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x3dc>)
+     ff0:	e9d3 2300 	ldrd	r2, r3, [r3]
+     ff4:	eebf 7b00 	vmov.f64	d7, #240	@ 0xbf800000 -1.0
+     ff8:	e9c9 230c 	strd	r2, r3, [r9, #48]	@ 0x30
+     ffc:	e8be 000f 	ldmia.w	lr!, {r0, r1, r2, r3}
+    1000:	e8ac 000f 	stmia.w	ip!, {r0, r1, r2, r3}
+    1004:	e8be 000f 	ldmia.w	lr!, {r0, r1, r2, r3}
+    1008:	e8ac 000f 	stmia.w	ip!, {r0, r1, r2, r3}
+    100c:	e89e 000f 	ldmia.w	lr, {r0, r1, r2, r3}
+    1010:	ed89 7b00 	vstr	d7, [r9]
+    1014:	e88c 000f 	stmia.w	ip, {r0, r1, r2, r3}
+    1018:	2101      	movs	r1, #1
+    101a:	9807      	ldr	r0, [sp, #28]
+    101c:	ed89 6b20 	vstr	d6, [r9, #128]	@ 0x80
+    1020:	ed89 6b34 	vstr	d6, [r9, #208]	@ 0xd0
+    1024:	ed89 4b48 	vstr	d4, [r9, #288]	@ 0x120
+    1028:	e9c9 ab16 	strd	sl, fp, [r9, #88]	@ 0x58
+    102c:	ed89 7b18 	vstr	d7, [r9, #96]	@ 0x60
+    1030:	ed89 7b30 	vstr	d7, [r9, #192]	@ 0xc0
+    1034:	e9c9 ab2e 	strd	sl, fp, [r9, #184]	@ 0xb8
+    1038:	e9c9 ab46 	strd	sl, fp, [r9, #280]	@ 0x118
+    103c:	ed89 5b4a 	vstr	d5, [r9, #296]	@ 0x128
+    1040:	f7ff fffe 	bl	1f0 <parable::dsp::Fz1::matrices(bool)>
+			1040: R_ARM_THM_CALL	parable::dsp::Fz1::matrices(bool)
+    1044:	2800      	cmp	r0, #0
+    1046:	f43f ae97 	beq.w	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+    104a:	ac18      	add	r4, sp, #96	@ 0x60
+    104c:	2230      	movs	r2, #48	@ 0x30
+    104e:	2100      	movs	r1, #0
+    1050:	4620      	mov	r0, r4
+    1052:	f7ff fffe 	bl	0 <memset>
+			1052: R_ARM_THM_CALL	memset
+    1056:	4a37      	ldr	r2, [pc, #220]	@ (1134 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x3f0>)
+    1058:	4621      	mov	r1, r4
+    105a:	2300      	movs	r3, #0
+    105c:	f50d 6ca6 	add.w	ip, sp, #1328	@ 0x530
+    1060:	4610      	mov	r0, r2
+    1062:	f04f 0906 	mov.w	r9, #6
+    1066:	ed9f 7b30 	vldr	d7, [pc, #192]	@ 1128 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x3e4>
+    106a:	ecb0 5b02 	vldmia	r0!, {d5}
+    106e:	ecbc 6b02 	vldmia	ip!, {d6}
+    1072:	f1b9 0901 	subs.w	r9, r9, #1
+    1076:	eea5 7b06 	vfma.f64	d7, d5, d6
+    107a:	d1f6      	bne.n	106a <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x326>
+    107c:	3301      	adds	r3, #1
+    107e:	3230      	adds	r2, #48	@ 0x30
+    1080:	2b06      	cmp	r3, #6
+    1082:	eca1 7b02 	vstmia	r1!, {d7}
+    1086:	d1e9      	bne.n	105c <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x318>
+    1088:	f5a7 6b8e 	sub.w	fp, r7, #1136	@ 0x470
+    108c:	f8df e0ac 	ldr.w	lr, [pc, #172]	@ 113c <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x3f8>
+    1090:	f10d 0ac0 	add.w	sl, sp, #192	@ 0xc0
+    1094:	46dc      	mov	ip, fp
+    1096:	e8be 000f 	ldmia.w	lr!, {r0, r1, r2, r3}
+    109a:	ed94 7b02 	vldr	d7, [r4, #8]
+    109e:	e8ac 000f 	stmia.w	ip!, {r0, r1, r2, r3}
+    10a2:	e8be 000f 	ldmia.w	lr!, {r0, r1, r2, r3}
+    10a6:	ee37 7b4c 	vsub.f64	d7, d7, d12
+    10aa:	e8ac 000f 	stmia.w	ip!, {r0, r1, r2, r3}
+    10ae:	e89e 000f 	ldmia.w	lr, {r0, r1, r2, r3}
+    10b2:	e88c 000f 	stmia.w	ip, {r0, r1, r2, r3}
+    10b6:	2230      	movs	r2, #48	@ 0x30
+    10b8:	e042      	b.n	1140 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x3fc>
+    10ba:	bf00      	nop
+    10bc:	f3af 8000 	nop.w
+    10c0:	00000000 	.word	0x00000000
+    10c4:	40f77000 	.word	0x40f77000
+    10c8:	ffffffff 	.word	0xffffffff
+    10cc:	7fefffff 	.word	0x7fefffff
+    10d0:	9999999a 	.word	0x9999999a
+    10d4:	40059999 	.word	0x40059999
+    10d8:	66666666 	.word	0x66666666
+    10dc:	400a6666 	.word	0x400a6666
+    10e0:	00000000 	.word	0x00000000
+    10e4:	40590000 	.word	0x40590000
+    10e8:	00000000 	.word	0x00000000
+    10ec:	40c38800 	.word	0x40c38800
+    10f0:	00000000 	.word	0x00000000
+    10f4:	40f86a00 	.word	0x40f86a00
+    10f8:	00000000 	.word	0x00000000
+    10fc:	413e8480 	.word	0x413e8480
+    1100:	00000000 	.word	0x00000000
+    1104:	411e8480 	.word	0x411e8480
+    1108:	00000000 	.word	0x00000000
+    110c:	40eb5800 	.word	0x40eb5800
+    1110:	88e368f1 	.word	0x88e368f1
+    1114:	3ef4f8b5 	.word	0x3ef4f8b5
+    1118:	d8a67ba9 	.word	0xd8a67ba9
+    111c:	3e2c58c6 	.word	0x3e2c58c6
+    1120:	e2308c3a 	.word	0xe2308c3a
+    1124:	3e45798e 	.word	0x3e45798e
+	...
+    1130:	472c4400 	.word	0x472c4400
+    1134:	00000000 	.word	0x00000000
+			1134: R_ARM_ABS32	.rodata
+    1138:	3ff00000 	.word	0x3ff00000
+    113c:	00000148 	.word	0x00000148
+			113c: R_ARM_ABS32	.rodata
+    1140:	4649      	mov	r1, r9
+    1142:	4650      	mov	r0, sl
+    1144:	ed84 7b02 	vstr	d7, [r4, #8]
+    1148:	f7ff fffe 	bl	0 <memset>
+			1148: R_ARM_THM_CALL	memset
+    114c:	ab15      	add	r3, sp, #84	@ 0x54
+    114e:	f8cd a008 	str.w	sl, [sp, #8]
+    1152:	4622      	mov	r2, r4
+    1154:	9301      	str	r3, [sp, #4]
+    1156:	ab16      	add	r3, sp, #88	@ 0x58
+    1158:	a924      	add	r1, sp, #144	@ 0x90
+    115a:	9807      	ldr	r0, [sp, #28]
+    115c:	9300      	str	r3, [sp, #0]
+    115e:	f2a7 43ac 	subw	r3, r7, #1196	@ 0x4ac
+    1162:	f8c3 9000 	str.w	r9, [r3]
+    1166:	2378      	movs	r3, #120	@ 0x78
+    1168:	f7ff fffe 	bl	734 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const>
+			1168: R_ARM_THM_CALL	parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const
+    116c:	2800      	cmp	r0, #0
+    116e:	f43f ae03 	beq.w	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+    1172:	f107 0ef0 	add.w	lr, r7, #240	@ 0xf0
+    1176:	46d4      	mov	ip, sl
+    1178:	f507 7490 	add.w	r4, r7, #288	@ 0x120
+    117c:	e8bb 000f 	ldmia.w	fp!, {r0, r1, r2, r3}
+    1180:	e8ae 000f 	stmia.w	lr!, {r0, r1, r2, r3}
+    1184:	e8bb 000f 	ldmia.w	fp!, {r0, r1, r2, r3}
+    1188:	e8ae 000f 	stmia.w	lr!, {r0, r1, r2, r3}
+    118c:	e89b 000f 	ldmia.w	fp, {r0, r1, r2, r3}
+    1190:	e88e 000f 	stmia.w	lr, {r0, r1, r2, r3}
+    1194:	e8bc 000f 	ldmia.w	ip!, {r0, r1, r2, r3}
+    1198:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    119a:	e8bc 000f 	ldmia.w	ip!, {r0, r1, r2, r3}
+    119e:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    11a0:	e89c 000f 	ldmia.w	ip, {r0, r1, r2, r3}
+    11a4:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
+    11a8:	ac08      	add	r4, sp, #32
+    11aa:	4653      	mov	r3, sl
+    11ac:	f50d 62a6 	add.w	r2, sp, #1328	@ 0x530
+    11b0:	9907      	ldr	r1, [sp, #28]
+    11b2:	a808      	add	r0, sp, #32
+    11b4:	f7ff fffe 	bl	b38 <parable::dsp::Fz1::reconstruct(std::array<double, 6u> const&, std::array<double, 6u> const&) const>
+			11b4: R_ARM_THM_CALL	parable::dsp::Fz1::reconstruct(std::array<double, 6u> const&, std::array<double, 6u> const&) const
+    11b8:	f107 0c60 	add.w	ip, r7, #96	@ 0x60
+    11bc:	f50d 6ed4 	add.w	lr, sp, #1696	@ 0x6a0
+    11c0:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    11c2:	e8ac 000f 	stmia.w	ip!, {r0, r1, r2, r3}
+    11c6:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    11c8:	e8ac 000f 	stmia.w	ip!, {r0, r1, r2, r3}
+    11cc:	e894 000f 	ldmia.w	r4, {r0, r1, r2, r3}
+    11d0:	e88c 000f 	stmia.w	ip, {r0, r1, r2, r3}
+    11d4:	ed9f 7b54 	vldr	d7, [pc, #336]	@ 1328 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x5e4>
+    11d8:	f50d 62ac 	add.w	r2, sp, #1376	@ 0x560
+    11dc:	f04f 0a06 	mov.w	sl, #6
+    11e0:	f5a9 618e 	sub.w	r1, r9, #1136	@ 0x470
+    11e4:	4613      	mov	r3, r2
+    11e6:	f1ba 0a01 	subs.w	sl, sl, #1
+    11ea:	f102 0208 	add.w	r2, r2, #8
+    11ee:	440b      	add	r3, r1
+    11f0:	ed12 6b02 	vldr	d6, [r2, #-8]
+    11f4:	ed93 5b00 	vldr	d5, [r3]
+    11f8:	eea5 7b06 	vfma.f64	d7, d5, d6
+    11fc:	d1f2      	bne.n	11e4 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x4a0>
+    11fe:	f109 0950 	add.w	r9, r9, #80	@ 0x50
+    1202:	f5b9 7fa0 	cmp.w	r9, #320	@ 0x140
+    1206:	ecae 7b02 	vstmia	lr!, {d7}
+    120a:	d1e3      	bne.n	11d4 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x490>
+    120c:	4651      	mov	r1, sl
+    120e:	9807      	ldr	r0, [sp, #28]
+    1210:	f7ff fffe 	bl	1f0 <parable::dsp::Fz1::matrices(bool)>
+			1210: R_ARM_THM_CALL	parable::dsp::Fz1::matrices(bool)
+    1214:	4604      	mov	r4, r0
+    1216:	2800      	cmp	r0, #0
+    1218:	f43f adae 	beq.w	d78 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x34>
+    121c:	ee07 5a90 	vmov	s15, r5
+    1220:	eeb8 8bc8 	vcvt.f64.s32	d8, s16
+    1224:	f50d 65db 	add.w	r5, sp, #1752	@ 0x6d8
+    1228:	eeb6 ab00 	vmov.f64	d10, #96	@ 0x3f000000  0.5
+    122c:	eeb8 7be7 	vcvt.f64.s32	d7, s15
+    1230:	46d1      	mov	r9, sl
+    1232:	eeb1 cb48 	vneg.f64	d12, d8
+    1236:	46ab      	mov	fp, r5
+    1238:	ed9f 6b3d 	vldr	d6, [pc, #244]	@ 1330 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x5ec>
+    123c:	ed9f fb3a 	vldr	d15, [pc, #232]	@ 1328 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x5e4>
+    1240:	ed9f 9b3d 	vldr	d9, [pc, #244]	@ 1338 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x5f4>
+    1244:	ee86 eb07 	vdiv.f64	d14, d6, d7
+    1248:	ed9f bb3d 	vldr	d11, [pc, #244]	@ 1340 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x5fc>
+    124c:	e029      	b.n	12a2 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x55e>
+    124e:	ee3e 6b0e 	vadd.f64	d6, d14, d14
+    1252:	ee2d 0b09 	vmul.f64	d0, d13, d9
+    1256:	f109 0901 	add.w	r9, r9, #1
+    125a:	ed8d 6b04 	vstr	d6, [sp, #16]
+    125e:	ee80 0b08 	vdiv.f64	d0, d0, d8
+    1262:	f7ff fffe 	bl	0 <cos>
+			1262: R_ARM_THM_CALL	cos
+    1266:	ed9f 7b38 	vldr	d7, [pc, #224]	@ 1348 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x604>
+    126a:	ee2d 7b07 	vmul.f64	d7, d13, d7
+    126e:	ed9f db38 	vldr	d13, [pc, #224]	@ 1350 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x60c>
+    1272:	eea0 db4a 	vfms.f64	d13, d0, d10
+    1276:	ee87 0b08 	vdiv.f64	d0, d7, d8
+    127a:	f7ff fffe 	bl	0 <cos>
+			127a: R_ARM_THM_CALL	cos
+    127e:	45c8      	cmp	r8, r9
+    1280:	ed9f 6b35 	vldr	d6, [pc, #212]	@ 1358 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x614>
+    1284:	eeb0 7b4d 	vmov.f64	d7, d13
+    1288:	eea0 7b06 	vfma.f64	d7, d0, d6
+    128c:	ed9d 6b04 	vldr	d6, [sp, #16]
+    1290:	ee27 7b06 	vmul.f64	d7, d7, d6
+    1294:	ee3f fb07 	vadd.f64	d15, d15, d7
+    1298:	eeb7 7bc7 	vcvt.f32.f64	s14, d7
+    129c:	ecab 7a01 	vstmia	fp!, {s14}
+    12a0:	d923      	bls.n	12ea <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x5a6>
+    12a2:	ee07 9a90 	vmov	s15, r9
+    12a6:	eeb8 dbe7 	vcvt.f64.s32	d13, s15
+    12aa:	eeb0 7b4d 	vmov.f64	d7, d13
+    12ae:	eeac 7b0a 	vfma.f64	d7, d12, d10
+    12b2:	eeb5 7b40 	vcmp.f64	d7, #0.0
+    12b6:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    12ba:	d0c8      	beq.n	124e <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x50a>
+    12bc:	ee2e 0b09 	vmul.f64	d0, d14, d9
+    12c0:	ed8d 7b04 	vstr	d7, [sp, #16]
+    12c4:	ee20 0b07 	vmul.f64	d0, d0, d7
+    12c8:	f7ff fffe 	bl	0 <sin>
+			12c8: R_ARM_THM_CALL	sin
+    12cc:	ed9d 7b04 	vldr	d7, [sp, #16]
+    12d0:	ee27 7b0b 	vmul.f64	d7, d7, d11
+    12d4:	ee80 6b07 	vdiv.f64	d6, d0, d7
+    12d8:	e7bb      	b.n	1252 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x50e>
+    12da:	eeb7 6ac0 	vcvt.f64.f32	d6, s0
+    12de:	ed9f 4b20 	vldr	d4, [pc, #128]	@ 1360 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x61c>
+    12e2:	e55b      	b.n	d9c <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x58>
+    12e4:	ed9f 4b20 	vldr	d4, [pc, #128]	@ 1368 <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x624>
+    12e8:	e558      	b.n	d9c <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x58>
+    12ea:	ed95 6a00 	vldr	s12, [r5]
+    12ee:	f10a 0a01 	add.w	sl, sl, #1
+    12f2:	eeb7 6ac6 	vcvt.f64.f32	d6, s12
+    12f6:	45d0      	cmp	r8, sl
+    12f8:	ee86 7b0f 	vdiv.f64	d7, d6, d15
+    12fc:	eeb7 7bc7 	vcvt.f32.f64	s14, d7
+    1300:	eca5 7a01 	vstmia	r5!, {s14}
+    1304:	d8f1      	bhi.n	12ea <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x5a6>
+    1306:	2301      	movs	r3, #1
+    1308:	f5a7 6582 	sub.w	r5, r7, #1040	@ 0x410
+    130c:	9807      	ldr	r0, [sp, #28]
+    130e:	f887 3ff8 	strb.w	r3, [r7, #4088]	@ 0xff8
+    1312:	f7ff fffe 	bl	ce8 <parable::dsp::Fz1::reset()>
+			1312: R_ARM_THM_CALL	parable::dsp::Fz1::reset()
+    1316:	f241 420a 	movw	r2, #5130	@ 0x140a
+    131a:	4629      	mov	r1, r5
+    131c:	4630      	mov	r0, r6
+    131e:	f7ff fffe 	bl	0 <memcpy>
+			131e: R_ARM_THM_CALL	memcpy
+    1322:	e52a      	b.n	d7a <parable::dsp::Fz1::prepare(float, parable::dsp::Fz1Config, unsigned int)+0x36>
+    1324:	f3af 8000 	nop.w
+	...
+    1330:	9999999a 	.word	0x9999999a
+    1334:	3fd99999 	.word	0x3fd99999
+    1338:	54442d18 	.word	0x54442d18
+    133c:	401921fb 	.word	0x401921fb
+    1340:	54442d18 	.word	0x54442d18
+    1344:	400921fb 	.word	0x400921fb
+    1348:	54442d18 	.word	0x54442d18
+    134c:	402921fb 	.word	0x402921fb
+    1350:	ae147ae1 	.word	0xae147ae1
+    1354:	3fdae147 	.word	0x3fdae147
+    1358:	47ae147b 	.word	0x47ae147b
+    135c:	3fb47ae1 	.word	0x3fb47ae1
+    1360:	00000000 	.word	0x00000000
+    1364:	40f77000 	.word	0x40f77000
+    1368:	00000000 	.word	0x00000000
+    136c:	41377000 	.word	0x41377000
+
+00001370 <parable::dsp::Fz1::sample(double)>:
+    1370:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    1374:	ed2d 8b06 	vpush	{d8-d10}
+    1378:	b0f1      	sub	sp, #452	@ 0x1c4
+    137a:	4682      	mov	sl, r0
+    137c:	2230      	movs	r2, #48	@ 0x30
+    137e:	2100      	movs	r1, #0
+    1380:	ae1c      	add	r6, sp, #112	@ 0x70
+    1382:	eeb0 9b40 	vmov.f64	d9, d0
+    1386:	eeb1 8b40 	vneg.f64	d8, d0
+    138a:	f50a 7500 	add.w	r5, sl, #512	@ 0x200
+    138e:	4630      	mov	r0, r6
+    1390:	4634      	mov	r4, r6
+    1392:	f7ff fffe 	bl	0 <memset>
+			1392: R_ARM_THM_CALL	memset
+    1396:	f50a 73a0 	add.w	r3, sl, #320	@ 0x140
+    139a:	f10a 0750 	add.w	r7, sl, #80	@ 0x50
+    139e:	4618      	mov	r0, r3
+    13a0:	9305      	str	r3, [sp, #20]
+    13a2:	ed9a 7b12 	vldr	d7, [sl, #72]	@ 0x48
+    13a6:	ee39 9b07 	vadd.f64	d9, d9, d7
+    13aa:	4601      	mov	r1, r0
+    13ac:	463a      	mov	r2, r7
+    13ae:	2301      	movs	r3, #1
+    13b0:	ecb4 7b02 	vldmia	r4!, {d7}
+    13b4:	ecb1 6b02 	vldmia	r1!, {d6}
+    13b8:	eea6 7b09 	vfma.f64	d7, d6, d9
+    13bc:	3301      	adds	r3, #1
+    13be:	3250      	adds	r2, #80	@ 0x50
+    13c0:	2b04      	cmp	r3, #4
+    13c2:	ed12 5b02 	vldr	d5, [r2, #-8]
+    13c6:	ecb1 6b02 	vldmia	r1!, {d6}
+    13ca:	eea5 7b06 	vfma.f64	d7, d5, d6
+    13ce:	d1f5      	bne.n	13bc <parable::dsp::Fz1::sample(double)+0x4c>
+    13d0:	3020      	adds	r0, #32
+    13d2:	42a8      	cmp	r0, r5
+    13d4:	ed04 7b02 	vstr	d7, [r4, #-8]
+    13d8:	d1e7      	bne.n	13aa <parable::dsp::Fz1::sample(double)+0x3a>
+    13da:	2100      	movs	r1, #0
+    13dc:	2230      	movs	r2, #48	@ 0x30
+    13de:	a828      	add	r0, sp, #160	@ 0xa0
+    13e0:	4caf      	ldr	r4, [pc, #700]	@ (16a0 <parable::dsp::Fz1::sample(double)+0x330>)
+    13e2:	f7ff fffe 	bl	0 <memset>
+			13e2: R_ARM_THM_CALL	memset
+    13e6:	ab28      	add	r3, sp, #160	@ 0xa0
+    13e8:	f10d 0bd0 	add.w	fp, sp, #208	@ 0xd0
+    13ec:	f106 0130 	add.w	r1, r6, #48	@ 0x30
+    13f0:	4618      	mov	r0, r3
+    13f2:	4632      	mov	r2, r6
+    13f4:	4627      	mov	r7, r4
+    13f6:	ed9f 7ba2 	vldr	d7, [pc, #648]	@ 1680 <parable::dsp::Fz1::sample(double)+0x310>
+    13fa:	ecb2 6b02 	vldmia	r2!, {d6}
+    13fe:	ecb7 5b02 	vldmia	r7!, {d5}
+    1402:	428a      	cmp	r2, r1
+    1404:	eea5 7b06 	vfma.f64	d7, d5, d6
+    1408:	d1f7      	bne.n	13fa <parable::dsp::Fz1::sample(double)+0x8a>
+    140a:	3430      	adds	r4, #48	@ 0x30
+    140c:	eca0 7b02 	vstmia	r0!, {d7}
+    1410:	4558      	cmp	r0, fp
+    1412:	d1ee      	bne.n	13f2 <parable::dsp::Fz1::sample(double)+0x82>
+    1414:	f50a 64a0 	add.w	r4, sl, #1280	@ 0x500
+    1418:	f50a 62a6 	add.w	r2, sl, #1328	@ 0x530
+    141c:	ed93 7b00 	vldr	d7, [r3]
+    1420:	ecb4 6b02 	vldmia	r4!, {d6}
+    1424:	ee37 7b06 	vadd.f64	d7, d7, d6
+    1428:	4294      	cmp	r4, r2
+    142a:	eca3 7b02 	vstmia	r3!, {d7}
+    142e:	d1f5      	bne.n	141c <parable::dsp::Fz1::sample(double)+0xac>
+    1430:	f50a 639a 	add.w	r3, sl, #1232	@ 0x4d0
+    1434:	465f      	mov	r7, fp
+    1436:	f50a 5880 	add.w	r8, sl, #4096	@ 0x1000
+    143a:	f04f 0900 	mov.w	r9, #0
+    143e:	469c      	mov	ip, r3
+    1440:	9304      	str	r3, [sp, #16]
+    1442:	e8bc 000f 	ldmia.w	ip!, {r0, r1, r2, r3}
+    1446:	c70f      	stmia	r7!, {r0, r1, r2, r3}
+    1448:	e8bc 000f 	ldmia.w	ip!, {r0, r1, r2, r3}
+    144c:	c70f      	stmia	r7!, {r0, r1, r2, r3}
+    144e:	e89c 000f 	ldmia.w	ip, {r0, r1, r2, r3}
+    1452:	e887 000f 	stmia.w	r7, {r0, r1, r2, r3}
+    1456:	2230      	movs	r2, #48	@ 0x30
+    1458:	2100      	movs	r1, #0
+    145a:	a840      	add	r0, sp, #256	@ 0x100
+    145c:	af09      	add	r7, sp, #36	@ 0x24
+    145e:	f7ff fffe 	bl	0 <memset>
+			145e: R_ARM_THM_CALL	memset
+    1462:	ab40      	add	r3, sp, #256	@ 0x100
+    1464:	aa28      	add	r2, sp, #160	@ 0xa0
+    1466:	4659      	mov	r1, fp
+    1468:	9302      	str	r3, [sp, #8]
+    146a:	ab0a      	add	r3, sp, #40	@ 0x28
+    146c:	9701      	str	r7, [sp, #4]
+    146e:	4650      	mov	r0, sl
+    1470:	9300      	str	r3, [sp, #0]
+    1472:	2318      	movs	r3, #24
+    1474:	f8cd 9024 	str.w	r9, [sp, #36]	@ 0x24
+    1478:	f7ff fffe 	bl	734 <parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const>
+			1478: R_ARM_THM_CALL	parable::dsp::Fz1::solve(std::array<double, 6u>&, std::array<double, 6u> const&, unsigned int, double&, unsigned int&, std::array<double, 6u>&) const
+    147c:	f8dd c024 	ldr.w	ip, [sp, #36]	@ 0x24
+    1480:	4607      	mov	r7, r0
+    1482:	f8d8 0404 	ldr.w	r0, [r8, #1028]	@ 0x404
+    1486:	2220      	movs	r2, #32
+    1488:	f8d8 1400 	ldr.w	r1, [r8, #1024]	@ 0x400
+    148c:	4560      	cmp	r0, ip
+    148e:	f8d8 33fc 	ldr.w	r3, [r8, #1020]	@ 0x3fc
+    1492:	bf38      	it	cc
+    1494:	4660      	movcc	r0, ip
+    1496:	f8c8 0404 	str.w	r0, [r8, #1028]	@ 0x404
+    149a:	43c8      	mvns	r0, r1
+    149c:	2801      	cmp	r0, #1
+    149e:	bf94      	ite	ls
+    14a0:	1809      	addls	r1, r1, r0
+    14a2:	3101      	addhi	r1, #1
+    14a4:	a80c      	add	r0, sp, #48	@ 0x30
+    14a6:	f8c8 1400 	str.w	r1, [r8, #1024]	@ 0x400
+    14aa:	43d9      	mvns	r1, r3
+    14ac:	4561      	cmp	r1, ip
+    14ae:	bf94      	ite	ls
+    14b0:	185b      	addls	r3, r3, r1
+    14b2:	4463      	addhi	r3, ip
+    14b4:	4649      	mov	r1, r9
+    14b6:	f8c8 33fc 	str.w	r3, [r8, #1020]	@ 0x3fc
+    14ba:	f7ff fffe 	bl	0 <memset>
+			14ba: R_ARM_THM_CALL	memset
+    14be:	2220      	movs	r2, #32
+    14c0:	4649      	mov	r1, r9
+    14c2:	a814      	add	r0, sp, #80	@ 0x50
+    14c4:	f7ff fffe 	bl	0 <memset>
+			14c4: R_ARM_THM_CALL	memset
+    14c8:	2230      	movs	r2, #48	@ 0x30
+    14ca:	4649      	mov	r1, r9
+    14cc:	a84c      	add	r0, sp, #304	@ 0x130
+    14ce:	f7ff fffe 	bl	0 <memset>
+			14ce: R_ARM_THM_CALL	memset
+    14d2:	2f00      	cmp	r7, #0
+    14d4:	f000 8154 	beq.w	1780 <parable::dsp::Fz1::sample(double)+0x410>
+    14d8:	4649      	mov	r1, r9
+    14da:	f50d 79b0 	add.w	r9, sp, #352	@ 0x160
+    14de:	2230      	movs	r2, #48	@ 0x30
+    14e0:	4648      	mov	r0, r9
+    14e2:	f7ff fffe 	bl	0 <memset>
+			14e2: R_ARM_THM_CALL	memset
+    14e6:	f50a 61ac 	add.w	r1, sl, #1376	@ 0x560
+    14ea:	aa40      	add	r2, sp, #256	@ 0x100
+    14ec:	464b      	mov	r3, r9
+    14ee:	9107      	str	r1, [sp, #28]
+    14f0:	ecb4 6b02 	vldmia	r4!, {d6}
+    14f4:	ecb2 7b02 	vldmia	r2!, {d7}
+    14f8:	428c      	cmp	r4, r1
+    14fa:	ee37 7b46 	vsub.f64	d7, d7, d6
+    14fe:	eca3 7b02 	vstmia	r3!, {d7}
+    1502:	d1f5      	bne.n	14f0 <parable::dsp::Fz1::sample(double)+0x180>
+    1504:	f50d 7ec8 	add.w	lr, sp, #400	@ 0x190
+    1508:	f109 0430 	add.w	r4, r9, #48	@ 0x30
+    150c:	ce0f      	ldmia	r6!, {r0, r1, r2, r3}
+    150e:	46f4      	mov	ip, lr
+    1510:	e8ae 000f 	stmia.w	lr!, {r0, r1, r2, r3}
+    1514:	ce0f      	ldmia	r6!, {r0, r1, r2, r3}
+    1516:	e8ae 000f 	stmia.w	lr!, {r0, r1, r2, r3}
+    151a:	e896 000f 	ldmia.w	r6, {r0, r1, r2, r3}
+    151e:	e88e 000f 	stmia.w	lr, {r0, r1, r2, r3}
+    1522:	f50a 7148 	add.w	r1, sl, #800	@ 0x320
+    1526:	464b      	mov	r3, r9
+    1528:	462a      	mov	r2, r5
+    152a:	ecbc 7b02 	vldmia	ip!, {d7}
+    152e:	ecb3 6b02 	vldmia	r3!, {d6}
+    1532:	ecb2 5b02 	vldmia	r2!, {d5}
+    1536:	42a3      	cmp	r3, r4
+    1538:	eea5 7b46 	vfms.f64	d7, d5, d6
+    153c:	d1f7      	bne.n	152e <parable::dsp::Fz1::sample(double)+0x1be>
+    153e:	3530      	adds	r5, #48	@ 0x30
+    1540:	428d      	cmp	r5, r1
+    1542:	ed0c 7b02 	vstr	d7, [ip, #-8]
+    1546:	d1ee      	bne.n	1526 <parable::dsp::Fz1::sample(double)+0x1b6>
+    1548:	eeba 4b08 	vmov.f64	d4, #168	@ 0xc1400000 -12.0
+    154c:	f50a 638e 	add.w	r3, sl, #1136	@ 0x470
+    1550:	a94c      	add	r1, sp, #304	@ 0x130
+    1552:	f50a 6c94 	add.w	ip, sl, #1184	@ 0x4a0
+    1556:	aa64      	add	r2, sp, #400	@ 0x190
+    1558:	ed9f 5b4b 	vldr	d5, [pc, #300]	@ 1688 <parable::dsp::Fz1::sample(double)+0x318>
+    155c:	ecb2 6b02 	vldmia	r2!, {d6}
+    1560:	ecb3 7b02 	vldmia	r3!, {d7}
+    1564:	ee37 7b06 	vadd.f64	d7, d7, d6
+    1568:	eeb0 6bc7 	vabs.f64	d6, d7
+    156c:	eca1 7b02 	vstmia	r1!, {d7}
+    1570:	b197      	cbz	r7, 1598 <parable::dsp::Fz1::sample(double)+0x228>
+    1572:	eeb4 6b45 	vcmp.f64	d6, d5
+    1576:	2700      	movs	r7, #0
+    1578:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    157c:	d80c      	bhi.n	1598 <parable::dsp::Fz1::sample(double)+0x228>
+    157e:	eeb4 7bc4 	vcmpe.f64	d7, d4
+    1582:	eeb2 6b08 	vmov.f64	d6, #40	@ 0x41400000  12.0
+    1586:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    158a:	db05      	blt.n	1598 <parable::dsp::Fz1::sample(double)+0x228>
+    158c:	eeb4 7bc6 	vcmpe.f64	d7, d6
+    1590:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    1594:	bf98      	it	ls
+    1596:	2701      	movls	r7, #1
+    1598:	4563      	cmp	r3, ip
+    159a:	d1df      	bne.n	155c <parable::dsp::Fz1::sample(double)+0x1ec>
+    159c:	f10d 0950 	add.w	r9, sp, #80	@ 0x50
+    15a0:	eeb0 3b00 	vmov.f64	d3, #0	@ 0x40000000  2.0
+    15a4:	f50a 6eb6 	add.w	lr, sl, #1456	@ 0x5b0
+    15a8:	ae0c      	add	r6, sp, #48	@ 0x30
+    15aa:	464d      	mov	r5, r9
+    15ac:	4650      	mov	r0, sl
+    15ae:	2400      	movs	r4, #0
+    15b0:	a970      	add	r1, sp, #448	@ 0x1c0
+    15b2:	ed9f 2b33 	vldr	d2, [pc, #204]	@ 1680 <parable::dsp::Fz1::sample(double)+0x310>
+    15b6:	ed9f 1b34 	vldr	d1, [pc, #208]	@ 1688 <parable::dsp::Fz1::sample(double)+0x318>
+    15ba:	eeb0 4b42 	vmov.f64	d4, d2
+    15be:	ab64      	add	r3, sp, #400	@ 0x190
+    15c0:	4602      	mov	r2, r0
+    15c2:	ed9f 7b2f 	vldr	d7, [pc, #188]	@ 1680 <parable::dsp::Fz1::sample(double)+0x310>
+    15c6:	ecb3 6b02 	vldmia	r3!, {d6}
+    15ca:	ecb2 5b02 	vldmia	r2!, {d5}
+    15ce:	4299      	cmp	r1, r3
+    15d0:	eea5 7b06 	vfma.f64	d7, d5, d6
+    15d4:	d1f7      	bne.n	15c6 <parable::dsp::Fz1::sample(double)+0x256>
+    15d6:	2c00      	cmp	r4, #0
+    15d8:	fe08 9b04 	vseleq.f64	d9, d8, d4
+    15dc:	ee39 7b07 	vadd.f64	d7, d9, d7
+    15e0:	ed90 0b12 	vldr	d0, [r0, #72]	@ 0x48
+    15e4:	ed90 5b10 	vldr	d5, [r0, #64]	@ 0x40
+    15e8:	ed90 6b0e 	vldr	d6, [r0, #56]	@ 0x38
+    15ec:	ee37 ab40 	vsub.f64	d10, d7, d0
+    15f0:	ecbe 9b02 	vldmia	lr!, {d9}
+    15f4:	ee2a 5b05 	vmul.f64	d5, d10, d5
+    15f8:	eea6 7b45 	vfms.f64	d7, d6, d5
+    15fc:	ee97 0b03 	vfnms.f64	d0, d7, d3
+    1600:	ee39 9b07 	vadd.f64	d9, d9, d7
+    1604:	eca6 9b02 	vstmia	r6!, {d9}
+    1608:	eca5 0b02 	vstmia	r5!, {d0}
+    160c:	b35f      	cbz	r7, 1666 <parable::dsp::Fz1::sample(double)+0x2f6>
+    160e:	eeb0 7bc9 	vabs.f64	d7, d9
+    1612:	eeb4 7b41 	vcmp.f64	d7, d1
+    1616:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    161a:	d82a      	bhi.n	1672 <parable::dsp::Fz1::sample(double)+0x302>
+    161c:	eebb 7b08 	vmov.f64	d7, #184	@ 0xc1c00000 -24.0
+    1620:	eeb4 9bc7 	vcmpe.f64	d9, d7
+    1624:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    1628:	db23      	blt.n	1672 <parable::dsp::Fz1::sample(double)+0x302>
+    162a:	eeb3 7b08 	vmov.f64	d7, #56	@ 0x41c00000  24.0
+    162e:	eeb4 9bc7 	vcmpe.f64	d9, d7
+    1632:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    1636:	d81c      	bhi.n	1672 <parable::dsp::Fz1::sample(double)+0x302>
+    1638:	eeb0 7bc0 	vabs.f64	d7, d0
+    163c:	eeb4 7b41 	vcmp.f64	d7, d1
+    1640:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    1644:	d815      	bhi.n	1672 <parable::dsp::Fz1::sample(double)+0x302>
+    1646:	ed9f 7b12 	vldr	d7, [pc, #72]	@ 1690 <parable::dsp::Fz1::sample(double)+0x320>
+    164a:	eeb4 0bc7 	vcmpe.f64	d0, d7
+    164e:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    1652:	db0e      	blt.n	1672 <parable::dsp::Fz1::sample(double)+0x302>
+    1654:	ed9f 7b10 	vldr	d7, [pc, #64]	@ 1698 <parable::dsp::Fz1::sample(double)+0x328>
+    1658:	eeb4 0bc7 	vcmpe.f64	d0, d7
+    165c:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    1660:	bf94      	ite	ls
+    1662:	2701      	movls	r7, #1
+    1664:	2700      	movhi	r7, #0
+    1666:	b13c      	cbz	r4, 1678 <parable::dsp::Fz1::sample(double)+0x308>
+    1668:	2c03      	cmp	r4, #3
+    166a:	d01b      	beq.n	16a4 <parable::dsp::Fz1::sample(double)+0x334>
+    166c:	3401      	adds	r4, #1
+    166e:	3050      	adds	r0, #80	@ 0x50
+    1670:	e7a5      	b.n	15be <parable::dsp::Fz1::sample(double)+0x24e>
+    1672:	2700      	movs	r7, #0
+    1674:	2c00      	cmp	r4, #0
+    1676:	d1f7      	bne.n	1668 <parable::dsp::Fz1::sample(double)+0x2f8>
+    1678:	eeb1 2b45 	vneg.f64	d2, d5
+    167c:	e7f6      	b.n	166c <parable::dsp::Fz1::sample(double)+0x2fc>
+    167e:	bf00      	nop
+	...
+    1688:	ffffffff 	.word	0xffffffff
+    168c:	7fefffff 	.word	0x7fefffff
+    1690:	00000000 	.word	0x00000000
+    1694:	c0480000 	.word	0xc0480000
+    1698:	00000000 	.word	0x00000000
+    169c:	40480000 	.word	0x40480000
+    16a0:	00000000 	.word	0x00000000
+			16a0: R_ARM_ABS32	.rodata
+    16a4:	f50a 539e 	add.w	r3, sl, #5056	@ 0x13c0
+    16a8:	ed13 0b02 	vldr	d0, [r3, #-8]
+    16ac:	9306      	str	r3, [sp, #24]
+    16ae:	2f00      	cmp	r7, #0
+    16b0:	d066      	beq.n	1780 <parable::dsp::Fz1::sample(double)+0x410>
+    16b2:	f241 31d0 	movw	r1, #5072	@ 0x13d0
+    16b6:	ab0c      	add	r3, sp, #48	@ 0x30
+    16b8:	46d8      	mov	r8, fp
+    16ba:	9e04      	ldr	r6, [sp, #16]
+    16bc:	4451      	add	r1, sl
+    16be:	f8dd e01c 	ldr.w	lr, [sp, #28]
+    16c2:	9304      	str	r3, [sp, #16]
+    16c4:	ac40      	add	r4, sp, #256	@ 0x100
+    16c6:	9107      	str	r1, [sp, #28]
+    16c8:	ad4c      	add	r5, sp, #304	@ 0x130
+    16ca:	ee25 0b40 	vnmul.f64	d0, d5, d0
+    16ce:	4657      	mov	r7, sl
+    16d0:	e8b8 000f 	ldmia.w	r8!, {r0, r1, r2, r3}
+    16d4:	c60f      	stmia	r6!, {r0, r1, r2, r3}
+    16d6:	e8b8 000f 	ldmia.w	r8!, {r0, r1, r2, r3}
+    16da:	c60f      	stmia	r6!, {r0, r1, r2, r3}
+    16dc:	e898 000f 	ldmia.w	r8, {r0, r1, r2, r3}
+    16e0:	ed9d 7b0a 	vldr	d7, [sp, #40]	@ 0x28
+    16e4:	e886 000f 	stmia.w	r6, {r0, r1, r2, r3}
+    16e8:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    16ea:	e8ae 000f 	stmia.w	lr!, {r0, r1, r2, r3}
+    16ee:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    16f0:	e8ae 000f 	stmia.w	lr!, {r0, r1, r2, r3}
+    16f4:	e894 000f 	ldmia.w	r4, {r0, r1, r2, r3}
+    16f8:	e88e 000f 	stmia.w	lr, {r0, r1, r2, r3}
+    16fc:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    16fe:	e8ac 000f 	stmia.w	ip!, {r0, r1, r2, r3}
+    1702:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    1704:	9c04      	ldr	r4, [sp, #16]
+    1706:	e8ac 000f 	stmia.w	ip!, {r0, r1, r2, r3}
+    170a:	e895 000f 	ldmia.w	r5, {r0, r1, r2, r3}
+    170e:	f50a 65b2 	add.w	r5, sl, #1424	@ 0x590
+    1712:	e88c 000f 	stmia.w	ip, {r0, r1, r2, r3}
+    1716:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    1718:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    171a:	e894 000f 	ldmia.w	r4, {r0, r1, r2, r3}
+    171e:	e885 000f 	stmia.w	r5, {r0, r1, r2, r3}
+    1722:	9b06      	ldr	r3, [sp, #24]
+    1724:	ed83 0b00 	vstr	d0, [r3]
+    1728:	9907      	ldr	r1, [sp, #28]
+    172a:	ed81 7b00 	vstr	d7, [r1]
+    172e:	ed01 2b02 	vstr	d2, [r1, #-8]
+    1732:	9905      	ldr	r1, [sp, #20]
+    1734:	3750      	adds	r7, #80	@ 0x50
+    1736:	e8f9 2302 	ldrd	r2, r3, [r9], #8
+    173a:	42b9      	cmp	r1, r7
+    173c:	e947 2302 	strd	r2, r3, [r7, #-8]
+    1740:	d1f8      	bne.n	1734 <parable::dsp::Fz1::sample(double)+0x3c4>
+    1742:	eeb0 4b00 	vmov.f64	d4, #0	@ 0x40000000  2.0
+    1746:	465a      	mov	r2, fp
+    1748:	f50a 60a1 	add.w	r0, sl, #1288	@ 0x508
+    174c:	f50a 61ba 	add.w	r1, sl, #1488	@ 0x5d0
+    1750:	f50a 63bd 	add.w	r3, sl, #1512	@ 0x5e8
+    1754:	4604      	mov	r4, r0
+    1756:	3210      	adds	r2, #16
+    1758:	3010      	adds	r0, #16
+    175a:	ed94 5b00 	vldr	d5, [r4]
+    175e:	ed12 6b02 	vldr	d6, [r2, #-8]
+    1762:	ed91 7b00 	vldr	d7, [r1]
+    1766:	ee36 6b45 	vsub.f64	d6, d6, d5
+    176a:	ee96 7b04 	vfnms.f64	d7, d6, d4
+    176e:	eca1 7b02 	vstmia	r1!, {d7}
+    1772:	428b      	cmp	r3, r1
+    1774:	d1ee      	bne.n	1754 <parable::dsp::Fz1::sample(double)+0x3e4>
+    1776:	b071      	add	sp, #452	@ 0x1c4
+    1778:	ecbd 8b06 	vpop	{d8-d10}
+    177c:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    1780:	f8d8 33ec 	ldr.w	r3, [r8, #1004]	@ 0x3ec
+    1784:	4650      	mov	r0, sl
+    1786:	43da      	mvns	r2, r3
+    1788:	2a01      	cmp	r2, #1
+    178a:	bf94      	ite	ls
+    178c:	189b      	addls	r3, r3, r2
+    178e:	3301      	addhi	r3, #1
+    1790:	f8c8 33ec 	str.w	r3, [r8, #1004]	@ 0x3ec
+    1794:	f7ff fffe 	bl	bfc <parable::dsp::Fz1::resetCircuit()>
+			1794: R_ARM_THM_CALL	parable::dsp::Fz1::resetCircuit()
+    1798:	f241 33d0 	movw	r3, #5072	@ 0x13d0
+    179c:	ed9f 0b06 	vldr	d0, [pc, #24]	@ 17b8 <parable::dsp::Fz1::sample(double)+0x448>
+    17a0:	e9dd 010a 	ldrd	r0, r1, [sp, #40]	@ 0x28
+    17a4:	4453      	add	r3, sl
+    17a6:	e9c3 0100 	strd	r0, r1, [r3]
+    17aa:	b071      	add	sp, #452	@ 0x1c4
+    17ac:	ecbd 8b06 	vpop	{d8-d10}
+    17b0:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    17b4:	f3af 8000 	nop.w
+	...
+
+000017c0 <parable::dsp::Fz1::process(float)>:
+    17c0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    17c4:	f500 5580 	add.w	r5, r0, #4096	@ 0x1000
+    17c8:	ed2d 8b04 	vpush	{d8-d9}
+    17cc:	f895 3409 	ldrb.w	r3, [r5, #1033]	@ 0x409
+    17d0:	b085      	sub	sp, #20
+    17d2:	9001      	str	r0, [sp, #4]
+    17d4:	2b00      	cmp	r3, #0
+    17d6:	f000 8100 	beq.w	19da <parable::dsp::Fz1::process(float)+0x21a>
+    17da:	eef0 7ac0 	vabs.f32	s15, s0
+    17de:	ed9f 7a8e 	vldr	s14, [pc, #568]	@ 1a18 <parable::dsp::Fz1::process(float)+0x258>
+    17e2:	eef4 7a47 	vcmp.f32	s15, s14
+    17e6:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    17ea:	f200 80b3 	bhi.w	1954 <parable::dsp::Fz1::process(float)+0x194>
+    17ee:	eeb6 7a00 	vmov.f32	s14, #96	@ 0x3f000000  0.5
+    17f2:	eef4 7ac7 	vcmpe.f32	s15, s14
+    17f6:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    17fa:	dd17      	ble.n	182c <parable::dsp::Fz1::process(float)+0x6c>
+    17fc:	eefe 7a00 	vmov.f32	s15, #224	@ 0xbf000000 -0.5
+    1800:	f8d5 33f0 	ldr.w	r3, [r5, #1008]	@ 0x3f0
+    1804:	43da      	mvns	r2, r3
+    1806:	eeb4 0ae7 	vcmpe.f32	s0, s15
+    180a:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    180e:	bf48      	it	mi
+    1810:	eeb0 0a67 	vmovmi.f32	s0, s15
+    1814:	eeb4 0ac7 	vcmpe.f32	s0, s14
+    1818:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    181c:	fe37 0a00 	vselgt.f32	s0, s14, s0
+    1820:	2a01      	cmp	r2, #1
+    1822:	bf94      	ite	ls
+    1824:	189b      	addls	r3, r3, r2
+    1826:	3301      	addhi	r3, #1
+    1828:	f8c5 33f0 	str.w	r3, [r5, #1008]	@ 0x3f0
+    182c:	f8d5 83d8 	ldr.w	r8, [r5, #984]	@ 0x3d8
+    1830:	f1b8 0f01 	cmp.w	r8, #1
+    1834:	f000 809f 	beq.w	1976 <parable::dsp::Fz1::process(float)+0x1b6>
+    1838:	f8d5 33e4 	ldr.w	r3, [r5, #996]	@ 0x3e4
+    183c:	2b00      	cmp	r3, #0
+    183e:	f040 80d3 	bne.w	19e8 <parable::dsp::Fz1::process(float)+0x228>
+    1842:	f8d5 33e0 	ldr.w	r3, [r5, #992]	@ 0x3e0
+    1846:	3b01      	subs	r3, #1
+    1848:	9302      	str	r3, [sp, #8]
+    184a:	9a02      	ldr	r2, [sp, #8]
+    184c:	eb05 0382 	add.w	r3, r5, r2, lsl #2
+    1850:	f8c5 23e4 	str.w	r2, [r5, #996]	@ 0x3e4
+    1854:	ed83 0a7c 	vstr	s0, [r3, #496]	@ 0x1f0
+    1858:	f1b8 0f00 	cmp.w	r8, #0
+    185c:	f000 80bd 	beq.w	19da <parable::dsp::Fz1::process(float)+0x21a>
+    1860:	9a01      	ldr	r2, [sp, #4]
+    1862:	ee07 8a90 	vmov	s15, r8
+    1866:	f8d5 93e8 	ldr.w	r9, [r5, #1000]	@ 0x3e8
+    186a:	ea4f 0b88 	mov.w	fp, r8, lsl #2
+    186e:	f502 63bd 	add.w	r3, r2, #1512	@ 0x5e8
+    1872:	eeb8 9a67 	vcvt.f32.u32	s18, s15
+    1876:	464f      	mov	r7, r9
+    1878:	f8d5 43dc 	ldr.w	r4, [r5, #988]	@ 0x3dc
+    187c:	2600      	movs	r6, #0
+    187e:	f602 3aec 	addw	sl, r2, #3052	@ 0xbec
+    1882:	4699      	mov	r9, r3
+    1884:	9303      	str	r3, [sp, #12]
+    1886:	ed9f 8b60 	vldr	d8, [pc, #384]	@ 1a08 <parable::dsp::Fz1::process(float)+0x248>
+    188a:	42a6      	cmp	r6, r4
+    188c:	ed9f 0a63 	vldr	s0, [pc, #396]	@ 1a1c <parable::dsp::Fz1::process(float)+0x25c>
+    1890:	d214      	bcs.n	18bc <parable::dsp::Fz1::process(float)+0xfc>
+    1892:	f8d5 c3e0 	ldr.w	ip, [r5, #992]	@ 0x3e0
+    1896:	4649      	mov	r1, r9
+    1898:	4632      	mov	r2, r6
+    189a:	9b02      	ldr	r3, [sp, #8]
+    189c:	eb05 0083 	add.w	r0, r5, r3, lsl #2
+    18a0:	4442      	add	r2, r8
+    18a2:	3301      	adds	r3, #1
+    18a4:	edd1 7a00 	vldr	s15, [r1]
+    18a8:	ed90 7a7c 	vldr	s14, [r0, #496]	@ 0x1f0
+    18ac:	4459      	add	r1, fp
+    18ae:	459c      	cmp	ip, r3
+    18b0:	bf08      	it	eq
+    18b2:	2300      	moveq	r3, #0
+    18b4:	42a2      	cmp	r2, r4
+    18b6:	eea7 0a27 	vfma.f32	s0, s14, s15
+    18ba:	d3ef      	bcc.n	189c <parable::dsp::Fz1::process(float)+0xdc>
+    18bc:	2f00      	cmp	r7, #0
+    18be:	d162      	bne.n	1986 <parable::dsp::Fz1::process(float)+0x1c6>
+    18c0:	1e67      	subs	r7, r4, #1
+    18c2:	ee20 0a09 	vmul.f32	s0, s0, s18
+    18c6:	9801      	ldr	r0, [sp, #4]
+    18c8:	f8c5 73e8 	str.w	r7, [r5, #1000]	@ 0x3e8
+    18cc:	eeb7 0ac0 	vcvt.f64.f32	d0, s0
+    18d0:	f7ff fffe 	bl	1370 <parable::dsp::Fz1::sample(double)>
+			18d0: R_ARM_THM_CALL	parable::dsp::Fz1::sample(double)
+    18d4:	eeb7 0bc0 	vcvt.f32.f64	s0, d0
+    18d8:	eb0a 0387 	add.w	r3, sl, r7, lsl #2
+    18dc:	ed83 0a00 	vstr	s0, [r3]
+    18e0:	2e00      	cmp	r6, #0
+    18e2:	d052      	beq.n	198a <parable::dsp::Fz1::process(float)+0x1ca>
+    18e4:	3601      	adds	r6, #1
+    18e6:	f109 0904 	add.w	r9, r9, #4
+    18ea:	45b0      	cmp	r8, r6
+    18ec:	d1cd      	bne.n	188a <parable::dsp::Fz1::process(float)+0xca>
+    18ee:	eeb5 6b00 	vmov.f64	d6, #80	@ 0x3e800000  0.250
+    18f2:	ed9f 7b47 	vldr	d7, [pc, #284]	@ 1a10 <parable::dsp::Fz1::process(float)+0x250>
+    18f6:	ee28 8b06 	vmul.f64	d8, d8, d6
+    18fa:	eeb0 6bc8 	vabs.f64	d6, d8
+    18fe:	eeb4 6b47 	vcmp.f64	d6, d7
+    1902:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    1906:	d85c      	bhi.n	19c2 <parable::dsp::Fz1::process(float)+0x202>
+    1908:	eeb7 7b00 	vmov.f64	d7, #112	@ 0x3f800000  1.0
+    190c:	eeb4 6bc7 	vcmpe.f64	d6, d7
+    1910:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    1914:	dd6b      	ble.n	19ee <parable::dsp::Fz1::process(float)+0x22e>
+    1916:	eebf 6b00 	vmov.f64	d6, #240	@ 0xbf800000 -1.0
+    191a:	f8d5 33f4 	ldr.w	r3, [r5, #1012]	@ 0x3f4
+    191e:	43da      	mvns	r2, r3
+    1920:	eeb4 8bc6 	vcmpe.f64	d8, d6
+    1924:	2a01      	cmp	r2, #1
+    1926:	bf94      	ite	ls
+    1928:	189b      	addls	r3, r3, r2
+    192a:	3301      	addhi	r3, #1
+    192c:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    1930:	f8c5 33f4 	str.w	r3, [r5, #1012]	@ 0x3f4
+    1934:	bf58      	it	pl
+    1936:	eeb0 6b48 	vmovpl.f64	d6, d8
+    193a:	eeb4 6bc7 	vcmpe.f64	d6, d7
+    193e:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    1942:	fe37 7b06 	vselgt.f64	d7, d7, d6
+    1946:	eeb7 0bc7 	vcvt.f32.f64	s0, d7
+    194a:	b005      	add	sp, #20
+    194c:	ecbd 8b04 	vpop	{d8-d9}
+    1950:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    1954:	f8d5 33f8 	ldr.w	r3, [r5, #1016]	@ 0x3f8
+    1958:	f8d5 83d8 	ldr.w	r8, [r5, #984]	@ 0x3d8
+    195c:	43da      	mvns	r2, r3
+    195e:	ed9f 0a2f 	vldr	s0, [pc, #188]	@ 1a1c <parable::dsp::Fz1::process(float)+0x25c>
+    1962:	2a01      	cmp	r2, #1
+    1964:	bf94      	ite	ls
+    1966:	189b      	addls	r3, r3, r2
+    1968:	3301      	addhi	r3, #1
+    196a:	f1b8 0f01 	cmp.w	r8, #1
+    196e:	f8c5 33f8 	str.w	r3, [r5, #1016]	@ 0x3f8
+    1972:	f47f af61 	bne.w	1838 <parable::dsp::Fz1::process(float)+0x78>
+    1976:	eeb7 0ac0 	vcvt.f64.f32	d0, s0
+    197a:	9801      	ldr	r0, [sp, #4]
+    197c:	f7ff fffe 	bl	1370 <parable::dsp::Fz1::sample(double)>
+			197c: R_ARM_THM_CALL	parable::dsp::Fz1::sample(double)
+    1980:	eeb0 8b40 	vmov.f64	d8, d0
+    1984:	e7b3      	b.n	18ee <parable::dsp::Fz1::process(float)+0x12e>
+    1986:	3f01      	subs	r7, #1
+    1988:	e79b      	b.n	18c2 <parable::dsp::Fz1::process(float)+0x102>
+    198a:	2c00      	cmp	r4, #0
+    198c:	d036      	beq.n	19fc <parable::dsp::Fz1::process(float)+0x23c>
+    198e:	9a03      	ldr	r2, [sp, #12]
+    1990:	463b      	mov	r3, r7
+    1992:	e001      	b.n	1998 <parable::dsp::Fz1::process(float)+0x1d8>
+    1994:	ed91 0a00 	vldr	s0, [r1]
+    1998:	ecb2 7a01 	vldmia	r2!, {s14}
+    199c:	3301      	adds	r3, #1
+    199e:	3601      	adds	r6, #1
+    19a0:	ee27 0a00 	vmul.f32	s0, s14, s0
+    19a4:	42a3      	cmp	r3, r4
+    19a6:	bf08      	it	eq
+    19a8:	2300      	moveq	r3, #0
+    19aa:	42a6      	cmp	r6, r4
+    19ac:	eb0a 0183 	add.w	r1, sl, r3, lsl #2
+    19b0:	eeb7 0ac0 	vcvt.f64.f32	d0, s0
+    19b4:	ee38 8b00 	vadd.f64	d8, d8, d0
+    19b8:	d1ec      	bne.n	1994 <parable::dsp::Fz1::process(float)+0x1d4>
+    19ba:	f109 0904 	add.w	r9, r9, #4
+    19be:	2601      	movs	r6, #1
+    19c0:	e763      	b.n	188a <parable::dsp::Fz1::process(float)+0xca>
+    19c2:	f8d5 33ec 	ldr.w	r3, [r5, #1004]	@ 0x3ec
+    19c6:	9801      	ldr	r0, [sp, #4]
+    19c8:	43da      	mvns	r2, r3
+    19ca:	2a01      	cmp	r2, #1
+    19cc:	bf94      	ite	ls
+    19ce:	189b      	addls	r3, r3, r2
+    19d0:	3301      	addhi	r3, #1
+    19d2:	f8c5 33ec 	str.w	r3, [r5, #1004]	@ 0x3ec
+    19d6:	f7ff fffe 	bl	bfc <parable::dsp::Fz1::resetCircuit()>
+			19d6: R_ARM_THM_CALL	parable::dsp::Fz1::resetCircuit()
+    19da:	ed9f 0a10 	vldr	s0, [pc, #64]	@ 1a1c <parable::dsp::Fz1::process(float)+0x25c>
+    19de:	b005      	add	sp, #20
+    19e0:	ecbd 8b04 	vpop	{d8-d9}
+    19e4:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    19e8:	3b01      	subs	r3, #1
+    19ea:	9302      	str	r3, [sp, #8]
+    19ec:	e72d      	b.n	184a <parable::dsp::Fz1::process(float)+0x8a>
+    19ee:	eeb7 0bc8 	vcvt.f32.f64	s0, d8
+    19f2:	b005      	add	sp, #20
+    19f4:	ecbd 8b04 	vpop	{d8-d9}
+    19f8:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    19fc:	f109 0904 	add.w	r9, r9, #4
+    1a00:	ed9f 0a06 	vldr	s0, [pc, #24]	@ 1a1c <parable::dsp::Fz1::process(float)+0x25c>
+    1a04:	2601      	movs	r6, #1
+    1a06:	e759      	b.n	18bc <parable::dsp::Fz1::process(float)+0xfc>
+	...
+    1a10:	ffffffff 	.word	0xffffffff
+    1a14:	7fefffff 	.word	0x7fefffff
+    1a18:	7f7fffff 	.word	0x7f7fffff
+    1a1c:	00000000 	.word	0x00000000
+
+Disassembly of section .text._ZN7parable3dsp16germanium_detail6deviceEddRKNS0_15GermaniumDeviceE:
+
+00000000 <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)>:
+   0:	b510      	push	{r4, lr}
+   2:	eeb0 7bc0 	vabs.f64	d7, d0
+   6:	4604      	mov	r4, r0
+   8:	ed2d 8b10 	vpush	{d8-d15}
+   c:	ed9f ab8c 	vldr	d10, [pc, #560]	@ 240 <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x240>
+  10:	b088      	sub	sp, #32
+  12:	eeb4 7b4a 	vcmp.f64	d7, d10
+  16:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+  1a:	d806      	bhi.n	2a <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x2a>
+  1c:	eeb0 7bc1 	vabs.f64	d7, d1
+  20:	eeb4 7b4a 	vcmp.f64	d7, d10
+  24:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+  28:	d909      	bls.n	3e <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x3e>
+  2a:	2238      	movs	r2, #56	@ 0x38
+  2c:	2100      	movs	r1, #0
+  2e:	4620      	mov	r0, r4
+  30:	f7ff fffe 	bl	0 <memset>
+			30: R_ARM_THM_CALL	memset
+  34:	4620      	mov	r0, r4
+  36:	b008      	add	sp, #32
+  38:	ecbd 8b10 	vpop	{d8-d15}
+  3c:	bd10      	pop	{r4, pc}
+  3e:	eeba 7b08 	vmov.f64	d7, #168	@ 0xc1400000 -12.0
+  42:	eeb0 8b40 	vmov.f64	d8, d0
+  46:	eeb4 0bc7 	vcmpe.f64	d0, d7
+  4a:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+  4e:	d4ec      	bmi.n	2a <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x2a>
+  50:	eeb4 1bc7 	vcmpe.f64	d1, d7
+  54:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+  58:	d4e7      	bmi.n	2a <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x2a>
+  5a:	ed9f 7b7b 	vldr	d7, [pc, #492]	@ 248 <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x248>
+  5e:	eeb4 0bc7 	vcmpe.f64	d0, d7
+  62:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+  66:	dce0      	bgt.n	2a <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x2a>
+  68:	eeb4 1bc7 	vcmpe.f64	d1, d7
+  6c:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+  70:	dcdb      	bgt.n	2a <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x2a>
+  72:	9103      	str	r1, [sp, #12]
+  74:	ed9f eb76 	vldr	d14, [pc, #472]	@ 250 <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x250>
+  78:	ed8d 1b00 	vstr	d1, [sp]
+  7c:	ed9f db76 	vldr	d13, [pc, #472]	@ 258 <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x258>
+  80:	ee88 0b0e 	vdiv.f64	d0, d8, d14
+  84:	f7ff fffe 	bl	0 <expm1>
+			84: R_ARM_THM_CALL	expm1
+  88:	eeb0 bb40 	vmov.f64	d11, d0
+  8c:	ed9d 1b00 	vldr	d1, [sp]
+  90:	ed9f 9b73 	vldr	d9, [pc, #460]	@ 260 <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x260>
+  94:	ee81 0b0d 	vdiv.f64	d0, d1, d13
+  98:	f7ff fffe 	bl	0 <expm1>
+			98: R_ARM_THM_CALL	expm1
+  9c:	eeb0 cb40 	vmov.f64	d12, d0
+  a0:	ed9f 7b71 	vldr	d7, [pc, #452]	@ 268 <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x268>
+  a4:	ee88 0b07 	vdiv.f64	d0, d8, d7
+  a8:	f7ff fffe 	bl	0 <expm1>
+			a8: R_ARM_THM_CALL	expm1
+  ac:	ed9f 7b70 	vldr	d7, [pc, #448]	@ 270 <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x270>
+  b0:	ed9d 1b00 	vldr	d1, [sp]
+  b4:	ed8d 0b04 	vstr	d0, [sp, #16]
+  b8:	ee81 0b07 	vdiv.f64	d0, d1, d7
+  bc:	f7ff fffe 	bl	0 <expm1>
+			bc: R_ARM_THM_CALL	expm1
+  c0:	9903      	ldr	r1, [sp, #12]
+  c2:	eeb7 6b00 	vmov.f64	d6, #112	@ 0x3f800000  1.0
+  c6:	ed91 5b04 	vldr	d5, [r1, #16]
+  ca:	ed9f 3b6b 	vldr	d3, [pc, #428]	@ 278 <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x278>
+  ce:	ed8d 0b06 	vstr	d0, [sp, #24]
+  d2:	ee25 4b0b 	vmul.f64	d4, d5, d11
+  d6:	ee25 fb0c 	vmul.f64	d15, d5, d12
+  da:	ee84 2b09 	vdiv.f64	d2, d4, d9
+  de:	ee8f 7b03 	vdiv.f64	d7, d15, d3
+  e2:	eeb0 0b46 	vmov.f64	d0, d6
+  e6:	ee32 7b07 	vadd.f64	d7, d2, d7
+  ea:	eeb1 2b00 	vmov.f64	d2, #16	@ 0x40800000  4.0
+  ee:	eea7 0b02 	vfma.f64	d0, d7, d2
+  f2:	eeb5 0b40 	vcmp.f64	d0, #0.0
+  f6:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+  fa:	f100 809d 	bmi.w	238 <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x238>
+  fe:	eeb1 7bc0 	vsqrt.f64	d7, d0
+ 102:	ed9d 1b00 	vldr	d1, [sp]
+ 106:	eeb0 2bc7 	vabs.f64	d2, d7
+ 10a:	eeb4 2b4a 	vcmp.f64	d2, d10
+ 10e:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 112:	d88a      	bhi.n	2a <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x2a>
+ 114:	ee27 2b03 	vmul.f64	d2, d7, d3
+ 118:	2301      	movs	r3, #1
+ 11a:	f884 3030 	strb.w	r3, [r4, #48]	@ 0x30
+ 11e:	ee27 3b09 	vmul.f64	d3, d7, d9
+ 122:	ee3c cb06 	vadd.f64	d12, d12, d6
+ 126:	ee37 7b06 	vadd.f64	d7, d7, d6
+ 12a:	ee3b bb06 	vadd.f64	d11, d11, d6
+ 12e:	ee2c cb05 	vmul.f64	d12, d12, d5
+ 132:	ee2b bb05 	vmul.f64	d11, d11, d5
+ 136:	ee23 3b07 	vmul.f64	d3, d3, d7
+ 13a:	ee8c 5b0d 	vdiv.f64	d5, d12, d13
+ 13e:	ee8b db0e 	vdiv.f64	d13, d11, d14
+ 142:	ee23 bb07 	vmul.f64	d11, d3, d7
+ 146:	ee22 2b07 	vmul.f64	d2, d2, d7
+ 14a:	ed9f 0b4d 	vldr	d0, [pc, #308]	@ 280 <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x280>
+ 14e:	ed91 cb02 	vldr	d12, [r1, #8]
+ 152:	ee22 2b07 	vmul.f64	d2, d2, d7
+ 156:	ee88 ab00 	vdiv.f64	d10, d8, d0
+ 15a:	ee27 0b00 	vmul.f64	d0, d7, d0
+ 15e:	ed9f 8b4a 	vldr	d8, [pc, #296]	@ 288 <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x288>
+ 162:	ee81 3b08 	vdiv.f64	d3, d1, d8
+ 166:	eeb1 1b00 	vmov.f64	d1, #16	@ 0x40800000  4.0
+ 16a:	ee27 9b08 	vmul.f64	d9, d7, d8
+ 16e:	ee36 ab4a 	vsub.f64	d10, d6, d10
+ 172:	ee3a 3b43 	vsub.f64	d3, d10, d3
+ 176:	ee23 8b01 	vmul.f64	d8, d3, d1
+ 17a:	ee33 3b03 	vadd.f64	d3, d3, d3
+ 17e:	ee83 ab07 	vdiv.f64	d10, d3, d7
+ 182:	eeb8 7b00 	vmov.f64	d7, #128	@ 0xc0000000 -2.0
+ 186:	ee87 3b09 	vdiv.f64	d3, d7, d9
+ 18a:	ee87 9b00 	vdiv.f64	d9, d7, d0
+ 18e:	ee28 0b05 	vmul.f64	d0, d8, d5
+ 192:	ee28 8b0d 	vmul.f64	d8, d8, d13
+ 196:	ee80 7b02 	vdiv.f64	d7, d0, d2
+ 19a:	ee8f 2b0c 	vdiv.f64	d2, d15, d12
+ 19e:	ee34 fb4f 	vsub.f64	d15, d4, d15
+ 1a2:	ee85 0b0c 	vdiv.f64	d0, d5, d12
+ 1a6:	ee2d 1b0a 	vmul.f64	d1, d13, d10
+ 1aa:	ee2a 5b45 	vnmul.f64	d5, d10, d5
+ 1ae:	ee33 7b47 	vsub.f64	d7, d3, d7
+ 1b2:	ee88 3b0b 	vdiv.f64	d3, d8, d11
+ 1b6:	eeaf 5b07 	vfma.f64	d5, d15, d7
+ 1ba:	ed9d 8b06 	vldr	d8, [sp, #24]
+ 1be:	ee39 3b43 	vsub.f64	d3, d9, d3
+ 1c2:	ed91 9b00 	vldr	d9, [r1]
+ 1c6:	eeaf 1b03 	vfma.f64	d1, d15, d3
+ 1ca:	ee84 7b09 	vdiv.f64	d7, d4, d9
+ 1ce:	ee8d 4b09 	vdiv.f64	d4, d13, d9
+ 1d2:	ed91 3b08 	vldr	d3, [r1, #32]
+ 1d6:	ed84 1b04 	vstr	d1, [r4, #16]
+ 1da:	eea3 2b08 	vfma.f64	d2, d3, d8
+ 1de:	eeb0 1b42 	vmov.f64	d1, d2
+ 1e2:	ee9f 1b0a 	vfnms.f64	d1, d15, d10
+ 1e6:	ed84 1b00 	vstr	d1, [r4]
+ 1ea:	ee38 1b06 	vadd.f64	d1, d8, d6
+ 1ee:	ee21 3b03 	vmul.f64	d3, d1, d3
+ 1f2:	ed9f 1b1f 	vldr	d1, [pc, #124]	@ 270 <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x270>
+ 1f6:	ee83 1b01 	vdiv.f64	d1, d3, d1
+ 1fa:	ed9d 3b04 	vldr	d3, [sp, #16]
+ 1fe:	ee33 6b06 	vadd.f64	d6, d3, d6
+ 202:	ee31 1b00 	vadd.f64	d1, d1, d0
+ 206:	ee35 5b41 	vsub.f64	d5, d5, d1
+ 20a:	ed84 1b0a 	vstr	d1, [r4, #40]	@ 0x28
+ 20e:	ed84 5b06 	vstr	d5, [r4, #24]
+ 212:	ed91 5b06 	vldr	d5, [r1, #24]
+ 216:	ee26 6b05 	vmul.f64	d6, d6, d5
+ 21a:	eea5 7b03 	vfma.f64	d7, d5, d3
+ 21e:	ed9f 5b12 	vldr	d5, [pc, #72]	@ 268 <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x268>
+ 222:	ee86 5b05 	vdiv.f64	d5, d6, d5
+ 226:	ee37 7b02 	vadd.f64	d7, d7, d2
+ 22a:	ed84 7b02 	vstr	d7, [r4, #8]
+ 22e:	ee35 5b04 	vadd.f64	d5, d5, d4
+ 232:	ed84 5b08 	vstr	d5, [r4, #32]
+ 236:	e6fd      	b.n	34 <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x34>
+ 238:	f7ff fffe 	bl	0 <sqrt>
+			238: R_ARM_THM_CALL	sqrt
+ 23c:	e6f5      	b.n	2a <parable::dsp::germanium_detail::device(double, double, parable::dsp::GermaniumDevice const&)+0x2a>
+ 23e:	bf00      	nop
+ 240:	ffffffff 	.word	0xffffffff
+ 244:	7fefffff 	.word	0x7fefffff
+ 248:	9999999a 	.word	0x9999999a
+ 24c:	3fe99999 	.word	0x3fe99999
+ 250:	be878fab 	.word	0xbe878fab
+ 254:	3f9d95bb 	.word	0x3f9d95bb
+ 258:	ad2dcb13 	.word	0xad2dcb13
+ 25c:	3f9dc486 	.word	0x3f9dc486
+ 260:	c083126f 	.word	0xc083126f
+ 264:	3fdda1ca 	.word	0x3fdda1ca
+ 268:	e071c53f 	.word	0xe071c53f
+ 26c:	3fa772d5 	.word	0x3fa772d5
+ 270:	40fa9c13 	.word	0x40fa9c13
+ 274:	3fa1cef2 	.word	0x3fa1cef2
+ 278:	d4fdf3b6 	.word	0xd4fdf3b6
+ 27c:	3fcee978 	.word	0x3fcee978
+ 280:	851eb852 	.word	0x851eb852
+ 284:	405611eb 	.word	0x405611eb
+ 288:	7ae147ae 	.word	0x7ae147ae
+ 28c:	4033ae14 	.word	0x4033ae14
