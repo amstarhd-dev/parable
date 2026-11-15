@@ -30,3 +30,22 @@ standalone budgets, not Engine capacity or2000-cycle target admission. Measure
 host processor cost and actual M7 object/calls/frames. No hardware execution,
 production integration, astrology/preset/firmware/living changes. Founder listening
 is a separate required decision; leave the scientific PR unmerged/draft if gates miss.
+
+## Observed numerical limits — no acceptance thresholds changed
+
+BDF2 is retained. Trapezoidal companions introduced large stiff-junction current
+ringing and37 failed field gates; rejected. With finer independent8kHz export,
+BDF2 still misses21 field gates in two of48 physical transient conditions. All80
+DC conditions pass. The strict circuit test returns1, not a claimed full pass.
+
+Select8x as the least-error tested listening specimen, **not as accepted sampling**.
+1x/2x research modes have bounded numerical failures and are rejected for listening;
+4x/8x have none in the study.8x passes28/48 combined sampling gates.16x/32x direct
+references converge within the declared refinement bound in34/48 cases only.
+High-note false-line/full-band criteria remain unfulfilled; do not certify the
+other14 references or replace the full-band gate with a filter-matched diagnostic.
+
+This increment therefore remains a **draft research PR**, with actual healthy/
+D1-open WAVs for founder evaluation, not production admission. Next numerical
+work must resolve stiff-state/high-note accuracy efficiently while retaining
+these circuit equations and independent failures. No proxy waveshaper is added.
