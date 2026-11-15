@@ -1,0 +1,26 @@
+Independent1978-family Q2 reduction
+Vcc rail 0 9
+R6 b 0 100k
+R7 c b 470k
+R8 rail c 10k
+R9 e 0 22
+Q2 c b e N
+.model N NPN(IS=1e-14 BF=350 BR=4 TNOM=26.85)
+Vin in 0 AC 1
+Rsource in ci 550
+C3 ci b 47n
+Cload c cl 1
+Rload cl 0 100k
+C4 c b 250p
+
+.options reltol=1e-8 abstol=1e-13 vntol=1e-10 gmin=1e-14
+.temp 26.85
+.control
+set noaskquit
+set wr_singlescale
+set wr_vecnames
+ac lin 1 12000 12000
+wrdata q2-0-12000.txt v(c)
+quit
+.endc
+.end

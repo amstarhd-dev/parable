@@ -1362,6 +1362,98 @@
           "paths": []
         }
       }
+    },
+    {
+      "id": "capricorn",
+      "type": "model",
+      "paths": [
+        "parable-starter/include/parable_capricorn.h",
+        "parable-starter/src/parable_capricorn.cpp",
+        "parable-starter/src/capricorn_circuit.h",
+        "parable-starter/docs/adr/ADR-018-capricorn-c4-open.md"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/capricorn/provenance.json",
+          "candidate": 0,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/capricorn/ACME-LICENSE.md"
+          ],
+          "scope": "Nominal EM and Shockley laws via existing main; no measured device constants"
+        },
+        {
+          "provenance_path": "parable-starter/third_party/capricorn/provenance.json",
+          "candidate": 1,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "BSD3 WDF diode pair inspected; no code imported"
+        }
+      ],
+      "ownership_notes": "Local1978-family reduction plus existing owned laboratory tools. No artwork/proprietary DSP imported; project-wide license remains unspecified.",
+      "physics_notes": "Q2 static nonlinear EM plus small-signal C3/C4 network; bounded reduced TA7136; exact loaded passive companion Tone/diode network. C4 alone250pF->open.",
+      "behavior": "Stopped preparation, bounded8x/ADAA/table processing, Distortion/Tone/Level. Standalone only.",
+      "limitations": [
+        "Not a measured1978 specimen/TA7136/transistor fit; nonlinear dynamic C4 and transistor charge omitted.",
+        "Output buffers/coupling and IC compensation/headroom/bandwidth are declared reductions.",
+        "Founder listening, actual Seed3 cycles/audio and patch integration unproven; residual high-note aliasing remains."
+      ],
+      "dependencies": {
+        "assets": [
+          "host.pcm16",
+          "host.signal-analysis"
+        ],
+        "external": [
+          "C++17 libm during stopped preparation only; existing pinned ngspice44.2/ARM14.2.1 offline."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Compact electrical, callback/control/reset and native CLI checks; exact configs/results in report.",
+          "paths": [
+            "parable-starter/tests/test_capricorn.cpp",
+            "parable-starter/tests/test_capricorn_cli.py"
+          ]
+        },
+        "independent_circuit": {
+          "status": "reduced-section-compared",
+          "scope": "Builtin SPICE Q2, separate loaded Tone and diode companion solves, not calibrated hardware.",
+          "paths": [
+            "parable-starter/tests/fixtures/capricorn/reference.json",
+            "parable-starter/tools/capricorn_reference.py"
+          ]
+        },
+        "synthetic_audition": {
+          "status": "not-performed",
+          "scope": "Synthetic tones used in tests, not a listening deliverable.",
+          "paths": []
+        },
+        "real_guitar_audition": {
+          "status": "not-performed",
+          "scope": "Native take03 WAVs generated; founder listening approval pending.",
+          "paths": [
+            "parable-starter/third_party/capricorn/AUDIO_NOTICE.md"
+          ]
+        },
+        "arm_cross_compile": {
+          "status": "compiled",
+          "scope": "Actual pinned M7 object/layout/reachable call audit only.",
+          "paths": [
+            "parable-starter/tools/check_capricorn_arm.py"
+          ]
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No flash, boot, target timing/audio or physical calibration.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "Engine/patch/firmware/correspondence untouched.",
+          "paths": []
+        }
+      }
     }
   ]
 }

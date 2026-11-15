@@ -1,0 +1,24 @@
+Independent1978-family Q2 reduction
+Vcc rail 0 9
+R6 b 0 100k
+R7 c b 470k
+R8 rail c 10k
+R9 e 0 22
+Q2 c b e N
+.model N NPN(IS=1e-14 BF=350 BR=4 TNOM=26.85)
+Vinput input 0 0.645055702
+Rsource input b 550
+Vload load 0 4.29781703
+Rload c load 100k
+
+.options reltol=1e-8 abstol=1e-13 vntol=1e-10 gmin=1e-14
+.temp 26.85
+.control
+set noaskquit
+set wr_singlescale
+set wr_vecnames
+dc Vinput 0.44505570199999994 0.845055702 .05
+wrdata curve.txt v(c)
+quit
+.endc
+.end

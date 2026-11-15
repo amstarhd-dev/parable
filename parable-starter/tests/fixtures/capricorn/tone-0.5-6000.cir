@@ -1,0 +1,25 @@
+Independent loaded passive Tone/Level
+Vin input 0 AC 1
+Vwire input d 0
+C11 d z 22n
+C12 l 0 100n
+R15 z h 2200
+R17 h 0 6800
+R16 d l 6800
+Rbright h w 10000.0
+Rdark l w 10000.0
+Rleveltop w jack 20000
+Rlevelbottom jack 0 80000
+Rbuffer jack 0 1meg
+
+.options reltol=1e-8 abstol=1e-13 vntol=1e-10 gmin=1e-14
+.temp 26.85
+.control
+set noaskquit
+set wr_singlescale
+set wr_vecnames
+ac lin 1 6000 6000
+wrdata tone-0.5-6000.txt v(jack)
+quit
+.endc
+.end

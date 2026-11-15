@@ -48,7 +48,10 @@ inline bool tone(double fs,CapricornControls c,Prepared<4>& p) noexcept {
     unsigned parent[8];for(unsigned k=0;k<8;++k)parent[k]=k;
     auto root=[&](unsigned a){while(parent[a]!=a)a=parent[a];return a;};
     auto join=[&](unsigned a,unsigned b){a=root(a);b=root(b);parent[a]=b;};
-    if(c.tone==0)join(5,4);if(c.tone==1)join(5,3);if(c.level==0)join(6,7);if(c.level==1)join(5,6);
+    if(c.tone==0)join(5,4);
+    if(c.tone==1)join(5,3);
+    if(c.level==0)join(6,7);
+    if(c.level==1)join(5,6);
     int map[8],assigned[8];std::fill_n(assigned,8,-2);unsigned count=0;const auto ground=root(7);
     for(unsigned k=0;k<8;++k){const auto r=root(k);if(r==ground)map[k]=-1;else {if(assigned[r]==-2)assigned[r]=int(count++);map[k]=assigned[r];}}
     M<7> g{};for(unsigned k=count;k<7;++k)g[k][k]=1;V<7> drive{};
