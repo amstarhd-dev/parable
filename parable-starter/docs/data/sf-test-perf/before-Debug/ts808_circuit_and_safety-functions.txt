@@ -1,0 +1,83 @@
+Functions sorted by metric: Exclusive Total CPU Time
+
+Excl. Total    Incl. Total     Name
+CPU            CPU
+  sec.      %    sec.      %
+50.970 100.00  50.970 100.00   <Total>
+10.610  20.82  15.270  29.96   parable::dsp::Ts808::reconstruct(std::array<double, 12ul> const&, std::array<double, 7ul> const&, std::array<double, 5ul> const&, bool) const
+10.310  20.23  33.710  66.14   parable::dsp::Ts808::evaluate(std::array<double, 7ul>&, std::array<double, 12ul> const&, bool, std::array<double, 7ul>&, std::array<std::array<double, 5ul>, 5ul>&, std::array<double, 5ul>&, std::array<double, 2ul>&) const
+ 3.660   7.18  49.000  96.13   parable::dsp::Ts808::sample(double)
+ 2.800   5.49   2.800   5.49   std::array<double, 5ul>::operator[](unsigned long) const
+ 2.350   4.61  38.710  75.95   parable::dsp::Ts808::solve(std::array<double, 7ul>&, std::array<double, 12ul> const&, bool, double&, unsigned int&, std::array<double, 5ul>&, std::array<double, 2ul>&) const
+ 1.680   3.30   1.680   3.30   std::array<double, 12ul>::operator[](unsigned long)
+ 1.370   2.69   1.670   3.28   parable::dsp::(anonymous namespace)::dot(std::array<double, 12ul> const&, std::array<double, 12ul> const&)
+ 1.240   2.43   1.240   2.43   std::array<double, 5ul>::operator[](unsigned long)
+ 1.170   2.30   1.170   2.30   std::array<std::array<double, 5ul>, 12ul>::operator[](unsigned long) const
+ 1.140   2.24   1.140   2.24   std::array<double, 2ul>::operator[](unsigned long) const
+ 1.010   1.98  50.660  99.39   parable::dsp::Ts808::process(float)
+ 0.950   1.86   0.950   1.86   std::isfinite(double)
+ 0.890   1.75   0.890   1.75   std::array<double, 12ul>::operator[](unsigned long) const
+ 0.830   1.63   1.230   2.41   parable::dsp::ts808_detail::response(double, double, double, bool)
+ 0.810   1.59   1.830   3.59   parable::dsp::ts808_detail::currents(std::array<double, 7ul> const&, bool)
+ 0.780   1.53   0.780   1.53   std::array<double, 7ul>::operator[](unsigned long) const
+ 0.770   1.51   0.770   1.51   std::array<std::array<double, 5ul>, 5ul>::operator[](unsigned long)
+ 0.750   1.47   0.750   1.47   <static>@0x75c93 (<libm.so.6>)
+ 0.700   1.37   0.700   1.37   double const& std::max<double>(double const&, double const&)
+ 0.590   1.16   0.590   1.16   std::array<std::array<double, 5ul>, 2ul>::operator[](unsigned long)
+ 0.550   1.08   0.550   1.08   std::array<std::array<double, 2ul>, 12ul>::operator[](unsigned long) const
+ 0.550   1.08   0.550   1.08   std::array<unsigned long, 5ul>::operator[](unsigned long) const
+ 0.510   1.00   0.510   1.00   std::array<double, 7ul>::operator[](unsigned long)
+ 0.490   0.96   0.490   0.96   std::array<double, 2ul>::operator[](unsigned long)
+ 0.480   0.94   0.480   0.94   std::abs(double)
+ 0.410   0.80   0.410   0.80   std::array<int, 5ul>::operator[](unsigned long) const
+ 0.370   0.73   0.490   0.96   parable::dsp::Ts808::coefficient(unsigned long) const
+ 0.290   0.57   0.620   1.22   parable::dsp::(anonymous namespace)::range(double, double, double)
+ 0.280   0.55   0.280   0.55   std::array<double, 9ul>::operator[](unsigned long)
+ 0.270   0.53   0.290   0.57   parable::dsp::Ts808::solve(std::array<double, 7ul>&, std::array<double, 12ul> const&, bool, double&, unsigned int&, std::array<double, 5ul>&, std::array<double, 2ul>&) const::{lambda(std::array<double, 7ul> const&)#1}::operator()(std::array<double, 7ul> const&) const
+ 0.270   0.53   0.270   0.53   std::array<unsigned long, 2ul>::operator[](unsigned long) const
+ 0.250   0.49   0.250   0.49   std::array<std::array<double, 2ul>, 2ul>::operator[](unsigned long)
+ 0.180   0.35   0.180   0.35   double const& std::min<double>(double const&, double const&)
+ 0.160   0.31   0.160   0.31   std::array<parable::dsp::Ts808::Capacitor, 9ul>::operator[](unsigned long)
+ 0.160   0.31   0.160   0.31   std::array<std::array<double, 9ul>, 12ul>::operator[](unsigned long)
+ 0.150   0.29   0.150   0.29   std::array<std::array<std::array<double, 2ul>, 5ul>, 2ul>::operator[](unsigned long)
+ 0.120   0.24   0.120   0.24   std::array<float, 385ul>::operator[](unsigned long) const
+ 0.100   0.20   0.490   0.96   double const& std::clamp<double>(double const&, double const&, double const&)
+ 0.100   0.20   0.150   0.29   parable::dsp::ts808_detail::amplifier(double, double)
+ 0.100   0.20   0.100   0.20   std::array<float, 769ul>::operator[](unsigned long)
+ 0.100   0.20   0.100   0.20   std::array<std::array<double, 2ul>, 5ul>::operator[](unsigned long)
+ 0.100   0.20   0.160   0.31   std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<double> >, std::is_move_constructible<double>, std::is_move_assignable<double> >::value, void>::type std::swap<double>(double&, double&)
+ 0.080   0.16   0.090   0.18   <static>@0x49be2 (<libc.so.6>)
+ 0.060   0.12   0.060   0.12   std::remove_reference<double&>::type&& std::move<double&>(double&)
+ 0.050   0.10   0.050   0.10   std::array<double, 7ul>::end()
+ 0.050   0.10   0.050   0.10   std::array<float, 49ul>::operator[](unsigned long)
+ 0.040   0.08   0.140   0.27   double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*)
+ 0.030   0.06   0.030   0.06   std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::operator[](unsigned long) const
+ 0.020   0.04   3.940   7.73   controls()
+ 0.020   0.04   0.180   0.35   double* std::swap_ranges<double*, double*>(double*, double*, double*)
+ 0.020   0.04   0.040   0.08   parable::dsp::(anonymous namespace)::count(unsigned int&, unsigned int)
+ 0.020   0.04   0.020   0.04   unsigned int const& std::min<unsigned int>(unsigned int const&, unsigned int const&)
+ 0.020   0.04   0.210   0.41   val(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, unsigned long)
+ 0.010   0.02   0.010   0.02   <static>@0x161e67 (<libc.so.6>)
+ 0.010   0.02   0.010   0.02   __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*)::_Save_errno::~_Save_errno()
+ 0.010   0.02   0.010   0.02   parable::dsp::Ts808::matrices(bool)
+ 0.010   0.02   0.010   0.02   std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::c_str() const
+ 0.010   0.02   0.160   0.31   std::__cxx11::stod(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned long*)
+ 0.010   0.02   0.010   0.02   std::array<double, 12ul>::begin() const
+ 0.010   0.02   0.010   0.02   std::array<double, 5ul>::begin()
+ 0.010   0.02   0.200   0.39   std::array<double, 5ul>::swap(std::array<double, 5ul>&)
+ 0.010   0.02   0.020   0.04   std::array<double, 7ul>::begin() const
+ 0.010   0.02   0.010   0.02   std::array<double, 7ul>::data() const
+ 0.010   0.02   0.020   0.04   std::complex<double> std::operator*<double>(double const&, std::complex<double> const&)
+ 0.010   0.02   0.010   0.02   std::complex<double> std::polar<double>(double const&, double const&)
+ 0.010   0.02   0.010   0.02   std::complex<double>::operator*=(double)
+ 0.010   0.02   0.020   0.04   ts808lab::periodic(double, double, double, bool)
+ 0.010   0.02   0.010   0.02   unsigned int const& std::max<unsigned int>(unsigned int const&, unsigned int const&)
+ 0.010   0.02   0.160   0.31   void std::iter_swap<double*, double*>(double*, double*)
+ 0.      0.    50.970 100.00   <static>@0x29c21 (<libc.so.6>)
+ 0.      0.    13.610  26.70   alias()
+ 0.      0.    50.970 100.00   main
+ 0.      0.     0.010   0.02   parable::dsp::Ts808::prepare(float, parable::dsp::Ts808Controls, parable::dsp::Ts808Rate)
+ 0.      0.    22.500  44.14   safety()
+ 0.      0.     0.200   0.39   std::enable_if<std::__array_traits<double, 5ul>::_Is_swappable::value, void>::type std::swap<double, 5ul>(std::array<double, 5ul>&, std::array<double, 5ul>&)
+ 0.      0.    10.900  21.39   transients()
+

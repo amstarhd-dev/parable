@@ -1,0 +1,204 @@
+{
+  "compiler": {
+    "version": "14.2.1",
+    "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+    "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+    "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+    "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+  },
+  "flags": [
+    "-std=c++17",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-mcpu=cortex-m7",
+    "-mthumb",
+    "-mfpu=fpv5-d16",
+    "-mfloat-abi=hard",
+    "-fno-exceptions",
+    "-fno-rtti",
+    "-fno-fast-math",
+    "-fno-finite-math-only",
+    "-fstack-usage",
+    "-I/workspace/work/parable-sf-test-perf/parable-starter/include"
+  ],
+  "object": {
+    "text": 9096,
+    "data": 0,
+    "bss": 0
+  },
+  "layout": {
+    "processor": 8104,
+    "nodes": 12,
+    "nonlinear_junctions": 5,
+    "external_caps": 9,
+    "oversampling": 16,
+    "FIR_taps": 769,
+    "Newton_updates": 32,
+    "backtracks": 12,
+    "unchanged_engine": 11040,
+    "unchanged_bundle": 11288,
+    "unchanged_runtime": 45224,
+    "unchanged_rat": 10752
+  },
+  "whole_object_undefined": [
+    "cos",
+    "expm1",
+    "memcpy",
+    "memset",
+    "pow",
+    "sin"
+  ],
+  "audio_calls": {
+    "parable::dsp::Ts808::reconstruct(std::array<double, 12u> const&, std::array<double, 7u> const&, std::array<double, 5u> const&, bool) const": [
+      "memcpy"
+    ],
+    "parable::dsp::Ts808::evaluate(std::array<double, 7u>&, std::array<double, 12u> const&, bool, std::array<double, 7u>&, std::array<std::array<double, 5u>, 5u>&, std::array<double, 5u>&, std::array<double, 2u>&) const": [
+      "parable::dsp::ts808_detail::currents(std::array<double, 7u> const&, bool)",
+      "parable::dsp::Ts808::reconstruct(std::array<double, 12u> const&, std::array<double, 7u> const&, std::array<double, 5u> const&, bool) const",
+      "memset",
+      "memset",
+      "parable::dsp::Ts808::reconstruct(std::array<double, 12u> const&, std::array<double, 7u> const&, std::array<double, 5u> const&, bool) const",
+      "memset",
+      "memset",
+      "memset"
+    ],
+    "parable::dsp::Ts808::solve(std::array<double, 7u>&, std::array<double, 12u> const&, bool, double&, unsigned long&, std::array<double, 5u>&, std::array<double, 2u>&) const": [
+      "memset",
+      "memset",
+      "parable::dsp::Ts808::evaluate(std::array<double, 7u>&, std::array<double, 12u> const&, bool, std::array<double, 7u>&, std::array<std::array<double, 5u>, 5u>&, std::array<double, 5u>&, std::array<double, 2u>&) const",
+      "memset",
+      "memset",
+      "memset",
+      "memset",
+      "parable::dsp::Ts808::evaluate(std::array<double, 7u>&, std::array<double, 12u> const&, bool, std::array<double, 7u>&, std::array<std::array<double, 5u>, 5u>&, std::array<double, 5u>&, std::array<double, 2u>&) const",
+      "memcpy"
+    ],
+    "parable::dsp::Ts808::resetCircuit()": [
+      "memcpy",
+      "memcpy"
+    ],
+    "parable::dsp::Ts808::sample(double)": [
+      "memcpy",
+      "memset",
+      "parable::dsp::Ts808::solve(std::array<double, 7u>&, std::array<double, 12u> const&, bool, double&, unsigned long&, std::array<double, 5u>&, std::array<double, 2u>&) const",
+      "parable::dsp::Ts808::reconstruct(std::array<double, 12u> const&, std::array<double, 7u> const&, std::array<double, 5u> const&, bool) const",
+      "memset",
+      "memset",
+      "memset",
+      "memcpy",
+      "memcpy",
+      "parable::dsp::Ts808::resetCircuit()"
+    ],
+    "parable::dsp::Ts808::process(float)": [
+      "parable::dsp::Ts808::sample(double)",
+      "parable::dsp::Ts808::sample(double)",
+      "parable::dsp::Ts808::resetCircuit()"
+    ],
+    "parable::dsp::ts808_detail::currents(std::array<double, 7u> const&, bool)": [
+      "memset",
+      "expm1",
+      "memset",
+      "expm1",
+      "memcpy",
+      "expm1",
+      "expm1"
+    ]
+  },
+  "stack_usage": [
+    "/workspace/work/parable-sf-test-perf/parable-starter/src/ts808_device.h:12:15:parable::dsp::ts808_detail::Device parable::dsp::ts808_detail::currents(const parable::dsp::Ts808::Unknowns&, bool)\t184\tstatic",
+    "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_ts808.cpp:16:6:bool parable::dsp::Ts808::matrices(bool)\t2968\tstatic",
+    "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_ts808.cpp:66:14:parable::dsp::Ts808::Nodes parable::dsp::Ts808::reconstruct(const Nodes&, const Unknowns&, const Currents&, bool) const\t32\tstatic",
+    "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_ts808.cpp:74:6:bool parable::dsp::Ts808::evaluate(Unknowns&, const Nodes&, bool, Unknowns&, Matrix&, Currents&, std::array<double, 2>&) const\t904\tstatic",
+    "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_ts808.cpp:141:6:bool parable::dsp::Ts808::solve(Unknowns&, const Nodes&, bool, double&, uint32_t&, Currents&, std::array<double, 2>&) const\t816\tstatic",
+    "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_ts808.cpp:223:6:void parable::dsp::Ts808::resetCircuit()\t24\tstatic",
+    "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_ts808.cpp:227:6:void parable::dsp::Ts808::reset()\t8\tstatic",
+    "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_ts808.cpp:191:6:bool parable::dsp::Ts808::prepare(float, parable::dsp::Ts808Controls, parable::dsp::Ts808Rate)\t8456\tstatic",
+    "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_ts808.cpp:231:8:double parable::dsp::Ts808::sample(double)\t680\tstatic",
+    "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_ts808.cpp:262:7:float parable::dsp::Ts808::process(float)\t56\tstatic"
+  ],
+  "static_work": "16 internal steps/frame; each <=32 Newton updates with<=12 backtracking trials plus initial evaluation; fixed5x5 elimination;<=25 paired affine2x2 amplifier regions/device evaluation;6expm1 healthy or5fault;12nodes/9cap histories;769tap symmetric FIR interpolation/decimation. Exact amplifier elimination, no approximate exponential or block linearization.",
+  "maximum_device_evaluations_per_internal_sample": 385,
+  "maximum_device_evaluations_per_base_frame": 6160,
+  "maximum_expm1_per_base_frame": 36960,
+  "target_cycles": "not measured",
+  "future_admission_ceiling_cycles_per_sample": 2000,
+  "firmware_linked": false,
+  "physical_tested": false,
+  "source_sha256": {
+    "include/parable_ts808.h": "dd610004fc3506671e53ffe351777285fe7aebd10b80d6bf28d75ec49d312e38",
+    "src/parable_ts808.cpp": "3fdfaeb754d21cd174a1c5fd67ca23481eaae023b9daa15fed1151dc6beb912f",
+    "src/ts808_device.h": "c801cc1429d617db0a8542fc87a213d940f73e7ac079c5e3f829f2d6d17b1282"
+  },
+  "commands": [
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-dumpfullversion"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-fno-fast-math",
+      "-fno-finite-math-only",
+      "-fstack-usage",
+      "-I/workspace/work/parable-sf-test-perf/parable-starter/include",
+      "-c",
+      "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_ts808.cpp",
+      "-o",
+      "/workspace/work/sf-test-perf-arm/ts808-audit/parable_ts808.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-nm",
+      "-u",
+      "/workspace/work/sf-test-perf-arm/ts808-audit/parable_ts808.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-objdump",
+      "-drC",
+      "/workspace/work/sf-test-perf-arm/ts808-audit/parable_ts808.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-fno-fast-math",
+      "-fno-finite-math-only",
+      "-fstack-usage",
+      "-I/workspace/work/parable-sf-test-perf/parable-starter/include",
+      "-c",
+      "/workspace/work/sf-test-perf-arm/ts808-audit/layout.cpp",
+      "-o",
+      "/workspace/work/sf-test-perf-arm/ts808-audit/layout.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-objcopy",
+      "--dump-section",
+      ".rodata=/workspace/work/sf-test-perf-arm/ts808-audit/layout.bin",
+      "/workspace/work/sf-test-perf-arm/ts808-audit/layout.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-size",
+      "/workspace/work/sf-test-perf-arm/ts808-audit/parable_ts808.o"
+    ]
+  ]
+}

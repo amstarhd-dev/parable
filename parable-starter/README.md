@@ -130,15 +130,20 @@ approval is claimed.
 - Atomic acceptance/rejection of individual edits to a stored patch.
 
 ## Host tests (run without Daisy hardware)
+
+SF-TEST-PERF-001 adds a [canonical full verification profile](docs/SOUNDFORGE_VERIFICATION_PROFILE.md)
+and [measured pre/post report](docs/SF_TEST_PERF_REPORT.md). All original gates remain;
+full Debug improved 1.93x on two CPUs, below the 3x/ten-minute goal.
+
 From the repository root, with CMake >= 3.15, a C++17 compiler and Python >= 3.9:
 ```bash
 cd parable-starter
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
 cmake --build build
-ctest --test-dir build --output-on-failure
+ctest --test-dir build -j2 --output-on-failure
 cmake -S . -B build/Release -DCMAKE_BUILD_TYPE=Release
 cmake --build build/Release
-ctest --test-dir build/Release --output-on-failure
+ctest --test-dir build/Release -j2 --output-on-failure
 ```
 Tests use always-active `CHECK` calls, including setup, and run with `NDEBUG` in
 Release. GitHub Actions runs both Debug and Release builds from the

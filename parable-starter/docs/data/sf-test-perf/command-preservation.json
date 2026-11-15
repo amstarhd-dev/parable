@@ -1,0 +1,1031 @@
+[
+  {
+    "config": "Debug",
+    "name": "firmware_measurement_math_status",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_firmware_measurement_test"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "core_validation",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_core_test"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "audio_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_audio_safety_test"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "patch_contract",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_patch_test"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "host_preparation",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_prepare_test"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "rat_patch_integration",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_rat_integration_test"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "patch_audio_evidence",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_patch_audition",
+      "--output",
+      "<BUILD>/patch-auditions"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "rat_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_rat_test"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "rat_lab_measurements",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_rat_lab",
+      "--self-test"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "soundforge_utilities",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_soundforge_test"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "soundforge_registry",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/validate_registry.py"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "soundforge_registry_negative",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_soundforge_registry.py"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "labrat_output_preservation",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/check_labrat.py",
+      "--executable",
+      "<BUILD>/parable_rat_lab"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "cmos_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_cmos_test"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "cmos_lab_measurements",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_cmos_lab",
+      "--self-test"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "cmos_lab_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_cmos_cli.py",
+      "<BUILD>/parable_cmos_lab"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "germanium_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_germanium_test"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "germanium_lab_measurements",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_germanium_lab",
+      "--self-test"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "germanium_lab_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_germanium_cli.py",
+      "<BUILD>/parable_germanium_lab"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "preset_journal",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_presets_test"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "activation_contract",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_activation_test"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "activation_concurrency",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_activation_test",
+      "--stress"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "activation_demo",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_activation_demo",
+      "0",
+      "2",
+      "1",
+      "3",
+      "0"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "living_contract",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_living_test"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "living_concurrency",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_living_test",
+      "--stress"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "living_audio_evidence",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_living_demo",
+      "--output",
+      "<BUILD>/living-evidence"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "tape_medium_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_tape_test"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "tape_listening_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_tape_cli.py",
+      "<BUILD>/parable_tape_lab"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "rotary_mechanics_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_rotary_test"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "rotary_listening_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_rotary_cli.py",
+      "<BUILD>/parable_rotary_lab"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "muff_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_muff_test"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "muff_listening_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_muff_cli.py",
+      "<BUILD>/parable_muff_lab"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "ts808_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_ts808_test",
+      "--evidence",
+      "<BUILD>/ts808-measurements"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "ts808_listening_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_ts808_cli.py",
+      "<BUILD>/parable_ts808_lab"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "klon_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_klon_test",
+      "--evidence",
+      "<BUILD>/klon-measurements"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "klon_listening_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_klon_cli.py",
+      "<BUILD>/parable_klon_lab"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "wavefolder_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_wavefolder_test"
+    ]
+  },
+  {
+    "config": "Debug",
+    "name": "wavefolder_listening_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_wavefolder_cli.py",
+      "<BUILD>/parable_wavefolder_lab"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "firmware_measurement_math_status",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_firmware_measurement_test"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "core_validation",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_core_test"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "audio_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_audio_safety_test"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "patch_contract",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_patch_test"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "host_preparation",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_prepare_test"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "rat_patch_integration",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_rat_integration_test"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "patch_audio_evidence",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_patch_audition",
+      "--output",
+      "<BUILD>/patch-auditions"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "rat_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_rat_test"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "rat_lab_measurements",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_rat_lab",
+      "--self-test"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "soundforge_utilities",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_soundforge_test"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "soundforge_registry",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/validate_registry.py"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "soundforge_registry_negative",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_soundforge_registry.py"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "labrat_output_preservation",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/check_labrat.py",
+      "--executable",
+      "<BUILD>/parable_rat_lab"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "cmos_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_cmos_test"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "cmos_lab_measurements",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_cmos_lab",
+      "--self-test"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "cmos_lab_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_cmos_cli.py",
+      "<BUILD>/parable_cmos_lab"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "germanium_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_germanium_test"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "germanium_lab_measurements",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_germanium_lab",
+      "--self-test"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "germanium_lab_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_germanium_cli.py",
+      "<BUILD>/parable_germanium_lab"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "preset_journal",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_presets_test"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "activation_contract",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_activation_test"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "activation_concurrency",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_activation_test",
+      "--stress"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "activation_demo",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_activation_demo",
+      "0",
+      "2",
+      "1",
+      "3",
+      "0"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "living_contract",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_living_test"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "living_concurrency",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_living_test",
+      "--stress"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "living_audio_evidence",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_living_demo",
+      "--output",
+      "<BUILD>/living-evidence"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "tape_medium_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_tape_test"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "tape_listening_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_tape_cli.py",
+      "<BUILD>/parable_tape_lab"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "rotary_mechanics_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_rotary_test"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "rotary_listening_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_rotary_cli.py",
+      "<BUILD>/parable_rotary_lab"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "muff_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_muff_test"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "muff_listening_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_muff_cli.py",
+      "<BUILD>/parable_muff_lab"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "ts808_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_ts808_test",
+      "--evidence",
+      "<BUILD>/ts808-measurements"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "ts808_listening_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_ts808_cli.py",
+      "<BUILD>/parable_ts808_lab"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "klon_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_klon_test",
+      "--evidence",
+      "<BUILD>/klon-measurements"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "klon_listening_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_klon_cli.py",
+      "<BUILD>/parable_klon_lab"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "wavefolder_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_wavefolder_test"
+    ]
+  },
+  {
+    "config": "Release",
+    "name": "wavefolder_listening_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_wavefolder_cli.py",
+      "<BUILD>/parable_wavefolder_lab"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "firmware_measurement_math_status",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_firmware_measurement_test"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "core_validation",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_core_test"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "audio_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_audio_safety_test"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "patch_contract",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_patch_test"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "host_preparation",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_prepare_test"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "rat_patch_integration",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_rat_integration_test"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "patch_audio_evidence",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_patch_audition",
+      "--output",
+      "<BUILD>/patch-auditions"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "rat_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_rat_test"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "rat_lab_measurements",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_rat_lab",
+      "--self-test"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "soundforge_utilities",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_soundforge_test"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "soundforge_registry",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/validate_registry.py"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "soundforge_registry_negative",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_soundforge_registry.py"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "labrat_output_preservation",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/check_labrat.py",
+      "--executable",
+      "<BUILD>/parable_rat_lab"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "cmos_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_cmos_test"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "cmos_lab_measurements",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_cmos_lab",
+      "--self-test"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "cmos_lab_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_cmos_cli.py",
+      "<BUILD>/parable_cmos_lab"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "germanium_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_germanium_test"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "germanium_lab_measurements",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_germanium_lab",
+      "--self-test"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "germanium_lab_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_germanium_cli.py",
+      "<BUILD>/parable_germanium_lab"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "preset_journal",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_presets_test"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "activation_contract",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_activation_test"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "activation_concurrency",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_activation_test",
+      "--stress"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "activation_demo",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_activation_demo",
+      "0",
+      "2",
+      "1",
+      "3",
+      "0"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "living_contract",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_living_test"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "living_concurrency",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_living_test",
+      "--stress"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "living_audio_evidence",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_living_demo",
+      "--output",
+      "<BUILD>/living-evidence"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "tape_medium_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_tape_test"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "tape_listening_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_tape_cli.py",
+      "<BUILD>/parable_tape_lab"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "rotary_mechanics_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_rotary_test"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "rotary_listening_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_rotary_cli.py",
+      "<BUILD>/parable_rotary_lab"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "muff_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_muff_test"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "muff_listening_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_muff_cli.py",
+      "<BUILD>/parable_muff_lab"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "ts808_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_ts808_test",
+      "--evidence",
+      "<BUILD>/ts808-measurements"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "ts808_listening_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_ts808_cli.py",
+      "<BUILD>/parable_ts808_lab"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "klon_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_klon_test",
+      "--evidence",
+      "<BUILD>/klon-measurements"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "klon_listening_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_klon_cli.py",
+      "<BUILD>/parable_klon_lab"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "wavefolder_circuit_and_safety",
+    "command_preserved": true,
+    "normalized_command": [
+      "<BUILD>/parable_wavefolder_test"
+    ]
+  },
+  {
+    "config": "ASAN",
+    "name": "wavefolder_listening_cli",
+    "command_preserved": true,
+    "normalized_command": [
+      "/workspace/work/baseline-tools/bin/python3.12",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_wavefolder_cli.py",
+      "<BUILD>/parable_wavefolder_lab"
+    ]
+  }
+]

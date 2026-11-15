@@ -1,0 +1,279 @@
+$ ['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3', '/workspace/work/parable-sf-test-perf/parable-starter/firmware/build.py', '--cache', '/workspace/work/par005-fresh-cache', '--output', '/workspace/work/sf-test-perf-arm']
+{
+  "images": {
+    "minimal_internal_flash": {
+      "app_type": "BOOT_NONE",
+      "execution_location": "internal FLASH",
+      "berkeley_size": [
+        "93524",
+        "1696",
+        "39784",
+        "135004"
+      ],
+      "image_load_span_bytes": 95220,
+      "text_including_rodata_bytes": 93516,
+      "included_input_rodata_bytes": 8520,
+      "static_placement_bytes": {
+        "ITCM": 0,
+        "DTCM": 0,
+        "AXI_SRAM": 24376,
+        "D2_SRAM": 16384,
+        "D3_SRAM": 0,
+        "BACKUP_SRAM": 12,
+        "SDRAM": 0,
+        "QSPI": 0
+      },
+      "static_region_span_bytes": {
+        "ITCM": 0,
+        "DTCM": 0,
+        "AXI_SRAM": 24380,
+        "D2_SRAM": 16384,
+        "D3_SRAM": 0,
+        "BACKUP_SRAM": 12,
+        "SDRAM": 0,
+        "QSPI": 0
+      }
+    },
+    "diagnostic_sram": {
+      "app_type": "BOOT_SRAM",
+      "execution_location": "AXI SRAM",
+      "berkeley_size": [
+        "217576",
+        "2092",
+        "39856",
+        "259524"
+      ],
+      "image_load_span_bytes": 219720,
+      "text_including_rodata_bytes": 212388,
+      "included_input_rodata_bytes": 42157,
+      "static_placement_bytes": {
+        "ITCM": 0,
+        "DTCM": 24840,
+        "AXI_SRAM": 218288,
+        "D2_SRAM": 16384,
+        "D3_SRAM": 0,
+        "BACKUP_SRAM": 12,
+        "SDRAM": 0,
+        "QSPI": 0
+      },
+      "static_region_span_bytes": {
+        "ITCM": 0,
+        "DTCM": 24844,
+        "AXI_SRAM": 218340,
+        "D2_SRAM": 16384,
+        "D3_SRAM": 0,
+        "BACKUP_SRAM": 12,
+        "SDRAM": 0,
+        "QSPI": 0
+      }
+    },
+    "diagnostic_qspi": {
+      "app_type": "BOOT_QSPI",
+      "execution_location": "external QSPI (XIP)",
+      "berkeley_size": [
+        "217576",
+        "2092",
+        "39856",
+        "259524"
+      ],
+      "image_load_span_bytes": 219720,
+      "text_including_rodata_bytes": 212388,
+      "included_input_rodata_bytes": 42157,
+      "static_placement_bytes": {
+        "ITCM": 0,
+        "DTCM": 0,
+        "AXI_SRAM": 24840,
+        "D2_SRAM": 16384,
+        "D3_SRAM": 0,
+        "BACKUP_SRAM": 12,
+        "SDRAM": 0,
+        "QSPI": 218288
+      },
+      "static_region_span_bytes": {
+        "ITCM": 0,
+        "DTCM": 0,
+        "AXI_SRAM": 24844,
+        "D2_SRAM": 16384,
+        "D3_SRAM": 0,
+        "BACKUP_SRAM": 12,
+        "SDRAM": 0,
+        "QSPI": 218340
+      }
+    },
+    "rat_integration": {
+      "app_type": "BOOT_NONE",
+      "execution_location": "internal FLASH",
+      "berkeley_size": [
+        "93660",
+        "1696",
+        "39784",
+        "135140"
+      ],
+      "image_load_span_bytes": 95356,
+      "text_including_rodata_bytes": 93652,
+      "included_input_rodata_bytes": 8580,
+      "static_placement_bytes": {
+        "ITCM": 0,
+        "DTCM": 0,
+        "AXI_SRAM": 24376,
+        "D2_SRAM": 16384,
+        "D3_SRAM": 0,
+        "BACKUP_SRAM": 12,
+        "SDRAM": 0,
+        "QSPI": 0
+      },
+      "static_region_span_bytes": {
+        "ITCM": 0,
+        "DTCM": 0,
+        "AXI_SRAM": 24380,
+        "D2_SRAM": 16384,
+        "D3_SRAM": 0,
+        "BACKUP_SRAM": 12,
+        "SDRAM": 0,
+        "QSPI": 0
+      }
+    },
+    "first_boot_led_recovery": {
+      "app_type": "BOOT_NONE",
+      "execution_location": "internal FLASH",
+      "berkeley_size": [
+        "49976",
+        "1616",
+        "11964",
+        "63556"
+      ],
+      "image_load_span_bytes": 51592,
+      "text_including_rodata_bytes": 49968,
+      "included_input_rodata_bytes": 185,
+      "static_placement_bytes": {
+        "ITCM": 0,
+        "DTCM": 0,
+        "AXI_SRAM": 12872,
+        "D2_SRAM": 0,
+        "D3_SRAM": 0,
+        "BACKUP_SRAM": 0,
+        "SDRAM": 0,
+        "QSPI": 0
+      },
+      "static_region_span_bytes": {
+        "ITCM": 0,
+        "DTCM": 0,
+        "AXI_SRAM": 12876,
+        "D2_SRAM": 0,
+        "D3_SRAM": 0,
+        "BACKUP_SRAM": 0,
+        "SDRAM": 0,
+        "QSPI": 0
+      }
+    },
+    "first_boot_mono_bypass": {
+      "app_type": "BOOT_NONE",
+      "execution_location": "internal FLASH",
+      "berkeley_size": [
+        "107320",
+        "2272",
+        "52396",
+        "161988"
+      ],
+      "image_load_span_bytes": 109600,
+      "text_including_rodata_bytes": 107312,
+      "included_input_rodata_bytes": 9608,
+      "static_placement_bytes": {
+        "ITCM": 0,
+        "DTCM": 0,
+        "AXI_SRAM": 37564,
+        "D2_SRAM": 16384,
+        "D3_SRAM": 0,
+        "BACKUP_SRAM": 12,
+        "SDRAM": 0,
+        "QSPI": 0
+      },
+      "static_region_span_bytes": {
+        "ITCM": 0,
+        "DTCM": 0,
+        "AXI_SRAM": 37568,
+        "D2_SRAM": 16384,
+        "D3_SRAM": 0,
+        "BACKUP_SRAM": 12,
+        "SDRAM": 0,
+        "QSPI": 0
+      }
+    },
+    "first_boot_rat_composite": {
+      "app_type": "BOOT_NONE",
+      "execution_location": "internal FLASH",
+      "berkeley_size": [
+        "107504",
+        "2272",
+        "52396",
+        "162172"
+      ],
+      "image_load_span_bytes": 109784,
+      "text_including_rodata_bytes": 107496,
+      "included_input_rodata_bytes": 9716,
+      "static_placement_bytes": {
+        "ITCM": 0,
+        "DTCM": 0,
+        "AXI_SRAM": 37564,
+        "D2_SRAM": 16384,
+        "D3_SRAM": 0,
+        "BACKUP_SRAM": 12,
+        "SDRAM": 0,
+        "QSPI": 0
+      },
+      "static_region_span_bytes": {
+        "ITCM": 0,
+        "DTCM": 0,
+        "AXI_SRAM": 37568,
+        "D2_SRAM": 16384,
+        "D3_SRAM": 0,
+        "BACKUP_SRAM": 12,
+        "SDRAM": 0,
+        "QSPI": 0
+      }
+    }
+  },
+  "rat_kernel": {
+    "object_size": [
+      "6452",
+      "0",
+      "0",
+      "6452"
+    ],
+    "instance_bytes": 10752,
+    "linked_into_audio_firmware": true,
+    "hardware_execution": "not performed",
+    "target_cpu_cost": "not measured"
+  },
+  "cmos_kernel": {
+    "object_size": [
+      "5604",
+      "0",
+      "0",
+      "5604"
+    ],
+    "instance_bytes": 2128,
+    "linked_into_audio_firmware": false,
+    "hardware_execution": "not performed",
+    "target_cpu_cost": "not measured"
+  },
+  "germanium_kernel": {
+    "object_size": [
+      "7108",
+      "0",
+      "0",
+      "7108"
+    ],
+    "instance_bytes": 2480,
+    "linked_into_audio_firmware": false,
+    "hardware_execution": "not performed",
+    "target_cpu_cost": "not measured"
+  },
+  "internal_flash_codec_probe": {
+    "status": "flash_overflow",
+    "make_exit_code": 2,
+    "flash_overflow_bytes": 88800,
+    "hardware_execution": "not performed"
+  }
+}
+Build-only evidence: /workspace/work/sf-test-perf-arm; no flashing or hardware execution performed

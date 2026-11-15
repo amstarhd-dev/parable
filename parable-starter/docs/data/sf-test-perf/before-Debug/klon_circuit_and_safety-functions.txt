@@ -1,0 +1,94 @@
+Functions sorted by metric: Exclusive Total CPU Time
+
+Excl. Total    Incl. Total     Name
+CPU            CPU
+  sec.      %    sec.      %
+38.980 100.00  38.980 100.00   <Total>
+ 8.750  22.45  37.360  95.84   parable::dsp::Klon::sample(double)
+ 6.760  17.34   9.450  24.24   parable::dsp::Klon::reconstruct(std::array<double, 21ul> const&, std::array<double, 5ul> const&, double, bool) const
+ 4.140  10.62   5.440  13.96   parable::dsp::(anonymous namespace)::dot(std::array<double, 21ul> const&, std::array<double, 21ul> const&)
+ 2.060   5.28  11.370  29.17   parable::dsp::Klon::evaluate(std::array<double, 5ul> const&, std::array<double, 21ul> const&, bool, std::array<double, 5ul>&, std::array<std::array<double, 5ul>, 5ul>&, double&, std::array<double, 2ul>&) const
+ 1.930   4.95  15.300  39.25   parable::dsp::Klon::solve(std::array<double, 5ul>&, std::array<double, 21ul> const&, bool, double&, unsigned int&, double&, std::array<double, 2ul>&) const
+ 1.690   4.34   1.690   4.34   std::array<double, 21ul>::operator[](unsigned long) const
+ 1.530   3.93   1.530   3.93   std::array<double, 21ul>::operator[](unsigned long)
+ 1.010   2.59   1.010   2.59   std::isfinite(double)
+ 1.000   2.57   1.000   2.57   std::array<double, 5ul>::operator[](unsigned long) const
+ 0.970   2.49  38.700  99.28   parable::dsp::Klon::process(float)
+ 0.880   2.26   0.880   2.26   std::array<parable::dsp::Klon::Cap, 17ul>::operator[](unsigned long)
+ 0.870   2.23   0.870   2.23   std::array<double, 17ul>::operator[](unsigned long)
+ 0.810   2.08   0.810   2.08   std::array<double, 4ul>::operator[](unsigned long) const
+ 0.800   2.05   0.800   2.05   std::array<std::array<double, 17ul>, 21ul>::operator[](unsigned long)
+ 0.730   1.87   0.730   1.87   std::array<std::array<double, 4ul>, 21ul>::operator[](unsigned long) const
+ 0.670   1.72   0.670   1.72   std::array<double, 5ul>::operator[](unsigned long)
+ 0.560   1.44   0.560   1.44   std::array<std::array<double, 5ul>, 5ul>::operator[](unsigned long)
+ 0.510   1.31   0.780   2.00   parable::dsp::klon_detail::response(double, double, double, double, bool, unsigned long)
+ 0.430   1.10   1.150   2.95   parable::dsp::(anonymous namespace)::range(double, double, double)
+ 0.380   0.97   0.380   0.97   std::array<unsigned long, 4ul>::operator[](unsigned long) const
+ 0.340   0.87   0.340   0.87   double const& std::max<double>(double const&, double const&)
+ 0.330   0.85   0.330   0.85   std::abs(double)
+ 0.260   0.67   0.260   0.67   <static>@0x75c93 (<libm.so.6>)
+ 0.200   0.51   0.310   0.80   parable::dsp::Klon::coefficient(unsigned long) const
+ 0.190   0.49   0.230   0.59   parable::dsp::Klon::solve(std::array<double, 5ul>&, std::array<double, 21ul> const&, bool, double&, unsigned int&, double&, std::array<double, 2ul>&) const::{lambda(std::array<double, 5ul> const&)#1}::operator()(std::array<double, 5ul> const&) const
+ 0.160   0.41   0.160   0.41   std::remove_reference<double&>::type&& std::move<double&>(double&)
+ 0.130   0.33   0.230   0.59   parable::dsp::klon_detail::diode(double)
+ 0.120   0.31   0.120   0.31   double const& std::min<double>(double const&, double const&)
+ 0.110   0.28   0.110   0.28   std::array<float, 289ul>::operator[](unsigned long) const
+ 0.100   0.26   0.110   0.28   <static>@0x49be2 (<libc.so.6>)
+ 0.080   0.21   0.080   0.21   std::array<double, 3ul>::operator[](unsigned long)
+ 0.060   0.15   0.270   0.69   double* std::swap_ranges<double*, double*>(double*, double*, double*)
+ 0.060   0.15   0.220   0.56   std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<double> >, std::is_move_constructible<double>, std::is_move_assignable<double> >::value, void>::type std::swap<double>(double&, double&)
+ 0.040   0.10   0.220   0.56   double const& std::clamp<double>(double const&, double const&, double const&)
+ 0.040   0.10   0.040   0.10   std::array<double, 4ul>::operator[](unsigned long)
+ 0.040   0.10   0.210   0.54   void std::iter_swap<double*, double*>(double*, double*)
+ 0.030   0.08   0.030   0.08   std::array<float, 49ul>::operator[](unsigned long)
+ 0.020   0.05   8.680  22.27   controls()
+ 0.020   0.05   0.020   0.05   std::array<double, 5ul>::begin() const
+ 0.010   0.03   0.010   0.03   <static>@0x53214 (<libc.so.6>)
+ 0.010   0.03   0.010   0.03   <static>@0x9de00 (<libc.so.6>)
+ 0.010   0.03   0.020   0.05   free
+ 0.010   0.03   0.020   0.05   parable::dsp::(anonymous namespace)::count(unsigned int&, unsigned int)
+ 0.010   0.03   0.010   0.03   std::array<double, 5ul>::begin()
+ 0.010   0.03   0.010   0.03   std::array<double, 5ul>::data() const
+ 0.010   0.03   0.010   0.03   std::array<double, 5ul>::end()
+ 0.010   0.03   0.020   0.05   std::array<double, 5ul>::end() const
+ 0.010   0.03   0.010   0.03   std::array<float, 577ul>::operator[](unsigned long)
+ 0.010   0.03   0.010   0.03   std::array<std::array<double, 21ul>, 21ul>::operator[](unsigned long)
+ 0.010   0.03   0.010   0.03   std::basic_istream<char, std::char_traits<char> >& std::getline<char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char)
+ 0.010   0.03   0.010   0.03   std::complex<double>& std::complex<double>::operator+=<double>(std::complex<double> const&)
+ 0.010   0.03   0.010   0.03   std::numeric_limits<unsigned int>::max()
+ 0.010   0.03   0.010   0.03   std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::operator[](unsigned long) const
+ 0.010   0.03   0.010   0.03   unsigned int const& std::max<unsigned int>(unsigned int const&, unsigned int const&)
+ 0.010   0.03   0.130   0.33   val(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, unsigned long)
+ 0.010   0.03   0.010   0.03   void std::_Destroy<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*)
+ 0.      0.    38.980 100.00   <static>@0x29c21 (<libc.so.6>)
+ 0.      0.     0.010   0.03   <static>@0x9fc63 (<libc.so.6>)
+ 0.      0.     0.020   0.05   __wrap_free
+ 0.      0.     7.090  18.19   aliasing()
+ 0.      0.     0.030   0.08   csv(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+ 0.      0.     0.110   0.28   double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*)
+ 0.      0.     0.020   0.05   drop(void*)
+ 0.      0.     0.010   0.03   exp
+ 0.      0.     0.010   0.03   klonlab::attacks(double)
+ 0.      0.     0.010   0.03   klonlab::periodic(double, double, double, bool)
+ 0.      0.    38.980 100.00   main
+ 0.      0.     0.020   0.05   operator delete(void*, unsigned long)
+ 0.      0.     0.010   0.03   parable::dsp::Klon::matrices(bool)
+ 0.      0.     0.010   0.03   parable::dsp::Klon::prepare(float, parable::dsp::KlonControls, parable::dsp::KlonRate)
+ 0.      0.    18.590  47.69   safety()
+ 0.      0.     0.010   0.03   std::_Vector_base<std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >, std::allocator<std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > >::_M_deallocate(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >*, unsigned long)
+ 0.      0.     0.010   0.03   std::_Vector_base<std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >, std::allocator<std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > >::~_Vector_base()
+ 0.      0.     0.110   0.28   std::__cxx11::stod(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned long*)
+ 0.      0.     0.010   0.03   std::__new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::deallocate(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, unsigned long)
+ 0.      0.     0.010   0.03   std::__new_allocator<std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >::deallocate(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >*, unsigned long)
+ 0.      0.     0.270   0.69   std::array<double, 5ul>::swap(std::array<double, 5ul>&)
+ 0.      0.     0.010   0.03   std::complex<double> std::polar<double>(double const&, double const&)
+ 0.      0.     0.270   0.69   std::enable_if<std::__array_traits<double, 5ul>::_Is_swappable::value, void>::type std::swap<double, 5ul>(std::array<double, 5ul>&, std::array<double, 5ul>&)
+ 0.      0.     0.010   0.03   std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_append<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)::_Guard::~_Guard()
+ 0.      0.     0.010   0.03   std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+ 0.      0.     0.010   0.03   std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::~vector()
+ 0.      0.     0.010   0.03   std::vector<std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >, std::allocator<std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > >::~vector()
+ 0.      0.     4.610  11.83   transients()
+ 0.      0.     0.010   0.03   void std::_Destroy<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*)
+ 0.      0.     0.010   0.03   void std::_Destroy_aux<false>::__destroy<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*)
+ 0.      0.     0.010   0.03   void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_append<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+

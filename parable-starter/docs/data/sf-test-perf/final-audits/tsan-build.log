@@ -1,0 +1,37 @@
+$ ['/workspace/work/baseline-tools/bin/cmake', '--build', '/workspace/work/sf-test-perf-TSAN', '--target', 'parable_activation_test', 'parable_living_test', '-j2']
+[  6%] Building CXX object CMakeFiles/parable_patch.dir/src/patch_json.cpp.o
+[ 13%] Building CXX object CMakeFiles/parable_rat.dir/src/parable_rat.cpp.o
+[ 20%] Linking CXX static library libparable_rat.a
+[ 20%] Built target parable_rat
+[ 26%] Building CXX object CMakeFiles/parable_flash_sim.dir/src/parable_flash_sim.cpp.o
+[ 26%] Linking CXX static library libparable_flash_sim.a
+[ 26%] Built target parable_flash_sim
+[ 33%] Building CXX object CMakeFiles/parable_prepare.dir/src/parable_prepare.cpp.o
+[ 40%] Linking CXX static library libparable_prepare.a
+[ 40%] Built target parable_prepare
+[ 46%] Building CXX object CMakeFiles/parable_patch.dir/src/parable_patch.cpp.o
+[ 53%] Linking CXX static library libparable_patch.a
+[ 53%] Built target parable_patch
+[ 60%] Building CXX object CMakeFiles/parable_presets.dir/src/parable_presets.cpp.o
+[ 60%] Building CXX object CMakeFiles/parable_activation.dir/src/parable_activation.cpp.o
+[ 66%] Building CXX object CMakeFiles/parable_activation.dir/src/parable_activation_audio.cpp.o
+[ 73%] Linking CXX static library libparable_activation.a
+[ 73%] Built target parable_activation
+[ 80%] Linking CXX static library libparable_presets.a
+[ 80%] Built target parable_presets
+[ 86%] Building CXX object CMakeFiles/parable_activation_test.dir/tests/test_activation.cpp.o
+[ 93%] Building CXX object CMakeFiles/parable_activation_test.dir/tests/activation_guard.cpp.o
+[100%] Linking CXX executable parable_activation_test
+[100%] Built target parable_activation_test
+[ 14%] Built target parable_rat
+[ 35%] Built target parable_patch
+[ 50%] Built target parable_prepare
+[ 64%] Built target parable_activation
+[ 71%] Building CXX object CMakeFiles/parable_living.dir/src/parable_living.cpp.o
+[ 78%] Building CXX object CMakeFiles/parable_living.dir/src/parable_living_audio.cpp.o
+[ 85%] Linking CXX static library libparable_living.a
+[ 85%] Built target parable_living
+[ 92%] Building CXX object CMakeFiles/parable_living_test.dir/tests/activation_guard.cpp.o
+[100%] Building CXX object CMakeFiles/parable_living_test.dir/tests/test_living.cpp.o
+[100%] Linking CXX executable parable_living_test
+[100%] Built target parable_living_test

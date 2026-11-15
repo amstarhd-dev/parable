@@ -1,0 +1,43 @@
+$ ['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3', '/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/negative_controls.py', '--project', '/workspace/work/parable-sf-test-perf/parable-starter', '--build', '/workspace/work/sf-test-perf-final-Release', '--output', '/workspace/work/sf-test-perf-evidence/negative-controls-final']
+{
+  "isolated_ctest_exit": 8,
+  "original_gates_failed": [
+    "ts808_circuit_and_safety",
+    "ts808_listening_cli",
+    "labrat_output_preservation"
+  ],
+  "independent_reference_change": "+1 A first TS808 base-current expectation",
+  "audio_change": "original CLI generated source replaced by invalid WAV bytes",
+  "golden_change": "one LabRAT expected output hash zeroed",
+  "original_reference_sha256": "e21331d55553fa2558af0ae594e1d3a037c20f1be538905c306eb8fe646b4fb4",
+  "compile_command": [
+    "c++",
+    "-std=c++17",
+    "-g",
+    "-O0",
+    "-DTS808_FIXTURES=\"/tmp/sf-negative-kz1rtuw2/reference\"",
+    "-I/workspace/work/parable-sf-test-perf/parable-starter/include",
+    "-I/workspace/work/parable-sf-test-perf/parable-starter/src",
+    "-I/workspace/work/parable-sf-test-perf/parable-starter/tools",
+    "-I/workspace/work/parable-sf-test-perf/parable-starter/tests",
+    "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_ts808.cpp",
+    "/workspace/work/parable-sf-test-perf/parable-starter/tests/activation_guard.cpp",
+    "/workspace/work/sf-test-perf-final-Release/libparable_ts808.a",
+    "-pthread",
+    "-Wl,--wrap=malloc",
+    "-Wl,--wrap=calloc",
+    "-Wl,--wrap=realloc",
+    "-Wl,--wrap=free",
+    "-Wl,--wrap=pthread_mutex_lock",
+    "-Wl,--wrap=pthread_mutex_trylock",
+    "-Wl,--wrap=pthread_cond_wait",
+    "-Wl,--wrap=read",
+    "-Wl,--wrap=write",
+    "-Wl,--wrap=fopen",
+    "-Wl,--wrap=fwrite",
+    "-o",
+    "/tmp/sf-negative-kz1rtuw2/ts808-reference-mutant"
+  ],
+  "protected_files_mutated": false,
+  "scope": "three targeted original gates, not a second complete regression suite"
+}

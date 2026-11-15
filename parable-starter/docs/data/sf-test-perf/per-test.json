@@ -1,0 +1,3503 @@
+[
+  {
+    "config": "Debug",
+    "name": "firmware_measurement_math_status",
+    "before": {
+      "name": "firmware_measurement_math_status",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_firmware_measurement_test"
+      ],
+      "wall_s": 0.00243351400422398,
+      "user_s": 0.0022689999999999997,
+      "system_s": 0.0,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "firmware_measurement_math_status",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_firmware_measurement_test"
+      ],
+      "start_monotonic_s": 74736.379611528,
+      "wall_s": 0.0028272530034882948,
+      "user_s": 0.002224,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "core_validation",
+    "before": {
+      "name": "core_validation",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_core_test"
+      ],
+      "wall_s": 0.0023506519937654957,
+      "user_s": 0.0,
+      "system_s": 0.002195,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "core_validation",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_core_test"
+      ],
+      "start_monotonic_s": 74736.420270982,
+      "wall_s": 0.0027260740025667474,
+      "user_s": 0.002043,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "audio_safety",
+    "before": {
+      "name": "audio_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_audio_safety_test"
+      ],
+      "wall_s": 0.0473903250094736,
+      "user_s": 0.047011,
+      "system_s": 0.0,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "audio_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_audio_safety_test"
+      ],
+      "start_monotonic_s": 74736.457807466,
+      "wall_s": 0.04884921399934683,
+      "user_s": 0.045495,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "patch_contract",
+    "before": {
+      "name": "patch_contract",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_patch_test"
+      ],
+      "wall_s": 1.0870149710099213,
+      "user_s": 1.081671,
+      "system_s": 0.004254,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "patch_contract",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_patch_test"
+      ],
+      "start_monotonic_s": 74736.545771709,
+      "wall_s": 1.051044510997599,
+      "user_s": 1.037052,
+      "system_s": 0.004161,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "host_preparation",
+    "before": {
+      "name": "host_preparation",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_prepare_test"
+      ],
+      "wall_s": 0.025274515006458387,
+      "user_s": 0.024967999999999997,
+      "system_s": 0.0,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "host_preparation",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_prepare_test"
+      ],
+      "start_monotonic_s": 74737.634882618,
+      "wall_s": 0.025593611993826926,
+      "user_s": 0.023816,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "rat_patch_integration",
+    "before": {
+      "name": "rat_patch_integration",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_rat_integration_test"
+      ],
+      "wall_s": 1.9550110169948312,
+      "user_s": 1.93616,
+      "system_s": 0.001861,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "rat_patch_integration",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_rat_integration_test"
+      ],
+      "start_monotonic_s": 74737.693530632,
+      "wall_s": 1.8839249140000902,
+      "user_s": 1.8668079999999998,
+      "system_s": 0.003839,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "patch_audio_evidence",
+    "before": {
+      "name": "patch_audio_evidence",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_patch_audition",
+        "--output",
+        "/workspace/work/sf-test-perf-baseline-Debug/patch-auditions"
+      ],
+      "wall_s": 6.6630529389949515,
+      "user_s": 6.544939,
+      "system_s": 0.061605999999999994,
+      "max_rss_KiB": 14156,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "patch_audio_evidence",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_patch_audition",
+        "--output",
+        "/workspace/work/sf-test-perf-final-Debug/patch-auditions"
+      ],
+      "start_monotonic_s": 74739.610081958,
+      "wall_s": 6.022584512000321,
+      "user_s": 5.945801,
+      "system_s": 0.054783,
+      "max_rss_KiB": 14264,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "rat_circuit_and_safety",
+    "before": {
+      "name": "rat_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_rat_test"
+      ],
+      "wall_s": 2.2088350359990727,
+      "user_s": 2.197961,
+      "system_s": 0.0040939999999999995,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "rat_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_rat_test"
+      ],
+      "start_monotonic_s": 74745.666737459,
+      "wall_s": 2.158131741001853,
+      "user_s": 2.123782,
+      "system_s": 0.0040149999999999995,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "rat_lab_measurements",
+    "before": {
+      "name": "rat_lab_measurements",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_rat_lab",
+        "--self-test"
+      ],
+      "wall_s": 3.456909020009334,
+      "user_s": 3.447563,
+      "system_s": 0.000744,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "rat_lab_measurements",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_rat_lab",
+        "--self-test"
+      ],
+      "start_monotonic_s": 74745.975504324,
+      "wall_s": 3.4186768240033416,
+      "user_s": 3.369301,
+      "system_s": 0.008128999999999999,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "soundforge_utilities",
+    "before": {
+      "name": "soundforge_utilities",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_soundforge_test"
+      ],
+      "wall_s": 1.1477578210033244,
+      "user_s": 1.135148,
+      "system_s": 0.0,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "soundforge_utilities",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_soundforge_test"
+      ],
+      "start_monotonic_s": 74747.85984484,
+      "wall_s": 0.925813305992051,
+      "user_s": 0.914295,
+      "system_s": 0.004011,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "soundforge_registry",
+    "before": {
+      "name": "soundforge_registry",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/validate_registry.py"
+      ],
+      "wall_s": 0.049844624008983374,
+      "user_s": 0.028336999999999998,
+      "system_s": 0.021054,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "soundforge_registry",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/validate_registry.py"
+      ],
+      "start_monotonic_s": 74748.817544627,
+      "wall_s": 0.03850479899847414,
+      "user_s": 0.031186,
+      "system_s": 0.005222999999999999,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "soundforge_registry_negative",
+    "before": {
+      "name": "soundforge_registry_negative",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_soundforge_registry.py"
+      ],
+      "wall_s": 0.1831226020003669,
+      "user_s": 0.150092,
+      "system_s": 0.031994,
+      "max_rss_KiB": 14720,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "soundforge_registry_negative",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_soundforge_registry.py"
+      ],
+      "start_monotonic_s": 74748.887744826,
+      "wall_s": 0.15485169600287918,
+      "user_s": 0.134123,
+      "system_s": 0.019495,
+      "max_rss_KiB": 14720,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "labrat_output_preservation",
+    "before": {
+      "name": "labrat_output_preservation",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/check_labrat.py",
+        "--executable",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_rat_lab"
+      ],
+      "wall_s": 18.657086257997435,
+      "user_s": 18.384532,
+      "system_s": 0.158995,
+      "max_rss_KiB": 25868,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "labrat_output_preservation",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/check_labrat.py",
+        "--executable",
+        "/workspace/work/sf-test-perf-final-Debug/parable_rat_lab"
+      ],
+      "start_monotonic_s": 74749.074180687,
+      "wall_s": 17.444313797997893,
+      "user_s": 17.268522,
+      "system_s": 0.104596,
+      "max_rss_KiB": 25868,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "cmos_circuit_and_safety",
+    "before": {
+      "name": "cmos_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_cmos_test"
+      ],
+      "wall_s": 1.2016062769980635,
+      "user_s": 1.187732,
+      "system_s": 0.0,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "cmos_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_cmos_test"
+      ],
+      "start_monotonic_s": 74749.430723625,
+      "wall_s": 1.1559823069983395,
+      "user_s": 1.137716,
+      "system_s": 0.008171,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "cmos_lab_measurements",
+    "before": {
+      "name": "cmos_lab_measurements",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_cmos_lab",
+        "--self-test"
+      ],
+      "wall_s": 3.9429227960063145,
+      "user_s": 3.9261619999999997,
+      "system_s": 0.0007559999999999999,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "cmos_lab_measurements",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_cmos_lab",
+        "--self-test"
+      ],
+      "start_monotonic_s": 74750.629236224,
+      "wall_s": 3.441152337996755,
+      "user_s": 3.433042,
+      "system_s": 0.003909999999999999,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "cmos_lab_cli",
+    "before": {
+      "name": "cmos_lab_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_cmos_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_cmos_lab"
+      ],
+      "wall_s": 11.321296495007118,
+      "user_s": 11.264613,
+      "system_s": 0.035835,
+      "max_rss_KiB": 12416,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "cmos_lab_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_cmos_cli.py",
+        "/workspace/work/sf-test-perf-final-Debug/parable_cmos_lab"
+      ],
+      "start_monotonic_s": 74754.106338978,
+      "wall_s": 10.697973935995833,
+      "user_s": 10.634016,
+      "system_s": 0.030508999999999998,
+      "max_rss_KiB": 12416,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "germanium_circuit_and_safety",
+    "before": {
+      "name": "germanium_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_germanium_test"
+      ],
+      "wall_s": 6.8995387199975085,
+      "user_s": 6.872054,
+      "system_s": 0.005664,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "germanium_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_germanium_test"
+      ],
+      "start_monotonic_s": 74764.835342392,
+      "wall_s": 6.8427187469933415,
+      "user_s": 6.812909,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "germanium_lab_measurements",
+    "before": {
+      "name": "germanium_lab_measurements",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_germanium_lab",
+        "--self-test"
+      ],
+      "wall_s": 6.975903454993386,
+      "user_s": 6.95508,
+      "system_s": 0.00402,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "germanium_lab_measurements",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_germanium_lab",
+        "--self-test"
+      ],
+      "start_monotonic_s": 74766.555071544,
+      "wall_s": 6.650222333002603,
+      "user_s": 6.589547,
+      "system_s": 0.003985,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "germanium_lab_cli",
+    "before": {
+      "name": "germanium_lab_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_germanium_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_germanium_lab"
+      ],
+      "wall_s": 13.310241048995522,
+      "user_s": 13.239858,
+      "system_s": 0.042045,
+      "max_rss_KiB": 12672,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "germanium_lab_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_germanium_cli.py",
+        "/workspace/work/sf-test-perf-final-Debug/parable_germanium_lab"
+      ],
+      "start_monotonic_s": 74771.714539482,
+      "wall_s": 13.59329245700792,
+      "user_s": 13.56301,
+      "system_s": 0.015399,
+      "max_rss_KiB": 12672,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "preset_journal",
+    "before": {
+      "name": "preset_journal",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_presets_test"
+      ],
+      "wall_s": 17.104536215992994,
+      "user_s": 15.894555,
+      "system_s": 1.1683,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "preset_journal",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_presets_test"
+      ],
+      "start_monotonic_s": 74773.243938712,
+      "wall_s": 17.404265076009324,
+      "user_s": 16.02482,
+      "system_s": 1.284387,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "activation_contract",
+    "before": {
+      "name": "activation_contract",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_activation_test"
+      ],
+      "wall_s": 0.1784557499922812,
+      "user_s": 0.15689999999999998,
+      "system_s": 0.011224999999999999,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "activation_contract",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_activation_test"
+      ],
+      "start_monotonic_s": 74785.339144504,
+      "wall_s": 0.16621998300252017,
+      "user_s": 0.16053599999999998,
+      "system_s": 0.003888,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "activation_concurrency",
+    "before": {
+      "name": "activation_concurrency",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_activation_test",
+        "--stress"
+      ],
+      "wall_s": 26.080160333003732,
+      "user_s": 39.606278,
+      "system_s": 4.039,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "activation_concurrency",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_activation_test",
+        "--stress"
+      ],
+      "start_monotonic_s": 74797.007687684,
+      "wall_s": 25.38976536199334,
+      "user_s": 38.647183,
+      "system_s": 4.053463,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "activation_demo",
+    "before": {
+      "name": "activation_demo",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_activation_demo",
+        "0",
+        "2",
+        "1",
+        "3",
+        "0"
+      ],
+      "wall_s": 0.033842164993984625,
+      "user_s": 0.029175,
+      "system_s": 0.004424,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "activation_demo",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_activation_demo",
+        "0",
+        "2",
+        "1",
+        "3",
+        "0"
+      ],
+      "start_monotonic_s": 74785.54959702,
+      "wall_s": 0.037054732005344704,
+      "user_s": 0.025622,
+      "system_s": 0.008539999999999999,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "living_contract",
+    "before": {
+      "name": "living_contract",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_living_test"
+      ],
+      "wall_s": 1.0168128219956998,
+      "user_s": 0.989319,
+      "system_s": 0.020139,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "living_contract",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_living_test"
+      ],
+      "start_monotonic_s": 74785.620387948,
+      "wall_s": 0.9468766509962734,
+      "user_s": 0.941511,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "living_concurrency",
+    "before": {
+      "name": "living_concurrency",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_living_test",
+        "--stress"
+      ],
+      "wall_s": 2.554167797003174,
+      "user_s": 3.344809,
+      "system_s": 1.716892,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "living_concurrency",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_living_test",
+        "--stress"
+      ],
+      "start_monotonic_s": 74822.434974634,
+      "wall_s": 2.3443495109968353,
+      "user_s": 2.982928,
+      "system_s": 1.655721,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "living_audio_evidence",
+    "before": {
+      "name": "living_audio_evidence",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_living_demo",
+        "--output",
+        "/workspace/work/sf-test-perf-baseline-Debug/living-evidence"
+      ],
+      "wall_s": 6.304789337998955,
+      "user_s": 6.259207,
+      "system_s": 0.035515,
+      "max_rss_KiB": 11672,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "living_audio_evidence",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_living_demo",
+        "--output",
+        "/workspace/work/sf-test-perf-final-Debug/living-evidence"
+      ],
+      "start_monotonic_s": 74786.602461979,
+      "wall_s": 6.193259735009633,
+      "user_s": 6.11547,
+      "system_s": 0.032608,
+      "max_rss_KiB": 11832,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "tape_medium_and_safety",
+    "before": {
+      "name": "tape_medium_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_tape_test"
+      ],
+      "wall_s": 0.128972305014031,
+      "user_s": 0.12422,
+      "system_s": 0.004164,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "tape_medium_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_tape_test"
+      ],
+      "start_monotonic_s": 74790.680326034,
+      "wall_s": 0.12135459200362675,
+      "user_s": 0.11824599999999999,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "tape_listening_cli",
+    "before": {
+      "name": "tape_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_tape_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_tape_lab"
+      ],
+      "wall_s": 1.5955324940005084,
+      "user_s": 1.337022,
+      "system_s": 0.25593699999999997,
+      "max_rss_KiB": 37792,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "tape_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_tape_cli.py",
+        "/workspace/work/sf-test-perf-final-Debug/parable_tape_lab"
+      ],
+      "start_monotonic_s": 74790.834504148,
+      "wall_s": 1.5673521519929636,
+      "user_s": 1.3569849999999999,
+      "system_s": 0.191708,
+      "max_rss_KiB": 37792,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "rotary_mechanics_and_safety",
+    "before": {
+      "name": "rotary_mechanics_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_rotary_test"
+      ],
+      "wall_s": 3.612675914002466,
+      "user_s": 3.605228,
+      "system_s": 0.0,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "rotary_mechanics_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Debug/parable_rotary_test"
+      ],
+      "start_monotonic_s": 74792.433959779,
+      "wall_s": 4.03469541099912,
+      "user_s": 3.999329,
+      "system_s": 0.00798,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "rotary_listening_cli",
+    "before": {
+      "name": "rotary_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_rotary_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_rotary_lab"
+      ],
+      "wall_s": 4.012717969992082,
+      "user_s": 3.872502,
+      "system_s": 0.134155,
+      "max_rss_KiB": 37396,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "rotary_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_rotary_cli.py",
+        "/workspace/work/sf-test-perf-final-Debug/parable_rotary_lab"
+      ],
+      "start_monotonic_s": 74792.828501561,
+      "wall_s": 4.147868763000588,
+      "user_s": 3.959113,
+      "system_s": 0.17901999999999998,
+      "max_rss_KiB": 37396,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "muff_circuit_and_safety",
+    "before": {
+      "name": "muff_circuit_and_safety",
+      "command": [
+        "gprofng",
+        "collect",
+        "app",
+        "-a",
+        "off",
+        "-p",
+        "10",
+        "-o",
+        "/workspace/work/sf-test-perf-evidence/baseline-Debug/muff_circuit_and_safety.er",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_muff_test"
+      ],
+      "wall_s": 164.913459968011,
+      "user_s": 164.571518,
+      "system_s": 0.050646,
+      "max_rss_KiB": 13056,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "muff_circuit_and_safety",
+      "command": [
+        "gprofng",
+        "collect",
+        "app",
+        "-a",
+        "off",
+        "-p",
+        "10",
+        "-o",
+        "/workspace/work/sf-test-perf-evidence/final-Debug/muff_circuit_and_safety.er",
+        "/workspace/work/sf-test-perf-final-Debug/parable_muff_test"
+      ],
+      "start_monotonic_s": 74563.733482407,
+      "wall_s": 164.77641300200776,
+      "user_s": 164.2264,
+      "system_s": 0.018996,
+      "max_rss_KiB": 13184,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "muff_listening_cli",
+    "before": {
+      "name": "muff_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_muff_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_muff_lab"
+      ],
+      "wall_s": 187.51627964701038,
+      "user_s": 187.214209,
+      "system_s": 0.17424199999999998,
+      "max_rss_KiB": 29212,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "muff_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_muff_cli.py",
+        "/workspace/work/sf-test-perf-final-Debug/parable_muff_lab"
+      ],
+      "start_monotonic_s": 74526.610795838,
+      "wall_s": 192.12918242400337,
+      "user_s": 190.665906,
+      "system_s": 0.135541,
+      "max_rss_KiB": 29080,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "ts808_circuit_and_safety",
+    "before": {
+      "name": "ts808_circuit_and_safety",
+      "command": [
+        "gprofng",
+        "collect",
+        "app",
+        "-a",
+        "off",
+        "-p",
+        "10",
+        "-o",
+        "/workspace/work/sf-test-perf-evidence/baseline-Debug/ts808_circuit_and_safety.er",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_ts808_test",
+        "--evidence",
+        "/workspace/work/sf-test-perf-baseline-Debug/ts808-measurements"
+      ],
+      "wall_s": 510.3077578670054,
+      "user_s": 509.714034,
+      "system_s": 0.064668,
+      "max_rss_KiB": 25188,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "ts808_circuit_and_safety",
+      "command": [
+        "gprofng",
+        "collect",
+        "app",
+        "-a",
+        "off",
+        "-p",
+        "10",
+        "-o",
+        "/workspace/work/sf-test-perf-evidence/final-Debug/ts808_circuit_and_safety.er",
+        "/workspace/work/sf-test-perf-final-Debug/parable_ts808_test",
+        "--evidence",
+        "/workspace/work/sf-test-perf-final-Debug/ts808-measurements"
+      ],
+      "start_monotonic_s": 73548.997397833,
+      "wall_s": 531.6355664350122,
+      "user_s": 529.412192,
+      "system_s": 0.047370999999999996,
+      "max_rss_KiB": 25432,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "ts808_listening_cli",
+    "before": {
+      "name": "ts808_listening_cli",
+      "command": [
+        "gprofng",
+        "collect",
+        "app",
+        "-a",
+        "off",
+        "-p",
+        "10",
+        "-o",
+        "/workspace/work/sf-test-perf-evidence/baseline-Debug/ts808_listening_cli.er",
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/sf-test-perf-audit-python.py",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_ts808_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_ts808_lab"
+      ],
+      "wall_s": 556.4538347670023,
+      "user_s": 555.875719,
+      "system_s": 0.359134,
+      "max_rss_KiB": 43468,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "ts808_listening_cli",
+      "command": [
+        "gprofng",
+        "collect",
+        "app",
+        "-a",
+        "off",
+        "-p",
+        "10",
+        "-o",
+        "/workspace/work/sf-test-perf-evidence/final-Debug/ts808_listening_cli.er",
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/benchmark.py",
+        "--_observe",
+        "/workspace/work/sf-test-perf-evidence/final-Debug/ts808_listening_cli-artifacts",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_ts808_cli.py",
+        "/workspace/work/sf-test-perf-final-Debug/parable_ts808_lab"
+      ],
+      "start_monotonic_s": 73548.995380643,
+      "wall_s": 575.1149622469966,
+      "user_s": 571.533016,
+      "system_s": 0.44665299999999997,
+      "max_rss_KiB": 44100,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "klon_circuit_and_safety",
+    "before": {
+      "name": "klon_circuit_and_safety",
+      "command": [
+        "gprofng",
+        "collect",
+        "app",
+        "-a",
+        "off",
+        "-p",
+        "10",
+        "-o",
+        "/workspace/work/sf-test-perf-evidence/baseline-Debug/klon_circuit_and_safety.er",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_klon_test",
+        "--evidence",
+        "/workspace/work/sf-test-perf-baseline-Debug/klon-measurements"
+      ],
+      "wall_s": 390.0359066109959,
+      "user_s": 389.791928,
+      "system_s": 0.112187,
+      "max_rss_KiB": 35040,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "klon_circuit_and_safety",
+      "command": [
+        "gprofng",
+        "collect",
+        "app",
+        "-a",
+        "off",
+        "-p",
+        "10",
+        "-o",
+        "/workspace/work/sf-test-perf-evidence/final-Debug/klon_circuit_and_safety.er",
+        "/workspace/work/sf-test-perf-final-Debug/parable_klon_test",
+        "--evidence",
+        "/workspace/work/sf-test-perf-final-Debug/klon-measurements"
+      ],
+      "start_monotonic_s": 74124.158926181,
+      "wall_s": 402.410953219005,
+      "user_s": 400.690174,
+      "system_s": 0.17908,
+      "max_rss_KiB": 35160,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "klon_listening_cli",
+    "before": {
+      "name": "klon_listening_cli",
+      "command": [
+        "gprofng",
+        "collect",
+        "app",
+        "-a",
+        "off",
+        "-p",
+        "10",
+        "-o",
+        "/workspace/work/sf-test-perf-evidence/baseline-Debug/klon_listening_cli.er",
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/sf-test-perf-audit-python.py",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_klon_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_klon_lab"
+      ],
+      "wall_s": 473.0614065020054,
+      "user_s": 472.505822,
+      "system_s": 0.349695,
+      "max_rss_KiB": 49056,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "klon_listening_cli",
+      "command": [
+        "gprofng",
+        "collect",
+        "app",
+        "-a",
+        "off",
+        "-p",
+        "10",
+        "-o",
+        "/workspace/work/sf-test-perf-evidence/final-Debug/klon_listening_cli.er",
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/benchmark.py",
+        "--_observe",
+        "/workspace/work/sf-test-perf-evidence/final-Debug/klon_listening_cli-artifacts",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_klon_cli.py",
+        "/workspace/work/sf-test-perf-final-Debug/parable_klon_lab"
+      ],
+      "start_monotonic_s": 74080.682669542,
+      "wall_s": 483.00666774599813,
+      "user_s": 480.169748,
+      "system_s": 0.38533599999999996,
+      "max_rss_KiB": 49684,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "wavefolder_circuit_and_safety",
+    "before": {
+      "name": "wavefolder_circuit_and_safety",
+      "command": [
+        "gprofng",
+        "collect",
+        "app",
+        "-a",
+        "off",
+        "-p",
+        "10",
+        "-o",
+        "/workspace/work/sf-test-perf-evidence/baseline-Debug/wavefolder_circuit_and_safety.er",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_wavefolder_test"
+      ],
+      "wall_s": 16.387538291994133,
+      "user_s": 16.28015,
+      "system_s": 0.067032,
+      "max_rss_KiB": 34016,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "wavefolder_circuit_and_safety",
+      "command": [
+        "gprofng",
+        "collect",
+        "app",
+        "-a",
+        "off",
+        "-p",
+        "10",
+        "-o",
+        "/workspace/work/sf-test-perf-evidence/final-Debug/wavefolder_circuit_and_safety.er",
+        "/workspace/work/sf-test-perf-final-Debug/parable_wavefolder_test"
+      ],
+      "start_monotonic_s": 74718.782559483,
+      "wall_s": 17.561497041999246,
+      "user_s": 17.403014,
+      "system_s": 0.10024699999999999,
+      "max_rss_KiB": 34076,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "wavefolder_listening_cli",
+    "before": {
+      "name": "wavefolder_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_wavefolder_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_wavefolder_lab"
+      ],
+      "wall_s": 17.229880543993204,
+      "user_s": 17.034441,
+      "system_s": 0.173239,
+      "max_rss_KiB": 31720,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "wavefolder_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_wavefolder_cli.py",
+        "/workspace/work/sf-test-perf-final-Debug/parable_wavefolder_lab"
+      ],
+      "start_monotonic_s": 74728.549949163,
+      "wall_s": 17.39350528799696,
+      "user_s": 17.183064,
+      "system_s": 0.11741299999999999,
+      "max_rss_KiB": 31720,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Debug",
+    "name": "soundforge_benchmark_contract",
+    "before": null,
+    "after": {
+      "name": "soundforge_benchmark_contract",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_soundforge_benchmark.py",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/benchmark.py"
+      ],
+      "start_monotonic_s": 74824.815139792,
+      "wall_s": 0.5081462459929753,
+      "user_s": 0.38411999999999996,
+      "system_s": 0.168296,
+      "max_rss_KiB": 16680,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "firmware_measurement_math_status",
+    "before": {
+      "name": "firmware_measurement_math_status",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_firmware_measurement_test"
+      ],
+      "wall_s": 0.0020422870002221316,
+      "user_s": 0.001816,
+      "system_s": 0.0,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "firmware_measurement_math_status",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_firmware_measurement_test"
+      ],
+      "start_monotonic_s": 74958.734691137,
+      "wall_s": 0.0018364230054430664,
+      "user_s": 0.001638,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "core_validation",
+    "before": {
+      "name": "core_validation",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_core_test"
+      ],
+      "wall_s": 0.001957952990778722,
+      "user_s": 0.001749,
+      "system_s": 0.0,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "core_validation",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_core_test"
+      ],
+      "start_monotonic_s": 74958.767283885,
+      "wall_s": 0.002345286004128866,
+      "user_s": 0.002142,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "audio_safety",
+    "before": {
+      "name": "audio_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_audio_safety_test"
+      ],
+      "wall_s": 0.01288005500100553,
+      "user_s": 0.012591,
+      "system_s": 0.0,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "audio_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_audio_safety_test"
+      ],
+      "start_monotonic_s": 74958.799898786,
+      "wall_s": 0.00958114699460566,
+      "user_s": 0.006202,
+      "system_s": 0.003156,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "patch_contract",
+    "before": {
+      "name": "patch_contract",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_patch_test"
+      ],
+      "wall_s": 0.13880425599927548,
+      "user_s": 0.124846,
+      "system_s": 0.007817,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "patch_contract",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_patch_test"
+      ],
+      "start_monotonic_s": 74958.841079494,
+      "wall_s": 0.12606874700577464,
+      "user_s": 0.11857799999999999,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "host_preparation",
+    "before": {
+      "name": "host_preparation",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_prepare_test"
+      ],
+      "wall_s": 0.005145292001543567,
+      "user_s": 0.002495,
+      "system_s": 0.002503,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "host_preparation",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_prepare_test"
+      ],
+      "start_monotonic_s": 74958.925477769,
+      "wall_s": 0.004854874001466669,
+      "user_s": 0.0047279999999999996,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "rat_patch_integration",
+    "before": {
+      "name": "rat_patch_integration",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_rat_integration_test"
+      ],
+      "wall_s": 0.7901194820005912,
+      "user_s": 0.784638,
+      "system_s": 0.004182,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "rat_patch_integration",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_rat_integration_test"
+      ],
+      "start_monotonic_s": 74958.960870635,
+      "wall_s": 0.770146498005488,
+      "user_s": 0.7674529999999999,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "patch_audio_evidence",
+    "before": {
+      "name": "patch_audio_evidence",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_patch_audition",
+        "--output",
+        "/workspace/work/sf-test-perf-baseline-Release/patch-auditions"
+      ],
+      "wall_s": 1.8510884400020586,
+      "user_s": 1.816049,
+      "system_s": 0.030746,
+      "max_rss_KiB": 14084,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "patch_audio_evidence",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_patch_audition",
+        "--output",
+        "/workspace/work/sf-test-perf-final-Release/patch-auditions"
+      ],
+      "start_monotonic_s": 74958.999150757,
+      "wall_s": 1.8804151630029082,
+      "user_s": 1.816206,
+      "system_s": 0.055352,
+      "max_rss_KiB": 14104,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "rat_circuit_and_safety",
+    "before": {
+      "name": "rat_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_rat_test"
+      ],
+      "wall_s": 0.5727804230118636,
+      "user_s": 0.5722309999999999,
+      "system_s": 0.0,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "rat_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_rat_test"
+      ],
+      "start_monotonic_s": 74959.763463024,
+      "wall_s": 0.5971007639891468,
+      "user_s": 0.592641,
+      "system_s": 0.0039049999999999996,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "rat_lab_measurements",
+    "before": {
+      "name": "rat_lab_measurements",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_rat_lab",
+        "--self-test"
+      ],
+      "wall_s": 0.7955333600111771,
+      "user_s": 0.7836219999999999,
+      "system_s": 0.003993,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "rat_lab_measurements",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_rat_lab",
+        "--self-test"
+      ],
+      "start_monotonic_s": 74960.393853066,
+      "wall_s": 0.8182185020123143,
+      "user_s": 0.8154659999999999,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "soundforge_utilities",
+    "before": {
+      "name": "soundforge_utilities",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_soundforge_test"
+      ],
+      "wall_s": 0.7408333659986965,
+      "user_s": 0.736281,
+      "system_s": 0.004004,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "soundforge_utilities",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_soundforge_test"
+      ],
+      "start_monotonic_s": 74960.913386313,
+      "wall_s": 0.7884339529991848,
+      "user_s": 0.783432,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "soundforge_registry",
+    "before": {
+      "name": "soundforge_registry",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/validate_registry.py"
+      ],
+      "wall_s": 0.041645236997283064,
+      "user_s": 0.031300999999999995,
+      "system_s": 0.007824,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "soundforge_registry",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/validate_registry.py"
+      ],
+      "start_monotonic_s": 74961.246665644,
+      "wall_s": 0.037539177006692626,
+      "user_s": 0.022222,
+      "system_s": 0.014773999999999999,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "soundforge_registry_negative",
+    "before": {
+      "name": "soundforge_registry_negative",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_soundforge_registry.py"
+      ],
+      "wall_s": 0.15271306000067852,
+      "user_s": 0.135635,
+      "system_s": 0.01609,
+      "max_rss_KiB": 14720,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "soundforge_registry_negative",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_soundforge_registry.py"
+      ],
+      "start_monotonic_s": 74961.314385065,
+      "wall_s": 0.15579694201005623,
+      "user_s": 0.140001,
+      "system_s": 0.015264,
+      "max_rss_KiB": 14592,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "labrat_output_preservation",
+    "before": {
+      "name": "labrat_output_preservation",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/check_labrat.py",
+        "--executable",
+        "/workspace/work/sf-test-perf-baseline-Release/parable_rat_lab"
+      ],
+      "wall_s": 3.986465791997034,
+      "user_s": 3.908359,
+      "system_s": 0.058703,
+      "max_rss_KiB": 25796,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "labrat_output_preservation",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/check_labrat.py",
+        "--executable",
+        "/workspace/work/sf-test-perf-final-Release/parable_rat_lab"
+      ],
+      "start_monotonic_s": 74961.506328577,
+      "wall_s": 4.166164921000018,
+      "user_s": 4.104432,
+      "system_s": 0.052453,
+      "max_rss_KiB": 25736,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "cmos_circuit_and_safety",
+    "before": {
+      "name": "cmos_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_cmos_test"
+      ],
+      "wall_s": 0.250998976000119,
+      "user_s": 0.248057,
+      "system_s": 0.0,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "cmos_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_cmos_test"
+      ],
+      "start_monotonic_s": 74961.732856014,
+      "wall_s": 0.2668672180006979,
+      "user_s": 0.25499499999999997,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "cmos_lab_measurements",
+    "before": {
+      "name": "cmos_lab_measurements",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_cmos_lab",
+        "--self-test"
+      ],
+      "wall_s": 0.8173234739952022,
+      "user_s": 0.800067,
+      "system_s": 0.0,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "cmos_lab_measurements",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_cmos_lab",
+        "--self-test"
+      ],
+      "start_monotonic_s": 74962.040959081,
+      "wall_s": 0.8172727469936945,
+      "user_s": 0.811933,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "cmos_lab_cli",
+    "before": {
+      "name": "cmos_lab_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_cmos_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Release/parable_cmos_lab"
+      ],
+      "wall_s": 2.6225452430080622,
+      "user_s": 2.587129,
+      "system_s": 0.032230999999999996,
+      "max_rss_KiB": 12416,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "cmos_lab_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_cmos_cli.py",
+        "/workspace/work/sf-test-perf-final-Release/parable_cmos_lab"
+      ],
+      "start_monotonic_s": 74962.896058387,
+      "wall_s": 2.550066354990122,
+      "user_s": 2.523754,
+      "system_s": 0.016352,
+      "max_rss_KiB": 12416,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "germanium_circuit_and_safety",
+    "before": {
+      "name": "germanium_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_germanium_test"
+      ],
+      "wall_s": 1.5017613980016904,
+      "user_s": 1.490251,
+      "system_s": 0.003941,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "germanium_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_germanium_test"
+      ],
+      "start_monotonic_s": 74965.511367822,
+      "wall_s": 1.5131067670008633,
+      "user_s": 1.500136,
+      "system_s": 0.001898,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "germanium_lab_measurements",
+    "before": {
+      "name": "germanium_lab_measurements",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_germanium_lab",
+        "--self-test"
+      ],
+      "wall_s": 1.5982275029964512,
+      "user_s": 1.585315,
+      "system_s": 0.0,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "germanium_lab_measurements",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_germanium_lab",
+        "--self-test"
+      ],
+      "start_monotonic_s": 74965.705086589,
+      "wall_s": 1.5107979149906896,
+      "user_s": 1.5102470000000001,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "germanium_lab_cli",
+    "before": {
+      "name": "germanium_lab_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_germanium_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Release/parable_germanium_lab"
+      ],
+      "wall_s": 3.189916452000034,
+      "user_s": 3.147882,
+      "system_s": 0.038551999999999996,
+      "max_rss_KiB": 12672,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "germanium_lab_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_germanium_cli.py",
+        "/workspace/work/sf-test-perf-final-Release/parable_germanium_lab"
+      ],
+      "start_monotonic_s": 74967.061444086,
+      "wall_s": 3.2353281500109006,
+      "user_s": 3.177994,
+      "system_s": 0.034703,
+      "max_rss_KiB": 12672,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "preset_journal",
+    "before": {
+      "name": "preset_journal",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_presets_test"
+      ],
+      "wall_s": 3.6482275210000807,
+      "user_s": 2.558496,
+      "system_s": 1.072365,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "preset_journal",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_presets_test"
+      ],
+      "start_monotonic_s": 74967.252733624,
+      "wall_s": 3.6599517290014774,
+      "user_s": 2.549503,
+      "system_s": 1.104898,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "activation_contract",
+    "before": {
+      "name": "activation_contract",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_activation_test"
+      ],
+      "wall_s": 0.09478593499807175,
+      "user_s": 0.09046599999999999,
+      "system_s": 0.004143,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "activation_contract",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_activation_test"
+      ],
+      "start_monotonic_s": 74970.338482899,
+      "wall_s": 0.09347136699943803,
+      "user_s": 0.089047,
+      "system_s": 0.0041389999999999995,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "activation_concurrency",
+    "before": {
+      "name": "activation_concurrency",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_activation_test",
+        "--stress"
+      ],
+      "wall_s": 20.222958680999,
+      "user_s": 30.349956,
+      "system_s": 3.41586,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "activation_concurrency",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_activation_test",
+        "--stress"
+      ],
+      "start_monotonic_s": 74973.825540969,
+      "wall_s": 20.450589519998175,
+      "user_s": 30.805798,
+      "system_s": 3.266498,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "activation_demo",
+    "before": {
+      "name": "activation_demo",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_activation_demo",
+        "0",
+        "2",
+        "1",
+        "3",
+        "0"
+      ],
+      "wall_s": 0.015412957989610732,
+      "user_s": 0.01521,
+      "system_s": 0.0,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "activation_demo",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_activation_demo",
+        "0",
+        "2",
+        "1",
+        "3",
+        "0"
+      ],
+      "start_monotonic_s": 74970.499330778,
+      "wall_s": 0.021362711006077006,
+      "user_s": 0.020968999999999998,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "living_contract",
+    "before": {
+      "name": "living_contract",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_living_test"
+      ],
+      "wall_s": 0.19551272499666084,
+      "user_s": 0.19500599999999998,
+      "system_s": 0.0,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "living_contract",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_living_test"
+      ],
+      "start_monotonic_s": 74970.571288257,
+      "wall_s": 0.2299106070131529,
+      "user_s": 0.22316999999999998,
+      "system_s": 0.0038919999999999996,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "living_concurrency",
+    "before": {
+      "name": "living_concurrency",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_living_test",
+        "--stress"
+      ],
+      "wall_s": 0.47332951199496165,
+      "user_s": 0.555034,
+      "system_s": 0.358616,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "living_concurrency",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_living_test",
+        "--stress"
+      ],
+      "start_monotonic_s": 74994.313957422,
+      "wall_s": 0.4851078369974857,
+      "user_s": 0.5947209999999999,
+      "system_s": 0.332877,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "living_audio_evidence",
+    "before": {
+      "name": "living_audio_evidence",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_living_demo",
+        "--output",
+        "/workspace/work/sf-test-perf-baseline-Release/living-evidence"
+      ],
+      "wall_s": 1.6857663049886469,
+      "user_s": 1.669112,
+      "system_s": 0.01616,
+      "max_rss_KiB": 11692,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "living_audio_evidence",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_living_demo",
+        "--output",
+        "/workspace/work/sf-test-perf-final-Release/living-evidence"
+      ],
+      "start_monotonic_s": 74970.838039803,
+      "wall_s": 1.9460009739996167,
+      "user_s": 1.8920219999999999,
+      "system_s": 0.032319,
+      "max_rss_KiB": 11664,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "tape_medium_and_safety",
+    "before": {
+      "name": "tape_medium_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_tape_test"
+      ],
+      "wall_s": 0.03404923199559562,
+      "user_s": 0.02502,
+      "system_s": 0.008432,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "tape_medium_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_tape_test"
+      ],
+      "start_monotonic_s": 74970.949422018,
+      "wall_s": 0.04096003399172332,
+      "user_s": 0.040755,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "tape_listening_cli",
+    "before": {
+      "name": "tape_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_tape_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Release/parable_tape_lab"
+      ],
+      "wall_s": 0.4680907139991177,
+      "user_s": 0.29422899999999996,
+      "system_s": 0.173283,
+      "max_rss_KiB": 37780,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "tape_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_tape_cli.py",
+        "/workspace/work/sf-test-perf-final-Release/parable_tape_lab"
+      ],
+      "start_monotonic_s": 74971.022921505,
+      "wall_s": 0.47833442100090906,
+      "user_s": 0.320905,
+      "system_s": 0.152341,
+      "max_rss_KiB": 37780,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "rotary_mechanics_and_safety",
+    "before": {
+      "name": "rotary_mechanics_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_rotary_test"
+      ],
+      "wall_s": 1.013410172003205,
+      "user_s": 1.0043,
+      "system_s": 0.00827,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "rotary_mechanics_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_rotary_test"
+      ],
+      "start_monotonic_s": 74971.538212135,
+      "wall_s": 1.0449084560095798,
+      "user_s": 1.041727,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "rotary_listening_cli",
+    "before": {
+      "name": "rotary_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_rotary_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Release/parable_rotary_lab"
+      ],
+      "wall_s": 1.18927730100404,
+      "user_s": 1.019695,
+      "system_s": 0.165441,
+      "max_rss_KiB": 37260,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "rotary_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_rotary_cli.py",
+        "/workspace/work/sf-test-perf-final-Release/parable_rotary_lab"
+      ],
+      "start_monotonic_s": 74972.628111189,
+      "wall_s": 1.1593592139979592,
+      "user_s": 0.991066,
+      "system_s": 0.16866499999999998,
+      "max_rss_KiB": 37260,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "muff_circuit_and_safety",
+    "before": {
+      "name": "muff_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_muff_test"
+      ],
+      "wall_s": 14.393479588004993,
+      "user_s": 14.338734,
+      "system_s": 0.011951999999999999,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "muff_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_muff_test"
+      ],
+      "start_monotonic_s": 74941.105042672,
+      "wall_s": 14.753183563996572,
+      "user_s": 14.722584,
+      "system_s": 0.004135,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "muff_listening_cli",
+    "before": {
+      "name": "muff_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_muff_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Release/parable_muff_lab"
+      ],
+      "wall_s": 16.870354561004206,
+      "user_s": 16.664709,
+      "system_s": 0.171029,
+      "max_rss_KiB": 29108,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "muff_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_muff_cli.py",
+        "/workspace/work/sf-test-perf-final-Release/parable_muff_lab"
+      ],
+      "start_monotonic_s": 74938.062651586,
+      "wall_s": 17.986953782994533,
+      "user_s": 17.76271,
+      "system_s": 0.11413999999999999,
+      "max_rss_KiB": 29212,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "ts808_circuit_and_safety",
+    "before": {
+      "name": "ts808_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_ts808_test",
+        "--evidence",
+        "/workspace/work/sf-test-perf-baseline-Release/ts808-measurements"
+      ],
+      "wall_s": 39.20895575299801,
+      "user_s": 39.146981,
+      "system_s": 0.018584,
+      "max_rss_KiB": 15340,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "ts808_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_ts808_test",
+        "--evidence",
+        "/workspace/work/sf-test-perf-final-Release/ts808-measurements"
+      ],
+      "start_monotonic_s": 74866.310749889,
+      "wall_s": 36.53510485299921,
+      "user_s": 36.45132,
+      "system_s": 0.024235,
+      "max_rss_KiB": 15344,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "ts808_listening_cli",
+    "before": {
+      "name": "ts808_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/sf-test-perf-audit-python.py",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_ts808_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Release/parable_ts808_lab"
+      ],
+      "wall_s": 38.10811524699966,
+      "user_s": 37.972169,
+      "system_s": 0.11973299999999999,
+      "max_rss_KiB": 30064,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "ts808_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/benchmark.py",
+        "--_observe",
+        "/workspace/work/sf-test-perf-evidence/final-Release/ts808_listening_cli-artifacts",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_ts808_cli.py",
+        "/workspace/work/sf-test-perf-final-Release/parable_ts808_lab"
+      ],
+      "start_monotonic_s": 74866.311922402,
+      "wall_s": 38.91678470499755,
+      "user_s": 38.470866,
+      "system_s": 0.224052,
+      "max_rss_KiB": 30776,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "klon_circuit_and_safety",
+    "before": {
+      "name": "klon_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_klon_test",
+        "--evidence",
+        "/workspace/work/sf-test-perf-baseline-Release/klon-measurements"
+      ],
+      "wall_s": 32.229039721991285,
+      "user_s": 32.133968,
+      "system_s": 0.06328299999999999,
+      "max_rss_KiB": 25092,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "klon_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_klon_test",
+        "--evidence",
+        "/workspace/work/sf-test-perf-final-Release/klon-measurements"
+      ],
+      "start_monotonic_s": 74905.269842749,
+      "wall_s": 32.75711604200478,
+      "user_s": 32.544712,
+      "system_s": 0.126353,
+      "max_rss_KiB": 25220,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "klon_listening_cli",
+    "before": {
+      "name": "klon_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/sf-test-perf-audit-python.py",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_klon_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Release/parable_klon_lab"
+      ],
+      "wall_s": 37.17910144399502,
+      "user_s": 37.004542,
+      "system_s": 0.148785,
+      "max_rss_KiB": 35664,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "klon_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/benchmark.py",
+        "--_observe",
+        "/workspace/work/sf-test-perf-evidence/final-Release/klon_listening_cli-artifacts",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_klon_cli.py",
+        "/workspace/work/sf-test-perf-final-Release/parable_klon_lab"
+      ],
+      "start_monotonic_s": 74902.885382045,
+      "wall_s": 38.18372218500008,
+      "user_s": 37.914141,
+      "system_s": 0.131097,
+      "max_rss_KiB": 36404,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "wavefolder_circuit_and_safety",
+    "before": {
+      "name": "wavefolder_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Release/parable_wavefolder_test"
+      ],
+      "wall_s": 2.802888070989866,
+      "user_s": 2.7726189999999997,
+      "system_s": 0.024069999999999998,
+      "max_rss_KiB": 24320,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "wavefolder_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-Release/parable_wavefolder_test"
+      ],
+      "start_monotonic_s": 74955.893639502,
+      "wall_s": 2.8063413969939575,
+      "user_s": 2.750941,
+      "system_s": 0.033587,
+      "max_rss_KiB": 24316,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "wavefolder_listening_cli",
+    "before": {
+      "name": "wavefolder_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_wavefolder_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Release/parable_wavefolder_lab"
+      ],
+      "wall_s": 2.8060260319907684,
+      "user_s": 2.69774,
+      "system_s": 0.101321,
+      "max_rss_KiB": 31736,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "wavefolder_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_wavefolder_cli.py",
+        "/workspace/work/sf-test-perf-final-Release/parable_wavefolder_lab"
+      ],
+      "start_monotonic_s": 74956.083558298,
+      "wall_s": 2.807231316997786,
+      "user_s": 2.723016,
+      "system_s": 0.06416999999999999,
+      "max_rss_KiB": 31716,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "Release",
+    "name": "soundforge_benchmark_contract",
+    "before": null,
+    "after": {
+      "name": "soundforge_benchmark_contract",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_soundforge_benchmark.py",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/benchmark.py"
+      ],
+      "start_monotonic_s": 74994.837893463,
+      "wall_s": 0.4436316170031205,
+      "user_s": 0.385604,
+      "system_s": 0.10409,
+      "max_rss_KiB": 16680,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "firmware_measurement_math_status",
+    "before": {
+      "name": "firmware_measurement_math_status",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_firmware_measurement_test"
+      ],
+      "wall_s": 0.007619958996656351,
+      "user_s": 0.002247,
+      "system_s": 0.005327,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "firmware_measurement_math_status",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_firmware_measurement_test"
+      ],
+      "start_monotonic_s": 76258.495382423,
+      "wall_s": 0.011258347993134521,
+      "user_s": 0.00214,
+      "system_s": 0.008558,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "core_validation",
+    "before": {
+      "name": "core_validation",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_core_test"
+      ],
+      "wall_s": 0.0076091730006737635,
+      "user_s": 0.007574,
+      "system_s": 0.0,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "core_validation",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_core_test"
+      ],
+      "start_monotonic_s": 76258.537673237,
+      "wall_s": 0.007383357995422557,
+      "user_s": 0.006444,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "audio_safety",
+    "before": {
+      "name": "audio_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_audio_safety_test"
+      ],
+      "wall_s": 0.031558717993902974,
+      "user_s": 0.031522,
+      "system_s": 0.0,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "audio_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_audio_safety_test"
+      ],
+      "start_monotonic_s": 76258.576606996,
+      "wall_s": 0.03430284300702624,
+      "user_s": 0.029508,
+      "system_s": 0.003957,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "patch_contract",
+    "before": {
+      "name": "patch_contract",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_patch_test"
+      ],
+      "wall_s": 1.861364145996049,
+      "user_s": 1.71752,
+      "system_s": 0.13892,
+      "max_rss_KiB": 178828,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "patch_contract",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_patch_test"
+      ],
+      "start_monotonic_s": 76258.645679331,
+      "wall_s": 2.233315292993211,
+      "user_s": 1.707142,
+      "system_s": 0.498077,
+      "max_rss_KiB": 178900,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "host_preparation",
+    "before": {
+      "name": "host_preparation",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_prepare_test"
+      ],
+      "wall_s": 0.03402395801094826,
+      "user_s": 0.025571999999999998,
+      "system_s": 0.008378,
+      "max_rss_KiB": 24360,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "host_preparation",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_prepare_test"
+      ],
+      "start_monotonic_s": 76260.913382708,
+      "wall_s": 0.039384614006849006,
+      "user_s": 0.024196,
+      "system_s": 0.010631,
+      "max_rss_KiB": 24232,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "rat_patch_integration",
+    "before": {
+      "name": "rat_patch_integration",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_rat_integration_test"
+      ],
+      "wall_s": 1.7623390180087881,
+      "user_s": 1.734475,
+      "system_s": 0.019967,
+      "max_rss_KiB": 25660,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "rat_patch_integration",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_rat_integration_test"
+      ],
+      "start_monotonic_s": 76260.985250749,
+      "wall_s": 1.6831108369951835,
+      "user_s": 1.6651449999999999,
+      "system_s": 0.004065,
+      "max_rss_KiB": 25648,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "patch_audio_evidence",
+    "before": {
+      "name": "patch_audio_evidence",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_patch_audition",
+        "--output",
+        "/workspace/work/sf-test-perf-baseline-ASAN/patch-auditions"
+      ],
+      "wall_s": 6.246318546007387,
+      "user_s": 6.134867,
+      "system_s": 0.085575,
+      "max_rss_KiB": 41600,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "patch_audio_evidence",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_patch_audition",
+        "--output",
+        "/workspace/work/sf-test-perf-final-ASAN/patch-auditions"
+      ],
+      "start_monotonic_s": 76262.712537336,
+      "wall_s": 6.26719076099107,
+      "user_s": 6.184211,
+      "system_s": 0.014855,
+      "max_rss_KiB": 41536,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "rat_circuit_and_safety",
+    "before": {
+      "name": "rat_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_rat_test"
+      ],
+      "wall_s": 2.3201822849950986,
+      "user_s": 2.273482,
+      "system_s": 0.035321,
+      "max_rss_KiB": 12308,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "rat_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_rat_test"
+      ],
+      "start_monotonic_s": 76265.294601973,
+      "wall_s": 2.2193152270046994,
+      "user_s": 2.198109,
+      "system_s": 0.00695,
+      "max_rss_KiB": 12312,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "rat_lab_measurements",
+    "before": {
+      "name": "rat_lab_measurements",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_rat_lab",
+        "--self-test"
+      ],
+      "wall_s": 3.378184714994859,
+      "user_s": 3.327018,
+      "system_s": 0.044732,
+      "max_rss_KiB": 17576,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "rat_lab_measurements",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_rat_lab",
+        "--self-test"
+      ],
+      "start_monotonic_s": 76267.549920181,
+      "wall_s": 3.3090243309998186,
+      "user_s": 3.288826,
+      "system_s": 0.003988,
+      "max_rss_KiB": 17848,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "soundforge_utilities",
+    "before": {
+      "name": "soundforge_utilities",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_soundforge_test"
+      ],
+      "wall_s": 0.8986183099914342,
+      "user_s": 0.872041,
+      "system_s": 0.013564999999999999,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "soundforge_utilities",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_soundforge_test"
+      ],
+      "start_monotonic_s": 76269.011081507,
+      "wall_s": 0.8302368910080986,
+      "user_s": 0.817125,
+      "system_s": 0.0,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "soundforge_registry",
+    "before": {
+      "name": "soundforge_registry",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/validate_registry.py"
+      ],
+      "wall_s": 0.03973635200236458,
+      "user_s": 0.031052999999999997,
+      "system_s": 0.007796,
+      "max_rss_KiB": 10624,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "soundforge_registry",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/validate_registry.py"
+      ],
+      "start_monotonic_s": 76269.877529781,
+      "wall_s": 0.04240050399675965,
+      "user_s": 0.030608,
+      "system_s": 0.009574,
+      "max_rss_KiB": 11520,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "soundforge_registry_negative",
+    "before": {
+      "name": "soundforge_registry_negative",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_soundforge_registry.py"
+      ],
+      "wall_s": 0.15396343398606405,
+      "user_s": 0.133508,
+      "system_s": 0.019531,
+      "max_rss_KiB": 14720,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "soundforge_registry_negative",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_soundforge_registry.py"
+      ],
+      "start_monotonic_s": 76269.952580803,
+      "wall_s": 0.15957359000458382,
+      "user_s": 0.137403,
+      "system_s": 0.020690999999999998,
+      "max_rss_KiB": 14720,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "labrat_output_preservation",
+    "before": {
+      "name": "labrat_output_preservation",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/check_labrat.py",
+        "--executable",
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_rat_lab"
+      ],
+      "wall_s": 17.457109231996583,
+      "user_s": 17.092198,
+      "system_s": 0.281702,
+      "max_rss_KiB": 86116,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "labrat_output_preservation",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/check_labrat.py",
+        "--executable",
+        "/workspace/work/sf-test-perf-final-ASAN/parable_rat_lab"
+      ],
+      "start_monotonic_s": 76270.146246763,
+      "wall_s": 17.478977173988824,
+      "user_s": 17.131984,
+      "system_s": 0.21257399999999999,
+      "max_rss_KiB": 86312,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "cmos_circuit_and_safety",
+    "before": {
+      "name": "cmos_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_cmos_test"
+      ],
+      "wall_s": 1.239598677988397,
+      "user_s": 1.226134,
+      "system_s": 0.008107999999999999,
+      "max_rss_KiB": 14160,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "cmos_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_cmos_test"
+      ],
+      "start_monotonic_s": 76270.890165476,
+      "wall_s": 1.2296754160051933,
+      "user_s": 1.198948,
+      "system_s": 0.018994,
+      "max_rss_KiB": 14208,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "cmos_lab_measurements",
+    "before": {
+      "name": "cmos_lab_measurements",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_cmos_lab",
+        "--self-test"
+      ],
+      "wall_s": 3.8189992620027624,
+      "user_s": 3.78052,
+      "system_s": 0.019493,
+      "max_rss_KiB": 15440,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "cmos_lab_measurements",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_cmos_lab",
+        "--self-test"
+      ],
+      "start_monotonic_s": 76272.155271922,
+      "wall_s": 4.445045503991423,
+      "user_s": 4.399136,
+      "system_s": 0.018948,
+      "max_rss_KiB": 15532,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "cmos_lab_cli",
+    "before": {
+      "name": "cmos_lab_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_cmos_cli.py",
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_cmos_lab"
+      ],
+      "wall_s": 11.773292637997656,
+      "user_s": 11.621934,
+      "system_s": 0.116032,
+      "max_rss_KiB": 16960,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "cmos_lab_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_cmos_cli.py",
+        "/workspace/work/sf-test-perf-final-ASAN/parable_cmos_lab"
+      ],
+      "start_monotonic_s": 76276.63452781,
+      "wall_s": 12.219156765000662,
+      "user_s": 12.059162,
+      "system_s": 0.073409,
+      "max_rss_KiB": 16916,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "germanium_circuit_and_safety",
+    "before": {
+      "name": "germanium_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_germanium_test"
+      ],
+      "wall_s": 5.626358441993943,
+      "user_s": 5.573273,
+      "system_s": 0.030822,
+      "max_rss_KiB": 18916,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "germanium_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_germanium_test"
+      ],
+      "start_monotonic_s": 76287.657299963,
+      "wall_s": 5.86131272399507,
+      "user_s": 5.806396,
+      "system_s": 0.011856,
+      "max_rss_KiB": 19040,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "germanium_lab_measurements",
+    "before": {
+      "name": "germanium_lab_measurements",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_germanium_lab",
+        "--self-test"
+      ],
+      "wall_s": 5.122087042997009,
+      "user_s": 5.03819,
+      "system_s": 0.061078,
+      "max_rss_KiB": 21212,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "germanium_lab_measurements",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_germanium_lab",
+        "--self-test"
+      ],
+      "start_monotonic_s": 76288.88786863,
+      "wall_s": 5.709833439992508,
+      "user_s": 5.657216,
+      "system_s": 0.024742,
+      "max_rss_KiB": 21388,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "germanium_lab_cli",
+    "before": {
+      "name": "germanium_lab_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_germanium_cli.py",
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_germanium_lab"
+      ],
+      "wall_s": 10.451160639000591,
+      "user_s": 10.268939,
+      "system_s": 0.14705,
+      "max_rss_KiB": 23564,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "germanium_lab_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_germanium_cli.py",
+        "/workspace/work/sf-test-perf-final-ASAN/parable_germanium_lab"
+      ],
+      "start_monotonic_s": 76293.552983672,
+      "wall_s": 10.883794602006674,
+      "user_s": 10.757111,
+      "system_s": 0.053370999999999995,
+      "max_rss_KiB": 23676,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "preset_journal",
+    "before": {
+      "name": "preset_journal",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_presets_test"
+      ],
+      "wall_s": 32.858074500996736,
+      "user_s": 26.909229,
+      "system_s": 5.92675,
+      "max_rss_KiB": 380792,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "preset_journal",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_presets_test"
+      ],
+      "start_monotonic_s": 76294.641764187,
+      "wall_s": 33.541231211987906,
+      "user_s": 27.706697,
+      "system_s": 5.632113,
+      "max_rss_KiB": 380588,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "activation_contract",
+    "before": {
+      "name": "activation_contract",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_activation_test"
+      ],
+      "wall_s": 0.17759553600626532,
+      "user_s": 0.157752,
+      "system_s": 0.019833,
+      "max_rss_KiB": 27252,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "activation_contract",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_activation_test"
+      ],
+      "start_monotonic_s": 76304.469341004,
+      "wall_s": 0.19079917199269403,
+      "user_s": 0.163739,
+      "system_s": 0.024353,
+      "max_rss_KiB": 27256,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "activation_concurrency",
+    "before": {
+      "name": "activation_concurrency",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_activation_test",
+        "--stress"
+      ],
+      "wall_s": 25.743169681998552,
+      "user_s": 38.573014,
+      "system_s": 5.359861,
+      "max_rss_KiB": 94132,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "activation_concurrency",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_activation_test",
+        "--stress"
+      ],
+      "start_monotonic_s": 76328.217638899,
+      "wall_s": 24.36482382399845,
+      "user_s": 36.655895,
+      "system_s": 4.8053,
+      "max_rss_KiB": 93732,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "activation_demo",
+    "before": {
+      "name": "activation_demo",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_activation_demo",
+        "0",
+        "2",
+        "1",
+        "3",
+        "0"
+      ],
+      "wall_s": 0.04031804199621547,
+      "user_s": 0.027760999999999997,
+      "system_s": 0.012516999999999999,
+      "max_rss_KiB": 19088,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "activation_demo",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_activation_demo",
+        "0",
+        "2",
+        "1",
+        "3",
+        "0"
+      ],
+      "start_monotonic_s": 76304.693363121,
+      "wall_s": 0.05216151100466959,
+      "user_s": 0.032748,
+      "system_s": 0.01697,
+      "max_rss_KiB": 19088,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "living_contract",
+    "before": {
+      "name": "living_contract",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_living_test"
+      ],
+      "wall_s": 0.9507696590007981,
+      "user_s": 0.947753,
+      "system_s": 0.0025299999999999997,
+      "max_rss_KiB": 26376,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "living_contract",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_living_test"
+      ],
+      "start_monotonic_s": 76304.790921681,
+      "wall_s": 0.9762596390064573,
+      "user_s": 0.9150929999999999,
+      "system_s": 0.056733,
+      "max_rss_KiB": 26360,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "living_concurrency",
+    "before": {
+      "name": "living_concurrency",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_living_test",
+        "--stress"
+      ],
+      "wall_s": 2.47810281899001,
+      "user_s": 3.115888,
+      "system_s": 1.75545,
+      "max_rss_KiB": 20356,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "living_concurrency",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_living_test",
+        "--stress"
+      ],
+      "start_monotonic_s": 76352.621502533,
+      "wall_s": 2.5000855069956742,
+      "user_s": 3.175278,
+      "system_s": 1.749,
+      "max_rss_KiB": 19980,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "living_audio_evidence",
+    "before": {
+      "name": "living_audio_evidence",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_living_demo",
+        "--output",
+        "/workspace/work/sf-test-perf-baseline-ASAN/living-evidence"
+      ],
+      "wall_s": 5.824997253002948,
+      "user_s": 5.770317,
+      "system_s": 0.043134,
+      "max_rss_KiB": 39132,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "living_audio_evidence",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_living_demo",
+        "--output",
+        "/workspace/work/sf-test-perf-final-ASAN/living-evidence"
+      ],
+      "start_monotonic_s": 76305.799807695,
+      "wall_s": 5.974146142994869,
+      "user_s": 5.862134,
+      "system_s": 0.100007,
+      "max_rss_KiB": 39236,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "tape_medium_and_safety",
+    "before": {
+      "name": "tape_medium_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_tape_test"
+      ],
+      "wall_s": 0.17166410200297832,
+      "user_s": 0.156279,
+      "system_s": 0.011748,
+      "max_rss_KiB": 15364,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "tape_medium_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_tape_test"
+      ],
+      "start_monotonic_s": 76311.804949894,
+      "wall_s": 0.1454017750074854,
+      "user_s": 0.136025,
+      "system_s": 0.008094,
+      "max_rss_KiB": 15408,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "tape_listening_cli",
+    "before": {
+      "name": "tape_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_tape_cli.py",
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_tape_lab"
+      ],
+      "wall_s": 1.8164768629940227,
+      "user_s": 1.423741,
+      "system_s": 0.39397499999999996,
+      "max_rss_KiB": 109420,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "tape_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_tape_cli.py",
+        "/workspace/work/sf-test-perf-final-ASAN/parable_tape_lab"
+      ],
+      "start_monotonic_s": 76311.981431169,
+      "wall_s": 1.7889854710083455,
+      "user_s": 1.40754,
+      "system_s": 0.376135,
+      "max_rss_KiB": 109496,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "rotary_mechanics_and_safety",
+    "before": {
+      "name": "rotary_mechanics_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_rotary_test"
+      ],
+      "wall_s": 2.3554785199958133,
+      "user_s": 2.32349,
+      "system_s": 0.026517,
+      "max_rss_KiB": 30564,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "rotary_mechanics_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_rotary_test"
+      ],
+      "start_monotonic_s": 76313.803308027,
+      "wall_s": 2.3424821860098746,
+      "user_s": 2.329646,
+      "system_s": 0.010988,
+      "max_rss_KiB": 30736,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "rotary_listening_cli",
+    "before": {
+      "name": "rotary_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_rotary_cli.py",
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_rotary_lab"
+      ],
+      "wall_s": 3.2351379150059074,
+      "user_s": 2.755081,
+      "system_s": 0.474452,
+      "max_rss_KiB": 124400,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "rotary_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_rotary_cli.py",
+        "/workspace/work/sf-test-perf-final-ASAN/parable_rotary_lab"
+      ],
+      "start_monotonic_s": 76316.181782412,
+      "wall_s": 2.9604058980039554,
+      "user_s": 2.595421,
+      "system_s": 0.36189,
+      "max_rss_KiB": 124476,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "muff_circuit_and_safety",
+    "before": {
+      "name": "muff_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_muff_test"
+      ],
+      "wall_s": 150.15667079700506,
+      "user_s": 149.928,
+      "system_s": 0.071492,
+      "max_rss_KiB": 19828,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "muff_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_muff_test"
+      ],
+      "start_monotonic_s": 76104.491551305,
+      "wall_s": 153.97091853200982,
+      "user_s": 153.020516,
+      "system_s": 0.018108,
+      "max_rss_KiB": 19888,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "muff_listening_cli",
+    "before": {
+      "name": "muff_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_muff_cli.py",
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_muff_lab"
+      ],
+      "wall_s": 174.0489193500107,
+      "user_s": 173.318778,
+      "system_s": 0.579719,
+      "max_rss_KiB": 55324,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "muff_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_muff_cli.py",
+        "/workspace/work/sf-test-perf-final-ASAN/parable_muff_lab"
+      ],
+      "start_monotonic_s": 76050.41075513,
+      "wall_s": 179.82607143900532,
+      "user_s": 178.06105,
+      "system_s": 0.486374,
+      "max_rss_KiB": 55504,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "ts808_circuit_and_safety",
+    "before": {
+      "name": "ts808_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_ts808_test",
+        "--evidence",
+        "/workspace/work/sf-test-perf-baseline-ASAN/ts808-measurements"
+      ],
+      "wall_s": 501.6575837459968,
+      "user_s": 500.485264,
+      "system_s": 0.9850319999999999,
+      "max_rss_KiB": 387040,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "ts808_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_ts808_test",
+        "--evidence",
+        "/workspace/work/sf-test-perf-final-ASAN/ts808-measurements"
+      ],
+      "start_monotonic_s": 75083.699936805,
+      "wall_s": 513.0502532139944,
+      "user_s": 509.638127,
+      "system_s": 0.815394,
+      "max_rss_KiB": 387236,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "ts808_listening_cli",
+    "before": {
+      "name": "ts808_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/sf-test-perf-audit-python.py",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_ts808_cli.py",
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_ts808_lab"
+      ],
+      "wall_s": 535.8985945059976,
+      "user_s": 534.973224,
+      "system_s": 0.585139,
+      "max_rss_KiB": 52844,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "ts808_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/benchmark.py",
+        "--_observe",
+        "/workspace/work/sf-test-perf-evidence/final-ASAN/ts808_listening_cli-artifacts",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_ts808_cli.py",
+        "/workspace/work/sf-test-perf-final-ASAN/parable_ts808_lab"
+      ],
+      "start_monotonic_s": 75083.695568005,
+      "wall_s": 548.8227039969934,
+      "user_s": 545.557703,
+      "system_s": 0.512616,
+      "max_rss_KiB": 52980,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "klon_circuit_and_safety",
+    "before": {
+      "name": "klon_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_klon_test",
+        "--evidence",
+        "/workspace/work/sf-test-perf-baseline-ASAN/klon-measurements"
+      ],
+      "wall_s": 410.4941587659996,
+      "user_s": 409.104106,
+      "system_s": 1.290946,
+      "max_rss_KiB": 448812,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "klon_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_klon_test",
+        "--evidence",
+        "/workspace/work/sf-test-perf-final-ASAN/klon-measurements"
+      ],
+      "start_monotonic_s": 75632.561776147,
+      "wall_s": 417.81192731099145,
+      "user_s": 414.535693,
+      "system_s": 1.346615,
+      "max_rss_KiB": 448864,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "klon_listening_cli",
+    "before": {
+      "name": "klon_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/sf-test-perf-audit-python.py",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_klon_cli.py",
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_klon_lab"
+      ],
+      "wall_s": 492.5006041019951,
+      "user_s": 491.569347,
+      "system_s": 0.6339739999999999,
+      "max_rss_KiB": 140292,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "klon_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/benchmark.py",
+        "--_observe",
+        "/workspace/work/sf-test-perf-evidence/final-ASAN/klon_listening_cli-artifacts",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_klon_cli.py",
+        "/workspace/work/sf-test-perf-final-ASAN/parable_klon_lab"
+      ],
+      "start_monotonic_s": 75596.799955564,
+      "wall_s": 507.65474051800265,
+      "user_s": 504.356258,
+      "system_s": 0.575495,
+      "max_rss_KiB": 140320,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "wavefolder_circuit_and_safety",
+    "before": {
+      "name": "wavefolder_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_wavefolder_test"
+      ],
+      "wall_s": 17.630391461992986,
+      "user_s": 17.022087,
+      "system_s": 0.594828,
+      "max_rss_KiB": 166408,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "wavefolder_circuit_and_safety",
+      "command": [
+        "/workspace/work/sf-test-perf-final-ASAN/parable_wavefolder_test"
+      ],
+      "start_monotonic_s": 76230.269535095,
+      "wall_s": 17.438220876007108,
+      "user_s": 17.028836,
+      "system_s": 0.335463,
+      "max_rss_KiB": 166668,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "wavefolder_listening_cli",
+    "before": {
+      "name": "wavefolder_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_wavefolder_cli.py",
+        "/workspace/work/sf-test-perf-baseline-ASAN/parable_wavefolder_lab"
+      ],
+      "wall_s": 17.431760131992633,
+      "user_s": 17.133821,
+      "system_s": 0.241311,
+      "max_rss_KiB": 96076,
+      "exit_code": 0
+    },
+    "after": {
+      "name": "wavefolder_listening_cli",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_wavefolder_cli.py",
+        "/workspace/work/sf-test-perf-final-ASAN/parable_wavefolder_lab"
+      ],
+      "start_monotonic_s": 76247.743524505,
+      "wall_s": 17.517648341992754,
+      "user_s": 17.287888,
+      "system_s": 0.16391899999999998,
+      "max_rss_KiB": 96112,
+      "exit_code": 0
+    }
+  },
+  {
+    "config": "ASAN",
+    "name": "soundforge_benchmark_contract",
+    "before": null,
+    "after": {
+      "name": "soundforge_benchmark_contract",
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_soundforge_benchmark.py",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/benchmark.py"
+      ],
+      "start_monotonic_s": 76355.153596712,
+      "wall_s": 0.42382310099492315,
+      "user_s": 0.317963,
+      "system_s": 0.13602599999999998,
+      "max_rss_KiB": 16684,
+      "exit_code": 0
+    }
+  }
+]

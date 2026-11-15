@@ -1,0 +1,108 @@
+Experiment: /workspace/work/sf-test-perf-evidence/final-Debug/ts808_listening_cli.er
+No errors
+*** Collector Warning: Blocking SIGPROF ignored while in use for collection
+*** Collector Warning: vfork(2) replaced by fork; execution may be affected
+*** Collector Warning: vfork(2) replaced by fork; execution may be affected
+*** Collector Warning: vfork(2) replaced by fork; execution may be affected
+*** Collector Warning: vfork(2) replaced by fork; execution may be affected
+*** Collector Warning: vfork(2) replaced by fork; execution may be affected
+*** Collector Warning: vfork(2) replaced by fork; execution may be affected
+*** Collector Warning: vfork(2) replaced by fork; execution may be affected
+*** Collector Warning: vfork(2) replaced by fork; execution may be affected
+*** Collector Warning: vfork(2) replaced by fork; execution may be affected
+*** Collector Warning: vfork(2) replaced by fork; execution may be affected
+*** Collector Warning: vfork(2) replaced by fork; execution may be affected
+*** Collector Warning: vfork(2) replaced by fork; execution may be affected
+*** Collector Warning: vfork(2) replaced by fork; execution may be affected
+*** Collector Warning: vfork(2) replaced by fork; execution may be affected
+*** Collector Warning: Collection interval timer period was changed (10000 -> 0); profile data may be unreliable
+No archive command run
+
+Target command (64-bit): '/workspace/work/baseline-tools/bin/python3.12 /workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/benchmark.py --_observe /workspace/work/sf-test-perf-evidence/final-Debug/ts808_listening_cli-artifacts /workspace/work/parable-sf-test-perf/parable-starter/tests/test_ts808_cli.py /workspace/work/sf-test-perf-final-Debug/parable_ts808_lab'
+Process pid 34733, ppid 34731, pgrp 33805, sid 33805
+Current working directory: /workspace/work/sf-test-perf-final-Debug
+Collector version: `2.44'; experiment version 12.4 (64-bit)
+Host `ae0c2a381d66', OS `Linux 6.18.57', page size 4096, architecture `x86_64'
+  3 CPUs, clock speed 2596 MHz.
+  Memory: 2551870 pages @  4096 = 9968 MB.
+Data collection parameters:
+  Clock-profiling, interval = 10000 microsecs.
+  Periodic sampling, 1 secs.
+  Follow descendant processes from: fork|exec|combo
+
+Experiment started Sun Nov 15 18:53:53 2026
+
+Starting vfork 0.062976760, exp _f1.er, ""
+Started  vfork 0.063586746, exp _f1.er, "pid=34735"
+Starting vfork 288.905152781, exp _f2.er, ""
+Started  vfork 288.905944587, exp _f2.er, "pid=34833"
+Starting vfork 574.860409673, exp _f3.er, ""
+Started  vfork 574.862705643, exp _f3.er, "pid=34943"
+Starting vfork 574.901210825, exp _f4.er, ""
+Started  vfork 574.903135053, exp _f4.er, "pid=34944"
+Starting vfork 574.914834771, exp _f5.er, ""
+Started  vfork 574.915462263, exp _f5.er, "pid=34945"
+Starting vfork 574.949255576, exp _f6.er, ""
+Started  vfork 574.949702140, exp _f6.er, "pid=34946"
+Starting vfork 574.961021432, exp _f7.er, ""
+Started  vfork 574.961331162, exp _f7.er, "pid=34947"
+Starting vfork 574.972550206, exp _f8.er, ""
+Started  vfork 574.973055957, exp _f8.er, "pid=34948"
+Starting vfork 574.984692631, exp _f9.er, ""
+Started  vfork 574.985549915, exp _f9.er, "pid=34949"
+Starting vfork 575.005472005, exp _f10.er, ""
+Started  vfork 575.006240947, exp _f10.er, "pid=34950"
+Starting vfork 575.018686993, exp _f11.er, ""
+Started  vfork 575.018982582, exp _f11.er, "pid=34951"
+Starting vfork 575.027379204, exp _f12.er, ""
+Started  vfork 575.027916442, exp _f12.er, "pid=34952"
+Starting vfork 575.035920831, exp _f13.er, ""
+Started  vfork 575.036172615, exp _f13.er, "pid=34953"
+Starting vfork 575.073245079, exp _f14.er, ""
+Started  vfork 575.073653345, exp _f14.er, "pid=34954"
+Experiment Ended: 575.104938303
+Data Collection Duration: 575.104938303
+----------------------------------------------------------------
+Experiment: /workspace/work/sf-test-perf-evidence/final-Debug/ts808_listening_cli.er/_f1_x1.er
+No errors
+*** Collector Warning: Collection interval timer period was changed (10000 -> 0); profile data may be unreliable
+No archive command run
+
+Target command (64-bit): '/workspace/work/sf-test-perf-final-Debug/parable_ts808_lab --input /tmp/ts808-cli-sna2xai4/source.wav --output /tmp/ts808-cli-sna2xai4/one'
+Process pid 34735, ppid 34733, pgrp 33805, sid 33805
+Current working directory: /workspace/work/sf-test-perf-final-Debug
+Collector version: `2.44'; experiment version 12.4 (64-bit)
+Host `ae0c2a381d66', OS `Linux 6.18.57', page size 4096, architecture `x86_64'
+  3 CPUs, clock speed 2596 MHz.
+  Memory: 2551870 pages @  4096 = 9968 MB.
+Data collection parameters:
+  Clock-profiling, interval = 10000 microsecs.
+  Periodic sampling, 1 secs.
+  Follow descendant processes from: fork|exec|combo
+
+Experiment started Sun Nov 15 18:53:54 2026
+
+Experiment Ended: 288.814840109
+Data Collection Duration: 288.814840109
+----------------------------------------------------------------
+Experiment: /workspace/work/sf-test-perf-evidence/final-Debug/ts808_listening_cli.er/_f2_x1.er
+No errors
+*** Collector Warning: Collection interval timer period was changed (10000 -> 0); profile data may be unreliable
+No archive command run
+
+Target command (64-bit): '/workspace/work/sf-test-perf-final-Debug/parable_ts808_lab --input /tmp/ts808-cli-sna2xai4/source.wav --output /tmp/ts808-cli-sna2xai4/two'
+Process pid 34833, ppid 34733, pgrp 33805, sid 33805
+Current working directory: /workspace/work/sf-test-perf-final-Debug
+Collector version: `2.44'; experiment version 12.4 (64-bit)
+Host `ae0c2a381d66', OS `Linux 6.18.57', page size 4096, architecture `x86_64'
+  3 CPUs, clock speed 2596 MHz.
+  Memory: 2551870 pages @  4096 = 9968 MB.
+Data collection parameters:
+  Clock-profiling, interval = 10000 microsecs.
+  Periodic sampling, 1 secs.
+  Follow descendant processes from: fork|exec|combo
+
+Experiment started Sun Nov 15 18:58:42 2026
+
+Experiment Ended: 285.821058246
+Data Collection Duration: 285.821058246

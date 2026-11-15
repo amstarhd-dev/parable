@@ -1,0 +1,7 @@
+{
+  "archive_sha256": "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d",
+  "headers_verified": 45,
+  "cache": "/workspace/work/sf015-deps/nlohmann_json-src",
+  "identity": "unmodified public nlohmann_json3.11.3, not draft DSP",
+  "all_archive_files_verified": 53
+}

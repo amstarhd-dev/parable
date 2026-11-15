@@ -1,0 +1,9 @@
+{
+  "all427_protected_files_equal": true,
+  "dependency_archive_all_files_equal": 53,
+  "workflow_yaml_parsed": true,
+  "all_python_syntax_valid": true,
+  "tracked_broken_symlinks": [],
+  "no_tested_executable_or_coverage_change_after_d05633f": true,
+  "scope": "documentation/evidence added after final full suites only"
+}

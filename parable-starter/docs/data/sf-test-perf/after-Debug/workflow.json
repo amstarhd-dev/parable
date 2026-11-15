@@ -1,0 +1,49 @@
+{
+  "source": "d05633fe4cea9ad36842fd4b452a3b94ce2caea1",
+  "stages": [
+    {
+      "stage": "configure",
+      "command": [
+        "/workspace/work/baseline-tools/bin/cmake",
+        "-S",
+        "/workspace/work/parable-sf-test-perf/parable-starter",
+        "-B",
+        "/workspace/work/sf-test-perf-final-Debug",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+        "-DFETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON=/workspace/work/sf015-deps/nlohmann_json-src"
+      ],
+      "exit_code": 0,
+      "wall_s": 0.6063858309935313
+    },
+    {
+      "stage": "build",
+      "command": [
+        "/workspace/work/baseline-tools/bin/cmake",
+        "--build",
+        "/workspace/work/sf-test-perf-final-Debug",
+        "-j2"
+      ],
+      "exit_code": 0,
+      "wall_s": 25.883787117010797
+    },
+    {
+      "stage": "ctest",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/benchmark.py",
+        "--build",
+        "/workspace/work/sf-test-perf-final-Debug",
+        "--output",
+        "/workspace/work/sf-test-perf-evidence/final-Debug",
+        "--jobs",
+        "2",
+        "--ctest",
+        "/workspace/work/baseline-tools/bin/ctest",
+        "--profile"
+      ],
+      "exit_code": 0,
+      "wall_s": 1276.6036527739925
+    }
+  ]
+}

@@ -78,14 +78,17 @@ static void transients() {
         for(const auto& r:rows) {
             CHECK(r.size()==33);const auto group=r[0]+r[1];
             if(group!=key){finishHarmonics();sums={};minima={99,99};maxima={-99,-99};harmonicCount=0;key=group;next=0;CHECK(m.prepare(float(rate),{float(val(r,2)),.5f,.5f,val(r,1)!=0},Ts808Rate::Reference1x));}
+            // Fixture parameters are constant across this row's native samples.
+            // Keep every sample/guard/assertion; avoid reparsing CSV in the loop.
+            const double amplitude=val(r,3),frequency=val(r,4);const bool triangle=val(r,5)!=0;
             const unsigned target=unsigned(std::llround(val(r,6)*rate));
             for(;next<=target;++next) {
-                guard::begin();const auto y=m.process(ts808lab::periodic(double(next)/rate,val(r,3),val(r,4),val(r,5)!=0));guard::end();
+                guard::begin();const auto y=m.process(ts808lab::periodic(double(next)/rate,amplitude,frequency,triangle));guard::end();
                 CHECK(guard::clean());CHECK(std::isfinite(y)&&std::abs(y)<=1);
                 const double time=double(next)/rate;
                 if(rate==768000&&time>=.08&&time<.12){
                     const double values[]={m.nodes()[Ts808::Clip],m.nodes()[Ts808::Jack]};
-                    const auto root=std::polar(1.,-2*ts808lab::pi*val(r,4)*time);std::complex<double> phase=1;unsigned slot=0;
+                    const auto root=std::polar(1.,-2*ts808lab::pi*frequency*time);std::complex<double> phase=1;unsigned slot=0;
                     for(unsigned h=1;h<=7;++h){phase*=root;if(h==4||h==6)continue;for(unsigned node=0;node<2;++node)sums[node][slot]+=values[node]*phase;++slot;}
                     for(unsigned node=0;node<2;++node){minima[node]=std::min(minima[node],values[node]);maxima[node]=std::max(maxima[node],values[node]);}++harmonicCount;
                 }

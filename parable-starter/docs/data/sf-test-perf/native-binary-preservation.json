@@ -1,0 +1,495 @@
+{
+  "removed_metadata_sections": [
+    "debug sections",
+    ".note.gnu.build-id",
+    ".comment"
+  ],
+  "results": [
+    {
+      "config": "Debug",
+      "file": "libparable_activation.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "7f78e46086ca3d45e1c8bed300c44e8e71555fcae016c86e8793eb4fcf4ceed9",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "cadebd849047376e51f9d378b5a0058b2e9c11e420c100910d849fd4096953be",
+      "raw_after_sha256": "a36465b38b595557852f57d25e3e10b781d75a9516c12d994d21c0a6a58a02a9"
+    },
+    {
+      "config": "Debug",
+      "file": "libparable_cmos.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "b8bec3c48ce9e019dacf08aa7f341c5284c7a13622cce83c4e59eeb91d5dcaf3",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "190bbacf410e684e4227427cede40445aa4e5c84bd63139e4e1de79a6aea5543",
+      "raw_after_sha256": "0929fce0e40c01e5784e02608de68c38730cd15f9774d693b9a9822213269c90"
+    },
+    {
+      "config": "Debug",
+      "file": "libparable_flash_sim.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "5a8c437897c92c7215b713872b2a6be414e0d12356aa8c84a355095cc026d5aa",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "36cfee0f8b25d5ba80b127fb1f0aa2a2dc0fcc60c43e2fc9261a42eb7dab60f6",
+      "raw_after_sha256": "987537199769d7f0f03edb63d8868fa6fb456cf0cc09b341ec6069a9889721cb"
+    },
+    {
+      "config": "Debug",
+      "file": "libparable_germanium.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "058abf98a20531eab46a15aad11765d1b9f306a4517d755bc8ba352754478923",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "e9d2a4ee2c8d18bc11541dcd0589964f01093d9dd3c1910f57cf0284d74d7bb2",
+      "raw_after_sha256": "ce4c3fbbd9e7bf20dd809e8b90cfc8b98632ef84ff59ebea4f22d0f8750b5da1"
+    },
+    {
+      "config": "Debug",
+      "file": "libparable_klon.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "de792c5604ca27479b9a73990970f51f8e2f3c8454f507c8f3421d2d6b327b47",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "26bc7ba1fcf7c4904156e8f27bb6087a11d54c23c6f641386ff7627797b344b8",
+      "raw_after_sha256": "11ee7815afe50c55fa644e35a7cb24603ff2e954fcad2c0bb96ff64232f31f28"
+    },
+    {
+      "config": "Debug",
+      "file": "libparable_living.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "2b991d043a1a976cbb709d6ae1ee5daee4fcc73ae957c952263f948c1208ff45",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "76308f8ba7e6a3974b557f3c85110428750369b9836274a894931ae48aaf45c8",
+      "raw_after_sha256": "957d0bc38857f09c0085dc73b556dcf5b8401fbe57db5e3204c8a1cf704a93fa"
+    },
+    {
+      "config": "Debug",
+      "file": "libparable_muff.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "3581c2303faa5eac69da61b59fa2fd2b690fee783038e229333c69d94545bb65",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "7e598d248710591d498191ef5ab592aaf46313ce2bdfe3540f7de13f699a6d7d",
+      "raw_after_sha256": "11eb3f04f25690e94ec16fe28cb85142b9e94d5802d168c1ee135c0d9dac1d91"
+    },
+    {
+      "config": "Debug",
+      "file": "libparable_patch.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "4927273eee92ab4acf3194e1c71dcc5b0758d2e8a282cfedcde5ff7bd9fee396",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "29ef836b4d2d4cdf651c4bebf16bffc43f5fe6642d3c10e21f644c7da71a9d5c",
+      "raw_after_sha256": "ce7f6114b697e94788f903db2028b760a043f6285e202ddbdb36a1d4de824296"
+    },
+    {
+      "config": "Debug",
+      "file": "libparable_prepare.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "52d7b9432fce6975611e9e45e615029b717f6860a2d4f93f681764e4e1fc9b7a",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "7270d045df10966a1d49664013a6ea70b05b97ba4b1f02ec2794b9ea27981831",
+      "raw_after_sha256": "20ed63202e9bd8d6ff90bb5afef22ba9be62206a1cc0e4528e7a384ba72239bf"
+    },
+    {
+      "config": "Debug",
+      "file": "libparable_presets.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "51869f654c65d81f498a36798c29ffd9ed704c7ce32b043a653568c537586c0f",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "3eaf15388245d543abdb8264edf566c71a37af5c859781f003f252eff6d8e83d",
+      "raw_after_sha256": "7b3e959a9698a93bfb461a18306878dda36405a973c29b5b232c13b4e627a529"
+    },
+    {
+      "config": "Debug",
+      "file": "libparable_rat.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "7a2f5ce84319aae14c19b95dcdbd3fc4ea9bbd1d5c856bc251fa6ac7a1e65d07",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "f1ab66770cdb96c8bf86349ced6cb91e47695a6d217223143240f74788256cb3",
+      "raw_after_sha256": "dac5568c4622c415b0755800eb3b6598a24b61258c5743828526b01f89268af3"
+    },
+    {
+      "config": "Debug",
+      "file": "libparable_rotary.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "3fd42f7e97e98288593828798ba4550e0f8cab6cdd454aa29e7cd1329455e9d4",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "5f0df82a090c4d26e953feac8578617e9b42dbcb45700d564b2f93acb484d083",
+      "raw_after_sha256": "f5bcda46b8f973ffb08738b52ef46be81626880c9afc7658468a75c3dcfc4597"
+    },
+    {
+      "config": "Debug",
+      "file": "libparable_tape.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "43d61f31aa4f15d71965407d3bf9195ab3f7ec6580093af23eac2ed30002fb75",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "d03e80781f8f174d520c25a6b637d85e2d1966299c677f77aae5475903b27efa",
+      "raw_after_sha256": "422a147ed1f395a734ea132a52f28fe66412285bc9d9ffc998ba79b6f9b19b25"
+    },
+    {
+      "config": "Debug",
+      "file": "libparable_ts808.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "114877c83320668e4b8a54e17109d170a2b61103503aae1e0123fe4819aca6a3",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "72ac85d77c0154a6a207b25f5645853c98e2106abdd721a8e96e5c2bd1bb70e7",
+      "raw_after_sha256": "9766bb5130f6b41b6232596542a5248e4149b949823c3bfd89f3de4fa09f1483"
+    },
+    {
+      "config": "Debug",
+      "file": "libparable_wavefolder.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "31edcbdff22d97028ed984a5b0817a38425241e2c8122986fb610ca9e78d3eb8",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "9872bceadfe697ea8efd82822c04923f3c2830e9dd6f6b9fe4adadf10c2354de",
+      "raw_after_sha256": "2c7f9dbcf9731400eec56406ec95555f87334d08630c70b93d3eed16c703839a"
+    },
+    {
+      "config": "Debug",
+      "file": "parable_activation_demo",
+      "runtime_image_equal": true,
+      "normalized_sha256": "65385013aece37599ff05bba708e9e0f5cd867a0c780f615d7d6151b36cfe6f9",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "0e27cb7ab8e423e97fe9520fe73f81d543f52a612405f8e48f5e1e93757fe97d",
+      "raw_after_sha256": "16a0507170bb2f95cdadf2cc4aacabeba45e0291cd9a2aa37f620d2ee6f7f857"
+    },
+    {
+      "config": "Debug",
+      "file": "parable_cmos_lab",
+      "runtime_image_equal": true,
+      "normalized_sha256": "50743a80d52e8f84d5a209da92e0caa05ec927def0d9fc7f9f3fc06bf79d37c6",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "690d619391d5ff6c2a632daf3f6f22f6816112fd97c41db06a094c58e49592df",
+      "raw_after_sha256": "987942e4cc661490461ba34e00e9d7ccd464711cabfd2975ba96f6d895aed142"
+    },
+    {
+      "config": "Debug",
+      "file": "parable_germanium_lab",
+      "runtime_image_equal": true,
+      "normalized_sha256": "8c2ebb3f18108a2b47fe37ef60e271302e04b30efe6f4492be3e85e80d3111e3",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "f8e070b60f0d23d6feb512b16b6f86435cc7af9588e172f6b448b04622e3b663",
+      "raw_after_sha256": "379fcc8f43729c9da4d52ca71d818740a4845d89304e4d3def9b4a6c0945ef1b"
+    },
+    {
+      "config": "Debug",
+      "file": "parable_klon_lab",
+      "runtime_image_equal": true,
+      "normalized_sha256": "cab19d6c6f2ed8cb887526ceb15aea67cd840a26db216b990c0f4bd04e801e64",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "27ff690d21d9b72f582e67e1ab72ae98425edba5eb0e46181a4d34129c5ef0b9",
+      "raw_after_sha256": "a96c1028dd08422930a546adb3a3015c9208065f85043321ff5856a8e2765ff4"
+    },
+    {
+      "config": "Debug",
+      "file": "parable_living_demo",
+      "runtime_image_equal": true,
+      "normalized_sha256": "d59b4b937131cd6d95297419f69c6cd058d5fa31d72f94dac9ccb294bc26676b",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "2fb8feb9cee3f50aafbc8a54fa79c695e929993062efcfa4bcd7c8a7488c4fa8",
+      "raw_after_sha256": "3014e6749ff1585da19219896208ad87a9f93baa6840202dd66e4df7e0890ac5"
+    },
+    {
+      "config": "Debug",
+      "file": "parable_muff_lab",
+      "runtime_image_equal": true,
+      "normalized_sha256": "f782e891ec625d364bd684046375e94f4a9b6e7b5c87cf92ba356eb4510a80da",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "7f957dc8cff2f78db4490874d67a3e37ae8ce5313de2ad1791666e1828fb206c",
+      "raw_after_sha256": "572bc46bce57d42fcb7a621471309b8f519a6e93a040b933abc28c939370589d"
+    },
+    {
+      "config": "Debug",
+      "file": "parable_patch_audition",
+      "runtime_image_equal": true,
+      "normalized_sha256": "c8a6d7cb5ab4ccc815dc71c79879d39bf0db7d319808a63a0a867e48a42348aa",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "20ac1357dc5f96f9defed04b3ebe9aa46af66f05a86db1acf849220262c2186e",
+      "raw_after_sha256": "605c0e22bf19ef7379405dc8b3f91af623129c88efd71733b11fff9c60e599b1"
+    },
+    {
+      "config": "Debug",
+      "file": "parable_rat_lab",
+      "runtime_image_equal": true,
+      "normalized_sha256": "c4cc961690ac1d9a7fe786473120acc2b4a03bb52fa77f5d7545598c8a07c958",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "99480bab78c475c8ae1ed680e5e15b68a7e969e5722f35f5d8e3aee0b017c30a",
+      "raw_after_sha256": "6080ca12fec4f8642550dbe7f27afcb0532c08f039782a224c9c6df066da3099"
+    },
+    {
+      "config": "Debug",
+      "file": "parable_rotary_lab",
+      "runtime_image_equal": true,
+      "normalized_sha256": "c1b903b80ba19086cc6feb8070ae39989991c922d1d8ffd1ad7fbd3971b66a47",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "37066337d4a5f644ecabc13a222c8a0e60069fb5032f74adea29f3225109bc6e",
+      "raw_after_sha256": "b57b7f6b6e7521e196fd346809d81c81ea0681569c1a0ddfbf8e91aab5496f3f"
+    },
+    {
+      "config": "Debug",
+      "file": "parable_tape_lab",
+      "runtime_image_equal": true,
+      "normalized_sha256": "3ed208c79e31d1e0b70c2427c3d8a9444326febd0f758162c96fe32c6cd4e706",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "5fe67f45ceee4c25138fd6c1a374352a7008938bd1e0a9d62898b86f6c87ed86",
+      "raw_after_sha256": "807ef91205480cb0feb1cc3003c8eeb0e0a5240b6b859996f341e333e56184f8"
+    },
+    {
+      "config": "Debug",
+      "file": "parable_ts808_lab",
+      "runtime_image_equal": true,
+      "normalized_sha256": "580db47e49af594d1ab250e2056ef5dd07e4d49ffee78809561bce1a92ff5b05",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "733bcbc2c4beabe3e37e1bdc52b1f47397613d4b2877ba053b3b8d4b4d14360b",
+      "raw_after_sha256": "de4394bf7ac9904a95c67ba27990f049a8f40a03743affefaf9abab81d1fdaad"
+    },
+    {
+      "config": "Debug",
+      "file": "parable_wavefolder_lab",
+      "runtime_image_equal": true,
+      "normalized_sha256": "62c4566ea7353bec5ac84c489ee13347b630e03d5be0d94e095866f64c115109",
+      "raw_binary_equal": false,
+      "raw_before_sha256": "e21c8f9ab79cb0a9814368ea322e3e27eb5317a338af49a4a071b5b04c01c058",
+      "raw_after_sha256": "e9be08fae0aeaf3f244b282ecc186cb1fdd4f4056f463b2c83844fffc6603f7d"
+    },
+    {
+      "config": "Release",
+      "file": "libparable_activation.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "f490b88b3c1c3f69fcfdb1e3af27afb40e0ddbd593531ce144160eb8fb188914",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "0fef85272c1a109c817ec7b85038000feaf60cede1c9c1f7752e0955f720864d",
+      "raw_after_sha256": "0fef85272c1a109c817ec7b85038000feaf60cede1c9c1f7752e0955f720864d"
+    },
+    {
+      "config": "Release",
+      "file": "libparable_cmos.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "5f681768e9438bb295a53792317ceff830cc80ab88e2313ee682a38ec3874340",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "d6ef013e87ab7c0f26b7d51fbc94c578394c6b5a6be42199f84b020f0a870b76",
+      "raw_after_sha256": "d6ef013e87ab7c0f26b7d51fbc94c578394c6b5a6be42199f84b020f0a870b76"
+    },
+    {
+      "config": "Release",
+      "file": "libparable_flash_sim.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "5e6665bc936fa017a1e471a61e83bf5a331ab84aa051dc9320fc5df54217fb11",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "e7098557a74c8d24c1fe8c8af6be53d573974335a2d670e776ba450228e84f9a",
+      "raw_after_sha256": "e7098557a74c8d24c1fe8c8af6be53d573974335a2d670e776ba450228e84f9a"
+    },
+    {
+      "config": "Release",
+      "file": "libparable_germanium.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "b45384d3f25514fe3b0c9c167c4d0dcc711fd465e714522344bd03dbd72c57dd",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "4012a432662790fe9ed150161b5d0e8eeecdfbaabac44536f7a065cae5d6c4ac",
+      "raw_after_sha256": "4012a432662790fe9ed150161b5d0e8eeecdfbaabac44536f7a065cae5d6c4ac"
+    },
+    {
+      "config": "Release",
+      "file": "libparable_klon.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "14cf1bd7a0a67af763629ed9cbe0475ba502c79ed79b536b7dcda0956a306838",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "458c480d9857c59ab4dc4af6d69947891d6f49117322d05bf698bb092f93011c",
+      "raw_after_sha256": "458c480d9857c59ab4dc4af6d69947891d6f49117322d05bf698bb092f93011c"
+    },
+    {
+      "config": "Release",
+      "file": "libparable_living.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "58e97c9ad13fa5ad1ffe8e1569d5f5ed99ec7fe5b53daba31692d8c5d0d2cc45",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "da0d7697aad4e469cadb7ed8281438e1bef7b93f08457e039bc9dc29820e35cf",
+      "raw_after_sha256": "da0d7697aad4e469cadb7ed8281438e1bef7b93f08457e039bc9dc29820e35cf"
+    },
+    {
+      "config": "Release",
+      "file": "libparable_muff.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "9e730cadb2ec51d992904ba16115f00bc9f8c18fea2010785fa4ed35097a7962",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "bd6f268d14f90f9dd1200f2e32315cbf09ec4f9befb2b8b494ebf13bfb12d0d2",
+      "raw_after_sha256": "bd6f268d14f90f9dd1200f2e32315cbf09ec4f9befb2b8b494ebf13bfb12d0d2"
+    },
+    {
+      "config": "Release",
+      "file": "libparable_patch.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "c5608408fec3791348cdcbaad60617f071702322a827c4294585b08a05403c69",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "fa1e577e30b715f365ae6c076e6ecc23c6b7750a99e47e41d6560ab9623b6f3b",
+      "raw_after_sha256": "fa1e577e30b715f365ae6c076e6ecc23c6b7750a99e47e41d6560ab9623b6f3b"
+    },
+    {
+      "config": "Release",
+      "file": "libparable_prepare.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "2e579b4ddbb60cde3a2d45e433a1d1e7c9f7be3277627fbea225819faa54562a",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "445d1393e76f1a21b66b663f153a0542d87b8af02fa388c5cd836614093e649d",
+      "raw_after_sha256": "445d1393e76f1a21b66b663f153a0542d87b8af02fa388c5cd836614093e649d"
+    },
+    {
+      "config": "Release",
+      "file": "libparable_presets.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "ab6119a7a8f1cf73146802fef5d7686738af6a000b06d721599ca1aae73678a5",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "2a1416c41be2c6feb747f170646a96891c411c11311f3af5f5f3f09d83e882f2",
+      "raw_after_sha256": "2a1416c41be2c6feb747f170646a96891c411c11311f3af5f5f3f09d83e882f2"
+    },
+    {
+      "config": "Release",
+      "file": "libparable_rat.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "a5730106dee669955e94f9adc00295dd3a0b187e96f721066059d08d431587d9",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "89a15a2dff32cfbb3c898bd1b0900a8661d475f8e90de4b943eef463a36a8502",
+      "raw_after_sha256": "89a15a2dff32cfbb3c898bd1b0900a8661d475f8e90de4b943eef463a36a8502"
+    },
+    {
+      "config": "Release",
+      "file": "libparable_rotary.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "3bce59619ef2789306ac90df72e1659ef6fc8547e77bea27d608e2471176991a",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "4d5ad84d1d62ff8cc4dc482dfb1c469329d2b5e532950bbfe93fc9eacd7f22cd",
+      "raw_after_sha256": "4d5ad84d1d62ff8cc4dc482dfb1c469329d2b5e532950bbfe93fc9eacd7f22cd"
+    },
+    {
+      "config": "Release",
+      "file": "libparable_tape.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "593fb8b8dd4967947ee3bf2b56b9396b347315350c2e9e82d727e1726bd1bef9",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "a5f498f35b6113b3df461603ed123b63d9a982f18193f945e8b940f8dc9ae6d8",
+      "raw_after_sha256": "a5f498f35b6113b3df461603ed123b63d9a982f18193f945e8b940f8dc9ae6d8"
+    },
+    {
+      "config": "Release",
+      "file": "libparable_ts808.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "f8a10fae79d917ccdf587b7657eb0be21089784171b5fbac97a288550837f234",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "2fb695cebc181f71f66d5f5cb17dd90720c7be5e7a86c2ab5a0dd57249073399",
+      "raw_after_sha256": "2fb695cebc181f71f66d5f5cb17dd90720c7be5e7a86c2ab5a0dd57249073399"
+    },
+    {
+      "config": "Release",
+      "file": "libparable_wavefolder.a",
+      "runtime_image_equal": true,
+      "normalized_sha256": "db06286dd06723e60c01bbce5331c16c962a6c0d8a1fab0b2645675f2963c344",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "ba9259a1968107f8f187b3a836dcb993a07e875dc1a4143249f4e8b749a0b863",
+      "raw_after_sha256": "ba9259a1968107f8f187b3a836dcb993a07e875dc1a4143249f4e8b749a0b863"
+    },
+    {
+      "config": "Release",
+      "file": "parable_activation_demo",
+      "runtime_image_equal": true,
+      "normalized_sha256": "f92ed1acc8a7a53e24e7be7a07dd67703cab56f10aad1b2018ab897a3f7533d9",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "5e4e89923a437561a9b3c1026bb3fdc4c613431620bb26b11a70dffd3674ee6e",
+      "raw_after_sha256": "5e4e89923a437561a9b3c1026bb3fdc4c613431620bb26b11a70dffd3674ee6e"
+    },
+    {
+      "config": "Release",
+      "file": "parable_cmos_lab",
+      "runtime_image_equal": true,
+      "normalized_sha256": "106829d38014af2daabd005049e291fe65ae856a28c969fa1a3797d59101a01d",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "a4461e3db680a65aa7559c1a3c65e66bfa14b7db855df3b14fad52aed76911f1",
+      "raw_after_sha256": "a4461e3db680a65aa7559c1a3c65e66bfa14b7db855df3b14fad52aed76911f1"
+    },
+    {
+      "config": "Release",
+      "file": "parable_germanium_lab",
+      "runtime_image_equal": true,
+      "normalized_sha256": "d9b41f2900e152f6e654d06eb2bda1084eed586801143ba85814d49eae1207bd",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "0bc7358b3eeba91799059f93496d4b199b6f6dbfad9e2c75b9347a21bcf2bfaf",
+      "raw_after_sha256": "0bc7358b3eeba91799059f93496d4b199b6f6dbfad9e2c75b9347a21bcf2bfaf"
+    },
+    {
+      "config": "Release",
+      "file": "parable_klon_lab",
+      "runtime_image_equal": true,
+      "normalized_sha256": "d94156bb319aabef91017bba0c13eaaf73d4e7b916d5b2a240011ce4f5b9efc1",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "1f4caf42bfc1b57dd3e7230a438f8d9e7a8ea75f4bc7138a1701dffa7d206e55",
+      "raw_after_sha256": "1f4caf42bfc1b57dd3e7230a438f8d9e7a8ea75f4bc7138a1701dffa7d206e55"
+    },
+    {
+      "config": "Release",
+      "file": "parable_living_demo",
+      "runtime_image_equal": true,
+      "normalized_sha256": "6d0e686c1ce4f54fafb5d1bf536999564e47279f8ffdfc245ff6c20d30648d2f",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "146b4e71e7054d179fd9199fc9a6ce6c06277b5ee38f980d574694295951eb39",
+      "raw_after_sha256": "146b4e71e7054d179fd9199fc9a6ce6c06277b5ee38f980d574694295951eb39"
+    },
+    {
+      "config": "Release",
+      "file": "parable_muff_lab",
+      "runtime_image_equal": true,
+      "normalized_sha256": "58d3f414e1b80e0b9bc10bcee7169b6f49956aea34a8ab506f12bcb27f2bc2ba",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "e24777ac77b1900dc422be7df8f63e8ca7bdc841b0011ea61b38579e04101fdf",
+      "raw_after_sha256": "e24777ac77b1900dc422be7df8f63e8ca7bdc841b0011ea61b38579e04101fdf"
+    },
+    {
+      "config": "Release",
+      "file": "parable_patch_audition",
+      "runtime_image_equal": true,
+      "normalized_sha256": "36a744f75808b5825f587efed2ddb4a9512a11f08241b4eb4141a406ab7e39f5",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "c477beb291570c3a4a380f1c33930cfb40c5646398876f6fe15691001aa7a53b",
+      "raw_after_sha256": "c477beb291570c3a4a380f1c33930cfb40c5646398876f6fe15691001aa7a53b"
+    },
+    {
+      "config": "Release",
+      "file": "parable_rat_lab",
+      "runtime_image_equal": true,
+      "normalized_sha256": "6bed29cf1beee0d6a1c8df93741827a7e7d99c47740329bf2971fddecd87760d",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "9cb3a13a887c7cfbb84a0d84f87d7f43d6028ad30648a53e537e35c019b7c5dd",
+      "raw_after_sha256": "9cb3a13a887c7cfbb84a0d84f87d7f43d6028ad30648a53e537e35c019b7c5dd"
+    },
+    {
+      "config": "Release",
+      "file": "parable_rotary_lab",
+      "runtime_image_equal": true,
+      "normalized_sha256": "9d26826095404e6520ea60746cffb34c2f98bef9b509a918abdaad8f5dade398",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "719cb7d9f8ff8da03b054a93fa56dd22aef675e2159f43851d3841503e2e7a64",
+      "raw_after_sha256": "719cb7d9f8ff8da03b054a93fa56dd22aef675e2159f43851d3841503e2e7a64"
+    },
+    {
+      "config": "Release",
+      "file": "parable_tape_lab",
+      "runtime_image_equal": true,
+      "normalized_sha256": "6dc350394ac80d4b7fd79ace4a4f1ddb30e4797df5e132864a568b9e30e54c1d",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "2662456b347aaf1da01812c7931d6775247b664351f0dd88f540286f0ee1bc53",
+      "raw_after_sha256": "2662456b347aaf1da01812c7931d6775247b664351f0dd88f540286f0ee1bc53"
+    },
+    {
+      "config": "Release",
+      "file": "parable_ts808_lab",
+      "runtime_image_equal": true,
+      "normalized_sha256": "1dedaddc7e17c3c1dafb6898d1652bb71cc96a32701e1930baa146c371ee8d86",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "9e24595a4c91976b6968332da18573818c9db70e63686b9c4f8012ec7c6ddf67",
+      "raw_after_sha256": "9e24595a4c91976b6968332da18573818c9db70e63686b9c4f8012ec7c6ddf67"
+    },
+    {
+      "config": "Release",
+      "file": "parable_wavefolder_lab",
+      "runtime_image_equal": true,
+      "normalized_sha256": "60a460d4806e537fefa64b6047a88854ea0e047eb3653ddd894cfd2fd8e02add",
+      "raw_binary_equal": true,
+      "raw_before_sha256": "fa471c0c60900ec0b86b9d7b9bf798015cbcd3316a11655448f7a1d2df8317f6",
+      "raw_after_sha256": "fa471c0c60900ec0b86b9d7b9bf798015cbcd3316a11655448f7a1d2df8317f6"
+    }
+  ]
+}

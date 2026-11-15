@@ -1,0 +1,153 @@
+$ ['/workspace/work/baseline-tools/bin/cmake', '--build', '/workspace/work/sf-test-perf-final-Release', '-j2']
+[  1%] Building CXX object CMakeFiles/parable_rat.dir/src/parable_rat.cpp.o
+[  2%] Building CXX object CMakeFiles/parable_firmware_measurement_test.dir/tests/test_firmware_measurement.cpp.o
+[  3%] Linking CXX static library libparable_rat.a
+[  3%] Built target parable_rat
+[  4%] Building CXX object CMakeFiles/parable_patch.dir/src/patch_json.cpp.o
+[  5%] Linking CXX executable parable_firmware_measurement_test
+[  5%] Built target parable_firmware_measurement_test
+[  6%] Building CXX object CMakeFiles/parable_prepare.dir/src/parable_prepare.cpp.o
+[  7%] Linking CXX static library libparable_prepare.a
+[  7%] Built target parable_prepare
+[  8%] Building CXX object CMakeFiles/parable_patch.dir/src/parable_patch.cpp.o
+[  9%] Building CXX object CMakeFiles/parable_rat_test.dir/tests/test_rat.cpp.o
+[ 10%] Linking CXX static library libparable_patch.a
+[ 10%] Built target parable_patch
+[ 11%] Building CXX object CMakeFiles/parable_rat_lab.dir/tools/rat_lab.cpp.o
+[ 12%] Linking CXX executable parable_rat_test
+[ 12%] Built target parable_rat_test
+[ 13%] Building CXX object CMakeFiles/parable_soundforge_test.dir/tests/test_soundforge.cpp.o
+[ 14%] Linking CXX executable parable_soundforge_test
+[ 14%] Built target parable_soundforge_test
+[ 15%] Building CXX object CMakeFiles/parable_cmos.dir/src/parable_cmos.cpp.o
+[ 16%] Linking CXX static library libparable_cmos.a
+[ 16%] Built target parable_cmos
+[ 17%] Building CXX object CMakeFiles/parable_germanium.dir/src/parable_germanium.cpp.o
+[ 18%] Linking CXX executable parable_rat_lab
+[ 18%] Built target parable_rat_lab
+[ 19%] Building CXX object CMakeFiles/parable_presets.dir/src/parable_presets.cpp.o
+[ 20%] Linking CXX static library libparable_germanium.a
+[ 20%] Built target parable_germanium
+[ 21%] Building CXX object CMakeFiles/parable_flash_sim.dir/src/parable_flash_sim.cpp.o
+[ 21%] Linking CXX static library libparable_flash_sim.a
+[ 21%] Built target parable_flash_sim
+[ 21%] Building CXX object CMakeFiles/parable_activation.dir/src/parable_activation.cpp.o
+[ 22%] Building CXX object CMakeFiles/parable_activation.dir/src/parable_activation_audio.cpp.o
+[ 23%] Linking CXX static library libparable_activation.a
+[ 23%] Built target parable_activation
+[ 24%] Building CXX object CMakeFiles/parable_tape.dir/src/parable_tape.cpp.o
+[ 25%] Linking CXX static library libparable_tape.a
+[ 25%] Built target parable_tape
+[ 26%] Building CXX object CMakeFiles/parable_rotary.dir/src/parable_rotary.cpp.o
+[ 27%] Linking CXX static library libparable_presets.a
+[ 27%] Built target parable_presets
+[ 28%] Building CXX object CMakeFiles/parable_muff.dir/src/parable_muff.cpp.o
+[ 29%] Linking CXX static library libparable_rotary.a
+[ 29%] Built target parable_rotary
+[ 30%] Building CXX object CMakeFiles/parable_ts808.dir/src/parable_ts808.cpp.o
+[ 31%] Linking CXX static library libparable_muff.a
+[ 31%] Built target parable_muff
+[ 32%] Building CXX object CMakeFiles/parable_klon.dir/src/parable_klon.cpp.o
+[ 33%] Linking CXX static library libparable_ts808.a
+[ 33%] Built target parable_ts808
+[ 34%] Building CXX object CMakeFiles/parable_wavefolder.dir/src/parable_wavefolder.cpp.o
+[ 35%] Linking CXX static library libparable_wavefolder.a
+[ 35%] Built target parable_wavefolder
+[ 36%] Building CXX object CMakeFiles/parable_core_test.dir/tests/test_core.cpp.o
+[ 37%] Linking CXX static library libparable_klon.a
+[ 37%] Built target parable_klon
+[ 38%] Building CXX object CMakeFiles/parable_audio_safety_test.dir/tests/test_audio_safety.cpp.o
+[ 39%] Linking CXX executable parable_core_test
+[ 39%] Built target parable_core_test
+[ 40%] Building CXX object CMakeFiles/parable_patch_test.dir/tests/test_patch.cpp.o
+[ 41%] Linking CXX executable parable_audio_safety_test
+[ 41%] Built target parable_audio_safety_test
+[ 42%] Building CXX object CMakeFiles/parable_prepare_test.dir/tests/test_prepare.cpp.o
+[ 43%] Linking CXX executable parable_patch_test
+[ 43%] Built target parable_patch_test
+[ 44%] Building CXX object CMakeFiles/parable_rat_integration_test.dir/tests/test_rat_integration.cpp.o
+[ 45%] Linking CXX executable parable_prepare_test
+[ 45%] Built target parable_prepare_test
+[ 46%] Building CXX object CMakeFiles/parable_patch_audition.dir/tools/patch_audition.cpp.o
+[ 47%] Linking CXX executable parable_patch_audition
+[ 47%] Built target parable_patch_audition
+[ 48%] Building CXX object CMakeFiles/parable_cmos_test.dir/tests/test_cmos.cpp.o
+[ 49%] Linking CXX executable parable_cmos_test
+[ 49%] Built target parable_cmos_test
+[ 50%] Building CXX object CMakeFiles/parable_cmos_lab.dir/tools/cmos_lab.cpp.o
+[ 51%] Linking CXX executable parable_rat_integration_test
+[ 51%] Built target parable_rat_integration_test
+[ 52%] Building CXX object CMakeFiles/parable_germanium_test.dir/tests/test_germanium.cpp.o
+[ 53%] Linking CXX executable parable_cmos_lab
+[ 53%] Built target parable_cmos_lab
+[ 54%] Building CXX object CMakeFiles/parable_germanium_lab.dir/tools/germanium_lab.cpp.o
+[ 55%] Linking CXX executable parable_germanium_test
+[ 55%] Built target parable_germanium_test
+[ 55%] Building CXX object CMakeFiles/parable_presets_test.dir/tests/test_presets.cpp.o
+[ 56%] Linking CXX executable parable_germanium_lab
+[ 56%] Built target parable_germanium_lab
+[ 57%] Building CXX object CMakeFiles/parable_activation_test.dir/tests/test_activation.cpp.o
+[ 58%] Linking CXX executable parable_presets_test
+[ 58%] Built target parable_presets_test
+[ 59%] Building CXX object CMakeFiles/parable_activation_demo.dir/tools/activation_demo.cpp.o
+[ 60%] Linking CXX executable parable_activation_demo
+[ 60%] Built target parable_activation_demo
+[ 61%] Building CXX object CMakeFiles/parable_living.dir/src/parable_living.cpp.o
+[ 62%] Building CXX object CMakeFiles/parable_living.dir/src/parable_living_audio.cpp.o
+[ 63%] Building CXX object CMakeFiles/parable_activation_test.dir/tests/activation_guard.cpp.o
+[ 64%] Linking CXX executable parable_activation_test
+[ 64%] Built target parable_activation_test
+[ 64%] Building CXX object CMakeFiles/parable_tape_lab.dir/tools/tape_lab.cpp.o
+[ 65%] Linking CXX static library libparable_living.a
+[ 65%] Built target parable_living
+[ 66%] Building CXX object CMakeFiles/parable_tape_test.dir/tests/test_tape.cpp.o
+[ 67%] Building CXX object CMakeFiles/parable_tape_test.dir/tests/activation_guard.cpp.o
+[ 68%] Linking CXX executable parable_tape_test
+[ 68%] Built target parable_tape_test
+[ 69%] Building CXX object CMakeFiles/parable_rotary_lab.dir/tools/rotary_lab.cpp.o
+[ 70%] Linking CXX executable parable_tape_lab
+[ 70%] Built target parable_tape_lab
+[ 71%] Building CXX object CMakeFiles/parable_rotary_test.dir/tests/test_rotary.cpp.o
+[ 72%] Building CXX object CMakeFiles/parable_rotary_test.dir/tests/activation_guard.cpp.o
+[ 73%] Linking CXX executable parable_rotary_test
+[ 73%] Built target parable_rotary_test
+[ 74%] Building CXX object CMakeFiles/parable_muff_lab.dir/tools/muff_lab.cpp.o
+[ 75%] Linking CXX executable parable_rotary_lab
+[ 75%] Built target parable_rotary_lab
+[ 76%] Building CXX object CMakeFiles/parable_muff_test.dir/tests/test_muff.cpp.o
+[ 77%] Building CXX object CMakeFiles/parable_muff_test.dir/tests/activation_guard.cpp.o
+[ 78%] Linking CXX executable parable_muff_test
+[ 78%] Built target parable_muff_test
+[ 79%] Building CXX object CMakeFiles/parable_ts808_lab.dir/tools/ts808_lab.cpp.o
+[ 80%] Linking CXX executable parable_muff_lab
+[ 80%] Built target parable_muff_lab
+[ 81%] Building CXX object CMakeFiles/parable_ts808_test.dir/tests/test_ts808.cpp.o
+[ 82%] Building CXX object CMakeFiles/parable_ts808_test.dir/tests/activation_guard.cpp.o
+[ 83%] Linking CXX executable parable_ts808_test
+[ 84%] Linking CXX executable parable_ts808_lab
+[ 84%] Built target parable_ts808_test
+[ 84%] Built target parable_ts808_lab
+[ 85%] Building CXX object CMakeFiles/parable_klon_test.dir/tests/test_klon.cpp.o
+[ 86%] Building CXX object CMakeFiles/parable_klon_lab.dir/tools/klon_lab.cpp.o
+[ 87%] Building CXX object CMakeFiles/parable_klon_test.dir/tests/activation_guard.cpp.o
+[ 88%] Linking CXX executable parable_klon_test
+[ 88%] Built target parable_klon_test
+[ 89%] Building CXX object CMakeFiles/parable_wavefolder_lab.dir/tools/wavefolder_lab.cpp.o
+[ 90%] Linking CXX executable parable_klon_lab
+[ 90%] Built target parable_klon_lab
+[ 91%] Building CXX object CMakeFiles/parable_wavefolder_study.dir/tools/wavefolder_study.cpp.o
+[ 92%] Linking CXX executable parable_wavefolder_study
+[ 92%] Built target parable_wavefolder_study
+[ 93%] Building CXX object CMakeFiles/parable_wavefolder_test.dir/tests/test_wavefolder.cpp.o
+[ 94%] Linking CXX executable parable_wavefolder_lab
+[ 94%] Built target parable_wavefolder_lab
+[ 95%] Building CXX object CMakeFiles/parable_living_test.dir/tests/test_living.cpp.o
+[ 96%] Building CXX object CMakeFiles/parable_wavefolder_test.dir/tests/activation_guard.cpp.o
+[ 97%] Linking CXX executable parable_wavefolder_test
+[ 97%] Built target parable_wavefolder_test
+[ 98%] Building CXX object CMakeFiles/parable_living_test.dir/tests/activation_guard.cpp.o
+[ 99%] Building CXX object CMakeFiles/parable_living_demo.dir/tools/living_demo.cpp.o
+[ 99%] Linking CXX executable parable_living_test
+[ 99%] Built target parable_living_test
+[100%] Linking CXX executable parable_living_demo
+[100%] Built target parable_living_demo

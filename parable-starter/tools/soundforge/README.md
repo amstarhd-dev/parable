@@ -80,10 +80,10 @@ From the repository root, C++17, CMake >=3.15 and Python >=3.9 (standard library
 python3 parable-starter/tools/soundforge/validate_registry.py
 cmake -S parable-starter -B parable-starter/build/sf-debug -DCMAKE_BUILD_TYPE=Debug
 cmake --build parable-starter/build/sf-debug -j2
-ctest --test-dir parable-starter/build/sf-debug --output-on-failure --no-tests=error
+ctest --test-dir parable-starter/build/sf-debug -j2 --output-on-failure --no-tests=error
 cmake -S parable-starter -B parable-starter/build/sf-release -DCMAKE_BUILD_TYPE=Release
 cmake --build parable-starter/build/sf-release -j2
-ctest --test-dir parable-starter/build/sf-release --output-on-failure --no-tests=error
+ctest --test-dir parable-starter/build/sf-release -j2 --output-on-failure --no-tests=error
 ./parable-starter/build/sf-release/parable_rat_lab --output parable-starter/build/rat-auditions
 python3 parable-starter/tools/soundforge/check_labrat.py --directory parable-starter/build/rat-auditions
 ./parable-starter/build/sf-release/parable_cmos_lab --output parable-starter/build/cmos-auditions
@@ -130,3 +130,13 @@ separately; neither metadata nor a successful test-merge means the PR was merged
    [`SOUNDFORGE_BASELINE.md`](../../docs/SOUNDFORGE_BASELINE.md). Open an unmerged
    PR reporting what reusable knowledge was gained. Permanent patch integration
    requires its own approved ticket; no correspondence rules are invented here.
+
+
+## Canonical verification contract
+
+Use [Soundforge full verification profile v1](../../docs/SOUNDFORGE_VERIFICATION_PROFILE.md)
+for the complete gate contract. Issue-specific scientific thresholds remain
+binding. `benchmark.py --build BUILD --output NEW_EVIDENCE_DIR --jobs 2` measures
+the actual unfiltered suite and preserves failures; it does not cache a pass.
+Use separate build/evidence directories. All old audio renders and repeats remain;
+CI reuses only one checksum-verified Guitar-TECHS source archive within the job.

@@ -1,0 +1,150 @@
+Functions sorted by metric: Exclusive Total CPU Time
+
+Excl. Total    Incl. Total     Name
+CPU            CPU
+  sec.      %    sec.      %
+47.400 100.00  47.400 100.00   <Total>
+11.590  24.45  44.200  93.25   parable::dsp::Klon::sample(double)
+ 8.010  16.90  10.780  22.74   parable::dsp::Klon::reconstruct(std::array<double, 21ul> const&, std::array<double, 5ul> const&, double, bool) const
+ 5.420  11.43   6.750  14.24   parable::dsp::(anonymous namespace)::dot(std::array<double, 21ul> const&, std::array<double, 21ul> const&)
+ 2.030   4.28  12.310  25.97   parable::dsp::Klon::evaluate(std::array<double, 5ul> const&, std::array<double, 21ul> const&, bool, std::array<double, 5ul>&, std::array<std::array<double, 5ul>, 5ul>&, double&, std::array<double, 2ul>&) const
+ 1.850   3.90   1.850   3.90   std::array<double, 21ul>::operator[](unsigned long) const
+ 1.750   3.69   1.750   3.69   std::array<double, 21ul>::operator[](unsigned long)
+ 1.660   3.50  47.050  99.26   parable::dsp::Klon::process(float)
+ 1.640   3.46   1.640   3.46   std::isfinite(double)
+ 1.550   3.27  15.830  33.40   parable::dsp::Klon::solve(std::array<double, 5ul>&, std::array<double, 21ul> const&, bool, double&, unsigned int&, double&, std::array<double, 2ul>&) const
+ 1.160   2.45   1.160   2.45   std::array<parable::dsp::Klon::Cap, 17ul>::operator[](unsigned long)
+ 0.980   2.07   0.980   2.07   std::array<double, 5ul>::operator[](unsigned long) const
+ 0.960   2.03   0.960   2.03   std::array<std::array<double, 4ul>, 21ul>::operator[](unsigned long) const
+ 0.860   1.81   0.860   1.81   std::array<double, 4ul>::operator[](unsigned long) const
+ 0.840   1.77   0.840   1.77   std::array<double, 17ul>::operator[](unsigned long)
+ 0.780   1.65   0.780   1.65   std::array<std::array<double, 17ul>, 21ul>::operator[](unsigned long)
+ 0.660   1.39   0.940   1.98   parable::dsp::klon_detail::response(double, double, double, double, bool, unsigned long)
+ 0.610   1.29   0.890   1.88   parable::dsp::Klon::coefficient(unsigned long) const
+ 0.530   1.12   1.840   3.88   parable::dsp::(anonymous namespace)::range(double, double, double)
+ 0.530   1.12   0.530   1.12   std::array<double, 5ul>::operator[](unsigned long)
+ 0.530   1.12   0.530   1.12   std::array<std::array<double, 5ul>, 5ul>::operator[](unsigned long)
+ 0.460   0.97   0.460   0.97   std::abs(double)
+ 0.400   0.84   0.400   0.84   double const& std::max<double>(double const&, double const&)
+ 0.390   0.82   0.390   0.82   std::array<unsigned long, 4ul>::operator[](unsigned long) const
+ 0.280   0.59   0.280   0.59   std::array<float, 289ul>::operator[](unsigned long) const
+ 0.200   0.42   0.200   0.42   <static>@0x75c93 (<libm.so.6>)
+ 0.200   0.42   0.200   0.42   std::array<float, 577ul>::operator[](unsigned long)
+ 0.150   0.32   0.150   0.32   std::array<double, 3ul>::operator[](unsigned long)
+ 0.150   0.32   0.300   0.63   std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<double> >, std::is_move_constructible<double>, std::is_move_assignable<double> >::value, void>::type std::swap<double>(double&, double&)
+ 0.150   0.32   0.150   0.32   std::remove_reference<double&>::type&& std::move<double&>(double&)
+ 0.140   0.30   0.320   0.68   parable::dsp::klon_detail::diode(double)
+ 0.120   0.25   0.130   0.27   parable::dsp::Klon::solve(std::array<double, 5ul>&, std::array<double, 21ul> const&, bool, double&, unsigned int&, double&, std::array<double, 2ul>&) const::{lambda(std::array<double, 5ul> const&)#1}::operator()(std::array<double, 5ul> const&) const
+ 0.100   0.21   0.100   0.21   std::array<float, 49ul>::operator[](unsigned long)
+ 0.090   0.19   0.090   0.19   double const& std::min<double>(double const&, double const&)
+ 0.080   0.17   0.320   0.68   double* std::swap_ranges<double*, double*>(double*, double*, double*)
+ 0.060   0.13   0.060   0.13   std::array<double, 3ul>::operator[](unsigned long) const
+ 0.040   0.08   0.040   0.08   <static>@0x8f2d4 (<libc.so.6>)
+ 0.040   0.08   0.050   0.11   _PyObject_Malloc
+ 0.030   0.06   0.030   0.06   std::array<double, 5ul>::begin()
+ 0.030   0.06   0.240   0.51   void std::iter_swap<double*, double*>(double*, double*)
+ 0.020   0.04   0.020   0.04   <static>@0x161e67 (<libc.so.6>)
+ 0.020   0.04   0.020   0.04   <static>@0x59a89 (<libc.so.6>)
+ 0.020   0.04   0.020   0.04   PyUnicode_DecodeUTF8Stateful
+ 0.020   0.04   0.020   0.04   std::array<double, 4ul>::operator[](unsigned long)
+ 0.020   0.04   0.020   0.04   std::array<double, 5ul>::end()
+ 0.020   0.04   0.020   0.04   std::isfinite(float)
+ 0.020   0.04   0.020   0.04   std::vector<float, std::allocator<float> >::operator[](unsigned long)
+ 0.010   0.02   0.010   0.02   (anonymous namespace)::fft(std::vector<std::complex<double>, std::allocator<std::complex<double> > >&)
+ 0.010   0.02   0.010   0.02   <static>@0x9fc63 (<libc.so.6>)
+ 0.010   0.02   0.070   0.15   Reader_iternext
+ 0.010   0.02   0.150   0.32   _PyEval_EvalFrameDefault
+ 0.010   0.02   0.010   0.02   _PyObject_Free
+ 0.010   0.02   0.010   0.02   __gnu_cxx::__normal_iterator<unsigned char*, std::vector<unsigned char, std::allocator<unsigned char> > >::operator*() const
+ 0.010   0.02   0.010   0.02   __gnu_cxx::__normal_iterator<unsigned char*, std::vector<unsigned char, std::allocator<unsigned char> > >::operator-(long) const
+ 0.010   0.02   0.010   0.02   bool __gnu_cxx::operator!=<float*, std::vector<float, std::allocator<float> > >(__gnu_cxx::__normal_iterator<float*, std::vector<float, std::allocator<float> > > const&, __gnu_cxx::__normal_iterator<float*, std::vector<float, std::allocator<float> > > const&)
+ 0.010   0.02   0.190   0.40   double const& std::clamp<double>(double const&, double const&, double const&)
+ 0.010   0.02   0.050   0.11   lab::encode(lab::Wave const&)
+ 0.010   0.02   0.040   0.08   lab::encode(lab::Wave const&)::{lambda(unsigned int, unsigned int)#1}::operator()(unsigned int, unsigned int) const
+ 0.010   0.02   0.020   0.04   parable::dsp::(anonymous namespace)::count(unsigned int&, unsigned int)
+ 0.010   0.02   0.010   0.02   parable::dsp::Klon::diodeAmps(unsigned long) const
+ 0.010   0.02   0.040   0.08   parse_process_char
+ 0.010   0.02   0.010   0.02   pow5mult
+ 0.010   0.02   0.010   0.02   std::array<double, 5ul>::begin() const
+ 0.010   0.02   0.330   0.70   std::array<double, 5ul>::swap(std::array<double, 5ul>&)
+ 0.010   0.02   0.010   0.02   std::numeric_limits<unsigned int>::max()
+ 0.010   0.02   0.010   0.02   std::vector<float, std::allocator<float> >::operator[](unsigned long) const
+ 0.010   0.02   0.030   0.06   unsigned char& std::vector<unsigned char, std::allocator<unsigned char> >::emplace_back<unsigned char>(unsigned char&&)
+ 0.010   0.02   0.010   0.02   unsigned int const& std::max<unsigned int>(unsigned int const&, unsigned int const&)
+ 0.      0.    47.240  99.66   (anonymous namespace)::audition(std::filesystem::__cxx11::path const&, std::filesystem::__cxx11::path const&)
+ 0.      0.     0.080   0.17   (anonymous namespace)::audition(std::filesystem::__cxx11::path const&, std::filesystem::__cxx11::path const&)::{lambda(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, lab::Wave const&, std::vector<float, std::allocator<float> > const&, parable::dsp::KlonControls, (anonymous namespace)::Render const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, double, double)#1}::operator()(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, lab::Wave const&, std::vector<float, std::allocator<float> > const&, parable::dsp::KlonControls, (anonymous namespace)::Render const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, double, double) const
+ 0.      0.    47.140  99.45   (anonymous namespace)::render(lab::Wave const&, parable::dsp::KlonControls, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, (anonymous namespace)::Receipts&, bool)
+ 0.      0.     0.020   0.04   (anonymous namespace)::spectrum(std::basic_ofstream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned int, std::vector<float, std::allocator<float> > const&)
+ 0.      0.    47.400 100.00   <static>@0x29c21 (<libc.so.6>)
+ 0.      0.     0.020   0.04   <static>@0x60067 (<libc.so.6>)
+ 0.      0.     0.020   0.04   <static>@0xff079 (<libstdc++.so.6.0.33>)
+ 0.      0.     0.020   0.04   PyDict_MergeFromSeq2
+ 0.      0.     0.020   0.04   PyDict_SetItem
+ 0.      0.     0.150   0.32   PyEval_EvalCode
+ 0.      0.     0.010   0.02   PyFloat_FromString
+ 0.      0.     0.010   0.02   PyGC_Collect
+ 0.      0.     0.020   0.04   PyIter_Next
+ 0.      0.     0.010   0.02   PyOS_string_to_double
+ 0.      0.     0.020   0.04   PyObject_CallMethodObjArgs
+ 0.      0.     0.030   0.06   PyUnicode_New
+ 0.      0.     0.010   0.02   Py_FinalizeEx
+ 0.      0.     0.010   0.02   Py_RunMain
+ 0.      0.     0.150   0.32   Py_RunMain.warm
+ 0.      0.     0.020   0.04   _PyIncrementalNewlineDecoder_decode
+ 0.      0.     0.020   0.04   _PyObject_VectorcallTstate.llvm.3689151681258589488
+ 0.      0.     0.150   0.32   _PyRun_AnyFileObject
+ 0.      0.     0.150   0.32   _PyRun_SimpleFileObject
+ 0.      0.     0.030   0.06   _PyUnicode_FromUCS4.llvm.9405799312797674166
+ 0.      0.     0.010   0.02   _Py_dg_strtod
+ 0.      0.     0.030   0.06   _Py_read
+ 0.      0.     0.020   0.04   _codecs_utf_8_decode
+ 0.      0.     0.030   0.06   _io_FileIO_readall_impl
+ 0.      0.     0.030   0.06   _io__Buffered_read
+ 0.      0.     0.020   0.04   _textiowrapper_readline
+ 0.      0.     0.010   0.02   bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*)
+ 0.      0.     0.010   0.02   builtin_all
+ 0.      0.     0.150   0.32   builtin_exec
+ 0.      0.     0.070   0.15   builtin_next
+ 0.      0.     0.150   0.32   cfunction_vectorcall_FASTCALL_KEYWORDS.llvm.2305966719422422379
+ 0.      0.     0.030   0.06   cfunction_vectorcall_NOARGS.llvm.2305966719422422379
+ 0.      0.     0.010   0.02   cfunction_vectorcall_O.llvm.2305966719422422379
+ 0.      0.     0.010   0.02   dict_dealloc
+ 0.      0.     0.010   0.02   dict_tp_clear
+ 0.      0.     0.020   0.04   dict_update_arg
+ 0.      0.     0.020   0.04   dict_vectorcall
+ 0.      0.     0.010   0.02   dictkeys_decref.llvm.18175593275982470466
+ 0.      0.     0.010   0.02   dictresize.llvm.18175593275982470466
+ 0.      0.     0.010   0.02   float_from_string_inner.llvm.9932859035096674718
+ 0.      0.     0.010   0.02   gc_collect_main.llvm.12708884480810615701
+ 0.      0.     0.010   0.02   gen_iternext
+ 0.      0.     0.050   0.11   lab::write(std::filesystem::__cxx11::path const&, lab::Wave const&)
+ 0.      0.     0.010   0.02   list_dealloc
+ 0.      0.     0.100   0.21   list_extend.llvm.18239732057725992939
+ 0.      0.     0.100   0.21   list_vectorcall
+ 0.      0.    47.240  99.66   main
+ 0.      0.     0.160   0.34   main
+ 0.      0.     0.010   0.02   malloc
+ 0.      0.     0.020   0.04   object_vacall.llvm.3689151681258589488
+ 0.      0.     0.030   0.06   parse_save_field
+ 0.      0.     0.160   0.34   pymain_main.llvm.3121965821471187960
+ 0.      0.     0.150   0.32   pymain_run_file
+ 0.      0.     0.150   0.32   pymain_run_file_obj
+ 0.      0.     0.150   0.32   pyrun_file
+ 0.      0.     0.030   0.06   read
+ 0.      0.     0.150   0.32   run_mod.llvm.10142647837896989511
+ 0.      0.     0.100   0.21   slot_tp_iternext
+ 0.      0.     0.020   0.04   soundforge::stats(std::vector<float, std::allocator<float> > const&)
+ 0.      0.     0.010   0.02   std::__basic_file<char>::xsputn_2(char const*, long, char const*, long)
+ 0.      0.     0.010   0.02   std::basic_filebuf<char, std::char_traits<char> >::xsputn(char const*, long)
+ 0.      0.     0.010   0.02   std::char_traits<char>::length(char const*)
+ 0.      0.     0.330   0.70   std::enable_if<std::__array_traits<double, 5ul>::_Is_swappable::value, void>::type std::swap<double, 5ul>(std::array<double, 5ul>&, std::array<double, 5ul>&)
+ 0.      0.     0.030   0.06   std::ostream& std::ostream::_M_insert<double>(double)
+ 0.      0.     0.030   0.06   std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_float<double>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, char, double) const
+ 0.      0.     0.020   0.04   std::vector<unsigned char, std::allocator<unsigned char> >::back()
+ 0.      0.     0.030   0.06   std::vector<unsigned char, std::allocator<unsigned char> >::push_back(unsigned char&&)
+ 0.      0.     0.020   0.04   textiowrapper_iternext
+ 0.      0.     0.020   0.04   textiowrapper_read_chunk
+ 0.      0.     0.100   0.21   vectorcall_method
+ 0.      0.     0.020   0.04   vsnprintf
+ 0.      0.     0.010   0.02   writev
+

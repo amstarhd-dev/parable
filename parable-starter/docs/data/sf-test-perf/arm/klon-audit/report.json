@@ -1,0 +1,192 @@
+{
+  "compiler": {
+    "version": "14.2.1",
+    "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+    "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+    "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+    "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+  },
+  "flags": [
+    "-std=c++17",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-mcpu=cortex-m7",
+    "-mthumb",
+    "-mfpu=fpv5-d16",
+    "-mfloat-abi=hard",
+    "-fno-exceptions",
+    "-fno-rtti",
+    "-fno-fast-math",
+    "-fno-finite-math-only",
+    "-fstack-usage",
+    "-I/workspace/work/parable-sf-test-perf/parable-starter/include"
+  ],
+  "object": {
+    "text": 9808,
+    "data": 0,
+    "bss": 0
+  },
+  "layout": {
+    "processor": 11808,
+    "nodes": 21,
+    "coupled_unknowns": 5,
+    "external_caps": 17,
+    "oversampling": 12,
+    "FIR_taps": 577,
+    "Newton_updates": 24,
+    "backtracks": 8,
+    "unchanged_engine": 11040,
+    "unchanged_bundle": 11288,
+    "unchanged_runtime": 45224,
+    "unchanged_rat": 10752
+  },
+  "whole_object_undefined": [
+    "cos",
+    "expm1",
+    "memcpy",
+    "memset",
+    "sin"
+  ],
+  "audio_calls": {
+    "parable::dsp::Klon::reconstruct(std::array<double, 21u> const&, std::array<double, 5u> const&, double, bool) const": [
+      "memcpy"
+    ],
+    "parable::dsp::Klon::evaluate(std::array<double, 5u> const&, std::array<double, 21u> const&, bool, std::array<double, 5u>&, std::array<std::array<double, 5u>, 5u>&, double&, std::array<double, 2u>&) const": [
+      "expm1",
+      "expm1",
+      "parable::dsp::Klon::reconstruct(std::array<double, 21u> const&, std::array<double, 5u> const&, double, bool) const",
+      "memset",
+      "memset"
+    ],
+    "parable::dsp::Klon::solve(std::array<double, 5u>&, std::array<double, 21u> const&, bool, double&, unsigned long&, double&, std::array<double, 2u>&) const": [
+      "memset",
+      "memset",
+      "parable::dsp::Klon::evaluate(std::array<double, 5u> const&, std::array<double, 21u> const&, bool, std::array<double, 5u>&, std::array<std::array<double, 5u>, 5u>&, double&, std::array<double, 2u>&) const",
+      "memset",
+      "memset",
+      "memset",
+      "parable::dsp::Klon::evaluate(std::array<double, 5u> const&, std::array<double, 21u> const&, bool, std::array<double, 5u>&, std::array<std::array<double, 5u>, 5u>&, double&, std::array<double, 2u>&) const",
+      "memcpy"
+    ],
+    "parable::dsp::Klon::resetCircuit()": [
+      "memcpy",
+      "memset",
+      "memcpy"
+    ],
+    "parable::dsp::Klon::sample(double)": [
+      "memcpy",
+      "parable::dsp::Klon::solve(std::array<double, 5u>&, std::array<double, 21u> const&, bool, double&, unsigned long&, double&, std::array<double, 2u>&) const",
+      "parable::dsp::Klon::reconstruct(std::array<double, 21u> const&, std::array<double, 5u> const&, double, bool) const",
+      "memset",
+      "memset",
+      "memset",
+      "memset",
+      "memcpy",
+      "memcpy",
+      "memcpy",
+      "parable::dsp::Klon::resetCircuit()"
+    ],
+    "parable::dsp::Klon::process(float)": [
+      "parable::dsp::Klon::sample(double)",
+      "parable::dsp::Klon::sample(double)",
+      "parable::dsp::Klon::resetCircuit()"
+    ]
+  },
+  "stack_usage": [
+    "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_klon.cpp:58:26:parable::dsp::Klon::matrices(bool)::<lambda(const parable::dsp::Klon::Nodes&, double)>\t376\tstatic",
+    "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_klon.cpp:16:6:bool parable::dsp::Klon::matrices(bool)\t7528\tstatic",
+    "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_klon.cpp:80:13:parable::dsp::Klon::Nodes parable::dsp::Klon::reconstruct(const Nodes&, const Unknowns&, double, bool) const\t48\tstatic",
+    "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_klon.cpp:88:6:bool parable::dsp::Klon::evaluate(const Unknowns&, const Nodes&, bool, Unknowns&, Matrix&, double&, std::array<double, 2>&) const\t320\tstatic",
+    "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_klon.cpp:107:6:bool parable::dsp::Klon::solve(Unknowns&, const Nodes&, bool, double&, uint32_t&, double&, std::array<double, 2>&) const\t728\tstatic",
+    "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_klon.cpp:162:6:void parable::dsp::Klon::resetCircuit()\t32\tstatic",
+    "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_klon.cpp:166:6:void parable::dsp::Klon::reset()\t8\tstatic",
+    "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_klon.cpp:137:6:bool parable::dsp::Klon::prepare(float, parable::dsp::KlonControls, parable::dsp::KlonRate)\t12184\tstatic",
+    "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_klon.cpp:170:8:double parable::dsp::Klon::sample(double)\t1104\tstatic",
+    "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_klon.cpp:192:7:float parable::dsp::Klon::process(float)\t48\tstatic"
+  ],
+  "static_work": "12 internal steps/frame;<=24 Newton updates with<=8 backtracking trials+initial evaluation;fixed5x5 elimination;4 exact local amplifier-feedback responses/candidate;2expm1/candidate in BOTH healthy and fault;21nodes/17cap histories;577tap symmetric FIR interpolation/decimation. No approximate exponential/block linearization.",
+  "maximum_device_evaluations_per_internal_sample": 193,
+  "maximum_device_evaluations_per_base_frame": 2316,
+  "maximum_expm1_per_base_frame": 4632,
+  "target_cycles": "not measured",
+  "future_admission_ceiling_cycles_per_sample": 2000,
+  "firmware_linked": false,
+  "physical_tested": false,
+  "source_sha256": {
+    "include/parable_klon.h": "e03c08fcbb5a52665f1a2cf1f6cded105298ca57c494df3dd509859b426ad294",
+    "src/parable_klon.cpp": "7c68722b75574b3a9fcc64541d22259e6d6f68feb1167bb4f725fd18fe041868",
+    "src/klon_device.h": "8061bcf2956d213f8bf5ace362922ea52ae20751fc5784e17ec0da27e9580648"
+  },
+  "commands": [
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-dumpfullversion"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-fno-fast-math",
+      "-fno-finite-math-only",
+      "-fstack-usage",
+      "-I/workspace/work/parable-sf-test-perf/parable-starter/include",
+      "-c",
+      "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_klon.cpp",
+      "-o",
+      "/workspace/work/sf-test-perf-arm/klon-audit/parable_klon.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-nm",
+      "-u",
+      "/workspace/work/sf-test-perf-arm/klon-audit/parable_klon.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-objdump",
+      "-drC",
+      "/workspace/work/sf-test-perf-arm/klon-audit/parable_klon.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-fno-fast-math",
+      "-fno-finite-math-only",
+      "-fstack-usage",
+      "-I/workspace/work/parable-sf-test-perf/parable-starter/include",
+      "-c",
+      "/workspace/work/sf-test-perf-arm/klon-audit/layout.cpp",
+      "-o",
+      "/workspace/work/sf-test-perf-arm/klon-audit/layout.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-objcopy",
+      "--dump-section",
+      ".rodata=/workspace/work/sf-test-perf-arm/klon-audit/layout.bin",
+      "/workspace/work/sf-test-perf-arm/klon-audit/layout.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-size",
+      "/workspace/work/sf-test-perf-arm/klon-audit/parable_klon.o"
+    ]
+  ]
+}

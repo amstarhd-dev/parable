@@ -1,0 +1,776 @@
+Start testing: Nov 15 17:10 UTC
+----------------------------------------------------------
+1/38 Testing: firmware_measurement_math_status
+1/38 Test: firmware_measurement_math_status
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "firmware_measurement_math_status" "/workspace/work/sf-test-perf-baseline-Debug/parable_firmware_measurement_test"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"firmware_measurement_math_status" start time: Nov 15 17:10 UTC
+Output:
+----------------------------------------------------------
+Firmware measurement/status simulation checks 27069
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"firmware_measurement_math_status" end time: Nov 15 17:10 UTC
+"firmware_measurement_math_status" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/38 Testing: core_validation
+2/38 Test: core_validation
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "core_validation" "/workspace/work/sf-test-perf-baseline-Debug/parable_core_test"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"core_validation" start time: Nov 15 17:10 UTC
+Output:
+----------------------------------------------------------
+PARABLE_CORE_V0_1: host validation passed: 23 checks
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"core_validation" end time: Nov 15 17:10 UTC
+"core_validation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/38 Testing: audio_safety
+3/38 Test: audio_safety
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "audio_safety" "/workspace/work/sf-test-perf-baseline-Debug/parable_audio_safety_test"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"audio_safety" start time: Nov 15 17:10 UTC
+Output:
+----------------------------------------------------------
+PAR003 audio safety passed: 1476661 checks
+<end of output>
+Test time =   0.08 sec
+----------------------------------------------------------
+Test Passed.
+"audio_safety" end time: Nov 15 17:10 UTC
+"audio_safety" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/38 Testing: patch_contract
+4/38 Test: patch_contract
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "patch_contract" "/workspace/work/sf-test-perf-baseline-Debug/parable_patch_test"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"patch_contract" start time: Nov 15 17:10 UTC
+Output:
+----------------------------------------------------------
+PAR002 patch contract passed: 29116 checks
+<end of output>
+Test time =   1.12 sec
+----------------------------------------------------------
+Test Passed.
+"patch_contract" end time: Nov 15 17:10 UTC
+"patch_contract" time elapsed: 00:00:01
+----------------------------------------------------------
+
+5/38 Testing: host_preparation
+5/38 Test: host_preparation
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "host_preparation" "/workspace/work/sf-test-perf-baseline-Debug/parable_prepare_test"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"host_preparation" start time: Nov 15 17:10 UTC
+Output:
+----------------------------------------------------------
+PAR004 host preparation passed: 658386 checks
+<end of output>
+Test time =   0.06 sec
+----------------------------------------------------------
+Test Passed.
+"host_preparation" end time: Nov 15 17:10 UTC
+"host_preparation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/38 Testing: rat_patch_integration
+6/38 Test: rat_patch_integration
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "rat_patch_integration" "/workspace/work/sf-test-perf-baseline-Debug/parable_rat_integration_test"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"rat_patch_integration" start time: Nov 15 17:10 UTC
+Output:
+----------------------------------------------------------
+RAT patch checks 483614; process allocations 0
+<end of output>
+Test time =   2.01 sec
+----------------------------------------------------------
+Test Passed.
+"rat_patch_integration" end time: Nov 15 17:10 UTC
+"rat_patch_integration" time elapsed: 00:00:02
+----------------------------------------------------------
+
+7/38 Testing: patch_audio_evidence
+7/38 Test: patch_audio_evidence
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "patch_audio_evidence" "/workspace/work/sf-test-perf-baseline-Debug/parable_patch_audition" "--output" "/workspace/work/sf-test-perf-baseline-Debug/patch-auditions"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"patch_audio_evidence" start time: Nov 15 17:10 UTC
+Output:
+----------------------------------------------------------
+Created 4 canonical Engine WAVs; standalone peak error 0; order RMS difference 0.020402 in "/workspace/work/sf-test-perf-baseline-Debug/patch-auditions"
+<end of output>
+Test time =   6.70 sec
+----------------------------------------------------------
+Test Passed.
+"patch_audio_evidence" end time: Nov 15 17:10 UTC
+"patch_audio_evidence" time elapsed: 00:00:06
+----------------------------------------------------------
+
+8/38 Testing: rat_circuit_and_safety
+8/38 Test: rat_circuit_and_safety
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "rat_circuit_and_safety" "/workspace/work/sf-test-perf-baseline-Debug/parable_rat_test"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"rat_circuit_and_safety" start time: Nov 15 17:10 UTC
+Output:
+----------------------------------------------------------
+RAT checks 5669023, allocation count 0, SPICE errors gain dB 8.84709e-07 phase deg 5.5276e-06 transient RMS/peak V 0.00049522/0.000903295
+<end of output>
+Test time =   2.25 sec
+----------------------------------------------------------
+Test Passed.
+"rat_circuit_and_safety" end time: Nov 15 17:10 UTC
+"rat_circuit_and_safety" time elapsed: 00:00:02
+----------------------------------------------------------
+
+9/38 Testing: rat_lab_measurements
+9/38 Test: rat_lab_measurements
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "rat_lab_measurements" "/workspace/work/sf-test-perf-baseline-Debug/parable_rat_lab" "--self-test"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"rat_lab_measurements" start time: Nov 15 17:10 UTC
+Output:
+----------------------------------------------------------
+Independent SPICE gain/phase/RMS/peak errors 8.84709e-07 5.5276e-06 0.00049522 0.000903295; alias dBc 1x/4x -14.6647/-50.583; open diode raw DC 3.69655
+<end of output>
+Test time =   3.50 sec
+----------------------------------------------------------
+Test Passed.
+"rat_lab_measurements" end time: Nov 15 17:10 UTC
+"rat_lab_measurements" time elapsed: 00:00:03
+----------------------------------------------------------
+
+10/38 Testing: soundforge_utilities
+10/38 Test: soundforge_utilities
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "soundforge_utilities" "/workspace/work/sf-test-perf-baseline-Debug/parable_soundforge_test"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"soundforge_utilities" start time: Nov 15 17:10 UTC
+Output:
+----------------------------------------------------------
+Soundforge independent utility checks: 47
+<end of output>
+Test time =   1.19 sec
+----------------------------------------------------------
+Test Passed.
+"soundforge_utilities" end time: Nov 15 17:10 UTC
+"soundforge_utilities" time elapsed: 00:00:01
+----------------------------------------------------------
+
+11/38 Testing: soundforge_registry
+11/38 Test: soundforge_registry
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "soundforge_registry" "/workspace/work/baseline-tools/bin/python3.12" "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/validate_registry.py"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"soundforge_registry" start time: Nov 15 17:10 UTC
+Output:
+----------------------------------------------------------
+Validated 12 Soundforge assets offline; evidence claims require human review.
+<end of output>
+Test time =   0.10 sec
+----------------------------------------------------------
+Test Passed.
+"soundforge_registry" end time: Nov 15 17:10 UTC
+"soundforge_registry" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/38 Testing: soundforge_registry_negative
+12/38 Test: soundforge_registry_negative
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "soundforge_registry_negative" "/workspace/work/baseline-tools/bin/python3.12" "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_soundforge_registry.py"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"soundforge_registry_negative" start time: Nov 15 17:10 UTC
+Output:
+----------------------------------------------------------
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.111s
+
+OK
+<end of output>
+Test time =   0.24 sec
+----------------------------------------------------------
+Test Passed.
+"soundforge_registry_negative" end time: Nov 15 17:10 UTC
+"soundforge_registry_negative" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/38 Testing: labrat_output_preservation
+13/38 Test: labrat_output_preservation
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "labrat_output_preservation" "/workspace/work/baseline-tools/bin/python3.12" "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/check_labrat.py" "--executable" "/workspace/work/sf-test-perf-baseline-Debug/parable_rat_lab"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"labrat_output_preservation" start time: Nov 15 17:10 UTC
+Output:
+----------------------------------------------------------
+{
+  "baseline_commit": "2ad06c55aa7ee2b78323201bbf158d535d9a76cb",
+  "output_files_byte_identical": 16,
+  "wav_files_byte_identical": 11,
+  "protected_files_identical": 10,
+  "scope": "Linux/GCC exact regression only; not circuit fidelity or musical acceptance"
+}
+<end of output>
+Test time =  18.69 sec
+----------------------------------------------------------
+Test Passed.
+"labrat_output_preservation" end time: Nov 15 17:10 UTC
+"labrat_output_preservation" time elapsed: 00:00:18
+----------------------------------------------------------
+
+14/38 Testing: cmos_circuit_and_safety
+14/38 Test: cmos_circuit_and_safety
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "cmos_circuit_and_safety" "/workspace/work/sf-test-perf-baseline-Debug/parable_cmos_test"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"cmos_circuit_and_safety" start time: Nov 15 17:10 UTC
+Output:
+----------------------------------------------------------
+CMOS checks 1257836 allocation count 0 DC peak V 1.07858e-08 circuit RMS/peak V 0.000814933/0.0231587
+<end of output>
+Test time =   1.25 sec
+----------------------------------------------------------
+Test Passed.
+"cmos_circuit_and_safety" end time: Nov 15 17:10 UTC
+"cmos_circuit_and_safety" time elapsed: 00:00:01
+----------------------------------------------------------
+
+15/38 Testing: cmos_lab_measurements
+15/38 Test: cmos_lab_measurements
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "cmos_lab_measurements" "/workspace/work/sf-test-perf-baseline-Debug/parable_cmos_lab" "--self-test"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"cmos_lab_measurements" start time: Nov 15 17:10 UTC
+Output:
+----------------------------------------------------------
+CMOS SPICE DC/RMS/peak V 1.07858e-08/0.000814933/0.0231587; folded-third alias 1x/4x dBc -14.2949/-102.44
+<end of output>
+Test time =   3.98 sec
+----------------------------------------------------------
+Test Passed.
+"cmos_lab_measurements" end time: Nov 15 17:10 UTC
+"cmos_lab_measurements" time elapsed: 00:00:03
+----------------------------------------------------------
+
+16/38 Testing: cmos_lab_cli
+16/38 Test: cmos_lab_cli
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "cmos_lab_cli" "/workspace/work/baseline-tools/bin/python3.12" "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_cmos_cli.py" "/workspace/work/sf-test-perf-baseline-Debug/parable_cmos_lab"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"cmos_lab_cli" start time: Nov 15 17:10 UTC
+Output:
+----------------------------------------------------------
+CMOS CLI: deterministic PCM16, metadata, malformed input and overwrite protection passed
+<end of output>
+Test time =  11.35 sec
+----------------------------------------------------------
+Test Passed.
+"cmos_lab_cli" end time: Nov 15 17:10 UTC
+"cmos_lab_cli" time elapsed: 00:00:11
+----------------------------------------------------------
+
+17/38 Testing: germanium_circuit_and_safety
+17/38 Test: germanium_circuit_and_safety
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "germanium_circuit_and_safety" "/workspace/work/sf-test-perf-baseline-Debug/parable_germanium_test"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"germanium_circuit_and_safety" start time: Nov 15 17:10 UTC
+Output:
+----------------------------------------------------------
+Underresolved1x diagnostic fallback count 29 of 20480
+Ge checks 2053030 allocations 0 bias peak 1.6838e-08 nodes RMS/peak 0.00136587/0.0629005 jack RMS/peak 7.22313e-05/0.00151433 input RMS 1.34318e-07
+<end of output>
+Test time =   6.93 sec
+----------------------------------------------------------
+Test Passed.
+"germanium_circuit_and_safety" end time: Nov 15 17:11 UTC
+"germanium_circuit_and_safety" time elapsed: 00:00:06
+----------------------------------------------------------
+
+18/38 Testing: germanium_lab_measurements
+18/38 Test: germanium_lab_measurements
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "germanium_lab_measurements" "/workspace/work/sf-test-perf-baseline-Debug/parable_germanium_lab" "--self-test"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"germanium_lab_measurements" start time: Nov 15 17:11 UTC
+Output:
+----------------------------------------------------------
+Ge SPICE bias/node RMS/peak 1.683801365e-08/0.00136587443843/0.0629005406871 jack RMS/peak 7.22312821182e-05/0.00151433209665 alias1x/4x -24.0834803853/-113.797219096 Zin 1047.50663125+j-21.6778011043
+<end of output>
+Test time =   7.02 sec
+----------------------------------------------------------
+Test Passed.
+"germanium_lab_measurements" end time: Nov 15 17:11 UTC
+"germanium_lab_measurements" time elapsed: 00:00:07
+----------------------------------------------------------
+
+19/38 Testing: germanium_lab_cli
+19/38 Test: germanium_lab_cli
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "germanium_lab_cli" "/workspace/work/baseline-tools/bin/python3.12" "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_germanium_cli.py" "/workspace/work/sf-test-perf-baseline-Debug/parable_germanium_lab"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"germanium_lab_cli" start time: Nov 15 17:11 UTC
+Output:
+----------------------------------------------------------
+Ge CLI:20 raw/matched WAVs, deterministic PCM16, metadata, counters, invalid input and overwrite guards passed
+<end of output>
+Test time =  13.34 sec
+----------------------------------------------------------
+Test Passed.
+"germanium_lab_cli" end time: Nov 15 17:11 UTC
+"germanium_lab_cli" time elapsed: 00:00:13
+----------------------------------------------------------
+
+20/38 Testing: preset_journal
+20/38 Test: preset_journal
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "preset_journal" "/workspace/work/sf-test-perf-baseline-Debug/parable_presets_test"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"preset_journal" start time: Nov 15 17:11 UTC
+Output:
+----------------------------------------------------------
+matrix kind=save program=8 erase=64 prior_generation=0 byte_cuts=16921 old=16920 new=1 io_failures=511
+matrix kind=save program=8 erase=64 prior_generation=2 byte_cuts=16921 old=16920 new=1 io_failures=383
+matrix kind=clear program=8 erase=64 prior_generation=2 byte_cuts=16585 old=16584 new=1 io_failures=340
+matrix kind=save program=256 erase=4096 prior_generation=2 byte_cuts=45 old=44 new=1 io_failures=109
+matrix kind=save program=1 erase=256 prior_generation=1 byte_cuts=595 old=594 new=1 io_failures=600
+matrix kind=save program=16 erase=256 prior_generation=1 byte_cuts=276 old=275 new=1 io_failures=229
+matrix kind=save program=64 erase=256 prior_generation=1 byte_cuts=221 old=220 new=1 io_failures=211
+large_canonical_bytes=1653 max_input_bytes=16384 random_resets=512
+byte_cuts=51564 io_failures=2383 deterministic_digest=1b66b2d9a969bef5
+<end of output>
+Test time =  17.14 sec
+----------------------------------------------------------
+Test Passed.
+"preset_journal" end time: Nov 15 17:11 UTC
+"preset_journal" time elapsed: 00:00:17
+----------------------------------------------------------
+
+21/38 Testing: activation_contract
+21/38 Test: activation_contract
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "activation_contract" "/workspace/work/sf-test-perf-baseline-Debug/parable_activation_test"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"activation_contract" start time: Nov 15 17:11 UTC
+Output:
+----------------------------------------------------------
+layout engine=11048 typed=240 bundle=11304 pool=45216 runtime=45288 shared_atomics=16
+control_cpp_allocations=1260 cumulative_requested_bytes=73558 callback_allocations=0 callback_locks=0 callback_io=0
+prepare_slot=0 ns=2039373
+prepare_slot=1 ns=187748
+prepare_slot=2 ns=11649968
+prepare_slot=3 ns=5627033
+boundary_only_ns min=60 median=80 max=410 samples=256 (includes host timer/guard overhead; not a deadline proof)
+<end of output>
+Test time =   0.22 sec
+----------------------------------------------------------
+Test Passed.
+"activation_contract" end time: Nov 15 17:11 UTC
+"activation_contract" time elapsed: 00:00:00
+----------------------------------------------------------
+
+22/38 Testing: activation_concurrency
+22/38 Test: activation_concurrency
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "activation_concurrency" "/workspace/work/sf-test-perf-baseline-Debug/parable_activation_test" "--stress"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"activation_concurrency" start time: Nov 15 17:11 UTC
+Output:
+----------------------------------------------------------
+stress publications=4096 adopted=4092 busy=117788 retirement_acks=4088 frames=243647 joined_restarts=4 callback_allocations=0 callback_locks=0 callback_io=0
+test_log_capacity_bytes=4480000 mapping_bytes=16384 worker_io_buffers=512 reference_engine=11048
+<end of output>
+Test time =  26.12 sec
+----------------------------------------------------------
+Test Passed.
+"activation_concurrency" end time: Nov 15 17:12 UTC
+"activation_concurrency" time elapsed: 00:00:26
+----------------------------------------------------------
+
+23/38 Testing: activation_demo
+23/38 Test: activation_demo
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "activation_demo" "/workspace/work/sf-test-perf-baseline-Debug/parable_activation_demo" "0" "2" "1" "3" "0"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"activation_demo" start time: Nov 15 17:12 UTC
+Output:
+----------------------------------------------------------
+slot=0 token=4 generation=1 frames=768 hash=4b48ac925c46d4c7
+slot=2 token=9 generation=2 frames=768 hash=f2153c08a42c6b28
+slot=1 token=12 generation=3 frames=768 hash=d27c7a237c166632
+slot=3 token=17 generation=4 frames=768 hash=7031ace36d5c48b0
+slot=0 token=20 generation=5 frames=768 hash=f481cc42196a64d4
+<end of output>
+Test time =   0.07 sec
+----------------------------------------------------------
+Test Passed.
+"activation_demo" end time: Nov 15 17:12 UTC
+"activation_demo" time elapsed: 00:00:00
+----------------------------------------------------------
+
+24/38 Testing: living_contract
+24/38 Test: living_contract
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "living_contract" "/workspace/work/sf-test-perf-baseline-Debug/parable_living_test"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"living_contract" start time: Nov 15 17:12 UTC
+Output:
+----------------------------------------------------------
+layout record=64 profile=112 view=104 snapshot=40 lane=1312 scheduler=24544 audio=8280 runtime=45288
+ingest budget_Bps=32768 actual_record_B=64 logical_seconds=10 records=5120 bytes=327680 host_wall_us=723.473 high_water=6 drops=0
+ingest budget_Bps=131072 actual_record_B=64 logical_seconds=1 records=2048 bytes=131072 host_wall_us=221.178 high_water=21 drops=0
+unpaced_128KiBps_250ms offered=512 accepted=256 dropped=256 policy=drop-new
+living checks=13162 passed
+<end of output>
+Test time =   1.06 sec
+----------------------------------------------------------
+Test Passed.
+"living_contract" end time: Nov 15 17:12 UTC
+"living_contract" time elapsed: 00:00:01
+----------------------------------------------------------
+
+25/38 Testing: living_concurrency
+25/38 Test: living_concurrency
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "living_concurrency" "/workspace/work/sf-test-perf-baseline-Debug/parable_living_test" "--stress"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"living_concurrency" start time: Nov 15 17:12 UTC
+Output:
+----------------------------------------------------------
+concurrency epoch=0 publications=2048 invalidations=14 blocks=2041 full_retries=0 reference_exact=1 guards_clean=1
+concurrency epoch=1 publications=2048 invalidations=14 blocks=2041 full_retries=0 reference_exact=1 guards_clean=1
+concurrency epoch=2 publications=2048 invalidations=14 blocks=2041 full_retries=0 reference_exact=1 guards_clean=1
+concurrency epoch=3 publications=2048 invalidations=14 blocks=2041 full_retries=0 reference_exact=1 guards_clean=1
+living checks=19 passed
+<end of output>
+Test time =   2.59 sec
+----------------------------------------------------------
+Test Passed.
+"living_concurrency" end time: Nov 15 17:12 UTC
+"living_concurrency" time elapsed: 00:00:02
+----------------------------------------------------------
+
+26/38 Testing: living_audio_evidence
+26/38 Test: living_audio_evidence
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "living_audio_evidence" "/workspace/work/sf-test-perf-baseline-Debug/parable_living_demo" "--output" "/workspace/work/sf-test-perf-baseline-Debug/living-evidence"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"living_audio_evidence" start time: Nov 15 17:12 UTC
+Output:
+----------------------------------------------------------
+Synthetic saved-patch WAVs/traces: "/workspace/work/sf-test-perf-baseline-Debug/living-evidence"; fixture RMS difference=0.0178935
+<end of output>
+Test time =   6.34 sec
+----------------------------------------------------------
+Test Passed.
+"living_audio_evidence" end time: Nov 15 17:12 UTC
+"living_audio_evidence" time elapsed: 00:00:06
+----------------------------------------------------------
+
+27/38 Testing: tape_medium_and_safety
+27/38 Test: tape_medium_and_safety
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "tape_medium_and_safety" "/workspace/work/sf-test-perf-baseline-Debug/parable_tape_test"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"tape_medium_and_safety" start time: Nov 15 17:12 UTC
+Output:
+----------------------------------------------------------
+Decimal independent-reference values=13356 peak_error=5.91839e-08
+Feedback-zero A under DIFFERENT B: measured gain=0.34; subsequent turns ratio=.34; healthy <=1e-7
+Tape layout=128 max_medium=768000 bytes; callback guards clean
+Tape checks=3613394 passed
+<end of output>
+Test time =   0.16 sec
+----------------------------------------------------------
+Test Passed.
+"tape_medium_and_safety" end time: Nov 15 17:12 UTC
+"tape_medium_and_safety" time elapsed: 00:00:00
+----------------------------------------------------------
+
+28/38 Testing: tape_listening_cli
+28/38 Test: tape_listening_cli
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "tape_listening_cli" "/workspace/work/baseline-tools/bin/python3.12" "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_tape_cli.py" "/workspace/work/sf-test-perf-baseline-Debug/parable_tape_lab"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"tape_listening_cli" start time: Nov 15 17:12 UTC
+Output:
+----------------------------------------------------------
+Tape CLI: eleven byte-stable WAVs, level matching, feedback-zero ghost proof and source protection passed
+<end of output>
+Test time =   1.63 sec
+----------------------------------------------------------
+Test Passed.
+"tape_listening_cli" end time: Nov 15 17:12 UTC
+"tape_listening_cli" time elapsed: 00:00:01
+----------------------------------------------------------
+
+29/38 Testing: rotary_mechanics_and_safety
+29/38 Test: rotary_mechanics_and_safety
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "rotary_mechanics_and_safety" "/workspace/work/sf-test-perf-baseline-Debug/parable_rotary_test"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"rotary_mechanics_and_safety" start time: Nov 15 17:12 UTC
+Output:
+----------------------------------------------------------
+Mechanics rate=32000 values=4800 omega_peak/rms=0.00750765/0.000261429 phase_peak=0.000281522 event_peak_s=5.20833e-05 events=14
+Mechanics rate=44100 values=4800 omega_peak/rms=0.00366873/0.000133954 phase_peak=0.000167411 event_peak_s=4.02849e-05 events=14
+Mechanics rate=48000 values=4800 omega_peak/rms=0.00380008/0.000137003 phase_peak=0.000157477 event_peak_s=3.64583e-05 events=14
+Mechanics rate=96000 values=4800 omega_peak/rms=0.00250291/9.98386e-05 phase_peak=8.00859e-05 event_peak_s=2.08333e-05 events=14
+Rotary state=4392 repeated releases/captures=32/32 slow minimum_rad_s=2.57386 997Hz max_sample_delta=0.0121808 DC max_delta=2.18302e-05; bass exact; callback guards clean
+Rotary checks=37444856 passed
+<end of output>
+Test time =   3.64 sec
+----------------------------------------------------------
+Test Passed.
+"rotary_mechanics_and_safety" end time: Nov 15 17:12 UTC
+"rotary_mechanics_and_safety" time elapsed: 00:00:03
+----------------------------------------------------------
+
+30/38 Testing: rotary_listening_cli
+30/38 Test: rotary_listening_cli
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "rotary_listening_cli" "/workspace/work/baseline-tools/bin/python3.12" "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_rotary_cli.py" "/workspace/work/sf-test-perf-baseline-Debug/parable_rotary_lab"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"rotary_listening_cli" start time: Nov 15 17:12 UTC
+Output:
+----------------------------------------------------------
+Rotary CLI: 12 repeatable WAVs, raw/matched levels, motion SVG, mechanical discrimination and source protection passed
+<end of output>
+Test time =   4.05 sec
+----------------------------------------------------------
+Test Passed.
+"rotary_listening_cli" end time: Nov 15 17:12 UTC
+"rotary_listening_cli" time elapsed: 00:00:04
+----------------------------------------------------------
+
+31/38 Testing: muff_circuit_and_safety
+31/38 Test: muff_circuit_and_safety
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "muff_circuit_and_safety" "/workspace/work/sf-test-perf-baseline-Debug/parable_muff_test"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"muff_circuit_and_safety" start time: Nov 15 17:12 UTC
+Output:
+----------------------------------------------------------
+Creating experiment directory /workspace/work/sf-test-perf-evidence/baseline-Debug/muff_circuit_and_safety.er (Process ID: 30698) ...
+Independent built-in device points=72 peak_current_A=3.55841e-06 bias_peak_V=1.60071e-06
+Transient rate=96000 values=28980 nodes_rms/peak_V=3.8167e-05/0.00317174 jack_rms/peak_V=5.11145e-05/0.00154684 current_peak_A=2.30778e-07
+Transient rate=192000 values=28980 nodes_rms/peak_V=8.04114e-06/0.000606994 jack_rms/peak_V=1.03396e-05/0.000295285 current_peak_A=4.91387e-08
+Transient rate=384000 values=28980 nodes_rms/peak_V=2.0733e-06/0.000100384 jack_rms/peak_V=1.93872e-06/4.812e-05 current_peak_A=9.80653e-09
+Independent recovery RMS_relative_error=0.000129389 mean_state_peak_V=4.22336e-05
+Control AC max_complex_relative_error=0.0344941 tone_mid_100/1k/10k=0.289689/0.145119/0.363485 sustain0/mid/1=2.31561/50.4083/208.633
+History priming ratio (NOT suppression)=1.23232 state=8832; guards/reset/rates/controls/extremes passed
+Muff checks=7689437 passed
+<end of output>
+Test time = 164.95 sec
+----------------------------------------------------------
+Test Passed.
+"muff_circuit_and_safety" end time: Nov 15 17:15 UTC
+"muff_circuit_and_safety" time elapsed: 00:02:44
+----------------------------------------------------------
+
+32/38 Testing: muff_listening_cli
+32/38 Test: muff_listening_cli
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "muff_listening_cli" "/workspace/work/baseline-tools/bin/python3.12" "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_muff_cli.py" "/workspace/work/sf-test-perf-baseline-Debug/parable_muff_lab"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"muff_listening_cli" start time: Nov 15 17:15 UTC
+Output:
+----------------------------------------------------------
+Muff CLI:21 deterministic WAVs, disclosed gains/raw levels, true priming history, source safety; choke hypothesis remains unproven
+<end of output>
+Test time = 187.55 sec
+----------------------------------------------------------
+Test Passed.
+"muff_listening_cli" end time: Nov 15 17:18 UTC
+"muff_listening_cli" time elapsed: 00:03:07
+----------------------------------------------------------
+
+33/38 Testing: ts808_circuit_and_safety
+33/38 Test: ts808_circuit_and_safety
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "ts808_circuit_and_safety" "/workspace/work/sf-test-perf-baseline-Debug/parable_ts808_test" "--evidence" "/workspace/work/sf-test-perf-baseline-Debug/ts808-measurements"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"ts808_circuit_and_safety" start time: Nov 15 17:18 UTC
+Output:
+----------------------------------------------------------
+Creating experiment directory /workspace/work/sf-test-perf-evidence/baseline-Debug/ts808_circuit_and_safety.er (Process ID: 30842) ...
+Device peak_A=5.2829e-08 bias_peak_V=2.06946e-07
+Transient 192000 all_RMS/peak_V=0.0140762/0.237145 jack_RMS/peak_V=0.00143214/0.0317975 diode_peak_A=3.18119e-05
+Transient 384000 all_RMS/peak_V=0.00788006/0.208469 jack_RMS/peak_V=0.000583303/0.00586451 diode_peak_A=2.41575e-05
+Transient 768000 all_RMS/peak_V=0.00115996/0.0717928 jack_RMS/peak_V=5.12023e-05/0.000466998 diode_peak_A=1.42623e-05
+Transient 1536000 all_RMS/peak_V=0.000294782/0.044354 jack_RMS/peak_V=1.58838e-05/0.000186427 diode_peak_A=2.96763e-06
+Transient 705600 all_RMS/peak_V=0.00158438/0.0832266 jack_RMS/peak_V=4.5792e-05/0.000390466 diode_peak_A=1.5966e-05
+AC max_complex_relative=0.0214115 jackGain100/1k/10k=1.68332/6.65518/0.938136
+Alias fault=0 1x/16x_dBc=-25.536/-134.805 improvement_dB=109.269
+Alias fault=1 1x/16x_dBc=-29.3125/-82.8486 improvement_dB=53.536
+Rates/guards/controls/rejection/reset/extremes/silence passed; state=8104
+TS808 checks=14053681 passed
+<end of output>
+Test time = 510.34 sec
+----------------------------------------------------------
+Test Passed.
+"ts808_circuit_and_safety" end time: Nov 15 17:26 UTC
+"ts808_circuit_and_safety" time elapsed: 00:08:30
+----------------------------------------------------------
+
+34/38 Testing: ts808_listening_cli
+34/38 Test: ts808_listening_cli
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "ts808_listening_cli" "/workspace/work/baseline-tools/bin/python3.12" "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_ts808_cli.py" "/workspace/work/sf-test-perf-baseline-Debug/parable_ts808_lab"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"ts808_listening_cli" start time: Nov 15 17:26 UTC
+Output:
+----------------------------------------------------------
+Creating experiment directory /workspace/work/sf-test-perf-evidence/baseline-Debug/ts808_listening_cli.er (Process ID: 30973) ...
+TS808:26 native WAVs, same source/settings, exact open D2, physical rails, disclosed matching, deterministic reset and source protection
+<end of output>
+Test time = 556.49 sec
+----------------------------------------------------------
+Test Passed.
+"ts808_listening_cli" end time: Nov 15 17:36 UTC
+"ts808_listening_cli" time elapsed: 00:09:16
+----------------------------------------------------------
+
+35/38 Testing: klon_circuit_and_safety
+35/38 Test: klon_circuit_and_safety
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "klon_circuit_and_safety" "/workspace/work/sf-test-perf-baseline-Debug/parable_klon_test" "--evidence" "/workspace/work/sf-test-perf-baseline-Debug/klon-measurements"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"klon_circuit_and_safety" start time: Nov 15 17:36 UTC
+Output:
+----------------------------------------------------------
+Creating experiment directory /workspace/work/sf-test-perf-evidence/baseline-Debug/klon_circuit_and_safety.er (Process ID: 31005) ...
+Device current peak_A=1.04494e-06 bias peak_V=3.49297e-10
+Transient529200 stage RMS/ordinary_peak/harsh_peak_V=0.00195401/0.00206518/0.0852179 jack RMS/ordinary_peak/harsh_peak_V=0.00136801/0.00018485/0.00811634 ordinary_jack_RMS_V=1.24129e-05 mix_peak_A=6.65946e-07
+Transient576000 stage RMS/ordinary_peak/harsh_peak_V=0.000880163/0.00154481/0.065325 jack RMS/ordinary_peak/harsh_peak_V=0.000318781/0.000143218/0.00459368 ordinary_jack_RMS_V=9.48648e-06 mix_peak_A=5.81747e-07
+Transient768000 stage RMS/ordinary_peak/harsh_peak_V=0.000656649/0.00272303/0.0515336 jack RMS/ordinary_peak/harsh_peak_V=0.000255814/4.72318e-05/0.00329628 ordinary_jack_RMS_V=3.36648e-06 mix_peak_A=1.35466e-07
+Transient1152000 stage RMS/ordinary_peak/harsh_peak_V=0.000163931/0.00101385/0.0233627 jack RMS/ordinary_peak/harsh_peak_V=5.86642e-05/5.17839e-05/0.00134424 ordinary_jack_RMS_V=2.39918e-06 mix_peak_A=1.65582e-07
+Complex AC comparisons=378 maximum_relative=0.00644652 low-gain healthy/fault=0.734896/0.215235 high-gain=88.9422/115.352
+Alias fault0 1x/12x_dBc=-80.7184/-155.155 improvement=74.4364
+Alias fault1 1x/12x_dBc=-80.2602/-153.7 improvement=73.4395
+State=11808 bytes; rates/endpoints/dynamics/silence/reset/invalid input and callback guards passed
+All 12614277 Klon checks passed
+<end of output>
+Test time = 390.07 sec
+----------------------------------------------------------
+Test Passed.
+"klon_circuit_and_safety" end time: Nov 15 17:42 UTC
+"klon_circuit_and_safety" time elapsed: 00:06:30
+----------------------------------------------------------
+
+36/38 Testing: klon_listening_cli
+36/38 Test: klon_listening_cli
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "klon_listening_cli" "/workspace/work/baseline-tools/bin/python3.12" "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_klon_cli.py" "/workspace/work/sf-test-perf-baseline-Debug/parable_klon_lab"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"klon_listening_cli" start time: Nov 15 17:42 UTC
+Output:
+----------------------------------------------------------
+Creating experiment directory /workspace/work/sf-test-perf-evidence/baseline-Debug/klon_listening_cli.er (Process ID: 31013) ...
+Klon48 native WAVs, three gain conditions, actual single-contact loading, matched/raw levels, loaded path KCL and source safety
+<end of output>
+Test time = 473.10 sec
+----------------------------------------------------------
+Test Passed.
+"klon_listening_cli" end time: Nov 15 17:50 UTC
+"klon_listening_cli" time elapsed: 00:07:53
+----------------------------------------------------------
+
+37/38 Testing: wavefolder_circuit_and_safety
+37/38 Test: wavefolder_circuit_and_safety
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "wavefolder_circuit_and_safety" "/workspace/work/sf-test-perf-baseline-Debug/parable_wavefolder_test"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"wavefolder_circuit_and_safety" start time: Nov 15 17:50 UTC
+Output:
+----------------------------------------------------------
+Creating experiment directory /workspace/work/sf-test-perf-evidence/baseline-Debug/wavefolder_circuit_and_safety.er (Process ID: 31034) ...
+SPICE nodes_peak_V=2.8878e-07 currents_peak_A=3.47303e-10 LUT_peak_V=2.77131e-06 actual_LUT_KCL_A=3.68785e-09 folds_peak_V=4.546e-05
+rate,fault,kind,ADAA,relative_RMS,peak_error_spectral_component_normalized,peak_error_time_normalized,unwanted_spur_dBr_reference_RMS,wall_us_per_frame
+44100,0,0,0,0.000258328,3.06368e-06,2.80855e-05,-74.7679,not-timed-here
+44100,0,0,1,0.0027216,3.43907e-05,0.000192731,-98.5788,not-timed-here
+44100,0,1,0,0.00192188,3.09533e-05,0.000166257,-54.1681,not-timed-here
+44100,0,1,1,0.00736435,0.000107213,0.000325283,-78.2855,not-timed-here
+44100,0,2,0,0.0220049,0.000271897,0.000862934,-31.0562,not-timed-here
+44100,0,2,1,0.0379284,0.000520689,0.00106972,-60.7993,not-timed-here
+44100,0,3,0,7.43654e-05,1.052e-07,7.16836e-05,-569.729,not-timed-here
+44100,0,3,1,0.00107317,7.41753e-06,0.000235586,-569.729,not-timed-here
+44100,1,0,0,3.54204e-07,9.6881e-09,1.58362e-07,-134.006,not-timed-here
+44100,1,0,1,0.000513558,2.06548e-05,9.45321e-05,-143.515,not-timed-here
+44100,1,1,0,2.60365e-05,8.97822e-07,7.27199e-06,-94.6844,not-timed-here
+44100,1,1,1,0.00189768,8.27252e-05,0.000340626,-114.016,not-timed-here
+44100,1,2,0,0.00086068,3.6905e-05,0.000244039,-62.3918,not-timed-here
+44100,1,2,1,0.00772473,0.000433307,0.00148245,-95.6299,not-timed-here
+44100,1,3,0,1.41205e-07,8.84537e-10,1.19075e-07,-575.716,not-timed-here
+44100,1,3,1,0.000386839,5.6677e-06,0.000111809,-575.716,not-timed-here
+48000,0,0,0,0.000168396,2.06849e-06,1.78483e-05,-78.1807,not-timed-here
+48000,0,0,1,0.00231328,2.91284e-05,0.00016809,-98.2229,not-timed-here
+48000,0,1,0,0.00172075,2.2444e-05,0.000158089,-57.2967,not-timed-here
+48000,0,1,1,0.00720457,0.000112033,0.00034292,-81.5362,not-timed-here
+48000,0,2,0,0.00865386,0.000111846,0.000325618,-38.7712,not-timed-here
+48000,0,2,1,0.031972,0.000438995,0.000878245,-76.7503,not-timed-here
+48000,0,3,0,7.43585e-05,1.05195e-07,7.16788e-05,-569.73,not-timed-here
+48000,0,3,1,0.00107306,7.41754e-06,0.000235551,-569.73,not-timed-here
+48000,1,0,0,2.34517e-07,6.13962e-09,1.01385e-07,-140.595,not-timed-here
+48000,1,0,1,0.000436447,1.74912e-05,8.45112e-05,-140.972,not-timed-here
+48000,1,1,0,2.31838e-05,8.98051e-07,7.85682e-06,-94.6835,not-timed-here
+48000,1,1,1,0.00166139,7.00355e-05,0.000305477,-118.307,not-timed-here
+48000,1,2,0,0.000467174,2.58123e-05,0.000105972,-65.4976,not-timed-here
+48000,1,2,1,0.00655733,0.000364482,0.00126422,-86.0861,not-timed-here
+48000,1,3,0,1.41624e-07,8.98202e-10,1.24726e-07,-575.716,not-timed-here
+48000,1,3,1,0.000386834,5.66776e-06,0.000111803,-575.716,not-timed-here
+96000,0,0,0,3.99274e-06,4.10837e-08,5.76976e-07,-112.249,not-timed-here
+96000,0,0,1,0.000699478,7.2863e-06,7.2979e-05,-128.974,not-timed-here
+96000,0,1,0,0.000168411,2.06852e-06,1.78276e-05,-78.1807,not-timed-here
+96000,0,1,1,0.00231326,2.91284e-05,0.000167969,-98.2236,not-timed-here
+96000,0,2,0,0.00261639,4.54424e-05,0.00019828,-50.6921,not-timed-here
+96000,0,2,1,0.00743995,0.000117291,0.000396604,-74.5801,not-timed-here
+96000,0,3,0,7.43313e-05,1.05196e-07,7.1641e-05,-569.735,not-timed-here
+96000,0,3,1,0.00107259,7.41761e-06,0.000235348,-569.735,not-timed-here
+96000,1,0,0,1.88894e-07,6.04014e-09,1.10052e-07,-149.137,not-timed-here
+96000,1,0,1,0.000113612,4.37593e-06,2.62609e-05,-159.701,not-timed-here
+96000,1,1,0,2.35409e-07,6.22215e-09,1.04688e-07,-140.561,not-timed-here
+96000,1,1,1,0.000436439,1.74917e-05,8.45107e-05,-140.919,not-timed-here
+96000,1,2,0,3.86078e-05,1.65363e-06,1.21914e-05,-89.3794,not-timed-here
+96000,1,2,1,0.00204769,9.05303e-05,0.000361288,-110.022,not-timed-here
+96000,1,3,0,1.41049e-07,8.98036e-10,1.24063e-07,-575.717,not-timed-here
+96000,1,3,1,0.000386816,5.66771e-06,0.000111752,-575.717,not-timed-here
+harmonics:rate,fault,actual_Hz,drive,H1,H2,H3,H5
+harmonics:44100,0,193.799,1,0.0328322,0,2.281e-07,1.44465e-07
+harmonics:44100,0,193.799,3,0.0379984,0,0.0218827,0.00354776
+harmonics:44100,0,193.799,6,0.0273701,0,0.0342336,0.0159121
+harmonics:44100,0,1313.53,1,0.0329319,0,2.27519e-07,1.43766e-07
+harmonics:44100,0,1313.53,3,0.0381298,0,0.0218683,0.00353672
+harmonics:44100,0,1313.53,6,0.0274334,0,0.0342166,0.0158767
+harmonics:44100,1,193.799,1,0.024294,2.97358e-05,1.8792e-06,9.86426e-09
+harmonics:44100,1,193.799,3,0.0727219,0.000314966,6.46914e-05,3.63286e-06
+harmonics:44100,1,193.799,6,0.136764,0.00844943,0.00625458,0.00328818
+harmonics:44100,1,1313.53,1,0.0243677,2.97392e-05,1.87759e-06,9.93206e-09
+harmonics:44100,1,1313.53,3,0.0729426,0.000314983,6.46227e-05,3.62172e-06
+harmonics:44100,1,1313.53,6,0.137192,0.00843997,0.00624136,0.00327695
+harmonics:48000,0,187.5,1,0.0328248,0,2.28196e-07,1.44645e-07
+harmonics:48000,0,187.5,3,0.0379897,0,0.0218822,0.00354778
+harmonics:48000,0,187.5,6,0.0273639,0,0.0342328,0.0159121
+harmonics:48000,0,1312.5,1,0.0329334,0,2.27921e-07,1.44242e-07
+harmonics:48000,0,1312.5,3,0.0381288,0,0.0218719,0.00353857
+harmonics:48000,0,1312.5,6,0.0274381,0,0.0342213,0.0158825
+harmonics:48000,1,187.5,1,0.0242885,2.9734e-05,1.87936e-06,1.03158e-08
+harmonics:48000,1,187.5,3,0.0727053,0.000314948,6.46904e-05,3.63352e-06
+harmonics:48000,1,187.5,6,0.136733,0.008449,0.00625448,0.0032882
+harmonics:48000,1,1312.5,1,0.0243688,2.97425e-05,1.87831e-06,1.01526e-08
+harmonics:48000,1,1312.5,3,0.0729459,0.000315023,6.46386e-05,3.62416e-06
+harmonics:48000,1,1312.5,6,0.137196,0.00844275,0.00624397,0.00327884
+harmonics:96000,0,187.5,1,0.0328248,0,2.28331e-07,1.44645e-07
+harmonics:96000,0,187.5,3,0.0379896,0,0.0218824,0.00354791
+harmonics:96000,0,187.5,6,0.0273642,0,0.0342331,0.0159126
+harmonics:96000,0,1312.5,1,0.032939,0,2.28232e-07,1.44637e-07
+harmonics:96000,0,1312.5,3,0.0381247,0,0.0218864,0.00354609
+harmonics:96000,0,1312.5,6,0.0274557,0,0.0342403,0.015907
+harmonics:96000,1,187.5,1,0.0242885,2.97343e-05,1.8793e-06,9.96058e-09
+harmonics:96000,1,187.5,3,0.0727055,0.000314951,6.46915e-05,3.63348e-06
+harmonics:96000,1,187.5,6,0.136733,0.00844917,0.00625464,0.00328832
+harmonics:96000,1,1312.5,1,0.024373,2.97565e-05,1.87947e-06,1.02127e-08
+harmonics:96000,1,1312.5,3,0.0729583,0.000315183,6.46986e-05,3.63197e-06
+harmonics:96000,1,1312.5,6,0.137211,0.00845357,0.0062541,0.00328646
+Guard/lifecycle/rates/factors/AA/dynamic-drive/extremes passed; instance_bytes=9704
+<end of output>
+Test time =  16.43 sec
+----------------------------------------------------------
+Test Passed.
+"wavefolder_circuit_and_safety" end time: Nov 15 17:50 UTC
+"wavefolder_circuit_and_safety" time elapsed: 00:00:16
+----------------------------------------------------------
+
+38/38 Testing: wavefolder_listening_cli
+38/38 Test: wavefolder_listening_cli
+Command: "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3" "/workspace/work/sf-test-perf-harness.py" "child" "/workspace/work/sf-test-perf-evidence/baseline-Debug" "wavefolder_listening_cli" "/workspace/work/baseline-tools/bin/python3.12" "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_wavefolder_cli.py" "/workspace/work/sf-test-perf-baseline-Debug/parable_wavefolder_lab"
+Directory: /workspace/work/sf-test-perf-baseline-Debug
+"wavefolder_listening_cli" start time: Nov 15 17:50 UTC
+Output:
+----------------------------------------------------------
+67 native WAVs, gain/fault pairs, common/RMS/raw levels, branch KCL, metadata and source safety passed
+<end of output>
+Test time =  17.26 sec
+----------------------------------------------------------
+Test Passed.
+"wavefolder_listening_cli" end time: Nov 15 17:51 UTC
+"wavefolder_listening_cli" time elapsed: 00:00:17
+----------------------------------------------------------
+
+End testing: Nov 15 17:51 UTC

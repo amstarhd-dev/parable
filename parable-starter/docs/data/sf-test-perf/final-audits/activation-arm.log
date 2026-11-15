@@ -1,0 +1,53 @@
+$ ['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3', '/workspace/work/parable-sf-test-perf/parable-starter/tools/check_activation_arm.py', '--compiler', '/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++', '--output', '/workspace/work/sf-test-perf-arm/activation-audit', '--living']
+{
+  "compiler": "14.2.1",
+  "layout": {
+    "engine": 11040,
+    "typed_document": 236,
+    "bundle": 11288,
+    "pool": 45152,
+    "runtime": 45224,
+    "atomic": 4,
+    "source_record": 64,
+    "source_profile": 112,
+    "source_view": 104,
+    "control_snapshot": 40,
+    "control_lane": 1312,
+    "source_scheduler": 24536,
+    "audio_wrapper": 8272,
+    "audio_receipt": 80
+  },
+  "objects": {
+    "parable_activation": {
+      "text": 4949,
+      "data": 0,
+      "bss": 0
+    },
+    "parable_activation_audio": {
+      "text": 712,
+      "data": 0,
+      "bss": 0
+    },
+    "parable_living": {
+      "text": 4172,
+      "data": 0,
+      "bss": 0
+    },
+    "parable_living_audio": {
+      "text": 1396,
+      "data": 0,
+      "bss": 0
+    }
+  },
+  "audio_undefined": [
+    "_ZN7parable3dsp3Rat7processEf",
+    "memset"
+  ],
+  "atomic": "aligned lock-free uint32 loads/stores; DMB; no exclusive retry/helper",
+  "firmware_linked": false,
+  "physical_tested": false,
+  "living_audio_undefined": [
+    "_ZN7parable10activation7Runtime12processBlockEPKfPfj",
+    "memset"
+  ]
+}

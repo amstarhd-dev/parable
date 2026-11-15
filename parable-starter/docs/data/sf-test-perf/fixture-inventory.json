@@ -1,0 +1,194 @@
+[
+  {
+    "path": "parable-starter/tests/fixtures/ts808/ac.csv",
+    "data_rows": 63,
+    "columns": 13,
+    "sha256": "96c5fe906f010f0fd9fc4d7bab4dee32620607e40deee44f9e8618213c12ef23"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/ts808/bias.csv",
+    "data_rows": 6,
+    "columns": 16,
+    "sha256": "860c65afeabca47231ab1eb435eca0f0ac94636e111f03a8d8c1f6720f3b0015"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/ts808/device.csv",
+    "data_rows": 27,
+    "columns": 4,
+    "sha256": "e21331d55553fa2558af0ae594e1d3a037c20f1be538905c306eb8fe646b4fb4"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/ts808/diode.csv",
+    "data_rows": 33,
+    "columns": 2,
+    "sha256": "8ee7b02d7fd6f88cc6750fcc5d51ec8d590dd6794e2b50b416cd8915208c37d9"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/ts808/harmonics.csv",
+    "data_rows": 28,
+    "columns": 14,
+    "sha256": "2a5c476d8b793d387b2cac174b73ec9b3e24409f290c02281bb35e30ad8390e5"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/ts808/transient-705600.csv",
+    "data_rows": 7196,
+    "columns": 33,
+    "sha256": "64bb0b217b3526129f595ca94a31aad4f8d37128c97e4cb468bd1c68acd61765"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/ts808/transient.csv",
+    "data_rows": 7196,
+    "columns": 33,
+    "sha256": "8f9406e7b85591f5b1e59e8b95c56b52dab7cf806048d8ebb3c5320166da4be2"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/klon/ac.csv",
+    "data_rows": 378,
+    "columns": 61,
+    "sha256": "b1cb9520a3b8c799d8bc416950fe60cc93f10f9e3efe1ab55ee8b8f7b8708e75"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/klon/bias.csv",
+    "data_rows": 25,
+    "columns": 44,
+    "sha256": "e63da7c0758a34c9c151e876bc96b11a13f177a87d0c9f6ff04b3746dd983b21"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/klon/candidate.csv",
+    "data_rows": 315,
+    "columns": 59,
+    "sha256": "e78066c84e2c9c3b29bbcebda68e98a0e9b337d702252d1012e5c3d00dc96d77"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/klon/diode.csv",
+    "data_rows": 101,
+    "columns": 2,
+    "sha256": "f77a3f8019722291c75d8cbc38b571cf71640be87a2deaef41646e4351c9e138"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/klon/harmonics.csv",
+    "data_rows": 120,
+    "columns": 12,
+    "sha256": "c73630b11c360790a3b424a4924281197a702694371e10e8fe4f9466e40548f2"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/klon/supply-island.csv",
+    "data_rows": 8,
+    "columns": 8,
+    "sha256": "afedbf55990e76b0022c1a99fb32ed24f3577b025e3977922d6b17dfa5a65275"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/klon/supply-sensitivity.csv",
+    "data_rows": 16,
+    "columns": 14,
+    "sha256": "03bc96cec5d801a0a5ee292e2bc637cb8675cc31499864022da83aaec9856d9f"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/klon/transient-1152000.csv",
+    "data_rows": 11340,
+    "columns": 38,
+    "sha256": "745b88aed4f9dd49dee238e28ff172753864f73f00186abfae5140bb712ee371"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/klon/transient-529200.csv",
+    "data_rows": 8260,
+    "columns": 38,
+    "sha256": "375d59d6aeff51d200e764e612e5111431e1176cc267436d61de539030aef3c4"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/klon/transient-576000.csv",
+    "data_rows": 8480,
+    "columns": 38,
+    "sha256": "14d404f8a4bb99ed28c964fe255e3632594f14dd1d96ce45f7cde4bd2cbce12e"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/klon/transient-768000.csv",
+    "data_rows": 9380,
+    "columns": 38,
+    "sha256": "a63e6dffe156b4d49879dfb20cc8c704699fb21458a02944cf93f6d9cd1faa9b"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/muff/ac.csv",
+    "data_rows": 27,
+    "columns": 11,
+    "sha256": "bd42fa535c7b7023ed14e71809700a09ebd51d194e20626d91f2538e559a6996"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/muff/bias.csv",
+    "data_rows": 6,
+    "columns": 21,
+    "sha256": "22fcdf56143329fac60ed78dc517ece0240d417fd6a70c883d7908b2920bbf86"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/muff/candidate.csv",
+    "data_rows": 2,
+    "columns": 8,
+    "sha256": "b9a558df27b3be8ab11ab597b5c5ca726e52a6f383fc22815f6bae4175c20622"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/muff/device.csv",
+    "data_rows": 72,
+    "columns": 4,
+    "sha256": "9e73fc616a59196a742ef831634ba90d48dea353aec5166a63bd3eae85b221f6"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/muff/diodes.csv",
+    "data_rows": 29,
+    "columns": 2,
+    "sha256": "a31b2ef214dc4e95686d44b2990972866350d8fab97025d3578b961beae690ad"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/muff/recovery.csv",
+    "data_rows": 28,
+    "columns": 10,
+    "sha256": "5fd15e7c69537c024b42f414f4850af53598d5c25322ab349580242c8276c43a"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/muff/transient.csv",
+    "data_rows": 1380,
+    "columns": 28,
+    "sha256": "c33d5fbb410cde96a450bf2cef89f4a2ac54391065287e2dc3e23dc1118e1147"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/wavefolder/candidates.csv",
+    "data_rows": 6,
+    "columns": 6,
+    "sha256": "5e18dddf688d1a6e69af602ab44b0f7d694e87466d36d7d6f6e8327db4f74907"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/wavefolder/dc.csv",
+    "data_rows": 3603,
+    "columns": 11,
+    "sha256": "14974fa2274690855f1c703613ad35da1bb6995e1345353b5e5e466183c26031"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/wavefolder/harmonics.csv",
+    "data_rows": 12,
+    "columns": 11,
+    "sha256": "7ec88f04c7951e11af061638160c9203ecd184ad92921d9d488b4248202d113a"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/wavefolder/load-rail.csv",
+    "data_rows": 744,
+    "columns": 11,
+    "sha256": "052b7b695ea21d1a4bf5c4b45cfa3680ee03c1ff16bcbbcfebdc9d71005221ed"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/wavefolder/reference-levels.csv",
+    "data_rows": 24,
+    "columns": 8,
+    "sha256": "1a494cb0a11cd0f1579499d3b45f433605f36fcfc863f0a48f01ebbeb164b80c"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/wavefolder/reference.csv",
+    "data_rows": 98304,
+    "columns": 5,
+    "sha256": "96314f8e667bd2896a1225b47ccb03a408214b934a32a00339e2130d3d1c80f4"
+  },
+  {
+    "path": "parable-starter/tests/fixtures/wavefolder/refinement.csv",
+    "data_rows": 24,
+    "columns": 5,
+    "sha256": "8ed289dd115a32a3bfef0f655039730c052b476b2cfd1dd020d58ed4cf533a6c"
+  }
+]

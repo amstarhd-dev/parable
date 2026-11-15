@@ -1,0 +1,16 @@
+{
+  "configuration": "ASAN",
+  "phase": "baseline",
+  "jobs": 1,
+  "wall_s": 2449.107477561003,
+  "cpu_user_s": 2447.68233,
+  "cpu_system_s": 20.398484000000003,
+  "exit_code": 0,
+  "source": "af159d833bdd0b0e17ccc59fcf7edfa506ed98f5",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "affinity": [
+    0,
+    1
+  ],
+  "cpu_quota": "200000 100000"
+}

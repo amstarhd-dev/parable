@@ -1,5 +1,19 @@
 # Implementation status and reproducible baseline
 
+## SF-TEST-PERF-001 — bounded verification throughput
+
+[Gate0](SF_TEST_PERF_GATE0.md), [report/timings/proof](SF_TEST_PERF_REPORT.md),
+[canonical verification profile](SOUNDFORGE_VERIFICATION_PROFILE.md).
+Implemented2-worker CTest costs/reservations and fixed fixture-row parsing; no DSP,
+firmware or contract changes. Host final39/39 Debug/Release/full ASan+UBSan;
+TSan4/4. Debug2459.219->1276.465s(1.93x), Release233.104->129.098s(1.81x),
+ASan2449.107->1272.007s(1.93x). **3x/600s goals not attained.**427 protected files,
+all38 original gates, fixed assertion counts and exact audio/electrical outputs
+preserved. Seven ARM images link; seven existing standalone audits pass; expected
+codec FLASH-overflow probe retained. Hardware timing/compatibility and new musical
+approval not performed. Remote CI and remaining performance limits are in the PR.
+
+
 ## SF-014 — experimental standalone Lockhart / one feed resistor
 
 [Gate0](SF014_GATE0.md), [ADR014](adr/ADR-014-lockhart-feed-resistor.md),

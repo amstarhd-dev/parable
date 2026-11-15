@@ -1,0 +1,32 @@
+{
+  "sample_interval_s": 0.5,
+  "samples": 2486,
+  "peak_sum_RSS_KiB": 745948,
+  "peak_processes": [
+    {
+      "pid": 37514,
+      "name": "ctest",
+      "RSS_KiB": 4824
+    },
+    {
+      "pid": 38022,
+      "name": "parable_presets",
+      "RSS_KiB": 364732
+    },
+    {
+      "pid": 37926,
+      "name": "python3",
+      "RSS_KiB": 11660
+    },
+    {
+      "pid": 37927,
+      "name": "parable_presets",
+      "RSS_KiB": 364732
+    }
+  ],
+  "scope": "ASAN CTest process tree, sampled at0.5s; observer missed approximately22 initial seconds. Shared pages count per process; not PSS, whole-run peak guarantee, hard bound or target memory. Original static before-CTest label was incorrect; durations establish partial coverage.",
+  "suite_wall_s": 1272.007188306001,
+  "observed_duration_s": 1250.8796885149932,
+  "estimated_initial_unobserved_s": 21.127499791007722,
+  "original_scope_label_corrected": true
+}
