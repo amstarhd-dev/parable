@@ -8,7 +8,7 @@ struct ScorpioControls {float gain=.5f,lowCut=.35f,level=.8f;bool resistorDrift=
 struct ScorpioProbe {float preampVolts=0,flux=0,magnetizingAmps=0,coreVolts=0,capacitorVolts=0,outputVolts=0;};
 class Scorpio {
 public:
-    static constexpr unsigned kKnots=513,kFactor=4,kTaps=193;
+    static constexpr unsigned kKnots=513,kFactor=4,kTaps=97;
     bool prepare(float rate,ScorpioControls c={},unsigned factor=4,bool saturating=true,bool adaa=true) noexcept;
     void reset() noexcept;
     void stop() noexcept {running_=false;}
@@ -25,11 +25,11 @@ private:
     struct Value {float y=0,F=0;};
     Value value(float) const noexcept;
     float sample(float) noexcept;
-    float coefficient(unsigned i) const noexcept {return fir_[i<=96?i:192-i];}
+    float coefficient(unsigned i) const noexcept {return fir_[i<=48?i:96-i];}
     std::array<float,kKnots> x_{},y_{},slope_{},area_{};
-    std::array<float,97> fir_{};
-    std::array<float,49> up_{};
-    std::array<float,193> down_{};
+    std::array<float,49> fir_{};
+    std::array<float,25> up_{};
+    std::array<float,97> down_{};
     std::array<std::array<float,5>,5> A_{};
     std::array<float,5> B_{},C_{},state_{};
     std::array<double,5> bias_{};

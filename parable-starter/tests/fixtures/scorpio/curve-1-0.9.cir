@@ -1,0 +1,30 @@
+SF017 independent reduced reference
+Vsig source 0 2.914027819592654
+Vvc vc 0 8.511201707631468
+Vvd vd 0 3.134984497293806
+Ve ve 0 2.2553674102448826
+Vep vep 0 6.670231024604814
+Rsource source b 1k
+R1 vd b 220k
+R3 vc x 10000
+Re e ve 68
+Rep ep vep 2006.311085096913
+R6 y 0 5600
+Voffset y fb 2.5105862550971607
+Rfeedback fb e 230600.0
+Q1 x b e N
+Q2 y x ep P
+Ileak ep y 50u
+Iprobe 0 y 0
+.model N NPN(IS=1e-14 BF=400 BR=4 TNOM=26.85)
+.model P PNP(IS=1e-9 BF=100 BR=4 TNOM=26.85)
+.temp 26.85
+.control
+set numdgt=15
+set wr_singlescale
+set wr_vecnames
+dc Vsig 2.814027819592654 3.014027819592654 .025
+wrdata /workspace/work/sf017-reference/curve-1-0.9.txt v(y)
+quit
+.endc
+.end

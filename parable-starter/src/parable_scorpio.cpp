@@ -43,8 +43,8 @@ bool Scorpio::prepare(float rate,ScorpioControls c,unsigned factor,bool saturati
     next.rSeries_=next.sourceOhms_+15000+next.dt_/100e-6f;
     next.sourceScale_=33000/(33000+next.rSeries_);next.rPrimary_=next.rSeries_*next.sourceScale_+820;
     next.rParallel_=next.rPrimary_*next.rLoad_/(next.rPrimary_+next.rLoad_);
-    double sum=0;for(unsigned n=0;n<=96;++n){const double x=double(n)-96;
-        next.fir_[n]=float((x==0?.2:std::sin(2*pi*.1*x)/(pi*x))*(.42-.5*std::cos(2*pi*n/192)+.08*std::cos(4*pi*n/192)));sum+=next.fir_[n]*(n==96?1:2);}
+    double sum=0;for(unsigned n=0;n<=48;++n){const double x=double(n)-48;
+        next.fir_[n]=float((x==0?.2:std::sin(2*pi*.1*x)/(pi*x))*(.42-.5*std::cos(2*pi*n/96)+.08*std::cos(4*pi*n/96)));sum+=next.fir_[n]*(n==48?1:2);}
     for(auto& v:next.fir_)v=float(v/sum);
     next.prepared_=true;next.reset();*this=next;return true;
 }
@@ -64,7 +64,7 @@ float Scorpio::sample(float input) noexcept {
     const float preamp=adaa_?(std::abs(dx)<1e-5f?value(.5f*(x+previous_)).y:(v.F-previousArea_)/dx):v.y;
     previous_=x;previousArea_=v.F;
     // Passive nonlinear inductor: i=phi/L + phi^3/(L*scale^2). Backward Euler
-    // solves one monotone cubic with exactly three Newton updates, no exp/solver.
+    // solves one monotone cubic with exactly three Newton updates, no BJT solve/exp.
     constexpr float L=20,scale=.008f;const float e=preamp-cap_,th=e*sourceScale_;
     const float A=1+dt_*rParallel_/L,B=saturating_?dt_*rParallel_/(L*scale*scale):0;
     const float rhs=phi_+dt_*rParallel_*th/rPrimary_;float p=rhs/A;
@@ -79,11 +79,11 @@ float Scorpio::process(float input) noexcept {
     if(!std::isfinite(input)){count(invalid_);return 0;}
     if(std::abs(input)>.5f){count(clamps_);input=std::clamp(input,-.5f,.5f);}
     float output=0;if(factor_==1)output=sample(input);else {
-        upIndex_=upIndex_?upIndex_-1:48;up_[upIndex_]=input;
+        upIndex_=upIndex_?upIndex_-1:24;up_[upIndex_]=input;
         for(unsigned phase=0;phase<4;++phase){float x=0;unsigned j=upIndex_;
-            for(unsigned tap=phase;tap<193;tap+=4){x+=coefficient(tap)*up_[j];if(++j==49)j=0;}
-            downIndex_=downIndex_?downIndex_-1:192;down_[downIndex_]=sample(4*x);
-            if(phase==0){j=downIndex_;for(unsigned tap=0;tap<193;++tap){output+=coefficient(tap)*down_[j];if(++j==193)j=0;}}}
+            for(unsigned tap=phase;tap<97;tap+=4){x+=coefficient(tap)*up_[j];if(++j==25)j=0;}
+            downIndex_=downIndex_?downIndex_-1:96;down_[downIndex_]=sample(4*x);
+            if(phase==0){j=downIndex_;for(unsigned tap=0;tap<97;++tap){output+=coefficient(tap)*down_[j];if(++j==97)j=0;}}}
     }
     if(!std::isfinite(output)){count(failures_);state_.fill(0);phi_=cap_=previous_=previousArea_=0;return 0;}
     if(std::abs(output)>1){count(failures_);return std::clamp(output,-1.f,1.f);}return output;

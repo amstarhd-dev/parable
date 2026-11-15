@@ -11,7 +11,7 @@ int main(int argc,char** argv){try {
     const std::filesystem::path input=argv[2],out=argv[4];lab::require(!std::filesystem::exists(out),"Output directory must be new");
     auto wave=lab::read(input);lab::require(wave.samples.size()>=wave.rate,"Input must have at least1second");
     wave.samples.resize(std::min(wave.samples.size(),std::size_t(8)*wave.rate));const auto original=soundforge::stats(wave.samples);
-    lab::require(original.peak>0,"Input must not be silent");const double inputGain=.12/original.peak;
+    lab::require(original.peak>0,"Input must not be silent");const double inputGain=.03/original.peak;
     for(auto& x:wave.samples)x=float(x*inputGain);
     wave.samples.resize(wave.samples.size()+wave.rate,0);
     std::filesystem::create_directories(out);std::ofstream csv(out/"renders.csv"),trace(out/"state.csv"),bias(out/"bias.csv");
@@ -24,7 +24,7 @@ int main(int argc,char** argv){try {
         csv<<name<<','<<c.gain<<','<<c.lowCut<<','<<c.level<<','<<c.resistorDrift<<','<<y.size()<<','<<gain<<','<<a.rms<<','<<a.peak<<','<<b.rms<<','<<b.peak<<','<<b.mean<<",0,"<<fails<<','<<clamps<<','<<us<<'\n';};
     auto dry=wave.samples;for(auto& x:dry)x/=8;write("00_external_dry_common.wav",dry,1,{},0,0,0);
     write("01_external_dry_matched.wav",dry,std::min(16.,soundforge::rmsGain(soundforge::stats(dry),.07)),{},0,0,0);
-    for(unsigned group=0;group<2;++group){std::array<std::vector<float>,2> signals;double costs[2]{};ScorpioControls c;c.gain=group?.9f:.1f;
+    for(unsigned group=0;group<2;++group){std::array<std::vector<float>,2> signals;double costs[2]{};ScorpioControls c;c.gain=group?1.f:0.f;
         for(unsigned fault=0;fault<2;++fault){c.resistorDrift=fault!=0;Scorpio model;lab::require(model.prepare(float(wave.rate),c),"Scorpio prepare failed");
             bias<<c.gain<<','<<fault;for(double v:model.bias())bias<<','<<v;bias<<','<<model.sourceOhms()<<'\n';
             auto& y=signals[fault];y.resize(wave.samples.size());
@@ -39,7 +39,7 @@ int main(int argc,char** argv){try {
         for(unsigned fault=0;fault<2;++fault){c.resistorDrift=fault!=0;const auto gain=std::min(16.,soundforge::rmsGain(soundforge::stats(signals[fault]),target));
             write(std::string(group?"high":"low")+(fault?"_R3_10k_matched.wav":"_healthy_matched.wav"),signals[fault],gain,c,costs[fault],0,0);}
     }
-    std::ofstream settings(out/"settings.json"),notes(out/"LISTEN.txt");settings<<std::setprecision(15)<<"{\"source\":\"caller-supplied monoPCM16; published recipe verifies take03\",\"excerpt_seconds_max\":8,\"tail_seconds\":1,\"input_peak_model_V\":0.12,\"input_gain\":"<<inputGain<<",\"output_volts_per_unit\":8,\"low_gain\":0.1,\"high_gain\":0.9,\"low_cut\":0.35,\"level\":0.8,\"R3_healthy_ohms\":5600,\"R3_fault_ohms\":10000,\"L0_H\":20,\"flux_scale_Vs\":0.008,\"factor\":4,\"ADAA\":true,\"state_bytes\":"<<sizeof(Scorpio)<<"}\n";
+    std::ofstream settings(out/"settings.json"),notes(out/"LISTEN.txt");settings<<std::setprecision(15)<<"{\"source\":\"caller-supplied monoPCM16; published recipe verifies take03\",\"excerpt_seconds_max\":8,\"tail_seconds\":1,\"input_peak_model_V\":0.03,\"input_gain\":"<<inputGain<<",\"output_volts_per_unit\":8,\"low_gain\":0.0,\"high_gain\":1.0,\"low_cut\":0.35,\"level\":0.8,\"R3_healthy_ohms\":5600,\"R3_fault_ohms\":10000,\"L0_H\":20,\"flux_scale_Vs\":0.008,\"factor\":4,\"ADAA\":true,\"state_bytes\":"<<sizeof(Scorpio)<<"}\n";
     notes<<"SF017 reduced Skywave-family9V experiment. First8s of supplied input plus1s silence. Same input/calibration/Level for both voices; R3 alone5.6k->10k. Raw/common is actual jackVolts/8; separate matching gains in renders.csv capped16, not LUFS. External dry is shared between presets. Start low/high healthy versusR3_10k matched, then raw. Prepared quasi-static two-BJT nonlinearity plus linearized capacitor/feedback dynamics and passive loaded nonlinear magnetic flux/C10 states. Assumed uncalibrated20H/8mVs core, no hysteresis/remanence, no measured Hudson/TY141P fidelity or Seed3 deadline. Founder listening pending.\n";
     for(auto* f:{&csv,&trace,&bias,&settings,&notes}){f->flush();lab::require(bool(*f),"Cannot finish evidence");}
     return 0;

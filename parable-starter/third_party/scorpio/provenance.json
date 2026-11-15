@@ -33,5 +33,19 @@
       "use": "audit only; no imported code"
     }
   ],
-  "limitations": "Reduced physical family model. No measured TY-141P,2N404A,2N5088 or Hudson unit; no hardware admission."
+  "limitations": "Reduced physical family model. No measured TY-141P,2N404A,2N5088 or Hudson unit; no hardware admission.",
+  "candidates": [
+    {
+      "url": "https://github.com/HSU-ANT/ACME.jl",
+      "revision": "3832ccafb952ee2ca0a27286c091d613062c23fd",
+      "license": "MIT",
+      "use": "Transport Ebers-Moll foundation adapted via existing main Muff/wavefolder; no measured AC128 constants"
+    },
+    {
+      "url": "https://github.com/Paulllux/fetcomp-dsp",
+      "revision": "de18f5ac793e36397c725abdca7fcb8c08760ce2",
+      "license": "MIT",
+      "use": "FetLimiterDsp.h magnetic candidate inspected; no code imported"
+    }
+  ]
 }

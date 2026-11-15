@@ -48,4 +48,4 @@ against equivalent reduced network; nonlinear-vs-linear magnetics must differ
 and preserve energy/loading/LF state; high-note residual must improve>=6dB at4x
 versus1x diagnostic;44100/48000/96000 guard/invalid/reset/silence stress. Retain
 failed gates and report partial/blocker if hypothesis fails, no expanded campaign.
-Nine8s+tail take03 dry/raw/matched WAVs, same Level and input calibration.
+Ten8s+tail take03 dry/raw/matched WAVs, same Level and input calibration.

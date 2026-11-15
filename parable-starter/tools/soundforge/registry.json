@@ -1270,6 +1270,98 @@
           "paths": []
         }
       }
+    },
+    {
+      "id": "scorpio",
+      "type": "model",
+      "paths": [
+        "parable-starter/include/parable_scorpio.h",
+        "parable-starter/src/parable_scorpio.cpp",
+        "parable-starter/src/scorpio_circuit.h",
+        "parable-starter/docs/adr/ADR-017-scorpio-bias-and-magnetics.md"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/scorpio/provenance.json",
+          "candidate": 0,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/scorpio/ACME-LICENSE.md"
+          ],
+          "scope": "Nominal Ebers-Moll transport foundation via main; no measured germanium constants"
+        },
+        {
+          "provenance_path": "parable-starter/third_party/scorpio/provenance.json",
+          "candidate": 1,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "JUCE/Jiles-Atherton compressor inspected; not used"
+        }
+      ],
+      "ownership_notes": "Local reduction and main laboratory reuse; factual source citations, no schematic artwork. Global project license unspecified.",
+      "physics_notes": "9V Skywave adaptation, nominal Si/Ge preamp, prepared quasi-static curve plus linearized feedback/capacitor dynamics; loaded passive anhysteretic nonlinear flux model. R3 alone5.6k to10k.",
+      "behavior": "Standalone stopped preparation, bounded4x runtime; Gain/Low Cut/Level. No Engine or firmware registration.",
+      "limitations": [
+        "Unmeasured transistor/magnetic parameters; no certified Hudson/TY141P match or hysteresis.",
+        "No physical Daisy timing, firmware link or founder listening approval.",
+        "Large-signal transistor charge and changing output impedance omitted."
+      ],
+      "dependencies": {
+        "assets": [
+          "host.pcm16",
+          "host.signal-analysis"
+        ],
+        "external": [
+          "C++17 libm during stopped preparation only; pinned ngspice44.2 offline and ARM14.2.1."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Compact independent electrical/alias/magnetic/stress/reset/callback and CLI gates.",
+          "paths": [
+            "parable-starter/tests/test_scorpio.cpp",
+            "parable-starter/tests/test_scorpio_cli.py"
+          ]
+        },
+        "independent_circuit": {
+          "status": "reduced-section-compared",
+          "scope": "Explicit reduced network against built-in SPICE BJTs; not measured physical circuit.",
+          "paths": [
+            "parable-starter/tests/fixtures/scorpio/reference.json",
+            "parable-starter/tools/scorpio_reference.py"
+          ]
+        },
+        "synthetic_audition": {
+          "status": "not-performed",
+          "scope": "Tests use tones; listening deliverable uses real take03.",
+          "paths": []
+        },
+        "real_guitar_audition": {
+          "status": "not-performed",
+          "scope": "Native take03 healthy/fault WAVs generated; founder listening approval pending.",
+          "paths": [
+            "parable-starter/third_party/scorpio/AUDIO_NOTICE.md"
+          ]
+        },
+        "arm_cross_compile": {
+          "status": "compiled",
+          "scope": "Pinned M7 object/call/layout inspection only.",
+          "paths": [
+            "parable-starter/tools/check_scorpio_arm.py"
+          ]
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No target audio, boot, cycles or physical calibration.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "Engine, firmware, correspondence and patch unchanged.",
+          "paths": []
+        }
+      }
     }
   ]
 }
