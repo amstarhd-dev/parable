@@ -1,0 +1,23 @@
+{
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "cpu_model": [
+    "model name\t: AMD EPYC 9V74 80-Core Processor"
+  ],
+  "affinity_available": [
+    0,
+    1,
+    2
+  ],
+  "measurement_affinity": [
+    0,
+    1
+  ],
+  "quota": "200000 100000",
+  "memory_limit_bytes": "8589934592",
+  "compiler": "GNU14.2.0",
+  "cmake": "3.31.6",
+  "main": "af159d833bdd0b0e17ccc59fcf7edfa506ed98f5",
+  "profiling": "gprofng10ms sampling, archive off; same Debug tests pre/post",
+  "root_AGENTS": "absent; project AGENTS present",
+  "no_full_suite_repeats": "one pre/post per configuration; targeted profiles/checks only"
+}

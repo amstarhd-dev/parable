@@ -1,0 +1,38 @@
+[
+  {
+    "config": "Debug",
+    "model": "TS808",
+    "executed_before": 14053681,
+    "executed_after": 14053681
+  },
+  {
+    "config": "Debug",
+    "model": "Klon",
+    "executed_before": 12614277,
+    "executed_after": 12614277
+  },
+  {
+    "config": "Release",
+    "model": "TS808",
+    "executed_before": 14053681,
+    "executed_after": 14053681
+  },
+  {
+    "config": "Release",
+    "model": "Klon",
+    "executed_before": 12614277,
+    "executed_after": 12614277
+  },
+  {
+    "config": "ASAN",
+    "model": "TS808",
+    "executed_before": 14053681,
+    "executed_after": 14053681
+  },
+  {
+    "config": "ASAN",
+    "model": "Klon",
+    "executed_before": 12614277,
+    "executed_after": 12614277
+  }
+]

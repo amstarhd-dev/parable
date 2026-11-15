@@ -1,0 +1,18 @@
+$ ['/workspace/work/baseline-tools/bin/ctest', '--test-dir', '/workspace/work/sf-test-perf-TSAN', '-j2', '--output-on-failure', '--no-tests=error', '-R', '^(activation|living)_(contract|concurrency)$']
+Internal ctest changing into directory: /workspace/work/sf-test-perf-TSAN
+Test project /workspace/work/sf-test-perf-TSAN
+    Start 21: activation_contract
+    Start 24: living_contract
+1/4 Test #21: activation_contract ..............   Passed    0.24 sec
+2/4 Test #24: living_contract ..................   Passed    1.97 sec
+    Start 22: activation_concurrency
+3/4 Test #22: activation_concurrency ...........   Passed   28.60 sec
+    Start 25: living_concurrency
+4/4 Test #25: living_concurrency ...............   Passed    4.44 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Label Time Summary:
+concurrency    =  66.09 sec*proc (2 tests)
+
+Total Test time (real) =  35.02 sec

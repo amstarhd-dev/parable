@@ -1,0 +1,22 @@
+{
+  "command": [
+    "/workspace/work/baseline-tools/bin/ctest",
+    "--test-dir",
+    "/workspace/work/sf-test-perf-final-ASAN",
+    "-j2",
+    "--output-on-failure",
+    "--no-tests=error"
+  ],
+  "jobs": 2,
+  "profiling": false,
+  "test_count": 39,
+  "wall_s": 1272.007188306001,
+  "cpu_user_s": 2495.0773750000003,
+  "cpu_system_s": 18.808852,
+  "exit_code": 0,
+  "missing_records": [],
+  "affinity": [
+    0,
+    1
+  ]
+}

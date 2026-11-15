@@ -1,0 +1,902 @@
+{
+  "backtraceGraph": {
+    "commands": [
+      "add_test"
+    ],
+    "files": [
+      "/workspace/work/parable-sf-test-perf/parable-starter/CMakeLists.txt"
+    ],
+    "nodes": [
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 12,
+        "parent": 0
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 13,
+        "parent": 2
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 17,
+        "parent": 4
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 36,
+        "parent": 6
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 47,
+        "parent": 8
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 61,
+        "parent": 10
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 67,
+        "parent": 12
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 73,
+        "parent": 14
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 78,
+        "parent": 16
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 85,
+        "parent": 18
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 86,
+        "parent": 20
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 87,
+        "parent": 22
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 88,
+        "parent": 24
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 99,
+        "parent": 26
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 105,
+        "parent": 28
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 106,
+        "parent": 30
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 117,
+        "parent": 32
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 123,
+        "parent": 34
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 124,
+        "parent": 36
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 140,
+        "parent": 38
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 155,
+        "parent": 40
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 156,
+        "parent": 42
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 163,
+        "parent": 44
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 177,
+        "parent": 46
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 178,
+        "parent": 48
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 186,
+        "parent": 50
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 202,
+        "parent": 52
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 204,
+        "parent": 54
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 221,
+        "parent": 56
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 223,
+        "parent": 58
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 240,
+        "parent": 60
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 242,
+        "parent": 62
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 259,
+        "parent": 64
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 261,
+        "parent": 66
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 274,
+        "parent": 68
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 280,
+        "parent": 70
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 301,
+        "parent": 72
+      },
+      {
+        "file": 0
+      },
+      {
+        "command": 0,
+        "file": 0,
+        "line": 303,
+        "parent": 74
+      }
+    ]
+  },
+  "kind": "ctestInfo",
+  "tests": [
+    {
+      "backtrace": 1,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_firmware_measurement_test"
+      ],
+      "name": "firmware_measurement_math_status",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 3,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_core_test"
+      ],
+      "name": "core_validation",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 5,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_audio_safety_test"
+      ],
+      "name": "audio_safety",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 7,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_patch_test"
+      ],
+      "name": "patch_contract",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 9,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_prepare_test"
+      ],
+      "name": "host_preparation",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 11,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_rat_integration_test"
+      ],
+      "name": "rat_patch_integration",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 13,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_patch_audition",
+        "--output",
+        "/workspace/work/sf-test-perf-baseline-Debug/patch-auditions"
+      ],
+      "name": "patch_audio_evidence",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 15,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_rat_test"
+      ],
+      "name": "rat_circuit_and_safety",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 17,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_rat_lab",
+        "--self-test"
+      ],
+      "name": "rat_lab_measurements",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 19,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_soundforge_test"
+      ],
+      "name": "soundforge_utilities",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 21,
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/validate_registry.py"
+      ],
+      "name": "soundforge_registry",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 23,
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_soundforge_registry.py"
+      ],
+      "name": "soundforge_registry_negative",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 25,
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/check_labrat.py",
+        "--executable",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_rat_lab"
+      ],
+      "name": "labrat_output_preservation",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 27,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_cmos_test"
+      ],
+      "name": "cmos_circuit_and_safety",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 29,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_cmos_lab",
+        "--self-test"
+      ],
+      "name": "cmos_lab_measurements",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 31,
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_cmos_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_cmos_lab"
+      ],
+      "name": "cmos_lab_cli",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 33,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_germanium_test"
+      ],
+      "name": "germanium_circuit_and_safety",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 35,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_germanium_lab",
+        "--self-test"
+      ],
+      "name": "germanium_lab_measurements",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 37,
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_germanium_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_germanium_lab"
+      ],
+      "name": "germanium_lab_cli",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 39,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_presets_test"
+      ],
+      "name": "preset_journal",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 41,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_activation_test"
+      ],
+      "name": "activation_contract",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 43,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_activation_test",
+        "--stress"
+      ],
+      "name": "activation_concurrency",
+      "properties": [
+        {
+          "name": "TIMEOUT",
+          "value": 180.0
+        },
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 45,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_activation_demo",
+        "0",
+        "2",
+        "1",
+        "3",
+        "0"
+      ],
+      "name": "activation_demo",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 47,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_living_test"
+      ],
+      "name": "living_contract",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 49,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_living_test",
+        "--stress"
+      ],
+      "name": "living_concurrency",
+      "properties": [
+        {
+          "name": "TIMEOUT",
+          "value": 90.0
+        },
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 51,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_living_demo",
+        "--output",
+        "/workspace/work/sf-test-perf-baseline-Debug/living-evidence"
+      ],
+      "name": "living_audio_evidence",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 53,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_tape_test"
+      ],
+      "name": "tape_medium_and_safety",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 55,
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_tape_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_tape_lab"
+      ],
+      "name": "tape_listening_cli",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 57,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_rotary_test"
+      ],
+      "name": "rotary_mechanics_and_safety",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 59,
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_rotary_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_rotary_lab"
+      ],
+      "name": "rotary_listening_cli",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 61,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_muff_test"
+      ],
+      "name": "muff_circuit_and_safety",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 63,
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_muff_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_muff_lab"
+      ],
+      "name": "muff_listening_cli",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 65,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_ts808_test",
+        "--evidence",
+        "/workspace/work/sf-test-perf-baseline-Debug/ts808-measurements"
+      ],
+      "name": "ts808_circuit_and_safety",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 67,
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_ts808_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_ts808_lab"
+      ],
+      "name": "ts808_listening_cli",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 69,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_klon_test",
+        "--evidence",
+        "/workspace/work/sf-test-perf-baseline-Debug/klon-measurements"
+      ],
+      "name": "klon_circuit_and_safety",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 71,
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_klon_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_klon_lab"
+      ],
+      "name": "klon_listening_cli",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 73,
+      "command": [
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_wavefolder_test"
+      ],
+      "name": "wavefolder_circuit_and_safety",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    },
+    {
+      "backtrace": 75,
+      "command": [
+        "/workspace/work/baseline-tools/bin/python3.12",
+        "/workspace/work/parable-sf-test-perf/parable-starter/tests/test_wavefolder_cli.py",
+        "/workspace/work/sf-test-perf-baseline-Debug/parable_wavefolder_lab"
+      ],
+      "name": "wavefolder_listening_cli",
+      "properties": [
+        {
+          "name": "WORKING_DIRECTORY",
+          "value": "/workspace/work/sf-test-perf-baseline-Debug"
+        }
+      ]
+    }
+  ],
+  "version": {
+    "major": 1,
+    "minor": 0
+  }
+}

@@ -1,0 +1,170 @@
+[
+  {
+    "config": "Debug",
+    "model": "ts808",
+    "file": "alias.csv",
+    "equal": true,
+    "sha256": "22f24cc31090651ba225b5237fcaeaa75ebd08335d4060465679493e0858e775"
+  },
+  {
+    "config": "Debug",
+    "model": "ts808",
+    "file": "harmonic-comparison.csv",
+    "equal": true,
+    "sha256": "22d5cf1b98fbbb9408257404915bdf0ebf7fba2fa8ab787f9bc74731959391a0"
+  },
+  {
+    "config": "Debug",
+    "model": "ts808",
+    "file": "science-accuracy.csv",
+    "equal": true,
+    "sha256": "606fde666f2a435844b2ff724a7fbbc150067aad3b3f8a31d8b1362c2dcf3dda"
+  },
+  {
+    "config": "Debug",
+    "model": "ts808",
+    "file": "stage-sweeps.csv",
+    "equal": true,
+    "sha256": "6f98664d23a11a17b27eacbaca7a3db973f9d2e82e37ae4024dfc7cb7af9302d"
+  },
+  {
+    "config": "Debug",
+    "model": "klon",
+    "file": "alias.csv",
+    "equal": true,
+    "sha256": "6b0855ccec2000d18e5841a08810688fcef2b2224e06efc28ea1ed0be4daf6a6"
+  },
+  {
+    "config": "Debug",
+    "model": "klon",
+    "file": "harmonic-comparison.csv",
+    "equal": true,
+    "sha256": "a27524b50e78d13d9b18bc0ee7fc406963a78d8d69bfa7b4c2776e496f6e3360"
+  },
+  {
+    "config": "Debug",
+    "model": "klon",
+    "file": "science-accuracy.csv",
+    "equal": true,
+    "sha256": "d2ef6dbb4c0ec191c1b9a7700e95538471dd0cbc1e751d2770e80b1f5e72c63d"
+  },
+  {
+    "config": "Debug",
+    "model": "klon",
+    "file": "stage-sweeps.csv",
+    "equal": true,
+    "sha256": "d4b8f5fbc8bce939a97e8e11718a79bff37540fa6a7745aadeed909308327e76"
+  },
+  {
+    "config": "Release",
+    "model": "ts808",
+    "file": "alias.csv",
+    "equal": true,
+    "sha256": "22f24cc31090651ba225b5237fcaeaa75ebd08335d4060465679493e0858e775"
+  },
+  {
+    "config": "Release",
+    "model": "ts808",
+    "file": "harmonic-comparison.csv",
+    "equal": true,
+    "sha256": "22d5cf1b98fbbb9408257404915bdf0ebf7fba2fa8ab787f9bc74731959391a0"
+  },
+  {
+    "config": "Release",
+    "model": "ts808",
+    "file": "science-accuracy.csv",
+    "equal": true,
+    "sha256": "606fde666f2a435844b2ff724a7fbbc150067aad3b3f8a31d8b1362c2dcf3dda"
+  },
+  {
+    "config": "Release",
+    "model": "ts808",
+    "file": "stage-sweeps.csv",
+    "equal": true,
+    "sha256": "6f98664d23a11a17b27eacbaca7a3db973f9d2e82e37ae4024dfc7cb7af9302d"
+  },
+  {
+    "config": "Release",
+    "model": "klon",
+    "file": "alias.csv",
+    "equal": true,
+    "sha256": "6b0855ccec2000d18e5841a08810688fcef2b2224e06efc28ea1ed0be4daf6a6"
+  },
+  {
+    "config": "Release",
+    "model": "klon",
+    "file": "harmonic-comparison.csv",
+    "equal": true,
+    "sha256": "a27524b50e78d13d9b18bc0ee7fc406963a78d8d69bfa7b4c2776e496f6e3360"
+  },
+  {
+    "config": "Release",
+    "model": "klon",
+    "file": "science-accuracy.csv",
+    "equal": true,
+    "sha256": "d2ef6dbb4c0ec191c1b9a7700e95538471dd0cbc1e751d2770e80b1f5e72c63d"
+  },
+  {
+    "config": "Release",
+    "model": "klon",
+    "file": "stage-sweeps.csv",
+    "equal": true,
+    "sha256": "d4b8f5fbc8bce939a97e8e11718a79bff37540fa6a7745aadeed909308327e76"
+  },
+  {
+    "config": "ASAN",
+    "model": "ts808",
+    "file": "alias.csv",
+    "equal": true,
+    "sha256": "22f24cc31090651ba225b5237fcaeaa75ebd08335d4060465679493e0858e775"
+  },
+  {
+    "config": "ASAN",
+    "model": "ts808",
+    "file": "harmonic-comparison.csv",
+    "equal": true,
+    "sha256": "22d5cf1b98fbbb9408257404915bdf0ebf7fba2fa8ab787f9bc74731959391a0"
+  },
+  {
+    "config": "ASAN",
+    "model": "ts808",
+    "file": "science-accuracy.csv",
+    "equal": true,
+    "sha256": "606fde666f2a435844b2ff724a7fbbc150067aad3b3f8a31d8b1362c2dcf3dda"
+  },
+  {
+    "config": "ASAN",
+    "model": "ts808",
+    "file": "stage-sweeps.csv",
+    "equal": true,
+    "sha256": "6f98664d23a11a17b27eacbaca7a3db973f9d2e82e37ae4024dfc7cb7af9302d"
+  },
+  {
+    "config": "ASAN",
+    "model": "klon",
+    "file": "alias.csv",
+    "equal": true,
+    "sha256": "6b0855ccec2000d18e5841a08810688fcef2b2224e06efc28ea1ed0be4daf6a6"
+  },
+  {
+    "config": "ASAN",
+    "model": "klon",
+    "file": "harmonic-comparison.csv",
+    "equal": true,
+    "sha256": "a27524b50e78d13d9b18bc0ee7fc406963a78d8d69bfa7b4c2776e496f6e3360"
+  },
+  {
+    "config": "ASAN",
+    "model": "klon",
+    "file": "science-accuracy.csv",
+    "equal": true,
+    "sha256": "d2ef6dbb4c0ec191c1b9a7700e95538471dd0cbc1e751d2770e80b1f5e72c63d"
+  },
+  {
+    "config": "ASAN",
+    "model": "klon",
+    "file": "stage-sweeps.csv",
+    "equal": true,
+    "sha256": "d4b8f5fbc8bce939a97e8e11718a79bff37540fa6a7745aadeed909308327e76"
+  }
+]

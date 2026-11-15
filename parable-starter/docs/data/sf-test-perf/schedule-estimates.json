@@ -1,0 +1,471 @@
+{
+  "source": "actual baseline Debug per-test wall seconds",
+  "measured": false,
+  "assumptions": "No cache, CPU contention or process-start overhead; naive variant also ignores multithread oversubscription. Predictions are not an additional measured full-suite A/B. Extra tool contract excluded from both38-case forecasts.",
+  "plain_j2": {
+    "estimated_wall_s": 1288.8092707220349,
+    "events": [
+      {
+        "name": "firmware_measurement_math_status",
+        "start_estimated_s": 0,
+        "end_estimated_s": 0.00243351400422398,
+        "reserved_slots": 1
+      },
+      {
+        "name": "core_validation",
+        "start_estimated_s": 0,
+        "end_estimated_s": 0.0023506519937654957,
+        "reserved_slots": 1
+      },
+      {
+        "name": "audio_safety",
+        "start_estimated_s": 0.0023506519937654957,
+        "end_estimated_s": 0.049740977003239095,
+        "reserved_slots": 1
+      },
+      {
+        "name": "patch_contract",
+        "start_estimated_s": 0.00243351400422398,
+        "end_estimated_s": 1.0894484850141453,
+        "reserved_slots": 1
+      },
+      {
+        "name": "host_preparation",
+        "start_estimated_s": 0.049740977003239095,
+        "end_estimated_s": 0.07501549200969748,
+        "reserved_slots": 1
+      },
+      {
+        "name": "rat_patch_integration",
+        "start_estimated_s": 0.07501549200969748,
+        "end_estimated_s": 2.0300265090045286,
+        "reserved_slots": 1
+      },
+      {
+        "name": "patch_audio_evidence",
+        "start_estimated_s": 1.0894484850141453,
+        "end_estimated_s": 7.752501424009097,
+        "reserved_slots": 1
+      },
+      {
+        "name": "rat_circuit_and_safety",
+        "start_estimated_s": 2.0300265090045286,
+        "end_estimated_s": 4.238861545003601,
+        "reserved_slots": 1
+      },
+      {
+        "name": "rat_lab_measurements",
+        "start_estimated_s": 4.238861545003601,
+        "end_estimated_s": 7.6957705650129355,
+        "reserved_slots": 1
+      },
+      {
+        "name": "soundforge_utilities",
+        "start_estimated_s": 7.6957705650129355,
+        "end_estimated_s": 8.84352838601626,
+        "reserved_slots": 1
+      },
+      {
+        "name": "soundforge_registry",
+        "start_estimated_s": 7.752501424009097,
+        "end_estimated_s": 7.80234604801808,
+        "reserved_slots": 1
+      },
+      {
+        "name": "soundforge_registry_negative",
+        "start_estimated_s": 7.80234604801808,
+        "end_estimated_s": 7.985468650018447,
+        "reserved_slots": 1
+      },
+      {
+        "name": "labrat_output_preservation",
+        "start_estimated_s": 7.985468650018447,
+        "end_estimated_s": 26.64255490801588,
+        "reserved_slots": 1
+      },
+      {
+        "name": "cmos_circuit_and_safety",
+        "start_estimated_s": 8.84352838601626,
+        "end_estimated_s": 10.045134663014323,
+        "reserved_slots": 1
+      },
+      {
+        "name": "cmos_lab_measurements",
+        "start_estimated_s": 10.045134663014323,
+        "end_estimated_s": 13.988057459020638,
+        "reserved_slots": 1
+      },
+      {
+        "name": "cmos_lab_cli",
+        "start_estimated_s": 13.988057459020638,
+        "end_estimated_s": 25.309353954027756,
+        "reserved_slots": 1
+      },
+      {
+        "name": "germanium_circuit_and_safety",
+        "start_estimated_s": 25.309353954027756,
+        "end_estimated_s": 32.208892674025265,
+        "reserved_slots": 1
+      },
+      {
+        "name": "germanium_lab_measurements",
+        "start_estimated_s": 26.64255490801588,
+        "end_estimated_s": 33.61845836300927,
+        "reserved_slots": 1
+      },
+      {
+        "name": "germanium_lab_cli",
+        "start_estimated_s": 32.208892674025265,
+        "end_estimated_s": 45.519133723020786,
+        "reserved_slots": 1
+      },
+      {
+        "name": "preset_journal",
+        "start_estimated_s": 33.61845836300927,
+        "end_estimated_s": 50.72299457900226,
+        "reserved_slots": 1
+      },
+      {
+        "name": "activation_contract",
+        "start_estimated_s": 45.519133723020786,
+        "end_estimated_s": 45.69758947301307,
+        "reserved_slots": 1
+      },
+      {
+        "name": "activation_concurrency",
+        "start_estimated_s": 45.69758947301307,
+        "end_estimated_s": 71.7777498060168,
+        "reserved_slots": 1
+      },
+      {
+        "name": "activation_demo",
+        "start_estimated_s": 50.72299457900226,
+        "end_estimated_s": 50.756836743996246,
+        "reserved_slots": 1
+      },
+      {
+        "name": "living_contract",
+        "start_estimated_s": 50.756836743996246,
+        "end_estimated_s": 51.773649565991946,
+        "reserved_slots": 1
+      },
+      {
+        "name": "living_concurrency",
+        "start_estimated_s": 51.773649565991946,
+        "end_estimated_s": 54.32781736299512,
+        "reserved_slots": 1
+      },
+      {
+        "name": "living_audio_evidence",
+        "start_estimated_s": 54.32781736299512,
+        "end_estimated_s": 60.632606700994074,
+        "reserved_slots": 1
+      },
+      {
+        "name": "tape_medium_and_safety",
+        "start_estimated_s": 60.632606700994074,
+        "end_estimated_s": 60.761579006008105,
+        "reserved_slots": 1
+      },
+      {
+        "name": "tape_listening_cli",
+        "start_estimated_s": 60.761579006008105,
+        "end_estimated_s": 62.357111500008614,
+        "reserved_slots": 1
+      },
+      {
+        "name": "rotary_mechanics_and_safety",
+        "start_estimated_s": 62.357111500008614,
+        "end_estimated_s": 65.96978741401108,
+        "reserved_slots": 1
+      },
+      {
+        "name": "rotary_listening_cli",
+        "start_estimated_s": 65.96978741401108,
+        "end_estimated_s": 69.98250538400316,
+        "reserved_slots": 1
+      },
+      {
+        "name": "muff_circuit_and_safety",
+        "start_estimated_s": 69.98250538400316,
+        "end_estimated_s": 234.89596535201417,
+        "reserved_slots": 1
+      },
+      {
+        "name": "muff_listening_cli",
+        "start_estimated_s": 71.7777498060168,
+        "end_estimated_s": 259.2940294530272,
+        "reserved_slots": 1
+      },
+      {
+        "name": "ts808_circuit_and_safety",
+        "start_estimated_s": 234.89596535201417,
+        "end_estimated_s": 745.2037232190196,
+        "reserved_slots": 1
+      },
+      {
+        "name": "ts808_listening_cli",
+        "start_estimated_s": 259.2940294530272,
+        "end_estimated_s": 815.7478642200294,
+        "reserved_slots": 1
+      },
+      {
+        "name": "klon_circuit_and_safety",
+        "start_estimated_s": 745.2037232190196,
+        "end_estimated_s": 1135.2396298300155,
+        "reserved_slots": 1
+      },
+      {
+        "name": "klon_listening_cli",
+        "start_estimated_s": 815.7478642200294,
+        "end_estimated_s": 1288.8092707220349,
+        "reserved_slots": 1
+      },
+      {
+        "name": "wavefolder_circuit_and_safety",
+        "start_estimated_s": 1135.2396298300155,
+        "end_estimated_s": 1151.6271681220096,
+        "reserved_slots": 1
+      },
+      {
+        "name": "wavefolder_listening_cli",
+        "start_estimated_s": 1151.6271681220096,
+        "end_estimated_s": 1168.8570486660028,
+        "reserved_slots": 1
+      }
+    ]
+  },
+  "cost_reserved_j2": {
+    "estimated_wall_s": 1243.5168142140028,
+    "events": [
+      {
+        "name": "ts808_listening_cli",
+        "start_estimated_s": 0,
+        "end_estimated_s": 556.4538347670023,
+        "reserved_slots": 1
+      },
+      {
+        "name": "ts808_circuit_and_safety",
+        "start_estimated_s": 0,
+        "end_estimated_s": 510.3077578670054,
+        "reserved_slots": 1
+      },
+      {
+        "name": "klon_listening_cli",
+        "start_estimated_s": 510.3077578670054,
+        "end_estimated_s": 983.3691643690108,
+        "reserved_slots": 1
+      },
+      {
+        "name": "klon_circuit_and_safety",
+        "start_estimated_s": 556.4538347670023,
+        "end_estimated_s": 946.4897413779981,
+        "reserved_slots": 1
+      },
+      {
+        "name": "muff_listening_cli",
+        "start_estimated_s": 946.4897413779981,
+        "end_estimated_s": 1134.0060210250085,
+        "reserved_slots": 1
+      },
+      {
+        "name": "muff_circuit_and_safety",
+        "start_estimated_s": 983.3691643690108,
+        "end_estimated_s": 1148.2826243370218,
+        "reserved_slots": 1
+      },
+      {
+        "name": "wavefolder_circuit_and_safety",
+        "start_estimated_s": 1134.0060210250085,
+        "end_estimated_s": 1150.3935593170027,
+        "reserved_slots": 1
+      },
+      {
+        "name": "wavefolder_listening_cli",
+        "start_estimated_s": 1148.2826243370218,
+        "end_estimated_s": 1165.512504881015,
+        "reserved_slots": 1
+      },
+      {
+        "name": "firmware_measurement_math_status",
+        "start_estimated_s": 1150.3935593170027,
+        "end_estimated_s": 1150.3959928310069,
+        "reserved_slots": 1
+      },
+      {
+        "name": "core_validation",
+        "start_estimated_s": 1150.3959928310069,
+        "end_estimated_s": 1150.3983434830006,
+        "reserved_slots": 1
+      },
+      {
+        "name": "audio_safety",
+        "start_estimated_s": 1150.3983434830006,
+        "end_estimated_s": 1150.4457338080101,
+        "reserved_slots": 1
+      },
+      {
+        "name": "patch_contract",
+        "start_estimated_s": 1150.4457338080101,
+        "end_estimated_s": 1151.53274877902,
+        "reserved_slots": 1
+      },
+      {
+        "name": "host_preparation",
+        "start_estimated_s": 1151.53274877902,
+        "end_estimated_s": 1151.5580232940265,
+        "reserved_slots": 1
+      },
+      {
+        "name": "rat_patch_integration",
+        "start_estimated_s": 1151.5580232940265,
+        "end_estimated_s": 1153.5130343110213,
+        "reserved_slots": 1
+      },
+      {
+        "name": "patch_audio_evidence",
+        "start_estimated_s": 1153.5130343110213,
+        "end_estimated_s": 1160.1760872500163,
+        "reserved_slots": 1
+      },
+      {
+        "name": "rat_circuit_and_safety",
+        "start_estimated_s": 1160.1760872500163,
+        "end_estimated_s": 1162.3849222860154,
+        "reserved_slots": 1
+      },
+      {
+        "name": "rat_lab_measurements",
+        "start_estimated_s": 1162.3849222860154,
+        "end_estimated_s": 1165.8418313060247,
+        "reserved_slots": 1
+      },
+      {
+        "name": "soundforge_utilities",
+        "start_estimated_s": 1165.512504881015,
+        "end_estimated_s": 1166.6602627020184,
+        "reserved_slots": 1
+      },
+      {
+        "name": "soundforge_registry",
+        "start_estimated_s": 1165.8418313060247,
+        "end_estimated_s": 1165.8916759300337,
+        "reserved_slots": 1
+      },
+      {
+        "name": "soundforge_registry_negative",
+        "start_estimated_s": 1165.8916759300337,
+        "end_estimated_s": 1166.074798532034,
+        "reserved_slots": 1
+      },
+      {
+        "name": "labrat_output_preservation",
+        "start_estimated_s": 1166.074798532034,
+        "end_estimated_s": 1184.7318847900315,
+        "reserved_slots": 1
+      },
+      {
+        "name": "cmos_circuit_and_safety",
+        "start_estimated_s": 1166.6602627020184,
+        "end_estimated_s": 1167.8618689790164,
+        "reserved_slots": 1
+      },
+      {
+        "name": "cmos_lab_measurements",
+        "start_estimated_s": 1167.8618689790164,
+        "end_estimated_s": 1171.8047917750227,
+        "reserved_slots": 1
+      },
+      {
+        "name": "cmos_lab_cli",
+        "start_estimated_s": 1171.8047917750227,
+        "end_estimated_s": 1183.1260882700299,
+        "reserved_slots": 1
+      },
+      {
+        "name": "germanium_circuit_and_safety",
+        "start_estimated_s": 1183.1260882700299,
+        "end_estimated_s": 1190.0256269900274,
+        "reserved_slots": 1
+      },
+      {
+        "name": "germanium_lab_measurements",
+        "start_estimated_s": 1184.7318847900315,
+        "end_estimated_s": 1191.7077882450249,
+        "reserved_slots": 1
+      },
+      {
+        "name": "germanium_lab_cli",
+        "start_estimated_s": 1190.0256269900274,
+        "end_estimated_s": 1203.335868039023,
+        "reserved_slots": 1
+      },
+      {
+        "name": "preset_journal",
+        "start_estimated_s": 1191.7077882450249,
+        "end_estimated_s": 1208.8123244610179,
+        "reserved_slots": 1
+      },
+      {
+        "name": "activation_contract",
+        "start_estimated_s": 1203.335868039023,
+        "end_estimated_s": 1203.5143237890152,
+        "reserved_slots": 1
+      },
+      {
+        "name": "activation_demo",
+        "start_estimated_s": 1203.5143237890152,
+        "end_estimated_s": 1203.5481659540092,
+        "reserved_slots": 1
+      },
+      {
+        "name": "living_contract",
+        "start_estimated_s": 1203.5481659540092,
+        "end_estimated_s": 1204.5649787760049,
+        "reserved_slots": 1
+      },
+      {
+        "name": "living_audio_evidence",
+        "start_estimated_s": 1204.5649787760049,
+        "end_estimated_s": 1210.8697681140038,
+        "reserved_slots": 1
+      },
+      {
+        "name": "tape_medium_and_safety",
+        "start_estimated_s": 1208.8123244610179,
+        "end_estimated_s": 1208.9412967660319,
+        "reserved_slots": 1
+      },
+      {
+        "name": "tape_listening_cli",
+        "start_estimated_s": 1208.9412967660319,
+        "end_estimated_s": 1210.5368292600324,
+        "reserved_slots": 1
+      },
+      {
+        "name": "rotary_mechanics_and_safety",
+        "start_estimated_s": 1210.5368292600324,
+        "end_estimated_s": 1214.1495051740349,
+        "reserved_slots": 1
+      },
+      {
+        "name": "rotary_listening_cli",
+        "start_estimated_s": 1210.8697681140038,
+        "end_estimated_s": 1214.882486083996,
+        "reserved_slots": 1
+      },
+      {
+        "name": "activation_concurrency",
+        "start_estimated_s": 1214.882486083996,
+        "end_estimated_s": 1240.9626464169996,
+        "reserved_slots": 2
+      },
+      {
+        "name": "living_concurrency",
+        "start_estimated_s": 1240.9626464169996,
+        "end_estimated_s": 1243.5168142140028,
+        "reserved_slots": 2
+      }
+    ]
+  }
+}

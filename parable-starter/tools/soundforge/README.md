@@ -80,10 +80,10 @@ From the repository root, C++17, CMake >=3.15 and Python >=3.9 (standard library
 python3 parable-starter/tools/soundforge/validate_registry.py
 cmake -S parable-starter -B parable-starter/build/sf-debug -DCMAKE_BUILD_TYPE=Debug
 cmake --build parable-starter/build/sf-debug -j2
-ctest --test-dir parable-starter/build/sf-debug --output-on-failure --no-tests=error
+ctest --test-dir parable-starter/build/sf-debug -j2 --output-on-failure --no-tests=error
 cmake -S parable-starter -B parable-starter/build/sf-release -DCMAKE_BUILD_TYPE=Release
 cmake --build parable-starter/build/sf-release -j2
-ctest --test-dir parable-starter/build/sf-release --output-on-failure --no-tests=error
+ctest --test-dir parable-starter/build/sf-release -j2 --output-on-failure --no-tests=error
 ./parable-starter/build/sf-release/parable_rat_lab --output parable-starter/build/rat-auditions
 python3 parable-starter/tools/soundforge/check_labrat.py --directory parable-starter/build/rat-auditions
 ./parable-starter/build/sf-release/parable_cmos_lab --output parable-starter/build/cmos-auditions

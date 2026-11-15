@@ -1,0 +1,881 @@
+{
+  "source_commit": "d05633fe4cea9ad36842fd4b452a3b94ce2caea1",
+  "source_head_commit": "d05633fe4cea9ad36842fd4b452a3b94ce2caea1",
+  "source_worktree_dirty": false,
+  "source_sha256": {
+    "firmware/daisy_pass_through.cpp": "604753f6ec5590a2200cd13f41ffbdde803f8f3ca8409b3ee144ba91cd2785a6",
+    "firmware/Makefile": "c034e35351abb5ba9b9bfcbd4d4865013b544f8e8bd40e25b1ff7b6b037427b0",
+    "firmware/build.py": "e0ad6bbc355d614c83b4885ab2a2aa1607a98175193a6d69e17bd92687f673d1",
+    "firmware/report.py": "eaffef4a7e4b09e5ceea7b67b4e2b93579886d29b43cfab799c52840a22306e1",
+    "firmware/dependencies.json": "c0d9b48b83d31b1669f061cfe9aa81d6411dc9cb3bf4ff45c166b1ce31149263",
+    "include/parable_core.h": "1af97eb30c2a607f1dd2b3e9fa0a858f4039bb2b251dc31e1c5f4ede038cc60d",
+    "include/parable_patch.h": "78ae9487b5481f06bee897e5bc311d247d039aa1a6797d09eaca6abebd7b36ae",
+    "include/parable_prepare.h": "40e4607979b75ec4c48017e43b9bf2cd1d2e5703a2c947df968d6c88d6fa55af",
+    "src/parable_prepare.cpp": "4061ae015ab21c43d508de8af9dcbda80fe323e233212b17a2dd33d76faceab7",
+    "src/prepare_internal.h": "c69a61de7a4a83b477f0fdd8e6ab94f4a2bfe04dc7fb0f291965475a4e9abc42",
+    "src/parable_patch.cpp": "2324f194c0967ed4fe91ca7d45b507c22c0b60f39740869102bd57032b78190d",
+    "src/patch_json.cpp": "18b5ef76c583dd2d85d80a8cdafa1131e9ce9ff96c5017d4273df2d83d2dd0e0",
+    "src/patch_json.h": "e9fab338f52fee529a3a23681da49fc922e0aad4c3eb21e3b48cb2f939a83962",
+    "include/parable_rat.h": "3959350952136fedd276b0590851e022ee32b1cb081bd26729ec4481dff87979",
+    "src/parable_rat.cpp": "7506e15675576d41ef1350ad08b893651556ed77b272b8b85e0030b0a26ece4b",
+    "src/rat_circuit_math.h": "753b159feba8f9db9c9d367c7e67fadae4a3aae9af752273c5f3a4e00abe89c1",
+    "include/parable_cmos.h": "a3d12cbaa1328c5f7437af078f78992008a8aa94d1dd618e2bf06e87bc34caa6",
+    "src/parable_cmos.cpp": "abbd25e1d51b0463babecda411bb501236115d0331879e37fb2340c036a2517a",
+    "src/cmos_device.h": "5432639be54102e97ac0a020664f388ba1a5512d6d79c4ecd8e1e7f088a07c9b",
+    "include/parable_germanium.h": "3ac41d2eb8eb8b0b66d5bf0e4cab6cfc0b5a47dec2d2f89359275fa0f73cd45b",
+    "src/parable_germanium.cpp": "b9521af43b566c5e91d0e64d0e098fa1a1f13deb19c3f4ba8b0befa610b452b0",
+    "src/germanium_device.h": "89ed1c3fc29d8135bf00ac133ac88b19e32f0f0802183de06add5fd1a84007f0",
+    "tests/fixtures/patch-v1/rat-composite.json": "fb3c2307c9f4b1a7a3c3e77ccb1774a1404fca7e84eaa2e7f1deb677da8b3f58",
+    "firmware/seed3_led.cpp": "a57cffa4ea7ce107a78fa9be1b1d7d09fb3707e1cd6f1285bf3bfcaf8c6a9dba",
+    "firmware/first_boot_audio.h": "2996e32ca8ee3357bdb6942dae865405d307c50d3cb52e8a66f25e50e0d24596",
+    "firmware/runtime_measurement.h": "0d81e4995fc7e56e0a7da7125ddb26b16c5f7c197ddc3632cb688bdcbd6f8b68",
+    "docs/PAR009_GATE0.md": "3806ef0da6c4aad93c303f41a09b89fdb06ef684e5b87d3fd45a8e08af9d6daa",
+    "docs/SEED3_FIRST_DAY.md": "fd697c391761d1f5aeab005dbe1cff332d0e02fa8627164f70280cc2dcbb1a46",
+    "tests/test_firmware_measurement.cpp": "b684c7c235bcd2a8ba5a78550c50172dfc5144b89072e7c5b3e54afef1524cda"
+  },
+  "linker_sha256": {
+    "BOOT_NONE": "d45452b0f9f5b722b16e3a8fc168a76e2a5022d46a4efd10054880dcc5a87e8d",
+    "BOOT_SRAM": "697e963cd517992d69f96c89bf1e14cdd4477615ddbb86fb34f0eb7b1e3ceee9",
+    "BOOT_QSPI": "09c1283f2f7df9c7e83a6a90beb006088b561a3aac12d3ac35c6cc6f6db5c65a"
+  },
+  "compiler": "arm-none-eabi-g++ (xPack GNU Arm Embedded GCC x86_64) 14.2.1 20241119",
+  "pins": {
+    "toolchain": {
+      "version": "14.2.1",
+      "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+      "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+      "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+      "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+    },
+    "libdaisy": {
+      "url": "https://github.com/daisyaudio/libDaisy.git",
+      "commit": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+      "submodules": {
+        "Drivers/CMSIS-DSP": "3a04f817a4380c00ff51f9bcdc6c4e4bb7a18b80",
+        "Drivers/CMSIS-Device/ST/STM32H7xx": "6dac8c24d7b38ab20806d27dd7d8285a6433b8f7",
+        "Drivers/CMSIS_5": "2b7495b8535bdcb306dac29b9ded4cfb679d7e5c",
+        "Drivers/STM32H7xx_HAL_Driver": "404a70d4c19c124636c78801ff7c0dbc87bc4256",
+        "Middlewares/ST/STM32_USB_Device_Library": "7b5e6886d2f11ad15d2b46364e8a96984358f639"
+      }
+    },
+    "json": {
+      "url": "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz",
+      "sha256": "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d",
+      "directory": "json"
+    },
+    "target": {
+      "cpu": "cortex-m7",
+      "fpu": "fpv5-d16",
+      "float_abi": "hard",
+      "layouts": {
+        "BOOT_NONE": "core/STM32H750IB_flash.lds",
+        "BOOT_SRAM": "core/STM32H750IB_sram.lds",
+        "BOOT_QSPI": "core/STM32H750IB_qspi.lds"
+      }
+    },
+    "bootloader_audit": {
+      "bundled_binary": "core/dsy_bootloader_v6_4-intdfu-2000ms.bin",
+      "sha256": "76296b6bd625e5e5dbeba2431619a0ed90ae2c0a3a99258df00a64a0b8b9ec35",
+      "source_url": "https://github.com/daisyaudio/DaisyBootloader",
+      "source_commit": "8b279a8e25922b786c24a6cbd1d499cdc1e76934",
+      "source_libdaisy_gitlink": "24be4afea00d71988019fe8dd9fd9fc8fc5bf72c",
+      "status": "binary hash verified; source audited, not rebuilt; Seed3 boot/hardware compatibility unverified"
+    }
+  },
+  "first_boot": {
+    "capture_bytes": 52,
+    "capture_limit_callbacks": 30000,
+    "counter": "DWT CYCCNT; CM7 SystemCoreClockUpdate RCC readback",
+    "interval_contract": "each callback <2^31 cycles",
+    "publication": "one frozen summary, release/acquire completion, no ongoing mutable reader",
+    "retrieval": "control-side existing USB CDC, initialized only after capture; immutable text repeated",
+    "callback_cpu": "not measured",
+    "glitches": "not observed/tested",
+    "hardware_execution": "not performed"
+  },
+  "format": "parable.seed3-first-boot",
+  "version": 1,
+  "boot_mode": "BOOT_NONE",
+  "rom_dfu_address": "0x08000000",
+  "software_bootloader_included": false,
+  "runtime_evidence": "PENDING PHYSICAL TEST",
+  "images": {
+    "led_recovery": {
+      "bin_sha256": "12a160b05cf44739facdc7c9c4e47db6fa820c6684115bd7723348d9c3a131f1",
+      "berkeley_size": [
+        "49976",
+        "1616",
+        "11964",
+        "63556"
+      ],
+      "image_load_span_bytes": 51592,
+      "execution_location": "internal FLASH",
+      "static_placement_bytes": {
+        "ITCM": 0,
+        "DTCM": 0,
+        "AXI_SRAM": 12872,
+        "D2_SRAM": 0,
+        "D3_SRAM": 0,
+        "BACKUP_SRAM": 0,
+        "SDRAM": 0,
+        "QSPI": 0
+      },
+      "static_region_span_bytes": {
+        "ITCM": 0,
+        "DTCM": 0,
+        "AXI_SRAM": 12876,
+        "D2_SRAM": 0,
+        "D3_SRAM": 0,
+        "BACKUP_SRAM": 0,
+        "SDRAM": 0,
+        "QSPI": 0
+      },
+      "compiler_application_frames": [
+        {
+          "source": "seed3_led.su",
+          "function": "/workspace/work/par005-fresh-cache/libDaisy/src/daisy_seed.h:22:5:daisy::DaisySeed::~DaisySeed()",
+          "bytes": 0,
+          "qualifier": "static"
+        },
+        {
+          "source": "seed3_led.su",
+          "function": "seed3_led.cpp:7:5:int main()",
+          "bytes": 40,
+          "qualifier": "static"
+        },
+        {
+          "source": "seed3_led.su",
+          "function": "seed3_led.cpp:19:1:cpp)",
+          "bytes": 4,
+          "qualifier": "static"
+        },
+        {
+          "source": "startup_stm32h750xx.su",
+          "function": "/workspace/work/par005-fresh-cache/libDaisy/core/startup_stm32h750xx.c:1560:53:Default_Handler",
+          "bytes": 0,
+          "qualifier": "static"
+        },
+        {
+          "source": "startup_stm32h750xx.su",
+          "function": "/workspace/work/par005-fresh-cache/libDaisy/core/startup_stm32h750xx.c:1535:32:Reset_Handler",
+          "bytes": 8,
+          "qualifier": "static"
+        }
+      ],
+      "stack_top": "0x20020000 (DTCM)",
+      "rat_enabled_at_startup": false,
+      "unresolved_symbols": [],
+      "binary": "led_recovery/parable_seed3_led.bin",
+      "map": "led_recovery/parable_seed3_led.map",
+      "build_log": "led_recovery/build.log"
+    },
+    "mono_bypass": {
+      "bin_sha256": "f78e6785e629d369a4dd30c51d4c465f58fd820a8e8841c6bdb7eafb2040d301",
+      "berkeley_size": [
+        "107320",
+        "2272",
+        "52396",
+        "161988"
+      ],
+      "image_load_span_bytes": 109600,
+      "execution_location": "internal FLASH",
+      "static_placement_bytes": {
+        "ITCM": 0,
+        "DTCM": 0,
+        "AXI_SRAM": 37564,
+        "D2_SRAM": 16384,
+        "D3_SRAM": 0,
+        "BACKUP_SRAM": 12,
+        "SDRAM": 0,
+        "QSPI": 0
+      },
+      "static_region_span_bytes": {
+        "ITCM": 0,
+        "DTCM": 0,
+        "AXI_SRAM": 37568,
+        "D2_SRAM": 16384,
+        "D3_SRAM": 0,
+        "BACKUP_SRAM": 12,
+        "SDRAM": 0,
+        "QSPI": 0
+      },
+      "compiler_application_frames": [
+        {
+          "source": "daisy_pass_through.su",
+          "function": "/workspace/work/par005-fresh-cache/libDaisy/src/daisy_seed.h:22:5:daisy::DaisySeed::~DaisySeed()",
+          "bytes": 0,
+          "qualifier": "static"
+        },
+        {
+          "source": "daisy_pass_through.su",
+          "function": "daisy_pass_through.cpp:19:6:void AudioCallback(daisy::AudioHandle::InputBuffer, daisy::AudioHandle::OutputBuffer, size_t)",
+          "bytes": 64,
+          "qualifier": "static"
+        },
+        {
+          "source": "daisy_pass_through.su",
+          "function": "../include/parable_core.h:106:12:parable::Status parable::Engine::load(const parable::Patch&)",
+          "bytes": 296,
+          "qualifier": "static"
+        },
+        {
+          "source": "daisy_pass_through.su",
+          "function": "first_boot_audio.h:21:26:void first_boot_runtime::fail(parable::first_boot::LedStatus)",
+          "bytes": 8,
+          "qualifier": "static"
+        },
+        {
+          "source": "daisy_pass_through.su",
+          "function": "first_boot_audio.h:39:13:void first_boot_runtime::initialize(float)",
+          "bytes": 48,
+          "qualifier": "static"
+        },
+        {
+          "source": "daisy_pass_through.su",
+          "function": "first_boot_audio.h:49:13:void first_boot_runtime::load(const parable::Patch&)",
+          "bytes": 24,
+          "qualifier": "static"
+        },
+        {
+          "source": "daisy_pass_through.su",
+          "function": "first_boot_audio.h:113:26:void first_boot_runtime::run(daisy::AudioHandle::AudioCallback)",
+          "bytes": 128,
+          "qualifier": "static"
+        },
+        {
+          "source": "daisy_pass_through.su",
+          "function": "daisy_pass_through.cpp:34:5:int main()",
+          "bytes": 216,
+          "qualifier": "static"
+        },
+        {
+          "source": "daisy_pass_through.su",
+          "function": "daisy_pass_through.cpp:79:1:cpp)",
+          "bytes": 4,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:26:6:bool parable::dsp::{anonymous}::stable(parable::dsp::rat_detail::Filter)",
+          "bytes": 112,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:37:6:void parable::dsp::rat_detail::Filter::prepare(const parable::dsp::rat_detail::Polynomial&, const parable::dsp::rat_detail::Polynomial&, double)",
+          "bytes": 72,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:41:8:double parable::dsp::rat_detail::Filter::process(double)",
+          "bytes": 0,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:48:6:void parable::dsp::rat_detail::ClipStage::prepare(double, parable::dsp::RatControls, const parable::dsp::RatCircuit&)",
+          "bytes": 120,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:74:8:double parable::dsp::rat_detail::ClipStage::lookup(double) const",
+          "bytes": 0,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:81:8:double parable::dsp::rat_detail::ClipStage::process(double)",
+          "bytes": 48,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:95:6:bool parable::dsp::rat_detail::preparePreamp(Filter&, Filter&, double, parable::dsp::RatControls, const parable::dsp::RatCircuit&)",
+          "bytes": 272,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:130:6:void parable::dsp::Rat::reset()",
+          "bytes": 16,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:113:6:bool parable::dsp::Rat::configure(float, parable::dsp::RatControls, const parable::dsp::RatCircuit&, parable::dsp::RatRate)",
+          "bytes": 424,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:112:1:parable::dsp::Rat::Rat()",
+          "bytes": 320,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:134:8:double parable::dsp::Rat::circuitSample(double)",
+          "bytes": 24,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:144:7:float parable::dsp::Rat::process(float)",
+          "bytes": 40,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:161:6:void parable::dsp::Rat::processBlock(const float*, float*, std::size_t)",
+          "bytes": 24,
+          "qualifier": "static"
+        },
+        {
+          "source": "startup_stm32h750xx.su",
+          "function": "/workspace/work/par005-fresh-cache/libDaisy/core/startup_stm32h750xx.c:1560:53:Default_Handler",
+          "bytes": 0,
+          "qualifier": "static"
+        },
+        {
+          "source": "startup_stm32h750xx.su",
+          "function": "/workspace/work/par005-fresh-cache/libDaisy/core/startup_stm32h750xx.c:1535:32:Reset_Handler",
+          "bytes": 8,
+          "qualifier": "static"
+        }
+      ],
+      "stack_top": "0x20020000 (DTCM)",
+      "rat_enabled_at_startup": false,
+      "unresolved_symbols": [],
+      "binary": "mono_bypass/parable_seed3_bypass.bin",
+      "map": "mono_bypass/parable_seed3_bypass.map",
+      "build_log": "mono_bypass/build.log"
+    },
+    "rat_composite": {
+      "bin_sha256": "57ab965bbd3b6b9dfca57c3c78b4f12c310591f268202ada872278cf4dfefdd6",
+      "berkeley_size": [
+        "107504",
+        "2272",
+        "52396",
+        "162172"
+      ],
+      "image_load_span_bytes": 109784,
+      "execution_location": "internal FLASH",
+      "static_placement_bytes": {
+        "ITCM": 0,
+        "DTCM": 0,
+        "AXI_SRAM": 37564,
+        "D2_SRAM": 16384,
+        "D3_SRAM": 0,
+        "BACKUP_SRAM": 12,
+        "SDRAM": 0,
+        "QSPI": 0
+      },
+      "static_region_span_bytes": {
+        "ITCM": 0,
+        "DTCM": 0,
+        "AXI_SRAM": 37568,
+        "D2_SRAM": 16384,
+        "D3_SRAM": 0,
+        "BACKUP_SRAM": 12,
+        "SDRAM": 0,
+        "QSPI": 0
+      },
+      "compiler_application_frames": [
+        {
+          "source": "daisy_pass_through.su",
+          "function": "/workspace/work/par005-fresh-cache/libDaisy/src/daisy_seed.h:22:5:daisy::DaisySeed::~DaisySeed()",
+          "bytes": 0,
+          "qualifier": "static"
+        },
+        {
+          "source": "daisy_pass_through.su",
+          "function": "daisy_pass_through.cpp:19:6:void AudioCallback(daisy::AudioHandle::InputBuffer, daisy::AudioHandle::OutputBuffer, size_t)",
+          "bytes": 64,
+          "qualifier": "static"
+        },
+        {
+          "source": "daisy_pass_through.su",
+          "function": "../include/parable_core.h:106:12:parable::Status parable::Engine::load(const parable::Patch&)",
+          "bytes": 296,
+          "qualifier": "static"
+        },
+        {
+          "source": "daisy_pass_through.su",
+          "function": "first_boot_audio.h:21:26:void first_boot_runtime::fail(parable::first_boot::LedStatus)",
+          "bytes": 8,
+          "qualifier": "static"
+        },
+        {
+          "source": "daisy_pass_through.su",
+          "function": "first_boot_audio.h:39:13:void first_boot_runtime::initialize(float)",
+          "bytes": 48,
+          "qualifier": "static"
+        },
+        {
+          "source": "daisy_pass_through.su",
+          "function": "first_boot_audio.h:49:13:void first_boot_runtime::load(const parable::Patch&)",
+          "bytes": 24,
+          "qualifier": "static"
+        },
+        {
+          "source": "daisy_pass_through.su",
+          "function": "first_boot_audio.h:113:26:void first_boot_runtime::run(daisy::AudioHandle::AudioCallback)",
+          "bytes": 128,
+          "qualifier": "static"
+        },
+        {
+          "source": "daisy_pass_through.su",
+          "function": "daisy_pass_through.cpp:34:5:int main()",
+          "bytes": 216,
+          "qualifier": "static"
+        },
+        {
+          "source": "daisy_pass_through.su",
+          "function": "daisy_pass_through.cpp:79:1:cpp)",
+          "bytes": 4,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:26:6:bool parable::dsp::{anonymous}::stable(parable::dsp::rat_detail::Filter)",
+          "bytes": 112,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:37:6:void parable::dsp::rat_detail::Filter::prepare(const parable::dsp::rat_detail::Polynomial&, const parable::dsp::rat_detail::Polynomial&, double)",
+          "bytes": 72,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:41:8:double parable::dsp::rat_detail::Filter::process(double)",
+          "bytes": 0,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:48:6:void parable::dsp::rat_detail::ClipStage::prepare(double, parable::dsp::RatControls, const parable::dsp::RatCircuit&)",
+          "bytes": 120,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:74:8:double parable::dsp::rat_detail::ClipStage::lookup(double) const",
+          "bytes": 0,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:81:8:double parable::dsp::rat_detail::ClipStage::process(double)",
+          "bytes": 48,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:95:6:bool parable::dsp::rat_detail::preparePreamp(Filter&, Filter&, double, parable::dsp::RatControls, const parable::dsp::RatCircuit&)",
+          "bytes": 272,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:130:6:void parable::dsp::Rat::reset()",
+          "bytes": 16,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:113:6:bool parable::dsp::Rat::configure(float, parable::dsp::RatControls, const parable::dsp::RatCircuit&, parable::dsp::RatRate)",
+          "bytes": 424,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:112:1:parable::dsp::Rat::Rat()",
+          "bytes": 320,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:134:8:double parable::dsp::Rat::circuitSample(double)",
+          "bytes": 24,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:144:7:float parable::dsp::Rat::process(float)",
+          "bytes": 40,
+          "qualifier": "static"
+        },
+        {
+          "source": "parable_rat.su",
+          "function": "../src/parable_rat.cpp:161:6:void parable::dsp::Rat::processBlock(const float*, float*, std::size_t)",
+          "bytes": 24,
+          "qualifier": "static"
+        },
+        {
+          "source": "startup_stm32h750xx.su",
+          "function": "/workspace/work/par005-fresh-cache/libDaisy/core/startup_stm32h750xx.c:1560:53:Default_Handler",
+          "bytes": 0,
+          "qualifier": "static"
+        },
+        {
+          "source": "startup_stm32h750xx.su",
+          "function": "/workspace/work/par005-fresh-cache/libDaisy/core/startup_stm32h750xx.c:1535:32:Reset_Handler",
+          "bytes": 8,
+          "qualifier": "static"
+        }
+      ],
+      "stack_top": "0x20020000 (DTCM)",
+      "rat_enabled_at_startup": true,
+      "unresolved_symbols": [],
+      "binary": "rat_composite/parable_seed3_rat_composite.bin",
+      "map": "rat_composite/parable_seed3_rat_composite.map",
+      "build_log": "rat_composite/build.log"
+    }
+  },
+  "rollback": {
+    "binary": "rollback/parable_seed3_minimal.bin",
+    "app_type": "BOOT_NONE",
+    "sections": {
+      ".isr_vector": {
+        "bytes": 664,
+        "vma": 134217728,
+        "lma": 134217728,
+        "flags": "CONTENTS, ALLOC, LOAD, DATA"
+      },
+      ".text": {
+        "bytes": 93516,
+        "vma": 134218392,
+        "lma": 134218392,
+        "flags": "CONTENTS, ALLOC, LOAD, READONLY, CODE"
+      },
+      ".ARM.extab": {
+        "bytes": 0,
+        "vma": 134311908,
+        "lma": 134311908,
+        "flags": "CONTENTS"
+      },
+      ".exidx": {
+        "bytes": 8,
+        "vma": 134311908,
+        "lma": 134311908,
+        "flags": "CONTENTS, ALLOC, LOAD, READONLY, DATA"
+      },
+      ".ARM.attributes": {
+        "bytes": 46,
+        "vma": 0,
+        "lma": 0,
+        "flags": "CONTENTS, READONLY"
+      },
+      ".init_array": {
+        "bytes": 40,
+        "vma": 134311916,
+        "lma": 134311916,
+        "flags": "CONTENTS, ALLOC, LOAD, DATA"
+      },
+      ".fini_array": {
+        "bytes": 4,
+        "vma": 134311956,
+        "lma": 134311956,
+        "flags": "CONTENTS, ALLOC, LOAD, DATA"
+      },
+      ".data": {
+        "bytes": 988,
+        "vma": 603979776,
+        "lma": 134311960,
+        "flags": "CONTENTS, ALLOC, LOAD, DATA"
+      },
+      ".bss": {
+        "bytes": 23388,
+        "vma": 603980768,
+        "lma": 134312948,
+        "flags": "ALLOC"
+      },
+      ".dtcmram_bss": {
+        "bytes": 0,
+        "vma": 536870912,
+        "lma": 536870912,
+        "flags": "CONTENTS"
+      },
+      ".sram1_bss": {
+        "bytes": 16384,
+        "vma": 805306368,
+        "lma": 805306368,
+        "flags": "ALLOC"
+      },
+      ".sdram_bss": {
+        "bytes": 0,
+        "vma": 3221225472,
+        "lma": 3221225472,
+        "flags": "CONTENTS"
+      },
+      ".backup_sram": {
+        "bytes": 12,
+        "vma": 947912704,
+        "lma": 947912704,
+        "flags": "ALLOC"
+      },
+      ".qspiflash_text": {
+        "bytes": 0,
+        "vma": 2415919104,
+        "lma": 2415919104,
+        "flags": "CONTENTS"
+      },
+      ".qspiflash_data": {
+        "bytes": 0,
+        "vma": 2415919104,
+        "lma": 2415919104,
+        "flags": "CONTENTS"
+      },
+      ".qspiflash_bss": {
+        "bytes": 0,
+        "vma": 2415919104,
+        "lma": 2415919104,
+        "flags": "CONTENTS"
+      },
+      ".heap": {
+        "bytes": 0,
+        "vma": 604004156,
+        "lma": 604004156,
+        "flags": "CONTENTS"
+      },
+      ".reserved_for_stack": {
+        "bytes": 0,
+        "vma": 604004156,
+        "lma": 604004156,
+        "flags": "CONTENTS"
+      },
+      ".comment": {
+        "bytes": 57,
+        "vma": 0,
+        "lma": 0,
+        "flags": "CONTENTS, READONLY"
+      },
+      ".debug_info": {
+        "bytes": 603903,
+        "vma": 0,
+        "lma": 0,
+        "flags": "CONTENTS, READONLY, DEBUGGING, OCTETS"
+      },
+      ".debug_abbrev": {
+        "bytes": 59286,
+        "vma": 0,
+        "lma": 0,
+        "flags": "CONTENTS, READONLY, DEBUGGING, OCTETS"
+      },
+      ".debug_aranges": {
+        "bytes": 11464,
+        "vma": 0,
+        "lma": 0,
+        "flags": "CONTENTS, READONLY, DEBUGGING, OCTETS"
+      },
+      ".debug_rnglists": {
+        "bytes": 28921,
+        "vma": 0,
+        "lma": 0,
+        "flags": "CONTENTS, READONLY, DEBUGGING, OCTETS"
+      },
+      ".debug_line": {
+        "bytes": 324914,
+        "vma": 0,
+        "lma": 0,
+        "flags": "CONTENTS, READONLY, DEBUGGING, OCTETS"
+      },
+      ".debug_str": {
+        "bytes": 100549,
+        "vma": 0,
+        "lma": 0,
+        "flags": "CONTENTS, READONLY, DEBUGGING, OCTETS"
+      },
+      ".debug_frame": {
+        "bytes": 35280,
+        "vma": 0,
+        "lma": 0,
+        "flags": "CONTENTS, READONLY, DEBUGGING, OCTETS"
+      },
+      ".debug_loclists": {
+        "bytes": 236602,
+        "vma": 0,
+        "lma": 0,
+        "flags": "CONTENTS, READONLY, DEBUGGING, OCTETS"
+      }
+    },
+    "image_load_origin": 134217728,
+    "initial_sp": 537001984,
+    "reset_vector": 134218521,
+    "image_load_span_bytes": 95220,
+    "image_load_capacity_bytes": 131072,
+    "image_load_section_bytes": 95220,
+    "berkeley_size": [
+      "93524",
+      "1696",
+      "39784",
+      "135004"
+    ],
+    "execution_location": "internal FLASH",
+    "nonvolatile_storage": "internal FLASH",
+    "text_including_rodata_bytes": 93516,
+    "included_input_rodata_bytes": 8520,
+    "static_placement_bytes": {
+      "ITCM": 0,
+      "DTCM": 0,
+      "AXI_SRAM": 24376,
+      "D2_SRAM": 16384,
+      "D3_SRAM": 0,
+      "BACKUP_SRAM": 12,
+      "SDRAM": 0,
+      "QSPI": 0
+    },
+    "static_region_first_address": {
+      "ITCM": null,
+      "DTCM": null,
+      "AXI_SRAM": 603979776,
+      "D2_SRAM": 805306368,
+      "D3_SRAM": null,
+      "BACKUP_SRAM": 947912704,
+      "SDRAM": null,
+      "QSPI": null
+    },
+    "static_region_span_bytes": {
+      "ITCM": 0,
+      "DTCM": 0,
+      "AXI_SRAM": 24380,
+      "D2_SRAM": 16384,
+      "D3_SRAM": 0,
+      "BACKUP_SRAM": 12,
+      "SDRAM": 0,
+      "QSPI": 0
+    },
+    "compiler_application_frames": [
+      {
+        "source": "daisy_pass_through.su",
+        "function": "/workspace/work/par005-fresh-cache/libDaisy/src/daisy_seed.h:22:5:daisy::DaisySeed::~DaisySeed()",
+        "bytes": 0,
+        "qualifier": "static"
+      },
+      {
+        "source": "daisy_pass_through.su",
+        "function": "daisy_pass_through.cpp:19:6:void AudioCallback(daisy::AudioHandle::InputBuffer, daisy::AudioHandle::OutputBuffer, size_t)",
+        "bytes": 48,
+        "qualifier": "static"
+      },
+      {
+        "source": "daisy_pass_through.su",
+        "function": "../include/parable_core.h:106:12:parable::Status parable::Engine::load(const parable::Patch&)",
+        "bytes": 296,
+        "qualifier": "static"
+      },
+      {
+        "source": "daisy_pass_through.su",
+        "function": "daisy_pass_through.cpp:34:5:int main()",
+        "bytes": 216,
+        "qualifier": "static"
+      },
+      {
+        "source": "daisy_pass_through.su",
+        "function": "daisy_pass_through.cpp:79:1:cpp)",
+        "bytes": 4,
+        "qualifier": "static"
+      },
+      {
+        "source": "parable_rat.su",
+        "function": "../src/parable_rat.cpp:26:6:bool parable::dsp::{anonymous}::stable(parable::dsp::rat_detail::Filter)",
+        "bytes": 112,
+        "qualifier": "static"
+      },
+      {
+        "source": "parable_rat.su",
+        "function": "../src/parable_rat.cpp:37:6:void parable::dsp::rat_detail::Filter::prepare(const parable::dsp::rat_detail::Polynomial&, const parable::dsp::rat_detail::Polynomial&, double)",
+        "bytes": 72,
+        "qualifier": "static"
+      },
+      {
+        "source": "parable_rat.su",
+        "function": "../src/parable_rat.cpp:41:8:double parable::dsp::rat_detail::Filter::process(double)",
+        "bytes": 0,
+        "qualifier": "static"
+      },
+      {
+        "source": "parable_rat.su",
+        "function": "../src/parable_rat.cpp:48:6:void parable::dsp::rat_detail::ClipStage::prepare(double, parable::dsp::RatControls, const parable::dsp::RatCircuit&)",
+        "bytes": 120,
+        "qualifier": "static"
+      },
+      {
+        "source": "parable_rat.su",
+        "function": "../src/parable_rat.cpp:74:8:double parable::dsp::rat_detail::ClipStage::lookup(double) const",
+        "bytes": 0,
+        "qualifier": "static"
+      },
+      {
+        "source": "parable_rat.su",
+        "function": "../src/parable_rat.cpp:81:8:double parable::dsp::rat_detail::ClipStage::process(double)",
+        "bytes": 48,
+        "qualifier": "static"
+      },
+      {
+        "source": "parable_rat.su",
+        "function": "../src/parable_rat.cpp:95:6:bool parable::dsp::rat_detail::preparePreamp(Filter&, Filter&, double, parable::dsp::RatControls, const parable::dsp::RatCircuit&)",
+        "bytes": 272,
+        "qualifier": "static"
+      },
+      {
+        "source": "parable_rat.su",
+        "function": "../src/parable_rat.cpp:130:6:void parable::dsp::Rat::reset()",
+        "bytes": 16,
+        "qualifier": "static"
+      },
+      {
+        "source": "parable_rat.su",
+        "function": "../src/parable_rat.cpp:113:6:bool parable::dsp::Rat::configure(float, parable::dsp::RatControls, const parable::dsp::RatCircuit&, parable::dsp::RatRate)",
+        "bytes": 424,
+        "qualifier": "static"
+      },
+      {
+        "source": "parable_rat.su",
+        "function": "../src/parable_rat.cpp:112:1:parable::dsp::Rat::Rat()",
+        "bytes": 320,
+        "qualifier": "static"
+      },
+      {
+        "source": "parable_rat.su",
+        "function": "../src/parable_rat.cpp:134:8:double parable::dsp::Rat::circuitSample(double)",
+        "bytes": 24,
+        "qualifier": "static"
+      },
+      {
+        "source": "parable_rat.su",
+        "function": "../src/parable_rat.cpp:144:7:float parable::dsp::Rat::process(float)",
+        "bytes": 40,
+        "qualifier": "static"
+      },
+      {
+        "source": "parable_rat.su",
+        "function": "../src/parable_rat.cpp:161:6:void parable::dsp::Rat::processBlock(const float*, float*, std::size_t)",
+        "bytes": 24,
+        "qualifier": "static"
+      },
+      {
+        "source": "startup_stm32h750xx.su",
+        "function": "/workspace/work/par005-fresh-cache/libDaisy/core/startup_stm32h750xx.c:1560:53:Default_Handler",
+        "bytes": 0,
+        "qualifier": "static"
+      },
+      {
+        "source": "startup_stm32h750xx.su",
+        "function": "/workspace/work/par005-fresh-cache/libDaisy/core/startup_stm32h750xx.c:1535:32:Reset_Handler",
+        "bytes": 8,
+        "qualifier": "static"
+      }
+    ],
+    "stack_top": "0x20020000 (DTCM)",
+    "rat_enabled_at_startup": false,
+    "unresolved_symbols": [],
+    "runtime_stack_high_water": "not measured",
+    "runtime_heap_high_water": "not measured",
+    "bin_sha256": "9a9192b11d2d2f5a6a39118c8810dff810dc3484085e5ea7e10c383468564d1c"
+  }
+}

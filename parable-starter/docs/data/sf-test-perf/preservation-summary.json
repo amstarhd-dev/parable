@@ -1,0 +1,48 @@
+{
+  "protected_files": 427,
+  "all_unchanged": true,
+  "original_commands_preserved": 114,
+  "electrical_CSVs_identical": 24,
+  "WAV_comparisons_including_repeated_TS808_render": 300,
+  "unique_WAVs_per_config": 74,
+  "native_fixed_checks": [
+    {
+      "config": "Debug",
+      "model": "TS808",
+      "executed_before": 14053681,
+      "executed_after": 14053681
+    },
+    {
+      "config": "Debug",
+      "model": "Klon",
+      "executed_before": 12614277,
+      "executed_after": 12614277
+    },
+    {
+      "config": "Release",
+      "model": "TS808",
+      "executed_before": 14053681,
+      "executed_after": 14053681
+    },
+    {
+      "config": "Release",
+      "model": "Klon",
+      "executed_before": 12614277,
+      "executed_after": 12614277
+    },
+    {
+      "config": "ASAN",
+      "model": "TS808",
+      "executed_before": 14053681,
+      "executed_after": 14053681
+    },
+    {
+      "config": "ASAN",
+      "model": "Klon",
+      "executed_before": 12614277,
+      "executed_after": 12614277
+    }
+  ],
+  "excluded_from_CLI_CSV_hash": "host_processor_us only",
+  "source_under_test": "d05633fe4cea9ad36842fd4b452a3b94ce2caea1"
+}

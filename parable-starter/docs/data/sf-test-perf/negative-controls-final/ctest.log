@@ -1,0 +1,32 @@
+Internal ctest changing into directory: /tmp/sf-negative-kz1rtuw2
+Test project /tmp/sf-negative-kz1rtuw2
+    Start 1: ts808_circuit_and_safety
+1/3 Test #1: ts808_circuit_and_safety .........***Failed    0.00 sec
+CHECK failed at line 32: e<1e-10+2e-5*std::abs(p.second)
+
+    Start 2: ts808_listening_cli
+2/3 Test #2: ts808_listening_cli ..............***Failed    0.07 sec
+Traceback (most recent call last):
+  File "/tmp/sf-negative-kz1rtuw2/invalid-audio-cli.py", line 16, in <module>
+    for out in [one,two]:run('--input',source,'--output',out)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/sf-negative-kz1rtuw2/invalid-audio-cli.py", line 6, in run
+    assert (r.returncode==0)==ok,r.stdout+r.stderr
+           ^^^^^^^^^^^^^^^^^^^^^
+AssertionError: WAV must be 44 bytes to 6 MiB
+
+
+    Start 3: labrat_output_preservation
+3/3 Test #3: labrat_output_preservation .......***Failed    4.05 sec
+LabRAT compatibility failure: LabRAT output differs from main: 00_dry.wav
+
+
+0% tests passed, 3 tests failed out of 3
+
+Total Test time (real) =   4.11 sec
+
+The following tests FAILED:
+	  1 - ts808_circuit_and_safety (Failed)
+	  2 - ts808_listening_cli (Failed)
+	  3 - labrat_output_preservation (Failed)
+Errors while running CTest

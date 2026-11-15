@@ -1,0 +1,211 @@
+{
+  "compiler": "14.2.1",
+  "flags": [
+    "-std=c++17",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-mcpu=cortex-m7",
+    "-mthumb",
+    "-mfpu=fpv5-d16",
+    "-mfloat-abi=hard",
+    "-fstack-usage",
+    "-I/workspace/work/parable-sf-test-perf/parable-starter/include"
+  ],
+  "layout": {
+    "engine": 11040,
+    "typed_document": 236,
+    "bundle": 11288,
+    "pool": 45152,
+    "runtime": 45224,
+    "atomic": 4,
+    "source_record": 64,
+    "source_profile": 112,
+    "source_view": 104,
+    "control_snapshot": 40,
+    "control_lane": 1312,
+    "source_scheduler": 24536,
+    "audio_wrapper": 8272,
+    "audio_receipt": 80
+  },
+  "objects": {
+    "parable_activation": {
+      "text": 4949,
+      "data": 0,
+      "bss": 0
+    },
+    "parable_activation_audio": {
+      "text": 712,
+      "data": 0,
+      "bss": 0
+    },
+    "parable_living": {
+      "text": 4172,
+      "data": 0,
+      "bss": 0
+    },
+    "parable_living_audio": {
+      "text": 1396,
+      "data": 0,
+      "bss": 0
+    }
+  },
+  "audio_undefined": [
+    "_ZN7parable3dsp3Rat7processEf",
+    "memset"
+  ],
+  "atomic": "aligned lock-free uint32 loads/stores; DMB; no exclusive retry/helper",
+  "firmware_linked": false,
+  "physical_tested": false,
+  "sources": {
+    "include/parable_activation.h": "927dde204730d2f4868939a3407018b0ce5777c410f57d2517b2b547232f2b25",
+    "src/parable_activation.cpp": "820f6c2dcb0fdc5ff0e2fd1133c54f6142d0553293343dcaa114fe2e64fd3432",
+    "src/parable_activation_audio.cpp": "f505ead6faa2529970b01fe71d79f3837246a59172ef79d23cfea7dc3f992405",
+    "include/parable_living.h": "4b48632b64532960acbc4a65bea9e951d768c0fce1343de0e6e69f749d17fb6f",
+    "src/parable_living.cpp": "901d2d62680df9a95cfbbbad435a72c5f24524e85ae7f0e96a2f891fbd9bdab4",
+    "src/parable_living_audio.cpp": "e66a72fbd6130e8ce028c03b77b038033972492952a9094676469325d65c3956"
+  },
+  "commands": [
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fstack-usage",
+      "-I/workspace/work/parable-sf-test-perf/parable-starter/include",
+      "-c",
+      "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_activation.cpp",
+      "-o",
+      "/workspace/work/sf-test-perf-arm/activation-audit/parable_activation.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fstack-usage",
+      "-I/workspace/work/parable-sf-test-perf/parable-starter/include",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-c",
+      "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_activation_audio.cpp",
+      "-o",
+      "/workspace/work/sf-test-perf-arm/activation-audit/parable_activation_audio.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fstack-usage",
+      "-I/workspace/work/parable-sf-test-perf/parable-starter/include",
+      "-c",
+      "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_living.cpp",
+      "-o",
+      "/workspace/work/sf-test-perf-arm/activation-audit/parable_living.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fstack-usage",
+      "-I/workspace/work/parable-sf-test-perf/parable-starter/include",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-c",
+      "/workspace/work/parable-sf-test-perf/parable-starter/src/parable_living_audio.cpp",
+      "-o",
+      "/workspace/work/sf-test-perf-arm/activation-audit/parable_living_audio.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fstack-usage",
+      "-I/workspace/work/parable-sf-test-perf/parable-starter/include",
+      "-c",
+      "/workspace/work/sf-test-perf-arm/activation-audit/layout.cpp",
+      "-o",
+      "/workspace/work/sf-test-perf-arm/activation-audit/layout.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-objcopy",
+      "--dump-section",
+      ".rodata=/workspace/work/sf-test-perf-arm/activation-audit/layout.bin",
+      "/workspace/work/sf-test-perf-arm/activation-audit/layout.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-nm",
+      "-u",
+      "/workspace/work/sf-test-perf-arm/activation-audit/parable_activation_audio.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-objdump",
+      "-dr",
+      "/workspace/work/sf-test-perf-arm/activation-audit/parable_activation_audio.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-nm",
+      "-u",
+      "/workspace/work/sf-test-perf-arm/activation-audit/parable_living_audio.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-objdump",
+      "-dr",
+      "/workspace/work/sf-test-perf-arm/activation-audit/parable_living_audio.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-size",
+      "/workspace/work/sf-test-perf-arm/activation-audit/parable_activation.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-size",
+      "/workspace/work/sf-test-perf-arm/activation-audit/parable_activation_audio.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-size",
+      "/workspace/work/sf-test-perf-arm/activation-audit/parable_living.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-size",
+      "/workspace/work/sf-test-perf-arm/activation-audit/parable_living_audio.o"
+    ]
+  ],
+  "living_audio_undefined": [
+    "_ZN7parable10activation7Runtime12processBlockEPKfPfj",
+    "memset"
+  ]
+}

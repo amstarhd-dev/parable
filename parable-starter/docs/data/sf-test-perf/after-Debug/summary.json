@@ -1,0 +1,22 @@
+{
+  "command": [
+    "/workspace/work/baseline-tools/bin/ctest",
+    "--test-dir",
+    "/workspace/work/sf-test-perf-final-Debug",
+    "-j2",
+    "--output-on-failure",
+    "--no-tests=error"
+  ],
+  "jobs": 2,
+  "profiling": true,
+  "test_count": 39,
+  "wall_s": 1276.465417771993,
+  "cpu_user_s": 2522.128255,
+  "cpu_system_s": 9.638613,
+  "exit_code": 0,
+  "missing_records": [],
+  "affinity": [
+    0,
+    1
+  ]
+}

@@ -1,0 +1,167 @@
+[
+  {
+    "name": "full-arm",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/work/parable-sf-test-perf/parable-starter/firmware/build.py",
+      "--cache",
+      "/workspace/work/par005-fresh-cache",
+      "--output",
+      "/workspace/work/sf-test-perf-arm"
+    ],
+    "exit_code": 0,
+    "wall_s": 61.94819885100878
+  },
+  {
+    "name": "activation-arm",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tools/check_activation_arm.py",
+      "--compiler",
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "--output",
+      "/workspace/work/sf-test-perf-arm/activation-audit",
+      "--living"
+    ],
+    "exit_code": 0,
+    "wall_s": 2.373445075994823
+  },
+  {
+    "name": "tape-arm",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tools/check_tape_arm.py",
+      "--compiler",
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "--output",
+      "/workspace/work/sf-test-perf-arm/tape-audit"
+    ],
+    "exit_code": 0,
+    "wall_s": 0.5132040509924991
+  },
+  {
+    "name": "rotary-arm",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tools/check_rotary_arm.py",
+      "--compiler",
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "--output",
+      "/workspace/work/sf-test-perf-arm/rotary-audit"
+    ],
+    "exit_code": 0,
+    "wall_s": 0.7240485859947512
+  },
+  {
+    "name": "muff-arm",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tools/check_muff_arm.py",
+      "--compiler",
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "--output",
+      "/workspace/work/sf-test-perf-arm/muff-audit"
+    ],
+    "exit_code": 0,
+    "wall_s": 0.7841077449993463
+  },
+  {
+    "name": "ts808-arm",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tools/check_ts808_arm.py",
+      "--compiler",
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "--output",
+      "/workspace/work/sf-test-perf-arm/ts808-audit"
+    ],
+    "exit_code": 0,
+    "wall_s": 0.8228000680101104
+  },
+  {
+    "name": "klon-arm",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tools/check_klon_arm.py",
+      "--compiler",
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "--output",
+      "/workspace/work/sf-test-perf-arm/klon-audit"
+    ],
+    "exit_code": 0,
+    "wall_s": 1.0294257499917876
+  },
+  {
+    "name": "wavefolder-arm",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tools/check_wavefolder_arm.py",
+      "--compiler",
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "--output",
+      "/workspace/work/sf-test-perf-arm/wavefolder-audit"
+    ],
+    "exit_code": 0,
+    "wall_s": 0.6135348660027375
+  },
+  {
+    "name": "tsan-configure",
+    "command": [
+      "/workspace/work/baseline-tools/bin/cmake",
+      "-S",
+      "/workspace/work/parable-sf-test-perf/parable-starter",
+      "-B",
+      "/workspace/work/sf-test-perf-TSAN",
+      "-DCMAKE_BUILD_TYPE=Debug",
+      "-DFETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON=/workspace/work/sf015-deps/nlohmann_json-src",
+      "-DCMAKE_CXX_FLAGS=-fsanitize=thread -fno-omit-frame-pointer -fno-pie -O1",
+      "-DCMAKE_EXE_LINKER_FLAGS=-fsanitize=thread -no-pie"
+    ],
+    "exit_code": 0,
+    "wall_s": 0.5846832910028752
+  },
+  {
+    "name": "tsan-build",
+    "command": [
+      "/workspace/work/baseline-tools/bin/cmake",
+      "--build",
+      "/workspace/work/sf-test-perf-TSAN",
+      "--target",
+      "parable_activation_test",
+      "parable_living_test",
+      "-j2"
+    ],
+    "exit_code": 0,
+    "wall_s": 12.88524091799627
+  },
+  {
+    "name": "tsan-test",
+    "command": [
+      "/workspace/work/baseline-tools/bin/ctest",
+      "--test-dir",
+      "/workspace/work/sf-test-perf-TSAN",
+      "-j2",
+      "--output-on-failure",
+      "--no-tests=error",
+      "-R",
+      "^(activation|living)_(contract|concurrency)$"
+    ],
+    "exit_code": 0,
+    "wall_s": 35.11360103999323
+  },
+  {
+    "name": "negative-controls",
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "/workspace/work/parable-sf-test-perf/parable-starter/tools/soundforge/negative_controls.py",
+      "--project",
+      "/workspace/work/parable-sf-test-perf/parable-starter",
+      "--build",
+      "/workspace/work/sf-test-perf-final-Release",
+      "--output",
+      "/workspace/work/sf-test-perf-evidence/negative-controls-final"
+    ],
+    "exit_code": 0,
+    "wall_s": 5.560146212999825
+  }
+]
