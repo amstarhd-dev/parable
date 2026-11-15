@@ -27,7 +27,14 @@ with tempfile.TemporaryDirectory(prefix='fold-cli-') as t:
     for group in ['restrained','medium','intense','attacks','sustain','chord','sweep','two']:
         assert len({by[f'{group}_{k}_common.wav']['offline_gain'] for k in ['dry','healthy','RP22k']})==1
     for p in out.glob('*.wav'):
-        with wave.open(str(p)) as w:assert w.getnchannels()==1 and w.getsampwidth()==2 and w.getnframes()>w.getframerate()/2
+        with wave.open(str(p)) as w:
+            assert w.getnchannels()==1 and w.getsampwidth()==2 and w.getnframes()>w.getframerate()/2
+            samples=[v[0] for v in struct.iter_unpack('<h',w.readframes(w.getnframes()))]
+        row=by[p.name];rms=math.sqrt(sum(v*v for v in samples)/len(samples))/32768;peak=max(abs(v) for v in samples)/32768
+        # Receipts describe pre-PCM native floats. Verify the delivered file,
+        # including the unchanged serializer, within one PCM16 quantization step.
+        assert abs(rms-float(row['final_rms']))<=1/32768 and abs(peak-float(row['final_peak']))<=1/32768
+        if '_dry_' in p.name:assert row['model']=='dry' and row['upper_feed_ohms']=='0'
     states=list(csv.DictReader((out/'state.csv').open()));assert states and all(abs(float(r['interpolated_KCL_peak_A']))<2e-7 for r in states)
     assert any(r['fault']=='1' and abs(float(r['instant_readout_V']))>.1 for r in states)
     for name in ['restrained_healthy_raw.wav','intense_RP22k_rms_matched.wav','compare_RAT_raw.wav','state.csv','settings.json','LISTEN.txt']:

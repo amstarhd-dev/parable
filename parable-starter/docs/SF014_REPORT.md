@@ -124,6 +124,8 @@ files add.2s tail. Dry is calibrated input/8. `raw` means no offline level gain,
 still including ordinary filters/ADAA/coupling. `common` preserves loudness
 changes within each dry/healthy/fault triple. Separately labeled `rms_matched`
 uses individual, disclosed gains≤16; not LUFS or equal-gain comparison.
+Receipts describe pre-PCM native float levels; tests also measure the delivered
+PCM16 WAV RMS/peak against those receipts within one quantization step.
 
 | Drive | Healthy raw RMS/peak | RP22k raw RMS/peak |
 |---|---|---|
@@ -172,11 +174,14 @@ audio calls are only process→sample→cellCurve, using hardware floating opera
 Engine11040/bundle11288/Runtime45224bytes remain unchanged. Firmware is unchanged
 and the wavefolder is not linked/admitted there. Existing ARM CI still builds
 the old images; a successful object/link does not demonstrate boot or audio.
+The object measurement excludes separately linked libm/library costs; there is
+no newly integrated wavefolder firmware image or measured incremental link size.
 
-Final same-native full-processor Linux x86_64/GNU14.2 timings:per-render CPU
-.4307… .5219µs/frame, wall .4305…1.5686µs/frame on a contended host, excluding
+Recorded same-native full-processor Linux x86_64/GNU14.2 timings:per-render CPU
+.4220… .6116µs/frame, wall .4236… .6116µs/frame on a contended host, excluding
 preparation, files and analysis. Exact per-condition frames/costs are in
-`performance.csv`; they are measurements, not ARM estimates. No microbenchmark
+`performance.csv` and [this local snapshot](data/sf014/guitar-performance.csv);
+earlier contended runs reached1.5686µs wall time. These are measurements, not ARM estimates. No microbenchmark
 of eliminated functions is substituted for full-processor cost.
 
 Conditional planning ceiling10000cycles/baseframe:386taps×12 +8curves×180
@@ -199,11 +204,16 @@ cmake --build build-asan --target parable_wavefolder_test parable_wavefolder_lab
 ASAN_OPTIONS=detect_leaks=1:halt_on_error=1 UBSAN_OPTIONS=halt_on_error=1 ctest --test-dir build-asan --output-on-failure --no-tests=error -R '^wavefolder_'
 ```
 
-Baseline before edits:36/36 Debug1450.69s,Release264.12s. First final regression:
-38/38 Release296.35s; focused ASan/UBSan2/2,67.88s. Final CI results are recorded
+Baseline before edits:36/36 Debug1450.69s,Release264.12s. Post-implementation
+regression:38/38 Debug2489.81s,Release296.35s. After final affected test/metadata
+additions,Debug2/2 (34.41s),Release2/2 (5.05s),ASan/UBSan2/2 (32.64s).
+Final CI results are recorded
 in the PR and downloadable `HOST_TESTS.txt`; existing sanitizer/concurrency jobs
 remain enabled.389old DSP/firmware/fixture hashes and27canonical/living rendered
 outputs are unchanged; existing16LabRAT output goldens remain mandatory.
+Downloaded ARM CI also preserves every prior56object/14firmware-binary payload
+byte-for-byte against the previous main build. The known fuller internal-flash
+overflow is still reported by the unchanged firmware recipe, not hidden or repaired.
 
 ARM:use existing `firmware/build.py` to obtain exact pinned toolchain, then
 `python3 parable-starter/tools/check_wavefolder_arm.py --compiler PATH/arm-none-eabi-g++ --output build-arm/wavefolder-audit`.

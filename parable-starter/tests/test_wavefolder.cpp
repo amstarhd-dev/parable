@@ -33,7 +33,7 @@ static void science(){
 }
 static std::vector<float> excitation(unsigned rate,unsigned kind){constexpr unsigned n=4096;const unsigned bin=(kind==0?1760:kind==1?3520:kind==2?8000:1000)*n/rate;std::vector<float>x(n);double peak=0;for(unsigned i=0;i<n;++i){double a=0;if(kind<3)a=std::sin(2*pi*bin*i/n);else for(unsigned b:{76u,97u,113u})for(unsigned h=1;h<=5;++h)a+=std::sin(2*pi*b*h*i/n)/(h*h);peak=std::max(peak,std::abs(a));x[i]=float(a);}for(auto& a:x)a=float(a*.2/peak);return x;}
 static void alias(){
- const auto rows=csv("reference.csv");std::cout<<"rate,fault,kind,ADAA,relative_RMS,peak_error_spectral_component,peak_error_time_V,unwanted_spur_dBr_reference_RMS,wall_us_per_frame\n";
+ const auto rows=csv("reference.csv");std::cout<<"rate,fault,kind,ADAA,relative_RMS,peak_error_spectral_component_normalized,peak_error_time_normalized,unwanted_spur_dBr_reference_RMS,wall_us_per_frame\n";
  constexpr unsigned n=4096;CHECK(rows.size()==24*n);
  for(unsigned group=0;group<24;++group){const auto& first=rows[group*n];const unsigned rate=unsigned(v(first,0)),fault=unsigned(v(first,1)),kind=unsigned(v(first,2));auto x=excitation(rate,kind);std::vector<std::complex<double>> expected(n);for(unsigned i=0;i<n;++i){CHECK(unsigned(v(rows[group*n+i],3))==i);expected[i]=v(rows[group*n+i],4);}fft(expected);double energy=0;for(const auto& a:expected)energy+=std::norm(a);CHECK(energy>1e-8);
   for(bool aa:{false,true}){Wavefolder m;CHECK(m.prepare(float(rate),{6,bool(fault)},4,aa));std::vector<std::complex<double>> actual(n);for(unsigned i=0;i<8*n;++i){const float y=m.process(x[i%n]);if(i>=7*n)actual[i%n]=y;}fft(actual);double error=0,peak=0,spur=0;std::vector<std::complex<double>> difference(n);
