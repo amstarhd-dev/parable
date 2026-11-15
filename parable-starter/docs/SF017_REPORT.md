@@ -39,11 +39,14 @@ heap, I/O or locks. **~2000 M7cycles/frame remains an optimistic design budget**
 no established cycle bound, firmware link, target execution or deadline claim.
 
 **Verification:** focused new circuit/CLI tests pass (289 native checks); ASan+UBSan
-both pass. One final complete Debug/Release`ctest -j2` is **running**; final results
-and exact commands are in[data/sf017](data/sf017/README.md).427 protected previous
+both pass. One complete Debug/Release`ctest -j2` run finished39/40 each: the sole
+failure was an inventory assertion expecting12 assets instead of13. Count
+corrected; final`--rerun-failed` passes1/1 in both. All40 cases have passing
+results. Original logs/commands:[data/sf017](data/sf017/README.md).427 protected previous
 implementation files remain byte-identical, including DSP/firmware and fixtures.
 Changes are limited to standalone core/lab/tests, independent fixtures, provenance,
 ADR/status/registry, listening files and corresponding CI steps. No open PR imported.
+Remote CI failed/cancelled without recorded step logs; remote verification is unfulfilled.
 
 **Unproven/next smallest test:** founder A/B approval, physical TY-141P magnetic
 parameters/hysteresis and actual transistor spread, large-signal charge dynamics,

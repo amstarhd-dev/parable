@@ -950,7 +950,10 @@ Gain/Low Cut/Level, oneR3 bias-resistor drift. Implemented: bounded native reduc
 model and ten same-take raw/RMS listening files; no Engine/firmware/correspondence
 integration. Host-tested: compact independent SPICE DC/curve/AC/transient,
 magnetic state/alias/stress/reset/callback and CLI checks; affected ASan+UBSan pass.
-Full final Debug/Release regressions are running; see[SF017_REPORT.md](SF017_REPORT.md)
-and[data/sf017](data/sf017/README.md) for final status. ARM object/layout/calls audited;
+Complete Debug/Release runs each39/40 initially; stale registry inventory12→13
+corrected, final failed-test reruns1/1 pass in both. All40 cases have passing
+results; original logs retained. See[SF017_REPORT.md](SF017_REPORT.md) and
+[data/sf017](data/sf017/README.md). Remote CI failed/cancelled with no step logs;
+remote checks remain unverified. ARM object/layout/calls audited;
 hardware cycles/boot/audio and physical magnetic/device fidelity **not tested**.
 Founder musical audition/approval **pending**; generated audio is not approval.
