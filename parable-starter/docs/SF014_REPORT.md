@@ -96,8 +96,11 @@ RMS error (.1922%/2.201%) but leaves spurs−54.17/−31.06dBr. ADAA trades wave
 error for lower aliasing; no universal perceptual proof is claimed. Only its
 known half-internal-sample delay is aligned; no fitted phase/gain.1x/2x fail
 the selected high-note gates. Chord error uses the full independent reference,
-not a false pure-tone harmonic mask. Runtime low/high-guitar Drive1/3/6
-harmonics are separately printed in the native scientific test log.
+not a false pure-tone harmonic mask. Runtime196/1318Hz nominal guitar
+fundamentals at Drive1/3/6 are separately printed at all three rates; the low
+note's actual native harmonics are checked against independent SPICE amplitudes
+after the common coupling response. Actual coherent frequencies are recorded.
+The1.76/3.52/8kHz probes remain separate, more demanding alias stress tests.
 
 Accepted Drive0…6 and input±.25modelV give an all-history interpolation L1 bound
 <2.968V at the cell, below the±3V table domain (including float rounding margin).

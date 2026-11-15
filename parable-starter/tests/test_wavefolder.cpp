@@ -31,7 +31,7 @@ static void science(){
  for(const auto& r:csv("harmonics.csv")){const auto& m=v(r,0)==15000?h:f;constexpr unsigned n=65536;std::complex<double>s[6]{};double sum=0,squares=0;const unsigned hs[]={1,2,3,5,7,9};for(unsigned i=0;i<n;++i){const double angle=2*pi*i/n,y=m.cellCurve(v(r,2)+v(r,1)*std::sin(angle)).volts;sum+=y;squares+=y*y;for(unsigned k=0;k<6;++k)s[k]+=y*std::polar(1.,-hs[k]*angle);}CHECK(std::abs(sum/n-v(r,3))<2e-5);CHECK(std::abs(std::sqrt(squares/n)-v(r,4))<2e-5);for(unsigned k=0;k<6;++k)CHECK(std::abs(2*std::abs(s[k])/n-v(r,5+k))<2e-5);}
  std::cout<<"SPICE nodes_peak_V="<<nodes<<" currents_peak_A="<<currents<<" LUT_peak_V="<<table<<" actual_LUT_KCL_A="<<kcl<<" folds_peak_V="<<fold<<'\n';
 }
-static std::vector<float> excitation(unsigned rate,unsigned kind){constexpr unsigned n=4096;const unsigned bin=(kind==0?1760:kind==1?3520:kind==2?8000:1000)*n/rate;std::vector<float>x(n);double peak=0;for(unsigned i=0;i<n;++i){double a=0;if(kind<3)a=std::sin(2*pi*bin*i/n);else for(unsigned b:{76u,97u,113u})for(unsigned h=1;h<=5;++h)a+=std::sin(2*pi*b*h*i/n)/(h*h);peak=std::max(peak,std::abs(a));x[i]=float(a);}for(auto& a:x)a=float(a*.2/peak);return x;}
+static std::vector<float> excitation(unsigned rate,unsigned kind,unsigned nominal=0){constexpr unsigned n=4096;const unsigned bin=(nominal?nominal:kind==0?1760:kind==1?3520:kind==2?8000:1000)*n/rate;std::vector<float>x(n);double peak=0;for(unsigned i=0;i<n;++i){double a=0;if(kind<3)a=std::sin(2*pi*bin*i/n);else for(unsigned b:{76u,97u,113u})for(unsigned h=1;h<=5;++h)a+=std::sin(2*pi*b*h*i/n)/(h*h);peak=std::max(peak,std::abs(a));x[i]=float(a);}for(auto& a:x)a=float(a*.2/peak);return x;}
 static void alias(){
  const auto rows=csv("reference.csv");std::cout<<"rate,fault,kind,ADAA,relative_RMS,peak_error_spectral_component_normalized,peak_error_time_normalized,unwanted_spur_dBr_reference_RMS,wall_us_per_frame\n";
  constexpr unsigned n=4096;CHECK(rows.size()==24*n);
@@ -49,7 +49,15 @@ static void alias(){
 static void gainSweeps(){
  // Controlled actual processor, not static-law harmonics relabeled as audio.
  std::cout<<"harmonics:rate,fault,actual_Hz,drive,H1,H2,H3,H5\n";
- for(unsigned rate:{44100u,48000u,96000u})for(bool fault:{false,true})for(unsigned kind:{0u,1u})for(float drive:{1.f,3.f,6.f}){auto x=excitation(rate,kind);Wavefolder m;CHECK(m.prepare(float(rate),{drive,fault}));constexpr unsigned n=4096;std::vector<std::complex<double>> y(n);for(unsigned i=0;i<8*n;++i){const auto a=m.process(x[i%n]);if(i>=7*n)y[i%n]=a;}fft(y);const unsigned bin=(kind?3520:1760)*n/rate;std::cout<<"harmonics:"<<rate<<','<<fault<<','<<double(bin)*rate/n<<','<<drive;for(unsigned h:{1u,2u,3u,5u})std::cout<<','<<(h*bin<n/2?2*std::abs(y[h*bin])/n:0);std::cout<<'\n';CHECK(!m.failures()&&!m.tableClamps()&&!m.outputClamps());}
+ const auto references=csv("harmonics.csv");
+ // Actual guitar fundamentals, distinct from the1.76/3.52/8k alias stress.
+ // At the low note, filter/ADAA errors are small enough to check independent
+ // static SPICE harmonics after the analytically specified common coupling.
+ for(unsigned rate:{44100u,48000u,96000u})for(bool fault:{false,true})for(unsigned kind:{0u,1u})for(float drive:{1.f,3.f,6.f}){
+  const unsigned nominal=kind?1318:196;auto x=excitation(rate,kind,nominal);Wavefolder m;CHECK(m.prepare(float(rate),{drive,fault}));constexpr unsigned n=4096;std::vector<std::complex<double>> y(n);for(unsigned i=0;i<8*n;++i){const auto a=m.process(x[i%n]);if(i>=7*n)y[i%n]=a;}fft(y);const unsigned bin=nominal*n/rate;std::cout<<"harmonics:"<<rate<<','<<fault<<','<<double(bin)*rate/n<<','<<drive;for(unsigned h:{1u,2u,3u,5u})std::cout<<','<<2*std::abs(y[h*bin])/n;std::cout<<'\n';
+  if(!kind){unsigned matched=0;for(const auto& r:references)if(v(r,0)==(fault?22000:15000)&&std::abs(v(r,1)-.2*drive)<1e-8&&v(r,2)==0){++matched;unsigned column=5;for(unsigned h:{1u,2u,3u,5u}){const double g0=std::tan(pi*(1/(2*pi*.01))/rate),g=g0/(1+g0);const auto z=std::polar(1.,-2*pi*h*bin/n);const double expected=v(r,column++)*std::abs((1-g)*(1.-z)/(1.-(1-2*g)*z))/8;CHECK(std::abs(2*std::abs(y[h*bin])/n-expected)<2e-6+.01*expected);}}CHECK(matched==1);}
+  CHECK(!m.failures()&&!m.tableClamps()&&!m.outputClamps());
+ }
 }
 static void safety(){namespace g=activation_guard;g::selfTest();
  Wavefolder empty;CHECK(empty.process(.2f)==0);CHECK(!empty.prepare(44099));CHECK(!empty.prepare(96001));CHECK(!empty.prepare(48000,{7,false}));CHECK(!empty.prepare(48000,{},3));
