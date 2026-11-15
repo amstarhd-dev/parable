@@ -130,3 +130,9 @@ separately; neither metadata nor a successful test-merge means the PR was merged
    [`SOUNDFORGE_BASELINE.md`](../../docs/SOUNDFORGE_BASELINE.md). Open an unmerged
    PR reporting what reusable knowledge was gained. Permanent patch integration
    requires its own approved ticket; no correspondence rules are invented here.
+
+SF015 adds a standalone original-FZ1-style three-germanium circuit: [report](../../docs/SF015_REPORT.md),
+[decision](../../docs/adr/ADR-015-original-fz1.md). Same-take native listening and
+independent electrical checks are present; original full-band sampling gates remain
+failed and abrupt healthy gating is unproved. This is a research audition, not an
+Engine/firmware or musical-acceptance claim.

@@ -366,6 +366,20 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+      - name: Render actual original-FZ1-style and open-feed same-take audition
+        if: matrix.build_type == 'Release'
+        run: |
+          ./build/parable_fz1_lab --input build/klon-input/take03-20s-mono16.wav --output build/fz1-auditions --compare-existing
+          python3 tools/fz1_evidence.py --renders build/fz1-auditions --input build/klon-input --tests build/Testing/Temporary/LastTest.log
+      - name: Publish FZ1 raw/common/RMS guitar and physical-reference receipts
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-fz1-auditions
+          path: parable-starter/build/fz1-auditions/
+          if-no-files-found: error
+          retention-days: 30
+
   integration-sanitizers:
     runs-on: ubuntu-24.04
     timeout-minutes: 60
@@ -440,3 +454,44 @@ jobs:
         env:
           TSAN_OPTIONS: halt_on_error=1
         run: ctest --test-dir build --output-on-failure --no-tests=error -R '^(activation|living)_(contract|concurrency)$'
+
+  fz1-sanitizers:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure focused FZ1 ASan and UBSan
+        run: cmake -S parable-starter -B build-fz1 -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -O1" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
+      - name: Build standalone FZ1 tests and actual audio runner
+        run: cmake --build build-fz1 --target parable_fz1_test parable_fz1_lab -j2
+      - name: Test circuit and delivered-audio boundaries
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
+          UBSAN_OPTIONS: halt_on_error=1
+        run: ctest --test-dir build-fz1 --output-on-failure --no-tests=error -R '^fz1_'
+
+  fz1-scientific-gates:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pin offline spectral analysis dependency
+        run: python3 -m pip install numpy==2.3.5
+      - name: Build sampling alternatives
+        run: |
+          cmake -S parable-starter -B build-fz1-gates -DCMAKE_BUILD_TYPE=Release
+          cmake --build build-fz1-gates --target parable_fz1_study -j2
+      - name: Measure actual whole processors and sixteen-times reference
+        run: ./build-fz1-gates/parable_fz1_study build-fz1-study
+      - name: Enforce original full-band and false-spur acceptance gates
+        run: python3 parable-starter/tools/fz1_alias.py --study build-fz1-study --fixtures build-fz1-gate-reference --require-gates
+      - name: Retain measurements including failed gates
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-fz1-sampling-gates
+          path: |
+            build-fz1-study/
+            build-fz1-gate-reference/
+          if-no-files-found: error
+          retention-days: 30
