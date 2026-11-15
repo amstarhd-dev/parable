@@ -320,3 +320,12 @@ target_link_options(parable_scorpio_test PRIVATE -Wl,--wrap=malloc,--wrap=calloc
 add_test(NAME scorpio_circuit_and_safety COMMAND parable_scorpio_test)
 endif()
 add_test(NAME scorpio_listening_cli COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_scorpio_cli.py $<TARGET_FILE:parable_scorpio_lab>)
+
+# SF018 standalone1978-family specimen; no Engine/firmware registration.
+add_library(parable_capricorn STATIC src/parable_capricorn.cpp)
+target_include_directories(parable_capricorn PUBLIC include)
+target_compile_options(parable_capricorn PRIVATE -Wall -Wextra -Wpedantic -fno-fast-math -fno-finite-math-only)
+add_executable(parable_capricorn_lab tools/capricorn_lab.cpp)
+target_include_directories(parable_capricorn_lab PRIVATE tools)
+target_link_libraries(parable_capricorn_lab PRIVATE parable_capricorn)
+target_compile_options(parable_capricorn_lab PRIVATE -Wall -Wextra -Wpedantic)
