@@ -1157,6 +1157,119 @@
           "paths": []
         }
       }
+    },
+    {
+      "id": "wavefolder",
+      "type": "model",
+      "paths": [
+        "parable-starter/include/parable_wavefolder.h",
+        "parable-starter/src/parable_wavefolder.cpp",
+        "parable-starter/src/wavefolder_cell.h",
+        "parable-starter/tools/wavefolder_lab.cpp",
+        "parable-starter/tests/test_wavefolder.cpp",
+        "parable-starter/docs/SF014_GATE0.md",
+        "parable-starter/docs/adr/ADR-014-lockhart-feed-resistor.md"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/wavefolder/provenance.json",
+          "candidate": 0,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/wavefolder/ACME-LICENSE.md"
+          ],
+          "scope": "Narrow reciprocal Ebers-Moll transport/terminal currents and analytic derivatives adapted from src/elements.jl:bjt, then specialized to three-node loaded complementary Lockhart. No Julia/framework imported."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/wavefolder/provenance.json",
+          "candidate": 1,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Inspected actual Source/Lockhart.h/.cpp. Symmetric Lambert-W/ADAA reference, no code/coefficients imported."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/wavefolder/provenance.json",
+          "candidate": 2,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Inspected actual LockhartCell.cpp and LICENSE:1000 Halley iterations and exp-overflow FIXME. No import."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/wavefolder/provenance.json",
+          "candidate": 3,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Audited LICENSE and src/wavefolder.m. Different five-branch topology and known-sine-crossing polyBLAMP, not an arbitrary-input guitar cell. No import."
+        }
+      ],
+      "ownership_notes": "MIT notice applies to narrow borrowed foundation. Parable-local specialization; global project license remains unspecified. No open PR code merged/cherry-picked.",
+      "physics_notes": "Single complementary Lockhart, +/-15V model rails;15k/15k feed and10k load. Full reciprocal finite-beta nominal Ebers-Moll, ideal buffers; no transistor capacitance/Early/noise/unit calibration. One upper PNP resistor22k, everything else identical.",
+      "behavior": "Stopped512-interval Hermite with exact primitive, normal4x+ADAA, common isolated100n/100k output coupling. Fixed memory, no callback exp/solver.",
+      "limitations": [
+        "No calibrated physical transistor or founder musical approval.",
+        "Seed3 cycles/deadlines/actual stack and sound not measured; standalone, not admitted to Engine.",
+        "Static BJT approximation omits charge/storage and measured spread. Conditional cycle planning estimate is not WCET."
+      ],
+      "dependencies": {
+        "assets": [
+          "host.pcm16",
+          "host.signal-analysis",
+          "host.synthetic-plucks"
+        ],
+        "external": [
+          "C++17 libm only during stopped preparation; no new DSP runtime dependency.",
+          "Offline NumPy2.3.5/ngspice44.2 for independent reference regeneration; pinned existing ARM compiler."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Independent DC/load/rails/current/fold/harmonics/high-rate alias at44.1/48/96k; invalid/reset/control/silence/extremes/callback guard and native CLI.",
+          "paths": [
+            "parable-starter/tests/test_wavefolder.cpp",
+            "parable-starter/tests/test_wavefolder_cli.py"
+          ]
+        },
+        "independent_circuit": {
+          "status": "reduced-section-compared",
+          "scope": "Whole memoryless complementary cell against built-in SPICE BJT, independent high-rate sampling; not measured transistor or complete physical pedal.",
+          "paths": [
+            "parable-starter/tools/wavefolder_spice_reference.py",
+            "parable-starter/tests/fixtures/wavefolder/spice-manifest.json"
+          ]
+        },
+        "synthetic_audition": {
+          "status": "generated",
+          "scope": "Native controlled attacks/sustain/chord/sweep/two-tone, raw/common levels, human approval pending.",
+          "paths": [
+            "parable-starter/tools/wavefolder_lab.cpp"
+          ]
+        },
+        "real_guitar_audition": {
+          "status": "not-performed",
+          "scope": "Exact SF011/SF012 take03 prepared, three drive pairs rendered, raw/common/RMS; founder listening not performed.",
+          "paths": [
+            "parable-starter/third_party/wavefolder/AUDIO_NOTICE.md"
+          ]
+        },
+        "arm_cross_compile": {
+          "status": "compiled",
+          "scope": "Actual pinned M7 object/layout/static calls/frames. No target execution or new firmware integration.",
+          "paths": [
+            "parable-starter/tools/check_wavefolder_arm.py"
+          ]
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No physical audio/boot/deadline/stack/pedal or supply calibration.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "Engine/canonical/pools/storage/living/firmware unchanged; raw state fit is not CPU or shared-state admission.",
+          "paths": []
+        }
+      }
     }
   ]
 }

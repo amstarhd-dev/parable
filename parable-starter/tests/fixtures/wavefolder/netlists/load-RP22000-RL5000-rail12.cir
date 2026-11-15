@@ -1,0 +1,25 @@
+Independent published Lockhart topology, reciprocal generic BJT, ideal buffered Vin
+VCC P 0 12
+VEE N 0 -12
+VIN IN 0 0
+RP P EP 22000
+RN EN N 15000
+RL C 0 5000
+QP C IN EP Pmodel
+QN C IN EN Nmodel
+.model Pmodel PNP(IS=1e-17 BF=100 BR=1 CJE=0 CJC=0 TF=0 TR=0 TNOM=26.85)
+.model Nmodel NPN(IS=1e-17 BF=100 BR=1 CJE=0 CJC=0 TF=0 TR=0 TNOM=26.85)
+.save all @qp[ic] @qn[ic] @qp[ie] @qn[ie]
+
+.options reltol=1e-8 abstol=1e-13 vntol=1e-10 gmin=1e-14
+.temp 26.85
+.control
+set noaskquit
+set wr_singlescale
+set wr_vecnames
+set numdgt=17
+dc VIN -1.5 1.5 .01
+wrdata load-RP22000-RL5000-rail12.txt v(C) v(EP) v(EN) @qp[ic] @qn[ic] @qp[ie] @qn[ie]
+quit
+.endc
+.end

@@ -2,6 +2,13 @@
 
 This is the first **portable C++ code brick**, not a finished Parable SDK and not a commercial DSP effect. It contains no astrology or browser implementation. A separate experimental circuit-derived LabRAT listening laboratory is described below.
 
+SF-014 adds one standalone [loaded Lockhart wavefolder / upper-feed resistor fault](docs/SF014_REPORT.md).
+CI publishes **parable-wavefolder-auditions** with the same Centaur/tape take03,
+three drives, raw/common/RMS healthy/fault WAVs and same-input RAT/Muff/CMOS
+comparisons. [ADR014](docs/adr/ADR-014-lockhart-feed-resistor.md) selects one cell,
+512interval prepared curve and4x+ADAA. No Engine/firmware integration, measured
+Seed3 throughput, physical transistor calibration or founder musical approval.
+
 SF-011 adds an experimental standalone [original-style Centaur / one clean-wiper contact](docs/SF011_REPORT.md).
 CI publishes **parable-klon-auditions**: three Gain pairs on new Guitar-TECHS take03,
 raw/matched files, loaded path diagnostics, independent SPICE and source receipts.
