@@ -1,0 +1,35 @@
+{
+  "references": {
+    "publication": "Jon Dattorro, Effect Design Part 1: Reverberators and Other Filters, Journal of the Audio Engineering Society 45(9), 1997",
+    "paper": "https://ccrma.stanford.edu/~dattorro/EffectDesignPart1.pdf",
+    "role": "algorithmic plate-character figure-eight tank; not a measured steel-plate finite-element model"
+  },
+  "candidates": [
+    {
+      "url": "https://github.com/johnhw/dattoro_reverb",
+      "revision": "b69fb9eb505a1bb4d31158674e4b63da38fad871",
+      "license": "MIT",
+      "use": "Source-audited Dattorro topology/order/taps, independently adapted for Parable native C++; no code verbatim copied"
+    },
+    {
+      "url": "https://github.com/mjarmy/dsp-lib",
+      "revision": "a26e67c8c9a12038cc51fdec5f7bed3941ce465b",
+      "license": "MIT",
+      "use": "C++ PlateReverb alternative audited for parameter/control and interpolation design"
+    },
+    {
+      "url": "https://github.com/ValleyAudio/ValleyRackFree",
+      "revision": "audit-only, exact pin not inspected",
+      "license": "GPL-3.0-or-later",
+      "use": "Not imported; embedded licensing incompatible with Parable's current narrow MIT/BSD-only import policy"
+    }
+  ],
+  "audio": {
+    "source": "Guitar-TECHS Player3 take03, CC-BY-4.0",
+    "source_url": "https://zenodo.org/records/14963133",
+    "prepared_wav_sha256": "75ae5e73c72e6774fb75e6318dc91ba66347fb65290949e947144033eb648f52",
+    "transform": "first eight seconds of prepared 48kHz mono16 excerpt, times0.8 software scale; plus two seconds of DSP tail",
+    "receipt": "Locally rendered preview offered as conversation download. Not committed as a branch WAV yet."
+  },
+  "limitations": "Dattorro tank is algorithmic; local mount is a small driven oscillator with unilateral contact, coordinates not measured millimeters; no physical EMT140, DSP-grade musical approval or Seed3 validation."
+}
