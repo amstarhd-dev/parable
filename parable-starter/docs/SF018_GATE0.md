@@ -4,7 +4,8 @@ Start2026-11-15 21:30:40UTC; main af159d833bdd0b0e17ccc59fcf7edfa506ed98f5.
 Issue68/AGENTS/Constitution/main README/status/ADR001 and Soundforge recipe read.
 Root AGENTS absent; project AGENTS present. Existing utility/registry baseline3/3
 passes before code. Issue68 requires focused new tests and modified dependencies,
-not complete older circuit suites. No open PR/Scorpio/65 code imported.
+not complete older circuit suites. No unmerged PR code imported. After PR67 merged, branch was rebased onto
+main767a3c402b972fc20df8aea0729adf794f4b7a38; Scorpio remains unchanged.
 
 Pin Meiser/GITEC2019 Figure1 (PDF SHA in provenance), original1978 Si Q2 + TA7136
 family,9V. C1=10nF, C2=.47uF,C3=47nF,C4=250pF,C5=.47uF,C6=150pF,C7=250pF,

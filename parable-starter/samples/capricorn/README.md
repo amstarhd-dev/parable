@@ -18,7 +18,7 @@ Founder musical approval and perceptual distinctness from other pedals are pendi
 `SHA256SUMS` authenticates this package; `source-receipt.json` identifies the
 approved archive/member/preparation. Native rendering internally requires an
 exact reset/rerender match. Final quality8x193tap; first WAV milestone10min43.028s
-was the earlier4x97tap prototype at commit63f376b. These final files use the
+was the earlier4x97tap prototype at original commit63f376b (reproducible rebased equivalent f640d24). These final files use the
 producing commit recorded here. Host timings vary; no cross-platform bit identity
 or real pickup/codec/1978-pedal calibration is promised.
 

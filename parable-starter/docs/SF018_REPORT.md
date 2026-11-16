@@ -24,7 +24,7 @@ bounded3V. High-note7.969kHz spur1x/4x/8x: healthy−15.3/−42.8/−56.2dBr,
 open−15.0/−39.2/−50.3dBr. The measured11–13dB improvement selects8x; residual
 aliasing remains. These sparse checks validate the declared reduction, not devices.
 
-**Cost:** full native host1.135–1.250µs/frame, GNU14.2.0 Release,432000-frame repeat
+**Cost:** full native host1.124–1.280µs/frame, GNU14.2.0 Release,432000-frame repeat
 per combination after builds finished. First4x prototype0.618–0.647µs/frame;
 8x costs approximately twice as much. Pinned M7 object text11536B/data0/BSS0;
 instance8832B. Fixed eight internal steps,386 FIR products,≤376 companion MACs,
@@ -39,7 +39,7 @@ Old full circuit/listening suites were deliberately not run locally, per issue68
 existing global CI remains enabled. [Exact commands/raw evidence](data/sf018/README.md).
 Changed files: isolated native core and host lab; compact tests/SPICE fixtures and
 ARM specialization; nine credited WAVs/receipts; ADR/status/registry and corresponding
-CMake/CI steps. Inventory assertion12→13 only; no legacy physics thresholds changed.
+CMake/CI steps. Inventory assertion13→14 only; no legacy physics thresholds changed.
 
 **Limits/next:** Q2's nonlinear C4 dynamics/charge, TA7136 internal compensation,
 headroom/bandwidth, actual transistor/diode spread and buffer loading are declared

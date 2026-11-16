@@ -1,6 +1,6 @@
 {
-  "base": "af159d833bdd0b0e17ccc59fcf7edfa506ed98f5",
-  "native_audio_code_commit": "bc0bcf1cbfb4020ad803e771b73d5ad9f94c6905",
+  "base": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+  "native_audio_code_commit": "68d1ea417e5a65de1221af60d6ae4d81f93ce8b3",
   "host_compiler": "GNU14.2.0",
   "cmake": "3.31.6",
   "host_cpu": "Linux x86_64 AMD EPYC9V74 container;2CPU quota; clock uncontrolled",
@@ -10,7 +10,7 @@
   "final_ASan_UBSan": "capricorn2/2",
   "all_Release_targets_build": true,
   "legacy_circuit_suites": "Not run locally, as issue68 requires for unchanged standalone dependencies",
-  "protected_previous_source_and_fixture_files": 427,
+  "protected_previous_source_and_fixture_files": 452,
   "target_cycles": "not measured",
   "hardware": "not tested",
   "musical_approval": "pending; no human audition claim",
@@ -41,5 +41,16 @@
     },
     "active_labor": "not tracked; no estimate"
   },
-  "remote_CI": "Not yet checked for PR head; report separately in PR"
+  "remote_CI": "Not yet checked for PR head; report separately in PR",
+  "initial_base": "af159d833bdd0b0e17ccc59fcf7edfa506ed98f5",
+  "main_update": "Rebased after founder merged PR67. No unmerged PR imported; Scorpio source and all prior CI steps preserved.",
+  "registry_assets": 14,
+  "prototype_original_commit": "63f376b",
+  "prototype_equivalent_rebased_commit": "f640d24",
+  "host_us_per_frame_range": [
+    1.12414018981481,
+    1.2804221087963
+  ],
+  "final_rebase_checks": "Debug4/4, Release4/4, ASan+UBSan2/2; all Release targets build on main767a3c4",
+  "audio_after_rebase": "9 WAVs rerendered and SHA-identical to pre-rebase8x files"
 }

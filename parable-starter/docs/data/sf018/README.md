@@ -1,6 +1,7 @@
 # SF-018 — minimal reproduction and evidence
 
-Main af159d833bdd0b0e17ccc59fcf7edfa506ed98f5. No unmerged implementation imported.
+Started on main af159d833bdd0b0e17ccc59fcf7edfa506ed98f5; final base
+767a3c402b972fc20df8aea0729adf794f4b7a38 after PR67 merged. No unmerged implementation imported.
 CMake3.31.6/GNU14.2.0/Python3.12.14 here. Source fetch is existing pinned
 nlohmann_json3.11.3; actual commands additionally used only its unchanged public
 cache:`-DFETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON=/workspace/work/sf015-deps/nlohmann_json-src`.
