@@ -320,3 +320,12 @@ target_link_options(parable_scorpio_test PRIVATE -Wl,--wrap=malloc,--wrap=calloc
 add_test(NAME scorpio_circuit_and_safety COMMAND parable_scorpio_test)
 endif()
 add_test(NAME scorpio_listening_cli COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_scorpio_cli.py $<TARGET_FILE:parable_scorpio_lab>)
+
+# SF020 isolated coupled-room experiment; no Engine/patch/runtime integration.
+add_library(parable_coupled_rooms STATIC src/parable_coupled_rooms.cpp)
+target_include_directories(parable_coupled_rooms PUBLIC include)
+target_compile_options(parable_coupled_rooms PRIVATE -Wall -Wextra -Wpedantic -fno-fast-math -fno-finite-math-only)
+add_executable(parable_coupled_rooms_lab tools/coupled_rooms_lab.cpp)
+target_include_directories(parable_coupled_rooms_lab PRIVATE tools)
+target_link_libraries(parable_coupled_rooms_lab PRIVATE parable_coupled_rooms)
+target_compile_options(parable_coupled_rooms_lab PRIVATE -Wall -Wextra -Wpedantic)
