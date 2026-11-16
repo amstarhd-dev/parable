@@ -1,0 +1,69 @@
+{
+  "base": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+  "audio_code_commit": "14475778d5ca7924bd0842a752194b0b867b11f9",
+  "first_audio_code_commit": "fb93e30",
+  "first_audio": {
+    "task_start_UTC": "2026-11-16T00:24:12+00:00",
+    "first_native_WAV_UTC": "2026-11-16T00:41:44.967342+00:00",
+    "seconds_to_first_native_WAV": 1052.967342,
+    "human_approval": "pending"
+  },
+  "pre_edit": "utility/registry3/3",
+  "Debug": "Libra/registry4/4",
+  "Release": "Libra/registry4/4",
+  "ASan_UBSan": "Libra2/2",
+  "host_compiler": "GNU14.2.0 Linux x86_64; clock not controlled",
+  "cmake": "3.31.6",
+  "host_full_processor_us_per_frame": [
+    0.238982143518519,
+    0.274929180555556
+  ],
+  "raw_levels": {
+    "low_healthy_raw.wav": {
+      "rms": 0.0312209787733491,
+      "peak": 0.149267539381981,
+      "rail_samples": 0
+    },
+    "low_RB1_270k_raw.wav": {
+      "rms": 0.0274395062771726,
+      "peak": 0.14476914703846,
+      "rail_samples": 0
+    },
+    "high_healthy_raw.wav": {
+      "rms": 0.161844044329639,
+      "peak": 0.580724954605103,
+      "rail_samples": 2263
+    },
+    "high_RB1_270k_raw.wav": {
+      "rms": 0.158588141841618,
+      "peak": 0.576499700546265,
+      "rail_samples": 2783
+    }
+  },
+  "protected_prior_files": 452,
+  "old_circuit_suites": "Not run locally under issue57 focused policy; unchanged global CI retained",
+  "musical_approval": "pending; no human hearing claim",
+  "hardware": "not tested; no target cycles asserted",
+  "rework": [
+    "Independent RC reference first exposed bias network to the pole resistor; buffered it to match declared ideal stiff gain-stage output",
+    "Corrected quiescent feedback-error probe and rejected out-of-domain DC diagnostic input",
+    "Final Drive0.65 is less compressed than prototype0.9; no fault/component values changed"
+  ],
+  "reuse": {
+    "unchanged": [
+      "lab_wav.h",
+      "soundforge/analysis.h",
+      "klon_input.py",
+      "rat_spice_reference.py::run_spice",
+      "rat_measure.h::fft",
+      "activation_guard.*"
+    ],
+    "physical_lines": {
+      "tools/lab_wav.h": 83,
+      "tools/soundforge/analysis.h": 58,
+      "tools/klon_input.py": 39
+    },
+    "active_labor": "not tracked; line counts are not effort/speedup estimates"
+  },
+  "remote_CI": "Reported separately in PR"
+}
