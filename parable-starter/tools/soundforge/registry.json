@@ -1362,6 +1362,99 @@
           "paths": []
         }
       }
+    },
+    {
+      "id": "coupled-rooms",
+      "type": "model",
+      "paths": [
+        "parable-starter/include/parable_coupled_rooms.h",
+        "parable-starter/src/parable_coupled_rooms.cpp",
+        "parable-starter/docs/adr/ADR-020-gemini-coupled-rooms.md"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/coupled_rooms/provenance.json",
+          "candidate": 0,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/coupled_rooms/SIGNALSMITH-LICENSE.txt"
+          ],
+          "scope": "Householder mixed-feedback pattern; own two-room connection and fixed storage"
+        },
+        {
+          "provenance_path": "parable-starter/third_party/coupled_rooms/provenance.json",
+          "candidate": 1,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Older example license not identified, no import"
+        }
+      ],
+      "ownership_notes": "Local reduced network; existing owned PCM, statistics, FFT and callback guards reused. Global license remains unspecified.",
+      "physics_notes": "Two damped four-line room groups, one contractive connection, only B-to-A return polarity flips. Uncalibrated reduced acoustics, not measured geometry.",
+      "behavior": "Standalone mono guitar network, A/B diagnostic taps; fixed external storage and smoothed owner-thread controls.",
+      "limitations": [
+        "Founder recognition of two rooms and fault character pending.",
+        "No measured building acoustics, hardware cycles, firmware link or Engine admission.",
+        "Four lines per room, integer propagation, reduced absorption and connection; no calibrated image sources or spatial binaural model."
+      ],
+      "dependencies": {
+        "assets": [
+          "host.pcm16",
+          "host.signal-analysis"
+        ],
+        "external": [
+          "C++17 libm during stopped preparation only; pinned ARM14.2.1"
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Dense independent recurrence, transfer, one-wire causality, decay, safety and PCM tests.",
+          "paths": [
+            "parable-starter/tests/test_coupled_rooms.cpp",
+            "parable-starter/tests/test_coupled_rooms_cli.py",
+            "parable-starter/tests/fixtures/coupled_rooms/reference.json"
+          ]
+        },
+        "independent_circuit": {
+          "status": "not-applicable",
+          "scope": "Acoustic delay reduction; numerical equivalent is independently compared, no electrical circuit model.",
+          "paths": [
+            "parable-starter/tools/coupled_rooms_reference.py"
+          ]
+        },
+        "synthetic_audition": {
+          "status": "generated",
+          "scope": "Same native implementation generates room impulse outputs; no human approval.",
+          "paths": [
+            "parable-starter/tools/coupled_rooms_lab.cpp"
+          ]
+        },
+        "real_guitar_audition": {
+          "status": "not-performed",
+          "scope": "Actual take03 WAVs generated; subjective two-room/fault acceptance remains pending.",
+          "paths": [
+            "parable-starter/third_party/coupled_rooms/AUDIO_NOTICE.md"
+          ]
+        },
+        "arm_cross_compile": {
+          "status": "compiled",
+          "scope": "Pinned M7 object, layouts and no-call audio graph only.",
+          "paths": [
+            "parable-starter/tools/check_coupled_rooms_arm.py"
+          ]
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No hardware boot/audio/cycle/stack measurement.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "No Engine/patch/runtime/firmware changes.",
+          "paths": []
+        }
+      }
     }
   ]
 }

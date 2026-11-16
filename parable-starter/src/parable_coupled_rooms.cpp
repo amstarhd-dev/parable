@@ -18,7 +18,7 @@ std::size_t CoupledRooms::requiredSamples(float rate) noexcept {
     return n;
 }
 bool CoupledRooms::valid(RoomControls c) noexcept {
-    return std::isfinite(c.aperture) && c.aperture >= 0 && c.aperture <= .45f
+    return std::isfinite(c.aperture) && c.aperture >= 0 && c.aperture <= 1.f
         && std::isfinite(c.wet) && c.wet >= 0 && c.wet <= 1;
 }
 bool CoupledRooms::prepare(float rate, float* storage, std::size_t count, RoomControls c) noexcept {

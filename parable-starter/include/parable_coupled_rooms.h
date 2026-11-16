@@ -3,7 +3,7 @@
 
 namespace parable::soundforge {
 struct RoomControls {
-    float aperture = .35f, wet = .65f;
+    float aperture = .85f, wet = .65f;
     bool invertedReturn = false;
 };
 struct RoomOutput { float mono = 0, a = 0, b = 0; };
@@ -13,6 +13,9 @@ struct RoomOutput { float mono = 0, a = 0, b = 0; };
 // instance and share its buffer. prepare/reset require stopped processing.
 class CoupledRooms {
 public:
+    CoupledRooms() = default;
+    CoupledRooms(const CoupledRooms&) = delete;
+    CoupledRooms& operator=(const CoupledRooms&) = delete;
     static constexpr std::size_t kMaxSamples = 22000;
     static std::size_t requiredSamples(float rate) noexcept;
     bool prepare(float rate, float* storage, std::size_t count,

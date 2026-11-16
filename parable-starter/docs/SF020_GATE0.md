@@ -25,7 +25,7 @@ audit-only, no import. JUCE/commercial algorithms unnecessary.
 
 Own reduction: room A four short propagation loops, B four longer loops with
 separate reflection attenuation/low-pass absorption. Couple one port from each
-through [[1-c,c],[c,1-c]],0<=c<=.45. Fault changes ONLY B-return-to-A coefficient
+through [[1-c,c],[c,1-c]],0<=c<=1. Fault changes ONLY B-return-to-A coefficient
 +c to -c, representing a miswired electronic room-return pickup. Both matrices
 have spectral norm<=1 (triangle inequality); losses strictly contract. No physical
 room geometry, calibrated aperture or electrical hardware reconstruction claimed.
@@ -34,3 +34,7 @@ scattering. Input A only; B silence when c=0 is mandatory. Primary mono sum reta
 feedback-interference consequences; no added random/crash signal, modulation,
 nonlinearity or hidden normalization. First actual guitar WAV and impulse proof
 precede elaborate tests. Founder musical character decision remains pending.
+
+Prototype observation: aperture.35 produced only~8% raw guitar difference.
+Selected aperture.85 after~37% raw difference with all other parameters identical.
+The permitted0..1 range retains the same contraction proof; no second fault.

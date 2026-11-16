@@ -35,6 +35,8 @@ jobs:
         run: python3 parable-starter/tools/check_wavefolder_arm.py --compiler parable-starter/build/arm-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++ --output parable-starter/build/arm/wavefolder-audit
       - name: Compile and inspect standalone Scorpio transistor and magnetic drive
         run: python3 parable-starter/tools/check_scorpio_arm.py --compiler parable-starter/build/arm-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++ --output parable-starter/build/arm/scorpio-audit
+      - name: Compile and inspect standalone coupled-room audio and control paths
+        run: python3 parable-starter/tools/check_coupled_rooms_arm.py --compiler parable-starter/build/arm-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++ --output parable-starter/build/arm/coupled-rooms-audit
       - name: Publish first-boot kit candidate (never flash here)
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:

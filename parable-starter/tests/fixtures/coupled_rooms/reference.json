@@ -1,0 +1,7 @@
+{
+  "reference": "Independent Python double dense D*C*H recurrence; no native code imported",
+  "rows": 5138,
+  "sha256": "606bf28e1202d7457856262736d68ffde239396389257da24dc113dfd0d97398",
+  "generator_sha256": "ef215a7686a491fc29914ba02051e75ad19e1c23ea877e2d9cd2ef4c485b4195",
+  "limits": "Same declared reduced model, not an independent physical room measurement"
+}

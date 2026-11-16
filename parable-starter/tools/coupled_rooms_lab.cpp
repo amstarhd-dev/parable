@@ -33,7 +33,7 @@ int main(int argc, char** argv) {
         waves["00_dry_raw"]=source.samples;
         for(bool fault:{false,true}) {
             const std::string name=fault?"fault":"healthy";
-            lab::require(engine.prepare(source.rate,storage.data(),storage.size(),{.35f,.65f,fault}),"prepare failed");
+            lab::require(engine.prepare(source.rate,storage.data(),storage.size(),{.85f,.65f,fault}),"prepare failed");
             auto& mono=waves[name+"_raw"];auto& a=waves[name+"_room_A"];auto& b=waves[name+"_room_B"];
             mono.resize(source.samples.size());a.resize(mono.size());b.resize(mono.size());
             const auto start=std::chrono::steady_clock::now();
@@ -41,6 +41,8 @@ int main(int argc, char** argv) {
             const double us=std::chrono::duration<double,std::micro>(std::chrono::steady_clock::now()-start).count()/mono.size();
             const auto stats=soundforge::stats(mono);
             receipt<<name<<"_raw,"<<stats.rms<<','<<stats.peak<<",1,"<<inputGain<<','<<us<<'\n';
+            auto& wet=waves[name+"_wet_only"];wet.resize(mono.size());
+            for(std::size_t i=0;i<wet.size();++i)wet[i]=.5f*(a[i]+b[i]);
         }
         const double target=soundforge::rmsTarget(std::vector<std::vector<float>>{waves["healthy_raw"],waves["fault_raw"]},.05,.85);
         for(const auto& name:{"healthy","fault"}) {
@@ -53,10 +55,11 @@ int main(int argc, char** argv) {
         }
         lab::require(engine.prepare(source.rate,storage.data(),storage.size(),{0,.65f,false}),"prepare failed");
         auto& off=waves["coupling_off_B"];off.resize(source.samples.size());
-        for(std::size_t i=0;i<off.size();++i)off[i]=engine.process(source.samples[i]).b;
+        auto& offA=waves["coupling_off_A"];offA.resize(off.size());
+        for(std::size_t i=0;i<off.size();++i){const auto y=engine.process(source.samples[i]);off[i]=y.b;offA[i]=y.a;}
         for(const auto& entry:waves)lab::write(output/(entry.first+".wav"),{source.rate,entry.second});
         for(bool fault:{false,true}) {
-            lab::require(engine.prepare(source.rate,storage.data(),storage.size(),{.35f,1,fault}),"prepare failed");
+            lab::require(engine.prepare(source.rate,storage.data(),storage.size(),{.85f,1,fault}),"prepare failed");
             lab::Wave ir{source.rate,std::vector<float>(source.rate*4)};
             lab::Wave a=ir,b=ir;
             for(std::size_t i=0;i<ir.samples.size();++i){const auto y=engine.process(i==0?.5f:0);ir.samples[i]=y.mono;a.samples[i]=y.a;b.samples[i]=y.b;}

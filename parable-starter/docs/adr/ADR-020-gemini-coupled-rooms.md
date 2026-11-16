@@ -30,3 +30,7 @@ Alternative whole Signalsmith reverb import offers diffusion/modulation and more
 polish but misses explicit two-room partition, brings framework dependencies,
 and costs more memory. This reduction exposes causal transfer and stability with
 low fixed work, at cost of limited density and uncalibrated acoustic parameters.
+
+Prototype observation: aperture.35 produced only~8% raw guitar difference.
+Selected aperture.85 after~37% raw difference with all other parameters identical.
+The permitted0..1 range retains the same contraction proof; no second fault.
