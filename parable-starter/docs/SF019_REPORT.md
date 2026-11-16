@@ -24,7 +24,7 @@ If motion exceeds the unilateral contact gap while traveling outward, velocity r
 
 ## Measured host evidence (2026-11-16)
 
-Locally compiled standalone core/tests on GNU C++ 14.2 with C++17 \`-O0\` and \`-O2 -DNDEBUG\`; test passes both configurations (preliminary smoke tests only; no ASan, ASan/UBSan, registered CTest or ARM compiler run yet).
+Locally compiled standalone core/tests on GNU C++ 14.2 with C++17 \`-O0\` and \`-O2 -DNDEBUG\`; test passes both configurations; the same focused core/test pair also passed a local GCC14.2 ASan+UBSan build with leak detection enabled. No registered CTest, full host suite or ARM compiler run yet.
 
 At 48kHz, 2 s controlled 220Hz input followed by decay, same wet setting and damage clearance only:
 
@@ -68,6 +68,6 @@ Expected take03 prepared SHA256: \`75ae5e73c72e6774fb75e6318dc91ba66347fb6529094
 
 ### Unmet gates and next decision
 
-The stop condition is not fully cleared: **a healthy/fault guitar preview and input-dependent impact have been demonstrated, but neither human listening nor a physical reference validates the metallic suspension-buzz character**. Founder should audition the raw and matched pair. If the effect is musically weak, refine/reject this *specific coupled mount model* rather than inventing a second fault. Separately perform ASan/UBSan, callback guard, spectral/alias and impulse-tail measurements, actual pinned ARM object audit and resource admission **before declaring the full issue accepted**.
+The stop condition is not fully cleared: **a healthy/fault guitar preview and input-dependent impact have been demonstrated, but neither human listening nor a physical reference validates the metallic suspension-buzz character**. Founder should audition the raw and matched pair. If the effect is musically weak, refine/reject this *specific coupled mount model* rather than inventing a second fault. Separately perform callback guard, spectral/alias and impulse-tail measurements, actual pinned ARM object audit and resource admission **before declaring the full issue accepted**.
 
-All existing Engine, patch, firmware, storage, living-source, correspondence and prior Soundforge voice sources remain untouched. Leave unmerged.
+Remote GitHub Actions at this head reported failure/cancellation in the first seconds with no recorded steps for the inspected Debug job; **no remote build/test evidence resulted**. This resembles the execution-layer issue seen on the prior PR but is not proof of its cause. All existing Engine, patch, firmware, storage, living-source, correspondence and prior Soundforge voice sources remain untouched. Leave unmerged.
