@@ -320,3 +320,12 @@ target_link_options(parable_scorpio_test PRIVATE -Wl,--wrap=malloc,--wrap=calloc
 add_test(NAME scorpio_circuit_and_safety COMMAND parable_scorpio_test)
 endif()
 add_test(NAME scorpio_listening_cli COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_scorpio_cli.py $<TARGET_FILE:parable_scorpio_lab>)
+
+# SF013 reduced class-AB instrument, isolated from Engine and firmware.
+add_library(parable_libra STATIC src/parable_libra.cpp)
+target_include_directories(parable_libra PUBLIC include)
+target_compile_options(parable_libra PRIVATE -Wall -Wextra -Wpedantic -fno-fast-math -fno-finite-math-only)
+add_executable(parable_libra_lab tools/libra_lab.cpp)
+target_include_directories(parable_libra_lab PRIVATE tools)
+target_link_libraries(parable_libra_lab PRIVATE parable_libra)
+target_compile_options(parable_libra_lab PRIVATE -Wall -Wextra -Wpedantic)
