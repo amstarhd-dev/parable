@@ -1,0 +1,23 @@
+# SF020 listening source and changes
+
+Credit Hegel Emmanuel Pedroza Villalobos, Termeh Taheri, Wallace Abreu,
+Ryan M. Corey and Iran R. Roman. Guitar-TECHS, ICASSP2025.
+Source https://zenodo.org/records/14963133 and https://guitar-techs.github.io/ .
+Creative Commons Attribution4.0 International:
+https://creativecommons.org/licenses/by/4.0/ . Preserve this notice with audio.
+
+Player3 performance03 direct-input. Archive P3_music.zip SHA256
+033489e22600751fb5a1633e7d856b901c6782e0486fa02135e830780d9dbfe2;
+member P3_music/audio/directinput/directinput_03.wav original SHA256
+84980b5468f3315171e4e546a1d38d54e4c368ccb5fee72c759e0915f346fad0.
+Existing tools/klon_input.py prepares first20s/channel0/PCM24->16 nearest,
+ties away, no resampling/EQ/gain; prepared SHA256
+75ae5e73c72e6774fb75e6318dc91ba66347fb65290949e947144033eb648f52.
+SF020 uses first8s, applies one common gain to peak0.15 normalized software units,
+adds4s silence, and renders identical controls except ONE B-to-A return sign.
+Raw mono uses35%dry +65%wet, where wet=.5*(roomA+roomB). Separate wet-only and
+A/B taps have fixed common gain, not normalized. Matched mono copies use shared
+0.05 RMS target, explicit per-file gains in levels.csv, not LUFS. Impulse is0.5
+input with wet1, four seconds. Software levels have no measured pickup/codec fit.
+input_take03_20s.wav is the unchanged approved prepared20s source, SHA above.
+No subjective approval or measured acoustic fidelity is implied.

@@ -1,0 +1,23 @@
+{
+  "scope": "Actual full native process plus writes of three diagnostic outputs; wall-clock timing of 576000 frames per mode/run; no concurrent builds; no clock control or target execution",
+  "compiler": "c++ (Debian 14.2.0-19) 14.2.0",
+  "runs_us_per_frame": [
+    {
+      "healthy_raw": 0.0232145225694,
+      "fault_raw": 0.0272168975694
+    },
+    {
+      "healthy_raw": 0.0225864184028,
+      "fault_raw": 0.0215573090278
+    },
+    {
+      "healthy_raw": 0.0220960729167,
+      "fault_raw": 0.0216493506944
+    }
+  ],
+  "median_us_per_frame": {
+    "healthy_raw": 0.0225864184028,
+    "fault_raw": 0.0216493506944
+  },
+  "cpu": "model name\t: AMD EPYC 9V74 80-Core Processor"
+}

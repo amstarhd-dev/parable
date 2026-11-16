@@ -1,0 +1,57 @@
+{
+  "producing_code_commit": "a1f64789e6b60af7e39924807c13734d62b9ccdf",
+  "prototype_first_wav": {
+    "first_healthy_wav_utc": "2026-11-16T23:22:47.219112+00:00",
+    "start_time": "Not instrumented; no exact start-to-audio duration claimed",
+    "earliest_clock_receipt_utc": "2026-11-16T23:18:20Z",
+    "prototype_commit": "d8db0ef"
+  },
+  "controls": {
+    "aperture": 0.85,
+    "wet": 0.65,
+    "sole_fault": "B-to-A channel0 return sign +1 to -1",
+    "roomA": {
+      "delays_ms": [
+        11.3,
+        13.7,
+        17.9,
+        19.7
+      ],
+      "nominal_uncoupled_low_frequency_rt60_seconds": 0.65,
+      "absorption_hz": 5500
+    },
+    "roomB": {
+      "delays_ms": [
+        29.3,
+        37.1,
+        43.7,
+        53.1
+      ],
+      "nominal_uncoupled_low_frequency_rt60_seconds": 1.9,
+      "absorption_hz": 3200
+    }
+  },
+  "audio": {
+    "guitar_seconds": 8,
+    "tail_seconds": 4,
+    "rate": 48000,
+    "input_peak": 0.15,
+    "input_gain": 0.564641010913,
+    "raw_post_gain": 1,
+    "wet_output": ".5*(A+B)",
+    "matched_rms_target": 0.05,
+    "impulse_input_peak": 0.5,
+    "impulse_seconds": 4
+  },
+  "raw_guitar_comparison": {
+    "relative_rms_difference": 0.3678100029223818,
+    "best_constant_gain_fit_residual": 0.36735757334685726
+  },
+  "wet_guitar_comparison": {
+    "relative_rms_difference": 0.4820781893625719,
+    "best_constant_gain_fit_residual": 0.48119624575640274
+  },
+  "source_sha256": "75ae5e73c72e6774fb75e6318dc91ba66347fb65290949e947144033eb648f52",
+  "musical_approval": "pending; numeric differences are not listening approval",
+  "hardware": "not tested; no firmware link/runtime admission"
+}

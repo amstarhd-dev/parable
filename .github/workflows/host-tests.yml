@@ -103,6 +103,23 @@ jobs:
           path: parable-starter/build/scorpio-auditions/
           if-no-files-found: error
           retention-days: 30
+      - name: Render coupled rooms from committed permitted take03
+        if: matrix.build_type == 'Release'
+        run: |
+          ./build/parable_coupled_rooms_lab --input samples/coupled_rooms/input_take03_20s.wav --output build/coupled-room-auditions
+          cp third_party/coupled_rooms/AUDIO_NOTICE.md samples/coupled_rooms/source-receipt.json build/coupled-room-auditions/
+          git rev-parse HEAD > build/coupled-room-auditions/SOURCE_COMMIT
+          c++ --version > build/coupled-room-auditions/HOST_COMPILER.txt
+          sha256sum include/parable_coupled_rooms.h src/parable_coupled_rooms.cpp tools/coupled_rooms_lab.cpp tools/lab_wav.h tools/soundforge/analysis.h > build/coupled-room-auditions/SOURCE_SHA256SUMS
+          (cd build/coupled-room-auditions && sha256sum ./*.wav ./*.csv ./*.json AUDIO_NOTICE.md SOURCE_COMMIT SOURCE_SHA256SUMS HOST_COMPILER.txt) > build/coupled-room-auditions/SHA256SUMS
+      - name: Publish coupled-room raw matched and isolated listening files
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-coupled-room-auditions
+          path: parable-starter/build/coupled-room-auditions/
+          if-no-files-found: error
+          retention-days: 30
       - name: Render source-derived TS808 and truly open D2 with NEW guitar take06
         if: matrix.build_type == 'Release'
         env:
@@ -449,6 +466,16 @@ jobs:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1
         run: ctest --test-dir build/scorpio-sanitized --output-on-failure --no-tests=error -R '^scorpio_' -j2
+
+      - name: Configure focused coupled rooms ASan and UBSan
+        run: cmake -S . -B build/coupled-rooms-sanitized -DCMAKE_BUILD_TYPE=Debug -DFETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON="$PWD/build/_deps/nlohmann_json-src" -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -O1" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
+      - name: Build focused coupled-room sanitizer targets
+        run: cmake --build build/coupled-rooms-sanitized --target parable_coupled_rooms_test parable_coupled_rooms_lab -j2
+      - name: Test coupled-room transfer polarity stability and listening boundaries
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
+          UBSAN_OPTIONS: halt_on_error=1
+        run: ctest --test-dir build/coupled-rooms-sanitized -R '^coupled_rooms_' --output-on-failure --no-tests=error
 
   activation-tsan:
     runs-on: ubuntu-24.04

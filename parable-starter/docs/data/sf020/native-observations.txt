@@ -1,0 +1,11 @@
+Independent dense reference points=15414 peak_error=2.03665e-09
+rate=44100 buffer_bytes=39828 onsets_A/B=498/1790 B_energy=0.00484943
+rate=48000 buffer_bytes=43356 onsets_A/B=542/1948 B_energy=0.00443155
+rate=96000 buffer_bytes=86708 onsets_A/B=1085/3898 B_energy=0.00217673
+18 rate/coupling/fault decay corners: final-window energy < early*1e-5; callback guards clean
+Control-change first-frame excess step=7.28574e-06
+Fixed-control linear 8003.9Hz unwanted/fundamental fault=0 dB=-136.077
+Fixed-control linear 8003.9Hz unwanted/fundamental fault=1 dB=-135.819
+Single-return fault first differences A/B=2490/3896 gain-fitted impulse residual=0.392787
+80Hz-10kHz modal response: fraction >3dB=0.149435 delta5/50/95percentile_dB=-4.16112/0.0161228/4.02435 (healthy magnitude>.01; FFT262144)
+Coupled room checks=751855 passed

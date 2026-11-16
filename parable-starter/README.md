@@ -111,6 +111,12 @@ After building, `./build/parable_activation_demo 0 2 1 3 0` selects saved fixtur
 presets by number and renders blocks with deterministic receipts. No live flash,
 Volume/Register/modulation lane or firmware integration is added.
 
+SF-020 adds an experimental standalone [two coupled rooms / one return polarity fault](docs/SF020_REPORT.md).
+[Downloadable source and19 rendered WAVs](samples/coupled_rooms/README.md) include raw,
+matched, wet-only, A/B isolation and coupling-off diagnostics. Native focused tests,
+independent recurrence and pinned M7 object audit pass locally; musical character,
+actual Seed3 execution and Engine/firmware integration remain unproven.
+
 ## Purpose
 
 PAR-012 adds an experimental host [living-source lane](docs/LIVING_SOURCE_REQUIREMENTS.md)
