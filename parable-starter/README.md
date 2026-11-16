@@ -2,6 +2,11 @@
 
 This is the first **portable C++ code brick**, not a finished Parable SDK and not a commercial DSP effect. It contains no astrology or browser implementation. A separate experimental circuit-derived LabRAT listening laboratory is described below.
 
+SF-013 adds an experimental [complementary class-AB feedback voice](docs/SF013_REPORT.md)
+with one R_B1 bias-resistor drift and [nine take03 listening files](samples/libra/README.md).
+It is a bounded reduced model; founder sound approval and actual Daisy runtime
+remain unproven. No Engine or correspondence integration.
+
 SF-014 adds one standalone [loaded Lockhart wavefolder / upper-feed resistor fault](docs/SF014_REPORT.md).
 CI publishes **parable-wavefolder-auditions** with the same Centaur/tape take03,
 three drives, raw/common/RMS healthy/fault WAVs and same-input RAT/Muff/CMOS

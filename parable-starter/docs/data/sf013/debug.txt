@@ -1,0 +1,14 @@
+Internal ctest changing into directory: /workspace/work/sf013-debug
+Test project /workspace/work/sf013-debug
+    Start 11: soundforge_registry
+    Start 12: soundforge_registry_negative
+1/4 Test #11: soundforge_registry ..............   Passed    0.05 sec
+    Start 41: libra_circuit_and_safety
+2/4 Test #12: soundforge_registry_negative .....   Passed    0.24 sec
+    Start 42: libra_listening_cli
+3/4 Test #41: libra_circuit_and_safety .........   Passed    0.68 sec
+4/4 Test #42: libra_listening_cli ..............   Passed    1.78 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   2.03 sec

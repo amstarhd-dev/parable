@@ -1362,6 +1362,88 @@
           "paths": []
         }
       }
+    },
+    {
+      "id": "libra",
+      "type": "model",
+      "paths": [
+        "parable-starter/include/parable_libra.h",
+        "parable-starter/src/parable_libra.cpp",
+        "parable-starter/docs/adr/ADR-013-libra-push-pull-feedback.md"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/libra/provenance.json",
+          "candidate": 0,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "Existing MIT device/finite-pole implementations considered; no external code imported"
+        }
+      ],
+      "ownership_notes": "Own affine reduction from circuit facts and unchanged owned main FIR/RC/laboratory patterns. ADI artwork/restricted proprietary DSP not imported. Global project license unspecified.",
+      "physics_notes": "Constant-VBE/beta complementary forward-active branches with actual resistive bias/emitter/load values; finite-pole global feedback closed implicitly. R_B1 alone27k->270k.",
+      "behavior": "Standalone stopped preparation; bounded4x and four affine-region selection. Drive/Level, physical idle/conduction/feedback and saturation diagnostics.",
+      "limitations": [
+        "Not calibrated transistors/commercial amp; no V_BE curvature, thermal, junction charge or reactive-load model.",
+        "Resistive-bias thermal compensation and physical safety are not validated.",
+        "Founder listening and actual Daisy cycles/audio are unproven; no patch integration."
+      ],
+      "dependencies": {
+        "assets": [
+          "host.pcm16",
+          "host.signal-analysis"
+        ],
+        "external": [
+          "C++17 libm during stopped preparation only; existing ngspice44.2 and ARM14.2.1 offline."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Compact equivalent/DC/transient/feedback/load/alias/control/reset/callback and CLI checks; final configurations in report.",
+          "paths": [
+            "parable-starter/tests/test_libra.cpp",
+            "parable-starter/tests/test_libra_cli.py"
+          ]
+        },
+        "independent_circuit": {
+          "status": "reduced-section-compared",
+          "scope": "Independent SPICE base-resistor/current-controlled transistor equivalent, not measured transistor model.",
+          "paths": [
+            "parable-starter/tools/libra_reference.py",
+            "parable-starter/tests/fixtures/libra/reference.json"
+          ]
+        },
+        "synthetic_audition": {
+          "status": "not-performed",
+          "scope": "Tones used only for tests; listening deliverable is real take03.",
+          "paths": []
+        },
+        "real_guitar_audition": {
+          "status": "not-performed",
+          "scope": "Native healthy/fault real-guitar WAVs generated; founder approval pending.",
+          "paths": [
+            "parable-starter/third_party/libra/AUDIO_NOTICE.md"
+          ]
+        },
+        "arm_cross_compile": {
+          "status": "compiled",
+          "scope": "Actual pinned M7 object/layout/reachable calls, not firmware link/target execution.",
+          "paths": [
+            "parable-starter/tools/check_libra_arm.py"
+          ]
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No physical cycles/audio/boot or analog/thermal calibration.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "No Engine/patch/firmware/storage/correspondence integration.",
+          "paths": []
+        }
+      }
     }
   ]
 }

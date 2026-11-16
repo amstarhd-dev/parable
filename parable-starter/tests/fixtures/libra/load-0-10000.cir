@@ -1,0 +1,40 @@
+Independent classAB reduced circuit; no C++ affine coefficients
+Vp railp 0 4.5
+Vn railn 0 -4.5
+Vin source 0 0
+Vinputwire source input 0
+RB1 railp bn 27000
+RB2 bn u 4700
+RB3 u bp 4700
+RB4 bp railn 27000
+VmeasureN bn bin 0
+BbeN bin en I=max((v(bin,en)-.64)/.01,0)
+FcollectorN railp en VmeasureN 100
+ReN en output 2.2
+VmeasureP bip bp 0
+BbeP ep bip I=max((v(ep,bip)-.64)/.01,0)
+FcollectorP ep railn VmeasureP 100
+ReP output ep 2.2
+Rload output 0 10000
+Rf output feedback 30000
+Rg feedback 0 10000
+Btarget target 0 V=40*(v(input)-v(feedback))
+Rdriver target state 1000
+Bdriver u 0 V=v(state)
+Cdriver state 0 3.183098861837907e-07
+Brail state 0 I=1e6*(v(state)-max(-3.5,min(3.5,v(state))))
+Bvolume level 0 V=.8*v(output)
+Cout level jack 1u
+Rjack jack 0 100k
+
+.options reltol=1e-8 abstol=1e-13 vntol=1e-10 gmin=1e-14
+.temp 26.85
+.control
+set noaskquit
+set wr_singlescale
+set wr_vecnames
+dc Vin .05 .05 .01
+wrdata load-0-10000.txt v(u) v(output) i(VmeasureN) i(VmeasureP)
+quit
+.endc
+.end

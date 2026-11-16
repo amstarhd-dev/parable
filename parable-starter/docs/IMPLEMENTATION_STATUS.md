@@ -957,3 +957,15 @@ results; original logs retained. See[SF017_REPORT.md](SF017_REPORT.md) and
 remote checks remain unverified. ARM object/layout/calls audited;
 hardware cycles/boot/audio and physical magnetic/device fidelity **not tested**.
 Founder musical audition/approval **pending**; generated audio is not approval.
+
+## SF-013 — active experimental Libra push–pull feedback voice
+
+Supersedes the earlier parked status. Implemented: isolated Option B complementary
+constant-V_BE/beta class-AB, implicit closed global feedback, high-Z/pre-gain/Level
+and one R_B1 bias-resistor drift. Nine native take03 raw/RMS listening files.
+Host-tested: Debug/Release4/4 each, ASan+UBSan2/2; independent reduced equivalent,
+feedback/conduction/load/alias/reset/silence/controls/guards/CLI. ARM object/calls/
+layout audited; actual Daisy timing/audio/boot and physical calibration **untested**.
+Founder musical approval **pending**. No Engine/patch/firmware/astrology integration.
+[Report](SF013_REPORT.md), [ADR013](adr/ADR-013-libra-push-pull-feedback.md),
+[commands](data/sf013/README.md), [nine WAVs](../samples/libra/README.md).

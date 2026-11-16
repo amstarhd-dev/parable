@@ -1,0 +1,30 @@
+{
+  "reference": {
+    "url": "https://wiki.analog.com/university/courses/engineering_discovery/lab_14",
+    "revision": "Last modified2018-01-03 18:40; retrieved2026-11-16",
+    "html_sha256": "62508c3d567589130cd0ad0358053b19e0887c5480474891f2c9d6fa4e9e7a48",
+    "divider_image_url": "https://wiki.analog.com/_media/university/courses/engineering_discovery/lab_14_image_4.png",
+    "divider_sha256": "203f99bfe4640d5f6fb05e3f436419557e1b6992cd943ca66ac581ef4071f5d4",
+    "procedure_image_url": "https://wiki.analog.com/_media/university/courses/engineering_discovery/lab_14_image_3.png",
+    "procedure_sha256": "50e3fdcc8fa34a5d568ef178e1b02e2c21b961957e50952b9e59fec5e0fef41d",
+    "use": "Circuit facts and labelled R_B1..R_B4; no artwork/code imported"
+  },
+  "candidates": [
+    {
+      "url": "https://github.com/HSU-ANT/ACME.jl",
+      "revision": "3832ccafb952ee2ca0a27286c091d613062c23fd",
+      "license": "MIT",
+      "use": "Audited existing main Ebers-Moll/finite-pole models; not imported. Choose issue57 OptionB forward-active piecewise approximation for low compute."
+    }
+  ],
+  "owned_reuse": [
+    "main Wavefolder FIR/RC patterns",
+    "lab_wav.h",
+    "soundforge/analysis.h",
+    "rat_measure.h::fft",
+    "rat_spice_reference.py::run_spice",
+    "klon_input.py",
+    "activation_guard.*"
+  ],
+  "limitations": "Own reduced physical family, not a specific commercial amplifier or calibrated transistor. Fixed-temperature model; thermal runaway not simulated."
+}

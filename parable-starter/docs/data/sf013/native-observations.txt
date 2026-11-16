@@ -1,0 +1,77 @@
+Start testing: Nov 16 00:59 UTC
+----------------------------------------------------------
+12/42 Testing: soundforge_registry_negative
+12/42 Test: soundforge_registry_negative
+Command: "/workspace/work/baseline-tools/bin/python3.12" "/workspace/work/parable-sf013/parable-starter/tests/test_soundforge_registry.py"
+Directory: /workspace/work/sf013-release
+"soundforge_registry_negative" start time: Nov 16 00:59 UTC
+Output:
+----------------------------------------------------------
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.119s
+
+OK
+<end of output>
+Test time =   0.18 sec
+----------------------------------------------------------
+Test Passed.
+"soundforge_registry_negative" end time: Nov 16 00:59 UTC
+"soundforge_registry_negative" time elapsed: 00:00:00
+----------------------------------------------------------
+
+41/42 Testing: libra_circuit_and_safety
+41/42 Test: libra_circuit_and_safety
+Command: "/workspace/work/sf013-release/parable_libra_test"
+Directory: /workspace/work/sf013-release
+"libra_circuit_and_safety" start time: Nov 16 00:59 UTC
+Output:
+----------------------------------------------------------
+Independent equivalent peak errors: voltage_V=3.62277e-07 branch_A=5.21859e-09 short_transient_V=0.00148059
+Matched nominal0.2V DC-sine feedback=0 gain_input_peak_V=0.00599623 fault_difference_relative_RMS=0.592236 healthy_idle_A=0.000649989 fault_upper/lower_A=0/2.67269e-05 fault_DC_V=-0.0260743
+Matched nominal0.2V DC-sine feedback=1 gain_input_peak_V=0.0559962 fault_difference_relative_RMS=0.22249 healthy_idle_A=0.000649989 fault_upper/lower_A=0/2.91504e-06 fault_DC_V=-0.00284433
+7968.75Hz nonharmonic spur fault=0 1x/2x/4x_dBr=-25.6672/-38.9212/-52.3299 (includes discretization/filter differences)
+7968.75Hz nonharmonic spur fault=1 1x/2x/4x_dBr=-23.4289/-38.8089/-52.7062 (includes discretization/filter differences)
+Finite/load/rate/controls/reset/silence/guard pass; KCL_A=1.29803e-08 implicit_pole_residual_V=5.06639e-07 instance_bytes=968
+Libra CHECKs=399 passed
+<end of output>
+Test time =   0.08 sec
+----------------------------------------------------------
+Test Passed.
+"libra_circuit_and_safety" end time: Nov 16 00:59 UTC
+"libra_circuit_and_safety" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/42 Testing: soundforge_registry
+11/42 Test: soundforge_registry
+Command: "/workspace/work/baseline-tools/bin/python3.12" "/workspace/work/parable-sf013/parable-starter/tools/soundforge/validate_registry.py"
+Directory: /workspace/work/sf013-release
+"soundforge_registry" start time: Nov 16 00:59 UTC
+Output:
+----------------------------------------------------------
+Validated 14 Soundforge assets offline; evidence claims require human review.
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"soundforge_registry" end time: Nov 16 00:59 UTC
+"soundforge_registry" time elapsed: 00:00:00
+----------------------------------------------------------
+
+42/42 Testing: libra_listening_cli
+42/42 Test: libra_listening_cli
+Command: "/workspace/work/baseline-tools/bin/python3.12" "/workspace/work/parable-sf013/parable-starter/tests/test_libra_cli.py" "/workspace/work/sf013-release/parable_libra_lab"
+Directory: /workspace/work/sf013-release
+"libra_listening_cli" start time: Nov 16 00:59 UTC
+Output:
+----------------------------------------------------------
+9 native WAVs: raw/matched healthy/RB1 pairs, clean/overdriven controls, PCM metadata, source and fixture integrity pass
+<end of output>
+Test time =   0.35 sec
+----------------------------------------------------------
+Test Passed.
+"libra_listening_cli" end time: Nov 16 00:59 UTC
+"libra_listening_cli" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 16 00:59 UTC
