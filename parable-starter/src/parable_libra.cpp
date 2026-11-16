@@ -19,7 +19,7 @@ bool Libra::prepare(float rate,LibraControls c,unsigned factor,bool feedback,flo
         r.m=(gn*next.aN_+gp*next.aP_)/den;r.c=(gn*(next.bN_-vbe)-gp*(next.bP_-vbe))/den;
         r.dynamicInv=1/(1+next.k_+next.k_*A*next.beta_*r.m);r.dynamicOffset=-next.k_*A*next.beta_*r.c*r.dynamicInv;
         r.dcInv=1/(1+A*next.beta_*r.m);r.dcOffset=-A*next.beta_*r.c*r.dcInv;}
-    next.bias_=next.select(0,true);if(!next.bias_.valid)return false;
+    next.bias_=next.select(0,true);if(!next.bias_.valid)return false;next.bias_.errorVolts=-next.beta_*next.bias_.combinedVolts;next.bias_.poleResidualVolts=next.bias_.driverVolts-A*next.bias_.errorVolts;
     next.inputG_=float(1/(1+2*fs*.01));next.outputG_=float(1/(1+2*fs*.1));
     const unsigned center=(next.taps_-1)/2;double sum=0;for(unsigned n=0;n<=center;++n){const double x=double(n)-center,cutoff=.4/factor;next.fir_[n]=float((x==0?2*cutoff:std::sin(2*pi*cutoff*x)/(pi*x))*(.42-.5*std::cos(2*pi*n/(next.taps_-1))+.08*std::cos(4*pi*n/(next.taps_-1))));sum+=next.fir_[n]*(n==center?1:2);}for(auto& x:next.fir_)x=float(x/sum);
     next.prepared_=true;next.reset();*this=next;return true;
