@@ -24,7 +24,7 @@ bool Libra::prepare(float rate,LibraControls c,unsigned factor,bool feedback,flo
     const unsigned center=(next.taps_-1)/2;double sum=0;for(unsigned n=0;n<=center;++n){const double x=double(n)-center,cutoff=.4/factor;next.fir_[n]=float((x==0?2*cutoff:std::sin(2*pi*cutoff*x)/(pi*x))*(.42-.5*std::cos(2*pi*n/(next.taps_-1))+.08*std::cos(4*pi*n/(next.taps_-1))));sum+=next.fir_[n]*(n==center?1:2);}for(auto& x:next.fir_)x=float(x/sum);
     next.prepared_=true;next.reset();*this=next;return true;
 }
-LibraProbe Libra::dc(float input) const noexcept {if(!prepared_||!std::isfinite(input))return {};auto p=select(A*std::clamp(input,-4.f,4.f),true);p.errorVolts=input-beta_*p.combinedVolts;p.poleResidualVolts=p.driverVolts-A*p.errorVolts;return p;}
+LibraProbe Libra::dc(float input) const noexcept {if(!prepared_||!std::isfinite(input)||std::abs(input)>4)return {};auto p=select(A*std::clamp(input,-4.f,4.f),true);p.errorVolts=input-beta_*p.combinedVolts;p.poleResidualVolts=p.driverVolts-A*p.errorVolts;return p;}
 void Libra::reset() noexcept {up_.fill(0);down_.fill(0);upIndex_=downIndex_=0;inputZ_=outputZ_=0;driver_=bias_.driverVolts;failures_=clamps_=invalid_=rails_=0;probe_=bias_;running_=prepared_;}
 float Libra::sample(float input) noexcept {
     const float v=(input-inputZ_)*inputG_,low=inputZ_+v;inputZ_=low+v;const float pre=std::clamp((input-low)*gain_,-4.f,4.f),previous=driver_;

@@ -1,0 +1,25 @@
+{
+  "reference": "Independent SPICE resistor network, base-junction piecewise0.64V conduction with0.01ohm on resistance and separate beta100 current-controlled collectors. Not a calibrated builtin2N3904/2N3906 model.",
+  "simulator": "******\n** ngspice-44.2 : Circuit level simulation program\n** Compiled with KLU Direct Linear Solver\n** The U. C. Berkeley CAD Group\n** Copyright 1985-1994, Regents of the University of California.\n** Copyright 2001-2024, The ngspice team.\n** Please get your ngspice manual from https://ngspice.sourceforge.io/docs.html\n** Please file your bug-reports at http://ngspice.sourceforge.net/bugrep.html\n** Creation Date: Sun Jan 12 08:19:15 UTC 2025\n******",
+  "simulator_sha256": "5854f6506e3e54e0553b687401a5d82aec82229c2c28a93b7eb37b6e079dda84",
+  "generator_sha256": "e180ab62fc264083c2f2a974fee82a85ef29d049c30398da024c46c281f03b56",
+  "fixtures": {
+    "bias.csv": "973fc623b77863a5d8ed9c933d537367597ac490281d3d2c02500e3ba6923b4c",
+    "curve.csv": "74bbc2ce0af8ac41030f04d0930433a6d8e86fb7b9f3ef5d7e09362dfaca7c05",
+    "dc-0-0.cir": "ee3e87805405263a2f29ca749143e79cfe690155c2ce1f5b109d614cd4819467",
+    "dc-0-1.cir": "48e392669f99588aa196bd39cfabeea9bbfcc7ef7907c47209fe7d169ef8518c",
+    "dc-1-0.cir": "7da5df158b2e7db15c380f294470c1ca4fbf09b7cd892ebaafa9f8b9a4940156",
+    "dc-1-1.cir": "ba0706330c83bbf23fd418fb8e5bee1c476fbb4853067fd729207039afc66dd5",
+    "load-0-100.cir": "3186d0724225ae3045217513e5e5a6a621431f5b471a1ec75b0f532d7809a849",
+    "load-0-10000.cir": "6f8316b10c6069c48695c3f8f3cfe64df3fe201bdb42c265d43cf9b04576244c",
+    "load-1-100.cir": "3ad8053f21dd5ef97711fcdd49eef6fc5c1dfdbb2a945b5cd4cdca43721c48df",
+    "load-1-10000.cir": "062b157a42c9bd735e26a3ed19f2d63cffe9a8a7939c5fed11725420502204b8",
+    "load.csv": "7b23eda517613f07968acc5f81cf5310023596c2c559719a1cf9a0c820dc0017",
+    "overload-0.cir": "861dce90b5333ce1f3f9e2583791590d61b89f271425ef1be0f372d202036196",
+    "overload-1.cir": "766a4593d71791553ca9bfa2593ebb653f80e64c1f6510ee930353a2cf84890a",
+    "overload.csv": "0e88ab08eaa537701fc27cf2e754edf0111f8771db177f00530e73f2d3c22490",
+    "transient-0.cir": "2ab4c8a61b59db0503f13bab0f3a3dfde42017659cdfdef6ea65bef9cd7fd9dc",
+    "transient-1.cir": "c493f8130a6978855c7ad0b3b5548e61dd08c1896e94c1ecc608539de1ff5a5e",
+    "transient.csv": "55005cca94d0273d1bbd795d9643d3a67b422c42eef274949ac82f312af0b247"
+  }
+}
