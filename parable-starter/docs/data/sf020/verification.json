@@ -1,0 +1,17 @@
+{
+  "base": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+  "unchanged_protected_files": 452,
+  "prior_ci_steps": "All original parsed step dictionaries retained in order",
+  "reference_regeneration": "byte identical CSV and JSON",
+  "native_render_count": 19,
+  "source_wav_count": 1,
+  "source_identity": "all retained SHA verified against final source",
+  "guitar": {
+    "rate": 48000,
+    "seconds": 8,
+    "tail": 4
+  },
+  "musical_acceptance": "pending",
+  "firmware_runtime": "not integrated/tested",
+  "remote_ci": "not yet observed; see PR checks"
+}

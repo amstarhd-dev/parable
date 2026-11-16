@@ -1,5 +1,19 @@
 # Implementation status and reproducible baseline
 
+## SF-020 — experimental coupled-room Gemini voice
+
+Specified/implemented: two damped four-line native rooms with one bidirectional
+connection; one B-to-A return polarity flip. Standalone mono, A/B diagnostic taps,
+fixed caller storage,20ms owner-thread controls.19 rendered listening/impulse WAVs
+plus approved take03 source. [Report/commands](SF020_REPORT.md), [ADR020](adr/ADR-020-gemini-coupled-rooms.md).
+Host-tested: focused Release4/4, Debug4/4, ASan+UBSan2/2; independent dense recurrence,
+transfer/isolation/one-wire causality/decay/safety/PCM. ARM compile-inspected:1612B
+text,204B processor,39828/43356/86708B delay storage at44.1/48/96k. No audio calls
+or doubles. Hardware-tested/musically accepted: **none**. Two-room recognition,
+fault musical value, M7 cycles, boot/IO and integration remain pending. No prior
+DSP, patch/runtime/firmware or correspondence changed; PR48/72 untouched.
+
+
 ## SF-014 — experimental standalone Lockhart / one feed resistor
 
 [Gate0](SF014_GATE0.md), [ADR014](adr/ADR-014-lockhart-feed-resistor.md),

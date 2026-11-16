@@ -1,0 +1,10 @@
+Internal ctest changing into directory: /workspace/work/sf020-sanitized
+Test project /workspace/work/sf020-sanitized
+    Start 41: coupled_rooms_network_and_safety
+1/2 Test #41: coupled_rooms_network_and_safety ...   Passed    2.40 sec
+    Start 42: coupled_rooms_listening_cli
+2/2 Test #42: coupled_rooms_listening_cli ........   Passed    1.06 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   3.46 sec
