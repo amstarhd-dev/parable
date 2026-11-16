@@ -1362,6 +1362,92 @@
           "paths": []
         }
       }
+    },
+    {
+      "id": "plate",
+      "type": "model",
+      "paths": [
+        "parable-starter/include/parable_plate.h",
+        "parable-starter/src/parable_plate.cpp",
+        "parable-starter/docs/adr/ADR-019-jupiter-taurus-plate.md"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/plate/provenance.json",
+          "candidate": 0,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/plate/MIT-NOTICE.txt"
+          ],
+          "scope": "MIT Dattorro structure and nominal delay/tap network independently adapted; no copyleft source imported"
+        },
+        {
+          "provenance_path": "parable-starter/third_party/plate/provenance.json",
+          "candidate": 1,
+          "relationship": "audit-only",
+          "notice_paths": [],
+          "scope": "MIT C++ alternative examined for controls and interpolation; no verbatim source imported"
+        }
+      ],
+      "ownership_notes": "Experimental independent C++17 adaptation of Dattorro layout and locally designed mount-contact coupling. No claim of a licensed global Parable release.",
+      "physics_notes": "Two synthetic figure-eight tanks, not flexural plate FEM; local mode driven by wet return with dimensionless unilateral gap 3.0 healthy / 0.045 damaged; impact feeds diffuser; rest of parameters unchanged.",
+      "behavior": "Standalone stopped preparation of heap-backed delay buffers; fixed-time native process; mono plate-character wet/dry and one damaged mount clearance. No patch integration.",
+      "limitations": [
+        "Dattorro reverb does not model sheet displacement, actual mount force or an EMT 140; local modal coupling is uncalibrated.",
+        "Only smoke tests and host time so far; no independent physical, spectral alias, callback guard, ASan, M7 object or target evidence.",
+        "No human sound approval, hardware audio or canonical/Engine integration. Audio preview is a conversation artifact, not tracked WAVs."
+      ],
+      "dependencies": {
+        "assets": [
+          "host.pcm16",
+          "host.signal-analysis"
+        ],
+        "external": [
+          "C++17 std::vector allocated off callback; libm during stopped preparation; no new runtime dependencies."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Standalone Debug/Release finite/rate/reset/stop and weak/strong contact contrast tests; not full CI.",
+          "paths": [
+            "parable-starter/tests/test_plate.cpp"
+          ]
+        },
+        "independent_circuit": {
+          "status": "not-performed",
+          "scope": "Unilateral contact energy relation is analytic; no physical/SPICE or independent numerical reference.",
+          "paths": []
+        },
+        "synthetic_audition": {
+          "status": "not-performed",
+          "scope": "Sine probe tested for mechanism; no additional synthetic listening WAV.",
+          "paths": []
+        },
+        "real_guitar_audition": {
+          "status": "not-performed",
+          "scope": "Native preview WAVs generated from approved take03 and offered for founder audition; approval pending.",
+          "paths": [
+            "parable-starter/third_party/plate/AUDIO_NOTICE.md",
+            "parable-starter/docs/SF019_REPORT.md"
+          ]
+        },
+        "arm_cross_compile": {
+          "status": "not-performed",
+          "scope": "No pinned M7 object, cycle/callgraph or stack/SDRAM evidence.",
+          "paths": []
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No physical boot, ADC/DAC, CPU/latency/signal quality or performance data.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "No Engine, patch schema, Runtime, firmware, storage or symbolic compiler change.",
+          "paths": []
+        }
+      }
     }
   ]
 }
