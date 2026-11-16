@@ -1,0 +1,30 @@
+Independent loaded passive Tone/Level
+Vin input 0 AC 1
+R14 input x 2200
+Rc9 x d 5.540780141843972
+Rc10 d 0 260.4166666666667
+Rc11 d z 118.37121212121214
+Rc12 l 0 26.041666666666668
+R15 z h 2200
+R17 h 0 6800
+R16 d l 6800
+Rbright h w 10000.0
+Rdark l w 10000.0
+Rleveltop w jack 20000
+Rlevelbottom jack 0 80000
+Rbuffer jack 0 1meg
+.model D D(IS=2.52e-9 N=1.752 TNOM=26.85)
+Dpositive d 0 D
+Dnegative 0 d D
+
+.options reltol=1e-8 abstol=1e-13 vntol=1e-10 gmin=1e-14
+.temp 26.85
+.control
+set noaskquit
+set wr_singlescale
+set wr_vecnames
+dc Vin -32 32 8
+wrdata clip-diodes.txt v(d)
+quit
+.endc
+.end

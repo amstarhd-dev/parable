@@ -1,0 +1,83 @@
+Start testing: Nov 16 00:00 UTC
+----------------------------------------------------------
+42/42 Testing: capricorn_listening_cli
+42/42 Test: capricorn_listening_cli
+Command: "/workspace/work/baseline-tools/bin/python3.12" "/workspace/work/parable-sf018/parable-starter/tests/test_capricorn_cli.py" "/workspace/work/sf018-release/parable_capricorn_lab"
+Directory: /workspace/work/sf018-release
+"capricorn_listening_cli" start time: Nov 16 00:00 UTC
+Output:
+----------------------------------------------------------
+9 native WAVs: raw/matched healthy/C4 pairs, controls, PCM levels, fixture/generator integrity and source protection pass
+<end of output>
+Test time =   2.09 sec
+----------------------------------------------------------
+Test Passed.
+"capricorn_listening_cli" end time: Nov 16 00:00 UTC
+"capricorn_listening_cli" time elapsed: 00:00:02
+----------------------------------------------------------
+
+41/42 Testing: capricorn_circuit_and_safety
+41/42 Test: capricorn_circuit_and_safety
+Command: "/workspace/work/sf018-release/parable_capricorn_test"
+Directory: /workspace/work/sf018-release
+"capricorn_circuit_and_safety" start time: Nov 16 00:00 UTC
+Output:
+----------------------------------------------------------
+Q2 open=0 Hz=100 gain=10.7498 reference_with_input=10.7498 relative_error=1.98534e-06
+Q2 open=0 Hz=1000 gain=57.473 reference_with_input=57.4736 relative_error=1.07182e-05
+Q2 open=0 Hz=6000 gain=61.5089 reference_with_input=61.5284 relative_error=0.000317959
+Q2 open=0 Hz=12000 gain=51.8469 reference_with_input=51.9268 relative_error=0.00153793
+Q2 open=1 Hz=100 gain=10.8352 reference_with_input=10.8353 relative_error=8.47014e-06
+Q2 open=1 Hz=1000 gain=74.6352 reference_with_input=74.6367 relative_error=2.02108e-05
+Q2 open=1 Hz=6000 gain=97.1168 reference_with_input=97.1444 relative_error=0.000284667
+Q2 open=1 Hz=12000 gain=97.7548 reference_with_input=97.8742 relative_error=0.00121949
+Peak errors: DC_V=1.04774e-06 Q2_curve_V=1.31011e-06 diode_V=2.28632e-07 Q2_AC_relative=0.00153793 Tone_relative=0.000793434 actual_clip_peak_V=0.606025 amp_peak_V=3
+7968.75Hz nonharmonic spur open=0 1x/4x/8x_dBr=-15.2856/-42.7906/-56.2283 (observation, not a measured-pedal match)
+7968.75Hz nonharmonic spur open=1 1x/4x/8x_dBr=-15.0373/-39.2265/-50.2583 (observation, not a measured-pedal match)
+Rate/control/endpoint/finite/reset/silence/rejected-prepare/callback conditions pass; instance_bytes=8832
+Capricorn CHECKs=368 passed
+<end of output>
+Test time =   2.18 sec
+----------------------------------------------------------
+Test Passed.
+"capricorn_circuit_and_safety" end time: Nov 16 00:00 UTC
+"capricorn_circuit_and_safety" time elapsed: 00:00:02
+----------------------------------------------------------
+
+11/42 Testing: soundforge_registry
+11/42 Test: soundforge_registry
+Command: "/workspace/work/baseline-tools/bin/python3.12" "/workspace/work/parable-sf018/parable-starter/tools/soundforge/validate_registry.py"
+Directory: /workspace/work/sf018-release
+"soundforge_registry" start time: Nov 16 00:00 UTC
+Output:
+----------------------------------------------------------
+Validated 14 Soundforge assets offline; evidence claims require human review.
+<end of output>
+Test time =   0.13 sec
+----------------------------------------------------------
+Test Passed.
+"soundforge_registry" end time: Nov 16 00:00 UTC
+"soundforge_registry" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/42 Testing: soundforge_registry_negative
+12/42 Test: soundforge_registry_negative
+Command: "/workspace/work/baseline-tools/bin/python3.12" "/workspace/work/parable-sf018/parable-starter/tests/test_soundforge_registry.py"
+Directory: /workspace/work/sf018-release
+"soundforge_registry_negative" start time: Nov 16 00:00 UTC
+Output:
+----------------------------------------------------------
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.229s
+
+OK
+<end of output>
+Test time =   0.33 sec
+----------------------------------------------------------
+Test Passed.
+"soundforge_registry_negative" end time: Nov 16 00:00 UTC
+"soundforge_registry_negative" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 16 00:00 UTC

@@ -957,3 +957,16 @@ results; original logs retained. See[SF017_REPORT.md](SF017_REPORT.md) and
 remote checks remain unverified. ARM object/layout/calls audited;
 hardware cycles/boot/audio and physical magnetic/device fidelity **not tested**.
 Founder musical audition/approval **pending**; generated audio is not approval.
+
+## SF-018 — standalone original DS-1-family experiment
+
+Specified/implemented: reduced original1978 Q2/TA7136/hard-clipping/loaded Tone
+path, Distortion/Tone/Level and one open C4 only. Native nine-file take03 A/B,
+raw and RMS matched; no Engine/firmware/correspondence integration.
+Host-tested: focused Debug/Release4/4 each, affected ASan+UBSan2/2, independent
+reduced SPICE, alias/reset/controls/callback/CLI/source checks; all Release targets
+build. Old circuit suites not run locally under issue68's proportional policy.
+ARM object/reachable calls/layout audited; **hardware cycles/audio/boot untested**.
+Musical authenticity/distinctness and founder listening approval **pending**.
+[Report](SF018_REPORT.md), [ADR018](adr/ADR-018-capricorn-c4-open.md),
+[exact evidence](data/sf018/README.md), [nine WAVs](../samples/capricorn/README.md).

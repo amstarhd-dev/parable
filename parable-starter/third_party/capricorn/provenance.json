@@ -1,0 +1,32 @@
+{
+  "reference": {
+    "url": "https://www.gitec-forum-eng.de/wp-content/uploads/2019/05/bcm5_distortion-3-boss_ds_1_w_en.pdf",
+    "revision": "Meiser/GITEC2019 Figure1 original1978, not post1994 DS1A",
+    "sha256": "5c3cd5c819e317fb05aad8c6e174b533008bd7b7c63554ce6ff66c4daa339f9d",
+    "rights": "Facts only; no artwork/proprietary DSP imported"
+  },
+  "candidates": [
+    {
+      "url": "https://github.com/HSU-ANT/ACME.jl",
+      "revision": "3832ccafb952ee2ca0a27286c091d613062c23fd",
+      "license": "MIT",
+      "use": "Nominal Ebers-Moll/diode foundation via existing main Muff/TS808/wavefolder"
+    },
+    {
+      "url": "https://github.com/Chowdhury-DSP/chowdsp_wdf",
+      "revision": "43bcd295e8403de913f9966f4fd7ff9d17c9f1a5",
+      "license": "BSD-3-Clause",
+      "use": "Audited LICENSE and include/chowdsp_wdf/wdft/wdft_nonlinearities.h; no import. Existing nominal Shockley plus stopped table avoids new WDF dependency/registry license-policy expansion"
+    }
+  ],
+  "secondary": [
+    {
+      "url": "https://electrosmash.mas-effects.com/boss-ds1-analysis",
+      "use": "Revision comparison only; its displayed post1994 BOM is not our BOM"
+    },
+    {
+      "url": "https://stompboxelectronics.com/2022/12/09/history-of-the-boss-ds-1/",
+      "use": "History/TA7136 family cross-check; no historical-specimen authentication"
+    }
+  ]
+}

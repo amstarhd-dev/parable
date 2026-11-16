@@ -1,0 +1,10 @@
+Internal ctest changing into directory: /workspace/work/sf018-sanitized
+Test project /workspace/work/sf018-sanitized
+    Start 42: capricorn_listening_cli
+    Start 41: capricorn_circuit_and_safety
+1/2 Test #41: capricorn_circuit_and_safety .....   Passed    6.16 sec
+2/2 Test #42: capricorn_listening_cli ..........   Passed    6.70 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   6.70 sec
