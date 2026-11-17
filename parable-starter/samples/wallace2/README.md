@@ -1,5 +1,8 @@
 # Wallace II — listen first
 
+**[Download the listening ZIP](SF024-listening.zip)**: ten matched comparisons,
+three clean solos, three shared-gain controls and credits. Unzip and play locally.
+
 Ten matched mono48k PCM16 WAVs,20s same Guitar-TECHS take03 +9s native tail.
 Download the raw file in GitHub before playing; use headphones/monitors if available.
 The clean guitar is present by default; it bypasses Muff/Rotary/Tape/Hall and
