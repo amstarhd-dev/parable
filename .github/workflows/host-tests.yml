@@ -25,6 +25,24 @@ jobs:
         run: cmake --build build
       - name: Test
         run: ctest --test-dir build --output-on-failure --no-tests=error
+      - name: Render complete borrowed Leo hall and coherent-reflection fault
+        if: matrix.build_type == 'Release'
+        run: |
+          ./build/parable_hall_lab --input samples/hall/input_take03_20s.wav --output build/hall-auditions
+          ./build/hall_candidate_kCathedral samples/hall/input_take03_20s.wav build/hall-auditions/original
+          ./build/hall_candidate_Verbity samples/hall/input_take03_20s.wav build/hall-auditions/verbity
+          cmp build/hall-auditions/healthy_wet.wav build/hall-auditions/original/wet.wav
+          git rev-parse HEAD > build/hall-auditions/SOURCE_COMMIT
+          sha256sum include/parable_hall.h src/parable_hall.cpp src/hall_core.* tools/hall* tools/check_hall_arm.py third_party/hall/upstream/* > build/hall-auditions/SOURCE_SHA256SUMS
+          cp third_party/hall/AUDIO_NOTICE.md third_party/hall/provenance.json third_party/hall/upstream/LICENSE build/hall-auditions/
+      - name: Publish Leo hall listening files and source identity
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-hall-auditions
+          path: parable-starter/build/hall-auditions/
+          if-no-files-found: error
+          retention-days: 30
       - name: Render S698 Klon three Gain pairs and one clean-wiper contact with NEW take03
         if: matrix.build_type == 'Release'
         env:
@@ -449,6 +467,16 @@ jobs:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1
         run: ctest --test-dir build/scorpio-sanitized --output-on-failure --no-tests=error -R '^scorpio_' -j2
+
+      - name: Configure focused complete-hall sanitizers
+        run: cmake -S . -B build/hall-sanitized -DCMAKE_BUILD_TYPE=Debug -DFETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON="$PWD/build/_deps/nlohmann_json-src" -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -O1" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
+      - name: Build focused hall sanitizer targets
+        run: cmake --build build/hall-sanitized --target parable_hall_test parable_hall_lab -j2
+      - name: Test hall reference, decay, callback and listening with sanitizers
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1:max_malloc_fill_size=100000000
+          UBSAN_OPTIONS: halt_on_error=1
+        run: ctest --test-dir build/hall-sanitized --output-on-failure --no-tests=error -R '^hall_'
 
   activation-tsan:
     runs-on: ubuntu-24.04
