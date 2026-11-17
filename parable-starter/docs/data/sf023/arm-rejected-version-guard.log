@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/work/parable-sf023/parable-starter/tools/check_wallace_arm.py", line 10, in <module>
+    version=run([cc,'--version']);assert '14.2.1-1.1' in version
+                                         ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,13 @@
+[ 50%] Building CXX object CMakeFiles/parable_soundforge_test.dir/tests/test_soundforge.cpp.o
+[100%] Linking CXX executable parable_soundforge_test
+[100%] Built target parable_soundforge_test
+[  0%] Building CXX object CMakeFiles/parable_rat.dir/src/parable_rat.cpp.o
+[ 33%] Linking CXX static library libparable_rat.a
+[ 33%] Built target parable_rat
+[ 66%] Building CXX object CMakeFiles/parable_core_test.dir/tests/test_core.cpp.o
+[100%] Linking CXX executable parable_core_test
+[100%] Built target parable_core_test
+[ 50%] Built target parable_rat
+[100%] Building CXX object CMakeFiles/parable_audio_safety_test.dir/tests/test_audio_safety.cpp.o
+[100%] Linking CXX executable parable_audio_safety_test
+[100%] Built target parable_audio_safety_test

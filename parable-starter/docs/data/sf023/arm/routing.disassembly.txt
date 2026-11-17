@@ -1,0 +1,404 @@
+
+/workspace/work/sf023-arm/routing.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <wallace::Routing::Highpass::prepare(float)>:
+   0:	ed9f 6b21 	vldr	d6, [pc, #132]	@ 88 <wallace::Routing::Highpass::prepare(float)+0x88>
+   4:	eeb7 0ac0 	vcvt.f64.f32	d0, s0
+   8:	ed9f 7b21 	vldr	d7, [pc, #132]	@ 90 <wallace::Routing::Highpass::prepare(float)+0x90>
+   c:	ee20 0b06 	vmul.f64	d0, d0, d6
+  10:	b510      	push	{r4, lr}
+  12:	ee80 0b07 	vdiv.f64	d0, d0, d7
+  16:	4604      	mov	r4, r0
+  18:	f7ff fffe 	bl	0 <tan>
+			18: R_ARM_THM_CALL	tan
+  1c:	2300      	movs	r3, #0
+  1e:	61a3      	str	r3, [r4, #24]
+  20:	eeb7 2b00 	vmov.f64	d2, #112	@ 0x3f800000  1.0
+  24:	6163      	str	r3, [r4, #20]
+  26:	eebf 7b00 	vmov.f64	d7, #240	@ 0xbf800000 -1.0
+  2a:	eeb8 4b00 	vmov.f64	d4, #128	@ 0xc0000000 -2.0
+  2e:	eeb0 3b42 	vmov.f64	d3, d2
+  32:	eeb0 6b42 	vmov.f64	d6, d2
+  36:	eea0 7b00 	vfma.f64	d7, d0, d0
+  3a:	ed9f 5b17 	vldr	d5, [pc, #92]	@ 98 <wallace::Routing::Highpass::prepare(float)+0x98>
+  3e:	eea0 3b05 	vfma.f64	d3, d0, d5
+  42:	eea0 6b45 	vfms.f64	d6, d0, d5
+  46:	ee37 7b07 	vadd.f64	d7, d7, d7
+  4a:	eea0 3b00 	vfma.f64	d3, d0, d0
+  4e:	eea0 6b00 	vfma.f64	d6, d0, d0
+  52:	ee82 5b03 	vdiv.f64	d5, d2, d3
+  56:	ee25 4b04 	vmul.f64	d4, d5, d4
+  5a:	ee27 7b05 	vmul.f64	d7, d7, d5
+  5e:	ee26 6b05 	vmul.f64	d6, d6, d5
+  62:	eeb7 4bc4 	vcvt.f32.f64	s8, d4
+  66:	eeb7 5bc5 	vcvt.f32.f64	s10, d5
+  6a:	eeb7 7bc7 	vcvt.f32.f64	s14, d7
+  6e:	eeb7 6bc6 	vcvt.f32.f64	s12, d6
+  72:	ed84 4a01 	vstr	s8, [r4, #4]
+  76:	ed84 5a00 	vstr	s10, [r4]
+  7a:	ed84 5a02 	vstr	s10, [r4, #8]
+  7e:	ed84 7a03 	vstr	s14, [r4, #12]
+  82:	ed84 6a04 	vstr	s12, [r4, #16]
+  86:	bd10      	pop	{r4, pc}
+  88:	54442d18 	.word	0x54442d18
+  8c:	400921fb 	.word	0x400921fb
+  90:	00000000 	.word	0x00000000
+  94:	40e77000 	.word	0x40e77000
+  98:	667f3bcd 	.word	0x667f3bcd
+  9c:	3ff6a09e 	.word	0x3ff6a09e
+
+000000a0 <wallace::Routing::Highpass::process(float)>:
+  a0:	eef0 6a40 	vmov.f32	s13, s0
+  a4:	edd0 7a00 	vldr	s15, [r0]
+  a8:	ed90 0a05 	vldr	s0, [r0, #20]
+  ac:	ed90 7a03 	vldr	s14, [r0, #12]
+  b0:	eea7 0aa6 	vfma.f32	s0, s15, s13
+  b4:	ed90 5a01 	vldr	s10, [r0, #4]
+  b8:	edd0 7a04 	vldr	s15, [r0, #16]
+  bc:	edd0 5a02 	vldr	s11, [r0, #8]
+  c0:	ed90 6a06 	vldr	s12, [r0, #24]
+  c4:	ee27 7a40 	vnmul.f32	s14, s14, s0
+  c8:	ee67 7ac0 	vnmul.f32	s15, s15, s0
+  cc:	eea5 7a26 	vfma.f32	s14, s10, s13
+  d0:	eee5 7aa6 	vfma.f32	s15, s11, s13
+  d4:	ee36 6a07 	vadd.f32	s12, s12, s14
+  d8:	edc0 7a06 	vstr	s15, [r0, #24]
+  dc:	ed80 6a05 	vstr	s12, [r0, #20]
+  e0:	4770      	bx	lr
+  e2:	bf00      	nop
+
+000000e4 <wallace::Routing::prepare(wallace::RoutingConfig const&)>:
+  e4:	b570      	push	{r4, r5, r6, lr}
+  e6:	680a      	ldr	r2, [r1, #0]
+  e8:	4604      	mov	r4, r0
+  ea:	ed9f 7ab1 	vldr	s14, [pc, #708]	@ 3b0 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x2cc>
+  ee:	ed2d 8b06 	vpush	{d8-d10}
+  f2:	b08a      	sub	sp, #40	@ 0x28
+  f4:	9202      	str	r2, [sp, #8]
+  f6:	ab02      	add	r3, sp, #8
+  f8:	684a      	ldr	r2, [r1, #4]
+  fa:	9203      	str	r2, [sp, #12]
+  fc:	688a      	ldr	r2, [r1, #8]
+  fe:	9204      	str	r2, [sp, #16]
+ 100:	68ca      	ldr	r2, [r1, #12]
+ 102:	9205      	str	r2, [sp, #20]
+ 104:	690a      	ldr	r2, [r1, #16]
+ 106:	9206      	str	r2, [sp, #24]
+ 108:	694a      	ldr	r2, [r1, #20]
+ 10a:	9207      	str	r2, [sp, #28]
+ 10c:	698a      	ldr	r2, [r1, #24]
+ 10e:	9208      	str	r2, [sp, #32]
+ 110:	69ca      	ldr	r2, [r1, #28]
+ 112:	9209      	str	r2, [sp, #36]	@ 0x24
+ 114:	edd3 7a00 	vldr	s15, [r3]
+ 118:	eef0 6ae7 	vabs.f32	s13, s15
+ 11c:	eef4 6a47 	vcmp.f32	s13, s14
+ 120:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 124:	d806      	bhi.n	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 126:	eef5 7ac0 	vcmpe.f32	s15, #0.0
+ 12a:	eef0 6a00 	vmov.f32	s13, #0	@ 0x40000000  2.0
+ 12e:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 132:	da04      	bge.n	13e <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x5a>
+ 134:	2000      	movs	r0, #0
+ 136:	b00a      	add	sp, #40	@ 0x28
+ 138:	ecbd 8b06 	vpop	{d8-d10}
+ 13c:	bd70      	pop	{r4, r5, r6, pc}
+ 13e:	eef4 7ae6 	vcmpe.f32	s15, s13
+ 142:	3304      	adds	r3, #4
+ 144:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 148:	d8f4      	bhi.n	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 14a:	aa0a      	add	r2, sp, #40	@ 0x28
+ 14c:	429a      	cmp	r2, r3
+ 14e:	d1e1      	bne.n	114 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x30>
+ 150:	edd1 6a08 	vldr	s13, [r1, #32]
+ 154:	eef0 7ae6 	vabs.f32	s15, s13
+ 158:	eef4 7a47 	vcmp.f32	s15, s14
+ 15c:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 160:	d8e8      	bhi.n	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 162:	eef3 7a04 	vmov.f32	s15, #52	@ 0x41a00000  20.0
+ 166:	eef4 6ae7 	vcmpe.f32	s13, s15
+ 16a:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 16e:	dbe1      	blt.n	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 170:	ed9f 6a90 	vldr	s12, [pc, #576]	@ 3b4 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x2d0>
+ 174:	eef4 6ac6 	vcmpe.f32	s13, s12
+ 178:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 17c:	d8da      	bhi.n	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 17e:	edd1 6a09 	vldr	s13, [r1, #36]	@ 0x24
+ 182:	eef0 5ae6 	vabs.f32	s11, s13
+ 186:	eef4 5a47 	vcmp.f32	s11, s14
+ 18a:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 18e:	d8d1      	bhi.n	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 190:	eef4 6ae7 	vcmpe.f32	s13, s15
+ 194:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 198:	dbcc      	blt.n	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 19a:	eef4 6ac6 	vcmpe.f32	s13, s12
+ 19e:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 1a2:	d8c7      	bhi.n	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 1a4:	ed91 7a0a 	vldr	s14, [r1, #40]	@ 0x28
+ 1a8:	eddf 7a81 	vldr	s15, [pc, #516]	@ 3b0 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x2cc>
+ 1ac:	eef0 6ac7 	vabs.f32	s13, s14
+ 1b0:	eef4 6a67 	vcmp.f32	s13, s15
+ 1b4:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 1b8:	d8bc      	bhi.n	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 1ba:	eef7 6a00 	vmov.f32	s13, #112	@ 0x3f800000  1.0
+ 1be:	eeb4 7ae6 	vcmpe.f32	s14, s13
+ 1c2:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 1c6:	dbb5      	blt.n	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 1c8:	eddf 6a7b 	vldr	s13, [pc, #492]	@ 3b8 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x2d4>
+ 1cc:	eeb4 7ae6 	vcmpe.f32	s14, s13
+ 1d0:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 1d4:	d8ae      	bhi.n	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 1d6:	ed91 7a0b 	vldr	s14, [r1, #44]	@ 0x2c
+ 1da:	eef0 6ac7 	vabs.f32	s13, s14
+ 1de:	eef4 6a67 	vcmp.f32	s13, s15
+ 1e2:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 1e6:	d8a5      	bhi.n	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 1e8:	eef2 6a04 	vmov.f32	s13, #36	@ 0x41200000  10.0
+ 1ec:	eeb4 7ae6 	vcmpe.f32	s14, s13
+ 1f0:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 1f4:	db9e      	blt.n	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 1f6:	eddf 6a71 	vldr	s13, [pc, #452]	@ 3bc <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x2d8>
+ 1fa:	eeb4 7ae6 	vcmpe.f32	s14, s13
+ 1fe:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 202:	d897      	bhi.n	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 204:	ed91 7a0c 	vldr	s14, [r1, #48]	@ 0x30
+ 208:	eef0 6ac7 	vabs.f32	s13, s14
+ 20c:	eef4 6a67 	vcmp.f32	s13, s15
+ 210:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 214:	d88e      	bhi.n	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 216:	eeb5 7ac0 	vcmpe.f32	s14, #0.0
+ 21a:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 21e:	db89      	blt.n	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 220:	eef1 6a08 	vmov.f32	s13, #24	@ 0x40c00000  6.0
+ 224:	eeb4 7ae6 	vcmpe.f32	s14, s13
+ 228:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 22c:	d882      	bhi.n	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 22e:	ed91 7a0d 	vldr	s14, [r1, #52]	@ 0x34
+ 232:	eef0 6ac7 	vabs.f32	s13, s14
+ 236:	eef4 6a67 	vcmp.f32	s13, s15
+ 23a:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 23e:	f63f af79 	bhi.w	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 242:	eeb5 7ac0 	vcmpe.f32	s14, #0.0
+ 246:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 24a:	f6ff af73 	blt.w	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 24e:	eddf 7a5c 	vldr	s15, [pc, #368]	@ 3c0 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x2dc>
+ 252:	eeb4 7ae7 	vcmpe.f32	s14, s15
+ 256:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 25a:	f63f af6b 	bhi.w	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 25e:	edd1 7a0e 	vldr	s15, [r1, #56]	@ 0x38
+ 262:	eddf 6a53 	vldr	s13, [pc, #332]	@ 3b0 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x2cc>
+ 266:	eeb0 6ae7 	vabs.f32	s12, s15
+ 26a:	eeb4 6a66 	vcmp.f32	s12, s13
+ 26e:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 272:	f63f af5f 	bhi.w	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 276:	eddf 6a53 	vldr	s13, [pc, #332]	@ 3c4 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x2e0>
+ 27a:	eef4 7ae6 	vcmpe.f32	s15, s13
+ 27e:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 282:	f6ff af57 	blt.w	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 286:	eef7 6a00 	vmov.f32	s13, #112	@ 0x3f800000  1.0
+ 28a:	eef4 7ae6 	vcmpe.f32	s15, s13
+ 28e:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 292:	f63f af4f 	bhi.w	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 296:	eeb4 7ae7 	vcmpe.f32	s14, s15
+ 29a:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 29e:	f6bf af49 	bge.w	134 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x50>
+ 2a2:	460b      	mov	r3, r1
+ 2a4:	f104 0238 	add.w	r2, r4, #56	@ 0x38
+ 2a8:	f101 0030 	add.w	r0, r1, #48	@ 0x30
+ 2ac:	681e      	ldr	r6, [r3, #0]
+ 2ae:	3310      	adds	r3, #16
+ 2b0:	f853 5c0c 	ldr.w	r5, [r3, #-12]
+ 2b4:	3210      	adds	r2, #16
+ 2b6:	f853 ec08 	ldr.w	lr, [r3, #-8]
+ 2ba:	f853 cc04 	ldr.w	ip, [r3, #-4]
+ 2be:	4283      	cmp	r3, r0
+ 2c0:	f842 6c10 	str.w	r6, [r2, #-16]
+ 2c4:	f842 5c0c 	str.w	r5, [r2, #-12]
+ 2c8:	f842 ec08 	str.w	lr, [r2, #-8]
+ 2cc:	f842 cc04 	str.w	ip, [r2, #-4]
+ 2d0:	d1ec      	bne.n	2ac <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x1c8>
+ 2d2:	f8d3 e000 	ldr.w	lr, [r3]
+ 2d6:	f8d3 c004 	ldr.w	ip, [r3, #4]
+ 2da:	6898      	ldr	r0, [r3, #8]
+ 2dc:	f8c2 e000 	str.w	lr, [r2]
+ 2e0:	6090      	str	r0, [r2, #8]
+ 2e2:	4620      	mov	r0, r4
+ 2e4:	f8c2 c004 	str.w	ip, [r2, #4]
+ 2e8:	899b      	ldrh	r3, [r3, #12]
+ 2ea:	8193      	strh	r3, [r2, #12]
+ 2ec:	ed91 0a08 	vldr	s0, [r1, #32]
+ 2f0:	9101      	str	r1, [sp, #4]
+ 2f2:	f7ff fffe 	bl	0 <wallace::Routing::Highpass::prepare(float)>
+			2f2: R_ARM_THM_CALL	wallace::Routing::Highpass::prepare(float)
+ 2f6:	9901      	ldr	r1, [sp, #4]
+ 2f8:	f104 001c 	add.w	r0, r4, #28
+ 2fc:	ed91 0a09 	vldr	s0, [r1, #36]	@ 0x24
+ 300:	f7ff fffe 	bl	0 <wallace::Routing::Highpass::prepare(float)>
+			300: R_ARM_THM_CALL	wallace::Routing::Highpass::prepare(float)
+ 304:	2200      	movs	r2, #0
+ 306:	f104 0378 	add.w	r3, r4, #120	@ 0x78
+ 30a:	f504 709c 	add.w	r0, r4, #312	@ 0x138
+ 30e:	9901      	ldr	r1, [sp, #4]
+ 310:	f843 2b04 	str.w	r2, [r3], #4
+ 314:	4298      	cmp	r0, r3
+ 316:	d1fb      	bne.n	310 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x22c>
+ 318:	ed91 0a0a 	vldr	s0, [r1, #40]	@ 0x28
+ 31c:	eebf 8b00 	vmov.f64	d8, #240	@ 0xbf800000 -1.0
+ 320:	2300      	movs	r3, #0
+ 322:	f8c4 213c 	str.w	r2, [r4, #316]	@ 0x13c
+ 326:	eeb7 0ac0 	vcvt.f64.f32	d0, s0
+ 32a:	9101      	str	r1, [sp, #4]
+ 32c:	f8c4 3138 	str.w	r3, [r4, #312]	@ 0x138
+ 330:	ed9f ab1b 	vldr	d10, [pc, #108]	@ 3a0 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x2bc>
+ 334:	ed9f 9b1c 	vldr	d9, [pc, #112]	@ 3a8 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x2c4>
+ 338:	ee20 0b0a 	vmul.f64	d0, d0, d10
+ 33c:	ee20 0b09 	vmul.f64	d0, d0, d9
+ 340:	ee88 0b00 	vdiv.f64	d0, d8, d0
+ 344:	f7ff fffe 	bl	0 <exp>
+			344: R_ARM_THM_CALL	exp
+ 348:	9901      	ldr	r1, [sp, #4]
+ 34a:	edd1 7a0b 	vldr	s15, [r1, #44]	@ 0x2c
+ 34e:	eeb7 7bc0 	vcvt.f32.f64	s14, d0
+ 352:	eeb7 0ae7 	vcvt.f64.f32	d0, s15
+ 356:	ed84 7a50 	vstr	s14, [r4, #320]	@ 0x140
+ 35a:	ee20 0b0a 	vmul.f64	d0, d0, d10
+ 35e:	ee20 0b09 	vmul.f64	d0, d0, d9
+ 362:	ee88 0b00 	vdiv.f64	d0, d8, d0
+ 366:	f7ff fffe 	bl	0 <exp>
+			366: R_ARM_THM_CALL	exp
+ 36a:	9901      	ldr	r1, [sp, #4]
+ 36c:	edd1 7a0c 	vldr	s15, [r1, #48]	@ 0x30
+ 370:	eeb7 7bc0 	vcvt.f32.f64	s14, d0
+ 374:	eef1 7a67 	vneg.f32	s15, s15
+ 378:	eeb3 1b04 	vmov.f64	d1, #52	@ 0x41a00000  20.0
+ 37c:	ed84 7a51 	vstr	s14, [r4, #324]	@ 0x144
+ 380:	eeb2 0b04 	vmov.f64	d0, #36	@ 0x41200000  10.0
+ 384:	eeb7 7ae7 	vcvt.f64.f32	d7, s15
+ 388:	ee87 1b01 	vdiv.f64	d1, d7, d1
+ 38c:	f7ff fffe 	bl	0 <pow>
+			38c: R_ARM_THM_CALL	pow
+ 390:	2001      	movs	r0, #1
+ 392:	eeb7 0bc0 	vcvt.f32.f64	s0, d0
+ 396:	ed84 0a52 	vstr	s0, [r4, #328]	@ 0x148
+ 39a:	e6cc      	b.n	136 <wallace::Routing::prepare(wallace::RoutingConfig const&)+0x52>
+ 39c:	f3af 8000 	nop.w
+ 3a0:	d2f1a9fc 	.word	0xd2f1a9fc
+ 3a4:	3f50624d 	.word	0x3f50624d
+ 3a8:	00000000 	.word	0x00000000
+ 3ac:	40e77000 	.word	0x40e77000
+ 3b0:	7f7fffff 	.word	0x7f7fffff
+ 3b4:	447a0000 	.word	0x447a0000
+ 3b8:	42c80000 	.word	0x42c80000
+ 3bc:	44fa0000 	.word	0x44fa0000
+ 3c0:	3f7d70a4 	.word	0x3f7d70a4
+ 3c4:	3a83126f 	.word	0x3a83126f
+
+000003c8 <wallace::Routing::process(float, float, float, float, float)>:
+ 3c8:	eef0 5ac0 	vabs.f32	s11, s0
+ 3cc:	ed91 6a4f 	vldr	s12, [r1, #316]	@ 0x13c
+ 3d0:	eef7 7a00 	vmov.f32	s15, #112	@ 0x3f800000  1.0
+ 3d4:	f891 3075 	ldrb.w	r3, [r1, #117]	@ 0x75
+ 3d8:	eeb4 6ae5 	vcmpe.f32	s12, s11
+ 3dc:	b410      	push	{r4}
+ 3de:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 3e2:	ed2d 8b02 	vpush	{d8}
+ 3e6:	bf4c      	ite	mi
+ 3e8:	edd1 6a50 	vldrmi	s13, [r1, #320]	@ 0x140
+ 3ec:	edd1 6a51 	vldrpl	s13, [r1, #324]	@ 0x144
+ 3f0:	ee37 7ae6 	vsub.f32	s14, s15, s13
+ 3f4:	ee27 7a25 	vmul.f32	s14, s14, s11
+ 3f8:	eea6 7a26 	vfma.f32	s14, s12, s13
+ 3fc:	ed81 7a4f 	vstr	s14, [r1, #316]	@ 0x13c
+ 400:	b1f3      	cbz	r3, 440 <wallace::Routing::process(float, float, float, float, float)+0x78>
+ 402:	ed91 5a1b 	vldr	s10, [r1, #108]	@ 0x6c
+ 406:	edd1 5a1c 	vldr	s11, [r1, #112]	@ 0x70
+ 40a:	ee77 4a45 	vsub.f32	s9, s14, s10
+ 40e:	eddf 6a51 	vldr	s13, [pc, #324]	@ 554 <wallace::Routing::process(float, float, float, float, float)+0x18c>
+ 412:	ee75 5ac5 	vsub.f32	s11, s11, s10
+ 416:	ed91 6a52 	vldr	s12, [r1, #328]	@ 0x148
+ 41a:	ee37 6ac6 	vsub.f32	s12, s15, s12
+ 41e:	ee84 5aa5 	vdiv.f32	s10, s9, s11
+ 422:	eeb4 5ae6 	vcmpe.f32	s10, s13
+ 426:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 42a:	bf58      	it	pl
+ 42c:	eef0 6a45 	vmovpl.f32	s13, s10
+ 430:	eef4 6ae7 	vcmpe.f32	s13, s15
+ 434:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 438:	fe77 6aa6 	vselgt.f32	s13, s15, s13
+ 43c:	eee6 7a66 	vfms.f32	s15, s12, s13
+ 440:	f8d1 3138 	ldr.w	r3, [r1, #312]	@ 0x138
+ 444:	edd1 6a0e 	vldr	s13, [r1, #56]	@ 0x38
+ 448:	eb01 0283 	add.w	r2, r1, r3, lsl #2
+ 44c:	edd1 5a0f 	vldr	s11, [r1, #60]	@ 0x3c
+ 450:	ee60 0aa6 	vmul.f32	s1, s1, s13
+ 454:	f891 4074 	ldrb.w	r4, [r1, #116]	@ 0x74
+ 458:	edd2 6a1e 	vldr	s13, [r2, #120]	@ 0x78
+ 45c:	2b2f      	cmp	r3, #47	@ 0x2f
+ 45e:	ed82 0a1e 	vstr	s0, [r2, #120]	@ 0x78
+ 462:	f103 0301 	add.w	r3, r3, #1
+ 466:	ed91 6a10 	vldr	s12, [r1, #64]	@ 0x40
+ 46a:	ee65 5aa6 	vmul.f32	s11, s11, s13
+ 46e:	bf08      	it	eq
+ 470:	2300      	moveq	r3, #0
+ 472:	edd1 6a11 	vldr	s13, [r1, #68]	@ 0x44
+ 476:	ee21 1a06 	vmul.f32	s2, s2, s12
+ 47a:	ed91 6a12 	vldr	s12, [r1, #72]	@ 0x48
+ 47e:	ee67 6aa6 	vmul.f32	s13, s15, s13
+ 482:	ed80 7a07 	vstr	s14, [r0, #28]
+ 486:	ee27 6a86 	vmul.f32	s12, s15, s12
+ 48a:	edc0 7a08 	vstr	s15, [r0, #32]
+ 48e:	edc0 0a05 	vstr	s1, [r0, #20]
+ 492:	edc0 5a06 	vstr	s11, [r0, #24]
+ 496:	f8c1 3138 	str.w	r3, [r1, #312]	@ 0x138
+ 49a:	ed80 1a02 	vstr	s2, [r0, #8]
+ 49e:	b9c4      	cbnz	r4, 4d2 <wallace::Routing::process(float, float, float, float, float)+0x10a>
+ 4a0:	ee66 1aa1 	vmul.f32	s3, s13, s3
+ 4a4:	ee22 2a06 	vmul.f32	s4, s4, s12
+ 4a8:	edc0 1a03 	vstr	s3, [r0, #12]
+ 4ac:	ee71 7a21 	vadd.f32	s15, s2, s3
+ 4b0:	ee30 7aa5 	vadd.f32	s14, s1, s11
+ 4b4:	ed80 2a04 	vstr	s4, [r0, #16]
+ 4b8:	ee77 7a82 	vadd.f32	s15, s15, s4
+ 4bc:	ecbd 8b02 	vpop	{d8}
+ 4c0:	ee37 7a27 	vadd.f32	s14, s14, s15
+ 4c4:	f85d 4b04 	ldr.w	r4, [sp], #4
+ 4c8:	edc0 7a01 	vstr	s15, [r0, #4]
+ 4cc:	ed80 7a00 	vstr	s14, [r0]
+ 4d0:	4770      	bx	lr
+ 4d2:	edd1 4a05 	vldr	s9, [r1, #20]
+ 4d6:	ed91 5a0c 	vldr	s10, [r1, #48]	@ 0x30
+ 4da:	ed91 7a00 	vldr	s14, [r1]
+ 4de:	edd1 7a07 	vldr	s15, [r1, #28]
+ 4e2:	eee1 4a87 	vfma.f32	s9, s3, s14
+ 4e6:	ed91 4a03 	vldr	s8, [r1, #12]
+ 4ea:	eea2 5a27 	vfma.f32	s10, s4, s15
+ 4ee:	edd1 3a0a 	vldr	s7, [r1, #40]	@ 0x28
+ 4f2:	edd1 2a01 	vldr	s5, [r1, #4]
+ 4f6:	ed91 8a08 	vldr	s16, [r1, #32]
+ 4fa:	edd1 7a04 	vldr	s15, [r1, #16]
+ 4fe:	ed91 7a0b 	vldr	s14, [r1, #44]	@ 0x2c
+ 502:	ee24 4a64 	vnmul.f32	s8, s8, s9
+ 506:	ed91 0a02 	vldr	s0, [r1, #8]
+ 50a:	ee63 3ac5 	vnmul.f32	s7, s7, s10
+ 50e:	ed91 3a06 	vldr	s6, [r1, #24]
+ 512:	ee67 7ae4 	vnmul.f32	s15, s15, s9
+ 516:	eea1 4aa2 	vfma.f32	s8, s3, s5
+ 51a:	edd1 2a0d 	vldr	s5, [r1, #52]	@ 0x34
+ 51e:	eee2 3a08 	vfma.f32	s7, s4, s16
+ 522:	ed91 8a09 	vldr	s16, [r1, #36]	@ 0x24
+ 526:	ee27 7a45 	vnmul.f32	s14, s14, s10
+ 52a:	eee1 7a80 	vfma.f32	s15, s3, s0
+ 52e:	ee66 1aa4 	vmul.f32	s3, s13, s9
+ 532:	eea2 7a08 	vfma.f32	s14, s4, s16
+ 536:	ee33 4a04 	vadd.f32	s8, s6, s8
+ 53a:	ee72 3aa3 	vadd.f32	s7, s5, s7
+ 53e:	eeb0 2a45 	vmov.f32	s4, s10
+ 542:	ed81 4a05 	vstr	s8, [r1, #20]
+ 546:	edc1 3a0c 	vstr	s7, [r1, #48]	@ 0x30
+ 54a:	ed81 7a0d 	vstr	s14, [r1, #52]	@ 0x34
+ 54e:	edc1 7a06 	vstr	s15, [r1, #24]
+ 552:	e7a7      	b.n	4a4 <wallace::Routing::process(float, float, float, float, float)+0xdc>
+ 554:	00000000 	.word	0x00000000

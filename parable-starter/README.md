@@ -2,6 +2,13 @@
 
 This is the first **portable C++ code brick**, not a finished Parable SDK and not a commercial DSP effect. It contains no astrology or browser implementation. A separate experimental circuit-derived LabRAT listening laboratory is described below.
 
+SF-023 adds the host-only [Wallace mixing experiment](docs/SF023_REPORT.md):
+same actual Muff/Rotary/Tape and exact unmerged SF022 Hall, serial versus static/
+ducked parallel, [nine real-guitar comparisons and−23LUFS copies](samples/wallace/README.md).
+No effect algorithm, Engine, patch, correspondence or production firmware changes.
+Only new mixer has ARM evidence; full graph not admitted to Daisy. Musical choice
+remains for listening. [ADR023](docs/adr/ADR-023-wallace-console.md).
+
 SF-014 adds one standalone [loaded Lockhart wavefolder / upper-feed resistor fault](docs/SF014_REPORT.md).
 CI publishes **parable-wavefolder-auditions** with the same Centaur/tape take03,
 three drives, raw/common/RMS healthy/fault WAVs and same-input RAT/Muff/CMOS

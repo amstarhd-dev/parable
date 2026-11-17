@@ -1,0 +1,30 @@
+{
+  "existing_source_files_unchanged": 452,
+  "hall_import_files_exact": 5,
+  "existing_ci_steps": {
+    "host-tests.yml": {
+      "host-tests": {
+        "original_steps_preserved_in_order": 32,
+        "final_steps": 34
+      },
+      "integration-sanitizers": {
+        "original_steps_preserved_in_order": 19,
+        "final_steps": 22
+      },
+      "activation-tsan": {
+        "original_steps_preserved_in_order": 4,
+        "final_steps": 4
+      }
+    },
+    "arm-firmware.yml": {
+      "seed3-cross-build": {
+        "original_steps_preserved_in_order": 12,
+        "final_steps": 13
+      }
+    }
+  },
+  "source_manifest_verified": true,
+  "package_manifest_verified": true,
+  "C_without_ducking_equals_B": true,
+  "algorithm_changes": 0
+}

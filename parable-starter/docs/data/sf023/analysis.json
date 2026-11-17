@@ -1,0 +1,297 @@
+{
+  "ffmpeg": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers",
+  "numpy": "2.3.5",
+  "meter": "FFmpeg ebur128 BS1770 integrated gating and true-peak measurement; mono, not dual-mono compensation",
+  "loudness_resolution_lu": 0.1,
+  "target_lufs": -23.0,
+  "matching": {
+    "03_A_serial_lufs.wav": {
+      "source": "03_A_serial_raw.wav",
+      "linear_gain": 7.673614893618192,
+      "result": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -14.1,
+        "rms": 0.06381030253636695,
+        "peak": 0.197418212890625,
+        "mean": -1.4877757806887572e-06
+      }
+    },
+    "04_B_parallel_lufs.wav": {
+      "source": "04_B_parallel_raw.wav",
+      "linear_gain": 7.498942093324558,
+      "result": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -12.1,
+        "rms": 0.06363326108552701,
+        "peak": 0.248748779296875,
+        "mean": -4.37725549456717e-07
+      }
+    },
+    "05_C_dynamic_lufs.wav": {
+      "source": "05_C_dynamic_raw.wav",
+      "linear_gain": 8.128305161640995,
+      "result": {
+        "integrated_lufs": -23.0,
+        "true_peak_dbtp": -12.0,
+        "rms": 0.06414897895445806,
+        "peak": 0.250030517578125,
+        "mean": -4.275310998675467e-07
+      }
+    },
+    "08_C_no_carving_lufs.wav": {
+      "source": "08_C_no_carving.wav",
+      "linear_gain": 6.998419960022734,
+      "result": {
+        "integrated_lufs": -23.1,
+        "true_peak_dbtp": -12.9,
+        "rms": 0.06413984055701086,
+        "peak": 0.226593017578125,
+        "mean": -6.38939868444684e-07
+      }
+    }
+  },
+  "wet_pair_common_gain": 7.673614893618192,
+  "levels": {
+    "01_dry.wav": {
+      "integrated_lufs": -30.6,
+      "true_peak_dbtp": -14.0,
+      "rms": 0.02386032736121213,
+      "peak": 0.20001220703125,
+      "mean": -9.454179084163973e-06
+    },
+    "02_muff.wav": {
+      "integrated_lufs": -33.5,
+      "true_peak_dbtp": -26.0,
+      "rms": 0.018800121452917384,
+      "peak": 0.0489501953125,
+      "mean": 7.673241626257184e-10
+    },
+    "03_A_serial_lufs.wav": {
+      "integrated_lufs": -23.0,
+      "true_peak_dbtp": -14.1,
+      "rms": 0.06381030253636695,
+      "peak": 0.197418212890625,
+      "mean": -1.4877757806887572e-06
+    },
+    "03_A_serial_raw.wav": {
+      "integrated_lufs": -40.7,
+      "true_peak_dbtp": -31.8,
+      "rms": 0.008315541832560489,
+      "peak": 0.025726318359375,
+      "mean": -1.9560189082704742e-07
+    },
+    "04_B_parallel_lufs.wav": {
+      "integrated_lufs": -23.0,
+      "true_peak_dbtp": -12.1,
+      "rms": 0.06363326108552701,
+      "peak": 0.248748779296875,
+      "mean": -4.37725549456717e-07
+    },
+    "04_B_parallel_raw.wav": {
+      "integrated_lufs": -40.5,
+      "true_peak_dbtp": -29.6,
+      "rms": 0.008485658732841149,
+      "peak": 0.033172607421875,
+      "mean": -5.833855990705819e-08
+    },
+    "05_C_dynamic_lufs.wav": {
+      "integrated_lufs": -23.0,
+      "true_peak_dbtp": -12.0,
+      "rms": 0.06414897895445806,
+      "peak": 0.250030517578125,
+      "mean": -4.275310998675467e-07
+    },
+    "05_C_dynamic_raw.wav": {
+      "integrated_lufs": -41.2,
+      "true_peak_dbtp": -30.2,
+      "rms": 0.007892050963611343,
+      "peak": 0.03076171875,
+      "mean": -5.3931926858836205e-08
+    },
+    "06_B_wet.wav": {
+      "integrated_lufs": -43.0,
+      "true_peak_dbtp": -32.9,
+      "rms": 0.0064701994905813805,
+      "peak": 0.02276611328125,
+      "mean": -6.026783208737429e-08
+    },
+    "06_B_wet_common_listen.wav": {
+      "integrated_lufs": -25.3,
+      "true_peak_dbtp": -15.2,
+      "rms": 0.04964986891824745,
+      "peak": 0.174713134765625,
+      "mean": -4.630033997283585e-07
+    },
+    "07_C_wet.wav": {
+      "integrated_lufs": -44.5,
+      "true_peak_dbtp": -33.8,
+      "rms": 0.005487308595965957,
+      "peak": 0.020355224609375,
+      "mean": -5.6825835129310345e-08
+    },
+    "07_C_wet_common_listen.wav": {
+      "integrated_lufs": -26.8,
+      "true_peak_dbtp": -16.1,
+      "rms": 0.04210754102248681,
+      "peak": 0.15618896484375,
+      "mean": -4.2446180321704383e-07
+    },
+    "08_C_no_carving.wav": {
+      "integrated_lufs": -39.9,
+      "true_peak_dbtp": -29.8,
+      "rms": 0.009165089132841761,
+      "peak": 0.032379150390625,
+      "mean": -9.047848054732399e-08
+    },
+    "08_C_no_carving_lufs.wav": {
+      "integrated_lufs": -23.1,
+      "true_peak_dbtp": -12.9,
+      "rms": 0.06413984055701086,
+      "peak": 0.226593017578125,
+      "mean": -6.38939868444684e-07
+    },
+    "09_C_no_ducking.wav": {
+      "integrated_lufs": -40.5,
+      "true_peak_dbtp": -29.6,
+      "rms": 0.008485658732841149,
+      "peak": 0.033172607421875,
+      "mean": -5.833855990705819e-08
+    },
+    "stem_hall_wet.wav": {
+      "integrated_lufs": -34.2,
+      "true_peak_dbtp": -20.7,
+      "rms": 0.01830612036372239,
+      "peak": 0.0921630859375,
+      "mean": 6.555140703573994e-07
+    },
+    "stem_rotary_wet.wav": {
+      "integrated_lufs": -47.9,
+      "true_peak_dbtp": -36.1,
+      "rms": 0.0036204612634673297,
+      "peak": 0.015594482421875,
+      "mean": -2.8651884232444325e-07
+    },
+    "stem_tape_wet.wav": {
+      "integrated_lufs": -30.5,
+      "true_peak_dbtp": -24.1,
+      "rms": 0.026964806715939444,
+      "peak": 0.062103271484375,
+      "mean": -1.0144244665387032e-06
+    }
+  },
+  "active_spectral_energy_fractions": {
+    "03_A_serial_raw.wav": {
+      "bass_20_120": 0.0251901320679411,
+      "low_mid_120_500": 0.8623661110809104,
+      "presence_500_2500": 0.09441853485256013,
+      "upper_2500_12000": 0.01802522199858834
+    },
+    "04_B_parallel_raw.wav": {
+      "bass_20_120": 0.01681691679449029,
+      "low_mid_120_500": 0.8440533251892216,
+      "presence_500_2500": 0.11891628234601076,
+      "upper_2500_12000": 0.02021347567027727
+    },
+    "05_C_dynamic_raw.wav": {
+      "bass_20_120": 0.018726850523012577,
+      "low_mid_120_500": 0.8443949650436352,
+      "presence_500_2500": 0.1158268871361759,
+      "upper_2500_12000": 0.02105129729717637
+    },
+    "08_C_no_carving.wav": {
+      "bass_20_120": 0.023962929087847983,
+      "low_mid_120_500": 0.8734576985147061,
+      "presence_500_2500": 0.0869999195016011,
+      "upper_2500_12000": 0.015579452895844946
+    }
+  },
+  "carving_absolute_band_power_delta_db": {
+    "bass_20_120": -2.378627468910553,
+    "low_mid_120_500": -1.454838302487128,
+    "presence_500_2500": -0.0649705430384909,
+    "upper_2500_12000": -0.0006092615059452914
+  },
+  "ducking": {
+    "min_gain": 0.630957365036,
+    "max_gain": 1.0,
+    "max_reduction_db": 3.9999997170245067,
+    "windows": [
+      {
+        "name": "rhythmic_active",
+        "start_s": 2,
+        "end_s": 3,
+        "min_gain": 0.630957365036,
+        "max_gain": 0.630957365036,
+        "mean_envelope": 0.08187453188000701,
+        "03_A_serial_raw.wav": 0.011438794161091915,
+        "04_B_parallel_raw.wav": 0.01178640336572756,
+        "05_C_dynamic_raw.wav": 0.010422537146274018,
+        "06_B_wet.wav": 0.007023588150494189,
+        "07_C_wet.wav": 0.004623448840717512
+      },
+      {
+        "name": "gap_13s_source",
+        "start_s": 3.88,
+        "end_s": 4.26,
+        "min_gain": 0.910877883434,
+        "max_gain": 1.0,
+        "mean_envelope": 0.01239001836725763,
+        "03_A_serial_raw.wav": 0.007386638543498099,
+        "04_B_parallel_raw.wav": 0.008784963402367582,
+        "05_C_dynamic_raw.wav": 0.008649616448100776,
+        "06_B_wet.wav": 0.006920518030232304,
+        "07_C_wet.wav": 0.006746300438663105
+      },
+      {
+        "name": "gap_23s_source",
+        "start_s": 14.22,
+        "end_s": 14.9,
+        "min_gain": 0.982963085175,
+        "max_gain": 1.0,
+        "mean_envelope": 0.006190003823789118,
+        "03_A_serial_raw.wav": 0.006549865135094778,
+        "04_B_parallel_raw.wav": 0.007722258018626536,
+        "05_C_dynamic_raw.wav": 0.007715159026461358,
+        "06_B_wet.wav": 0.006410997100198375,
+        "07_C_wet.wav": 0.006405163443027286
+      },
+      {
+        "name": "sustained_decay",
+        "start_s": 15,
+        "end_s": 20,
+        "min_gain": 0.769179821014,
+        "max_gain": 1.0,
+        "mean_envelope": 0.01477597262896568,
+        "03_A_serial_raw.wav": 0.008778667342736067,
+        "04_B_parallel_raw.wav": 0.006720418118553918,
+        "05_C_dynamic_raw.wav": 0.0066980118207081345,
+        "06_B_wet.wav": 0.009145856862689171,
+        "07_C_wet.wav": 0.008874270037946207
+      },
+      {
+        "name": "tail_20_23",
+        "start_s": 20,
+        "end_s": 23,
+        "min_gain": 1.0,
+        "max_gain": 1.0,
+        "mean_envelope": 0.00039494277389551144,
+        "03_A_serial_raw.wav": 0.0023976234933729065,
+        "04_B_parallel_raw.wav": 0.0038151769412773564,
+        "05_C_dynamic_raw.wav": 0.0038151769412773564,
+        "06_B_wet.wav": 0.0038192390946200565,
+        "07_C_wet.wav": 0.0038192390946200565
+      }
+    ]
+  },
+  "phase": {
+    "mix_over_incoherent_power_db": -1.2318849839793764,
+    "core_wet_cosine": -0.24890446287142692,
+    "note": "Actual aligned mono streams; intentional echo/rotor/room phase retained. PCM16 quantization means reconstruction is approximate."
+  },
+  "limitations": [
+    "Integrated LUFS matching is a controlled perceptual proxy, not subjective equivalence.",
+    "Spectral/phase changes and envelope recovery do not establish musical superiority.",
+    "Full graph CPU is host-only; no Seed3 deadline/boot/audio claim.",
+    "No change to any of the four effect algorithms."
+  ]
+}

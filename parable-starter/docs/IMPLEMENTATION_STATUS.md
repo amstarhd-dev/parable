@@ -957,3 +957,17 @@ results; original logs retained. See[SF017_REPORT.md](SF017_REPORT.md) and
 remote checks remain unverified. ARM object/layout/calls audited;
 hardware cycles/boot/audio and physical magnetic/device fidelity **not tested**.
 Founder musical audition/approval **pending**; generated audio is not approval.
+
+## SF-023 — Wallace host mixing study
+
+Implemented: exactly four existing processors, serial/static/dynamic routings,
+120/180Hz return HPFs and0–6dB envelope ducking (study4dB), no algorithm changes.
+Exact unmerged PR77 Hall imported by SHA;452 prior implementation/firmware/fixture
+files unchanged. Host-tested: baseline5/5, scoped Release7/7, Debug2/2 and poisoned
+ASan+UBSan2/2; all18 native/matched WAVs repeat. Three principal files measure
+−23LUFS, raw/common-gain/ablation/wet/ducker evidence retained. Founder musical
+superiority **not established**. Persistent graph719656B plus2048B caller scratch;
+new mixer332B/1368B ARM object text, no audio external calls,12B own static frame.
+Full four-effect ARM link/device timing/boot/audio/high-water **not tested**.
+No Engine, patch, correspondence or firmware integration. See[report](SF023_REPORT.md),
+[ADR023](adr/ADR-023-wallace-console.md),[recordings](../samples/wallace/README.md).
