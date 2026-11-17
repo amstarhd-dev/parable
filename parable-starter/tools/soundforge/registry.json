@@ -1362,6 +1362,93 @@
           "paths": []
         }
       }
+    },
+    {
+      "id": "wallace.console-experiment",
+      "type": "test",
+      "paths": [
+        "parable-starter/tools/wallace_graph.h",
+        "parable-starter/tools/wallace_routing.h",
+        "parable-starter/tools/wallace_routing.cpp",
+        "parable-starter/tools/wallace_lab.cpp",
+        "parable-starter/docs/adr/ADR-023-wallace-console.md"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/wallace/hall-import.json",
+          "candidate": 0,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/hall/upstream/LICENSE"
+          ],
+          "scope": "Exact selected native Hall from Parable PR77; original whole Airwindows kCathedral MIT core unchanged."
+        }
+      ],
+      "ownership_notes": "Existing Parable processors under owner-authorized in-repository reuse; imported original Hall core MIT Chris Johnson. Global repository license remains unspecified. FFmpeg is an external measurement executable, not linked/imported source.",
+      "physics_notes": "Fixed serial/parallel host mixing study; new return-only HPFs and input envelope ducking. No new circuit or internal effect changes.",
+      "behavior": "Exactly four actual effects, same48k source/config. A serial, B static wet-only sends, C same routing plus0..6dB Tape/Hall ducking. Optional clean defaults0 and nominally aligned48frames.",
+      "limitations": [
+        "Subjective superiority requires founder listening; LUFS and spectral differences do not prove musical improvement.",
+        "No entire-graph ARM link/cycles/device proof; routing-only ARM compile and size inspection.",
+        "Muff nominal FIR delay alignment does not cancel physical model phase or intentional rotor/echo/hall paths."
+      ],
+      "dependencies": {
+        "assets": [
+          "muff.v3",
+          "rotary",
+          "tape",
+          "host.pcm16",
+          "host.signal-analysis"
+        ],
+        "external": [
+          "Exact Hall selected source at Parable21905d5, no merge; MIT origin notice retained.",
+          "FFmpeg7.1.5 ebur128 external CLI and NumPy2.3.5 offline evidence; C++17 native4DSP."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "New routing controls/HPF/duck bounds, actual C-no-duck equals B, block safety and callback guards; native stems identical across B/C/carving ablation.",
+          "paths": [
+            "parable-starter/tests/test_wallace.cpp",
+            "parable-starter/tests/test_wallace_cli.py"
+          ]
+        },
+        "independent_circuit": {
+          "status": "not-applicable",
+          "scope": "No new electrical/circuit model; existing algorithms are frozen.",
+          "paths": []
+        },
+        "synthetic_audition": {
+          "status": "not-performed",
+          "scope": "Focused controlled test signals are not listening replacements.",
+          "paths": []
+        },
+        "real_guitar_audition": {
+          "status": "not-performed",
+          "scope": "One actual permitted performance rendered; musical superiority pending founder listening.",
+          "paths": [
+            "parable-starter/samples/wallace/input-receipt.json"
+          ]
+        },
+        "arm_cross_compile": {
+          "status": "compiled",
+          "scope": "Only new mixing infrastructure object/calls/state and aggregate ABI layout, no full graph link or deadline.",
+          "paths": [
+            "parable-starter/tools/check_wallace_arm.py"
+          ]
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No device boot/audio/cycles/high-water.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "No canonical/Engine/firmware/correspondence edits.",
+          "paths": []
+        }
+      }
     }
   ]
 }

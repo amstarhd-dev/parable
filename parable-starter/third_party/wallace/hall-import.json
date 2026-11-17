@@ -1,0 +1,22 @@
+{
+  "repository": "https://github.com/amstarhd-dev/parable",
+  "pr": 77,
+  "commit": "21905d5ca171c1cb98d2e228dda33beac039ac4a",
+  "import": "exact selected implementation and MIT notice only, no merge, no modification",
+  "files_sha256": {
+    "parable-starter/include/parable_hall.h": "ffd3efee7f4428dd4aff5d04511df36188c5f939744418c5899f5effa85a3c97",
+    "parable-starter/src/parable_hall.cpp": "bf432e0a38ed1e36ad316324aeb9d047517c5314d81cd0ded8a750e1783ca82b",
+    "parable-starter/src/hall_core.h": "1cad91f3a66bc0ffda6c7f62dd2bf111d4e9ea74ba6e5e269bf3f7547c962fe9",
+    "parable-starter/src/hall_core.cpp": "77a3001cdd6fddf169fc172d67354ff920a24e963e742d73c31dac40b26aaf72",
+    "parable-starter/third_party/hall/upstream/LICENSE": "b4f5719b00ba3fecf8c0ce651e843651bd80f08a10cf4cf1f00e673a5bcaf23b"
+  },
+  "candidates": [
+    {
+      "url": "https://github.com/airwindows/airwindows",
+      "revision": "143a86df3642881e0be4bf827815050721063b41",
+      "license": "MIT",
+      "scope": "Whole kCathedral algorithm via exact Parable native adapter, no VST SDK."
+    }
+  ],
+  "rights": "Original core MIT Chris Johnson; Parable-local wrapper reused under explicit owner assignment, global repository license remains unspecified."
+}
