@@ -1,0 +1,7 @@
+{
+  "model": "Ideal symmetric biased class-B conduction with common soft voltage rail; software-referred7mV threshold, not measured hardware",
+  "rows": 75,
+  "source_independent": true,
+  "sha256": "989ff7ede6de3239a08ed25f967df689488a40969b56ea74de3ec6b0c1844531",
+  "generator_sha256": "454648148f8fdacd32d47eb89f696bfdbd91bd9afd717fcd6dc55e98e961a5fb"
+}

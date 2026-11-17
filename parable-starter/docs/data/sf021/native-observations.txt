@@ -1,0 +1,12 @@
+Test command: /workspace/work/sf021-release/parable_chamber_test
+Working Directory: /workspace/work/sf021-release
+Test timeout computed to be: 10000000
+Independent amplifier law75 points peak_error=2.49454e-08
+Independent double mic-filter/amp/64sample excitation wiring peak_error=1.66148e-06
+rate=44100 weak_return=0 zero=0 healthy_late=2.60046e-09 fault_late=0.108347 fault_peak=0.456296
+rate=48000 weak_return=0 zero=0 healthy_late=2.26482e-09 fault_late=0.175734 fault_peak=0.53087
+rate=96000 weak_return=0 zero=0 healthy_late=1.36733e-09 fault_late=0.145828 fault_peak=0.464064
+Disconnect gain at8s,12-14s recovery RMS=2.42945e-05
+60s unforced fault remains finite/bounded; final2s RMS=0.155916 peak=0.53087
+Finite/rejected input, stopped reprepare repeatability, silence and callback guards passed; core=67012336 wrapper=1072
+Focused checks=152 passed

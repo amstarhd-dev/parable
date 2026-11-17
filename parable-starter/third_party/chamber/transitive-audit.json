@@ -1,0 +1,23 @@
+{
+  "direct": {
+    "stfx": "Bundled basics include/stfx/stfx-library.h explicitly declares Boost Software License; root MIT is not silently substituted",
+    "dsp": "Header-only include path actually used"
+  },
+  "unused_umbrella_dependencies": [
+    {
+      "repository": "Signalsmith-Audio/linear",
+      "revision": "de55e6a50ffcf6f8f43f649692d94691c7025151",
+      "tag": "0.6.4",
+      "license": "MIT",
+      "use": "Umbrella CMake dependency; not included by reverb.h processing path"
+    },
+    {
+      "repository": "Signalsmith-Audio/hilbert-iir",
+      "revision": "9e42e09714c8215d51eaa1b52a3d54ae8dd2a3a3",
+      "tag": "1.0.0",
+      "license": "0BSD",
+      "use": "Umbrella CMake dependency; not included by reverb.h processing path"
+    }
+  ],
+  "import_policy": "No runtime model admitted; research comparisons are audit-only. Separate reviewed policy extension required for BSL-1.0/0BSD/BSD-3-Clause; existing allowlist unchanged."
+}

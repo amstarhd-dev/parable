@@ -1,0 +1,318 @@
+{
+  "format": "parable.chamber-research.sources",
+  "version": 1,
+  "repositories": [
+    {
+      "name": "cloudseed",
+      "url": "https://github.com/GhostNoteAudio/CloudSeedCore",
+      "revision": "deb21ded9eb7dad9b3ff94ce1ba96a963716594e",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "cloudseed/DSP/AllpassDiffuser.h",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/DSP/AllpassDiffuser.h",
+          "sha256": "924fc650fa5ac89c8f0e6d2627349dcea44cfbde78a5a1c3686b4a09066683bf",
+          "bytes": 3580
+        },
+        {
+          "path": "cloudseed/DSP/Biquad.cpp",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/DSP/Biquad.cpp",
+          "sha256": "4e04140ab40174a3b93ed5714a2b574deaa92da9e1c82ad6d715b2b84eda2d52",
+          "bytes": 6071
+        },
+        {
+          "path": "cloudseed/DSP/Biquad.h",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/DSP/Biquad.h",
+          "sha256": "d0555677d871f6a1de957413279b9ab1b811480b7a01bd0617569922872c1b29",
+          "bytes": 2316
+        },
+        {
+          "path": "cloudseed/DSP/DelayLine.h",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/DSP/DelayLine.h",
+          "sha256": "09bcdba992bec6203fd02851cd214b32f4af3907f1ca0d3e7668ad14b3620125",
+          "bytes": 5881
+        },
+        {
+          "path": "cloudseed/DSP/Hp1.h",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/DSP/Hp1.h",
+          "sha256": "cd7f88b0cc058293bc5634542f98a142f8e201fd78f4c9e4ad06c61502a4ff45",
+          "bytes": 2273
+        },
+        {
+          "path": "cloudseed/DSP/LcgRandom.h",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/DSP/LcgRandom.h",
+          "sha256": "0b5b415cbc1d3b65248d558ad65aee4bbcc9481ea5387474cae00ba06ad24969",
+          "bytes": 2245
+        },
+        {
+          "path": "cloudseed/DSP/Lp1.h",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/DSP/Lp1.h",
+          "sha256": "d365f2c13ee06d0c9a88475a878e2f06b78ee7dd589e57c71792f4a517801461",
+          "bytes": 2204
+        },
+        {
+          "path": "cloudseed/DSP/ModulatedAllpass.h",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/DSP/ModulatedAllpass.h",
+          "sha256": "3a83734434dfe3c090fc690ae5168a426dd49c2da6077dea0595b257610ccbd4",
+          "bytes": 4483
+        },
+        {
+          "path": "cloudseed/DSP/ModulatedDelay.h",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/DSP/ModulatedDelay.h",
+          "sha256": "c9f29da4e8dc4d4a70a61a6bb89f1e3e5879847ac9c81ec93f2ad872e7130a90",
+          "bytes": 3135
+        },
+        {
+          "path": "cloudseed/DSP/MultitapDelay.h",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/DSP/MultitapDelay.h",
+          "sha256": "2b40025e203c9ea10feead0952a4deb870586c1fc2490010c99f260e20b51d91",
+          "bytes": 3488
+        },
+        {
+          "path": "cloudseed/DSP/RandomBuffer.cpp",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/DSP/RandomBuffer.cpp",
+          "sha256": "3bfa1f0d26808d83f3478caf40122e1defdf7e97af5bf73e904f930a7944ff6b",
+          "bytes": 1840
+        },
+        {
+          "path": "cloudseed/DSP/RandomBuffer.h",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/DSP/RandomBuffer.h",
+          "sha256": "1d84b26cec8e12423eecba088a6b3cb4ea2f1cb17a1f785afbd0180e13b2a083",
+          "bytes": 1335
+        },
+        {
+          "path": "cloudseed/DSP/ReverbChannel.h",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/DSP/ReverbChannel.h",
+          "sha256": "c1f024fc7dbf92531109e06d92a7399d267ff3c44badd4cfd9d4b51089c0ba33",
+          "bytes": 11981
+        },
+        {
+          "path": "cloudseed/DSP/ReverbController.h",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/DSP/ReverbController.h",
+          "sha256": "66b633cb7e3b88fcb3f81f70bf65bce329150969eb49806682d1346bd0c35181",
+          "bytes": 3358
+        },
+        {
+          "path": "cloudseed/DSP/Utils.h",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/DSP/Utils.h",
+          "sha256": "8a2316eeb8f99cc5cbd0fb1d6c3ba21d3cd06def231f52edb7a76c50b7f6316f",
+          "bytes": 4090
+        },
+        {
+          "path": "cloudseed/LICENSE",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/LICENSE",
+          "sha256": "1c57cf0291ebfc28709b46c82a05a6dad4d0168b4715165279e697dd4f04dc9a",
+          "bytes": 1073
+        },
+        {
+          "path": "cloudseed/Parameters.cpp",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/Parameters.cpp",
+          "sha256": "e4a3d6fce5849a0684cd4122ca803e5a781ed0b2d5a94c19c707eda85a6a76a0",
+          "bytes": 2106
+        },
+        {
+          "path": "cloudseed/Parameters.h",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/Parameters.h",
+          "sha256": "0267d598526c6d35c765bab1a06538da92a353dedb9fba2e5bf009a3dbf378d8",
+          "bytes": 9595
+        },
+        {
+          "path": "cloudseed/PluginProcessor.cpp",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/PluginProcessor.cpp",
+          "sha256": "0e5551a7d583388670a773a5a44d10433cbe20d1d17e4b0cf55a91a38bdc796d",
+          "bytes": 2834
+        },
+        {
+          "path": "cloudseed/Programs.h",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/Programs.h",
+          "sha256": "d15481355f961bf6b2ecfed429ba0a42eba0070f956097e2f07291d7841a0fd4",
+          "bytes": 3994
+        },
+        {
+          "path": "cloudseed/Readme.md",
+          "url": "https://raw.githubusercontent.com/GhostNoteAudio/CloudSeedCore/deb21ded9eb7dad9b3ff94ce1ba96a963716594e/Readme.md",
+          "sha256": "ed20c465175b0f22b50cecb0bd5dc1c8516ba22813f175a89d48b3cc2f07ccde",
+          "bytes": 1799
+        }
+      ]
+    },
+    {
+      "name": "basics",
+      "url": "https://github.com/Signalsmith-Audio/basics",
+      "revision": "369e906e03760ec219d07b06fa06dc4fd099f377",
+      "license": "MIT (STFX file declares BSL-1.0)",
+      "files": [
+        {
+          "path": "basics/CMakeLists.txt",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/basics/369e906e03760ec219d07b06fa06dc4fd099f377/CMakeLists.txt",
+          "sha256": "ff800d608a178931ace497a95a295adfebda3ce04222c956d826eb84e80174c9",
+          "bytes": 1013
+        },
+        {
+          "path": "basics/LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/basics/369e906e03760ec219d07b06fa06dc4fd099f377/LICENSE.txt",
+          "sha256": "b81eab3abab58e20eb74c74e70b8f3cbf7160ae3b3f1951b8f5e6692b52d10b5",
+          "bytes": 1085
+        },
+        {
+          "path": "basics/SUPPORT.txt",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/basics/369e906e03760ec219d07b06fa06dc4fd099f377/SUPPORT.txt",
+          "sha256": "effc0e9edc9cf0fa6e40e21477cef7021c841e215e364aa6da8874ffaacaecb6",
+          "bytes": 104
+        },
+        {
+          "path": "basics/include/signalsmith-basics/reverb.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/basics/369e906e03760ec219d07b06fa06dc4fd099f377/include/signalsmith-basics/reverb.h",
+          "sha256": "f84e342bb0b55e65732b544fe7b69b0922a08dfa7acaef0a8a4d425e5ac75f07",
+          "bytes": 13208
+        },
+        {
+          "path": "basics/include/stfx/stfx-library.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/basics/369e906e03760ec219d07b06fa06dc4fd099f377/include/stfx/stfx-library.h",
+          "sha256": "55f615730a0f90d0880f1c5ec51375509e3bc17291267c306b2eccfc3bff03ba",
+          "bytes": 22122
+        }
+      ]
+    },
+    {
+      "name": "dsp",
+      "url": "https://github.com/Signalsmith-Audio/dsp",
+      "revision": "2d20161915e733f117545c6be8cd3275a739a1e3",
+      "license": "MIT",
+      "files": [
+        {
+          "path": "dsp/LICENSE.txt",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/LICENSE.txt",
+          "sha256": "8b7cb3437bcbe89c4bd5c51da3c1a67f71fa7e9026a89670e9e499189225aff8",
+          "bytes": 1093
+        },
+        {
+          "path": "dsp/common.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/common.h",
+          "sha256": "d0a9055695090c4a217f684cadea8cc2c5343e93cdfd180125f941318b2f9366",
+          "bytes": 1787
+        },
+        {
+          "path": "dsp/curves.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/curves.h",
+          "sha256": "762c64abf1fe4d94debfe439627d2075b74ce56816edcd6aba7088ec63495a1c",
+          "bytes": 11583
+        },
+        {
+          "path": "dsp/delay.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/delay.h",
+          "sha256": "8404c2f3ece11314933d560a8fc6fd9c3220e2308492912b02ac6d1e834af24c",
+          "bytes": 23408
+        },
+        {
+          "path": "dsp/envelopes.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/envelopes.h",
+          "sha256": "168403fcc3c94e6655e84f9e9d2e374e627f7283e2c9cdf62361833322268e11",
+          "bytes": 17043
+        },
+        {
+          "path": "dsp/fft.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/fft.h",
+          "sha256": "01c193813c0b3bd7da30b227a1d55fa54b137bef78560fc7a12e84df81c0fd52",
+          "bytes": 16312
+        },
+        {
+          "path": "dsp/filters.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/filters.h",
+          "sha256": "752215646c6d78701b3727023ca0dec2426f16725f88e3f56484ce4183ca98d0",
+          "bytes": 17560
+        },
+        {
+          "path": "dsp/include/signalsmith-dsp/curves.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/include/signalsmith-dsp/curves.h",
+          "sha256": "663a5095126da354896a00f178600bea0f21ef461f5d88e84e46e75ff43925aa",
+          "bytes": 26
+        },
+        {
+          "path": "dsp/include/signalsmith-dsp/delay.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/include/signalsmith-dsp/delay.h",
+          "sha256": "cc86e9804e50ca2b004c1023987cc5b8c9810fc6e2bc131cdc02f4ed874a4fdf",
+          "bytes": 25
+        },
+        {
+          "path": "dsp/include/signalsmith-dsp/envelopes.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/include/signalsmith-dsp/envelopes.h",
+          "sha256": "0dec696807a2504b01f0c2d20cd2e50393010c9a4b8107f396b2455700f7e340",
+          "bytes": 29
+        },
+        {
+          "path": "dsp/include/signalsmith-dsp/fft.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/include/signalsmith-dsp/fft.h",
+          "sha256": "98e7e64093b6fc8ccbba31f710370d5548243bad35beb489e8282de4dc25d76d",
+          "bytes": 23
+        },
+        {
+          "path": "dsp/include/signalsmith-dsp/filters.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/include/signalsmith-dsp/filters.h",
+          "sha256": "bdd3dc5ad39524d2984ead6b9955c628ca1a3ce41c03c79ec18b567bd21b679d",
+          "bytes": 27
+        },
+        {
+          "path": "dsp/include/signalsmith-dsp/mix.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/include/signalsmith-dsp/mix.h",
+          "sha256": "7387cb5794c15c7b6720e4a6fbc7b65fbb7b9f619259dfd39e5d54945ae757a2",
+          "bytes": 23
+        },
+        {
+          "path": "dsp/include/signalsmith-dsp/perf.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/include/signalsmith-dsp/perf.h",
+          "sha256": "627bfa6eb4f050be429629db0a08324334979bde2428206f0400648f0df47365",
+          "bytes": 24
+        },
+        {
+          "path": "dsp/include/signalsmith-dsp/rates.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/include/signalsmith-dsp/rates.h",
+          "sha256": "a9149d5c6a4952d3c1a43e6f77c830b9a6ce70e0d49efad874c62b661e3dee5d",
+          "bytes": 25
+        },
+        {
+          "path": "dsp/include/signalsmith-dsp/spectral.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/include/signalsmith-dsp/spectral.h",
+          "sha256": "c880288ed072ec5daa23911261e0ba62aa99edf338b9c377d0fe2caa17061ae4",
+          "bytes": 28
+        },
+        {
+          "path": "dsp/include/signalsmith-dsp/windows.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/include/signalsmith-dsp/windows.h",
+          "sha256": "773760bd60f1cbd7b3d2045b6ec9b9372721101673d351060f409ed6cd399789",
+          "bytes": 27
+        },
+        {
+          "path": "dsp/mix.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/mix.h",
+          "sha256": "3bb1f307e5f79fd3aafd91fac41d33c29cf0b0c2a6a2a0b5041981e050ec5834",
+          "bytes": 6603
+        },
+        {
+          "path": "dsp/perf.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/perf.h",
+          "sha256": "8d8dcad667c4955da42468f55d13a854a14541bc68121a4ebd09a08cdb6e3814",
+          "bytes": 2450
+        },
+        {
+          "path": "dsp/rates.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/rates.h",
+          "sha256": "17c70c9d2c123b2ec1823309ea4317aa711098aef874090c0c97901267dc8a1a",
+          "bytes": 6731
+        },
+        {
+          "path": "dsp/spectral.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/spectral.h",
+          "sha256": "9353dc555dc74f6a2913bb439e3d2e2c1432d316bbb3bfd33c7f1a5d0af6d0eb",
+          "bytes": 16513
+        },
+        {
+          "path": "dsp/windows.h",
+          "url": "https://raw.githubusercontent.com/Signalsmith-Audio/dsp/2d20161915e733f117545c6be8cd3275a739a1e3/windows.h",
+          "sha256": "e1ef72403301aed069f3d523cfde058e155f9c4054e4d19cbcefb38223ecbf3c",
+          "bytes": 8202
+        }
+      ]
+    }
+  ]
+}

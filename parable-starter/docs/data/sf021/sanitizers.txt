@@ -1,0 +1,10 @@
+Internal ctest changing into directory: /workspace/work/sf021-sanitized
+Test project /workspace/work/sf021-sanitized
+    Start 41: chamber_causal_feedback
+1/2 Test #41: chamber_causal_feedback ..........   Passed   73.75 sec
+    Start 42: chamber_listening_cli
+2/2 Test #42: chamber_listening_cli ............   Passed   68.80 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) = 142.55 sec

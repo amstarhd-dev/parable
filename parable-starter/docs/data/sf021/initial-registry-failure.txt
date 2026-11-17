@@ -1,0 +1,59 @@
+Internal ctest changing into directory: /workspace/work/sf021-release
+Test project /workspace/work/sf021-release
+    Start 11: soundforge_registry
+1/6 Test #11: soundforge_registry ................***Failed    0.05 sec
+Invalid Soundforge registry: Unpinned source revision
+
+    Start 12: soundforge_registry_negative
+2/6 Test #12: soundforge_registry_negative .......***Failed    0.21 sec
+.E.F...
+======================================================================
+ERROR: test_committed_catalog (__main__.RegistryTests.test_committed_catalog)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/parable-sf021/parable-starter/tests/test_soundforge_registry.py", line 26, in test_committed_catalog
+    self.assertEqual(registry.validate(self.catalog), 14)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/parable-sf021/parable-starter/tools/soundforge/validate_registry.py", line 117, in validate
+    require(re.fullmatch(r"[0-9a-f]{40}", candidate["revision"]) is not None, "Unpinned source revision")
+  File "/workspace/work/parable-sf021/parable-starter/tools/soundforge/validate_registry.py", line 27, in require
+    raise ValueError(message)
+ValueError: Unpinned source revision
+
+======================================================================
+FAIL: test_ids_types_statuses_dependencies (__main__.RegistryTests.test_ids_types_statuses_dependencies)
+----------------------------------------------------------------------
+ValueError: Unpinned source revision
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/work/parable-sf021/parable-starter/tests/test_soundforge_registry.py", line 38, in test_ids_types_statuses_dependencies
+    self.rejected(lambda c: c["assets"].append(copy.deepcopy(c["assets"][0])), "Duplicate asset ID")
+  File "/workspace/work/parable-sf021/parable-starter/tests/test_soundforge_registry.py", line 22, in rejected
+    with self.assertRaisesRegex(ValueError, message):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "Duplicate asset ID" does not match "Unpinned source revision"
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.139s
+
+FAILED (failures=1, errors=1)
+
+    Start 41: chamber_cloud_research_cli
+3/6 Test #41: chamber_cloud_research_cli .........   Passed    2.08 sec
+    Start 42: chamber_signalsmith_research_cli
+4/6 Test #42: chamber_signalsmith_research_cli ...   Passed    0.41 sec
+    Start 43: chamber_causal_feedback
+5/6 Test #43: chamber_causal_feedback ............   Passed   12.79 sec
+    Start 44: chamber_listening_cli
+6/6 Test #44: chamber_listening_cli ..............   Passed   15.24 sec
+
+67% tests passed, 2 tests failed out of 6
+
+Total Test time (real) =  30.79 sec
+
+The following tests FAILED:
+	 11 - soundforge_registry (Failed)
+	 12 - soundforge_registry_negative (Failed)
+Errors while running CTest

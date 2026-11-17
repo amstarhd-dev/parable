@@ -111,6 +111,13 @@ After building, `./build/parable_activation_demo 0 2 1 3 0` selects saved fixtur
 presets by number and renders blocks with deterministic receipts. No live flash,
 Volume/Register/modulation lane or firmware integration is added.
 
+SF-021 adds an experimental [complete borrowed Cloud Seed chamber and one microphone-return gain fault](docs/SF021_REPORT.md).
+[Listen to the selected healthy/fault pair and original source comparison](samples/chamber/README.md).
+Founder preferred the original Cloud core; final shorter-room/fault approval is
+pending. Focused host/sanitizer and pinned M7 object evidence are recorded; the
+~67MB core is **not admitted to Daisy**, and the measured chamber IR benchmark
+is still unavailable. No Engine/patch/firmware/correspondence integration.
+
 ## Purpose
 
 PAR-012 adds an experimental host [living-source lane](docs/LIVING_SOURCE_REQUIREMENTS.md)

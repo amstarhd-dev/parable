@@ -1,0 +1,125 @@
+{
+  "toolchain": {
+    "version": "14.2.1",
+    "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+    "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+    "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+    "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+  },
+  "research_only": true,
+  "production_sources_modified": false,
+  "candidates": [
+    {
+      "candidate": "cloud",
+      "compiled": true,
+      "object": {
+        "text": 3488,
+        "data": 0,
+        "bss": 0
+      },
+      "layout": {
+        "chamber_size": 67011904
+      },
+      "undefined": [
+        "expf",
+        "fmod",
+        "memcpy",
+        "memset",
+        "sinf",
+        "sqrt",
+        "sqrtf"
+      ],
+      "non_lock_free_64_bit_atomic_dependency": false,
+      "soft_double_dependencies": [],
+      "static_frames": [
+        "/workspace/work/sf021-research/cloudseed/DSP/ModulatedDelay.h:72:8:void Cloudseed::ModulatedDelay::Process(float*, float*, int)\t56\tstatic",
+        "/workspace/work/sf021-research/cloudseed/DSP/ModulatedAllpass.h:114:8:void Cloudseed::ModulatedAllpass::ProcessWithMod(float*, float*, int)\t56\tstatic",
+        "/workspace/work/sf021-research/cloudseed/DSP/AllpassDiffuser.h:127:8:void Cloudseed::AllpassDiffuser::Process(float*, float*, int)\t320\tstatic",
+        "/workspace/work/sf021-research/cloudseed/DSP/DelayLine.h:242:8:void Cloudseed::DelayLine::Process(float*, float*, int)\t288\tstatic",
+        "/workspace/work/sf021-research/cloudseed/DSP/ReverbChannel.h:315:8:void Cloudseed::ReverbChannel::Process(float*, float*, int)\t1144\tstatic",
+        "/workspace/work/sf021-research/cloudseed/DSP/ReverbController.h:87:8:void Cloudseed::ReverbController::Process(float*, float*, float*, float*, int)\t1080\tstatic",
+        "/workspace/work/parable-sf021/parable-starter/tools/chamber_arm_probe.cpp:7:17:void chamber_process(Core*, float**, float**, unsigned int)\t16\tstatic"
+      ],
+      "command": [
+        "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+        "-std=c++17",
+        "-O2",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-mcpu=cortex-m7",
+        "-mthumb",
+        "-mfpu=fpv5-d16",
+        "-mfloat-abi=hard",
+        "-fstack-usage",
+        "-I/workspace/work/sf021-research",
+        "-I/workspace/work/sf021-research/include",
+        "-DENGINE_CLOUD=1",
+        "-DBUFFER_SIZE=64",
+        "-DMAX_STR_SIZE=32",
+        "-DPARABLE_CLOUD_UNMODIFIED_RESEARCH=1",
+        "-include",
+        "/workspace/work/parable-sf021/parable-starter/tools/chamber_cloud_portability.h",
+        "-c",
+        "/workspace/work/parable-sf021/parable-starter/tools/chamber_arm_probe.cpp",
+        "-o",
+        "/workspace/work/sf021-arm/cloud.o"
+      ],
+      "target_cycles": "not measured",
+      "admitted": false
+    },
+    {
+      "candidate": "signalsmith",
+      "compiled": true,
+      "object": {
+        "text": 8640,
+        "data": 0,
+        "bss": 0
+      },
+      "layout": {
+        "atomic_double_lockfree": 0,
+        "chamber_size": 2088
+      },
+      "undefined": [
+        "__atomic_load_8",
+        "cos",
+        "pow",
+        "sin",
+        "sqrt",
+        "tan"
+      ],
+      "non_lock_free_64_bit_atomic_dependency": true,
+      "soft_double_dependencies": [],
+      "static_frames": [
+        "/workspace/work/sf021-research/basics/include/signalsmith-basics/reverb.h:284:7:void signalsmith::basics::ReverbSTFX<BaseEffect>::updateFilters(double) [with BaseEffect = stfx::LibraryEffectBase<float>]\t120\tstatic",
+        "/workspace/work/sf021-research/include/signalsmith-dsp/delay.h:448:10:Sample signalsmith::delay::InterpolatorLagrangeN<Sample, n>::fractional(const Data&, Sample) const [with Data = signalsmith::delay::Reader<float, signalsmith::delay::InterpolatorLagrange7>::read<signalsmith::delay::Buffer<float>::View<false> >(const signalsmith::delay::Buffer<float>::View<false>&, float) const::Flipped; Sample = float; int n = 7]\t4\tstatic",
+        "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/arm-none-eabi/include/c++/14.2.1/bits/random.tcc:397:5:void std::mersenne_twister_engine<_UIntType, __w, __n, __m, __r, __a, __u, __d, __s, __b, __t, __c, __l, __f>::_M_gen_rand() [with _UIntType = unsigned int; unsigned int __w = 32; unsigned int __n = 624; unsigned int __m = 397; unsigned int __r = 31; _UIntType __a = 2567483615; unsigned int __u = 11; _UIntType __d = 4294967295; unsigned int __s = 7; _UIntType __b = 2636928640; unsigned int __t = 15; _UIntType __c = 4022730752; unsigned int __l = 18; _UIntType __f = 1812433253]\t16\tstatic",
+        "/workspace/work/sf021-research/basics/include/signalsmith-basics/reverb.h:318:8:void signalsmith::basics::ReverbSTFX<BaseEffect>::MultiDelay::updateLengths(int, double, bool) [with BaseEffect = stfx::LibraryEffectBase<float>]\t2592\tstatic",
+        "/workspace/work/sf021-research/basics/include/signalsmith-basics/reverb.h:158:19:signalsmith::basics::ReverbSTFX<stfx::LibraryEffectBase<float> >::processSTFX<stfx::LibraryEffect<float, signalsmith::basics::ReverbSTFX>::process<float**&, float**&>(float**&, float**&, size_t)::Io, const stfx::LibraryConfig, const stfx::{anonymous}::Block>(stfx::LibraryEffect<float, signalsmith::basics::ReverbSTFX>::process<float**&, float**&>(float**&, float**&, size_t)::Io&, const stfx::LibraryConfig&, const stfx::{anonymous}::Block&)::<lambda()>\t112\tstatic",
+        "/workspace/work/sf021-research/basics/include/signalsmith-basics/../stfx/stfx-library.h:626:8:void stfx::LibraryEffect<Sample, EffectTemplate, ExtraConfig>::process(Inputs&&, Outputs&&, size_t) [with Inputs = float**&; Outputs = float**&; Sample = float; EffectTemplate = signalsmith::basics::ReverbSTFX; ExtraConfig = {}]\t616\tstatic",
+        "/workspace/work/parable-sf021/parable-starter/tools/chamber_arm_probe.cpp:11:17:void chamber_process(Core*, float**, float**, unsigned int)\t16\tstatic"
+      ],
+      "command": [
+        "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+        "-std=c++17",
+        "-O2",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-mcpu=cortex-m7",
+        "-mthumb",
+        "-mfpu=fpv5-d16",
+        "-mfloat-abi=hard",
+        "-fstack-usage",
+        "-I/workspace/work/sf021-research",
+        "-I/workspace/work/sf021-research/include",
+        "-DENGINE_CLOUD=0",
+        "-c",
+        "/workspace/work/parable-sf021/parable-starter/tools/chamber_arm_probe.cpp",
+        "-o",
+        "/workspace/work/sf021-arm/signalsmith.o"
+      ],
+      "target_cycles": "not measured",
+      "admitted": false
+    }
+  ],
+  "limitations": "Objects compile only selected process paths, not complete firmware, constructor code, dynamic memory placement, full transitive stack high-water or actual target execution. No pass/admission inference from a linkable object."
+}
