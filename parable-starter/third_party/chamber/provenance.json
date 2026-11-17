@@ -41,15 +41,15 @@
       "revision": "f2cdeb04c42141d2caec19ca4f137398b2a76b85",
       "license": "MIT",
       "use": "Complete convolver source inspected; no verified original chamber IR obtained, so no convolution audition/import"
-    },
-    {
-      "url": "https://freesound.org/people/Nox_Sound/sounds/585740/",
-      "revision": "Author page accessed2026-11-17UTC; original file bytes not obtained",
-      "license": "CC0-1.0",
-      "use": "Author page confirms CC0,.885s,48k stereo24bit; download requires login/OAuth. No lossy preview substitution and no IR imported"
     }
   ],
   "selected": "Complete CloudSeedCore algorithm; not a from-scratch reverb",
   "notices": "Original MIT headers/LICENSE retained; renderer permissions separate from core code",
-  "physics": "Experimental common class-B/soft-rail electronic return reduction, not measured room or amplifier. Class-B fact reference: https://wiki.analog.com/university/courses/engineering_discovery/lab_14"
+  "physics": "Experimental common class-B/soft-rail electronic return reduction, not measured room or amplifier. Class-B fact reference: https://wiki.analog.com/university/courses/engineering_discovery/lab_14",
+  "ir_research": {
+    "url": "https://freesound.org/people/Nox_Sound/sounds/585740/",
+    "revision": "Author page accessed2026-11-17UTC; original file bytes not obtained",
+    "license": "CC0-1.0",
+    "use": "Author page confirms CC0,.885s,48k stereo24bit; download requires login/OAuth. No lossy preview substitution and no IR imported"
+  }
 }

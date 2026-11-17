@@ -1423,13 +1423,6 @@
           "relationship": "audit-only",
           "scope": "Complete convolver source inspected; no verified original chamber IR obtained, so no convolution audition/import",
           "notice_paths": []
-        },
-        {
-          "provenance_path": "parable-starter/third_party/chamber/provenance.json",
-          "candidate": 7,
-          "relationship": "audit-only",
-          "scope": "Author page confirms CC0,.885s,48k stereo24bit; download requires login/OAuth. No lossy preview substitution and no IR imported",
-          "notice_paths": []
         }
       ],
       "ownership_notes": "Complete MIT Cloud Seed core reused with explicit initialization/portability patches. Shared PCM, statistics and callback guards reused. Other complete engines executed for comparison only; no new reverb algorithm or policy exception.",

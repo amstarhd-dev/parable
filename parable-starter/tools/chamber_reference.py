@@ -6,7 +6,7 @@ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--output',type=Pa
 points=[-.5,-.1,-.02,-.00701,-.007,-.00699,-.001,0,.001,.00699,.007,.00701,.02,.1,.5]
 f=a.output/'return-amplifier.csv'
 with f.open('w',newline='')as stream:
- w=csv.writer(stream);w.writerow(['microphone','gain','return'])
+ w=csv.writer(stream,lineterminator="\n");w.writerow(['microphone','gain','return'])
  for gain in [0,.02,12,24,64]:
   for x in points:
    conductor=(max(x-.007,0) if x>=0 else min(x+.007,0))
