@@ -1,0 +1,360 @@
+{
+  "toolchain": {
+    "version": "14.2.1",
+    "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+    "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+    "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+    "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+  },
+  "flags": [
+    "-std=c++17",
+    "-O2",
+    "-mcpu=cortex-m7",
+    "-mthumb",
+    "-mfpu=fpv5-d16",
+    "-mfloat-abi=hard",
+    "-fno-exceptions",
+    "-fno-rtti",
+    "-fno-fast-math",
+    "-fno-finite-math-only",
+    "-fstack-usage",
+    "-DBUFFER_SIZE=64",
+    "-DMAX_STR_SIZE=32",
+    "-include",
+    "/workspace/work/parable-sf021/parable-starter/tools/chamber_cloud_portability.h",
+    "-I/workspace/work/parable-sf021/parable-starter/include",
+    "-I/workspace/work/parable-sf021/parable-starter/src",
+    "-I/workspace/work/parable-sf021/parable-starter/third_party/chamber/cloudseed"
+  ],
+  "objects": {
+    "parable_chamber": {
+      "text": 15772,
+      "data": 0,
+      "bss": 180
+    },
+    "Biquad": {
+      "text": 1856,
+      "data": 0,
+      "bss": 0
+    },
+    "RandomBuffer": {
+      "text": 826,
+      "data": 0,
+      "bss": 0
+    }
+  },
+  "whole_objects_undefined": {
+    "parable_chamber": [
+      "_ZN9Cloudseed12RandomBuffer8GenerateEyif",
+      "_ZN9Cloudseed6Biquad12ClearBuffersEv",
+      "_ZN9Cloudseed6Biquad13SetSamplerateEf",
+      "_ZN9Cloudseed6Biquad6UpdateEv",
+      "_ZN9Cloudseed6Biquad9SetGainDbEf",
+      "_ZN9Cloudseed6BiquadC1ENS0_10FilterTypeEf",
+      "_ZN9Cloudseed6BiquadD1Ev",
+      "_ZdlPvj",
+      "_Znwj",
+      "cosf",
+      "expf",
+      "fmod",
+      "log10",
+      "log2",
+      "memcpy",
+      "memset",
+      "pow",
+      "powf",
+      "rand",
+      "sinf",
+      "sqrt",
+      "sqrtf",
+      "srand",
+      "tanhf"
+    ],
+    "Biquad": [
+      "expf",
+      "log10f",
+      "powf",
+      "sinf",
+      "sqrtf",
+      "tanf"
+    ],
+    "RandomBuffer": [
+      "_ZSt20__throw_length_errorPKc",
+      "_ZdlPvj",
+      "_Znwj",
+      "memcpy"
+    ]
+  },
+  "layout": {
+    "wrapper": 1068,
+    "borrowed_core": 67011904,
+    "unchanged_engine": 11040,
+    "unchanged_bundle": 11288,
+    "unchanged_runtime": 45224
+  },
+  "delay_buffer_bytes_each_rate": {
+    "44100": 66981888,
+    "48000": 66981888,
+    "96000": 66981888
+  },
+  "audio_calls": {
+    "parable::soundforge::Chamber::process(float const*, float*)": [
+      "memset",
+      "memset",
+      "Cloudseed::ScaleParam(double, int)",
+      "Cloudseed::ReverbChannel::Process(float*, float*, int)",
+      "Cloudseed::ReverbChannel::Process(float*, float*, int)",
+      "memcpy",
+      "memcpy",
+      "tanhf"
+    ],
+    "Cloudseed::ReverbChannel::Process(float*, float*, int)": [
+      "memcpy",
+      "Cloudseed::ModulatedDelay::Process(float*, float*, int)",
+      "memcpy",
+      "memset",
+      "Cloudseed::DelayLine::Process(float*, float*, int)",
+      "expf",
+      "memcpy",
+      "Cloudseed::ModulatedAllpass::Process(float*, float*, int)",
+      "Cloudseed::ModulatedAllpass::Process(float*, float*, int)",
+      "memcpy",
+      "memcpy",
+      "sqrt",
+      "sqrt",
+      "sqrtf"
+    ],
+    "Cloudseed::ModulatedAllpass::Process(float*, float*, int)": [
+      "fmod",
+      "sinf"
+    ],
+    "Cloudseed::DelayLine::Process(float*, float*, int)": [
+      "Cloudseed::ModulatedDelay::Process(float*, float*, int)",
+      "memcpy",
+      "memcpy",
+      "Cloudseed::ModulatedAllpass::Process(float*, float*, int)",
+      "Cloudseed::ModulatedAllpass::Process(float*, float*, int)",
+      "memcpy"
+    ],
+    "Cloudseed::ModulatedDelay::Process(float*, float*, int)": [
+      "fmod",
+      "sinf"
+    ],
+    "Cloudseed::ScaleParam(double, int)": [
+      "powf",
+      "powf",
+      "powf",
+      "powf",
+      "powf",
+      "powf",
+      "powf"
+    ],
+    "parable::soundforge::Chamber::setReturnGain(float)": []
+  },
+  "static_frames": {
+    "double Cloudseed::ScaleParam(double, int)": 8,
+    "void Cloudseed::ModulatedDelay::Process(float*, float*, int)": 56,
+    "void Cloudseed::ModulatedAllpass::Process(float*, float*, int)": 64,
+    "Cloudseed::AllpassDiffuser::AllpassDiffuser()": 96,
+    "void Cloudseed::DelayLine::Process(float*, float*, int)": 544,
+    "void Cloudseed::ReverbChannel::Process(float*, float*, int)": 1144,
+    "void Cloudseed::ReverbChannel::UpdateLines()": 168,
+    "void Cloudseed::ReverbChannel::UpdatePostDiffusion()": 88,
+    "void Cloudseed::ReverbChannel::SetParameter(int, double)": 88,
+    "Cloudseed::ReverbChannel::ReverbChannel(int, Cloudseed::ChannelLR)": 144,
+    "void Cloudseed::initPrograms()": 0,
+    "void parable::chamber_detail::compact(Cloudseed::ReverbController&, parable::soundforge::ChamberRoom)": 64,
+    "parable::soundforge::Chamber::Chamber()": 16,
+    "parable::soundforge::Chamber::~Chamber()": 24,
+    "static std::size_t parable::soundforge::Chamber::coreBytes()": 0,
+    "bool parable::soundforge::Chamber::prepare(float, float, float, parable::soundforge::ChamberRoom)": 56,
+    "static float parable::soundforge::Chamber::returnAmplifier(float, float)": 16,
+    "bool parable::soundforge::Chamber::setReturnGain(float)": 0,
+    "bool parable::soundforge::Chamber::process(const float*, float*)": 1392,
+    "Cloudseed::Biquad::Biquad()": 4,
+    "Cloudseed::Biquad::~Biquad()": 0,
+    "float Cloudseed::Biquad::GetSamplerate()": 0,
+    "float Cloudseed::Biquad::GetGainDb()": 0,
+    "float Cloudseed::Biquad::GetGain()": 0,
+    "void Cloudseed::Biquad::SetGainDb(float)": 8,
+    "void Cloudseed::Biquad::SetGain(float)": 8,
+    "float Cloudseed::Biquad::GetQ()": 0,
+    "void Cloudseed::Biquad::SetQ(float)": 0,
+    "void Cloudseed::Biquad::Update()": 24,
+    "void Cloudseed::Biquad::SetSamplerate(float)": 0,
+    "Cloudseed::Biquad::Biquad(FilterType, float)": 16,
+    "double Cloudseed::Biquad::GetResponse(float) const": 40,
+    "void Cloudseed::Biquad::ClearBuffers()": 0,
+    ") [with _Args = {const float&}; _Tp = float; _Alloc = std::allocator<float>]": 32,
+    "static std::vector<float> Cloudseed::RandomBuffer::Generate(uint64_t, int)": 40,
+    ") [with _Args = {float}; _Tp = float; _Alloc = std::allocator<float>]": 32,
+    "static std::vector<float> Cloudseed::RandomBuffer::Generate(uint64_t, int, float)": 96
+  },
+  "memory_note": "67MB inline core plus live upstream seed-vector allocations, wrapper and allocator overhead. No flash/SDRAM placement or hardware admission. Fixed upstream capacities retained.",
+  "work_bound": "Exactly64frames/block; up to12late lines/channel and bounded12stage diffusers;8sample modulation update; one common bounded amplifier/frame; no audio heap/IO/locks/atomics found. libm/math/helper stack and cycles not measured.",
+  "firmware_linked": false,
+  "physical_tested": false,
+  "target_cycles": "not measured",
+  "commands": [
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-dumpfullversion"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-fno-fast-math",
+      "-fno-finite-math-only",
+      "-fstack-usage",
+      "-DBUFFER_SIZE=64",
+      "-DMAX_STR_SIZE=32",
+      "-include",
+      "/workspace/work/parable-sf021/parable-starter/tools/chamber_cloud_portability.h",
+      "-I/workspace/work/parable-sf021/parable-starter/include",
+      "-I/workspace/work/parable-sf021/parable-starter/src",
+      "-I/workspace/work/parable-sf021/parable-starter/third_party/chamber/cloudseed",
+      "-c",
+      "/workspace/work/parable-sf021/parable-starter/src/parable_chamber.cpp",
+      "-o",
+      "/workspace/work/sf021-selected-arm/parable_chamber.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-size",
+      "/workspace/work/sf021-selected-arm/parable_chamber.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-nm",
+      "-u",
+      "/workspace/work/sf021-selected-arm/parable_chamber.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-objdump",
+      "-drC",
+      "/workspace/work/sf021-selected-arm/parable_chamber.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-fno-fast-math",
+      "-fno-finite-math-only",
+      "-fstack-usage",
+      "-DBUFFER_SIZE=64",
+      "-DMAX_STR_SIZE=32",
+      "-include",
+      "/workspace/work/parable-sf021/parable-starter/tools/chamber_cloud_portability.h",
+      "-I/workspace/work/parable-sf021/parable-starter/include",
+      "-I/workspace/work/parable-sf021/parable-starter/src",
+      "-I/workspace/work/parable-sf021/parable-starter/third_party/chamber/cloudseed",
+      "-c",
+      "/workspace/work/parable-sf021/parable-starter/third_party/chamber/cloudseed/DSP/Biquad.cpp",
+      "-o",
+      "/workspace/work/sf021-selected-arm/Biquad.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-size",
+      "/workspace/work/sf021-selected-arm/Biquad.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-nm",
+      "-u",
+      "/workspace/work/sf021-selected-arm/Biquad.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-objdump",
+      "-drC",
+      "/workspace/work/sf021-selected-arm/Biquad.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-fno-fast-math",
+      "-fno-finite-math-only",
+      "-fstack-usage",
+      "-DBUFFER_SIZE=64",
+      "-DMAX_STR_SIZE=32",
+      "-include",
+      "/workspace/work/parable-sf021/parable-starter/tools/chamber_cloud_portability.h",
+      "-I/workspace/work/parable-sf021/parable-starter/include",
+      "-I/workspace/work/parable-sf021/parable-starter/src",
+      "-I/workspace/work/parable-sf021/parable-starter/third_party/chamber/cloudseed",
+      "-c",
+      "/workspace/work/parable-sf021/parable-starter/third_party/chamber/cloudseed/DSP/RandomBuffer.cpp",
+      "-o",
+      "/workspace/work/sf021-selected-arm/RandomBuffer.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-size",
+      "/workspace/work/sf021-selected-arm/RandomBuffer.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-nm",
+      "-u",
+      "/workspace/work/sf021-selected-arm/RandomBuffer.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-objdump",
+      "-drC",
+      "/workspace/work/sf021-selected-arm/RandomBuffer.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-fno-fast-math",
+      "-fno-finite-math-only",
+      "-fstack-usage",
+      "-DBUFFER_SIZE=64",
+      "-DMAX_STR_SIZE=32",
+      "-include",
+      "/workspace/work/parable-sf021/parable-starter/tools/chamber_cloud_portability.h",
+      "-I/workspace/work/parable-sf021/parable-starter/include",
+      "-I/workspace/work/parable-sf021/parable-starter/src",
+      "-I/workspace/work/parable-sf021/parable-starter/third_party/chamber/cloudseed",
+      "-c",
+      "/workspace/work/sf021-selected-arm/layout.cpp",
+      "-o",
+      "/workspace/work/sf021-selected-arm/layout.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-objcopy",
+      "--dump-section",
+      ".rodata=/workspace/work/sf021-selected-arm/layout.bin",
+      "/workspace/work/sf021-selected-arm/layout.o"
+    ]
+  ],
+  "source_sha256": {
+    "src/parable_chamber.cpp": "490106bd34193b77aa67787f4cd59f65007081f9674250fbfbf765db9acb74db",
+    "third_party/chamber/cloudseed/DSP/Biquad.cpp": "4e04140ab40174a3b93ed5714a2b574deaa92da9e1c82ad6d715b2b84eda2d52",
+    "third_party/chamber/cloudseed/DSP/RandomBuffer.cpp": "3bfa1f0d26808d83f3478caf40122e1defdf7e97af5bf73e904f930a7944ff6b",
+    "include/parable_chamber.h": "d45cf978d87f9c18fcbc4f7b59528b9c8436bbae438dd58186f089bfbce51d8a",
+    "src/chamber_cloud_settings.h": "4cba303779a3b15ffbbadd593916d760c0e15f0412205e77e5a7a7b17344dc8d",
+    "third_party/chamber/initialization.patch": "5b51cf77a1c90b93427b91fbf221afbc3a77a9bf3e4a53471acc1128ca179c84"
+  }
+}

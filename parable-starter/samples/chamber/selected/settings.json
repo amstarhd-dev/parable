@@ -1,0 +1,35 @@
+{
+  "scope": "Experimental host evidence; not a canonical patch or production preset",
+  "producing_code_commit": "91eb557a5152e9196cff56303d45d788096a8b6b",
+  "sample_rate": 48000,
+  "block": 64,
+  "source_prepared_sha256": "75ae5e73c72e6774fb75e6318dc91ba66347fb65290949e947144033eb648f52",
+  "guitar_seconds": 8,
+  "tail_seconds": 8,
+  "input_peak": 0.15,
+  "wet": 0.65,
+  "wet_calibration": 3,
+  "common": {
+    "room_predelay_ms": 0,
+    "room_decay_control": 0.25,
+    "room_low_cut_hz": 120,
+    "room_damping_hz": 6500,
+    "return_highpass_hz": 200,
+    "return_lowpass_hz": 4500,
+    "instantaneous_referred_threshold": 0.007,
+    "soft_return_rail": 0.15,
+    "feedback_delay_samples": 64
+  },
+  "sole_difference": {
+    "parameter": "return_gain",
+    "healthy": 0.02,
+    "fault": 24,
+    "electrical_interpretation": "Rf1k, Riso50k -> effective partial-short41.667ohm; assumed stiff stages, not measured hardware"
+  },
+  "matched_rms_target": 0.05,
+  "impulse_input_peak": 0.5,
+  "impulse_audible_common_gain": 64,
+  "reset": "Stopped reconstruction; no live preset switching",
+  "physical": "No target placement/boot/cycles/audio measured",
+  "musical": "Founder preferred original ethereal Cloud source; final shorter setting and fault remain unapproved"
+}

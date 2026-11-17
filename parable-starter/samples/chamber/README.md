@@ -1,23 +1,34 @@
-# SF021 chamber candidates — Gate1, experimental and not approved
+# SF021 — borrowed chamber listening index
 
-Listen to candidates/cloud/compact_comparable_mix.wav and
-candidates/signalsmith/compact_comparable_mix.wav. Both are actual full upstream
-engines, same take03/peak.15,35%dry+65%RMS-calibrated wet return. Calibration is
-separate and explicit; original wet level is retained in compact_upstream_raw.wav.
-compact_matched.wav is wet-only at shared.04 RMS. Each compact receipt records
-input gain, raw RMS/peak, calibration, full-process host time and observed memory.
+**Start [selected/healthy_matched.wav](selected/healthy_matched.wav) and
+[selected/fault_matched.wav](selected/fault_matched.wav).**
+The [selected package](selected/README.md) includes25 actual native recordings,
+source/dry, same-gain raw and matched guitar, wet-only, microphone/speaker/return
+isolation, weak/strong/chord/zero/recovery and impulse probes.
 
-Both engines also have default/preset recordings, matched copies and impulse
-tails. Cloud preset is its original DarkPlate with original dry level included;
-Cloud default keeps DarkPlate parameters but mutes dry. Signalsmith default is
-wet-only default and preset is wet-only ambient (nominal RT60~25.5s;14s record
-truncates that long tail). These are background references, not chamber presets.
-Compact retunings use only upstream controls and nominal~1.2s decay,120/6500Hz
-coloration; see source and ADR for exact parameters. No claim of equal measured
-RT60 or physical chamber dimensions. No source rewriting to manufacture a reverb.
+Founder preferred **Cloud**, described as less subtle and very ethereal, in the
+original candidates/cloud/compact_comparable_mix.wav comparison. That original
+sound remains here; it is not overwritten. It has a longer tail than the final
+shorter chamber setting. Both configurations retain the same complete upstream
+algorithm. Current prepared controls also permit that original decay setting.
 
-Original Cloud ClearBuffers does not reset all positions/phases/filter states:
-its impulse follows14s guitar and then buffer clear. Signalsmith uses full reset.
-Fresh process rendering with fixed seed is separately checked for repeatability.
-The source is the unchanged prepared20s take03; only first8s is used, then6s tail.
-Preserve AUDIO_NOTICE.md. Founder sound choice remains pending.
+candidates/cloud and candidates/signalsmith preserve initial full-source default,
+factory/ambient and compact retuning recordings. Original compact mixes use35%dry
+plus65%separately RMS-calibrated wet; original raw wet remains. Cloud factory preset
+includes its original dry gain; other comparisons mute dry. Signalsmith ambient's
+long tail is truncated by the14s recording. Original Cloud impulse follows only
+ClearBuffers and original Signalsmith reset retains one diffusion buffer, so these
+initial responses are not fresh-state architectural measurements. PRODUCER.json
+identifies their earlier code checkpoint.
+
+envelope-comparison/cloud/envelope_matched.wav and the corresponding signalsmith
+file are later100%wet, matched.04 RMS comparison recordings with **freshly rebuilt**
+cores before the float impulse. Original upstream controls were retuned until
+measured T20-extrapolated RT60 is~3.29s for both; they are not matched by knob names.
+Raw originals and receipts preserve all input/output levels, memory and host costs.
+These are comparison tools, not a claim of measured physical rooms or high quality.
+
+input_take03_20s.wav is the unchanged approved prepared source. Selected guitar
+uses its first8s with common peak.15, then8s tail; candidate renders have6s tail.
+All timings/settings/credits are explicit in receipts and AUDIO_NOTICE.md.
+See [report](../../docs/SF021_REPORT.md) for exact tests, source rights and limits.

@@ -1,0 +1,18 @@
+Internal ctest changing into directory: /workspace/work/sf021-debug
+Test project /workspace/work/sf021-debug
+    Start 11: soundforge_registry
+1/6 Test #11: soundforge_registry ................   Passed    0.08 sec
+    Start 12: soundforge_registry_negative
+2/6 Test #12: soundforge_registry_negative .......   Passed    0.36 sec
+    Start 41: chamber_cloud_research_cli
+3/6 Test #41: chamber_cloud_research_cli .........   Passed    9.28 sec
+    Start 42: chamber_signalsmith_research_cli
+4/6 Test #42: chamber_signalsmith_research_cli ...   Passed   11.40 sec
+    Start 43: chamber_causal_feedback
+5/6 Test #43: chamber_causal_feedback ............   Passed   49.18 sec
+    Start 44: chamber_listening_cli
+6/6 Test #44: chamber_listening_cli ..............   Passed   49.07 sec
+
+100% tests passed, 0 tests failed out of 6
+
+Total Test time (real) = 119.38 sec

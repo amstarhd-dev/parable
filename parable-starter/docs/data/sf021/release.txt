@@ -1,0 +1,88 @@
+Internal ctest changing into directory: /workspace/work/sf021-release
+UpdateCTestConfiguration  from :/workspace/work/sf021-release/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/workspace/work/sf021-release/DartConfiguration.tcl
+Test project /workspace/work/sf021-release
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 11
+    Start 11: soundforge_registry
+
+11: Test command: /workspace/work/baseline-tools/bin/python3.12 "/workspace/work/parable-sf021/parable-starter/tools/soundforge/validate_registry.py"
+11: Working Directory: /workspace/work/sf021-release
+11: Test timeout computed to be: 10000000
+11: Validated 14 Soundforge assets offline; evidence claims require human review.
+1/6 Test #11: soundforge_registry ................   Passed    0.05 sec
+test 12
+    Start 12: soundforge_registry_negative
+
+12: Test command: /workspace/work/baseline-tools/bin/python3.12 "/workspace/work/parable-sf021/parable-starter/tests/test_soundforge_registry.py"
+12: Working Directory: /workspace/work/sf021-release
+12: Test timeout computed to be: 10000000
+12: .......
+12: ----------------------------------------------------------------------
+12: Ran 7 tests in 0.188s
+12: 
+12: OK
+2/6 Test #12: soundforge_registry_negative .......   Passed    0.29 sec
+test 41
+    Start 41: chamber_cloud_research_cli
+
+41: Test command: /workspace/work/baseline-tools/bin/python3.12 "/workspace/work/parable-sf021/parable-starter/tests/test_chamber_candidates.py" "/workspace/work/sf021-release/parable_chamber_cloud_candidate" "/workspace/work/parable-sf021/parable-starter/samples/chamber/input_take03_20s.wav"
+41: Working Directory: /workspace/work/sf021-release
+41: Test timeout computed to be: 10000000
+41: sizeof=67012336 us/frame=1.19429 rms=0.00702423 peak=0.0440237
+41: sizeof=67012336 us/frame=1.39904 rms=0.00702423 peak=0.0440237
+41: Fresh-process reproducibility, PCM and callback research checks passed; no admission implied
+3/6 Test #41: chamber_cloud_research_cli .........   Passed    2.87 sec
+test 42
+    Start 42: chamber_signalsmith_research_cli
+
+42: Test command: /workspace/work/baseline-tools/bin/python3.12 "/workspace/work/parable-sf021/parable-starter/tests/test_chamber_candidates.py" "/workspace/work/sf021-release/parable_chamber_signalsmith_candidate" "/workspace/work/parable-sf021/parable-starter/samples/chamber/input_take03_20s.wav"
+42: Working Directory: /workspace/work/sf021-release
+42: Test timeout computed to be: 10000000
+42: sizeof=2216 us/frame=0.242443 rms=0.0166062 peak=0.0809863
+42: sizeof=2216 us/frame=0.299535 rms=0.0166062 peak=0.0809863
+42: Fresh-process reproducibility, PCM and callback research checks passed; no admission implied
+4/6 Test #42: chamber_signalsmith_research_cli ...   Passed    0.69 sec
+test 43
+    Start 43: chamber_causal_feedback
+
+43: Test command: /workspace/work/sf021-release/parable_chamber_test
+43: Working Directory: /workspace/work/sf021-release
+43: Test timeout computed to be: 10000000
+43: Independent amplifier law75 points peak_error=2.49454e-08
+43: Independent double mic-filter/amp/64sample excitation wiring peak_error=1.66148e-06
+43: rate=44100 weak_return=0 zero=0 healthy_late=2.60046e-09 fault_late=0.108347 fault_peak=0.456296
+43: rate=48000 weak_return=0 zero=0 healthy_late=2.26482e-09 fault_late=0.175734 fault_peak=0.53087
+43: rate=96000 weak_return=0 zero=0 healthy_late=1.36733e-09 fault_late=0.145828 fault_peak=0.464064
+43: Disconnect gain at8s,12-14s recovery RMS=2.42945e-05
+43: 60s unforced fault remains finite/bounded; final2s RMS=0.155916 peak=0.53087
+43: Finite/rejected input, stopped reprepare repeatability, silence and callback guards passed; core=67012336 wrapper=1072
+43: Focused checks=152 passed
+5/6 Test #43: chamber_causal_feedback ............   Passed   19.94 sec
+test 44
+    Start 44: chamber_listening_cli
+
+44: Test command: /workspace/work/baseline-tools/bin/python3.12 "/workspace/work/parable-sf021/parable-starter/tests/test_chamber_cli.py" "/workspace/work/sf021-release/parable_chamber_lab" "/workspace/work/parable-sf021/parable-starter/samples/chamber/input_take03_20s.wav"
+44: Working Directory: /workspace/work/sf021-release
+44: Test timeout computed to be: 10000000
+44: Actual full borrowed chamber rendered 25 WAVs; core=67012336 wrapper=1072 B
+44: Actual full borrowed chamber rendered 25 WAVs; core=67012336 wrapper=1072 B
+44: 25 native WAVs, actual loop diagnostics, weak identity, no self-start, unclipped raw levels and fresh repeatability pass
+6/6 Test #44: chamber_listening_cli ..............   Passed   24.01 sec
+
+The following tests passed:
+	soundforge_registry
+	soundforge_registry_negative
+	chamber_cloud_research_cli
+	chamber_signalsmith_research_cli
+	chamber_causal_feedback
+	chamber_listening_cli
+
+100% tests passed, 0 tests failed out of 6
+
+Total Test time (real) =  47.84 sec

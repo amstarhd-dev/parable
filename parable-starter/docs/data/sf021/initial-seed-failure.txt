@@ -1,0 +1,26 @@
+Internal ctest changing into directory: /workspace/work/sf021-sanitized
+Test project /workspace/work/sf021-sanitized
+    Start 41: chamber_causal_feedback
+1/2 Test #41: chamber_causal_feedback ..........***Failed    0.21 sec
+/workspace/work/parable-sf021/parable-starter/third_party/chamber/cloudseed/DSP/ReverbChannel.h:419:29: runtime error: signed integer overflow: -1094795586 * 2 cannot be represented in type 'int'
+
+    Start 42: chamber_listening_cli
+2/2 Test #42: chamber_listening_cli ............***Failed    0.24 sec
+/workspace/work/parable-sf021/parable-starter/third_party/chamber/cloudseed/DSP/ReverbChannel.h:419:29: runtime error: signed integer overflow: -1094795586 * 2 cannot be represented in type 'int'
+Traceback (most recent call last):
+  File "/workspace/work/parable-sf021/parable-starter/tests/test_chamber_cli.py", line 7, in <module>
+    subprocess.run(command,check=True);files=list(output.glob('*.wav'));assert len(files)==25
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/workspace/work/sf021-sanitized/parable_chamber_lab', '--input', '/workspace/work/parable-sf021/parable-starter/samples/chamber/input_take03_20s.wav', '--output', '/tmp/tmp4e1maaxe/renders']' returned non-zero exit status 1.
+
+
+0% tests passed, 2 tests failed out of 2
+
+Total Test time (real) =   0.45 sec
+
+The following tests FAILED:
+	 41 - chamber_causal_feedback (Failed)
+	 42 - chamber_listening_cli (Failed)
+Errors while running CTest

@@ -1,5 +1,21 @@
 # Implementation status and reproducible baseline
 
+## SF-021 — complete borrowed chamber / one return-coupling gain fault
+
+Specified/implemented: complete pinned MIT CloudSeedCore, minimal constructor/
+portability fixes, prepared room controls and one mic-to-excitation coupling gain.
+Shared continuous class-B/rail reduction gives weak silence and strong bounded
+singback; no output oscillator. Full Cloud/Signalsmith source comparisons and
+native guitar/probe/diagnostic files are [downloadable](../samples/chamber/README.md).
+Host-tested: final focused Release6/6, Debug6/6, poisoned ASan+UBSan2/2; independent
+return law/wiring,60s feedback/recovery, callback safety and original-core PCM
+preservation. [Commands/results/limitations](SF021_REPORT.md), [ADR021](adr/ADR-021-cancer-borrowed-chamber.md).
+ARM compile-inspected: full selected objects/calls/static frames,67011904B borrowed
+core plus vectors/allocator and1068B wrapper. **Not hardware-admitted**; no placement,
+link/boot/audio/cycles/noise measured. Founder preferred the original Cloud comparison
+as less subtle/ethereal; final shorter-room/damage approval and measured IR benchmark
+remain open. Existing Engine/patch/runtime/storage/firmware/correspondence untouched.
+
 ## SF-014 — experimental standalone Lockhart / one feed resistor
 
 [Gate0](SF014_GATE0.md), [ADR014](adr/ADR-014-lockhart-feed-resistor.md),

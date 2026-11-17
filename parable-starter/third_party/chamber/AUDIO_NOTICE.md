@@ -19,3 +19,10 @@ Actual full upstream candidate cores are folded mono. Separate RMS matching to
 remain. Cloud factory preset includes its original dry gain; other comparisons
 are wet-only. Software levels are not calibrated physical pickup/codec volts.
 No subjective approval or hardware performance is inferred.
+
+Selected whole-core voice uses8s take03 +8s tail, common input peak0.15. Both
+healthy/fault use fixed wet calibration3, mix.65 and all identical room/electronic
+parameters except return gain.02/24. Separate RMS copies target0.05; gains in
+selected/levels.csv. Synthetic weak/strong/chord/zero/recovery are labeled probes,
+not recorded guitar. Impulse common64 copies share exactly64x offline gain; raw
+WAV and little-endian float32 impulses are preserved. No hidden gain compensation.

@@ -1,0 +1,111 @@
+{
+  "numpy": "2.3.5",
+  "limits": "Numerical descriptors only; no measured chamber IR, professional quality or founder approval inferred. Short-window echo density is threshold-normalized by Gaussian probability; not a perceptual quality score.",
+  "candidates": {
+    "cloud": {
+      "t5": 0.11814583333333334,
+      "t25": 1.2164583333333334,
+      "T20_extrapolated_RT60": 3.2949375,
+      "first_nonzero_ms": 2.1041666666666665,
+      "normalized_echo_density_20ms_windows": {
+        "20": 0.7878718164069579,
+        "50": 1.0537785544443061,
+        "100": 1.135848535320031,
+        "200": 1.0275161605640741,
+        "500": 0.9060525888680014
+      },
+      "HF_3k_12k_over_100_3k_dB": {
+        "0.02": -18.358959795386834,
+        "0.4": -23.938061966005748
+      }
+    },
+    "signalsmith": {
+      "t5": 0.19183333333333333,
+      "t25": 1.2895833333333333,
+      "T20_extrapolated_RT60": 3.29325,
+      "first_nonzero_ms": 0.0625,
+      "normalized_echo_density_20ms_windows": {
+        "20": 1.0275161605640741,
+        "50": 0.9487289789233784,
+        "100": 1.0143849636239584,
+        "200": 0.9388805812182914,
+        "500": 1.0701925506194512
+      },
+      "HF_3k_12k_over_100_3k_dB": {
+        "0.02": -1.2377904041213217,
+        "0.4": -9.898877303617974
+      }
+    }
+  },
+  "selected": {
+    "healthy_impulse": {
+      "t5": 0.11814583333333334,
+      "t25": 1.2164791666666666,
+      "T20_extrapolated_RT60": 3.2949999999999995,
+      "first_nonzero_ms": 2.1041666666666665,
+      "normalized_echo_density_20ms_windows": {
+        "20": 0.7878718164069579,
+        "50": 1.0537785544443061,
+        "100": 1.135848535320031,
+        "200": 1.0275161605640741,
+        "500": 0.9060525888680014
+      },
+      "HF_3k_12k_over_100_3k_dB": {
+        "0.02": -18.358959702841734,
+        "0.4": -23.938061923339408
+      }
+    }
+  },
+  "probes": {
+    "healthy_weak": {
+      "late_2s_rms": 0.0,
+      "peak": 0.001495361328125,
+      "dominant_hz": null,
+      "dominant_7bin_power_fraction": 0
+    },
+    "fault_weak": {
+      "late_2s_rms": 0.0,
+      "peak": 0.001495361328125,
+      "dominant_hz": null,
+      "dominant_7bin_power_fraction": 0
+    },
+    "healthy_strong": {
+      "late_2s_rms": 0.0,
+      "peak": 0.045196533203125,
+      "dominant_hz": null,
+      "dominant_7bin_power_fraction": 0
+    },
+    "fault_strong": {
+      "late_2s_rms": 0.13768109258163047,
+      "peak": 0.5308837890625,
+      "dominant_hz": 1761.474609375,
+      "dominant_7bin_power_fraction": 0.9037294196798346
+    },
+    "healthy_chord": {
+      "late_2s_rms": 0.0,
+      "peak": 0.113861083984375,
+      "dominant_hz": null,
+      "dominant_7bin_power_fraction": 0
+    },
+    "fault_chord": {
+      "late_2s_rms": 0.1381450146563207,
+      "peak": 0.53094482421875,
+      "dominant_hz": 1761.474609375,
+      "dominant_7bin_power_fraction": 0.8988062319558912
+    },
+    "fault_unexcited_zero": {
+      "late_2s_rms": 0.0,
+      "peak": 0.0,
+      "dominant_hz": null,
+      "dominant_7bin_power_fraction": 0
+    },
+    "fault_strong_then_disconnect": {
+      "late_2s_rms": 0.0007180708084838753,
+      "peak": 0.5308837890625,
+      "dominant_hz": 578.61328125,
+      "dominant_7bin_power_fraction": 0.6357893072338433
+    }
+  },
+  "weak_wavs_identical": true,
+  "source_sha256": "3001c0bf2be0340d31451a05dec9ff8bc39647dd5f5b96b800dc727ff327607f"
+}

@@ -1,0 +1,26 @@
+{
+  "compiler": "c++ (Debian 14.2.0-19) 14.2.0",
+  "cpu": "model name\t: AMD EPYC 9V74 80-Core Processor",
+  "frames_per_mode": 768000,
+  "block": 64,
+  "runs_us_per_frame": [
+    {
+      "healthy_raw": 0.908966796875,
+      "fault_raw": 0.883551083333
+    },
+    {
+      "healthy_raw": 0.841757463542,
+      "fault_raw": 0.926650727865
+    },
+    {
+      "healthy_raw": 0.881233164062,
+      "fault_raw": 0.869271351563
+    }
+  ],
+  "median_us_per_frame": {
+    "healthy_raw": 0.881233164062,
+    "fault_raw": 0.883551083333
+  },
+  "scope": "Actual complete process, per64frame clock instrumentation; file IO and setup outside timed call. No concurrent DSP tests/builds; clocks and scheduling uncontrolled. All25 WAVs hash-identical across repeats. No MCU estimate.",
+  "source_commit": "91eb557a5152e9196cff56303d45d788096a8b6b"
+}
