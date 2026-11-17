@@ -1,0 +1,136 @@
+{
+  "compiler": "arm-none-eabi-g++ (xPack GNU Arm Embedded GCC x86_64) 14.2.1 20241119\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "toolchain_recipe_pin": {
+    "version": "14.2.1",
+    "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+    "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+    "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+    "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+  },
+  "compiler_binary_sha256": "45b67f0cb647f69b0fbd0512b43f7d257458916ca77c8fd538708309845ff76c",
+  "routing_object": {
+    "text": 1368,
+    "data": 0,
+    "bss": 0
+  },
+  "layout": {
+    "routing": 332,
+    "muff": 8832,
+    "rotary": 4392,
+    "tape_metadata": 120,
+    "hall": 474704,
+    "host_graph_shape_on_arm": 489232,
+    "caller_diagnostic_block": 2048
+  },
+  "tape_medium_bytes": 230400,
+  "callback_functions": {
+    "wallace::Routing::Highpass::process(float)": {
+      "external_calls": [],
+      "floating_instructions": {
+        "vadd": 1,
+        "vsub": 0,
+        "vmul": 0,
+        "vmla": 0,
+        "vmls": 0,
+        "vdiv": 0
+      }
+    },
+    "wallace::Routing::process(float, float, float, float, float)": {
+      "external_calls": [],
+      "floating_instructions": {
+        "vadd": 6,
+        "vsub": 4,
+        "vmul": 9,
+        "vmla": 0,
+        "vmls": 0,
+        "vdiv": 1
+      }
+    }
+  },
+  "whole_object_undefined": "         U exp\n         U pow\n         U tan\n",
+  "static_frames": [
+    "/workspace/work/parable-sf023/parable-starter/tools/wallace_routing.cpp:5:6:void wallace::Routing::Highpass::prepare(float)\t8\tstatic",
+    "/workspace/work/parable-sf023/parable-starter/tools/wallace_routing.cpp:11:7:float wallace::Routing::Highpass::process(float)\t0\tstatic",
+    "/workspace/work/parable-sf023/parable-starter/tools/wallace_routing.cpp:14:6:bool wallace::Routing::prepare(const wallace::RoutingConfig&)\t80\tstatic",
+    "/workspace/work/parable-sf023/parable-starter/tools/wallace_routing.cpp:25:9:wallace::Returns wallace::Routing::process(float, float, float, float, float)\t12\tstatic"
+  ],
+  "full_graph_linked": false,
+  "cycles_measured": false,
+  "physical_daisy": false,
+  "limitations": "Only new routing object compiled/inspected. Graph sizeof probe is not a deployable ARM graph; no SDK/storage placement or full-four-effect link/deadline evidence.",
+  "source_sha256": {
+    "tools/wallace_routing.h": "0a215115e639f4f1af384e278a20a4c13c1e1d8fdff662920f17f1d29fd91417",
+    "tools/wallace_routing.cpp": "ef81c0c7a144e64e1edc8cb583b44dc8622297bc81f33a491f1891276eae7930",
+    "tools/wallace_graph.h": "c0c5ac3a2b9edb7915ffc396f63ec18ce8c2d71156e664d4bb7339d3c9971ae0"
+  },
+  "commands": [
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "--version"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-dumpfullversion"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-fno-fast-math",
+      "-fno-finite-math-only",
+      "-fstack-usage",
+      "-I/workspace/work/parable-sf023/parable-starter/tools",
+      "-I/workspace/work/parable-sf023/parable-starter/include",
+      "-c",
+      "/workspace/work/parable-sf023/parable-starter/tools/wallace_routing.cpp",
+      "-o",
+      "/workspace/work/sf023-arm/routing.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-objdump",
+      "-drC",
+      "/workspace/work/sf023-arm/routing.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-nm",
+      "-uC",
+      "/workspace/work/sf023-arm/routing.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-fno-fast-math",
+      "-fno-finite-math-only",
+      "-fstack-usage",
+      "-I/workspace/work/parable-sf023/parable-starter/tools",
+      "-I/workspace/work/parable-sf023/parable-starter/include",
+      "-c",
+      "/workspace/work/sf023-arm/layout.cpp",
+      "-o",
+      "/workspace/work/sf023-arm/layout.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-objcopy",
+      "--dump-section",
+      ".rodata=/workspace/work/sf023-arm/layout.bin",
+      "/workspace/work/sf023-arm/layout.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-size",
+      "/workspace/work/sf023-arm/routing.o"
+    ]
+  ]
+}

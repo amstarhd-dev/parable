@@ -1,0 +1,24 @@
+{
+  "wav_count": 18,
+  "sha256": {
+    "stem_tape_wet.wav": "bca3e379f5262fc95e5de1da84582d78fb041a5bd45dd547b8d69f1eb107dec7",
+    "04_B_parallel_lufs.wav": "37a8dfa736313c9e2b4157e36a9f646564e5a80eef70bf761bd59fbd88d5657e",
+    "05_C_dynamic_lufs.wav": "25bf788eab4dd76a720cfbe4039f333292fad9f1abcb3dd4e8297df0e3136c24",
+    "08_C_no_carving.wav": "480879ae3a262153736ed4be24c3fcf874dccfad91723524c80a99a8eefdc140",
+    "03_A_serial_lufs.wav": "587efb998d05acc320162ea79adc86dcb129edbebe17fa3570d79a10509d77e5",
+    "08_C_no_carving_lufs.wav": "7066ad739d346b1a3bef0b5fccbe391eee44ac2d16188626371f16b38b56b9f1",
+    "04_B_parallel_raw.wav": "aea9f6cd3cfb780011d6475ecdd30fa9312a2cab170ab02c855bb48d90a3145d",
+    "06_B_wet_common_listen.wav": "ae801a99316ac4248a61bbbbfaf4a4565db31f6214fdc0e1ebce0a411ac232b9",
+    "06_B_wet.wav": "653cf36781596afc04a7863682a1dbedb650e77f2fa3b15161fb753075293e0c",
+    "01_dry.wav": "72dcd7edfb111dee107a42bb1c54a9bc3691a99886b0e96c0a33f70d8952f07b",
+    "05_C_dynamic_raw.wav": "9871b2979bfc8ccfae04ba027f76b2621fc4679465362ff1eb7026074d7d9bbe",
+    "07_C_wet.wav": "112d53854885e80c0366ebe002c14f906fc57b908f088771f16b7435ec40ef0e",
+    "03_A_serial_raw.wav": "ba7041e957d1a7515a6dbf6592282f89f8d664a06487e8f564b296215c1abef2",
+    "07_C_wet_common_listen.wav": "93b22d40ecf835a2668fa197829dfae9f48d87b262bd768b903286e48747fb65",
+    "stem_rotary_wet.wav": "653301794908db0f14b8be42f7dc456d4405d2c7d24f70c9887e70ba68efb622",
+    "02_muff.wav": "202a0edfcb434fa5a3ff5a7d5d6c781b657d63a3e928de79fae39cf78f6ee398",
+    "stem_hall_wet.wav": "bde6b85848ffbbc191fb35b7deb8d36ab2c1762097bf52852d797dfabfdbebcb",
+    "09_C_no_ducking.wav": "aea9f6cd3cfb780011d6475ecdd30fa9312a2cab170ab02c855bb48d90a3145d"
+  },
+  "result": "all prototype and frozen-code native/matched WAVs identical; timings intentionally excluded"
+}

@@ -1,0 +1,4 @@
+/workspace/work/parable-sf023/parable-starter/tools/wallace_routing.cpp:5:6:void wallace::Routing::Highpass::prepare(float)	8	static
+/workspace/work/parable-sf023/parable-starter/tools/wallace_routing.cpp:11:7:float wallace::Routing::Highpass::process(float)	0	static
+/workspace/work/parable-sf023/parable-starter/tools/wallace_routing.cpp:14:6:bool wallace::Routing::prepare(const wallace::RoutingConfig&)	80	static
+/workspace/work/parable-sf023/parable-starter/tools/wallace_routing.cpp:25:9:wallace::Returns wallace::Routing::process(float, float, float, float, float)	12	static

@@ -1,0 +1,80 @@
+{
+  "target_lufs": -23.0,
+  "ducking": {
+    "min_gain": 0.630957365036,
+    "max_gain": 1.0,
+    "max_reduction_db": 3.9999997170245067,
+    "windows": [
+      {
+        "name": "rhythmic_active",
+        "start_s": 2,
+        "end_s": 3,
+        "min_gain": 0.630957365036,
+        "max_gain": 0.630957365036,
+        "mean_envelope": 0.08187453188000701,
+        "03_A_serial_raw.wav": 0.011438794161091915,
+        "04_B_parallel_raw.wav": 0.01178640336572756,
+        "05_C_dynamic_raw.wav": 0.010422537146274018,
+        "06_B_wet.wav": 0.007023588150494189,
+        "07_C_wet.wav": 0.004623448840717512
+      },
+      {
+        "name": "gap_13s_source",
+        "start_s": 3.88,
+        "end_s": 4.26,
+        "min_gain": 0.910877883434,
+        "max_gain": 1.0,
+        "mean_envelope": 0.01239001836725763,
+        "03_A_serial_raw.wav": 0.007386638543498099,
+        "04_B_parallel_raw.wav": 0.008784963402367582,
+        "05_C_dynamic_raw.wav": 0.008649616448100776,
+        "06_B_wet.wav": 0.006920518030232304,
+        "07_C_wet.wav": 0.006746300438663105
+      },
+      {
+        "name": "gap_23s_source",
+        "start_s": 14.22,
+        "end_s": 14.9,
+        "min_gain": 0.982963085175,
+        "max_gain": 1.0,
+        "mean_envelope": 0.006190003823789118,
+        "03_A_serial_raw.wav": 0.006549865135094778,
+        "04_B_parallel_raw.wav": 0.007722258018626536,
+        "05_C_dynamic_raw.wav": 0.007715159026461358,
+        "06_B_wet.wav": 0.006410997100198375,
+        "07_C_wet.wav": 0.006405163443027286
+      },
+      {
+        "name": "sustained_decay",
+        "start_s": 15,
+        "end_s": 20,
+        "min_gain": 0.769179821014,
+        "max_gain": 1.0,
+        "mean_envelope": 0.01477597262896568,
+        "03_A_serial_raw.wav": 0.008778667342736067,
+        "04_B_parallel_raw.wav": 0.006720418118553918,
+        "05_C_dynamic_raw.wav": 0.0066980118207081345,
+        "06_B_wet.wav": 0.009145856862689171,
+        "07_C_wet.wav": 0.008874270037946207
+      },
+      {
+        "name": "tail_20_23",
+        "start_s": 20,
+        "end_s": 23,
+        "min_gain": 1.0,
+        "max_gain": 1.0,
+        "mean_envelope": 0.00039494277389551144,
+        "03_A_serial_raw.wav": 0.0023976234933729065,
+        "04_B_parallel_raw.wav": 0.0038151769412773564,
+        "05_C_dynamic_raw.wav": 0.0038151769412773564,
+        "06_B_wet.wav": 0.0038192390946200565,
+        "07_C_wet.wav": 0.0038192390946200565
+      }
+    ]
+  },
+  "phase": {
+    "mix_over_incoherent_power_db": -1.2318849839793764,
+    "core_wet_cosine": -0.24890446287142692,
+    "note": "Actual aligned mono streams; intentional echo/rotor/room phase retained. PCM16 quantization means reconstruction is approximate."
+  }
+}

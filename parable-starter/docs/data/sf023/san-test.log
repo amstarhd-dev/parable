@@ -1,0 +1,10 @@
+Internal ctest changing into directory: /workspace/work/sf023-sanitized
+Test project /workspace/work/sf023-sanitized
+    Start 41: wallace_routing_actual_graph
+1/2 Test #41: wallace_routing_actual_graph .....   Passed   16.86 sec
+    Start 42: wallace_source_and_cli
+2/2 Test #42: wallace_source_and_cli ...........   Passed    0.14 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =  17.00 sec

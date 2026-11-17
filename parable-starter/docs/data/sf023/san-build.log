@@ -1,0 +1,16 @@
+[ 16%] Built target wallace_routing
+[ 33%] Built target parable_tape
+[ 41%] Built target parable_muff
+[ 58%] Built target parable_rotary
+[ 83%] Built target wallace_hall
+[ 83%] Building CXX object CMakeFiles/parable_wallace_test.dir/tests/test_wallace.cpp.o
+[ 91%] Linking CXX executable parable_wallace_test
+[100%] Built target parable_wallace_test
+[ 25%] Built target wallace_routing
+[ 33%] Built target parable_tape
+[ 41%] Built target parable_muff
+[ 58%] Built target parable_rotary
+[ 83%] Built target wallace_hall
+[ 91%] Building CXX object CMakeFiles/parable_wallace_lab.dir/tools/wallace_lab.cpp.o
+[100%] Linking CXX executable parable_wallace_lab
+[100%] Built target parable_wallace_lab

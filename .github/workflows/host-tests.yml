@@ -25,6 +25,26 @@ jobs:
         run: cmake --build build
       - name: Test
         run: ctest --test-dir build --output-on-failure --no-tests=error
+      - name: Render Wallace serial/static/dynamic study from unchanged native4DSP
+        if: matrix.build_type == 'Release'
+        run: |
+          ./build/parable_wallace_lab --input samples/wallace/take03-late20s.wav --output build/wallace-auditions
+          python3 -m venv build/wallace-tools
+          build/wallace-tools/bin/python -m pip install numpy==2.3.5
+          if ! command -v ffmpeg; then sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg; fi
+          build/wallace-tools/bin/python tools/wallace_evidence.py --directory build/wallace-auditions --lab build/parable_wallace_lab
+          cp samples/wallace/input-receipt.json samples/wallace/AUDIO_NOTICE.md samples/wallace/source-original-stereo24.wav samples/wallace/take03-late20s.wav build/wallace-auditions/
+          cp third_party/hall/upstream/LICENSE third_party/wallace/hall-import.json build/wallace-auditions/
+          git rev-parse HEAD > build/wallace-auditions/SOURCE_COMMIT
+          sha256sum tools/wallace* include/parable_muff.h src/parable_muff.cpp src/muff_device.h include/parable_rotary.h src/parable_rotary.cpp src/rotary_delay.h include/parable_tape.h src/parable_tape.cpp include/parable_hall.h src/parable_hall.cpp src/hall_core.* > build/wallace-auditions/SOURCE_SHA256SUMS
+      - name: Publish Wallace same-guitar architecture comparisons
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-wallace-auditions
+          path: parable-starter/build/wallace-auditions/
+          if-no-files-found: error
+          retention-days: 30
       - name: Render S698 Klon three Gain pairs and one clean-wiper contact with NEW take03
         if: matrix.build_type == 'Release'
         env:
@@ -449,6 +469,16 @@ jobs:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1
         run: ctest --test-dir build/scorpio-sanitized --output-on-failure --no-tests=error -R '^scorpio_' -j2
+
+      - name: Configure Wallace routing and actual-graph sanitizers
+        run: cmake -S . -B build/wallace-sanitized -DCMAKE_BUILD_TYPE=Debug -DFETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON="$PWD/build/_deps/nlohmann_json-src" -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -O1" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
+      - name: Build focused Wallace sanitizer targets
+        run: cmake --build build/wallace-sanitized --target parable_wallace_test parable_wallace_lab -j2
+      - name: Test only new Wallace routing and host boundaries with sanitizers
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1:max_malloc_fill_size=100000000
+          UBSAN_OPTIONS: halt_on_error=1
+        run: ctest --test-dir build/wallace-sanitized --output-on-failure --no-tests=error -R '^wallace_'
 
   activation-tsan:
     runs-on: ubuntu-24.04

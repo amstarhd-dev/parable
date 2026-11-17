@@ -1,0 +1,29 @@
+[aist#0:0/pcm_s16le @ 0x55ae07078e00] Guessed Channel Layout: mono
+Input #0, wav, from '/workspace/work/sf023-audio/03_A_serial_raw.wav':
+  Duration: 00:00:29.00, bitrate: 768 kb/s
+  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, mono, s16, 768 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    encoder         : Lavf61.7.103
+  Stream #0:0: Audio: pcm_s16le, 48000 Hz, mono, s16, 768 kb/s
+      Metadata:
+        encoder         : Lavc61.19.101 pcm_s16le
+[Parsed_ebur128_0 @ 0x7f0570001f40] Summary:
+
+  Integrated loudness:
+    I:         -40.7 LUFS
+    Threshold: -51.0 LUFS
+
+  Loudness range:
+    LRA:         4.1 LU
+    Threshold: -61.2 LUFS
+    LRA low:   -43.8 LUFS
+    LRA high:  -39.7 LUFS
+
+  True peak:
+    Peak:      -31.8 dBFS
+[out#0/null @ 0x55ae07078fc0] video:0KiB audio:2719KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:00:29.00 bitrate=N/A speed= 320x    
