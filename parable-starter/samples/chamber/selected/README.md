@@ -24,7 +24,7 @@ Return gain.02→24 is the ONLY difference in each paired configuration. Room,
 threshold, filters, headroom, source, wet/volume and readout stay identical. Shared
 post-output containment is not reached in any normal deliverable. The fault's
 singing continues at the end of files whose return stays connected; file ending
-is a recording cut, not DSP recovery. loop_trace.csv samples actual nodes every37
+is a recording cut, not DSP recovery. loop_trace.csv.gz (lossless CSV compression) samples actual nodes every37
 frames; diagnostic WAVs retain every sample at PCM16 precision.
 
 settings.json, levels.csv, SOURCE_COMMIT, SOURCE_SHA256SUMS and root SHA256SUMS

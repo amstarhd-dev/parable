@@ -31,5 +31,7 @@
   "impulse_audible_common_gain": 64,
   "reset": "Stopped reconstruction; no live preset switching",
   "physical": "No target placement/boot/cycles/audio measured",
-  "musical": "Founder preferred original ethereal Cloud source; final shorter setting and fault remain unapproved"
+  "musical": "Founder preferred original ethereal Cloud source; final shorter setting and fault remain unapproved",
+  "loop_trace_uncompressed_sha256": "67b926827dc1dc1897fd177f7a93432bc25914adfb002a709ab53da81dc9d561",
+  "loop_trace_storage": "Lossless gzip of unmodified renderer CSV; native renderer/CI emit plain CSV"
 }

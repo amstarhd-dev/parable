@@ -128,7 +128,7 @@ trigger or a tone generator. Near silence its incremental gain is zero. A strong
 transient can enter the conducting region and excite a different, bounded loop
 state; a fixed linear gain above unity would amplify microscopic excitation too.
 Return is injected at the real core input64samples later (1.333ms at48k), not
-added as an output oscillator. Actual microphone, speaker excitation and applied
+added as an output oscillator. Actual modeled microphone, speaker excitation and applied
 return are captured at full rate in PCM and every37samples in loop_trace.csv.
 Mono wet readout has a fixed3x calibration in BOTH states. Common.98 output
 containment is numerical safety; all delivered normal renders reach it zero times.
