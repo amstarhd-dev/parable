@@ -1,0 +1,1 @@
+{"rate":48000,"input_gain":0.564641010913,"core_bytes":67012336,"observed_allocator_delta_bytes":67032480,"cumulative_preparation_cpp_bytes":67727368,"us_per_frame":0.698175741071,"raw_rms":0.00778774190564,"raw_peak":0.0520689114928,"matched_gain":5.13627704727,"matched_target_rms":0.04,"callback_guard_clean":true}

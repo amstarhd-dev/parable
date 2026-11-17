@@ -320,3 +320,23 @@ target_link_options(parable_scorpio_test PRIVATE -Wl,--wrap=malloc,--wrap=calloc
 add_test(NAME scorpio_circuit_and_safety COMMAND parable_scorpio_test)
 endif()
 add_test(NAME scorpio_listening_cli COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_scorpio_cli.py $<TARGET_FILE:parable_scorpio_lab>)
+
+# SF021 gate research only. No core is selected, vendored or admitted to runtime.
+# Fetch/verify exact external candidate sources with tools/chamber_fetch.py first.
+set(PARABLE_CHAMBER_RESEARCH_CACHE "" CACHE PATH "Opt-in pinned SF021 host research dependencies")
+if(PARABLE_CHAMBER_RESEARCH_CACHE AND CMAKE_SYSTEM_NAME STREQUAL "Linux")
+foreach(candidate cloud signalsmith)
+  add_executable(parable_chamber_${candidate}_candidate tools/chamber_candidates.cpp tests/activation_guard.cpp)
+  target_include_directories(parable_chamber_${candidate}_candidate PRIVATE tools tests ${PARABLE_CHAMBER_RESEARCH_CACHE} ${PARABLE_CHAMBER_RESEARCH_CACHE}/include)
+  target_link_libraries(parable_chamber_${candidate}_candidate PRIVATE Threads::Threads)
+  target_link_options(parable_chamber_${candidate}_candidate PRIVATE -Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free,--wrap=pthread_mutex_lock,--wrap=pthread_mutex_trylock,--wrap=pthread_cond_wait,--wrap=read,--wrap=write,--wrap=fopen,--wrap=fwrite)
+  if(candidate STREQUAL "cloud")
+    target_compile_definitions(parable_chamber_${candidate}_candidate PRIVATE ENGINE_CLOUD=1 BUFFER_SIZE=64 MAX_STR_SIZE=32)
+    target_compile_options(parable_chamber_${candidate}_candidate PRIVATE -include ${CMAKE_CURRENT_SOURCE_DIR}/tools/chamber_cloud_portability.h)
+    target_sources(parable_chamber_${candidate}_candidate PRIVATE ${PARABLE_CHAMBER_RESEARCH_CACHE}/cloudseed/DSP/Biquad.cpp ${PARABLE_CHAMBER_RESEARCH_CACHE}/cloudseed/DSP/RandomBuffer.cpp)
+  else()
+    target_compile_definitions(parable_chamber_${candidate}_candidate PRIVATE ENGINE_CLOUD=0)
+  endif()
+  add_test(NAME chamber_${candidate}_research_cli COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_chamber_candidates.py $<TARGET_FILE:parable_chamber_${candidate}_candidate> ${CMAKE_CURRENT_SOURCE_DIR}/samples/chamber/input_take03_20s.wav)
+endforeach()
+endif()
