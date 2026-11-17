@@ -1,0 +1,112 @@
+[ 28%] Building CXX object CMakeFiles/parable_hall.dir/src/hall_core.cpp.o
+[ 28%] Building CXX object CMakeFiles/parable_hall.dir/src/parable_hall.cpp.o
+/workspace/work/parable-sf022/parable-starter/src/hall_core.cpp: In member function ‘void parable::hall_detail::Core::process(float**, float**, int32_t)’:
+/workspace/work/parable-sf022/parable-starter/src/hall_core.cpp:250:25: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  250 |                         if (outSampleL > 0.25) outSampleL = 0.25; if (outSampleL < -0.25) outSampleL = -0.25;
+      |                         ^~
+/workspace/work/parable-sf022/parable-starter/src/hall_core.cpp:250:67: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  250 |                         if (outSampleL > 0.25) outSampleL = 0.25; if (outSampleL < -0.25) outSampleL = -0.25;
+      |                                                                   ^~
+/workspace/work/parable-sf022/parable-starter/src/hall_core.cpp:251:25: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  251 |                         if (outSampleR > 0.25) outSampleR = 0.25; if (outSampleR < -0.25) outSampleR = -0.25;
+      |                         ^~
+/workspace/work/parable-sf022/parable-starter/src/hall_core.cpp:251:67: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  251 |                         if (outSampleR > 0.25) outSampleR = 0.25; if (outSampleR < -0.25) outSampleR = -0.25;
+      |                                                                   ^~
+/workspace/work/parable-sf022/parable-starter/src/hall_core.cpp:604:25: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  604 |                         if (gainOutL < 0.0078125) gainOutL = 0.0078125; if (gainOutL > 1.0) gainOutL = 1.0;
+      |                         ^~
+/workspace/work/parable-sf022/parable-starter/src/hall_core.cpp:604:73: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  604 |                         if (gainOutL < 0.0078125) gainOutL = 0.0078125; if (gainOutL > 1.0) gainOutL = 1.0;
+      |                                                                         ^~
+/workspace/work/parable-sf022/parable-starter/src/hall_core.cpp:605:25: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  605 |                         if (gainOutR < 0.0078125) gainOutR = 0.0078125; if (gainOutR > 1.0) gainOutR = 1.0;
+      |                         ^~
+/workspace/work/parable-sf022/parable-starter/src/hall_core.cpp:605:73: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  605 |                         if (gainOutR < 0.0078125) gainOutR = 0.0078125; if (gainOutR > 1.0) gainOutR = 1.0;
+      |                                                                         ^~
+[ 42%] Linking CXX static library libparable_hall.a
+[ 42%] Built target parable_hall
+[ 71%] Building CXX object CMakeFiles/parable_hall_test.dir/tests/activation_guard.cpp.o
+[ 71%] Building CXX object CMakeFiles/parable_hall_test.dir/tests/test_hall.cpp.o
+In file included from /workspace/work/parable-sf022/parable-starter/tests/test_hall.cpp:3:
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedral.h:33:33: warning: multi-character character constant [-Wmultichar]
+   33 | const unsigned long kUniqueId = 'kcth';    //Change this to what the AU identity is!
+      |                                 ^~~~~~
+[ 71%] Building CXX object CMakeFiles/parable_hall_test.dir/third_party/hall/upstream/kCathedral.cpp.o
+In file included from /workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedral.cpp:7:
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedral.h:33:33: warning: multi-character character constant [-Wmultichar]
+   33 | const unsigned long kUniqueId = 'kcth';    //Change this to what the AU identity is!
+      |                                 ^~~~~~
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedral.cpp: In member function ‘virtual VstInt32 kCathedral::getChunk(void**, bool)’:
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedral.cpp:202:50: warning: unused parameter ‘isPreset’ [-Wunused-parameter]
+  202 | VstInt32 kCathedral::getChunk (void** data, bool isPreset)
+      |                                             ~~~~~^~~~~~~~
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedral.cpp: In member function ‘virtual VstInt32 kCathedral::setChunk(void*, VstInt32, bool)’:
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedral.cpp:214:53: warning: unused parameter ‘byteSize’ [-Wunused-parameter]
+  214 | VstInt32 kCathedral::setChunk (void* data, VstInt32 byteSize, bool isPreset)
+      |                                            ~~~~~~~~~^~~~~~~~
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedral.cpp:214:68: warning: unused parameter ‘isPreset’ [-Wunused-parameter]
+  214 | VstInt32 kCathedral::setChunk (void* data, VstInt32 byteSize, bool isPreset)
+      |                                                               ~~~~~^~~~~~~~
+[ 85%] Building CXX object CMakeFiles/parable_hall_test.dir/third_party/hall/upstream/kCathedralProc.cpp.o
+In file included from /workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedralProc.cpp:7:
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedral.h:33:33: warning: multi-character character constant [-Wmultichar]
+   33 | const unsigned long kUniqueId = 'kcth';    //Change this to what the AU identity is!
+      |                                 ^~~~~~
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedralProc.cpp: In member function ‘virtual void kCathedral::processReplacing(float**, float**, VstInt32)’:
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedralProc.cpp:84:25: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   84 |                         if (outSampleL > 0.25) outSampleL = 0.25; if (outSampleL < -0.25) outSampleL = -0.25;
+      |                         ^~
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedralProc.cpp:84:67: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   84 |                         if (outSampleL > 0.25) outSampleL = 0.25; if (outSampleL < -0.25) outSampleL = -0.25;
+      |                                                                   ^~
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedralProc.cpp:85:25: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   85 |                         if (outSampleR > 0.25) outSampleR = 0.25; if (outSampleR < -0.25) outSampleR = -0.25;
+      |                         ^~
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedralProc.cpp:85:67: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   85 |                         if (outSampleR > 0.25) outSampleR = 0.25; if (outSampleR < -0.25) outSampleR = -0.25;
+      |                                                                   ^~
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedralProc.cpp:438:25: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  438 |                         if (gainOutL < 0.0078125) gainOutL = 0.0078125; if (gainOutL > 1.0) gainOutL = 1.0;
+      |                         ^~
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedralProc.cpp:438:73: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  438 |                         if (gainOutL < 0.0078125) gainOutL = 0.0078125; if (gainOutL > 1.0) gainOutL = 1.0;
+      |                                                                         ^~
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedralProc.cpp:439:25: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  439 |                         if (gainOutR < 0.0078125) gainOutR = 0.0078125; if (gainOutR > 1.0) gainOutR = 1.0;
+      |                         ^~
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedralProc.cpp:439:73: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  439 |                         if (gainOutR < 0.0078125) gainOutR = 0.0078125; if (gainOutR > 1.0) gainOutR = 1.0;
+      |                                                                         ^~
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedralProc.cpp: In member function ‘virtual void kCathedral::processDoubleReplacing(double**, double**, VstInt32)’:
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedralProc.cpp:615:25: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  615 |                         if (outSampleL > 0.25) outSampleL = 0.25; if (outSampleL < -0.25) outSampleL = -0.25;
+      |                         ^~
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedralProc.cpp:615:67: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  615 |                         if (outSampleL > 0.25) outSampleL = 0.25; if (outSampleL < -0.25) outSampleL = -0.25;
+      |                                                                   ^~
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedralProc.cpp:616:25: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  616 |                         if (outSampleR > 0.25) outSampleR = 0.25; if (outSampleR < -0.25) outSampleR = -0.25;
+      |                         ^~
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedralProc.cpp:616:67: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  616 |                         if (outSampleR > 0.25) outSampleR = 0.25; if (outSampleR < -0.25) outSampleR = -0.25;
+      |                                                                   ^~
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedralProc.cpp:969:25: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  969 |                         if (gainOutL < 0.0078125) gainOutL = 0.0078125; if (gainOutL > 1.0) gainOutL = 1.0;
+      |                         ^~
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedralProc.cpp:969:73: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  969 |                         if (gainOutL < 0.0078125) gainOutL = 0.0078125; if (gainOutL > 1.0) gainOutL = 1.0;
+      |                                                                         ^~
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedralProc.cpp:970:25: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  970 |                         if (gainOutR < 0.0078125) gainOutR = 0.0078125; if (gainOutR > 1.0) gainOutR = 1.0;
+      |                         ^~
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedralProc.cpp:970:73: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  970 |                         if (gainOutR < 0.0078125) gainOutR = 0.0078125; if (gainOutR > 1.0) gainOutR = 1.0;
+      |                                                                         ^~
+[100%] Linking CXX executable parable_hall_test
+[100%] Built target parable_hall_test
+[ 75%] Built target parable_hall
+[ 75%] Building CXX object CMakeFiles/parable_hall_lab.dir/tools/hall_lab.cpp.o
+[100%] Linking CXX executable parable_hall_lab
+[100%] Built target parable_hall_lab

@@ -957,3 +957,19 @@ results; original logs retained. See[SF017_REPORT.md](SF017_REPORT.md) and
 remote checks remain unverified. ARM object/layout/calls audited;
 hardware cycles/boot/audio and physical magnetic/device fidelity **not tested**.
 Founder musical audition/approval **pending**; generated audio is not approval.
+
+## SF-022 — experimental borrowed Leo hall
+
+Specified: complete mature hall plus one same-system acoustic-focusing fault,
+Daisy memory feasibility and real-guitar evidence. Implemented: complete MIT
+kCathedral, fixed474704B state, normalized decay/wet controls and final-plane
+coherence blend; no Engine/schema/storage/production firmware integration.
+Host-tested: baseline40/40 and final43/43 Release; focused Debug6/6, poisoned
+ASan+UBSan3/3. Original healthy3rate samples agree exactly;18 deterministic native
+WAVs plus original candidate comparisons, stereo/mono, wet/raw/RMS and probes.
+ARM: actual9528B native object text and complete BOOT_NONE internal-flash audio
+probe linked,95348B flash load and474704B SDRAM state; not physical timing/boot.
+Musical quality/weak-state normality and previous-ambience superiority remain
+unestablished; no main reverb baseline exists. Stopped reset uses an external
+fade in audition, not native live clickless switching. Source96k impulse-phase/
+antialias caveat retained. [Evidence/limits](SF022_REPORT.md), [ADR022](adr/ADR-022-leo-grand-hall.md).

@@ -1,0 +1,4 @@
+/workspace/work/par005-fresh-cache/libDaisy/src/daisy_seed.h:22:5:daisy::DaisySeed::~DaisySeed()	0	static
+/workspace/work/parable-sf022/parable-starter/tools/hall_arm_probe.cpp:10:6:void audio(daisy::AudioHandle::InputBuffer, daisy::AudioHandle::OutputBuffer, size_t)	16	static
+/workspace/work/parable-sf022/parable-starter/tools/hall_arm_probe.cpp:14:5:int main()	24	static
+/workspace/work/parable-sf022/parable-starter/tools/hall_arm_probe.cpp:18:1:cpp)	4	static

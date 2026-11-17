@@ -1,0 +1,1 @@
+{"sample_rate":48000,"source_seconds":8,"tail_seconds":8,"wet":0.35,"decay":1,"healthy_focus":0,"fault_focus":0.98,"fixed_instance_bytes":474704,"core_bytes":474680,"reset":"stopped, external5ms output fade","synthetic_probes":["impulse","chord","silence"],"matching":"whole-file RMS, not LUFS"}

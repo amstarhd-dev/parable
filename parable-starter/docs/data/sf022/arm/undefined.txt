@@ -1,0 +1,11 @@
+
+/workspace/work/sf022-arm/hall_core.o:
+         U frexpf
+         U memset
+         U pow
+         U sin
+
+/workspace/work/sf022-arm/parable_hall.o:
+         U parable::hall_detail::Core::reset()
+         U parable::hall_detail::Core::process(float**, float**, long)
+         U memset

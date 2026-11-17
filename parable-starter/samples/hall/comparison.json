@@ -1,0 +1,30 @@
+{
+  "original_pin": "143a86df3642881e0be4bf827815050721063b41",
+  "comparison": "both original complete processors, same source first8s plus8s tail, .65 dry+.35 mono wet, 48k, seeds from srand7",
+  "kcathedral_controls": {
+    "wetness": 1
+  },
+  "verbity_controls": {
+    "bigness": 0.8,
+    "longness": 0.85,
+    "darkness": 0.3,
+    "wetness": 1
+  },
+  "initial_verbity_trial": {
+    "bigness": 0.5,
+    "longness": 0.6,
+    "measured_t20_rt60": 2.595304374653648
+  },
+  "final_decay_seconds": {
+    "kcathedral": 4.894094089670704,
+    "verbity": 4.948967648032007
+  },
+  "selected_native_controls": {
+    "decay": 1,
+    "wet": 0.35,
+    "healthy_focus": 0,
+    "fault_focus": 0.98
+  },
+  "proof": "selected/healthy_wet.wav matches original candidates/kcathedral/wet.wav byte-for-byte on observed compiler; native test also compares float samples at3rates",
+  "musical_approval": "pending"
+}

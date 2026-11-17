@@ -2,6 +2,13 @@
 
 This is the first **portable C++ code brick**, not a finished Parable SDK and not a commercial DSP effect. It contains no astrology or browser implementation. A separate experimental circuit-derived LabRAT listening laboratory is described below.
 
+SF-022 adds an experimental complete MIT [Leo grand hall](docs/SF022_REPORT.md)
+and one coherent-reflection fault. [Download listening WAVs](samples/hall/README.md):
+original/adopted healthy, damaged, stereo/mono, raw/RMS/wet and controlled probes.
+The fixed474704B state and actual BOOT_NONE audio link fit the pinned memory map;
+physical Seed3 timing/boot/audio and musical approval remain unproven. No Engine/
+canonical/production firmware integration; Cancer PR untouched. [ADR022](docs/adr/ADR-022-leo-grand-hall.md).
+
 SF-014 adds one standalone [loaded Lockhart wavefolder / upper-feed resistor fault](docs/SF014_REPORT.md).
 CI publishes **parable-wavefolder-auditions** with the same Centaur/tape take03,
 three drives, raw/common/RMS healthy/fault WAVs and same-input RAT/Muff/CMOS

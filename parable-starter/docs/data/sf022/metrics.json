@@ -1,0 +1,304 @@
+{
+  "numpy": "2.3.5",
+  "rate": 48000,
+  "healthy": {
+    "t20_extrapolated_rt60": 4.894094089670704,
+    "first_above_minus60_seconds": 0.027291666666666665,
+    "energy_before_80ms": 0.12349689548634324,
+    "late_12_14s_rms": 1.799298423540793e-08,
+    "hf_damping_note": "Source filters/averages retained; no separately calibrated air absorption model"
+  },
+  "fault": {
+    "t20_extrapolated_rt60": 4.307595695001463,
+    "first_above_minus60_seconds": 0.027291666666666665,
+    "energy_before_80ms": 0.12690483588832213,
+    "late_12_14s_rms": 2.5100786064076485e-07,
+    "hf_damping_note": "Source filters/averages retained; no separately calibrated air absorption model"
+  },
+  "verbity": {
+    "t20_extrapolated_rt60": 4.948967648032007,
+    "first_above_minus60_seconds": 0.07541666666666667,
+    "energy_before_80ms": 0.006995228547150159,
+    "late_12_14s_rms": 3.269285589246223e-08,
+    "hf_damping_note": "Source filters/averages retained; no separately calibrated air absorption model"
+  },
+  "scattering_independent_svd": [
+    {
+      "focusing": 0,
+      "largest_singular_value": 1.0
+    },
+    {
+      "focusing": 0.25,
+      "largest_singular_value": 1.0
+    },
+    {
+      "focusing": 0.5,
+      "largest_singular_value": 1.0
+    },
+    {
+      "focusing": 0.75,
+      "largest_singular_value": 1.0
+    },
+    {
+      "focusing": 0.98,
+      "largest_singular_value": 1.0
+    },
+    {
+      "focusing": 1,
+      "largest_singular_value": 1.0
+    }
+  ],
+  "late_loop_retention_upper_before_filters": 0.915625,
+  "healthy_stereo_mix_correlation": 0.7336472281359381,
+  "healthy_mono_fold_rms": 0.030578943759494177,
+  "fault_bands_1_5s": [
+    {
+      "center_hz": 150,
+      "fault_over_healthy_db": -1.604522509707259
+    },
+    {
+      "center_hz": 200,
+      "fault_over_healthy_db": -3.740456848405116
+    },
+    {
+      "center_hz": 250,
+      "fault_over_healthy_db": -1.5909683094960811
+    },
+    {
+      "center_hz": 300,
+      "fault_over_healthy_db": -5.09302700880877
+    },
+    {
+      "center_hz": 350,
+      "fault_over_healthy_db": -5.038217572964476
+    },
+    {
+      "center_hz": 400,
+      "fault_over_healthy_db": -1.532137407684155
+    },
+    {
+      "center_hz": 450,
+      "fault_over_healthy_db": -4.311049124317743
+    },
+    {
+      "center_hz": 500,
+      "fault_over_healthy_db": -3.5761340582351098
+    },
+    {
+      "center_hz": 550,
+      "fault_over_healthy_db": -4.9329917885934815
+    },
+    {
+      "center_hz": 600,
+      "fault_over_healthy_db": -2.3131182534671764
+    },
+    {
+      "center_hz": 650,
+      "fault_over_healthy_db": -3.1484480898298917
+    },
+    {
+      "center_hz": 700,
+      "fault_over_healthy_db": -3.54626983653977
+    },
+    {
+      "center_hz": 750,
+      "fault_over_healthy_db": -1.6717522779018745
+    },
+    {
+      "center_hz": 800,
+      "fault_over_healthy_db": -0.17835622322270994
+    },
+    {
+      "center_hz": 850,
+      "fault_over_healthy_db": -4.795110167071037
+    },
+    {
+      "center_hz": 900,
+      "fault_over_healthy_db": 1.1940663825660454
+    },
+    {
+      "center_hz": 950,
+      "fault_over_healthy_db": -1.9956767887376334
+    },
+    {
+      "center_hz": 1000,
+      "fault_over_healthy_db": -3.553453105334852
+    },
+    {
+      "center_hz": 1050,
+      "fault_over_healthy_db": -2.815386104943734
+    },
+    {
+      "center_hz": 1100,
+      "fault_over_healthy_db": -2.5254514175850638
+    },
+    {
+      "center_hz": 1150,
+      "fault_over_healthy_db": -0.47436136056008615
+    },
+    {
+      "center_hz": 1200,
+      "fault_over_healthy_db": -5.937287988537725
+    },
+    {
+      "center_hz": 1250,
+      "fault_over_healthy_db": -2.6969397704547364
+    },
+    {
+      "center_hz": 1300,
+      "fault_over_healthy_db": -5.218099677922904
+    },
+    {
+      "center_hz": 1350,
+      "fault_over_healthy_db": 1.4863098985496213
+    },
+    {
+      "center_hz": 1400,
+      "fault_over_healthy_db": -2.825791707190316
+    },
+    {
+      "center_hz": 1450,
+      "fault_over_healthy_db": -0.5224869548646534
+    },
+    {
+      "center_hz": 1500,
+      "fault_over_healthy_db": 1.642689840429653
+    },
+    {
+      "center_hz": 1550,
+      "fault_over_healthy_db": -6.040045182862334
+    },
+    {
+      "center_hz": 1600,
+      "fault_over_healthy_db": 2.72811429741955
+    },
+    {
+      "center_hz": 1650,
+      "fault_over_healthy_db": -0.7451826287213593
+    },
+    {
+      "center_hz": 1700,
+      "fault_over_healthy_db": -1.016053014591143
+    },
+    {
+      "center_hz": 1750,
+      "fault_over_healthy_db": 0.8759833396497596
+    },
+    {
+      "center_hz": 1800,
+      "fault_over_healthy_db": -0.9383734372396711
+    },
+    {
+      "center_hz": 1850,
+      "fault_over_healthy_db": -7.8333247229132885
+    },
+    {
+      "center_hz": 1900,
+      "fault_over_healthy_db": 0.8901879524446134
+    },
+    {
+      "center_hz": 1950,
+      "fault_over_healthy_db": -6.819682506387949
+    },
+    {
+      "center_hz": 2000,
+      "fault_over_healthy_db": 0.2640191585076911
+    },
+    {
+      "center_hz": 2050,
+      "fault_over_healthy_db": -0.2094635833412696
+    },
+    {
+      "center_hz": 2100,
+      "fault_over_healthy_db": -0.987352381874495
+    },
+    {
+      "center_hz": 2150,
+      "fault_over_healthy_db": -3.842905654464808
+    },
+    {
+      "center_hz": 2200,
+      "fault_over_healthy_db": -5.611279699327591
+    },
+    {
+      "center_hz": 2250,
+      "fault_over_healthy_db": -5.434311828458526
+    },
+    {
+      "center_hz": 2300,
+      "fault_over_healthy_db": -4.067162952729447
+    },
+    {
+      "center_hz": 2350,
+      "fault_over_healthy_db": 2.2918782872024814
+    },
+    {
+      "center_hz": 2400,
+      "fault_over_healthy_db": 6.33691868636495
+    },
+    {
+      "center_hz": 2450,
+      "fault_over_healthy_db": -6.547603121849246
+    },
+    {
+      "center_hz": 2500,
+      "fault_over_healthy_db": -4.234334559458318
+    },
+    {
+      "center_hz": 2550,
+      "fault_over_healthy_db": -2.155613401178459
+    },
+    {
+      "center_hz": 2600,
+      "fault_over_healthy_db": 0.4558267961431953
+    },
+    {
+      "center_hz": 2650,
+      "fault_over_healthy_db": -11.199499233845785
+    },
+    {
+      "center_hz": 2700,
+      "fault_over_healthy_db": -17.32833914548739
+    },
+    {
+      "center_hz": 2750,
+      "fault_over_healthy_db": 5.659382885972723
+    },
+    {
+      "center_hz": 2800,
+      "fault_over_healthy_db": 8.066424971203956
+    },
+    {
+      "center_hz": 2850,
+      "fault_over_healthy_db": 4.537807512247008
+    },
+    {
+      "center_hz": 2900,
+      "fault_over_healthy_db": -7.37482999540793
+    },
+    {
+      "center_hz": 2950,
+      "fault_over_healthy_db": 8.004459110649075
+    },
+    {
+      "center_hz": 3000,
+      "fault_over_healthy_db": 7.8288911678321105
+    }
+  ],
+  "weak_pcm": {
+    "difference_rms": 0.0007397540280430155,
+    "healthy_rms": 0.0006089216738632709,
+    "fault_rms": 0.0005768925045863549
+  },
+  "chord_pcm": {
+    "difference_rms": 0.013994202120716231,
+    "healthy_rms": 0.006290204383672105,
+    "fault_rms": 0.017258592034618107
+  },
+  "limitations": [
+    "T20 is an extrapolated composite response, not a measured acoustic room RT60.",
+    "Scattering contraction alone does not prove complete nonlinear engine stability; native sustained/overload/decay tests are separate.",
+    "Focusing is substantially linear; normalized weak/fault difference is not expected to vanish.",
+    "Audibility/expensive hall quality require independent listening; no physical hall/480L calibration."
+  ]
+}

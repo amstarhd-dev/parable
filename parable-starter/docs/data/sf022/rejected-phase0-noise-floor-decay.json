@@ -1,0 +1,44 @@
+[
+  {
+    "rate": 44100,
+    "decay_control": 0,
+    "t20_extrapolated_rt60": 2.827858001881138,
+    "core_bytes": 474680,
+    "hall_bytes": 474704
+  },
+  {
+    "rate": 44100,
+    "decay_control": 1,
+    "t20_extrapolated_rt60": 5.326904873445313,
+    "core_bytes": 474680,
+    "hall_bytes": 474704
+  },
+  {
+    "rate": 48000,
+    "decay_control": 0,
+    "t20_extrapolated_rt60": 2.598094726788602,
+    "core_bytes": 474680,
+    "hall_bytes": 474704
+  },
+  {
+    "rate": 48000,
+    "decay_control": 1,
+    "t20_extrapolated_rt60": 4.894094089670704,
+    "core_bytes": 474680,
+    "hall_bytes": 474704
+  },
+  {
+    "rate": 96000,
+    "decay_control": 0,
+    "t20_extrapolated_rt60": 24.92974406907931,
+    "core_bytes": 474680,
+    "hall_bytes": 474704
+  },
+  {
+    "rate": 96000,
+    "decay_control": 1,
+    "t20_extrapolated_rt60": 24.93241581736012,
+    "core_bytes": 474680,
+    "hall_bytes": 474704
+  }
+]

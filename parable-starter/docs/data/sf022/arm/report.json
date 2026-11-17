@@ -1,0 +1,204 @@
+{
+  "compiler": {
+    "version": "14.2.1",
+    "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+    "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+    "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+    "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+  },
+  "libdaisy": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+  "layout": {
+    "hall": 474704,
+    "core": 474680,
+    "unchanged_engine": 11040,
+    "unchanged_bundle": 11288,
+    "unchanged_runtime": 45224
+  },
+  "objects": "   text\t   data\t    bss\t    dec\t    hex\tfilename\n   8808\t      0\t      0\t   8808\t   2268\t/workspace/work/sf022-arm/hall_core.o\n    720\t      0\t      0\t    720\t    2d0\t/workspace/work/sf022-arm/parable_hall.o\n",
+  "undefined": "\n/workspace/work/sf022-arm/hall_core.o:\n         U frexpf\n         U memset\n         U pow\n         U sin\n\n/workspace/work/sf022-arm/parable_hall.o:\n         U parable::hall_detail::Core::reset()\n         U parable::hall_detail::Core::process(float**, float**, long)\n         U memset\n",
+  "frames": {
+    "hall_core.su": [
+      "/workspace/work/parable-sf022/parable-starter/src/hall_core.cpp:9:6:void parable::hall_detail::Core::reset()\t32\tstatic",
+      "/workspace/work/parable-sf022/parable-starter/src/hall_core.cpp:176:6:void parable::hall_detail::Core::process(float**, float**, int32_t)\t376\tstatic"
+    ],
+    "parable_hall.su": [
+      "/workspace/work/parable-sf022/parable-starter/src/parable_hall.cpp:5:6:bool parable::dsp::Hall::prepare(float, parable::dsp::HallSettings)\t24\tstatic",
+      "/workspace/work/parable-sf022/parable-starter/src/parable_hall.cpp:14:6:void parable::dsp::Hall::reset()\t8\tstatic",
+      "/workspace/work/parable-sf022/parable-starter/src/parable_hall.cpp:15:6:void parable::dsp::Hall::process(const float*, float*, float*)\t304\tstatic"
+    ],
+    "layout.su": []
+  },
+  "layouts": {
+    "BOOT_NONE": {
+      "linked": true,
+      "elf_sha256": "c6656ebeaa2459a228641493e841f52a5f48271c4d3fc246e7ae837dff140d2e",
+      "sections": "/workspace/work/sf022-arm/BOOT_NONE/parable_hall_link_probe.elf  :\nsection                  size         addr\n.isr_vector               664    134217728\n.text                   93644    134218392\n.ARM.extab                  0    134312036\n.exidx                      8    134312036\n.ARM.attributes            46            0\n.init_array                40    134312044\n.fini_array                 4    134312084\n.data                     988    603979776\n.bss                    12340    603980768\n.dtcmram_bss                0    536870912\n.sram1_bss              16384    805306368\n.sdram_bss             474704   3221225472\n.backup_sram               12    947912704\n.qspiflash_text             0   2415919104\n.qspiflash_data             0   2415919104\n.qspiflash_bss              0   2415919104\n.heap                       0    603993108\n.reserved_for_stack         0    603993108\n.comment                   57            0\n.debug_info            591295            0\n.debug_abbrev           59109            0\n.debug_aranges          11416            0\n.debug_rnglists         27656            0\n.debug_line            329844            0\n.debug_str              86593            0\n.debug_frame            34592            0\n.debug_loclists        232871            0\nTotal                 1972267\n\n\n",
+      "linker_script": "core/STM32H750IB_flash.lds"
+    }
+  },
+  "target_cycles": "not measured",
+  "physical_tested": false,
+  "libdaisy_archive_sha256": "c4c68a4cc668610bd5c46613d1b859903fc81d0ab267e6d02c019b867fbc071e",
+  "linker_sha256": "d45452b0f9f5b722b16e3a8fc168a76e2a5022d46a4efd10054880dcc5a87e8d",
+  "static_audio_frame_chain_bytes_before_libm_caller_irq": 696,
+  "callback_math": {
+    "sin_call_sites": 8,
+    "pow_call_sites": 4,
+    "frexpf_call_sites": 2,
+    "precision": "original double arithmetic preserved; no performance claim from instruction count"
+  },
+  "commands": [
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-dumpfullversion"
+    ],
+    [
+      "git",
+      "-C",
+      "/workspace/work/par005-fresh-cache/libDaisy",
+      "rev-parse",
+      "HEAD"
+    ],
+    [
+      "git",
+      "-C",
+      "/workspace/work/par005-fresh-cache/libDaisy",
+      "status",
+      "--porcelain"
+    ],
+    [
+      "git",
+      "-C",
+      "/workspace/work/par005-fresh-cache/libDaisy/Drivers/CMSIS-DSP",
+      "rev-parse",
+      "HEAD"
+    ],
+    [
+      "git",
+      "-C",
+      "/workspace/work/par005-fresh-cache/libDaisy/Drivers/CMSIS-Device/ST/STM32H7xx",
+      "rev-parse",
+      "HEAD"
+    ],
+    [
+      "git",
+      "-C",
+      "/workspace/work/par005-fresh-cache/libDaisy/Drivers/CMSIS_5",
+      "rev-parse",
+      "HEAD"
+    ],
+    [
+      "git",
+      "-C",
+      "/workspace/work/par005-fresh-cache/libDaisy/Drivers/STM32H7xx_HAL_Driver",
+      "rev-parse",
+      "HEAD"
+    ],
+    [
+      "git",
+      "-C",
+      "/workspace/work/par005-fresh-cache/libDaisy/Middlewares/ST/STM32_USB_Device_Library",
+      "rev-parse",
+      "HEAD"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-fno-fast-math",
+      "-fno-finite-math-only",
+      "-fstack-usage",
+      "-I/workspace/work/parable-sf022/parable-starter/include",
+      "-c",
+      "/workspace/work/parable-sf022/parable-starter/src/hall_core.cpp",
+      "-o",
+      "/workspace/work/sf022-arm/hall_core.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-fno-fast-math",
+      "-fno-finite-math-only",
+      "-fstack-usage",
+      "-I/workspace/work/parable-sf022/parable-starter/include",
+      "-c",
+      "/workspace/work/parable-sf022/parable-starter/src/parable_hall.cpp",
+      "-o",
+      "/workspace/work/sf022-arm/parable_hall.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-objdump",
+      "-drC",
+      "/workspace/work/sf022-arm/hall_core.o",
+      "/workspace/work/sf022-arm/parable_hall.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-nm",
+      "-uC",
+      "/workspace/work/sf022-arm/hall_core.o",
+      "/workspace/work/sf022-arm/parable_hall.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-fno-fast-math",
+      "-fno-finite-math-only",
+      "-fstack-usage",
+      "-I/workspace/work/parable-sf022/parable-starter/include",
+      "-c",
+      "/workspace/work/sf022-arm/layout.cpp",
+      "-o",
+      "/workspace/work/sf022-arm/layout.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-objcopy",
+      "--dump-section",
+      ".rodata=/workspace/work/sf022-arm/layout.bin",
+      "/workspace/work/sf022-arm/layout.o"
+    ],
+    [
+      "make",
+      "-C",
+      "/workspace/work/sf022-arm",
+      "-j2",
+      "GCC_PATH=/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin",
+      "APP_TYPE=BOOT_NONE",
+      "BUILD_DIR=/workspace/work/sf022-arm/BOOT_NONE"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-size",
+      "-A",
+      "/workspace/work/sf022-arm/BOOT_NONE/parable_hall_link_probe.elf"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-nm",
+      "-SC",
+      "/workspace/work/sf022-arm/BOOT_NONE/parable_hall_link_probe.elf"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-size",
+      "/workspace/work/sf022-arm/hall_core.o",
+      "/workspace/work/sf022-arm/parable_hall.o"
+    ]
+  ]
+}

@@ -1,0 +1,61 @@
+[  2%] Built target parable_rat
+[  3%] Built target parable_firmware_measurement_test
+[  5%] Built target parable_prepare
+[  7%] Built target parable_patch
+[  9%] Built target parable_rat_test
+[ 11%] Built target parable_rat_lab
+[ 13%] Built target parable_soundforge_test
+[ 15%] Built target parable_cmos
+[ 16%] Built target parable_germanium
+[ 18%] Built target parable_presets
+[ 20%] Built target parable_flash_sim
+[ 22%] Built target parable_activation
+[ 23%] Built target parable_tape
+[ 24%] Built target parable_rotary
+[ 26%] Built target parable_muff
+[ 28%] Built target parable_ts808
+[ 29%] Built target parable_klon
+[ 30%] Built target parable_scorpio
+[ 31%] Built target parable_wavefolder
+[ 34%] Built target parable_hall
+[ 34%] Building CXX object CMakeFiles/hall_candidate_kCathedral.dir/tools/hall_candidates.cpp.o
+[ 37%] Built target hall_candidate_Verbity
+[ 38%] Built target parable_hall_lab
+[ 42%] Built target parable_hall_test
+[ 44%] Built target parable_core_test
+[ 45%] Built target parable_audio_safety_test
+[ 46%] Built target parable_patch_test
+[ 47%] Built target parable_prepare_test
+In file included from /workspace/work/parable-sf022/parable-starter/tools/hall_candidates.cpp:9:
+/workspace/work/parable-sf022/parable-starter/third_party/hall/upstream/kCathedral.h:33:33: warning: multi-character character constant [-Wmultichar]
+   33 | const unsigned long kUniqueId = 'kcth';    //Change this to what the AU identity is!
+      |                                 ^~~~~~
+[ 48%] Built target parable_rat_integration_test
+[ 50%] Built target parable_patch_audition
+[ 52%] Built target parable_cmos_test
+[ 53%] Built target parable_cmos_lab
+[ 54%] Built target parable_germanium_test
+[ 56%] Built target parable_germanium_lab
+[ 57%] Built target parable_presets_test
+[ 59%] Built target parable_activation_test
+[ 61%] Built target parable_activation_demo
+[ 64%] Built target parable_living
+[ 66%] Built target parable_tape_lab
+[ 68%] Built target parable_tape_test
+[ 70%] Built target parable_rotary_lab
+[ 72%] Built target parable_rotary_test
+[ 74%] Built target parable_muff_lab
+[ 76%] Built target parable_muff_test
+[ 77%] Built target parable_ts808_lab
+[ 80%] Built target parable_ts808_test
+[ 82%] Built target parable_klon_test
+[ 84%] Built target parable_klon_lab
+[ 86%] Built target parable_wavefolder_lab
+[ 87%] Built target parable_wavefolder_study
+[ 90%] Built target parable_wavefolder_test
+[ 92%] Built target parable_scorpio_lab
+[ 94%] Built target parable_scorpio_test
+[ 96%] Built target parable_living_test
+[ 97%] Built target parable_living_demo
+[ 98%] Linking CXX executable hall_candidate_kCathedral
+[100%] Built target hall_candidate_kCathedral

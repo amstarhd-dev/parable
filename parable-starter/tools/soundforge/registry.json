@@ -1362,6 +1362,98 @@
           "paths": []
         }
       }
+    },
+    {
+      "id": "hall",
+      "type": "model",
+      "paths": [
+        "parable-starter/include/parable_hall.h",
+        "parable-starter/src/parable_hall.cpp",
+        "parable-starter/src/hall_core.cpp",
+        "parable-starter/docs/adr/ADR-022-leo-grand-hall.md"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/hall/provenance.json",
+          "candidate": 0,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/hall/upstream/LICENSE"
+          ],
+          "scope": "Complete selected Airwindows kCathedral float-I/O DSP with documented adapter/fault."
+        },
+        {
+          "provenance_path": "parable-starter/third_party/hall/provenance.json",
+          "candidate": 1,
+          "relationship": "used",
+          "notice_paths": [
+            "parable-starter/third_party/hall/upstream/LICENSE"
+          ],
+          "scope": "Complete original MIT Verbity healthy comparator, host only."
+        }
+      ],
+      "ownership_notes": "MIT Chris Johnson; local host shim/adapter/fault/lab; global Parable license unspecified.",
+      "physics_notes": "Phenomenological acoustic-focusing boundary: final normalized Householder-to-identity blend, same delays/losses; not measured hall calibration.",
+      "behavior": "Standalone fixed caller-owned stereo hall, mono input; stopped prepare/reset. No Engine/schema/storage/production firmware change.",
+      "limitations": [
+        "Musical quality and weak-state acceptability require listening. Linear focusing changes weak and strong similarly in relative terms.",
+        "No physical target boot/audio/cycles, SDRAM cache timing or stack high-water.",
+        "Stopped reset; external5ms fade in audition is not an implemented live clickless reset interface."
+      ],
+      "dependencies": {
+        "assets": [
+          "host.pcm16",
+          "host.signal-analysis"
+        ],
+        "external": [
+          "Complete pinned MIT Airwindows core; standard libm in callback (sin,pow,frexpf).",
+          "Pinned xPack14.2.1/libDaisy; optional NumPy2.3.5 offline metrics only."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Exact unmodified upstream3rates; finite decay/reset/overload and callback guard; deterministic WAVs.",
+          "paths": [
+            "parable-starter/tests/test_hall.cpp",
+            "parable-starter/tests/test_hall_cli.py"
+          ]
+        },
+        "independent_circuit": {
+          "status": "not-applicable",
+          "scope": "Algorithmic acoustic model, not an electrical circuit. Source-independent scattering/IR analysis; no measured hall fit.",
+          "paths": []
+        },
+        "synthetic_audition": {
+          "status": "not-performed",
+          "scope": "Synthetic transient/chord/silence/reset WAVs generated, no listening approval.",
+          "paths": []
+        },
+        "real_guitar_audition": {
+          "status": "not-performed",
+          "scope": "Same take03 raw/RMS/stereo healthy/fault files generated; founder listening pending.",
+          "paths": [
+            "parable-starter/third_party/hall/AUDIO_NOTICE.md"
+          ]
+        },
+        "arm_cross_compile": {
+          "status": "compiled",
+          "scope": "Pinned full native objects and complete standalone audio firmware linked in original internal-flash layout, SDRAM placed; no physical run.",
+          "paths": [
+            "parable-starter/tools/check_hall_arm.py"
+          ]
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No target boot/audio/cycles/high-water measurement.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "No Engine/canonical/storage/correspondence or production firmware change.",
+          "paths": []
+        }
+      }
     }
   ]
 }

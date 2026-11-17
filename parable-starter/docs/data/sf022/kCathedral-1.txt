@@ -1,0 +1,5 @@
+wet rms=0.0318798 peak=0.190566
+mix rms=0.0305789 peak=0.192486
+left rms=0.0463221 peak=0.259466
+right rms=0.0474423 peak=0.26852
+sizeof=474752 alloc_delta=475008 microseconds_per_frame=0.305561

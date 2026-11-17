@@ -1,0 +1,27 @@
+{
+  "original_ci_steps": {
+    "host-tests.yml": {
+      "host-tests": {
+        "previous_steps_preserved_in_order": 32,
+        "final_steps": 34
+      },
+      "integration-sanitizers": {
+        "previous_steps_preserved_in_order": 19,
+        "final_steps": 22
+      },
+      "activation-tsan": {
+        "previous_steps_preserved_in_order": 4,
+        "final_steps": 4
+      }
+    },
+    "arm-firmware.yml": {
+      "seed3-cross-build": {
+        "previous_steps_preserved_in_order": 12,
+        "final_steps": 13
+      }
+    }
+  },
+  "package_sha256_files_verified": 37,
+  "preserved_existing_implementation_files": 452,
+  "working_tree_dsp_matches_audio_source_commit": true
+}

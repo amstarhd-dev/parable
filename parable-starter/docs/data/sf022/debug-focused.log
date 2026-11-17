@@ -1,0 +1,18 @@
+Internal ctest changing into directory: /workspace/work/sf022-debug
+Test project /workspace/work/sf022-debug
+    Start 10: soundforge_utilities
+1/6 Test #10: soundforge_utilities .............   Passed    1.87 sec
+    Start 11: soundforge_registry
+2/6 Test #11: soundforge_registry ..............   Passed    0.09 sec
+    Start 12: soundforge_registry_negative
+3/6 Test #12: soundforge_registry_negative .....   Passed    0.39 sec
+    Start 41: hall_source_adaptation
+4/6 Test #41: hall_source_adaptation ...........   Passed    0.03 sec
+    Start 42: hall_original_safety_decay
+5/6 Test #42: hall_original_safety_decay .......   Passed   29.17 sec
+    Start 43: hall_listening_cli
+6/6 Test #43: hall_listening_cli ...............   Passed   25.46 sec
+
+100% tests passed, 0 tests failed out of 6
+
+Total Test time (real) =  57.02 sec

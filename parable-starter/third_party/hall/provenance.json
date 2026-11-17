@@ -1,0 +1,75 @@
+{
+  "candidates": [
+    {
+      "url": "https://github.com/airwindows/airwindows",
+      "revision": "143a86df3642881e0be4bf827815050721063b41",
+      "license": "MIT",
+      "files": [
+        "plugins/LinuxVST/src/kCathedral/kCathedral.h",
+        "plugins/LinuxVST/src/kCathedral/kCathedral.cpp",
+        "plugins/LinuxVST/src/kCathedral/kCathedralProc.cpp"
+      ],
+      "use": "Complete original reference; native float-I/O DSP extracted with original double arithmetic; no VST SDK imported."
+    },
+    {
+      "url": "https://github.com/airwindows/airwindows",
+      "revision": "143a86df3642881e0be4bf827815050721063b41",
+      "license": "MIT",
+      "files": [
+        "plugins/LinuxVST/src/Verbity/Verbity.h",
+        "plugins/LinuxVST/src/Verbity/Verbity.cpp",
+        "plugins/LinuxVST/src/Verbity/VerbityProc.cpp"
+      ],
+      "use": "Complete research comparator, original code with local minimal host/type shim; not selected native runtime."
+    },
+    {
+      "url": "https://github.com/gitGNU/gnu_freeverb3",
+      "revision": "796b552e8a32cc8e63d40dfb94b8a6209731060b",
+      "license": "GPL-2.0-or-later",
+      "use": "Audit only: Progenitor/Dattorro and zrev2/Zita hall alternatives; no code imported."
+    },
+    {
+      "url": "https://github.com/Signalsmith-Audio/basics",
+      "revision": "369e906e03760ec219d07b06fa06dc4fd099f377",
+      "license": "MIT + BSL-1.0 STFX wrapper",
+      "use": "Audit only: credible complete reverb; wrapper atomic64 and transitive license integration not adopted. Stretch is a separate pitch/time library."
+    },
+    {
+      "url": "https://github.com/el-visio/dattorro-verb",
+      "revision": "41e976a0228a2472156f5c010b3bfbb444e777d2",
+      "license": "MIT",
+      "use": "Audit only: fixed-delay-rate C double plate, no rate API; no import."
+    },
+    {
+      "url": "https://github.com/johnhw/dattoro_reverb",
+      "revision": "b69fb9eb505a1bb4d31158674e4b63da38fad871",
+      "license": "MIT",
+      "use": "Audit only: compute_reverb left4453 delay missing write, no import."
+    },
+    {
+      "url": "https://github.com/martineastwood/mverb",
+      "revision": "9f9512e9d990fcf265e00fc7c2ee47ad20c8019f",
+      "license": "GPL-3.0",
+      "use": "Audit only: import policy incompatible; no source copied."
+    }
+  ],
+  "source_sha256": {
+    "LICENSE": "b4f5719b00ba3fecf8c0ce651e843651bd80f08a10cf4cf1f00e673a5bcaf23b",
+    "Verbity.cpp": "b89f7639e61c1783bb300d416504caa74fa1e6ddbfceb54eec096e42e9ad7fa8",
+    "Verbity.h": "72858df2b2503410fa72e9166a05c95b9cd3b36a595aa781832e7c8808e091d7",
+    "VerbityProc.cpp": "b6479c4fdc2826611b87cd9908c73939ee2bfc940444c352d0df08f99921a0fe",
+    "kCathedral.cpp": "b9499aaf96826907ded476fb120a36fba50ac60525addc2f4fc0cb4e5f153eca",
+    "kCathedral.h": "65b871aedc9a9e8e014284077435d9eed1d195e297d959d45bee761747969954",
+    "kCathedralProc.cpp": "0fc0d10cec0f349b64907b5127ecfc3d516d9fe52cb1eb26adad25540e143f5f"
+  },
+  "local_adapter": "tools/hall_adopt.py reproduces native state/process files from exact pinned upstream; sole fault is final scattering-plane H-to-I blend; loop-loss control and fixed documented seeds added. Zero clears scalar/array-only trivially-copyable state.",
+  "transitive_audit": "Original includes set/string/math/stdint plus VST audioeffectx.h. VST shim is new local host-only type glue, no Steinberg SDK redistribution. Native path includes only standard C++/C math/memory; no third-party dependency beyond Airwindows. Plugin set/string/metadata/chunk allocation and double-I/O duplicate are absent from native adapter.",
+  "source_pages": [
+    "https://www.airwindows.com/kcathedral/",
+    "https://www.airwindows.com/verbity/",
+    "https://freeverb3-vst.sourceforge.io/classes.shtml.html",
+    "https://github.com/gitGNU/gnu_freeverb3/blob/796b552e8a32cc8e63d40dfb94b8a6209731060b/AUTHORS",
+    "https://signalsmith-audio.com/code/stretch/"
+  ],
+  "limitations": "Author attribution/license declarations inspected, not legal clearance or a repository-wide license. No Lexicon/Bricasti factory equivalence, acoustic measurement fit, professional-quality approval, or physical Daisy run."
+}
