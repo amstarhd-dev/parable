@@ -1,0 +1,1735 @@
+
+/workspace/work/parable-sf024/parable-starter/docs/data/sf024/arm/AudioFFT.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <audiofft::OouraFFT::cftmdl(int, int, double*, double*) [clone .isra.0]>:
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	2900      	cmp	r1, #0
+   6:	4688      	mov	r8, r1
+   8:	461e      	mov	r6, r3
+   a:	ea4f 0581 	mov.w	r5, r1, lsl #2
+   e:	ed2d 8b10 	vpush	{d8-d15}
+  12:	b08b      	sub	sp, #44	@ 0x2c
+  14:	e9cd 2007 	strd	r2, r0, [sp, #28]
+  18:	f340 80cf 	ble.w	1ba <audiofft::OouraFFT::cftmdl(int, int, double*, double*) [clone .isra.0]+0x1ba>
+  1c:	9f07      	ldr	r7, [sp, #28]
+  1e:	1e4a      	subs	r2, r1, #1
+  20:	eb07 1408 	add.w	r4, r7, r8, lsl #4
+  24:	f107 0e10 	add.w	lr, r7, #16
+  28:	0852      	lsrs	r2, r2, #1
+  2a:	4639      	mov	r1, r7
+  2c:	eb07 00c8 	add.w	r0, r7, r8, lsl #3
+  30:	4623      	mov	r3, r4
+  32:	eb0e 1e02 	add.w	lr, lr, r2, lsl #4
+  36:	eb07 0cc8 	add.w	ip, r7, r8, lsl #3
+  3a:	3008      	adds	r0, #8
+  3c:	3308      	adds	r3, #8
+  3e:	eb04 02c8 	add.w	r2, r4, r8, lsl #3
+  42:	3708      	adds	r7, #8
+  44:	3110      	adds	r1, #16
+  46:	3710      	adds	r7, #16
+  48:	3310      	adds	r3, #16
+  4a:	3410      	adds	r4, #16
+  4c:	3010      	adds	r0, #16
+  4e:	f10c 0c10 	add.w	ip, ip, #16
+  52:	3210      	adds	r2, #16
+  54:	ed10 1b06 	vldr	d1, [r0, #-24]	@ 0xffffffe8
+  58:	ed11 7b02 	vldr	d7, [r1, #-8]
+  5c:	ed1c 2b02 	vldr	d2, [ip, #-8]
+  60:	ed17 6b06 	vldr	d6, [r7, #-24]	@ 0xffffffe8
+  64:	ed13 9b06 	vldr	d9, [r3, #-24]	@ 0xffffffe8
+  68:	ed14 5b02 	vldr	d5, [r4, #-8]
+  6c:	ed12 8b04 	vldr	d8, [r2, #-16]
+  70:	ed12 0b02 	vldr	d0, [r2, #-8]
+  74:	ee36 3b01 	vadd.f64	d3, d6, d1
+  78:	ee37 4b02 	vadd.f64	d4, d7, d2
+  7c:	ee36 6b41 	vsub.f64	d6, d6, d1
+  80:	ee37 7b42 	vsub.f64	d7, d7, d2
+  84:	ee39 1b08 	vadd.f64	d1, d9, d8
+  88:	ee35 2b00 	vadd.f64	d2, d5, d0
+  8c:	ee39 9b48 	vsub.f64	d9, d9, d8
+  90:	ee35 5b40 	vsub.f64	d5, d5, d0
+  94:	ee33 8b01 	vadd.f64	d8, d3, d1
+  98:	ee34 0b02 	vadd.f64	d0, d4, d2
+  9c:	ee33 3b41 	vsub.f64	d3, d3, d1
+  a0:	ee34 4b42 	vsub.f64	d4, d4, d2
+  a4:	ee36 1b45 	vsub.f64	d1, d6, d5
+  a8:	ee37 2b09 	vadd.f64	d2, d7, d9
+  ac:	ee36 6b05 	vadd.f64	d6, d6, d5
+  b0:	ee37 7b49 	vsub.f64	d7, d7, d9
+  b4:	ed07 8b06 	vstr	d8, [r7, #-24]	@ 0xffffffe8
+  b8:	ed01 0b02 	vstr	d0, [r1, #-8]
+  bc:	458e      	cmp	lr, r1
+  be:	ed03 3b06 	vstr	d3, [r3, #-24]	@ 0xffffffe8
+  c2:	ed04 4b02 	vstr	d4, [r4, #-8]
+  c6:	ed00 1b06 	vstr	d1, [r0, #-24]	@ 0xffffffe8
+  ca:	ed0c 2b02 	vstr	d2, [ip, #-8]
+  ce:	ed02 6b04 	vstr	d6, [r2, #-16]
+  d2:	ed02 7b02 	vstr	d7, [r2, #-8]
+  d6:	d1b5      	bne.n	44 <audiofft::OouraFFT::cftmdl(int, int, double*, double*) [clone .isra.0]+0x44>
+  d8:	eb08 0705 	add.w	r7, r8, r5
+  dc:	9907      	ldr	r1, [sp, #28]
+  de:	eb08 0207 	add.w	r2, r8, r7
+  e2:	eb01 04c5 	add.w	r4, r1, r5, lsl #3
+  e6:	eb01 03c5 	add.w	r3, r1, r5, lsl #3
+  ea:	eb08 0c02 	add.w	ip, r8, r2
+  ee:	eb01 00c7 	add.w	r0, r1, r7, lsl #3
+  f2:	eb01 02c2 	add.w	r2, r1, r2, lsl #3
+  f6:	3408      	adds	r4, #8
+  f8:	eb01 01cc 	add.w	r1, r1, ip, lsl #3
+  fc:	46ac      	mov	ip, r5
+  fe:	ed96 1b04 	vldr	d1, [r6, #16]
+ 102:	ed14 7b02 	vldr	d7, [r4, #-8]
+ 106:	ed93 ab02 	vldr	d10, [r3, #8]
+ 10a:	ed90 3b00 	vldr	d3, [r0]
+ 10e:	ed90 2b02 	vldr	d2, [r0, #8]
+ 112:	ed92 9b00 	vldr	d9, [r2]
+ 116:	ed91 6b00 	vldr	d6, [r1]
+ 11a:	ed91 bb02 	vldr	d11, [r1, #8]
+ 11e:	ed92 5b02 	vldr	d5, [r2, #8]
+ 122:	ee37 0b43 	vsub.f64	d0, d7, d3
+ 126:	f10c 0c02 	add.w	ip, ip, #2
+ 12a:	ee3a 4b42 	vsub.f64	d4, d10, d2
+ 12e:	3010      	adds	r0, #16
+ 130:	ee39 8b46 	vsub.f64	d8, d9, d6
+ 134:	3110      	adds	r1, #16
+ 136:	ee37 3b03 	vadd.f64	d3, d7, d3
+ 13a:	45bc      	cmp	ip, r7
+ 13c:	ee35 7b4b 	vsub.f64	d7, d5, d11
+ 140:	f103 0310 	add.w	r3, r3, #16
+ 144:	ee3a 2b02 	vadd.f64	d2, d10, d2
+ 148:	f102 0210 	add.w	r2, r2, #16
+ 14c:	ee39 6b06 	vadd.f64	d6, d9, d6
+ 150:	f104 0410 	add.w	r4, r4, #16
+ 154:	ee34 9b08 	vadd.f64	d9, d4, d8
+ 158:	ee35 5b0b 	vadd.f64	d5, d5, d11
+ 15c:	ee38 4b44 	vsub.f64	d4, d8, d4
+ 160:	ee30 8b47 	vsub.f64	d8, d0, d7
+ 164:	ee30 7b07 	vadd.f64	d7, d0, d7
+ 168:	ee33 ab06 	vadd.f64	d10, d3, d6
+ 16c:	ee32 0b05 	vadd.f64	d0, d2, d5
+ 170:	ee33 6b46 	vsub.f64	d6, d3, d6
+ 174:	ee35 5b42 	vsub.f64	d5, d5, d2
+ 178:	ee38 3b49 	vsub.f64	d3, d8, d9
+ 17c:	ee34 2b47 	vsub.f64	d2, d4, d7
+ 180:	ee38 8b09 	vadd.f64	d8, d8, d9
+ 184:	ee37 7b04 	vadd.f64	d7, d7, d4
+ 188:	ee23 3b01 	vmul.f64	d3, d3, d1
+ 18c:	ee28 8b01 	vmul.f64	d8, d8, d1
+ 190:	ee22 2b01 	vmul.f64	d2, d2, d1
+ 194:	ee27 7b01 	vmul.f64	d7, d7, d1
+ 198:	ed04 ab06 	vstr	d10, [r4, #-24]	@ 0xffffffe8
+ 19c:	ed03 0b02 	vstr	d0, [r3, #-8]
+ 1a0:	ed02 5b04 	vstr	d5, [r2, #-16]
+ 1a4:	ed02 6b02 	vstr	d6, [r2, #-8]
+ 1a8:	ed00 3b04 	vstr	d3, [r0, #-16]
+ 1ac:	ed00 8b02 	vstr	d8, [r0, #-8]
+ 1b0:	ed01 2b04 	vstr	d2, [r1, #-16]
+ 1b4:	ed01 7b02 	vstr	d7, [r1, #-8]
+ 1b8:	dba3      	blt.n	102 <audiofft::OouraFFT::cftmdl(int, int, double*, double*) [clone .isra.0]+0x102>
+ 1ba:	006b      	lsls	r3, r5, #1
+ 1bc:	461a      	mov	r2, r3
+ 1be:	9b08      	ldr	r3, [sp, #32]
+ 1c0:	ebb3 0f45 	cmp.w	r3, r5, lsl #1
+ 1c4:	f340 813f 	ble.w	446 <audiofft::OouraFFT::cftmdl(int, int, double*, double*) [clone .isra.0]+0x446>
+ 1c8:	9b07      	ldr	r3, [sp, #28]
+ 1ca:	0129      	lsls	r1, r5, #4
+ 1cc:	eb08 0e05 	add.w	lr, r8, r5
+ 1d0:	18af      	adds	r7, r5, r2
+ 1d2:	9109      	str	r1, [sp, #36]	@ 0x24
+ 1d4:	4619      	mov	r1, r3
+ 1d6:	eb03 07c7 	add.w	r7, r3, r7, lsl #3
+ 1da:	f8cd 8010 	str.w	r8, [sp, #16]
+ 1de:	eb01 00c8 	add.w	r0, r1, r8, lsl #3
+ 1e2:	4496      	add	lr, r2
+ 1e4:	eb01 1108 	add.w	r1, r1, r8, lsl #4
+ 1e8:	4614      	mov	r4, r2
+ 1ea:	eb03 1505 	add.w	r5, r3, r5, lsl #4
+ 1ee:	eb08 0302 	add.w	r3, r8, r2
+ 1f2:	9105      	str	r1, [sp, #20]
+ 1f4:	4690      	mov	r8, r2
+ 1f6:	4631      	mov	r1, r6
+ 1f8:	9006      	str	r0, [sp, #24]
+ 1fa:	9a04      	ldr	r2, [sp, #16]
+ 1fc:	ed91 db08 	vldr	d13, [r1, #32]
+ 200:	ed96 bb06 	vldr	d11, [r6, #24]
+ 204:	ed91 cb0a 	vldr	d12, [r1, #40]	@ 0x28
+ 208:	eeb0 6b4d 	vmov.f64	d6, d13
+ 20c:	2a00      	cmp	r2, #0
+ 20e:	ee3b 7b0b 	vadd.f64	d7, d11, d11
+ 212:	eeb0 fb4c 	vmov.f64	d15, d12
+ 216:	eeac 6b47 	vfms.f64	d6, d12, d7
+ 21a:	ee9d fb07 	vfnms.f64	d15, d13, d7
+ 21e:	ed96 eb04 	vldr	d14, [r6, #16]
+ 222:	ed8d 6b02 	vstr	d6, [sp, #8]
+ 226:	f340 8102 	ble.w	42e <audiofft::OouraFFT::cftmdl(int, int, double*, double*) [clone .isra.0]+0x42e>
+ 22a:	9a06      	ldr	r2, [sp, #24]
+ 22c:	f105 0a08 	add.w	sl, r5, #8
+ 230:	46a9      	mov	r9, r5
+ 232:	46a3      	mov	fp, r4
+ 234:	eb02 0cc4 	add.w	ip, r2, r4, lsl #3
+ 238:	9a05      	ldr	r2, [sp, #20]
+ 23a:	eb02 00c4 	add.w	r0, r2, r4, lsl #3
+ 23e:	eb02 02c3 	add.w	r2, r2, r3, lsl #3
+ 242:	f10b 0b02 	add.w	fp, fp, #2
+ 246:	f10a 0a10 	add.w	sl, sl, #16
+ 24a:	f109 0910 	add.w	r9, r9, #16
+ 24e:	3010      	adds	r0, #16
+ 250:	459b      	cmp	fp, r3
+ 252:	f10c 0c10 	add.w	ip, ip, #16
+ 256:	f102 0210 	add.w	r2, r2, #16
+ 25a:	ed1a 5b06 	vldr	d5, [sl, #-24]	@ 0xffffffe8
+ 25e:	ed19 6b02 	vldr	d6, [r9, #-8]
+ 262:	ed1c 3b04 	vldr	d3, [ip, #-16]
+ 266:	ed1c 1b02 	vldr	d1, [ip, #-8]
+ 26a:	ed10 8b04 	vldr	d8, [r0, #-16]
+ 26e:	ed12 9b04 	vldr	d9, [r2, #-16]
+ 272:	ed12 0b02 	vldr	d0, [r2, #-8]
+ 276:	ed10 7b02 	vldr	d7, [r0, #-8]
+ 27a:	ee36 2b01 	vadd.f64	d2, d6, d1
+ 27e:	ee35 4b03 	vadd.f64	d4, d5, d3
+ 282:	ee36 6b41 	vsub.f64	d6, d6, d1
+ 286:	ee35 5b43 	vsub.f64	d5, d5, d3
+ 28a:	ee38 1b09 	vadd.f64	d1, d8, d9
+ 28e:	ee37 3b00 	vadd.f64	d3, d7, d0
+ 292:	ee37 7b40 	vsub.f64	d7, d7, d0
+ 296:	ee38 0b49 	vsub.f64	d0, d8, d9
+ 29a:	ee34 8b41 	vsub.f64	d8, d4, d1
+ 29e:	ee34 4b01 	vadd.f64	d4, d4, d1
+ 2a2:	ee35 1b47 	vsub.f64	d1, d5, d7
+ 2a6:	ee35 7b07 	vadd.f64	d7, d5, d7
+ 2aa:	ee36 5b40 	vsub.f64	d5, d6, d0
+ 2ae:	ee36 ab00 	vadd.f64	d10, d6, d0
+ 2b2:	ee32 9b43 	vsub.f64	d9, d2, d3
+ 2b6:	ee25 6b4f 	vnmul.f64	d6, d5, d15
+ 2ba:	ee32 3b03 	vadd.f64	d3, d2, d3
+ 2be:	ee2b 0b08 	vmul.f64	d0, d11, d8
+ 2c2:	ee29 2b4b 	vnmul.f64	d2, d9, d11
+ 2c6:	eeae 0b09 	vfma.f64	d0, d14, d9
+ 2ca:	eeae 2b08 	vfma.f64	d2, d14, d8
+ 2ce:	ed0a 4b06 	vstr	d4, [sl, #-24]	@ 0xffffffe8
+ 2d2:	ee2f 4b07 	vmul.f64	d4, d15, d7
+ 2d6:	ed8d 6b00 	vstr	d6, [sp]
+ 2da:	ed9d 6b02 	vldr	d6, [sp, #8]
+ 2de:	ed09 3b02 	vstr	d3, [r9, #-8]
+ 2e2:	ed00 2b04 	vstr	d2, [r0, #-16]
+ 2e6:	eea6 4b05 	vfma.f64	d4, d6, d5
+ 2ea:	ed9d 5b00 	vldr	d5, [sp]
+ 2ee:	ed00 0b02 	vstr	d0, [r0, #-8]
+ 2f2:	eea6 5b07 	vfma.f64	d5, d6, d7
+ 2f6:	ee2c 7b01 	vmul.f64	d7, d12, d1
+ 2fa:	eeb0 6b45 	vmov.f64	d6, d5
+ 2fe:	ee2a 5b4c 	vnmul.f64	d5, d10, d12
+ 302:	eead 7b0a 	vfma.f64	d7, d13, d10
+ 306:	eead 5b01 	vfma.f64	d5, d13, d1
+ 30a:	ed0c 7b02 	vstr	d7, [ip, #-8]
+ 30e:	ed0c 5b04 	vstr	d5, [ip, #-16]
+ 312:	ed02 6b04 	vstr	d6, [r2, #-16]
+ 316:	ed02 4b02 	vstr	d4, [r2, #-8]
+ 31a:	db92      	blt.n	242 <audiofft::OouraFFT::cftmdl(int, int, double*, double*) [clone .isra.0]+0x242>
+ 31c:	ee3e 7b0e 	vadd.f64	d7, d14, d14
+ 320:	9a04      	ldr	r2, [sp, #16]
+ 322:	eeb1 bb4b 	vneg.f64	d11, d11
+ 326:	f107 0a08 	add.w	sl, r7, #8
+ 32a:	ebae 0b02 	sub.w	fp, lr, r2
+ 32e:	9a07      	ldr	r2, [sp, #28]
+ 330:	46b9      	mov	r9, r7
+ 332:	eb02 0cce 	add.w	ip, r2, lr, lsl #3
+ 336:	9a06      	ldr	r2, [sp, #24]
+ 338:	ed91 cb0c 	vldr	d12, [r1, #48]	@ 0x30
+ 33c:	ed91 db0e 	vldr	d13, [r1, #56]	@ 0x38
+ 340:	eb02 00ce 	add.w	r0, r2, lr, lsl #3
+ 344:	9a05      	ldr	r2, [sp, #20]
+ 346:	eeb0 fb4c 	vmov.f64	d15, d12
+ 34a:	eeb0 6b4d 	vmov.f64	d6, d13
+ 34e:	eb02 02ce 	add.w	r2, r2, lr, lsl #3
+ 352:	eead fb47 	vfms.f64	d15, d13, d7
+ 356:	ee9c 6b07 	vfnms.f64	d6, d12, d7
+ 35a:	ed8d 6b00 	vstr	d6, [sp]
+ 35e:	ed1a 5b02 	vldr	d5, [sl, #-8]
+ 362:	ed99 6b02 	vldr	d6, [r9, #8]
+ 366:	ed9c 3b00 	vldr	d3, [ip]
+ 36a:	ed9c 1b02 	vldr	d1, [ip, #8]
+ 36e:	ed90 8b00 	vldr	d8, [r0]
+ 372:	ed92 9b00 	vldr	d9, [r2]
+ 376:	ed92 0b02 	vldr	d0, [r2, #8]
+ 37a:	ed90 7b02 	vldr	d7, [r0, #8]
+ 37e:	ee36 2b01 	vadd.f64	d2, d6, d1
+ 382:	f10b 0b02 	add.w	fp, fp, #2
+ 386:	ee35 4b03 	vadd.f64	d4, d5, d3
+ 38a:	f10a 0a10 	add.w	sl, sl, #16
+ 38e:	ee36 6b41 	vsub.f64	d6, d6, d1
+ 392:	45f3      	cmp	fp, lr
+ 394:	ee35 5b43 	vsub.f64	d5, d5, d3
+ 398:	f109 0910 	add.w	r9, r9, #16
+ 39c:	ee38 1b09 	vadd.f64	d1, d8, d9
+ 3a0:	f100 0010 	add.w	r0, r0, #16
+ 3a4:	ee37 3b00 	vadd.f64	d3, d7, d0
+ 3a8:	f10c 0c10 	add.w	ip, ip, #16
+ 3ac:	ee37 7b40 	vsub.f64	d7, d7, d0
+ 3b0:	f102 0210 	add.w	r2, r2, #16
+ 3b4:	ee38 0b49 	vsub.f64	d0, d8, d9
+ 3b8:	ee34 8b41 	vsub.f64	d8, d4, d1
+ 3bc:	ee34 4b01 	vadd.f64	d4, d4, d1
+ 3c0:	ee36 ab00 	vadd.f64	d10, d6, d0
+ 3c4:	ee35 1b47 	vsub.f64	d1, d5, d7
+ 3c8:	ee35 7b07 	vadd.f64	d7, d5, d7
+ 3cc:	ee36 5b40 	vsub.f64	d5, d6, d0
+ 3d0:	ee32 9b43 	vsub.f64	d9, d2, d3
+ 3d4:	ee2e 0b08 	vmul.f64	d0, d14, d8
+ 3d8:	ee32 3b03 	vadd.f64	d3, d2, d3
+ 3dc:	ee29 2b4e 	vnmul.f64	d2, d9, d14
+ 3e0:	eea9 0b0b 	vfma.f64	d0, d9, d11
+ 3e4:	eea8 2b0b 	vfma.f64	d2, d8, d11
+ 3e8:	ed9d 6b00 	vldr	d6, [sp]
+ 3ec:	ed0a 4b06 	vstr	d4, [sl, #-24]	@ 0xffffffe8
+ 3f0:	ed09 3b02 	vstr	d3, [r9, #-8]
+ 3f4:	ee26 4b07 	vmul.f64	d4, d6, d7
+ 3f8:	ee25 6b46 	vnmul.f64	d6, d5, d6
+ 3fc:	eeaf 4b05 	vfma.f64	d4, d15, d5
+ 400:	eeaf 6b07 	vfma.f64	d6, d15, d7
+ 404:	ee2a 5b4d 	vnmul.f64	d5, d10, d13
+ 408:	ee2d 7b01 	vmul.f64	d7, d13, d1
+ 40c:	eeac 5b01 	vfma.f64	d5, d12, d1
+ 410:	eeac 7b0a 	vfma.f64	d7, d12, d10
+ 414:	ed00 2b04 	vstr	d2, [r0, #-16]
+ 418:	ed00 0b02 	vstr	d0, [r0, #-8]
+ 41c:	ed0c 5b04 	vstr	d5, [ip, #-16]
+ 420:	ed0c 7b02 	vstr	d7, [ip, #-8]
+ 424:	ed02 6b04 	vstr	d6, [r2, #-16]
+ 428:	ed02 4b02 	vstr	d4, [r2, #-8]
+ 42c:	db97      	blt.n	35e <audiofft::OouraFFT::cftmdl(int, int, double*, double*) [clone .isra.0]+0x35e>
+ 42e:	9a09      	ldr	r2, [sp, #36]	@ 0x24
+ 430:	4444      	add	r4, r8
+ 432:	3610      	adds	r6, #16
+ 434:	3120      	adds	r1, #32
+ 436:	4417      	add	r7, r2
+ 438:	4415      	add	r5, r2
+ 43a:	9a08      	ldr	r2, [sp, #32]
+ 43c:	44c6      	add	lr, r8
+ 43e:	4443      	add	r3, r8
+ 440:	4294      	cmp	r4, r2
+ 442:	f6ff aeda 	blt.w	1fa <audiofft::OouraFFT::cftmdl(int, int, double*, double*) [clone .isra.0]+0x1fa>
+ 446:	b00b      	add	sp, #44	@ 0x2c
+ 448:	ecbd 8b10 	vpop	{d8-d15}
+ 44c:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+00000450 <audiofft::OouraFFT::cft1st(int, double*, double*) [clone .isra.0]>:
+ 450:	ed91 6b00 	vldr	d6, [r1]
+ 454:	ed91 7b04 	vldr	d7, [r1, #16]
+ 458:	ed2d 8b10 	vpush	{d8-d15}
+ 45c:	ed91 0b02 	vldr	d0, [r1, #8]
+ 460:	ed91 9b08 	vldr	d9, [r1, #32]
+ 464:	ed91 8b0c 	vldr	d8, [r1, #48]	@ 0x30
+ 468:	ed91 db06 	vldr	d13, [r1, #24]
+ 46c:	ee36 eb07 	vadd.f64	d14, d6, d7
+ 470:	b082      	sub	sp, #8
+ 472:	ee36 ab47 	vsub.f64	d10, d6, d7
+ 476:	2810      	cmp	r0, #16
+ 478:	ee30 fb0d 	vadd.f64	d15, d0, d13
+ 47c:	ee39 cb48 	vsub.f64	d12, d9, d8
+ 480:	ee30 db4d 	vsub.f64	d13, d0, d13
+ 484:	ee39 0b08 	vadd.f64	d0, d9, d8
+ 488:	ed91 7b14 	vldr	d7, [r1, #80]	@ 0x50
+ 48c:	ed91 6b10 	vldr	d6, [r1, #64]	@ 0x40
+ 490:	ed91 2b0e 	vldr	d2, [r1, #56]	@ 0x38
+ 494:	ed91 1b0a 	vldr	d1, [r1, #40]	@ 0x28
+ 498:	ee36 9b47 	vsub.f64	d9, d6, d7
+ 49c:	ee36 6b07 	vadd.f64	d6, d6, d7
+ 4a0:	ee31 bb02 	vadd.f64	d11, d1, d2
+ 4a4:	ee31 1b42 	vsub.f64	d1, d1, d2
+ 4a8:	ed91 7b18 	vldr	d7, [r1, #96]	@ 0x60
+ 4ac:	ed91 3b16 	vldr	d3, [r1, #88]	@ 0x58
+ 4b0:	ed91 4b1c 	vldr	d4, [r1, #112]	@ 0x70
+ 4b4:	ed8d ab00 	vstr	d10, [sp]
+ 4b8:	ed91 ab12 	vldr	d10, [r1, #72]	@ 0x48
+ 4bc:	ee37 2b44 	vsub.f64	d2, d7, d4
+ 4c0:	ee37 4b04 	vadd.f64	d4, d7, d4
+ 4c4:	ee3a 8b43 	vsub.f64	d8, d10, d3
+ 4c8:	ee3a 3b03 	vadd.f64	d3, d10, d3
+ 4cc:	ed91 5b1e 	vldr	d5, [r1, #120]	@ 0x78
+ 4d0:	ed91 ab1a 	vldr	d10, [r1, #104]	@ 0x68
+ 4d4:	ed91 7b1a 	vldr	d7, [r1, #104]	@ 0x68
+ 4d8:	ee37 7b45 	vsub.f64	d7, d7, d5
+ 4dc:	ee3a 5b05 	vadd.f64	d5, d10, d5
+ 4e0:	ee3e ab00 	vadd.f64	d10, d14, d0
+ 4e4:	ee3e 0b40 	vsub.f64	d0, d14, d0
+ 4e8:	ed81 ab00 	vstr	d10, [r1]
+ 4ec:	ed81 0b08 	vstr	d0, [r1, #32]
+ 4f0:	ed9d ab00 	vldr	d10, [sp]
+ 4f4:	ee39 0b47 	vsub.f64	d0, d9, d7
+ 4f8:	ee39 7b07 	vadd.f64	d7, d9, d7
+ 4fc:	ee38 9b02 	vadd.f64	d9, d8, d2
+ 500:	ee32 2b48 	vsub.f64	d2, d2, d8
+ 504:	ee3f 8b0b 	vadd.f64	d8, d15, d11
+ 508:	ee3f bb4b 	vsub.f64	d11, d15, d11
+ 50c:	ed81 8b02 	vstr	d8, [r1, #8]
+ 510:	ee3a 8b41 	vsub.f64	d8, d10, d1
+ 514:	ee3a 1b01 	vadd.f64	d1, d10, d1
+ 518:	ed81 8b04 	vstr	d8, [r1, #16]
+ 51c:	ed81 1b0c 	vstr	d1, [r1, #48]	@ 0x30
+ 520:	ee3d 1b0c 	vadd.f64	d1, d13, d12
+ 524:	ee3d db4c 	vsub.f64	d13, d13, d12
+ 528:	ee30 8b49 	vsub.f64	d8, d0, d9
+ 52c:	ee30 0b09 	vadd.f64	d0, d0, d9
+ 530:	ed81 bb0a 	vstr	d11, [r1, #40]	@ 0x28
+ 534:	ed81 1b06 	vstr	d1, [r1, #24]
+ 538:	ed81 db0e 	vstr	d13, [r1, #56]	@ 0x38
+ 53c:	ed92 1b04 	vldr	d1, [r2, #16]
+ 540:	ee20 0b01 	vmul.f64	d0, d0, d1
+ 544:	ee28 8b01 	vmul.f64	d8, d8, d1
+ 548:	ed81 8b14 	vstr	d8, [r1, #80]	@ 0x50
+ 54c:	ed81 0b16 	vstr	d0, [r1, #88]	@ 0x58
+ 550:	ee32 0b47 	vsub.f64	d0, d2, d7
+ 554:	ee37 7b02 	vadd.f64	d7, d7, d2
+ 558:	ee33 2b05 	vadd.f64	d2, d3, d5
+ 55c:	ee20 0b01 	vmul.f64	d0, d0, d1
+ 560:	ee27 7b01 	vmul.f64	d7, d7, d1
+ 564:	ee35 5b43 	vsub.f64	d5, d5, d3
+ 568:	ee36 1b04 	vadd.f64	d1, d6, d4
+ 56c:	ee36 6b44 	vsub.f64	d6, d6, d4
+ 570:	ed81 0b1c 	vstr	d0, [r1, #112]	@ 0x70
+ 574:	ed81 1b10 	vstr	d1, [r1, #64]	@ 0x40
+ 578:	ed81 2b12 	vstr	d2, [r1, #72]	@ 0x48
+ 57c:	ed81 5b18 	vstr	d5, [r1, #96]	@ 0x60
+ 580:	ed81 6b1a 	vstr	d6, [r1, #104]	@ 0x68
+ 584:	ed81 7b1e 	vstr	d7, [r1, #120]	@ 0x78
+ 588:	f340 80e4 	ble.w	754 <audiofft::OouraFFT::cft1st(int, double*, double*) [clone .isra.0]+0x304>
+ 58c:	3811      	subs	r0, #17
+ 58e:	4613      	mov	r3, r2
+ 590:	ea4f 1c10 	mov.w	ip, r0, lsr #4
+ 594:	f102 0020 	add.w	r0, r2, #32
+ 598:	eb00 104c 	add.w	r0, r0, ip, lsl #5
+ 59c:	3180      	adds	r1, #128	@ 0x80
+ 59e:	3320      	adds	r3, #32
+ 5a0:	3210      	adds	r2, #16
+ 5a2:	ed93 2b02 	vldr	d2, [r3, #8]
+ 5a6:	ed92 5b02 	vldr	d5, [r2, #8]
+ 5aa:	ed91 1b04 	vldr	d1, [r1, #16]
+ 5ae:	ed91 eb08 	vldr	d14, [r1, #32]
+ 5b2:	ed91 7b00 	vldr	d7, [r1]
+ 5b6:	ed91 fb0c 	vldr	d15, [r1, #48]	@ 0x30
+ 5ba:	ed93 3b00 	vldr	d3, [r3]
+ 5be:	ee35 4b05 	vadd.f64	d4, d5, d5
+ 5c2:	4298      	cmp	r0, r3
+ 5c4:	eeb0 cb42 	vmov.f64	d12, d2
+ 5c8:	ee3e 9b0f 	vadd.f64	d9, d14, d15
+ 5cc:	ee37 ab01 	vadd.f64	d10, d7, d1
+ 5d0:	ee93 cb04 	vfnms.f64	d12, d3, d4
+ 5d4:	ee37 7b41 	vsub.f64	d7, d7, d1
+ 5d8:	ee3e fb4f 	vsub.f64	d15, d14, d15
+ 5dc:	eeb0 eb43 	vmov.f64	d14, d3
+ 5e0:	ed91 0b06 	vldr	d0, [r1, #24]
+ 5e4:	ed91 db0e 	vldr	d13, [r1, #56]	@ 0x38
+ 5e8:	ed91 6b02 	vldr	d6, [r1, #8]
+ 5ec:	ed91 bb0a 	vldr	d11, [r1, #40]	@ 0x28
+ 5f0:	eea2 eb44 	vfms.f64	d14, d2, d4
+ 5f4:	ee36 8b00 	vadd.f64	d8, d6, d0
+ 5f8:	ee36 6b40 	vsub.f64	d6, d6, d0
+ 5fc:	ee3b 0b0d 	vadd.f64	d0, d11, d13
+ 600:	ee3b bb4d 	vsub.f64	d11, d11, d13
+ 604:	ee3a db49 	vsub.f64	d13, d10, d9
+ 608:	ee3a ab09 	vadd.f64	d10, d10, d9
+ 60c:	ee38 9b40 	vsub.f64	d9, d8, d0
+ 610:	ee38 8b00 	vadd.f64	d8, d8, d0
+ 614:	ee37 0b4b 	vsub.f64	d0, d7, d11
+ 618:	ee37 7b0b 	vadd.f64	d7, d7, d11
+ 61c:	ee25 bb0d 	vmul.f64	d11, d5, d13
+ 620:	ee36 1b0f 	vadd.f64	d1, d6, d15
+ 624:	ee36 6b4f 	vsub.f64	d6, d6, d15
+ 628:	ed92 4b00 	vldr	d4, [r2]
+ 62c:	ed81 ab00 	vstr	d10, [r1]
+ 630:	ed81 8b02 	vstr	d8, [r1, #8]
+ 634:	eea4 bb09 	vfma.f64	d11, d4, d9
+ 638:	ee2c 8b07 	vmul.f64	d8, d12, d7
+ 63c:	ee29 ab45 	vnmul.f64	d10, d9, d5
+ 640:	ee26 cb4c 	vnmul.f64	d12, d6, d12
+ 644:	ee21 9b42 	vnmul.f64	d9, d1, d2
+ 648:	ee22 2b00 	vmul.f64	d2, d2, d0
+ 64c:	eeae 8b06 	vfma.f64	d8, d14, d6
+ 650:	eea3 2b01 	vfma.f64	d2, d3, d1
+ 654:	eeb0 6b4c 	vmov.f64	d6, d12
+ 658:	eea4 ab0d 	vfma.f64	d10, d4, d13
+ 65c:	eeae 6b07 	vfma.f64	d6, d14, d7
+ 660:	eea3 9b00 	vfma.f64	d9, d3, d0
+ 664:	eeb0 db48 	vmov.f64	d13, d8
+ 668:	ee34 7b04 	vadd.f64	d7, d4, d4
+ 66c:	ed91 cb10 	vldr	d12, [r1, #64]	@ 0x40
+ 670:	ed91 eb14 	vldr	d14, [r1, #80]	@ 0x50
+ 674:	ed91 3b12 	vldr	d3, [r1, #72]	@ 0x48
+ 678:	ed81 ab08 	vstr	d10, [r1, #32]
+ 67c:	ee3c 8b0e 	vadd.f64	d8, d12, d14
+ 680:	ee3c 0b4e 	vsub.f64	d0, d12, d14
+ 684:	eeb0 cb42 	vmov.f64	d12, d2
+ 688:	ed91 2b16 	vldr	d2, [r1, #88]	@ 0x58
+ 68c:	ed81 bb0a 	vstr	d11, [r1, #40]	@ 0x28
+ 690:	ed81 db0e 	vstr	d13, [r1, #56]	@ 0x38
+ 694:	ee33 1b02 	vadd.f64	d1, d3, d2
+ 698:	ee33 2b42 	vsub.f64	d2, d3, d2
+ 69c:	ed81 6b0c 	vstr	d6, [r1, #48]	@ 0x30
+ 6a0:	ed81 9b04 	vstr	d9, [r1, #16]
+ 6a4:	ed91 6b18 	vldr	d6, [r1, #96]	@ 0x60
+ 6a8:	ed81 cb06 	vstr	d12, [r1, #24]
+ 6ac:	ed91 bb1c 	vldr	d11, [r1, #112]	@ 0x70
+ 6b0:	ed93 3b06 	vldr	d3, [r3, #24]
+ 6b4:	ed91 eb1a 	vldr	d14, [r1, #104]	@ 0x68
+ 6b8:	ee36 9b0b 	vadd.f64	d9, d6, d11
+ 6bc:	eeb0 cb43 	vmov.f64	d12, d3
+ 6c0:	ee36 bb4b 	vsub.f64	d11, d6, d11
+ 6c4:	ed93 6b04 	vldr	d6, [r3, #16]
+ 6c8:	ed91 fb1e 	vldr	d15, [r1, #120]	@ 0x78
+ 6cc:	ee96 cb07 	vfnms.f64	d12, d6, d7
+ 6d0:	eeb0 db46 	vmov.f64	d13, d6
+ 6d4:	ee3e ab0f 	vadd.f64	d10, d14, d15
+ 6d8:	ee3e fb4f 	vsub.f64	d15, d14, d15
+ 6dc:	eea3 db47 	vfms.f64	d13, d3, d7
+ 6e0:	ee38 eb09 	vadd.f64	d14, d8, d9
+ 6e4:	ee32 7b0b 	vadd.f64	d7, d2, d11
+ 6e8:	ee38 8b49 	vsub.f64	d8, d8, d9
+ 6ec:	ee32 2b4b 	vsub.f64	d2, d2, d11
+ 6f0:	ee31 9b4a 	vsub.f64	d9, d1, d10
+ 6f4:	ee31 ab0a 	vadd.f64	d10, d1, d10
+ 6f8:	ee30 1b4f 	vsub.f64	d1, d0, d15
+ 6fc:	ee30 0b0f 	vadd.f64	d0, d0, d15
+ 700:	ee29 bb44 	vnmul.f64	d11, d9, d4
+ 704:	ee24 4b08 	vmul.f64	d4, d4, d8
+ 708:	eea5 bb48 	vfms.f64	d11, d5, d8
+ 70c:	eea5 4b49 	vfms.f64	d4, d5, d9
+ 710:	ed81 eb10 	vstr	d14, [r1, #64]	@ 0x40
+ 714:	ed81 ab12 	vstr	d10, [r1, #72]	@ 0x48
+ 718:	ee22 eb4c 	vnmul.f64	d14, d2, d12
+ 71c:	ee27 ab43 	vnmul.f64	d10, d7, d3
+ 720:	ee2c cb00 	vmul.f64	d12, d12, d0
+ 724:	ee23 3b01 	vmul.f64	d3, d3, d1
+ 728:	eea6 ab01 	vfma.f64	d10, d6, d1
+ 72c:	eea6 3b07 	vfma.f64	d3, d6, d7
+ 730:	eead eb00 	vfma.f64	d14, d13, d0
+ 734:	eead cb02 	vfma.f64	d12, d13, d2
+ 738:	ed81 bb18 	vstr	d11, [r1, #96]	@ 0x60
+ 73c:	ed81 4b1a 	vstr	d4, [r1, #104]	@ 0x68
+ 740:	ed81 ab14 	vstr	d10, [r1, #80]	@ 0x50
+ 744:	ed81 3b16 	vstr	d3, [r1, #88]	@ 0x58
+ 748:	ed81 eb1c 	vstr	d14, [r1, #112]	@ 0x70
+ 74c:	ed81 cb1e 	vstr	d12, [r1, #120]	@ 0x78
+ 750:	f47f af24 	bne.w	59c <audiofft::OouraFFT::cft1st(int, double*, double*) [clone .isra.0]+0x14c>
+ 754:	b002      	add	sp, #8
+ 756:	ecbd 8b10 	vpop	{d8-d15}
+ 75a:	4770      	bx	lr
+
+0000075c <audiofft::OouraFFT::cftfsub(int, double*, double*) [clone .isra.0]>:
+ 75c:	2808      	cmp	r0, #8
+ 75e:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 760:	460c      	mov	r4, r1
+ 762:	ed2d 8b04 	vpush	{d8-d9}
+ 766:	dc31      	bgt.n	7cc <audiofft::OouraFFT::cftfsub(int, double*, double*) [clone .isra.0]+0x70>
+ 768:	f04f 0102 	mov.w	r1, #2
+ 76c:	d042      	beq.n	7f4 <audiofft::OouraFFT::cftfsub(int, double*, double*) [clone .isra.0]+0x98>
+ 76e:	eb04 00c1 	add.w	r0, r4, r1, lsl #3
+ 772:	4622      	mov	r2, r4
+ 774:	f04f 0c00 	mov.w	ip, #0
+ 778:	3408      	adds	r4, #8
+ 77a:	4603      	mov	r3, r0
+ 77c:	3008      	adds	r0, #8
+ 77e:	3210      	adds	r2, #16
+ 780:	3310      	adds	r3, #16
+ 782:	3410      	adds	r4, #16
+ 784:	f10c 0c02 	add.w	ip, ip, #2
+ 788:	3010      	adds	r0, #16
+ 78a:	458c      	cmp	ip, r1
+ 78c:	ed10 5b06 	vldr	d5, [r0, #-24]	@ 0xffffffe8
+ 790:	ed14 7b06 	vldr	d7, [r4, #-24]	@ 0xffffffe8
+ 794:	ed12 6b02 	vldr	d6, [r2, #-8]
+ 798:	ed13 4b02 	vldr	d4, [r3, #-8]
+ 79c:	ee37 3b05 	vadd.f64	d3, d7, d5
+ 7a0:	ee37 7b45 	vsub.f64	d7, d7, d5
+ 7a4:	ee36 6b44 	vsub.f64	d6, d6, d4
+ 7a8:	ed04 3b06 	vstr	d3, [r4, #-24]	@ 0xffffffe8
+ 7ac:	ed12 5b02 	vldr	d5, [r2, #-8]
+ 7b0:	ed13 4b02 	vldr	d4, [r3, #-8]
+ 7b4:	ee35 5b04 	vadd.f64	d5, d5, d4
+ 7b8:	ed02 5b02 	vstr	d5, [r2, #-8]
+ 7bc:	ed00 7b06 	vstr	d7, [r0, #-24]	@ 0xffffffe8
+ 7c0:	ed03 6b02 	vstr	d6, [r3, #-8]
+ 7c4:	dbdb      	blt.n	77e <audiofft::OouraFFT::cftfsub(int, double*, double*) [clone .isra.0]+0x22>
+ 7c6:	ecbd 8b04 	vpop	{d8-d9}
+ 7ca:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+ 7cc:	4605      	mov	r5, r0
+ 7ce:	4617      	mov	r7, r2
+ 7d0:	f7ff fe3e 	bl	450 <audiofft::OouraFFT::cft1st(int, double*, double*) [clone .isra.0]>
+ 7d4:	2d20      	cmp	r5, #32
+ 7d6:	dd70      	ble.n	8ba <audiofft::OouraFFT::cftfsub(int, double*, double*) [clone .isra.0]+0x15e>
+ 7d8:	2620      	movs	r6, #32
+ 7da:	2108      	movs	r1, #8
+ 7dc:	463b      	mov	r3, r7
+ 7de:	4622      	mov	r2, r4
+ 7e0:	4628      	mov	r0, r5
+ 7e2:	f7ff fc0d 	bl	0 <audiofft::OouraFFT::cftmdl(int, int, double*, double*) [clone .isra.0]>
+ 7e6:	4631      	mov	r1, r6
+ 7e8:	00b6      	lsls	r6, r6, #2
+ 7ea:	42b5      	cmp	r5, r6
+ 7ec:	dcf6      	bgt.n	7dc <audiofft::OouraFFT::cftfsub(int, double*, double*) [clone .isra.0]+0x80>
+ 7ee:	d160      	bne.n	8b2 <audiofft::OouraFFT::cftfsub(int, double*, double*) [clone .isra.0]+0x156>
+ 7f0:	2900      	cmp	r1, #0
+ 7f2:	dde8      	ble.n	7c6 <audiofft::OouraFFT::cftfsub(int, double*, double*) [clone .isra.0]+0x6a>
+ 7f4:	eb04 1c01 	add.w	ip, r4, r1, lsl #4
+ 7f8:	4622      	mov	r2, r4
+ 7fa:	eb04 05c1 	add.w	r5, r4, r1, lsl #3
+ 7fe:	2600      	movs	r6, #0
+ 800:	4660      	mov	r0, ip
+ 802:	eb0c 03c1 	add.w	r3, ip, r1, lsl #3
+ 806:	462c      	mov	r4, r5
+ 808:	f102 0e08 	add.w	lr, r2, #8
+ 80c:	3008      	adds	r0, #8
+ 80e:	3408      	adds	r4, #8
+ 810:	3602      	adds	r6, #2
+ 812:	3310      	adds	r3, #16
+ 814:	3210      	adds	r2, #16
+ 816:	3510      	adds	r5, #16
+ 818:	f10c 0c10 	add.w	ip, ip, #16
+ 81c:	428e      	cmp	r6, r1
+ 81e:	f10e 0e10 	add.w	lr, lr, #16
+ 822:	f100 0010 	add.w	r0, r0, #16
+ 826:	f104 0410 	add.w	r4, r4, #16
+ 82a:	ed14 1b06 	vldr	d1, [r4, #-24]	@ 0xffffffe8
+ 82e:	ed15 2b02 	vldr	d2, [r5, #-8]
+ 832:	ed13 8b04 	vldr	d8, [r3, #-16]
+ 836:	ed13 0b02 	vldr	d0, [r3, #-8]
+ 83a:	ed1e 6b06 	vldr	d6, [lr, #-24]	@ 0xffffffe8
+ 83e:	ed12 7b02 	vldr	d7, [r2, #-8]
+ 842:	ed10 9b06 	vldr	d9, [r0, #-24]	@ 0xffffffe8
+ 846:	ed1c 5b02 	vldr	d5, [ip, #-8]
+ 84a:	ee36 3b01 	vadd.f64	d3, d6, d1
+ 84e:	ee37 4b02 	vadd.f64	d4, d7, d2
+ 852:	ee36 6b41 	vsub.f64	d6, d6, d1
+ 856:	ee37 7b42 	vsub.f64	d7, d7, d2
+ 85a:	ee39 1b08 	vadd.f64	d1, d9, d8
+ 85e:	ee35 2b00 	vadd.f64	d2, d5, d0
+ 862:	ee39 9b48 	vsub.f64	d9, d9, d8
+ 866:	ee35 5b40 	vsub.f64	d5, d5, d0
+ 86a:	ee33 8b01 	vadd.f64	d8, d3, d1
+ 86e:	ee34 0b02 	vadd.f64	d0, d4, d2
+ 872:	ee33 3b41 	vsub.f64	d3, d3, d1
+ 876:	ee34 4b42 	vsub.f64	d4, d4, d2
+ 87a:	ee36 1b45 	vsub.f64	d1, d6, d5
+ 87e:	ee37 2b09 	vadd.f64	d2, d7, d9
+ 882:	ee36 6b05 	vadd.f64	d6, d6, d5
+ 886:	ee37 7b49 	vsub.f64	d7, d7, d9
+ 88a:	ed0e 8b06 	vstr	d8, [lr, #-24]	@ 0xffffffe8
+ 88e:	ed02 0b02 	vstr	d0, [r2, #-8]
+ 892:	ed00 3b06 	vstr	d3, [r0, #-24]	@ 0xffffffe8
+ 896:	ed0c 4b02 	vstr	d4, [ip, #-8]
+ 89a:	ed04 1b06 	vstr	d1, [r4, #-24]	@ 0xffffffe8
+ 89e:	ed05 2b02 	vstr	d2, [r5, #-8]
+ 8a2:	ed03 6b04 	vstr	d6, [r3, #-16]
+ 8a6:	ed03 7b02 	vstr	d7, [r3, #-8]
+ 8aa:	dbb1      	blt.n	810 <audiofft::OouraFFT::cftfsub(int, double*, double*) [clone .isra.0]+0xb4>
+ 8ac:	ecbd 8b04 	vpop	{d8-d9}
+ 8b0:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+ 8b2:	2900      	cmp	r1, #0
+ 8b4:	f73f af5b 	bgt.w	76e <audiofft::OouraFFT::cftfsub(int, double*, double*) [clone .isra.0]+0x12>
+ 8b8:	e785      	b.n	7c6 <audiofft::OouraFFT::cftfsub(int, double*, double*) [clone .isra.0]+0x6a>
+ 8ba:	f04f 0108 	mov.w	r1, #8
+ 8be:	f47f af56 	bne.w	76e <audiofft::OouraFFT::cftfsub(int, double*, double*) [clone .isra.0]+0x12>
+ 8c2:	e797      	b.n	7f4 <audiofft::OouraFFT::cftfsub(int, double*, double*) [clone .isra.0]+0x98>
+
+000008c4 <audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]>:
+ 8c4:	2300      	movs	r3, #0
+ 8c6:	2808      	cmp	r0, #8
+ 8c8:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 8cc:	4696      	mov	lr, r2
+ 8ce:	b08b      	sub	sp, #44	@ 0x2c
+ 8d0:	600b      	str	r3, [r1, #0]
+ 8d2:	f340 8106 	ble.w	ae2 <audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]+0x21e>
+ 8d6:	2701      	movs	r7, #1
+ 8d8:	f06f 4640 	mvn.w	r6, #3221225472	@ 0xc0000000
+ 8dc:	2f00      	cmp	r7, #0
+ 8de:	ea4f 0060 	mov.w	r0, r0, asr #1
+ 8e2:	dd0b      	ble.n	8fc <audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]+0x38>
+ 8e4:	19bd      	adds	r5, r7, r6
+ 8e6:	1f0a      	subs	r2, r1, #4
+ 8e8:	eb01 0485 	add.w	r4, r1, r5, lsl #2
+ 8ec:	4625      	mov	r5, r4
+ 8ee:	f852 3f04 	ldr.w	r3, [r2, #4]!
+ 8f2:	4403      	add	r3, r0
+ 8f4:	4295      	cmp	r5, r2
+ 8f6:	f844 3f04 	str.w	r3, [r4, #4]!
+ 8fa:	d1f8      	bne.n	8ee <audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]+0x2a>
+ 8fc:	ebb0 1f07 	cmp.w	r0, r7, lsl #4
+ 900:	ea4f 0247 	mov.w	r2, r7, lsl #1
+ 904:	dd01      	ble.n	90a <audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]+0x46>
+ 906:	4617      	mov	r7, r2
+ 908:	e7e8      	b.n	8dc <audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]+0x18>
+ 90a:	ea4f 0087 	mov.w	r0, r7, lsl #2
+ 90e:	9001      	str	r0, [sp, #4]
+ 910:	d048      	beq.n	9a4 <audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]+0xe0>
+ 912:	2a01      	cmp	r2, #1
+ 914:	dd43      	ble.n	99e <audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]+0xda>
+ 916:	f1a1 0804 	sub.w	r8, r1, #4
+ 91a:	f04f 0c02 	mov.w	ip, #2
+ 91e:	4682      	mov	sl, r0
+ 920:	eb08 03c7 	add.w	r3, r8, r7, lsl #3
+ 924:	684e      	ldr	r6, [r1, #4]
+ 926:	46c1      	mov	r9, r8
+ 928:	eb0a 0006 	add.w	r0, sl, r6
+ 92c:	eb0e 07c6 	add.w	r7, lr, r6, lsl #3
+ 930:	eb0e 00c0 	add.w	r0, lr, r0, lsl #3
+ 934:	463e      	mov	r6, r7
+ 936:	3708      	adds	r7, #8
+ 938:	f859 2f04 	ldr.w	r2, [r9, #4]!
+ 93c:	3010      	adds	r0, #16
+ 93e:	3710      	adds	r7, #16
+ 940:	3610      	adds	r6, #16
+ 942:	4462      	add	r2, ip
+ 944:	4549      	cmp	r1, r9
+ 946:	eb0e 05c2 	add.w	r5, lr, r2, lsl #3
+ 94a:	eb0a 0402 	add.w	r4, sl, r2
+ 94e:	ed17 6b06 	vldr	d6, [r7, #-24]	@ 0xffffffe8
+ 952:	ed16 7b02 	vldr	d7, [r6, #-8]
+ 956:	ed95 4b00 	vldr	d4, [r5]
+ 95a:	ed95 5b02 	vldr	d5, [r5, #8]
+ 95e:	eb0e 0bc4 	add.w	fp, lr, r4, lsl #3
+ 962:	ed07 4b06 	vstr	d4, [r7, #-24]	@ 0xffffffe8
+ 966:	ed06 5b02 	vstr	d5, [r6, #-8]
+ 96a:	ed85 6b00 	vstr	d6, [r5]
+ 96e:	ed85 7b02 	vstr	d7, [r5, #8]
+ 972:	ed10 6b04 	vldr	d6, [r0, #-16]
+ 976:	ed10 7b02 	vldr	d7, [r0, #-8]
+ 97a:	ed9b 4b00 	vldr	d4, [fp]
+ 97e:	ed9b 5b02 	vldr	d5, [fp, #8]
+ 982:	ed00 4b04 	vstr	d4, [r0, #-16]
+ 986:	ed00 5b02 	vstr	d5, [r0, #-8]
+ 98a:	ed8b 6b00 	vstr	d6, [fp]
+ 98e:	ed8b 7b02 	vstr	d7, [fp, #8]
+ 992:	d1d1      	bne.n	938 <audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]+0x74>
+ 994:	3104      	adds	r1, #4
+ 996:	f10c 0c02 	add.w	ip, ip, #2
+ 99a:	428b      	cmp	r3, r1
+ 99c:	d1c2      	bne.n	924 <audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]+0x60>
+ 99e:	b00b      	add	sp, #44	@ 0x2c
+ 9a0:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 9a4:	2a00      	cmp	r2, #0
+ 9a6:	ddfa      	ble.n	99e <audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]+0xda>
+ 9a8:	00fb      	lsls	r3, r7, #3
+ 9aa:	9304      	str	r3, [sp, #16]
+ 9ac:	1f0f      	subs	r7, r1, #4
+ 9ae:	2300      	movs	r3, #0
+ 9b0:	9d01      	ldr	r5, [sp, #4]
+ 9b2:	9208      	str	r2, [sp, #32]
+ 9b4:	4639      	mov	r1, r7
+ 9b6:	461a      	mov	r2, r3
+ 9b8:	462b      	mov	r3, r5
+ 9ba:	9709      	str	r7, [sp, #36]	@ 0x24
+ 9bc:	9102      	str	r1, [sp, #8]
+ 9be:	3201      	adds	r2, #1
+ 9c0:	f851 0f04 	ldr.w	r0, [r1, #4]!
+ 9c4:	9f01      	ldr	r7, [sp, #4]
+ 9c6:	4418      	add	r0, r3
+ 9c8:	3302      	adds	r3, #2
+ 9ca:	183c      	adds	r4, r7, r0
+ 9cc:	eb0e 05c0 	add.w	r5, lr, r0, lsl #3
+ 9d0:	9808      	ldr	r0, [sp, #32]
+ 9d2:	eb0e 06c4 	add.w	r6, lr, r4, lsl #3
+ 9d6:	4290      	cmp	r0, r2
+ 9d8:	ed95 7b00 	vldr	d7, [r5]
+ 9dc:	ed96 5b00 	vldr	d5, [r6]
+ 9e0:	ed96 6b02 	vldr	d6, [r6, #8]
+ 9e4:	e9d5 ab02 	ldrd	sl, fp, [r5, #8]
+ 9e8:	ed85 5b00 	vstr	d5, [r5]
+ 9ec:	ed85 6b02 	vstr	d6, [r5, #8]
+ 9f0:	ed86 7b00 	vstr	d7, [r6]
+ 9f4:	e9c6 ab02 	strd	sl, fp, [r6, #8]
+ 9f8:	ddd1      	ble.n	99e <audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]+0xda>
+ 9fa:	684d      	ldr	r5, [r1, #4]
+ 9fc:	0050      	lsls	r0, r2, #1
+ 9fe:	f8dd b024 	ldr.w	fp, [sp, #36]	@ 0x24
+ a02:	197c      	adds	r4, r7, r5
+ a04:	9003      	str	r0, [sp, #12]
+ a06:	eb0e 05c5 	add.w	r5, lr, r5, lsl #3
+ a0a:	9107      	str	r1, [sp, #28]
+ a0c:	1938      	adds	r0, r7, r4
+ a0e:	eb0e 04c4 	add.w	r4, lr, r4, lsl #3
+ a12:	183e      	adds	r6, r7, r0
+ a14:	eb0e 00c0 	add.w	r0, lr, r0, lsl #3
+ a18:	eb0e 06c6 	add.w	r6, lr, r6, lsl #3
+ a1c:	e9cd 2305 	strd	r2, r3, [sp, #20]
+ a20:	9a03      	ldr	r2, [sp, #12]
+ a22:	3410      	adds	r4, #16
+ a24:	f8cd b000 	str.w	fp, [sp]
+ a28:	3010      	adds	r0, #16
+ a2a:	f85b 3f04 	ldr.w	r3, [fp, #4]!
+ a2e:	3610      	adds	r6, #16
+ a30:	9f04      	ldr	r7, [sp, #16]
+ a32:	3510      	adds	r5, #16
+ a34:	4413      	add	r3, r2
+ a36:	9a01      	ldr	r2, [sp, #4]
+ a38:	19d9      	adds	r1, r3, r7
+ a3a:	eb0e 0ac3 	add.w	sl, lr, r3, lsl #3
+ a3e:	eb0e 03c3 	add.w	r3, lr, r3, lsl #3
+ a42:	eb0e 09c1 	add.w	r9, lr, r1, lsl #3
+ a46:	1a8a      	subs	r2, r1, r2
+ a48:	ed93 4b00 	vldr	d4, [r3]
+ a4c:	ed9a 5b02 	vldr	d5, [sl, #8]
+ a50:	ed15 6b04 	vldr	d6, [r5, #-16]
+ a54:	ed15 7b02 	vldr	d7, [r5, #-8]
+ a58:	ed05 4b04 	vstr	d4, [r5, #-16]
+ a5c:	ed05 5b02 	vstr	d5, [r5, #-8]
+ a60:	ed83 6b00 	vstr	d6, [r3]
+ a64:	ed8a 7b02 	vstr	d7, [sl, #8]
+ a68:	ed99 7b00 	vldr	d7, [r9]
+ a6c:	ed99 5b02 	vldr	d5, [r9, #8]
+ a70:	ed14 6b04 	vldr	d6, [r4, #-16]
+ a74:	ed04 7b04 	vstr	d7, [r4, #-16]
+ a78:	ed14 7b02 	vldr	d7, [r4, #-8]
+ a7c:	eb0e 08c2 	add.w	r8, lr, r2, lsl #3
+ a80:	19d7      	adds	r7, r2, r7
+ a82:	ed04 5b02 	vstr	d5, [r4, #-8]
+ a86:	ed89 6b00 	vstr	d6, [r9]
+ a8a:	ed89 7b02 	vstr	d7, [r9, #8]
+ a8e:	ed98 7b00 	vldr	d7, [r8]
+ a92:	ed98 5b02 	vldr	d5, [r8, #8]
+ a96:	ed10 6b04 	vldr	d6, [r0, #-16]
+ a9a:	ed00 7b04 	vstr	d7, [r0, #-16]
+ a9e:	ed10 7b02 	vldr	d7, [r0, #-8]
+ aa2:	eb0e 0cc7 	add.w	ip, lr, r7, lsl #3
+ aa6:	ed00 5b02 	vstr	d5, [r0, #-8]
+ aaa:	ed88 6b00 	vstr	d6, [r8]
+ aae:	ed88 7b02 	vstr	d7, [r8, #8]
+ ab2:	e9dc 2300 	ldrd	r2, r3, [ip]
+ ab6:	ed9c 7b02 	vldr	d7, [ip, #8]
+ aba:	e956 8904 	ldrd	r8, r9, [r6, #-16]
+ abe:	e946 2304 	strd	r2, r3, [r6, #-16]
+ ac2:	e956 2302 	ldrd	r2, r3, [r6, #-8]
+ ac6:	ed06 7b02 	vstr	d7, [r6, #-8]
+ aca:	e9cc 2302 	strd	r2, r3, [ip, #8]
+ ace:	9b00      	ldr	r3, [sp, #0]
+ ad0:	9a02      	ldr	r2, [sp, #8]
+ ad2:	4293      	cmp	r3, r2
+ ad4:	e9cc 8900 	strd	r8, r9, [ip]
+ ad8:	d1a2      	bne.n	a20 <audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]+0x15c>
+ ada:	9907      	ldr	r1, [sp, #28]
+ adc:	e9dd 2305 	ldrd	r2, r3, [sp, #20]
+ ae0:	e76c      	b.n	9bc <audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]+0xf8>
+ ae2:	f47f af5c 	bne.w	99e <audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]+0xda>
+ ae6:	2304      	movs	r3, #4
+ ae8:	2201      	movs	r2, #1
+ aea:	9304      	str	r3, [sp, #16]
+ aec:	2302      	movs	r3, #2
+ aee:	9301      	str	r3, [sp, #4]
+ af0:	e75c      	b.n	9ac <audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]+0xe8>
+ af2:	bf00      	nop
+
+00000af4 <audiofft::AudioFFT::AudioFFT()>:
+ af4:	b510      	push	{r4, lr}
+ af6:	4604      	mov	r4, r0
+ af8:	202c      	movs	r0, #44	@ 0x2c
+ afa:	f7ff fffe 	bl	0 <operator new(unsigned int)>
+			afa: R_ARM_THM_CALL	operator new(unsigned int)
+ afe:	2200      	movs	r2, #0
+ b00:	4603      	mov	r3, r0
+ b02:	4907      	ldr	r1, [pc, #28]	@ (b20 <audiofft::AudioFFT::AudioFFT()+0x2c>)
+ b04:	4620      	mov	r0, r4
+ b06:	629a      	str	r2, [r3, #40]	@ 0x28
+ b08:	6023      	str	r3, [r4, #0]
+ b0a:	e9c3 1200 	strd	r1, r2, [r3]
+ b0e:	e9c3 2202 	strd	r2, r2, [r3, #8]
+ b12:	e9c3 2204 	strd	r2, r2, [r3, #16]
+ b16:	e9c3 2206 	strd	r2, r2, [r3, #24]
+ b1a:	e9c3 2208 	strd	r2, r2, [r3, #32]
+ b1e:	bd10      	pop	{r4, pc}
+ b20:	00000008 	.word	0x00000008
+			b20: R_ARM_ABS32	vtable for audiofft::OouraFFT
+
+00000b24 <audiofft::AudioFFT::~AudioFFT()>:
+ b24:	b510      	push	{r4, lr}
+ b26:	4604      	mov	r4, r0
+ b28:	6800      	ldr	r0, [r0, #0]
+ b2a:	b110      	cbz	r0, b32 <audiofft::AudioFFT::~AudioFFT()+0xe>
+ b2c:	6803      	ldr	r3, [r0, #0]
+ b2e:	685b      	ldr	r3, [r3, #4]
+ b30:	4798      	blx	r3
+ b32:	4620      	mov	r0, r4
+ b34:	bd10      	pop	{r4, pc}
+ b36:	bf00      	nop
+
+00000b38 <audiofft::AudioFFT::init(unsigned int)>:
+ b38:	2901      	cmp	r1, #1
+ b3a:	d002      	beq.n	b42 <audiofft::AudioFFT::init(unsigned int)+0xa>
+ b3c:	1e4b      	subs	r3, r1, #1
+ b3e:	420b      	tst	r3, r1
+ b40:	d103      	bne.n	b4a <audiofft::AudioFFT::init(unsigned int)+0x12>
+ b42:	6800      	ldr	r0, [r0, #0]
+ b44:	6803      	ldr	r3, [r0, #0]
+ b46:	689b      	ldr	r3, [r3, #8]
+ b48:	4718      	bx	r3
+ b4a:	4b04      	ldr	r3, [pc, #16]	@ (b5c <audiofft::AudioFFT::init(unsigned int)+0x24>)
+ b4c:	f240 31fa 	movw	r1, #1018	@ 0x3fa
+ b50:	4a03      	ldr	r2, [pc, #12]	@ (b60 <audiofft::AudioFFT::init(unsigned int)+0x28>)
+ b52:	4804      	ldr	r0, [pc, #16]	@ (b64 <audiofft::AudioFFT::init(unsigned int)+0x2c>)
+ b54:	b510      	push	{r4, lr}
+ b56:	f7ff fffe 	bl	0 <__assert_func>
+			b56: R_ARM_THM_CALL	__assert_func
+ b5a:	bf00      	nop
+ b5c:	00000000 	.word	0x00000000
+			b5c: R_ARM_ABS32	.rodata.str1.4
+ b60:	0000001c 	.word	0x0000001c
+			b60: R_ARM_ABS32	.rodata.str1.4
+ b64:	00000044 	.word	0x00000044
+			b64: R_ARM_ABS32	.rodata.str1.4
+
+00000b68 <audiofft::AudioFFT::fft(float const*, float*, float*)>:
+ b68:	6800      	ldr	r0, [r0, #0]
+ b6a:	b410      	push	{r4}
+ b6c:	6804      	ldr	r4, [r0, #0]
+ b6e:	68e4      	ldr	r4, [r4, #12]
+ b70:	46a4      	mov	ip, r4
+ b72:	f85d 4b04 	ldr.w	r4, [sp], #4
+ b76:	4760      	bx	ip
+
+00000b78 <audiofft::AudioFFT::ifft(float*, float const*, float const*)>:
+ b78:	6800      	ldr	r0, [r0, #0]
+ b7a:	b410      	push	{r4}
+ b7c:	6804      	ldr	r4, [r0, #0]
+ b7e:	6924      	ldr	r4, [r4, #16]
+ b80:	46a4      	mov	ip, r4
+ b82:	f85d 4b04 	ldr.w	r4, [sp], #4
+ b86:	4760      	bx	ip
+
+00000b88 <audiofft::AudioFFT::ComplexSize(unsigned int)>:
+ b88:	0840      	lsrs	r0, r0, #1
+ b8a:	3001      	adds	r0, #1
+ b8c:	4770      	bx	lr
+ b8e:	bf00      	nop
+
+Disassembly of section .text._ZN8audiofft8OouraFFT3fftEPKfPfS3_:
+
+00000000 <audiofft::OouraFFT::fft(float const*, float*, float*)>:
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	6847      	ldr	r7, [r0, #4]
+   6:	b083      	sub	sp, #12
+   8:	461e      	mov	r6, r3
+   a:	6a04      	ldr	r4, [r0, #32]
+   c:	9201      	str	r2, [sp, #4]
+   e:	2f00      	cmp	r7, #0
+  10:	f000 80b8 	beq.w	184 <audiofft::OouraFFT::fft(float const*, float*, float*)+0x184>
+  14:	4680      	mov	r8, r0
+  16:	46a1      	mov	r9, r4
+  18:	4623      	mov	r3, r4
+  1a:	eb01 0287 	add.w	r2, r1, r7, lsl #2
+  1e:	ecb1 7a01 	vldmia	r1!, {s14}
+  22:	eeb7 7ac7 	vcvt.f64.f32	d7, s14
+  26:	428a      	cmp	r2, r1
+  28:	eca3 7b02 	vstmia	r3!, {d7}
+  2c:	d1f7      	bne.n	1e <audiofft::OouraFFT::fft(float const*, float*, float*)+0x1e>
+  2e:	2f04      	cmp	r7, #4
+  30:	f8d8 b014 	ldr.w	fp, [r8, #20]
+  34:	dc39      	bgt.n	aa <audiofft::OouraFFT::fft(float const*, float*, float*)+0xaa>
+  36:	f000 809f 	beq.w	178 <audiofft::OouraFFT::fft(float const*, float*, float*)+0x178>
+  3a:	eb04 00c7 	add.w	r0, r4, r7, lsl #3
+  3e:	ed94 7b00 	vldr	d7, [r4]
+  42:	ed94 6b02 	vldr	d6, [r4, #8]
+  46:	42a0      	cmp	r0, r4
+  48:	ee37 5b06 	vadd.f64	d5, d7, d6
+  4c:	ee37 7b46 	vsub.f64	d7, d7, d6
+  50:	ed84 5b00 	vstr	d5, [r4]
+  54:	ed84 7b02 	vstr	d7, [r4, #8]
+  58:	d015      	beq.n	86 <audiofft::OouraFFT::fft(float const*, float*, float*)+0x86>
+  5a:	f104 0110 	add.w	r1, r4, #16
+  5e:	4632      	mov	r2, r6
+  60:	9b01      	ldr	r3, [sp, #4]
+  62:	4281      	cmp	r1, r0
+  64:	f101 0110 	add.w	r1, r1, #16
+  68:	ed11 7b06 	vldr	d7, [r1, #-24]	@ 0xffffffe8
+  6c:	ed11 6b08 	vldr	d6, [r1, #-32]	@ 0xffffffe0
+  70:	eeb7 7bc7 	vcvt.f32.f64	s14, d7
+  74:	eeb7 6bc6 	vcvt.f32.f64	s12, d6
+  78:	eeb1 7a47 	vneg.f32	s14, s14
+  7c:	eca3 6a01 	vstmia	r3!, {s12}
+  80:	eca2 7a01 	vstmia	r2!, {s14}
+  84:	d1ed      	bne.n	62 <audiofft::OouraFFT::fft(float const*, float*, float*)+0x62>
+  86:	edd6 7a00 	vldr	s15, [r6]
+  8a:	0879      	lsrs	r1, r7, #1
+  8c:	9a01      	ldr	r2, [sp, #4]
+  8e:	2300      	movs	r3, #0
+  90:	eef1 7a67 	vneg.f32	s15, s15
+  94:	eb02 0581 	add.w	r5, r2, r1, lsl #2
+  98:	eb06 0181 	add.w	r1, r6, r1, lsl #2
+  9c:	edc5 7a00 	vstr	s15, [r5]
+  a0:	6033      	str	r3, [r6, #0]
+  a2:	600b      	str	r3, [r1, #0]
+  a4:	b003      	add	sp, #12
+  a6:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+  aa:	f8d8 3008 	ldr.w	r3, [r8, #8]
+  ae:	4622      	mov	r2, r4
+  b0:	4638      	mov	r0, r7
+  b2:	f103 0108 	add.w	r1, r3, #8
+  b6:	e9d3 5a00 	ldrd	r5, sl, [r3]
+  ba:	f7ff fffe 	bl	8c4 <audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]>
+			ba: R_ARM_THM_CALL	audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]
+  be:	465a      	mov	r2, fp
+  c0:	4638      	mov	r0, r7
+  c2:	4621      	mov	r1, r4
+  c4:	f7ff fffe 	bl	75c <audiofft::OouraFFT::cftfsub(int, double*, double*) [clone .isra.0]>
+			c4: R_ARM_THM_CALL	audiofft::OouraFFT::cftfsub(int, double*, double*) [clone .isra.0]
+  c8:	f8d8 c004 	ldr.w	ip, [r8, #4]
+  cc:	107b      	asrs	r3, r7, #1
+  ce:	ea4f 004a 	mov.w	r0, sl, lsl #1
+  d2:	2b02      	cmp	r3, #2
+  d4:	eb0b 02c5 	add.w	r2, fp, r5, lsl #3
+  d8:	fb90 f0f3 	sdiv	r0, r0, r3
+  dc:	d04a      	beq.n	174 <audiofft::OouraFFT::fft(float const*, float*, float*)+0x174>
+  de:	f1a3 0e03 	sub.w	lr, r3, #3
+  e2:	eb04 01c7 	add.w	r1, r4, r7, lsl #3
+  e6:	ebaa 0300 	sub.w	r3, sl, r0
+  ea:	f104 0710 	add.w	r7, r4, #16
+  ee:	ebc0 7040 	rsb	r0, r0, r0, lsl #29
+  f2:	eeb6 2b00 	vmov.f64	d2, #96	@ 0x3f000000  0.5
+  f6:	ea4f 0e5e 	mov.w	lr, lr, lsr #1
+  fa:	eb02 03c3 	add.w	r3, r2, r3, lsl #3
+  fe:	eb07 170e 	add.w	r7, r7, lr, lsl #4
+ 102:	eba2 02c0 	sub.w	r2, r2, r0, lsl #3
+ 106:	00c0      	lsls	r0, r0, #3
+ 108:	3910      	subs	r1, #16
+ 10a:	f109 0910 	add.w	r9, r9, #16
+ 10e:	ed99 5b00 	vldr	d5, [r9]
+ 112:	ed99 6b02 	vldr	d6, [r9, #8]
+ 116:	ed91 3b00 	vldr	d3, [r1]
+ 11a:	ed91 0b02 	vldr	d0, [r1, #8]
+ 11e:	ed92 7b00 	vldr	d7, [r2]
+ 122:	ee35 3b43 	vsub.f64	d3, d5, d3
+ 126:	454f      	cmp	r7, r9
+ 128:	ee36 0b00 	vadd.f64	d0, d6, d0
+ 12c:	eba2 0200 	sub.w	r2, r2, r0
+ 130:	ed93 1b00 	vldr	d1, [r3]
+ 134:	ee20 4b47 	vnmul.f64	d4, d0, d7
+ 138:	4403      	add	r3, r0
+ 13a:	ee27 7b03 	vmul.f64	d7, d7, d3
+ 13e:	ee32 1b41 	vsub.f64	d1, d2, d1
+ 142:	eea1 4b03 	vfma.f64	d4, d1, d3
+ 146:	eea1 7b00 	vfma.f64	d7, d1, d0
+ 14a:	ee35 5b44 	vsub.f64	d5, d5, d4
+ 14e:	ed89 5b00 	vstr	d5, [r9]
+ 152:	ee36 6b47 	vsub.f64	d6, d6, d7
+ 156:	ed89 6b02 	vstr	d6, [r9, #8]
+ 15a:	ed91 5b00 	vldr	d5, [r1]
+ 15e:	ed91 6b02 	vldr	d6, [r1, #8]
+ 162:	ee35 5b04 	vadd.f64	d5, d5, d4
+ 166:	ee36 6b47 	vsub.f64	d6, d6, d7
+ 16a:	ed81 5b00 	vstr	d5, [r1]
+ 16e:	ed81 6b02 	vstr	d6, [r1, #8]
+ 172:	d1c9      	bne.n	108 <audiofft::OouraFFT::fft(float const*, float*, float*)+0x108>
+ 174:	4667      	mov	r7, ip
+ 176:	e760      	b.n	3a <audiofft::OouraFFT::fft(float const*, float*, float*)+0x3a>
+ 178:	465a      	mov	r2, fp
+ 17a:	4621      	mov	r1, r4
+ 17c:	4638      	mov	r0, r7
+ 17e:	f7ff fffe 	bl	75c <audiofft::OouraFFT::cftfsub(int, double*, double*) [clone .isra.0]>
+			17e: R_ARM_THM_CALL	audiofft::OouraFFT::cftfsub(int, double*, double*) [clone .isra.0]
+ 182:	e75a      	b.n	3a <audiofft::OouraFFT::fft(float const*, float*, float*)+0x3a>
+ 184:	ed94 7b00 	vldr	d7, [r4]
+ 188:	ed94 6b02 	vldr	d6, [r4, #8]
+ 18c:	ee36 5b07 	vadd.f64	d5, d6, d7
+ 190:	ee37 7b46 	vsub.f64	d7, d7, d6
+ 194:	ed84 5b00 	vstr	d5, [r4]
+ 198:	ed84 7b02 	vstr	d7, [r4, #8]
+ 19c:	e773      	b.n	86 <audiofft::OouraFFT::fft(float const*, float*, float*)+0x86>
+ 19e:	bf00      	nop
+
+Disassembly of section .text._ZN8audiofft8OouraFFT4ifftEPfPKfS3_:
+
+00000000 <audiofft::OouraFFT::ifft(float*, float const*, float const*)>:
+   0:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+   4:	6a04      	ldr	r4, [r0, #32]
+   6:	4606      	mov	r6, r0
+   8:	f8d0 8004 	ldr.w	r8, [r0, #4]
+   c:	460d      	mov	r5, r1
+   e:	eb04 0ec8 	add.w	lr, r4, r8, lsl #3
+  12:	ea4f 07c8 	mov.w	r7, r8, lsl #3
+  16:	45a6      	cmp	lr, r4
+  18:	ed2d 8b02 	vpush	{d8}
+  1c:	d015      	beq.n	4a <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x4a>
+  1e:	f104 0c10 	add.w	ip, r4, #16
+  22:	4611      	mov	r1, r2
+  24:	ecb3 7a01 	vldmia	r3!, {s14}
+  28:	4660      	mov	r0, ip
+  2a:	ecb1 6a01 	vldmia	r1!, {s12}
+  2e:	f10c 0c10 	add.w	ip, ip, #16
+  32:	eeb7 7ac7 	vcvt.f64.f32	d7, s14
+  36:	4586      	cmp	lr, r0
+  38:	eeb7 6ac6 	vcvt.f64.f32	d6, s12
+  3c:	eeb1 7b47 	vneg.f64	d7, d7
+  40:	ed0c 6b08 	vstr	d6, [ip, #-32]	@ 0xffffffe0
+  44:	ed0c 7b06 	vstr	d7, [ip, #-24]	@ 0xffffffe8
+  48:	d1ec      	bne.n	24 <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x24>
+  4a:	ea4f 0358 	mov.w	r3, r8, lsr #1
+  4e:	eeb6 8b00 	vmov.f64	d8, #96	@ 0x3f000000  0.5
+  52:	68b1      	ldr	r1, [r6, #8]
+  54:	f1b8 0f04 	cmp.w	r8, #4
+  58:	eb02 0283 	add.w	r2, r2, r3, lsl #2
+  5c:	f8d6 9014 	ldr.w	r9, [r6, #20]
+  60:	ed92 7a00 	vldr	s14, [r2]
+  64:	ed94 6b00 	vldr	d6, [r4]
+  68:	eeb7 7ac7 	vcvt.f64.f32	d7, s14
+  6c:	e9d1 0300 	ldrd	r0, r3, [r1]
+  70:	ee36 7b47 	vsub.f64	d7, d6, d7
+  74:	ee27 7b08 	vmul.f64	d7, d7, d8
+  78:	ee36 6b47 	vsub.f64	d6, d6, d7
+  7c:	ed84 7b02 	vstr	d7, [r4, #8]
+  80:	ed84 6b00 	vstr	d6, [r4]
+  84:	dc1e      	bgt.n	c4 <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0xc4>
+  86:	f000 80d5 	beq.w	234 <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x234>
+  8a:	ee07 8a90 	vmov	s15, r8
+  8e:	eeb0 5b00 	vmov.f64	d5, #0	@ 0x40000000  2.0
+  92:	eeb8 7b67 	vcvt.f64.u32	d7, s15
+  96:	ee85 8b07 	vdiv.f64	d8, d5, d7
+  9a:	f1b8 0f00 	cmp.w	r8, #0
+  9e:	d00d      	beq.n	bc <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0xbc>
+  a0:	ea4f 07c8 	mov.w	r7, r8, lsl #3
+  a4:	4622      	mov	r2, r4
+  a6:	4427      	add	r7, r4
+  a8:	ecb2 7b02 	vldmia	r2!, {d7}
+  ac:	ee27 7b08 	vmul.f64	d7, d7, d8
+  b0:	42ba      	cmp	r2, r7
+  b2:	eeb7 7bc7 	vcvt.f32.f64	s14, d7
+  b6:	eca5 7a01 	vstmia	r5!, {s14}
+  ba:	d1f5      	bne.n	a8 <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0xa8>
+  bc:	ecbd 8b02 	vpop	{d8}
+  c0:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+  c4:	ea4f 0268 	mov.w	r2, r8, asr #1
+  c8:	eeb1 7b47 	vneg.f64	d7, d7
+  cc:	ea4f 0c43 	mov.w	ip, r3, lsl #1
+  d0:	3108      	adds	r1, #8
+  d2:	f102 0a01 	add.w	sl, r2, #1
+  d6:	2a02      	cmp	r2, #2
+  d8:	eb09 00c0 	add.w	r0, r9, r0, lsl #3
+  dc:	eb04 0aca 	add.w	sl, r4, sl, lsl #3
+  e0:	fb9c fcf2 	sdiv	ip, ip, r2
+  e4:	ed84 7b02 	vstr	d7, [r4, #8]
+  e8:	f000 810e 	beq.w	308 <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x308>
+  ec:	3a03      	subs	r2, #3
+  ee:	eba3 070c 	sub.w	r7, r3, ip
+  f2:	ebcc 7c4c 	rsb	ip, ip, ip, lsl #29
+  f6:	4673      	mov	r3, lr
+  f8:	0852      	lsrs	r2, r2, #1
+  fa:	f104 0e10 	add.w	lr, r4, #16
+  fe:	eb00 07c7 	add.w	r7, r0, r7, lsl #3
+ 102:	eb0e 1e02 	add.w	lr, lr, r2, lsl #4
+ 106:	4622      	mov	r2, r4
+ 108:	eba0 00cc 	sub.w	r0, r0, ip, lsl #3
+ 10c:	ea4f 0ccc 	mov.w	ip, ip, lsl #3
+ 110:	3210      	adds	r2, #16
+ 112:	3b10      	subs	r3, #16
+ 114:	ed92 4b00 	vldr	d4, [r2]
+ 118:	ed92 5b02 	vldr	d5, [r2, #8]
+ 11c:	ed93 3b00 	vldr	d3, [r3]
+ 120:	ed93 1b02 	vldr	d1, [r3, #8]
+ 124:	ed90 7b00 	vldr	d7, [r0]
+ 128:	ee34 3b43 	vsub.f64	d3, d4, d3
+ 12c:	eba0 000c 	sub.w	r0, r0, ip
+ 130:	ee35 1b01 	vadd.f64	d1, d5, d1
+ 134:	ed97 2b00 	vldr	d2, [r7]
+ 138:	ee27 6b01 	vmul.f64	d6, d7, d1
+ 13c:	4467      	add	r7, ip
+ 13e:	ee23 7b47 	vnmul.f64	d7, d3, d7
+ 142:	ee38 2b42 	vsub.f64	d2, d8, d2
+ 146:	eea2 6b03 	vfma.f64	d6, d2, d3
+ 14a:	eea2 7b01 	vfma.f64	d7, d2, d1
+ 14e:	ee34 4b46 	vsub.f64	d4, d4, d6
+ 152:	ed82 4b00 	vstr	d4, [r2]
+ 156:	ee37 5b45 	vsub.f64	d5, d7, d5
+ 15a:	ed82 5b02 	vstr	d5, [r2, #8]
+ 15e:	ed93 5b00 	vldr	d5, [r3]
+ 162:	ed93 4b02 	vldr	d4, [r3, #8]
+ 166:	4596      	cmp	lr, r2
+ 168:	ee35 5b06 	vadd.f64	d5, d5, d6
+ 16c:	ee37 7b44 	vsub.f64	d7, d7, d4
+ 170:	ed83 5b00 	vstr	d5, [r3]
+ 174:	ed83 7b02 	vstr	d7, [r3, #8]
+ 178:	d1ca      	bne.n	110 <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x110>
+ 17a:	4622      	mov	r2, r4
+ 17c:	4640      	mov	r0, r8
+ 17e:	ed9a 7b00 	vldr	d7, [sl]
+ 182:	eeb1 7b47 	vneg.f64	d7, d7
+ 186:	ed8a 7b00 	vstr	d7, [sl]
+ 18a:	f7ff fffe 	bl	8c4 <audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]>
+			18a: R_ARM_THM_CALL	audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]
+ 18e:	f1b8 0f08 	cmp.w	r8, #8
+ 192:	dc34      	bgt.n	1fe <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x1fe>
+ 194:	d054      	beq.n	240 <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x240>
+ 196:	2102      	movs	r1, #2
+ 198:	f8d6 c004 	ldr.w	ip, [r6, #4]
+ 19c:	eb04 00c1 	add.w	r0, r4, r1, lsl #3
+ 1a0:	4622      	mov	r2, r4
+ 1a2:	eb04 03c1 	add.w	r3, r4, r1, lsl #3
+ 1a6:	f104 0608 	add.w	r6, r4, #8
+ 1aa:	3008      	adds	r0, #8
+ 1ac:	2700      	movs	r7, #0
+ 1ae:	3702      	adds	r7, #2
+ 1b0:	3610      	adds	r6, #16
+ 1b2:	3210      	adds	r2, #16
+ 1b4:	3010      	adds	r0, #16
+ 1b6:	42b9      	cmp	r1, r7
+ 1b8:	f103 0310 	add.w	r3, r3, #16
+ 1bc:	ed16 7b06 	vldr	d7, [r6, #-24]	@ 0xffffffe8
+ 1c0:	ed10 6b06 	vldr	d6, [r0, #-24]	@ 0xffffffe8
+ 1c4:	ed12 4b02 	vldr	d4, [r2, #-8]
+ 1c8:	ed13 5b02 	vldr	d5, [r3, #-8]
+ 1cc:	ee37 3b06 	vadd.f64	d3, d7, d6
+ 1d0:	ee37 6b46 	vsub.f64	d6, d7, d6
+ 1d4:	ee35 5b44 	vsub.f64	d5, d5, d4
+ 1d8:	ed06 3b06 	vstr	d3, [r6, #-24]	@ 0xffffffe8
+ 1dc:	ed12 7b02 	vldr	d7, [r2, #-8]
+ 1e0:	ed13 4b02 	vldr	d4, [r3, #-8]
+ 1e4:	eeb1 7b47 	vneg.f64	d7, d7
+ 1e8:	ee37 7b44 	vsub.f64	d7, d7, d4
+ 1ec:	ed02 7b02 	vstr	d7, [r2, #-8]
+ 1f0:	ed00 6b06 	vstr	d6, [r0, #-24]	@ 0xffffffe8
+ 1f4:	ed03 5b02 	vstr	d5, [r3, #-8]
+ 1f8:	dcd9      	bgt.n	1ae <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x1ae>
+ 1fa:	46e0      	mov	r8, ip
+ 1fc:	e745      	b.n	8a <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x8a>
+ 1fe:	464a      	mov	r2, r9
+ 200:	4621      	mov	r1, r4
+ 202:	4640      	mov	r0, r8
+ 204:	f7ff fffe 	bl	450 <audiofft::OouraFFT::cft1st(int, double*, double*) [clone .isra.0]>
+			204: R_ARM_THM_CALL	audiofft::OouraFFT::cft1st(int, double*, double*) [clone .isra.0]
+ 208:	f1b8 0f20 	cmp.w	r8, #32
+ 20c:	f340 808a 	ble.w	324 <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x324>
+ 210:	2720      	movs	r7, #32
+ 212:	2108      	movs	r1, #8
+ 214:	464b      	mov	r3, r9
+ 216:	4622      	mov	r2, r4
+ 218:	4640      	mov	r0, r8
+ 21a:	f7ff fffe 	bl	0 <audiofft::OouraFFT::ifft(float*, float const*, float const*)>
+			21a: R_ARM_THM_CALL	audiofft::OouraFFT::cftmdl(int, int, double*, double*) [clone .isra.0]
+ 21e:	4639      	mov	r1, r7
+ 220:	00bf      	lsls	r7, r7, #2
+ 222:	45b8      	cmp	r8, r7
+ 224:	dcf6      	bgt.n	214 <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x214>
+ 226:	f8d6 8004 	ldr.w	r8, [r6, #4]
+ 22a:	46c4      	mov	ip, r8
+ 22c:	d077      	beq.n	31e <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x31e>
+ 22e:	2900      	cmp	r1, #0
+ 230:	dcb4      	bgt.n	19c <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x19c>
+ 232:	e72a      	b.n	8a <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x8a>
+ 234:	464a      	mov	r2, r9
+ 236:	4640      	mov	r0, r8
+ 238:	4621      	mov	r1, r4
+ 23a:	f7ff fffe 	bl	75c <audiofft::OouraFFT::cftfsub(int, double*, double*) [clone .isra.0]>
+			23a: R_ARM_THM_CALL	audiofft::OouraFFT::cftfsub(int, double*, double*) [clone .isra.0]
+ 23e:	e731      	b.n	a4 <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0xa4>
+ 240:	2102      	movs	r1, #2
+ 242:	f8d6 c004 	ldr.w	ip, [r6, #4]
+ 246:	eb04 1601 	add.w	r6, r4, r1, lsl #4
+ 24a:	46a0      	mov	r8, r4
+ 24c:	eb04 00c1 	add.w	r0, r4, r1, lsl #3
+ 250:	f104 0708 	add.w	r7, r4, #8
+ 254:	4632      	mov	r2, r6
+ 256:	eb04 0ec1 	add.w	lr, r4, r1, lsl #3
+ 25a:	3008      	adds	r0, #8
+ 25c:	eb06 03c1 	add.w	r3, r6, r1, lsl #3
+ 260:	3208      	adds	r2, #8
+ 262:	f04f 0900 	mov.w	r9, #0
+ 266:	3310      	adds	r3, #16
+ 268:	f108 0810 	add.w	r8, r8, #16
+ 26c:	3610      	adds	r6, #16
+ 26e:	3710      	adds	r7, #16
+ 270:	3210      	adds	r2, #16
+ 272:	f109 0902 	add.w	r9, r9, #2
+ 276:	f10e 0e10 	add.w	lr, lr, #16
+ 27a:	3010      	adds	r0, #16
+ 27c:	4589      	cmp	r9, r1
+ 27e:	ed18 3b02 	vldr	d3, [r8, #-8]
+ 282:	ed10 8b06 	vldr	d8, [r0, #-24]	@ 0xffffffe8
+ 286:	ed1e 2b02 	vldr	d2, [lr, #-8]
+ 28a:	ed13 0b04 	vldr	d0, [r3, #-16]
+ 28e:	ed17 7b06 	vldr	d7, [r7, #-24]	@ 0xffffffe8
+ 292:	ed12 5b06 	vldr	d5, [r2, #-24]	@ 0xffffffe8
+ 296:	eeb1 4b43 	vneg.f64	d4, d3
+ 29a:	ee37 1b08 	vadd.f64	d1, d7, d8
+ 29e:	ee32 3b43 	vsub.f64	d3, d2, d3
+ 2a2:	ee34 4b42 	vsub.f64	d4, d4, d2
+ 2a6:	ee35 2b00 	vadd.f64	d2, d5, d0
+ 2aa:	ee35 5b40 	vsub.f64	d5, d5, d0
+ 2ae:	ee37 7b48 	vsub.f64	d7, d7, d8
+ 2b2:	ee31 8b02 	vadd.f64	d8, d1, d2
+ 2b6:	ee31 2b42 	vsub.f64	d2, d1, d2
+ 2ba:	ee33 1b45 	vsub.f64	d1, d3, d5
+ 2be:	ee33 5b05 	vadd.f64	d5, d3, d5
+ 2c2:	ed16 6b02 	vldr	d6, [r6, #-8]
+ 2c6:	ed13 0b02 	vldr	d0, [r3, #-8]
+ 2ca:	ed07 8b06 	vstr	d8, [r7, #-24]	@ 0xffffffe8
+ 2ce:	ee36 3b00 	vadd.f64	d3, d6, d0
+ 2d2:	ee36 6b40 	vsub.f64	d6, d6, d0
+ 2d6:	ee34 0b43 	vsub.f64	d0, d4, d3
+ 2da:	ee34 4b03 	vadd.f64	d4, d4, d3
+ 2de:	ed08 0b02 	vstr	d0, [r8, #-8]
+ 2e2:	ed02 2b06 	vstr	d2, [r2, #-24]	@ 0xffffffe8
+ 2e6:	ed06 4b02 	vstr	d4, [r6, #-8]
+ 2ea:	ee37 4b46 	vsub.f64	d4, d7, d6
+ 2ee:	ee37 7b06 	vadd.f64	d7, d7, d6
+ 2f2:	ed00 4b06 	vstr	d4, [r0, #-24]	@ 0xffffffe8
+ 2f6:	ed0e 1b02 	vstr	d1, [lr, #-8]
+ 2fa:	ed03 5b02 	vstr	d5, [r3, #-8]
+ 2fe:	ed03 7b04 	vstr	d7, [r3, #-16]
+ 302:	dbb0      	blt.n	266 <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x266>
+ 304:	46e0      	mov	r8, ip
+ 306:	e6c0      	b.n	8a <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x8a>
+ 308:	ed9a 7b00 	vldr	d7, [sl]
+ 30c:	4622      	mov	r2, r4
+ 30e:	2005      	movs	r0, #5
+ 310:	eeb1 7b47 	vneg.f64	d7, d7
+ 314:	ed8a 7b00 	vstr	d7, [sl]
+ 318:	f7ff fffe 	bl	8c4 <audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]>
+			318: R_ARM_THM_CALL	audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]
+ 31c:	e73b      	b.n	196 <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x196>
+ 31e:	2900      	cmp	r1, #0
+ 320:	dc91      	bgt.n	246 <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x246>
+ 322:	e6b2      	b.n	8a <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x8a>
+ 324:	f04f 0108 	mov.w	r1, #8
+ 328:	f8d6 c004 	ldr.w	ip, [r6, #4]
+ 32c:	f47f af36 	bne.w	19c <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x19c>
+ 330:	e789      	b.n	246 <audiofft::OouraFFT::ifft(float*, float const*, float const*)+0x246>
+ 332:	bf00      	nop
+
+Disassembly of section .text._ZN8audiofft8OouraFFTD2Ev:
+
+00000000 <audiofft::OouraFFT::~OouraFFT()>:
+   0:	b510      	push	{r4, lr}
+   2:	4b0b      	ldr	r3, [pc, #44]	@ (30 <audiofft::OouraFFT::~OouraFFT()+0x30>)
+   4:	4604      	mov	r4, r0
+   6:	6a00      	ldr	r0, [r0, #32]
+   8:	6023      	str	r3, [r4, #0]
+   a:	b118      	cbz	r0, 14 <audiofft::OouraFFT::~OouraFFT()+0x14>
+   c:	6aa1      	ldr	r1, [r4, #40]	@ 0x28
+   e:	1a09      	subs	r1, r1, r0
+  10:	f7ff fffe 	bl	0 <operator delete(void*, unsigned int)>
+			10: R_ARM_THM_CALL	operator delete(void*, unsigned int)
+  14:	6960      	ldr	r0, [r4, #20]
+  16:	b118      	cbz	r0, 20 <audiofft::OouraFFT::~OouraFFT()+0x20>
+  18:	69e1      	ldr	r1, [r4, #28]
+  1a:	1a09      	subs	r1, r1, r0
+  1c:	f7ff fffe 	bl	0 <operator delete(void*, unsigned int)>
+			1c: R_ARM_THM_CALL	operator delete(void*, unsigned int)
+  20:	68a0      	ldr	r0, [r4, #8]
+  22:	b118      	cbz	r0, 2c <audiofft::OouraFFT::~OouraFFT()+0x2c>
+  24:	6921      	ldr	r1, [r4, #16]
+  26:	1a09      	subs	r1, r1, r0
+  28:	f7ff fffe 	bl	0 <operator delete(void*, unsigned int)>
+			28: R_ARM_THM_CALL	operator delete(void*, unsigned int)
+  2c:	4620      	mov	r0, r4
+  2e:	bd10      	pop	{r4, pc}
+  30:	00000008 	.word	0x00000008
+			30: R_ARM_ABS32	vtable for audiofft::OouraFFT
+
+Disassembly of section .text._ZN8audiofft8OouraFFTD0Ev:
+
+00000000 <audiofft::OouraFFT::~OouraFFT()>:
+   0:	b510      	push	{r4, lr}
+   2:	4b0d      	ldr	r3, [pc, #52]	@ (38 <audiofft::OouraFFT::~OouraFFT()+0x38>)
+   4:	4604      	mov	r4, r0
+   6:	6a00      	ldr	r0, [r0, #32]
+   8:	6023      	str	r3, [r4, #0]
+   a:	b118      	cbz	r0, 14 <audiofft::OouraFFT::~OouraFFT()+0x14>
+   c:	6aa1      	ldr	r1, [r4, #40]	@ 0x28
+   e:	1a09      	subs	r1, r1, r0
+  10:	f7ff fffe 	bl	0 <operator delete(void*, unsigned int)>
+			10: R_ARM_THM_CALL	operator delete(void*, unsigned int)
+  14:	6960      	ldr	r0, [r4, #20]
+  16:	b118      	cbz	r0, 20 <audiofft::OouraFFT::~OouraFFT()+0x20>
+  18:	69e1      	ldr	r1, [r4, #28]
+  1a:	1a09      	subs	r1, r1, r0
+  1c:	f7ff fffe 	bl	0 <operator delete(void*, unsigned int)>
+			1c: R_ARM_THM_CALL	operator delete(void*, unsigned int)
+  20:	68a0      	ldr	r0, [r4, #8]
+  22:	b118      	cbz	r0, 2c <audiofft::OouraFFT::~OouraFFT()+0x2c>
+  24:	6921      	ldr	r1, [r4, #16]
+  26:	1a09      	subs	r1, r1, r0
+  28:	f7ff fffe 	bl	0 <operator delete(void*, unsigned int)>
+			28: R_ARM_THM_CALL	operator delete(void*, unsigned int)
+  2c:	4620      	mov	r0, r4
+  2e:	212c      	movs	r1, #44	@ 0x2c
+  30:	f7ff fffe 	bl	0 <operator delete(void*, unsigned int)>
+			30: R_ARM_THM_CALL	operator delete(void*, unsigned int)
+  34:	4620      	mov	r0, r4
+  36:	bd10      	pop	{r4, pc}
+  38:	00000008 	.word	0x00000008
+			38: R_ARM_ABS32	vtable for audiofft::OouraFFT
+
+Disassembly of section .text._ZNSt6vectorIiSaIiEE17_M_default_appendEj:
+
+00000000 <std::vector<int, std::allocator<int> >::_M_default_append(unsigned int)>:
+   0:	b3d9      	cbz	r1, 7a <std::vector<int, std::allocator<int> >::_M_default_append(unsigned int)+0x7a>
+   2:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+   6:	e9d0 7301 	ldrd	r7, r3, [r0, #4]
+   a:	4606      	mov	r6, r0
+   c:	460c      	mov	r4, r1
+   e:	1bdb      	subs	r3, r3, r7
+  10:	ebb1 0fa3 	cmp.w	r1, r3, asr #2
+  14:	d932      	bls.n	7c <std::vector<int, std::allocator<int> >::_M_default_append(unsigned int)+0x7c>
+  16:	f8d0 9000 	ldr.w	r9, [r0]
+  1a:	f06f 4360 	mvn.w	r3, #3758096384	@ 0xe0000000
+  1e:	eba7 0709 	sub.w	r7, r7, r9
+  22:	eba3 02a7 	sub.w	r2, r3, r7, asr #2
+  26:	ea4f 0aa7 	mov.w	sl, r7, asr #2
+  2a:	428a      	cmp	r2, r1
+  2c:	d346      	bcc.n	bc <std::vector<int, std::allocator<int> >::_M_default_append(unsigned int)+0xbc>
+  2e:	4551      	cmp	r1, sl
+  30:	bf2c      	ite	cs
+  32:	eb0a 0001 	addcs.w	r0, sl, r1
+  36:	eb0a 000a 	addcc.w	r0, sl, sl
+  3a:	4298      	cmp	r0, r3
+  3c:	bf28      	it	cs
+  3e:	4618      	movcs	r0, r3
+  40:	ea4f 0880 	mov.w	r8, r0, lsl #2
+  44:	4640      	mov	r0, r8
+  46:	f7ff fffe 	bl	0 <operator new(unsigned int)>
+			46: R_ARM_THM_CALL	operator new(unsigned int)
+  4a:	2100      	movs	r1, #0
+  4c:	1e62      	subs	r2, r4, #1
+  4e:	4605      	mov	r5, r0
+  50:	51c1      	str	r1, [r0, r7]
+  52:	4438      	add	r0, r7
+  54:	d003      	beq.n	5e <std::vector<int, std::allocator<int> >::_M_default_append(unsigned int)+0x5e>
+  56:	0092      	lsls	r2, r2, #2
+  58:	3004      	adds	r0, #4
+  5a:	f7ff fffe 	bl	0 <memset>
+			5a: R_ARM_THM_CALL	memset
+  5e:	b9ef      	cbnz	r7, 9c <std::vector<int, std::allocator<int> >::_M_default_append(unsigned int)+0x9c>
+  60:	f1b9 0f00 	cmp.w	r9, #0
+  64:	d126      	bne.n	b4 <std::vector<int, std::allocator<int> >::_M_default_append(unsigned int)+0xb4>
+  66:	4454      	add	r4, sl
+  68:	eb05 0008 	add.w	r0, r5, r8
+  6c:	6035      	str	r5, [r6, #0]
+  6e:	eb05 0584 	add.w	r5, r5, r4, lsl #2
+  72:	e9c6 5001 	strd	r5, r0, [r6, #4]
+  76:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+  7a:	4770      	bx	lr
+  7c:	2100      	movs	r1, #0
+  7e:	4638      	mov	r0, r7
+  80:	3c01      	subs	r4, #1
+  82:	f840 1b04 	str.w	r1, [r0], #4
+  86:	d006      	beq.n	96 <std::vector<int, std::allocator<int> >::_M_default_append(unsigned int)+0x96>
+  88:	eb00 0484 	add.w	r4, r0, r4, lsl #2
+  8c:	1be2      	subs	r2, r4, r7
+  8e:	3a04      	subs	r2, #4
+  90:	f7ff fffe 	bl	0 <memset>
+			90: R_ARM_THM_CALL	memset
+  94:	4620      	mov	r0, r4
+  96:	6070      	str	r0, [r6, #4]
+  98:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+  9c:	4649      	mov	r1, r9
+  9e:	463a      	mov	r2, r7
+  a0:	4628      	mov	r0, r5
+  a2:	f7ff fffe 	bl	0 <memcpy>
+			a2: R_ARM_THM_CALL	memcpy
+  a6:	68b1      	ldr	r1, [r6, #8]
+  a8:	eba1 0109 	sub.w	r1, r1, r9
+  ac:	4648      	mov	r0, r9
+  ae:	f7ff fffe 	bl	0 <operator delete(void*, unsigned int)>
+			ae: R_ARM_THM_CALL	operator delete(void*, unsigned int)
+  b2:	e7d8      	b.n	66 <std::vector<int, std::allocator<int> >::_M_default_append(unsigned int)+0x66>
+  b4:	68b1      	ldr	r1, [r6, #8]
+  b6:	eba1 0109 	sub.w	r1, r1, r9
+  ba:	e7f7      	b.n	ac <std::vector<int, std::allocator<int> >::_M_default_append(unsigned int)+0xac>
+  bc:	4801      	ldr	r0, [pc, #4]	@ (c4 <std::vector<int, std::allocator<int> >::_M_default_append(unsigned int)+0xc4>)
+  be:	f7ff fffe 	bl	0 <std::__throw_length_error(char const*)>
+			be: R_ARM_THM_CALL	std::__throw_length_error(char const*)
+  c2:	bf00      	nop
+  c4:	00000000 	.word	0x00000000
+			c4: R_ARM_ABS32	.rodata._ZNSt6vectorIiSaIiEE17_M_default_appendEj.str1.4
+
+Disassembly of section .text._ZNSt6vectorIdSaIdEE17_M_default_appendEj:
+
+00000000 <std::vector<double, std::allocator<double> >::_M_default_append(unsigned int)>:
+   0:	2900      	cmp	r1, #0
+   2:	d03e      	beq.n	82 <std::vector<double, std::allocator<double> >::_M_default_append(unsigned int)+0x82>
+   4:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+   8:	e9d0 7301 	ldrd	r7, r3, [r0, #4]
+   c:	4606      	mov	r6, r0
+   e:	460c      	mov	r4, r1
+  10:	1bdb      	subs	r3, r3, r7
+  12:	ebb1 0fe3 	cmp.w	r1, r3, asr #3
+  16:	d935      	bls.n	84 <std::vector<double, std::allocator<double> >::_M_default_append(unsigned int)+0x84>
+  18:	f8d0 9000 	ldr.w	r9, [r0]
+  1c:	f06f 4370 	mvn.w	r3, #4026531840	@ 0xf0000000
+  20:	eba7 0709 	sub.w	r7, r7, r9
+  24:	eba3 02e7 	sub.w	r2, r3, r7, asr #3
+  28:	ea4f 0ae7 	mov.w	sl, r7, asr #3
+  2c:	428a      	cmp	r2, r1
+  2e:	d34d      	bcc.n	cc <std::vector<double, std::allocator<double> >::_M_default_append(unsigned int)+0xcc>
+  30:	4551      	cmp	r1, sl
+  32:	bf2c      	ite	cs
+  34:	eb0a 0001 	addcs.w	r0, sl, r1
+  38:	eb0a 000a 	addcc.w	r0, sl, sl
+  3c:	4298      	cmp	r0, r3
+  3e:	bf28      	it	cs
+  40:	4618      	movcs	r0, r3
+  42:	ea4f 08c0 	mov.w	r8, r0, lsl #3
+  46:	4640      	mov	r0, r8
+  48:	f7ff fffe 	bl	0 <operator new(unsigned int)>
+			48: R_ARM_THM_CALL	operator new(unsigned int)
+  4c:	2200      	movs	r2, #0
+  4e:	4605      	mov	r5, r0
+  50:	2300      	movs	r3, #0
+  52:	4438      	add	r0, r7
+  54:	e9c0 2300 	strd	r2, r3, [r0]
+  58:	1e62      	subs	r2, r4, #1
+  5a:	d004      	beq.n	66 <std::vector<double, std::allocator<double> >::_M_default_append(unsigned int)+0x66>
+  5c:	00d2      	lsls	r2, r2, #3
+  5e:	3008      	adds	r0, #8
+  60:	2100      	movs	r1, #0
+  62:	f7ff fffe 	bl	0 <memset>
+			62: R_ARM_THM_CALL	memset
+  66:	bb0f      	cbnz	r7, ac <std::vector<double, std::allocator<double> >::_M_default_append(unsigned int)+0xac>
+  68:	f1b9 0f00 	cmp.w	r9, #0
+  6c:	d12a      	bne.n	c4 <std::vector<double, std::allocator<double> >::_M_default_append(unsigned int)+0xc4>
+  6e:	4454      	add	r4, sl
+  70:	eb05 0008 	add.w	r0, r5, r8
+  74:	6035      	str	r5, [r6, #0]
+  76:	eb05 05c4 	add.w	r5, r5, r4, lsl #3
+  7a:	e9c6 5001 	strd	r5, r0, [r6, #4]
+  7e:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+  82:	4770      	bx	lr
+  84:	f04f 0800 	mov.w	r8, #0
+  88:	f04f 0900 	mov.w	r9, #0
+  8c:	4638      	mov	r0, r7
+  8e:	1e4c      	subs	r4, r1, #1
+  90:	e8e0 8902 	strd	r8, r9, [r0], #8
+  94:	d007      	beq.n	a6 <std::vector<double, std::allocator<double> >::_M_default_append(unsigned int)+0xa6>
+  96:	eb00 04c4 	add.w	r4, r0, r4, lsl #3
+  9a:	2100      	movs	r1, #0
+  9c:	1be2      	subs	r2, r4, r7
+  9e:	3a08      	subs	r2, #8
+  a0:	f7ff fffe 	bl	0 <memset>
+			a0: R_ARM_THM_CALL	memset
+  a4:	4620      	mov	r0, r4
+  a6:	6070      	str	r0, [r6, #4]
+  a8:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+  ac:	4649      	mov	r1, r9
+  ae:	463a      	mov	r2, r7
+  b0:	4628      	mov	r0, r5
+  b2:	f7ff fffe 	bl	0 <memcpy>
+			b2: R_ARM_THM_CALL	memcpy
+  b6:	68b1      	ldr	r1, [r6, #8]
+  b8:	eba1 0109 	sub.w	r1, r1, r9
+  bc:	4648      	mov	r0, r9
+  be:	f7ff fffe 	bl	0 <operator delete(void*, unsigned int)>
+			be: R_ARM_THM_CALL	operator delete(void*, unsigned int)
+  c2:	e7d4      	b.n	6e <std::vector<double, std::allocator<double> >::_M_default_append(unsigned int)+0x6e>
+  c4:	68b1      	ldr	r1, [r6, #8]
+  c6:	eba1 0109 	sub.w	r1, r1, r9
+  ca:	e7f7      	b.n	bc <std::vector<double, std::allocator<double> >::_M_default_append(unsigned int)+0xbc>
+  cc:	4801      	ldr	r0, [pc, #4]	@ (d4 <std::vector<double, std::allocator<double> >::_M_default_append(unsigned int)+0xd4>)
+  ce:	f7ff fffe 	bl	0 <std::__throw_length_error(char const*)>
+			ce: R_ARM_THM_CALL	std::__throw_length_error(char const*)
+  d2:	bf00      	nop
+  d4:	00000000 	.word	0x00000000
+			d4: R_ARM_ABS32	.rodata._ZNSt6vectorIiSaIiEE17_M_default_appendEj.str1.4
+
+Disassembly of section .text._ZN8audiofft8OouraFFT4initEj:
+
+00000000 <audiofft::OouraFFT::init(unsigned int)>:
+   0:	6843      	ldr	r3, [r0, #4]
+   2:	428b      	cmp	r3, r1
+   4:	d100      	bne.n	8 <audiofft::OouraFFT::init(unsigned int)+0x8>
+   6:	4770      	bx	lr
+   8:	ee07 1a90 	vmov	s15, r1
+   c:	eeb8 0b67 	vcvt.f64.u32	d0, s15
+  10:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+  14:	eeb5 0b40 	vcmp.f64	d0, #0.0
+  18:	4604      	mov	r4, r0
+  1a:	460d      	mov	r5, r1
+  1c:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+  20:	ed2d 8b08 	vpush	{d8-d11}
+  24:	b083      	sub	sp, #12
+  26:	f100 80ff 	bmi.w	228 <audiofft::OouraFFT::init(unsigned int)+0x228>
+  2a:	eeb1 7bc0 	vsqrt.f64	d7, d0
+  2e:	eefd 7bc7 	vcvt.s32.f64	s15, d7
+  32:	e9d4 2002 	ldrd	r2, r0, [r4, #8]
+  36:	ee17 3a90 	vmov	r3, s15
+  3a:	1a81      	subs	r1, r0, r2
+  3c:	3302      	adds	r3, #2
+  3e:	1089      	asrs	r1, r1, #2
+  40:	428b      	cmp	r3, r1
+  42:	f200 80da 	bhi.w	1fa <audiofft::OouraFFT::init(unsigned int)+0x1fa>
+  46:	f0c0 809e 	bcc.w	186 <audiofft::OouraFFT::init(unsigned int)+0x186>
+  4a:	0869      	lsrs	r1, r5, #1
+  4c:	e9d4 2005 	ldrd	r2, r0, [r4, #20]
+  50:	1a83      	subs	r3, r0, r2
+  52:	10db      	asrs	r3, r3, #3
+  54:	4299      	cmp	r1, r3
+  56:	f200 80d6 	bhi.w	206 <audiofft::OouraFFT::init(unsigned int)+0x206>
+  5a:	f0c0 8082 	bcc.w	162 <audiofft::OouraFFT::init(unsigned int)+0x162>
+  5e:	e9d4 3208 	ldrd	r3, r2, [r4, #32]
+  62:	1ad1      	subs	r1, r2, r3
+  64:	10c9      	asrs	r1, r1, #3
+  66:	428d      	cmp	r5, r1
+  68:	f200 8087 	bhi.w	17a <audiofft::OouraFFT::init(unsigned int)+0x17a>
+  6c:	d373      	bcc.n	156 <audiofft::OouraFFT::init(unsigned int)+0x156>
+  6e:	2d00      	cmp	r5, #0
+  70:	462b      	mov	r3, r5
+  72:	f8d4 8008 	ldr.w	r8, [r4, #8]
+  76:	f04f 0201 	mov.w	r2, #1
+  7a:	bfb8      	it	lt
+  7c:	1ceb      	addlt	r3, r5, #3
+  7e:	f8d4 a014 	ldr.w	sl, [r4, #20]
+  82:	6065      	str	r5, [r4, #4]
+  84:	2d0b      	cmp	r5, #11
+  86:	ea4f 07a3 	mov.w	r7, r3, asr #2
+  8a:	f8c8 2004 	str.w	r2, [r8, #4]
+  8e:	ea4f 02c7 	mov.w	r2, r7, lsl #3
+  92:	f8c8 7000 	str.w	r7, [r8]
+  96:	eb0a 09c7 	add.w	r9, sl, r7, lsl #3
+  9a:	9200      	str	r2, [sp, #0]
+  9c:	dd52      	ble.n	144 <audiofft::OouraFFT::init(unsigned int)+0x144>
+  9e:	10dd      	asrs	r5, r3, #3
+  a0:	2200      	movs	r2, #0
+  a2:	4b6b      	ldr	r3, [pc, #428]	@ (250 <audiofft::OouraFFT::init(unsigned int)+0x250>)
+  a4:	ee06 5a90 	vmov	s13, r5
+  a8:	00ec      	lsls	r4, r5, #3
+  aa:	eeb8 0be6 	vcvt.f64.s32	d0, s13
+  ae:	9401      	str	r4, [sp, #4]
+  b0:	ed9f 7b61 	vldr	d7, [pc, #388]	@ 238 <audiofft::OouraFFT::init(unsigned int)+0x238>
+  b4:	e9ca 2300 	strd	r2, r3, [sl]
+  b8:	2300      	movs	r3, #0
+  ba:	2200      	movs	r2, #0
+  bc:	ee87 ab00 	vdiv.f64	d10, d7, d0
+  c0:	e9ca 2302 	strd	r2, r3, [sl, #8]
+  c4:	ee20 0b0a 	vmul.f64	d0, d0, d10
+  c8:	f7ff fffe 	bl	0 <cos>
+			c8: R_ARM_THM_CALL	cos
+  cc:	eb0a 0304 	add.w	r3, sl, r4
+  d0:	2d02      	cmp	r5, #2
+  d2:	eeb0 9b40 	vmov.f64	d9, d0
+  d6:	ed83 0b00 	vstr	d0, [r3]
+  da:	ed83 0b02 	vstr	d0, [r3, #8]
+  de:	dc58      	bgt.n	192 <audiofft::OouraFFT::init(unsigned int)+0x192>
+  e0:	eeb6 7b00 	vmov.f64	d7, #96	@ 0x3f000000  0.5
+  e4:	9b01      	ldr	r3, [sp, #4]
+  e6:	f8c8 7004 	str.w	r7, [r8, #4]
+  ea:	444b      	add	r3, r9
+  ec:	ee20 9b07 	vmul.f64	d9, d0, d7
+  f0:	ed89 0b00 	vstr	d0, [r9]
+  f4:	ed83 9b00 	vstr	d9, [r3]
+  f8:	d128      	bne.n	14c <audiofft::OouraFFT::init(unsigned int)+0x14c>
+  fa:	9e00      	ldr	r6, [sp, #0]
+  fc:	eeb6 9b00 	vmov.f64	d9, #96	@ 0x3f000000  0.5
+ 100:	f109 0708 	add.w	r7, r9, #8
+ 104:	2401      	movs	r4, #1
+ 106:	444e      	add	r6, r9
+ 108:	ee07 4a90 	vmov	s15, r4
+ 10c:	3401      	adds	r4, #1
+ 10e:	eeb8 8be7 	vcvt.f64.s32	d8, s15
+ 112:	ee28 8b0a 	vmul.f64	d8, d8, d10
+ 116:	eeb0 0b48 	vmov.f64	d0, d8
+ 11a:	f7ff fffe 	bl	0 <cos>
+			11a: R_ARM_THM_CALL	cos
+ 11e:	ee20 7b09 	vmul.f64	d7, d0, d9
+ 122:	eeb0 0b48 	vmov.f64	d0, d8
+ 126:	eca7 7b02 	vstmia	r7!, {d7}
+ 12a:	f7ff fffe 	bl	0 <sin>
+			12a: R_ARM_THM_CALL	sin
+ 12e:	ee20 0b09 	vmul.f64	d0, d0, d9
+ 132:	42ac      	cmp	r4, r5
+ 134:	ed26 0b02 	vstmdb	r6!, {d0}
+ 138:	d1e6      	bne.n	108 <audiofft::OouraFFT::init(unsigned int)+0x108>
+ 13a:	b003      	add	sp, #12
+ 13c:	ecbd 8b08 	vpop	{d8-d11}
+ 140:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 144:	2d07      	cmp	r5, #7
+ 146:	f8c8 7004 	str.w	r7, [r8, #4]
+ 14a:	dc62      	bgt.n	212 <audiofft::OouraFFT::init(unsigned int)+0x212>
+ 14c:	b003      	add	sp, #12
+ 14e:	ecbd 8b08 	vpop	{d8-d11}
+ 152:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 156:	eb03 03c5 	add.w	r3, r3, r5, lsl #3
+ 15a:	429a      	cmp	r2, r3
+ 15c:	bf18      	it	ne
+ 15e:	6263      	strne	r3, [r4, #36]	@ 0x24
+ 160:	e785      	b.n	6e <audiofft::OouraFFT::init(unsigned int)+0x6e>
+ 162:	eb02 02c1 	add.w	r2, r2, r1, lsl #3
+ 166:	4290      	cmp	r0, r2
+ 168:	bf18      	it	ne
+ 16a:	61a2      	strne	r2, [r4, #24]
+ 16c:	e9d4 3208 	ldrd	r3, r2, [r4, #32]
+ 170:	1ad1      	subs	r1, r2, r3
+ 172:	10c9      	asrs	r1, r1, #3
+ 174:	428d      	cmp	r5, r1
+ 176:	f67f af79 	bls.w	6c <audiofft::OouraFFT::init(unsigned int)+0x6c>
+ 17a:	1a69      	subs	r1, r5, r1
+ 17c:	f104 0020 	add.w	r0, r4, #32
+ 180:	f7ff fffe 	bl	0 <audiofft::OouraFFT::init(unsigned int)>
+			180: R_ARM_THM_CALL	std::vector<double, std::allocator<double> >::_M_default_append(unsigned int)
+ 184:	e773      	b.n	6e <audiofft::OouraFFT::init(unsigned int)+0x6e>
+ 186:	eb02 0283 	add.w	r2, r2, r3, lsl #2
+ 18a:	4290      	cmp	r0, r2
+ 18c:	bf18      	it	ne
+ 18e:	60e2      	strne	r2, [r4, #12]
+ 190:	e75b      	b.n	4a <audiofft::OouraFFT::init(unsigned int)+0x4a>
+ 192:	4656      	mov	r6, sl
+ 194:	46cb      	mov	fp, r9
+ 196:	2402      	movs	r4, #2
+ 198:	ee07 4a90 	vmov	s15, r4
+ 19c:	3402      	adds	r4, #2
+ 19e:	3610      	adds	r6, #16
+ 1a0:	f1ab 0b10 	sub.w	fp, fp, #16
+ 1a4:	eeb8 bbe7 	vcvt.f64.s32	d11, s15
+ 1a8:	ee2b bb0a 	vmul.f64	d11, d11, d10
+ 1ac:	eeb0 0b4b 	vmov.f64	d0, d11
+ 1b0:	f7ff fffe 	bl	0 <cos>
+			1b0: R_ARM_THM_CALL	cos
+ 1b4:	eeb0 8b40 	vmov.f64	d8, d0
+ 1b8:	eeb0 0b4b 	vmov.f64	d0, d11
+ 1bc:	f7ff fffe 	bl	0 <sin>
+			1bc: R_ARM_THM_CALL	sin
+ 1c0:	42a5      	cmp	r5, r4
+ 1c2:	ed86 8b00 	vstr	d8, [r6]
+ 1c6:	ed86 0b02 	vstr	d0, [r6, #8]
+ 1ca:	ed8b 0b00 	vstr	d0, [fp]
+ 1ce:	ed8b 8b02 	vstr	d8, [fp, #8]
+ 1d2:	dce1      	bgt.n	198 <audiofft::OouraFFT::init(unsigned int)+0x198>
+ 1d4:	4652      	mov	r2, sl
+ 1d6:	f108 0108 	add.w	r1, r8, #8
+ 1da:	4638      	mov	r0, r7
+ 1dc:	f7ff fffe 	bl	8c4 <audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]>
+			1dc: R_ARM_THM_CALL	audiofft::OouraFFT::bitrv2(int, int*, double*) [clone .isra.0]
+ 1e0:	eeb6 7b00 	vmov.f64	d7, #96	@ 0x3f000000  0.5
+ 1e4:	9b01      	ldr	r3, [sp, #4]
+ 1e6:	f8c8 7004 	str.w	r7, [r8, #4]
+ 1ea:	ee29 7b07 	vmul.f64	d7, d9, d7
+ 1ee:	444b      	add	r3, r9
+ 1f0:	ed89 9b00 	vstr	d9, [r9]
+ 1f4:	ed83 7b00 	vstr	d7, [r3]
+ 1f8:	e77f      	b.n	fa <audiofft::OouraFFT::init(unsigned int)+0xfa>
+ 1fa:	1a59      	subs	r1, r3, r1
+ 1fc:	f104 0008 	add.w	r0, r4, #8
+ 200:	f7ff fffe 	bl	0 <audiofft::OouraFFT::init(unsigned int)>
+			200: R_ARM_THM_CALL	std::vector<int, std::allocator<int> >::_M_default_append(unsigned int)
+ 204:	e721      	b.n	4a <audiofft::OouraFFT::init(unsigned int)+0x4a>
+ 206:	1ac9      	subs	r1, r1, r3
+ 208:	f104 0014 	add.w	r0, r4, #20
+ 20c:	f7ff fffe 	bl	0 <audiofft::OouraFFT::init(unsigned int)>
+			20c: R_ARM_THM_CALL	std::vector<double, std::allocator<double> >::_M_default_append(unsigned int)
+ 210:	e725      	b.n	5e <audiofft::OouraFFT::init(unsigned int)+0x5e>
+ 212:	a10b      	add	r1, pc, #44	@ (adr r1, 240 <audiofft::OouraFFT::init(unsigned int)+0x240>)
+ 214:	e9d1 0100 	ldrd	r0, r1, [r1]
+ 218:	a30b      	add	r3, pc, #44	@ (adr r3, 248 <audiofft::OouraFFT::init(unsigned int)+0x248>)
+ 21a:	e9d3 2300 	ldrd	r2, r3, [r3]
+ 21e:	e9c9 0100 	strd	r0, r1, [r9]
+ 222:	e9c9 2302 	strd	r2, r3, [r9, #8]
+ 226:	e791      	b.n	14c <audiofft::OouraFFT::init(unsigned int)+0x14c>
+ 228:	f7ff fffe 	bl	0 <sqrt>
+			228: R_ARM_THM_CALL	sqrt
+ 22c:	eeb0 7b40 	vmov.f64	d7, d0
+ 230:	e6fd      	b.n	2e <audiofft::OouraFFT::init(unsigned int)+0x2e>
+ 232:	bf00      	nop
+ 234:	f3af 8000 	nop.w
+ 238:	54442d18 	.word	0x54442d18
+ 23c:	3fe921fb 	.word	0x3fe921fb
+ 240:	667f3bcd 	.word	0x667f3bcd
+ 244:	3fe6a09e 	.word	0x3fe6a09e
+ 248:	667f3bcd 	.word	0x667f3bcd
+ 24c:	3fd6a09e 	.word	0x3fd6a09e
+ 250:	3ff00000 	.word	0x3ff00000

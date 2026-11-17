@@ -1,0 +1,203 @@
+
+/workspace/work/parable-sf024/parable-starter/docs/data/sf024/arm/Utilities.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <fftconvolver::SSEEnabled()>:
+   0:	2000      	movs	r0, #0
+   2:	4770      	bx	lr
+
+00000004 <fftconvolver::Sum(float*, float const*, float const*, unsigned int)>:
+   4:	b570      	push	{r4, r5, r6, lr}
+   6:	f033 0503 	bics.w	r5, r3, #3
+   a:	d02b      	beq.n	64 <fftconvolver::Sum(float*, float const*, float const*, unsigned int)+0x60>
+   c:	468c      	mov	ip, r1
+   e:	4614      	mov	r4, r2
+  10:	4686      	mov	lr, r0
+  12:	eb01 0685 	add.w	r6, r1, r5, lsl #2
+  16:	ed9c 6a00 	vldr	s12, [ip]
+  1a:	f10c 0c10 	add.w	ip, ip, #16
+  1e:	ed5c 6a03 	vldr	s13, [ip, #-12]
+  22:	3410      	adds	r4, #16
+  24:	ed1c 7a02 	vldr	s14, [ip, #-8]
+  28:	f10e 0e10 	add.w	lr, lr, #16
+  2c:	ed5c 7a01 	vldr	s15, [ip, #-4]
+  30:	45b4      	cmp	ip, r6
+  32:	ed14 4a04 	vldr	s8, [r4, #-16]
+  36:	ed54 4a03 	vldr	s9, [r4, #-12]
+  3a:	ed14 5a02 	vldr	s10, [r4, #-8]
+  3e:	ee36 6a04 	vadd.f32	s12, s12, s8
+  42:	ed54 5a01 	vldr	s11, [r4, #-4]
+  46:	ee76 6aa4 	vadd.f32	s13, s13, s9
+  4a:	ee37 7a05 	vadd.f32	s14, s14, s10
+  4e:	ee77 7aa5 	vadd.f32	s15, s15, s11
+  52:	ed0e 6a04 	vstr	s12, [lr, #-16]
+  56:	ed4e 6a03 	vstr	s13, [lr, #-12]
+  5a:	ed0e 7a02 	vstr	s14, [lr, #-8]
+  5e:	ed4e 7a01 	vstr	s15, [lr, #-4]
+  62:	d1d8      	bne.n	16 <fftconvolver::Sum(float*, float const*, float const*, unsigned int)+0x12>
+  64:	42ab      	cmp	r3, r5
+  66:	d911      	bls.n	8c <fftconvolver::Sum(float*, float const*, float const*, unsigned int)+0x88>
+  68:	eb02 0285 	add.w	r2, r2, r5, lsl #2
+  6c:	eb00 0085 	add.w	r0, r0, r5, lsl #2
+  70:	eb01 0485 	add.w	r4, r1, r5, lsl #2
+  74:	eb01 0383 	add.w	r3, r1, r3, lsl #2
+  78:	ecf4 7a01 	vldmia	r4!, {s15}
+  7c:	ecb2 7a01 	vldmia	r2!, {s14}
+  80:	42a3      	cmp	r3, r4
+  82:	ee77 7a87 	vadd.f32	s15, s15, s14
+  86:	ece0 7a01 	vstmia	r0!, {s15}
+  8a:	d1f5      	bne.n	78 <fftconvolver::Sum(float*, float const*, float const*, unsigned int)+0x74>
+  8c:	bd70      	pop	{r4, r5, r6, pc}
+  8e:	bf00      	nop
+
+00000090 <fftconvolver::ComplexMultiplyAccumulate(float*, float*, float const*, float const*, float const*, float const*, unsigned int)>:
+  90:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+  94:	ed2d 8b04 	vpush	{d8-d9}
+  98:	f8dd 8038 	ldr.w	r8, [sp, #56]	@ 0x38
+  9c:	f038 0903 	bics.w	r9, r8, #3
+  a0:	f000 8082 	beq.w	1a8 <fftconvolver::ComplexMultiplyAccumulate(float*, float*, float const*, float const*, float const*, float const*, unsigned int)+0x118>
+  a4:	4684      	mov	ip, r0
+  a6:	4617      	mov	r7, r2
+  a8:	9e0c      	ldr	r6, [sp, #48]	@ 0x30
+  aa:	461d      	mov	r5, r3
+  ac:	9c0d      	ldr	r4, [sp, #52]	@ 0x34
+  ae:	468e      	mov	lr, r1
+  b0:	eb00 0a89 	add.w	sl, r0, r9, lsl #2
+  b4:	edd4 2a00 	vldr	s5, [r4]
+  b8:	f10c 0c10 	add.w	ip, ip, #16
+  bc:	edd4 3a01 	vldr	s7, [r4, #4]
+  c0:	3710      	adds	r7, #16
+  c2:	edd4 4a02 	vldr	s9, [r4, #8]
+  c6:	3610      	adds	r6, #16
+  c8:	edd4 5a03 	vldr	s11, [r4, #12]
+  cc:	3510      	adds	r5, #16
+  ce:	ed15 6a04 	vldr	s12, [r5, #-16]
+  d2:	3410      	adds	r4, #16
+  d4:	ed55 6a03 	vldr	s13, [r5, #-12]
+  d8:	f10e 0e10 	add.w	lr, lr, #16
+  dc:	ed15 7a02 	vldr	s14, [r5, #-8]
+  e0:	ee22 0ac6 	vnmul.f32	s0, s5, s12
+  e4:	ed55 7a01 	vldr	s15, [r5, #-4]
+  e8:	ee63 0ae6 	vnmul.f32	s1, s7, s13
+  ec:	ee24 1ac7 	vnmul.f32	s2, s9, s14
+  f0:	ed17 2a04 	vldr	s4, [r7, #-16]
+  f4:	ee65 1ae7 	vnmul.f32	s3, s11, s15
+  f8:	ed17 3a03 	vldr	s6, [r7, #-12]
+  fc:	ed17 4a02 	vldr	s8, [r7, #-8]
+ 100:	ed17 5a01 	vldr	s10, [r7, #-4]
+ 104:	ed56 9a04 	vldr	s19, [r6, #-16]
+ 108:	ed16 9a03 	vldr	s18, [r6, #-12]
+ 10c:	ed56 8a02 	vldr	s17, [r6, #-8]
+ 110:	eea2 0a29 	vfma.f32	s0, s4, s19
+ 114:	ed16 8a01 	vldr	s16, [r6, #-4]
+ 118:	eee3 0a09 	vfma.f32	s1, s6, s18
+ 11c:	eea4 1a28 	vfma.f32	s2, s8, s17
+ 120:	eee5 1a08 	vfma.f32	s3, s10, s16
+ 124:	ee29 6a86 	vmul.f32	s12, s19, s12
+ 128:	ee69 6a26 	vmul.f32	s13, s18, s13
+ 12c:	ee28 7a87 	vmul.f32	s14, s17, s14
+ 130:	ee68 7a27 	vmul.f32	s15, s16, s15
+ 134:	eea2 6a22 	vfma.f32	s12, s4, s5
+ 138:	ed1c 2a04 	vldr	s4, [ip, #-16]
+ 13c:	ed5c 2a03 	vldr	s5, [ip, #-12]
+ 140:	eee3 6a23 	vfma.f32	s13, s6, s7
+ 144:	eea4 7a24 	vfma.f32	s14, s8, s9
+ 148:	ed1c 3a02 	vldr	s6, [ip, #-8]
+ 14c:	ed5c 3a01 	vldr	s7, [ip, #-4]
+ 150:	eee5 7a25 	vfma.f32	s15, s10, s11
+ 154:	ee32 2a00 	vadd.f32	s4, s4, s0
+ 158:	ed1e 4a04 	vldr	s8, [lr, #-16]
+ 15c:	ee72 2aa0 	vadd.f32	s5, s5, s1
+ 160:	ed5e 4a03 	vldr	s9, [lr, #-12]
+ 164:	ee33 3a01 	vadd.f32	s6, s6, s2
+ 168:	ed1e 5a02 	vldr	s10, [lr, #-8]
+ 16c:	ee73 3aa1 	vadd.f32	s7, s7, s3
+ 170:	ed5e 5a01 	vldr	s11, [lr, #-4]
+ 174:	ee34 6a06 	vadd.f32	s12, s8, s12
+ 178:	ed0c 2a04 	vstr	s4, [ip, #-16]
+ 17c:	ee74 6aa6 	vadd.f32	s13, s9, s13
+ 180:	ed4c 2a03 	vstr	s5, [ip, #-12]
+ 184:	ee35 7a07 	vadd.f32	s14, s10, s14
+ 188:	ed0c 3a02 	vstr	s6, [ip, #-8]
+ 18c:	ee75 7aa7 	vadd.f32	s15, s11, s15
+ 190:	ed4c 3a01 	vstr	s7, [ip, #-4]
+ 194:	45e2      	cmp	sl, ip
+ 196:	ed0e 6a04 	vstr	s12, [lr, #-16]
+ 19a:	ed4e 6a03 	vstr	s13, [lr, #-12]
+ 19e:	ed0e 7a02 	vstr	s14, [lr, #-8]
+ 1a2:	ed4e 7a01 	vstr	s15, [lr, #-4]
+ 1a6:	d185      	bne.n	b4 <fftconvolver::ComplexMultiplyAccumulate(float*, float*, float const*, float const*, float const*, float const*, unsigned int)+0x24>
+ 1a8:	45c8      	cmp	r8, r9
+ 1aa:	d92d      	bls.n	208 <fftconvolver::ComplexMultiplyAccumulate(float*, float*, float const*, float const*, float const*, float const*, unsigned int)+0x178>
+ 1ac:	9c0c      	ldr	r4, [sp, #48]	@ 0x30
+ 1ae:	eb00 0888 	add.w	r8, r0, r8, lsl #2
+ 1b2:	eb02 0289 	add.w	r2, r2, r9, lsl #2
+ 1b6:	eb04 0589 	add.w	r5, r4, r9, lsl #2
+ 1ba:	9c0d      	ldr	r4, [sp, #52]	@ 0x34
+ 1bc:	eb03 0389 	add.w	r3, r3, r9, lsl #2
+ 1c0:	eb01 0189 	add.w	r1, r1, r9, lsl #2
+ 1c4:	eb00 0089 	add.w	r0, r0, r9, lsl #2
+ 1c8:	eb04 0489 	add.w	r4, r4, r9, lsl #2
+ 1cc:	ecf5 5a01 	vldmia	r5!, {s11}
+ 1d0:	ecf3 7a01 	vldmia	r3!, {s15}
+ 1d4:	ecf4 4a01 	vldmia	r4!, {s9}
+ 1d8:	ee25 6aa7 	vmul.f32	s12, s11, s15
+ 1dc:	ecb2 5a01 	vldmia	r2!, {s10}
+ 1e0:	ee64 7ae7 	vnmul.f32	s15, s9, s15
+ 1e4:	ed90 7a00 	vldr	s14, [r0]
+ 1e8:	edd1 6a00 	vldr	s13, [r1]
+ 1ec:	eea5 6a24 	vfma.f32	s12, s10, s9
+ 1f0:	eee5 7a25 	vfma.f32	s15, s10, s11
+ 1f4:	ee76 6a86 	vadd.f32	s13, s13, s12
+ 1f8:	ee77 7a27 	vadd.f32	s15, s14, s15
+ 1fc:	ece1 6a01 	vstmia	r1!, {s13}
+ 200:	ece0 7a01 	vstmia	r0!, {s15}
+ 204:	4580      	cmp	r8, r0
+ 206:	d1e1      	bne.n	1cc <fftconvolver::ComplexMultiplyAccumulate(float*, float*, float const*, float const*, float const*, float const*, unsigned int)+0x13c>
+ 208:	ecbd 8b04 	vpop	{d8-d9}
+ 20c:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+
+00000210 <fftconvolver::ComplexMultiplyAccumulate(fftconvolver::SplitComplex&, fftconvolver::SplitComplex const&, fftconvolver::SplitComplex const&)>:
+ 210:	b530      	push	{r4, r5, lr}
+ 212:	6803      	ldr	r3, [r0, #0]
+ 214:	b085      	sub	sp, #20
+ 216:	680c      	ldr	r4, [r1, #0]
+ 218:	42a3      	cmp	r3, r4
+ 21a:	d10f      	bne.n	23c <fftconvolver::ComplexMultiplyAccumulate(fftconvolver::SplitComplex&, fftconvolver::SplitComplex const&, fftconvolver::SplitComplex const&)+0x2c>
+ 21c:	6814      	ldr	r4, [r2, #0]
+ 21e:	429c      	cmp	r4, r3
+ 220:	d112      	bne.n	248 <fftconvolver::ComplexMultiplyAccumulate(fftconvolver::SplitComplex&, fftconvolver::SplitComplex const&, fftconvolver::SplitComplex const&)+0x38>
+ 222:	6953      	ldr	r3, [r2, #20]
+ 224:	6895      	ldr	r5, [r2, #8]
+ 226:	e9cd 3401 	strd	r3, r4, [sp, #4]
+ 22a:	694b      	ldr	r3, [r1, #20]
+ 22c:	688a      	ldr	r2, [r1, #8]
+ 22e:	9500      	str	r5, [sp, #0]
+ 230:	6941      	ldr	r1, [r0, #20]
+ 232:	6880      	ldr	r0, [r0, #8]
+ 234:	f7ff fffe 	bl	90 <fftconvolver::ComplexMultiplyAccumulate(float*, float*, float const*, float const*, float const*, float const*, unsigned int)>
+			234: R_ARM_THM_CALL	fftconvolver::ComplexMultiplyAccumulate(float*, float*, float const*, float const*, float const*, float const*, unsigned int)
+ 238:	b005      	add	sp, #20
+ 23a:	bd30      	pop	{r4, r5, pc}
+ 23c:	4b05      	ldr	r3, [pc, #20]	@ (254 <fftconvolver::ComplexMultiplyAccumulate(fftconvolver::SplitComplex&, fftconvolver::SplitComplex const&, fftconvolver::SplitComplex const&)+0x44>)
+ 23e:	213c      	movs	r1, #60	@ 0x3c
+ 240:	4a05      	ldr	r2, [pc, #20]	@ (258 <fftconvolver::ComplexMultiplyAccumulate(fftconvolver::SplitComplex&, fftconvolver::SplitComplex const&, fftconvolver::SplitComplex const&)+0x48>)
+ 242:	4806      	ldr	r0, [pc, #24]	@ (25c <fftconvolver::ComplexMultiplyAccumulate(fftconvolver::SplitComplex&, fftconvolver::SplitComplex const&, fftconvolver::SplitComplex const&)+0x4c>)
+ 244:	f7ff fffe 	bl	0 <__assert_func>
+			244: R_ARM_THM_CALL	__assert_func
+ 248:	4b05      	ldr	r3, [pc, #20]	@ (260 <fftconvolver::ComplexMultiplyAccumulate(fftconvolver::SplitComplex&, fftconvolver::SplitComplex const&, fftconvolver::SplitComplex const&)+0x50>)
+ 24a:	213d      	movs	r1, #61	@ 0x3d
+ 24c:	4a02      	ldr	r2, [pc, #8]	@ (258 <fftconvolver::ComplexMultiplyAccumulate(fftconvolver::SplitComplex&, fftconvolver::SplitComplex const&, fftconvolver::SplitComplex const&)+0x48>)
+ 24e:	4803      	ldr	r0, [pc, #12]	@ (25c <fftconvolver::ComplexMultiplyAccumulate(fftconvolver::SplitComplex&, fftconvolver::SplitComplex const&, fftconvolver::SplitComplex const&)+0x4c>)
+ 250:	f7ff fffe 	bl	0 <__assert_func>
+			250: R_ARM_THM_CALL	__assert_func
+ 254:	00000000 	.word	0x00000000
+			254: R_ARM_ABS32	.rodata.str1.4
+ 258:	0000001c 	.word	0x0000001c
+			258: R_ARM_ABS32	.rodata.str1.4
+ 25c:	00000084 	.word	0x00000084
+			25c: R_ARM_ABS32	.rodata.str1.4
+ 260:	000000dc 	.word	0x000000dc
+			260: R_ARM_ABS32	.rodata.str1.4

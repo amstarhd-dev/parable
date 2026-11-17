@@ -1,0 +1,19 @@
+Internal ctest changing into directory: /workspace/work/sf024-sanitized
+Test project /workspace/work/sf024-sanitized
+    Start 41: wallace_routing_actual_graph
+1/4 Test #41: wallace_routing_actual_graph .....   Passed   17.12 sec
+    Start 42: wallace_source_and_cli
+2/4 Test #42: wallace_source_and_cli ...........   Passed    0.13 sec
+    Start 43: wallace2_cabinet_clean_routing
+3/4 Test #43: wallace2_cabinet_clean_routing ...***Failed    0.00 sec
+/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/Utilities.h:111:13: runtime error: null pointer passed as argument 1, which is declared to never be null
+
+    Start 44: wallace2_sources_and_cli
+4/4 Test #44: wallace2_sources_and_cli .........   Passed    0.10 sec
+
+75% tests passed, 1 tests failed out of 4
+
+Total Test time (real) =  17.36 sec
+
+The following tests FAILED:
+	 43 - wallace2_cabinet_clean_routing (Failed)

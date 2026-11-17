@@ -1,0 +1,60 @@
+{
+  "ffmpeg": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers",
+  "numpy": "2.3.5",
+  "irs": {
+    "jensen": {
+      "original_sha256": "894805dc8b60bd7e2b49dac582bc27a39c8d1f191fc110eb4d4145c0b63937bb",
+      "kernel_sha256": "20e926870c695bbdf5e025a10e18c891f3041a0fe866e4486c3090f877e05ae1",
+      "ffmpeg_argv": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        "/workspace/work/parable-sf024/parable-starter/samples/wallace2/irs/jensen-original.wav",
+        "-af",
+        "aresample=48000:filter_size=64:phase_shift=10:exact_rational=1",
+        "-f",
+        "f32le",
+        "-acodec",
+        "pcm_f32le",
+        "-"
+      ],
+      "frames": 13156,
+      "seconds": 0.27408333333333335,
+      "gain": 0.11617805209329674,
+      "normalization": "unity peak magnitude on262144point FFT; common scalar only",
+      "first_over_minus60db_peak": 3,
+      "peak_sample": 9,
+      "l1_norm": 4.375106334686279,
+      "upstream_effective_taps": 13156,
+      "upstream_trim_l1_error": 0.0
+    },
+    "v30": {
+      "original_sha256": "ef8d258eee57b2f0fa1e678b4bdf9c8f535f03039172b0831dcc87b0e7d99bd2",
+      "kernel_sha256": "43b13eff67e2fae88c188880f32bfcdcf25f13a8ab587ce9990f5468abd47a89",
+      "ffmpeg_argv": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        "/workspace/work/parable-sf024/parable-starter/samples/wallace2/irs/v30-original.wav",
+        "-af",
+        "aresample=48000:filter_size=64:phase_shift=10:exact_rational=1",
+        "-f",
+        "f32le",
+        "-acodec",
+        "pcm_f32le",
+        "-"
+      ],
+      "frames": 15000,
+      "seconds": 0.3125,
+      "gain": 0.17393051918752744,
+      "normalization": "unity peak magnitude on262144point FFT; common scalar only",
+      "first_over_minus60db_peak": 125,
+      "peak_sample": 156,
+      "l1_norm": 3.3519222736358643,
+      "upstream_effective_taps": 14911,
+      "upstream_trim_l1_error": 2.7925185349886306e-05
+    }
+  }
+}

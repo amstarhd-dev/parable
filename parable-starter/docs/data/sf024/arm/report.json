@@ -1,0 +1,184 @@
+{
+  "compiler": "arm-none-eabi-g++ (xPack GNU Arm Embedded GCC x86_64) 14.2.1 20241119\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "compiler_sha256": "45b67f0cb647f69b0fbd0512b43f7d257458916ca77c8fd538708309845ff76c",
+  "objects": {
+    "FFTConvolver": {
+      "text": 3673,
+      "data": 0,
+      "bss": 0,
+      "undefined": "         U fftconvolver::ComplexMultiplyAccumulate(fftconvolver::SplitComplex&, fftconvolver::SplitComplex const&, fftconvolver::SplitComplex const&)\n         U fftconvolver::Sum(float*, float const*, float const*, unsigned int)\n         U audiofft::AudioFFT::ComplexSize(unsigned int)\n         U audiofft::AudioFFT::fft(float const*, float*, float*)\n         U audiofft::AudioFFT::ifft(float*, float const*, float const*)\n         U audiofft::AudioFFT::init(unsigned int)\n         U audiofft::AudioFFT::AudioFFT()\n         U audiofft::AudioFFT::~AudioFFT()\n         U std::__throw_length_error(char const*)\n         U vtable for __cxxabiv1::__class_type_info\n         U operator delete[](void*)\n         U operator delete(void*, unsigned int)\n         U operator new[](unsigned int)\n         U operator new(unsigned int)\n         U __aeabi_unwind_cpp_pr0\n         U __aeabi_unwind_cpp_pr1\n         U __assert_func\n         U __cxa_end_cleanup\n         U __cxa_throw_bad_array_new_length\n         U __gxx_personality_v0\n         U memcpy\n         U memset\n",
+      "static_frames": [
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/Utilities.h:88:8:void fftconvolver::Buffer<T>::resize(size_t) [with T = float]\t8\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/Utilities.h:76:11:fftconvolver::Buffer<T>::~Buffer() [with T = float]\t8\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/Utilities.h:76:11:fftconvolver::Buffer<T>::~Buffer() [with T = float]\t8\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/Utilities.h:215:3:fftconvolver::SplitComplex::~SplitComplex()\t16\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/FFTConvolver.cpp:60:6:void fftconvolver::FFTConvolver::reset()\t32\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/FFTConvolver.cpp:54:1:fftconvolver::FFTConvolver::~FFTConvolver()\t16\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/FFTConvolver.cpp:54:1:virtual fftconvolver::FFTConvolver::~FFTConvolver()\t8\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/FFTConvolver.cpp:147:6:void fftconvolver::FFTConvolver::process(const fftconvolver::Sample*, fftconvolver::Sample*, size_t)\t64\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/Utilities.h:81:8:void fftconvolver::Buffer<T>::clear() [with T = float]\t8\tstatic",
+        "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/arm-none-eabi/include/c++/14.2.1/bits/stl_vector.h:366:7:std::_Vector_base<_Tp, _Alloc>::~_Vector_base() [with _Tp = fftconvolver::SplitComplex*; _Alloc = std::allocator<fftconvolver::SplitComplex*>]\t8\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/FFTConvolver.cpp:35:1:fftconvolver::FFTConvolver::FFTConvolver()\t16\tstatic",
+        "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/arm-none-eabi/include/c++/14.2.1/bits/vector.tcc:581:7:) [with _Args = {fftconvolver::SplitComplex* const&}; _Tp = fftconvolver::SplitComplex*; _Alloc = std::allocator<fftconvolver::SplitComplex*>]\t32\tstatic",
+        "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/arm-none-eabi/include/c++/14.2.1/bits/vector.tcc:581:7:) [with _Args = {fftconvolver::SplitComplex*}; _Tp = fftconvolver::SplitComplex*; _Alloc = std::allocator<fftconvolver::SplitComplex*>]\t32\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/FFTConvolver.cpp:85:6:bool fftconvolver::FFTConvolver::init(size_t, const fftconvolver::Sample*, size_t)\t56\tstatic"
+      ],
+      "float64_instructions": 3
+    },
+    "AudioFFT": {
+      "text": 5748,
+      "data": 0,
+      "bss": 0,
+      "undefined": "         U std::__throw_length_error(char const*)\n         U vtable for __cxxabiv1::__class_type_info\n         U vtable for __cxxabiv1::__si_class_type_info\n         U operator delete(void*, unsigned int)\n         U operator new(unsigned int)\n         U __aeabi_unwind_cpp_pr0\n         U __aeabi_unwind_cpp_pr1\n         U __assert_func\n         U cos\n         U memcpy\n         U memset\n         U sin\n         U sqrt\n",
+      "static_frames": [
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:582:10:void audiofft::OouraFFT::cftmdl(int, int, double*, double*)\t144\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:477:10:void audiofft::OouraFFT::cft1st(int, double*, double*)\t72\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:377:10:void audiofft::OouraFFT::cftfsub(int, double*, double*)\t40\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:277:10:void audiofft::OouraFFT::bitrv2(int, int*, double*)\t80\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:132:18:virtual void audiofft::OouraFFT::fft(const float*, float*, float*)\t48\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:157:18:virtual void audiofft::OouraFFT::ifft(float*, const float*, const float*)\t40\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:102:9:audiofft::OouraFFT::~OouraFFT()\t8\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:102:9:virtual audiofft::OouraFFT::~OouraFFT()\t8\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:1005:3:audiofft::AudioFFT::AudioFFT()\t8\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:1011:3:audiofft::AudioFFT::~AudioFFT()\t8\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:1016:8:void audiofft::AudioFFT::init(size_t)\t8\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:1023:8:void audiofft::AudioFFT::fft(const float*, float*, float*)\t4\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:1029:8:void audiofft::AudioFFT::ifft(float*, const float*, const float*)\t4\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:1035:10:static size_t audiofft::AudioFFT::ComplexSize(size_t)\t0\tstatic",
+        "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/arm-none-eabi/include/c++/14.2.1/bits/vector.tcc:805:5:void std::vector<_Tp, _Alloc>::_M_default_append(size_type) [with _Tp = int; _Alloc = std::allocator<int>]\t32\tstatic",
+        "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/arm-none-eabi/include/c++/14.2.1/bits/vector.tcc:805:5:void std::vector<_Tp, _Alloc>::_M_default_append(size_type) [with _Tp = double; _Alloc = std::allocator<double>]\t32\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:117:18:virtual void audiofft::OouraFFT::init(size_t)\t80\tstatic"
+      ],
+      "float64_instructions": 330
+    },
+    "Utilities": {
+      "text": 890,
+      "data": 0,
+      "bss": 0,
+      "undefined": "         U __aeabi_unwind_cpp_pr0\n         U __assert_func\n",
+      "static_frames": [
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/Utilities.cpp:28:6:bool fftconvolver::SSEEnabled()\t0\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/Utilities.cpp:38:6:void fftconvolver::Sum(Sample*, const Sample*, const Sample*, size_t)\t16\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/Utilities.cpp:66:6:void fftconvolver::ComplexMultiplyAccumulate(Sample*, Sample*, const Sample*, const Sample*, const Sample*, const Sample*, size_t)\t48\tstatic",
+        "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/Utilities.cpp:58:6:void fftconvolver::ComplexMultiplyAccumulate(SplitComplex&, const SplitComplex&, const SplitComplex&)\t32\tstatic"
+      ],
+      "float64_instructions": 0
+    }
+  },
+  "commands": [
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "--version"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-dumpfullversion"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fno-fast-math",
+      "-fno-finite-math-only",
+      "-fstack-usage",
+      "-DFFTCONVOLVER_DONT_USE_SSE",
+      "-I/workspace/work/parable-sf024/parable-starter/tools",
+      "-I/workspace/work/parable-sf024/parable-starter/include",
+      "-I/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver",
+      "-c",
+      "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/FFTConvolver.cpp",
+      "-o",
+      "/workspace/work/parable-sf024/parable-starter/docs/data/sf024/arm/FFTConvolver.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-size",
+      "/workspace/work/parable-sf024/parable-starter/docs/data/sf024/arm/FFTConvolver.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-nm",
+      "-uC",
+      "/workspace/work/parable-sf024/parable-starter/docs/data/sf024/arm/FFTConvolver.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-objdump",
+      "-drC",
+      "/workspace/work/parable-sf024/parable-starter/docs/data/sf024/arm/FFTConvolver.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fno-fast-math",
+      "-fno-finite-math-only",
+      "-fstack-usage",
+      "-DFFTCONVOLVER_DONT_USE_SSE",
+      "-I/workspace/work/parable-sf024/parable-starter/tools",
+      "-I/workspace/work/parable-sf024/parable-starter/include",
+      "-I/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver",
+      "-c",
+      "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp",
+      "-o",
+      "/workspace/work/parable-sf024/parable-starter/docs/data/sf024/arm/AudioFFT.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-size",
+      "/workspace/work/parable-sf024/parable-starter/docs/data/sf024/arm/AudioFFT.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-nm",
+      "-uC",
+      "/workspace/work/parable-sf024/parable-starter/docs/data/sf024/arm/AudioFFT.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-objdump",
+      "-drC",
+      "/workspace/work/parable-sf024/parable-starter/docs/data/sf024/arm/AudioFFT.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++",
+      "-std=c++17",
+      "-O2",
+      "-mcpu=cortex-m7",
+      "-mthumb",
+      "-mfpu=fpv5-d16",
+      "-mfloat-abi=hard",
+      "-fno-fast-math",
+      "-fno-finite-math-only",
+      "-fstack-usage",
+      "-DFFTCONVOLVER_DONT_USE_SSE",
+      "-I/workspace/work/parable-sf024/parable-starter/tools",
+      "-I/workspace/work/parable-sf024/parable-starter/include",
+      "-I/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver",
+      "-c",
+      "/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/Utilities.cpp",
+      "-o",
+      "/workspace/work/parable-sf024/parable-starter/docs/data/sf024/arm/Utilities.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-size",
+      "/workspace/work/parable-sf024/parable-starter/docs/data/sf024/arm/Utilities.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-nm",
+      "-uC",
+      "/workspace/work/parable-sf024/parable-starter/docs/data/sf024/arm/Utilities.o"
+    ],
+    [
+      "/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-objdump",
+      "-drC",
+      "/workspace/work/parable-sf024/parable-starter/docs/data/sf024/arm/Utilities.o"
+    ]
+  ],
+  "firmware_linked": false,
+  "cycles_measured": false,
+  "hardware_tested": false,
+  "limitations": "Convolver upstream objects only. Includes control-side allocation/exception/math symbols. Ooura uses double FFT math. No full graph link, flash/SDRAM placement, callback stack high-water or Seed3 admission."
+}

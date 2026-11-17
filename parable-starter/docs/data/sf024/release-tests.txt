@@ -1,0 +1,24 @@
+Internal ctest changing into directory: /workspace/work/sf024-release
+Test project /workspace/work/sf024-release
+    Start  2: core_validation
+1/9 Test  #2: core_validation ..................   Passed    0.00 sec
+    Start  3: audio_safety
+2/9 Test  #3: audio_safety .....................   Passed    0.01 sec
+    Start 10: soundforge_utilities
+3/9 Test #10: soundforge_utilities .............   Passed    1.28 sec
+    Start 11: soundforge_registry
+4/9 Test #11: soundforge_registry ..............   Passed    0.06 sec
+    Start 12: soundforge_registry_negative
+5/9 Test #12: soundforge_registry_negative .....   Passed    0.35 sec
+    Start 41: wallace_routing_actual_graph
+6/9 Test #41: wallace_routing_actual_graph .....   Passed    2.43 sec
+    Start 42: wallace_source_and_cli
+7/9 Test #42: wallace_source_and_cli ...........   Passed    0.10 sec
+    Start 43: wallace2_cabinet_clean_routing
+8/9 Test #43: wallace2_cabinet_clean_routing ...   Passed    1.66 sec
+    Start 44: wallace2_sources_and_cli
+9/9 Test #44: wallace2_sources_and_cli .........   Passed    0.08 sec
+
+100% tests passed, 0 tests failed out of 9
+
+Total Test time (real) =   5.97 sec

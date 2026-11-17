@@ -1,0 +1,203 @@
+{
+  "target_lufs": -23.0,
+  "raw_float_levels": {
+    "01_muff_direct": {
+      "lufs": -33.5,
+      "dbtp": -26.0
+    },
+    "02_muff_jensen": {
+      "lufs": -37.1,
+      "dbtp": -28.2
+    },
+    "03_muff_v30": {
+      "lufs": -38.8,
+      "dbtp": -28.8
+    },
+    "04_original_serial": {
+      "lufs": -40.7,
+      "dbtp": -31.8
+    },
+    "05_pre_cab_clean": {
+      "lufs": -35.6,
+      "dbtp": -22.2
+    },
+    "06_CONTROL_clean_disabled": {
+      "lufs": -40.0,
+      "dbtp": -29.1
+    },
+    "07_more_clean_less_muff": {
+      "lufs": -35.5,
+      "dbtp": -20.2
+    },
+    "08_post_cab_studio": {
+      "lufs": -35.7,
+      "dbtp": -22.3
+    },
+    "09_post_cab_duck": {
+      "lufs": -35.7,
+      "dbtp": -22.3
+    },
+    "10_expansive": {
+      "lufs": -35.6,
+      "dbtp": -21.9
+    }
+  },
+  "matched": {
+    "01_muff_direct": {
+      "gain": 3.3496543915782766,
+      "lufs": -23.0,
+      "dbtp": -15.5
+    },
+    "02_muff_jensen": {
+      "gain": 5.0699070827470445,
+      "lufs": -23.0,
+      "dbtp": -14.1
+    },
+    "03_muff_v30": {
+      "gain": 6.165950018614819,
+      "lufs": -23.0,
+      "dbtp": -13.0
+    },
+    "04_original_serial": {
+      "gain": 7.673614893618192,
+      "lufs": -23.0,
+      "dbtp": -14.1
+    },
+    "05_pre_cab_clean": {
+      "gain": 4.265795188015928,
+      "lufs": -23.0,
+      "dbtp": -9.6
+    },
+    "06_CONTROL_clean_disabled": {
+      "gain": 7.079457843841379,
+      "lufs": -23.0,
+      "dbtp": -12.1
+    },
+    "07_more_clean_less_muff": {
+      "gain": 4.216965034285822,
+      "lufs": -23.0,
+      "dbtp": -7.7
+    },
+    "08_post_cab_studio": {
+      "gain": 4.315190768277653,
+      "lufs": -23.0,
+      "dbtp": -9.6
+    },
+    "09_post_cab_duck": {
+      "gain": 4.315190768277653,
+      "lufs": -23.0,
+      "dbtp": -9.6
+    },
+    "10_expansive": {
+      "gain": 4.265795188015928,
+      "lufs": -23.0,
+      "dbtp": -9.3
+    }
+  },
+  "clean_stems": {
+    "05_pre_cab_clean": {
+      "stem_sum_max_error": 3.341119736433029e-08,
+      "active_clean_rms": 0.008687059610399417,
+      "active_full_rms": 0.018086679725122453,
+      "clean_vs_full_rms_db": -6.369720932436578,
+      "clean_fuzz_cosine": 0.737696713019564,
+      "clean_fuzz_power_vs_incoherent_db": 2.3357500501039574
+    },
+    "07_more_clean_less_muff": {
+      "stem_sum_max_error": 4.842877388000488e-08,
+      "active_clean_rms": 0.013030589425586063,
+      "active_full_rms": 0.01810230437040545,
+      "clean_vs_full_rms_db": -2.8553960355077983,
+      "clean_fuzz_cosine": 0.7376967125736014,
+      "clean_fuzz_power_vs_incoherent_db": 2.0555346640974377
+    },
+    "08_post_cab_studio": {
+      "stem_sum_max_error": 3.632158041000366e-08,
+      "active_clean_rms": 0.008687059610399417,
+      "active_full_rms": 0.017883552961991952,
+      "clean_vs_full_rms_db": -6.271620071238187,
+      "clean_fuzz_cosine": 0.737696713019564,
+      "clean_fuzz_power_vs_incoherent_db": 2.3357500501039574
+    },
+    "09_post_cab_duck": {
+      "stem_sum_max_error": 3.5390257835388184e-08,
+      "active_clean_rms": 0.008687059610399417,
+      "active_full_rms": 0.017922113779110356,
+      "clean_vs_full_rms_db": -6.290328569742268,
+      "clean_fuzz_cosine": 0.737696713019564,
+      "clean_fuzz_power_vs_incoherent_db": 2.3357500501039574
+    },
+    "10_expansive": {
+      "stem_sum_max_error": 3.5390257835388184e-08,
+      "active_clean_rms": 0.008687059610399417,
+      "active_full_rms": 0.018370286857876145,
+      "clean_vs_full_rms_db": -6.504862727271056,
+      "clean_fuzz_cosine": 0.737696713019564,
+      "clean_fuzz_power_vs_incoherent_db": 2.3357500501039574
+    }
+  },
+  "clean_off_difference_max_error": 3.3527612686157227e-08,
+  "independent_whole_recording_convolution": {
+    "02_muff_jensen": {
+      "max_error": 1.7095838800162966e-08,
+      "relative_rms": 1.7472947265075018e-07
+    },
+    "03_muff_v30": {
+      "max_error": 9.407258898044835e-07,
+      "relative_rms": 3.11895311397564e-05
+    }
+  },
+  "cab_response_db": {
+    "jensen": {
+      "80": -13.144332209582046,
+      "200": -2.7734364721266065,
+      "1000": -6.330004722854118,
+      "3000": -12.673343283091443,
+      "6000": -14.421908247653272,
+      "10000": -28.301946221352775,
+      "16000": -46.51898661874797
+    },
+    "v30": {
+      "80": -20.390148740690904,
+      "200": -4.821537606499649,
+      "1000": -20.488926556988936,
+      "3000": -7.5514542923517,
+      "6000": -7.218670401726069,
+      "10000": -29.019885378728457,
+      "16000": -45.34103616684859
+    }
+  },
+  "ffmpeg": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers",
+  "numpy": "2.3.5",
+  "limitations": [
+    "Perceived authenticity/articulation and pre/post preference remain listening judgments.",
+    "Clean solos retain the fullmix gain; clean is cabinet-colored but bypasses all effects.",
+    "Measured host cost is not Seed3 admission; no live hardware run."
+  ],
+  "published_pcm_verification": {
+    "05_pre_cab_clean": {
+      "max_pcm_stem_sum_error": 3.0517578125e-05,
+      "lsb": 1.0
+    },
+    "07_more_clean_less_muff": {
+      "max_pcm_stem_sum_error": 3.0517578125e-05,
+      "lsb": 1.0
+    },
+    "08_post_cab_studio": {
+      "max_pcm_stem_sum_error": 3.0517578125e-05,
+      "lsb": 1.0
+    },
+    "09_post_cab_duck": {
+      "max_pcm_stem_sum_error": 3.0517578125e-05,
+      "lsb": 1.0
+    },
+    "10_expansive": {
+      "max_pcm_stem_sum_error": 3.0517578125e-05,
+      "lsb": 1.0
+    },
+    "clean_off_difference": {
+      "max_pcm_error": 3.0517578125e-05,
+      "lsb": 1.0
+    }
+  }
+}

@@ -480,6 +480,53 @@ jobs:
           UBSAN_OPTIONS: halt_on_error=1
         run: ctest --test-dir build/wallace-sanitized --output-on-failure --no-tests=error -R '^wallace_'
 
+  wallace2-host:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        build_type: [Debug, Release]
+    defaults:
+      run:
+        working-directory: parable-starter
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure focused SF024 experiment
+        run: cmake -S . -B build/wallace2 -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+      - name: Build unchanged SF023 and new cabinet tests
+        run: cmake --build build/wallace2 --target parable_wallace2_lab parable_wallace2_test parable_wallace2_memory parable_wallace_lab parable_wallace_test -j2
+      - name: Test convolution references, preserved clean and previous routing
+        run: ctest --test-dir build/wallace2 --output-on-failure --no-tests=error -R '^(wallace_|wallace2_)'
+      - name: Reproduce SF024 listening files and payload measurement
+        if: matrix.build_type == 'Release'
+        run: |
+          ./build/wallace2/parable_wallace2_lab --input samples/wallace/take03-late20s.wav --irs samples/wallace2/irs --output build/wallace2-auditions
+          cp -r samples/wallace2/irs build/wallace2-auditions/
+          cp samples/wallace2/*NOTICE.md build/wallace2-auditions/
+          python3 -m venv build/wallace2-tools
+          build/wallace2-tools/bin/python -m pip install numpy==2.3.5
+          if ! command -v ffmpeg; then sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg; fi
+          build/wallace2-tools/bin/python tools/wallace2_evidence.py --directory build/wallace2-auditions --discard-floats
+          ./build/wallace2/parable_wallace2_memory samples/wallace2/irs > build/wallace2-auditions/memory.json
+          git rev-parse HEAD > build/wallace2-auditions/SOURCE_COMMIT
+      - name: Publish SF024 clean-present cabinet comparisons
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-wallace2-auditions
+          path: parable-starter/build/wallace2-auditions/
+          if-no-files-found: error
+          retention-days: 30
+      - name: SF024 ASan and UBSan
+        if: matrix.build_type == 'Release'
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1:max_malloc_fill_size=100000000
+          UBSAN_OPTIONS: halt_on_error=1
+        run: |
+          cmake -S . -B build/wallace2-sanitized -DCMAKE_BUILD_TYPE=Debug -DFETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON="$PWD/build/wallace2/_deps/nlohmann_json-src" -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -O1" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
+          cmake --build build/wallace2-sanitized --target parable_wallace2_test parable_wallace2_lab -j2
+          ctest --test-dir build/wallace2-sanitized --output-on-failure --no-tests=error -R '^wallace2_'
+
   activation-tsan:
     runs-on: ubuntu-24.04
     timeout-minutes: 10

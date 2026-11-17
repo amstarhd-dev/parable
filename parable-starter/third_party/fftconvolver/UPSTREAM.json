@@ -1,0 +1,26 @@
+{
+  "repository": "https://github.com/HiFi-LoFi/FFTConvolver",
+  "commit": "f2cdeb04c42141d2caec19ca4f137398b2a76b85",
+  "sha256": {
+    "FFTConvolver.h": "f23a63c09fa51b51f882f69ad297cc862531f82e24236b20603f210f65e5fff4",
+    "FFTConvolver.cpp": "3011c584c69687cb15f1d13a4f88701d697531da7cade474191142d0b4707767",
+    "AudioFFT.h": "9a4551dfbd2887b3ea5872c883c83d521319ccfd6a82794fbf8e4a8073d9cc65",
+    "AudioFFT.cpp": "b00fcb12a200241113579655ec3b5d0e9a8d3693d28e3a607c52a2aa3db4087c",
+    "Utilities.h": "f415c0b7820c9c6142e30bd90072f8e36f709cd07e3ddbcdef1180fa0bf09cff",
+    "Utilities.cpp": "d2a61590f77a1841fbf702320df9718da06c5d5a093eb87747effa306f6e99f8",
+    "COPYING.txt": "1537d3165d802602de45a40ce5cb335d33cd801da8f25060d010e691c548ae65"
+  },
+  "backend": "Ooura, FFTCONVOLVER_DONT_USE_SSE; no FFTW/Accelerate",
+  "local_sha256": {
+    "FFTConvolver.h": "f23a63c09fa51b51f882f69ad297cc862531f82e24236b20603f210f65e5fff4",
+    "FFTConvolver.cpp": "3011c584c69687cb15f1d13a4f88701d697531da7cade474191142d0b4707767",
+    "AudioFFT.h": "9a4551dfbd2887b3ea5872c883c83d521319ccfd6a82794fbf8e4a8073d9cc65",
+    "AudioFFT.cpp": "b00fcb12a200241113579655ec3b5d0e9a8d3693d28e3a607c52a2aa3db4087c",
+    "Utilities.h": "e71c63850cb08f8db31e9342118d12105100037c4116f74bed312fed050dd157",
+    "Utilities.cpp": "d2a61590f77a1841fbf702320df9718da06c5d5a093eb87747effa306f6e99f8",
+    "COPYING.txt": "1537d3165d802602de45a40ce5cb335d33cd801da8f25060d010e691c548ae65"
+  },
+  "local_changes": [
+    "Utilities.h Buffer::setZero: guard empty buffers before memset; UBSan null-pointer diagnostic for zero byte call; no nonempty processing arithmetic change"
+  ]
+}

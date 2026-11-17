@@ -1,0 +1,6 @@
+05_pre_cab_clean rendered; stem residual 3.35276e-08, min duck 1
+06_CONTROL_clean_disabled rendered; stem residual 2.04891e-08, min duck 1
+07_more_clean_less_muff rendered; stem residual 4.47035e-08, min duck 1
+08_post_cab_studio rendered; stem residual 3.72529e-08, min duck 1
+09_post_cab_duck rendered; stem residual 3.72529e-08, min duck 0.749894
+10_expansive rendered; stem residual 3.72529e-08, min duck 1

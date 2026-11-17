@@ -1,5 +1,24 @@
 # Implementation status and reproducible baseline
 
+## SF-024 — experimental cabinet and independent clean branch
+
+[Report/commands/limits](SF024_REPORT.md), [ADR024](adr/ADR-024-wallace-cabinet-clean.md),
+[ten listening comparisons/stems](../samples/wallace2/README.md).
+
+- **Specified/implemented:** two measured CC BY4.0 cabinet IRs; reusable mono
+  convolution; fixed pre-Muff parallel and postcab recipes; substantial default
+  clean .50 + Muff .75, explicit clean-disabled control, constant-gain matching.
+- **Host-tested:** independent direct-convolution/chunk/reset/tail/latency;
+  exact clean and sum/counterfactual stem proofs;462 prior protected files;
+  Release9/9, Debug4/4, poisoned ASan+UBSan4/4;30 repeat-identical raw WAVs.
+- **ARM object evidence only:** convolver10311B text sum,0data/BSS; includes
+  double FFT math/control allocations. No fullgraph firmware link or placement.
+- **Measured host payload:** Jensen cab245452B/fullgraph966292B, caller block1280B;
+  separate host cost/limits in report. Not Seed3 admission.
+- **Hardware-tested/musically approved:**none. Original cabinet geometry/capture
+  not independently confirmed; subjective cabinet/articulation/placement verdicts
+  remain open. No production effect/Engine/patch/firmware/correspondence change.
+
 ## SF-014 — experimental standalone Lockhart / one feed resistor
 
 [Gate0](SF014_GATE0.md), [ADR014](adr/ADR-014-lockhart-feed-resistor.md),

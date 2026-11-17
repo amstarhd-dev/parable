@@ -1,0 +1,17 @@
+/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:582:10:void audiofft::OouraFFT::cftmdl(int, int, double*, double*)	144	static
+/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:477:10:void audiofft::OouraFFT::cft1st(int, double*, double*)	72	static
+/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:377:10:void audiofft::OouraFFT::cftfsub(int, double*, double*)	40	static
+/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:277:10:void audiofft::OouraFFT::bitrv2(int, int*, double*)	80	static
+/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:132:18:virtual void audiofft::OouraFFT::fft(const float*, float*, float*)	48	static
+/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:157:18:virtual void audiofft::OouraFFT::ifft(float*, const float*, const float*)	40	static
+/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:102:9:audiofft::OouraFFT::~OouraFFT()	8	static
+/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:102:9:virtual audiofft::OouraFFT::~OouraFFT()	8	static
+/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:1005:3:audiofft::AudioFFT::AudioFFT()	8	static
+/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:1011:3:audiofft::AudioFFT::~AudioFFT()	8	static
+/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:1016:8:void audiofft::AudioFFT::init(size_t)	8	static
+/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:1023:8:void audiofft::AudioFFT::fft(const float*, float*, float*)	4	static
+/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:1029:8:void audiofft::AudioFFT::ifft(float*, const float*, const float*)	4	static
+/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:1035:10:static size_t audiofft::AudioFFT::ComplexSize(size_t)	0	static
+/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/arm-none-eabi/include/c++/14.2.1/bits/vector.tcc:805:5:void std::vector<_Tp, _Alloc>::_M_default_append(size_type) [with _Tp = int; _Alloc = std::allocator<int>]	32	static
+/workspace/work/par005-fresh-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/arm-none-eabi/include/c++/14.2.1/bits/vector.tcc:805:5:void std::vector<_Tp, _Alloc>::_M_default_append(size_type) [with _Tp = double; _Alloc = std::allocator<double>]	32	static
+/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/AudioFFT.cpp:117:18:virtual void audiofft::OouraFFT::init(size_t)	80	static

@@ -1,0 +1,5 @@
+Transcribed from tool output before SF024 edits, not a reconstructed full CTest log:
+Release CMake configure/build parable_wallace_test parable_wallace_lab successful.
+wallace_routing_actual_graph: passed1.66s
+wallace_source_and_cli: passed0.08s
+2/2 pass, total1.74s.

@@ -1,0 +1,1196 @@
+
+/workspace/work/parable-sf024/parable-starter/docs/data/sf024/arm/FFTConvolver.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <fftconvolver::Buffer<float>::resize(unsigned int) [clone .part.0]>:
+   0:	b508      	push	{r3, lr}
+   2:	4a03      	ldr	r2, [pc, #12]	@ (10 <fftconvolver::Buffer<float>::resize(unsigned int) [clone .part.0]+0x10>)
+   4:	2160      	movs	r1, #96	@ 0x60
+   6:	4b03      	ldr	r3, [pc, #12]	@ (14 <fftconvolver::Buffer<float>::resize(unsigned int) [clone .part.0]+0x14>)
+   8:	4803      	ldr	r0, [pc, #12]	@ (18 <fftconvolver::Buffer<float>::resize(unsigned int) [clone .part.0]+0x18>)
+   a:	f7ff fffe 	bl	0 <__assert_func>
+			a: R_ARM_THM_CALL	__assert_func
+   e:	bf00      	nop
+  10:	00000018 	.word	0x00000018
+			10: R_ARM_ABS32	.rodata.str1.4
+  14:	00000000 	.word	0x00000000
+			14: R_ARM_ABS32	.rodata.str1.4
+  18:	00000070 	.word	0x00000070
+			18: R_ARM_ABS32	.rodata.str1.4
+
+0000001c <fftconvolver::FFTConvolver::reset()>:
+  1c:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+  20:	68c3      	ldr	r3, [r0, #12]
+  22:	4604      	mov	r4, r0
+  24:	2b00      	cmp	r3, #0
+  26:	d039      	beq.n	9c <fftconvolver::FFTConvolver::reset()+0x80>
+  28:	2600      	movs	r6, #0
+  2a:	f8df 910c 	ldr.w	r9, [pc, #268]	@ 138 <fftconvolver::FFTConvolver::reset()+0x11c>
+  2e:	4637      	mov	r7, r6
+  30:	6963      	ldr	r3, [r4, #20]
+  32:	ea4f 0886 	mov.w	r8, r6, lsl #2
+  36:	f853 5026 	ldr.w	r5, [r3, r6, lsl #2]
+  3a:	b19d      	cbz	r5, 64 <fftconvolver::FFTConvolver::reset()+0x48>
+  3c:	68a8      	ldr	r0, [r5, #8]
+  3e:	b108      	cbz	r0, 44 <fftconvolver::FFTConvolver::reset()+0x28>
+  40:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			40: R_ARM_THM_CALL	operator delete[](void*)
+  44:	6968      	ldr	r0, [r5, #20]
+  46:	e9c5 7702 	strd	r7, r7, [r5, #8]
+  4a:	b138      	cbz	r0, 5c <fftconvolver::FFTConvolver::reset()+0x40>
+  4c:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			4c: R_ARM_THM_CALL	operator delete[](void*)
+  50:	68a8      	ldr	r0, [r5, #8]
+  52:	e9c5 7900 	strd	r7, r9, [r5]
+  56:	b108      	cbz	r0, 5c <fftconvolver::FFTConvolver::reset()+0x40>
+  58:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			58: R_ARM_THM_CALL	operator delete[](void*)
+  5c:	211c      	movs	r1, #28
+  5e:	4628      	mov	r0, r5
+  60:	f7ff fffe 	bl	0 <operator delete(void*, unsigned int)>
+			60: R_ARM_THM_CALL	operator delete(void*, unsigned int)
+  64:	6a23      	ldr	r3, [r4, #32]
+  66:	f853 5008 	ldr.w	r5, [r3, r8]
+  6a:	b19d      	cbz	r5, 94 <fftconvolver::FFTConvolver::reset()+0x78>
+  6c:	68a8      	ldr	r0, [r5, #8]
+  6e:	b108      	cbz	r0, 74 <fftconvolver::FFTConvolver::reset()+0x58>
+  70:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			70: R_ARM_THM_CALL	operator delete[](void*)
+  74:	6968      	ldr	r0, [r5, #20]
+  76:	e9c5 7702 	strd	r7, r7, [r5, #8]
+  7a:	b138      	cbz	r0, 8c <fftconvolver::FFTConvolver::reset()+0x70>
+  7c:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			7c: R_ARM_THM_CALL	operator delete[](void*)
+  80:	68a8      	ldr	r0, [r5, #8]
+  82:	e9c5 7900 	strd	r7, r9, [r5]
+  86:	b108      	cbz	r0, 8c <fftconvolver::FFTConvolver::reset()+0x70>
+  88:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			88: R_ARM_THM_CALL	operator delete[](void*)
+  8c:	211c      	movs	r1, #28
+  8e:	4628      	mov	r0, r5
+  90:	f7ff fffe 	bl	0 <operator delete(void*, unsigned int)>
+			90: R_ARM_THM_CALL	operator delete(void*, unsigned int)
+  94:	3601      	adds	r6, #1
+  96:	68e3      	ldr	r3, [r4, #12]
+  98:	42b3      	cmp	r3, r6
+  9a:	d8c9      	bhi.n	30 <fftconvolver::FFTConvolver::reset()+0x14>
+  9c:	2300      	movs	r3, #0
+  9e:	e9d4 2105 	ldrd	r2, r1, [r4, #20]
+  a2:	e9c4 3301 	strd	r3, r3, [r4, #4]
+  a6:	428a      	cmp	r2, r1
+  a8:	e9c4 3303 	strd	r3, r3, [r4, #12]
+  ac:	d000      	beq.n	b0 <fftconvolver::FFTConvolver::reset()+0x94>
+  ae:	61a2      	str	r2, [r4, #24]
+  b0:	6b20      	ldr	r0, [r4, #48]	@ 0x30
+  b2:	e9d4 3208 	ldrd	r3, r2, [r4, #32]
+  b6:	4293      	cmp	r3, r2
+  b8:	bf18      	it	ne
+  ba:	6263      	strne	r3, [r4, #36]	@ 0x24
+  bc:	b108      	cbz	r0, c2 <fftconvolver::FFTConvolver::reset()+0xa6>
+  be:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			be: R_ARM_THM_CALL	operator delete[](void*)
+  c2:	2100      	movs	r1, #0
+  c4:	f104 0038 	add.w	r0, r4, #56	@ 0x38
+  c8:	e9c4 110c 	strd	r1, r1, [r4, #48]	@ 0x30
+  cc:	f7ff fffe 	bl	0 <audiofft::AudioFFT::init(unsigned int)>
+			cc: R_ARM_THM_CALL	audiofft::AudioFFT::init(unsigned int)
+  d0:	6c60      	ldr	r0, [r4, #68]	@ 0x44
+  d2:	b108      	cbz	r0, d8 <fftconvolver::FFTConvolver::reset()+0xbc>
+  d4:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			d4: R_ARM_THM_CALL	operator delete[](void*)
+  d8:	2300      	movs	r3, #0
+  da:	6d20      	ldr	r0, [r4, #80]	@ 0x50
+  dc:	e9c4 3311 	strd	r3, r3, [r4, #68]	@ 0x44
+  e0:	b108      	cbz	r0, e6 <fftconvolver::FFTConvolver::reset()+0xca>
+  e2:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			e2: R_ARM_THM_CALL	operator delete[](void*)
+  e6:	2300      	movs	r3, #0
+  e8:	6e20      	ldr	r0, [r4, #96]	@ 0x60
+  ea:	e9c4 3314 	strd	r3, r3, [r4, #80]	@ 0x50
+  ee:	63e3      	str	r3, [r4, #60]	@ 0x3c
+  f0:	b108      	cbz	r0, f6 <fftconvolver::FFTConvolver::reset()+0xda>
+  f2:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			f2: R_ARM_THM_CALL	operator delete[](void*)
+  f6:	2300      	movs	r3, #0
+  f8:	6ee0      	ldr	r0, [r4, #108]	@ 0x6c
+  fa:	e9c4 3318 	strd	r3, r3, [r4, #96]	@ 0x60
+  fe:	b108      	cbz	r0, 104 <fftconvolver::FFTConvolver::reset()+0xe8>
+ 100:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			100: R_ARM_THM_CALL	operator delete[](void*)
+ 104:	2300      	movs	r3, #0
+ 106:	6fa0      	ldr	r0, [r4, #120]	@ 0x78
+ 108:	e9c4 331b 	strd	r3, r3, [r4, #108]	@ 0x6c
+ 10c:	65a3      	str	r3, [r4, #88]	@ 0x58
+ 10e:	b108      	cbz	r0, 114 <fftconvolver::FFTConvolver::reset()+0xf8>
+ 110:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			110: R_ARM_THM_CALL	operator delete[](void*)
+ 114:	2300      	movs	r3, #0
+ 116:	f8d4 0088 	ldr.w	r0, [r4, #136]	@ 0x88
+ 11a:	e9c4 331e 	strd	r3, r3, [r4, #120]	@ 0x78
+ 11e:	f8c4 3080 	str.w	r3, [r4, #128]	@ 0x80
+ 122:	b108      	cbz	r0, 128 <fftconvolver::FFTConvolver::reset()+0x10c>
+ 124:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			124: R_ARM_THM_CALL	operator delete[](void*)
+ 128:	2300      	movs	r3, #0
+ 12a:	e9c4 3322 	strd	r3, r3, [r4, #136]	@ 0x88
+ 12e:	f8c4 3090 	str.w	r3, [r4, #144]	@ 0x90
+ 132:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+ 136:	bf00      	nop
+ 138:	00000008 	.word	0x00000008
+			138: R_ARM_ABS32	vtable for fftconvolver::Buffer<float>
+
+0000013c <fftconvolver::FFTConvolver::~FFTConvolver()>:
+ 13c:	4b25      	ldr	r3, [pc, #148]	@ (1d4 <fftconvolver::FFTConvolver::~FFTConvolver()+0x98>)
+ 13e:	b570      	push	{r4, r5, r6, lr}
+ 140:	4604      	mov	r4, r0
+ 142:	6003      	str	r3, [r0, #0]
+ 144:	f7ff fffe 	bl	1c <fftconvolver::FFTConvolver::reset()>
+			144: R_ARM_THM_CALL	fftconvolver::FFTConvolver::reset()
+ 148:	4d23      	ldr	r5, [pc, #140]	@ (1d8 <fftconvolver::FFTConvolver::~FFTConvolver()+0x9c>)
+ 14a:	f8d4 0088 	ldr.w	r0, [r4, #136]	@ 0x88
+ 14e:	f8c4 5084 	str.w	r5, [r4, #132]	@ 0x84
+ 152:	b108      	cbz	r0, 158 <fftconvolver::FFTConvolver::~FFTConvolver()+0x1c>
+ 154:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			154: R_ARM_THM_CALL	operator delete[](void*)
+ 158:	6fa0      	ldr	r0, [r4, #120]	@ 0x78
+ 15a:	6765      	str	r5, [r4, #116]	@ 0x74
+ 15c:	b108      	cbz	r0, 162 <fftconvolver::FFTConvolver::~FFTConvolver()+0x26>
+ 15e:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			15e: R_ARM_THM_CALL	operator delete[](void*)
+ 162:	6e20      	ldr	r0, [r4, #96]	@ 0x60
+ 164:	b108      	cbz	r0, 16a <fftconvolver::FFTConvolver::~FFTConvolver()+0x2e>
+ 166:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			166: R_ARM_THM_CALL	operator delete[](void*)
+ 16a:	2600      	movs	r6, #0
+ 16c:	6ee0      	ldr	r0, [r4, #108]	@ 0x6c
+ 16e:	e9c4 6618 	strd	r6, r6, [r4, #96]	@ 0x60
+ 172:	b138      	cbz	r0, 184 <fftconvolver::FFTConvolver::~FFTConvolver()+0x48>
+ 174:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			174: R_ARM_THM_CALL	operator delete[](void*)
+ 178:	6e20      	ldr	r0, [r4, #96]	@ 0x60
+ 17a:	e9c4 6516 	strd	r6, r5, [r4, #88]	@ 0x58
+ 17e:	b108      	cbz	r0, 184 <fftconvolver::FFTConvolver::~FFTConvolver()+0x48>
+ 180:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			180: R_ARM_THM_CALL	operator delete[](void*)
+ 184:	6c60      	ldr	r0, [r4, #68]	@ 0x44
+ 186:	b108      	cbz	r0, 18c <fftconvolver::FFTConvolver::~FFTConvolver()+0x50>
+ 188:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			188: R_ARM_THM_CALL	operator delete[](void*)
+ 18c:	2600      	movs	r6, #0
+ 18e:	6d20      	ldr	r0, [r4, #80]	@ 0x50
+ 190:	e9c4 6611 	strd	r6, r6, [r4, #68]	@ 0x44
+ 194:	b138      	cbz	r0, 1a6 <fftconvolver::FFTConvolver::~FFTConvolver()+0x6a>
+ 196:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			196: R_ARM_THM_CALL	operator delete[](void*)
+ 19a:	6c60      	ldr	r0, [r4, #68]	@ 0x44
+ 19c:	e9c4 650f 	strd	r6, r5, [r4, #60]	@ 0x3c
+ 1a0:	b108      	cbz	r0, 1a6 <fftconvolver::FFTConvolver::~FFTConvolver()+0x6a>
+ 1a2:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			1a2: R_ARM_THM_CALL	operator delete[](void*)
+ 1a6:	f104 0038 	add.w	r0, r4, #56	@ 0x38
+ 1aa:	f7ff fffe 	bl	0 <audiofft::AudioFFT::~AudioFFT()>
+			1aa: R_ARM_THM_CALL	audiofft::AudioFFT::~AudioFFT()
+ 1ae:	6b20      	ldr	r0, [r4, #48]	@ 0x30
+ 1b0:	62e5      	str	r5, [r4, #44]	@ 0x2c
+ 1b2:	b108      	cbz	r0, 1b8 <fftconvolver::FFTConvolver::~FFTConvolver()+0x7c>
+ 1b4:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			1b4: R_ARM_THM_CALL	operator delete[](void*)
+ 1b8:	6a20      	ldr	r0, [r4, #32]
+ 1ba:	b118      	cbz	r0, 1c4 <fftconvolver::FFTConvolver::~FFTConvolver()+0x88>
+ 1bc:	6aa1      	ldr	r1, [r4, #40]	@ 0x28
+ 1be:	1a09      	subs	r1, r1, r0
+ 1c0:	f7ff fffe 	bl	0 <operator delete(void*, unsigned int)>
+			1c0: R_ARM_THM_CALL	operator delete(void*, unsigned int)
+ 1c4:	6960      	ldr	r0, [r4, #20]
+ 1c6:	b118      	cbz	r0, 1d0 <fftconvolver::FFTConvolver::~FFTConvolver()+0x94>
+ 1c8:	69e1      	ldr	r1, [r4, #28]
+ 1ca:	1a09      	subs	r1, r1, r0
+ 1cc:	f7ff fffe 	bl	0 <operator delete(void*, unsigned int)>
+			1cc: R_ARM_THM_CALL	operator delete(void*, unsigned int)
+ 1d0:	4620      	mov	r0, r4
+ 1d2:	bd70      	pop	{r4, r5, r6, pc}
+ 1d4:	00000008 	.word	0x00000008
+			1d4: R_ARM_ABS32	.rodata
+ 1d8:	00000008 	.word	0x00000008
+			1d8: R_ARM_ABS32	vtable for fftconvolver::Buffer<float>
+
+000001dc <fftconvolver::FFTConvolver::~FFTConvolver()>:
+ 1dc:	b510      	push	{r4, lr}
+ 1de:	4604      	mov	r4, r0
+ 1e0:	f7ff fffe 	bl	13c <fftconvolver::FFTConvolver::~FFTConvolver()>
+			1e0: R_ARM_THM_CALL	fftconvolver::FFTConvolver::~FFTConvolver()
+ 1e4:	2194      	movs	r1, #148	@ 0x94
+ 1e6:	4620      	mov	r0, r4
+ 1e8:	f7ff fffe 	bl	0 <operator delete(void*, unsigned int)>
+			1e8: R_ARM_THM_CALL	operator delete(void*, unsigned int)
+ 1ec:	4620      	mov	r0, r4
+ 1ee:	bd10      	pop	{r4, pc}
+
+000001f0 <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)>:
+ 1f0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 1f4:	468e      	mov	lr, r1
+ 1f6:	68c1      	ldr	r1, [r0, #12]
+ 1f8:	b087      	sub	sp, #28
+ 1fa:	4694      	mov	ip, r2
+ 1fc:	469a      	mov	sl, r3
+ 1fe:	2900      	cmp	r1, #0
+ 200:	f000 80de 	beq.w	3c0 <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x1d0>
+ 204:	2b00      	cmp	r3, #0
+ 206:	f000 80a5 	beq.w	354 <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x164>
+ 20a:	f100 0338 	add.w	r3, r0, #56	@ 0x38
+ 20e:	4604      	mov	r4, r0
+ 210:	2700      	movs	r7, #0
+ 212:	9301      	str	r3, [sp, #4]
+ 214:	f100 033c 	add.w	r3, r0, #60	@ 0x3c
+ 218:	e9cd e203 	strd	lr, r2, [sp, #12]
+ 21c:	9305      	str	r3, [sp, #20]
+ 21e:	e003      	b.n	228 <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x38>
+ 220:	442f      	add	r7, r5
+ 222:	45ba      	cmp	sl, r7
+ 224:	f240 8096 	bls.w	354 <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x164>
+ 228:	f8d4 6090 	ldr.w	r6, [r4, #144]	@ 0x90
+ 22c:	ebaa 0307 	sub.w	r3, sl, r7
+ 230:	6865      	ldr	r5, [r4, #4]
+ 232:	ea4f 0b87 	mov.w	fp, r7, lsl #2
+ 236:	f8d4 0088 	ldr.w	r0, [r4, #136]	@ 0x88
+ 23a:	ea4f 0986 	mov.w	r9, r6, lsl #2
+ 23e:	1bad      	subs	r5, r5, r6
+ 240:	eb00 0086 	add.w	r0, r0, r6, lsl #2
+ 244:	429d      	cmp	r5, r3
+ 246:	bf28      	it	cs
+ 248:	461d      	movcs	r5, r3
+ 24a:	9b03      	ldr	r3, [sp, #12]
+ 24c:	00aa      	lsls	r2, r5, #2
+ 24e:	eb03 0187 	add.w	r1, r3, r7, lsl #2
+ 252:	f7ff fffe 	bl	0 <memcpy>
+			252: R_ARM_THM_CALL	memcpy
+ 256:	f8d4 1088 	ldr.w	r1, [r4, #136]	@ 0x88
+ 25a:	2900      	cmp	r1, #0
+ 25c:	f000 80bd 	beq.w	3da <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x1ea>
+ 260:	f8d4 308c 	ldr.w	r3, [r4, #140]	@ 0x8c
+ 264:	2b00      	cmp	r3, #0
+ 266:	f000 80b8 	beq.w	3da <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x1ea>
+ 26a:	f8d4 8004 	ldr.w	r8, [r4, #4]
+ 26e:	6b63      	ldr	r3, [r4, #52]	@ 0x34
+ 270:	4598      	cmp	r8, r3
+ 272:	f200 80b8 	bhi.w	3e6 <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x1f6>
+ 276:	ea4f 0388 	mov.w	r3, r8, lsl #2
+ 27a:	6b20      	ldr	r0, [r4, #48]	@ 0x30
+ 27c:	461a      	mov	r2, r3
+ 27e:	9302      	str	r3, [sp, #8]
+ 280:	f7ff fffe 	bl	0 <memcpy>
+			280: R_ARM_THM_CALL	memcpy
+ 284:	6b62      	ldr	r2, [r4, #52]	@ 0x34
+ 286:	9b02      	ldr	r3, [sp, #8]
+ 288:	2100      	movs	r1, #0
+ 28a:	6b20      	ldr	r0, [r4, #48]	@ 0x30
+ 28c:	eba2 0208 	sub.w	r2, r2, r8
+ 290:	4418      	add	r0, r3
+ 292:	0092      	lsls	r2, r2, #2
+ 294:	f7ff fffe 	bl	0 <memset>
+			294: R_ARM_THM_CALL	memset
+ 298:	6963      	ldr	r3, [r4, #20]
+ 29a:	f8d4 2080 	ldr.w	r2, [r4, #128]	@ 0x80
+ 29e:	6b21      	ldr	r1, [r4, #48]	@ 0x30
+ 2a0:	f853 2022 	ldr.w	r2, [r3, r2, lsl #2]
+ 2a4:	9801      	ldr	r0, [sp, #4]
+ 2a6:	6953      	ldr	r3, [r2, #20]
+ 2a8:	6892      	ldr	r2, [r2, #8]
+ 2aa:	f7ff fffe 	bl	0 <audiofft::AudioFFT::fft(float const*, float*, float*)>
+			2aa: R_ARM_THM_CALL	audiofft::AudioFFT::fft(float const*, float*, float*)
+ 2ae:	2e00      	cmp	r6, #0
+ 2b0:	d053      	beq.n	35a <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x16a>
+ 2b2:	6e62      	ldr	r2, [r4, #100]	@ 0x64
+ 2b4:	f104 0658 	add.w	r6, r4, #88	@ 0x58
+ 2b8:	6ca3      	ldr	r3, [r4, #72]	@ 0x48
+ 2ba:	429a      	cmp	r2, r3
+ 2bc:	f040 8087 	bne.w	3ce <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x1de>
+ 2c0:	0092      	lsls	r2, r2, #2
+ 2c2:	6c61      	ldr	r1, [r4, #68]	@ 0x44
+ 2c4:	6e20      	ldr	r0, [r4, #96]	@ 0x60
+ 2c6:	f7ff fffe 	bl	0 <memcpy>
+			2c6: R_ARM_THM_CALL	memcpy
+ 2ca:	6f22      	ldr	r2, [r4, #112]	@ 0x70
+ 2cc:	6d63      	ldr	r3, [r4, #84]	@ 0x54
+ 2ce:	429a      	cmp	r2, r3
+ 2d0:	d17d      	bne.n	3ce <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x1de>
+ 2d2:	0092      	lsls	r2, r2, #2
+ 2d4:	6d21      	ldr	r1, [r4, #80]	@ 0x50
+ 2d6:	6ee0      	ldr	r0, [r4, #108]	@ 0x6c
+ 2d8:	f7ff fffe 	bl	0 <memcpy>
+			2d8: R_ARM_THM_CALL	memcpy
+ 2dc:	6a23      	ldr	r3, [r4, #32]
+ 2de:	f8d4 1080 	ldr.w	r1, [r4, #128]	@ 0x80
+ 2e2:	4630      	mov	r0, r6
+ 2e4:	681a      	ldr	r2, [r3, #0]
+ 2e6:	6963      	ldr	r3, [r4, #20]
+ 2e8:	f853 1021 	ldr.w	r1, [r3, r1, lsl #2]
+ 2ec:	f7ff fffe 	bl	0 <fftconvolver::ComplexMultiplyAccumulate(fftconvolver::SplitComplex&, fftconvolver::SplitComplex const&, fftconvolver::SplitComplex const&)>
+			2ec: R_ARM_THM_CALL	fftconvolver::ComplexMultiplyAccumulate(fftconvolver::SplitComplex&, fftconvolver::SplitComplex const&, fftconvolver::SplitComplex const&)
+ 2f0:	6ee3      	ldr	r3, [r4, #108]	@ 0x6c
+ 2f2:	6e22      	ldr	r2, [r4, #96]	@ 0x60
+ 2f4:	6b21      	ldr	r1, [r4, #48]	@ 0x30
+ 2f6:	9801      	ldr	r0, [sp, #4]
+ 2f8:	f7ff fffe 	bl	0 <audiofft::AudioFFT::ifft(float*, float const*, float const*)>
+			2f8: R_ARM_THM_CALL	audiofft::AudioFFT::ifft(float*, float const*, float const*)
+ 2fc:	9b04      	ldr	r3, [sp, #16]
+ 2fe:	6fa2      	ldr	r2, [r4, #120]	@ 0x78
+ 300:	6b21      	ldr	r1, [r4, #48]	@ 0x30
+ 302:	eb03 000b 	add.w	r0, r3, fp
+ 306:	444a      	add	r2, r9
+ 308:	462b      	mov	r3, r5
+ 30a:	4449      	add	r1, r9
+ 30c:	f7ff fffe 	bl	0 <fftconvolver::Sum(float*, float const*, float const*, unsigned int)>
+			30c: R_ARM_THM_CALL	fftconvolver::Sum(float*, float const*, float const*, unsigned int)
+ 310:	f8d4 3090 	ldr.w	r3, [r4, #144]	@ 0x90
+ 314:	6861      	ldr	r1, [r4, #4]
+ 316:	442b      	add	r3, r5
+ 318:	428b      	cmp	r3, r1
+ 31a:	f8c4 3090 	str.w	r3, [r4, #144]	@ 0x90
+ 31e:	f47f af7f 	bne.w	220 <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x30>
+ 322:	f8d4 208c 	ldr.w	r2, [r4, #140]	@ 0x8c
+ 326:	2a00      	cmp	r2, #0
+ 328:	d136      	bne.n	398 <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x1a8>
+ 32a:	6b23      	ldr	r3, [r4, #48]	@ 0x30
+ 32c:	2000      	movs	r0, #0
+ 32e:	008a      	lsls	r2, r1, #2
+ 330:	f8c4 0090 	str.w	r0, [r4, #144]	@ 0x90
+ 334:	eb03 0181 	add.w	r1, r3, r1, lsl #2
+ 338:	6fa0      	ldr	r0, [r4, #120]	@ 0x78
+ 33a:	f7ff fffe 	bl	0 <memcpy>
+			33a: R_ARM_THM_CALL	memcpy
+ 33e:	f8d4 3080 	ldr.w	r3, [r4, #128]	@ 0x80
+ 342:	b903      	cbnz	r3, 346 <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x156>
+ 344:	68e3      	ldr	r3, [r4, #12]
+ 346:	442f      	add	r7, r5
+ 348:	3b01      	subs	r3, #1
+ 34a:	45ba      	cmp	sl, r7
+ 34c:	f8c4 3080 	str.w	r3, [r4, #128]	@ 0x80
+ 350:	f63f af6a 	bhi.w	228 <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x38>
+ 354:	b007      	add	sp, #28
+ 356:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 35a:	6ca2      	ldr	r2, [r4, #72]	@ 0x48
+ 35c:	bb52      	cbnz	r2, 3b4 <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x1c4>
+ 35e:	6d62      	ldr	r2, [r4, #84]	@ 0x54
+ 360:	bb12      	cbnz	r2, 3a8 <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x1b8>
+ 362:	68e3      	ldr	r3, [r4, #12]
+ 364:	2b01      	cmp	r3, #1
+ 366:	d9a4      	bls.n	2b2 <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0xc2>
+ 368:	2601      	movs	r6, #1
+ 36a:	f8dd 8014 	ldr.w	r8, [sp, #20]
+ 36e:	f8d4 2080 	ldr.w	r2, [r4, #128]	@ 0x80
+ 372:	6960      	ldr	r0, [r4, #20]
+ 374:	4432      	add	r2, r6
+ 376:	6a21      	ldr	r1, [r4, #32]
+ 378:	fbb2 fcf3 	udiv	ip, r2, r3
+ 37c:	fb03 221c 	mls	r2, r3, ip, r2
+ 380:	f851 1026 	ldr.w	r1, [r1, r6, lsl #2]
+ 384:	3601      	adds	r6, #1
+ 386:	f850 2022 	ldr.w	r2, [r0, r2, lsl #2]
+ 38a:	4640      	mov	r0, r8
+ 38c:	f7ff fffe 	bl	0 <fftconvolver::ComplexMultiplyAccumulate(fftconvolver::SplitComplex&, fftconvolver::SplitComplex const&, fftconvolver::SplitComplex const&)>
+			38c: R_ARM_THM_CALL	fftconvolver::ComplexMultiplyAccumulate(fftconvolver::SplitComplex&, fftconvolver::SplitComplex const&, fftconvolver::SplitComplex const&)
+ 390:	68e3      	ldr	r3, [r4, #12]
+ 392:	42b3      	cmp	r3, r6
+ 394:	d8eb      	bhi.n	36e <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x17e>
+ 396:	e78c      	b.n	2b2 <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0xc2>
+ 398:	2100      	movs	r1, #0
+ 39a:	0092      	lsls	r2, r2, #2
+ 39c:	f8d4 0088 	ldr.w	r0, [r4, #136]	@ 0x88
+ 3a0:	f7ff fffe 	bl	0 <memset>
+			3a0: R_ARM_THM_CALL	memset
+ 3a4:	6861      	ldr	r1, [r4, #4]
+ 3a6:	e7c0      	b.n	32a <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x13a>
+ 3a8:	0092      	lsls	r2, r2, #2
+ 3aa:	2100      	movs	r1, #0
+ 3ac:	6d20      	ldr	r0, [r4, #80]	@ 0x50
+ 3ae:	f7ff fffe 	bl	0 <memset>
+			3ae: R_ARM_THM_CALL	memset
+ 3b2:	e7d6      	b.n	362 <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x172>
+ 3b4:	0092      	lsls	r2, r2, #2
+ 3b6:	4631      	mov	r1, r6
+ 3b8:	6c60      	ldr	r0, [r4, #68]	@ 0x44
+ 3ba:	f7ff fffe 	bl	0 <memset>
+			3ba: R_ARM_THM_CALL	memset
+ 3be:	e7ce      	b.n	35e <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x16e>
+ 3c0:	009a      	lsls	r2, r3, #2
+ 3c2:	4660      	mov	r0, ip
+ 3c4:	b007      	add	sp, #28
+ 3c6:	e8bd 4ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 3ca:	f7ff bffe 	b.w	0 <memset>
+			3ca: R_ARM_THM_JUMP24	memset
+ 3ce:	4b09      	ldr	r3, [pc, #36]	@ (3f4 <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x204>)
+ 3d0:	2174      	movs	r1, #116	@ 0x74
+ 3d2:	4a09      	ldr	r2, [pc, #36]	@ (3f8 <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x208>)
+ 3d4:	4809      	ldr	r0, [pc, #36]	@ (3fc <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x20c>)
+ 3d6:	f7ff fffe 	bl	0 <__assert_func>
+			3d6: R_ARM_THM_CALL	__assert_func
+ 3da:	4b09      	ldr	r3, [pc, #36]	@ (400 <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x210>)
+ 3dc:	217d      	movs	r1, #125	@ 0x7d
+ 3de:	4a09      	ldr	r2, [pc, #36]	@ (404 <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x214>)
+ 3e0:	4806      	ldr	r0, [pc, #24]	@ (3fc <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x20c>)
+ 3e2:	f7ff fffe 	bl	0 <__assert_func>
+			3e2: R_ARM_THM_CALL	__assert_func
+ 3e6:	4b08      	ldr	r3, [pc, #32]	@ (408 <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x218>)
+ 3e8:	f240 1141 	movw	r1, #321	@ 0x141
+ 3ec:	4a07      	ldr	r2, [pc, #28]	@ (40c <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x21c>)
+ 3ee:	4803      	ldr	r0, [pc, #12]	@ (3fc <fftconvolver::FFTConvolver::process(float const*, float*, unsigned int)+0x20c>)
+ 3f0:	f7ff fffe 	bl	0 <__assert_func>
+			3f0: R_ARM_THM_CALL	__assert_func
+ 3f4:	000001b0 	.word	0x000001b0
+			3f4: R_ARM_ABS32	.rodata.str1.4
+ 3f8:	000001c8 	.word	0x000001c8
+			3f8: R_ARM_ABS32	.rodata.str1.4
+ 3fc:	00000070 	.word	0x00000070
+			3fc: R_ARM_ABS32	.rodata.str1.4
+ 400:	000000c4 	.word	0x000000c4
+			400: R_ARM_ABS32	.rodata.str1.4
+ 404:	000000dc 	.word	0x000000dc
+			404: R_ARM_ABS32	.rodata.str1.4
+ 408:	00000134 	.word	0x00000134
+			408: R_ARM_ABS32	.rodata.str1.4
+ 40c:	0000014c 	.word	0x0000014c
+			40c: R_ARM_ABS32	.rodata.str1.4
+
+00000410 <fftconvolver::FFTConvolver::FFTConvolver()>:
+ 410:	b538      	push	{r3, r4, r5, lr}
+ 412:	4a1f      	ldr	r2, [pc, #124]	@ (490 <fftconvolver::FFTConvolver::FFTConvolver()+0x80>)
+ 414:	4604      	mov	r4, r0
+ 416:	2300      	movs	r3, #0
+ 418:	4d1e      	ldr	r5, [pc, #120]	@ (494 <fftconvolver::FFTConvolver::FFTConvolver()+0x84>)
+ 41a:	3038      	adds	r0, #56	@ 0x38
+ 41c:	e9c4 2300 	strd	r2, r3, [r4]
+ 420:	e9c4 3302 	strd	r3, r3, [r4, #8]
+ 424:	e9c4 3304 	strd	r3, r3, [r4, #16]
+ 428:	e9c4 3306 	strd	r3, r3, [r4, #24]
+ 42c:	e9c4 3308 	strd	r3, r3, [r4, #32]
+ 430:	e9c4 350a 	strd	r3, r5, [r4, #40]	@ 0x28
+ 434:	e9c4 330c 	strd	r3, r3, [r4, #48]	@ 0x30
+ 438:	f7ff fffe 	bl	0 <audiofft::AudioFFT::AudioFFT()>
+			438: R_ARM_THM_CALL	audiofft::AudioFFT::AudioFFT()
+ 43c:	2300      	movs	r3, #0
+ 43e:	4620      	mov	r0, r4
+ 440:	6425      	str	r5, [r4, #64]	@ 0x40
+ 442:	64e5      	str	r5, [r4, #76]	@ 0x4c
+ 444:	65e5      	str	r5, [r4, #92]	@ 0x5c
+ 446:	63e3      	str	r3, [r4, #60]	@ 0x3c
+ 448:	65a3      	str	r3, [r4, #88]	@ 0x58
+ 44a:	f8c4 3090 	str.w	r3, [r4, #144]	@ 0x90
+ 44e:	e9c4 3311 	strd	r3, r3, [r4, #68]	@ 0x44
+ 452:	e9c4 3314 	strd	r3, r3, [r4, #80]	@ 0x50
+ 456:	e9c4 3318 	strd	r3, r3, [r4, #96]	@ 0x60
+ 45a:	e9c4 531a 	strd	r5, r3, [r4, #104]	@ 0x68
+ 45e:	e9c4 351c 	strd	r3, r5, [r4, #112]	@ 0x70
+ 462:	e9c4 331e 	strd	r3, r3, [r4, #120]	@ 0x78
+ 466:	e9c4 3520 	strd	r3, r5, [r4, #128]	@ 0x80
+ 46a:	e9c4 3322 	strd	r3, r3, [r4, #136]	@ 0x88
+ 46e:	bd38      	pop	{r3, r4, r5, pc}
+ 470:	4620      	mov	r0, r4
+ 472:	f840 5f2c 	str.w	r5, [r0, #44]!
+ 476:	f7ff fffe 	bl	0 <fftconvolver::Buffer<float>::resize(unsigned int) [clone .part.0]>
+			476: R_ARM_THM_CALL	fftconvolver::Buffer<float>::clear()
+ 47a:	f104 0020 	add.w	r0, r4, #32
+ 47e:	f7ff fffe 	bl	0 <fftconvolver::Buffer<float>::resize(unsigned int) [clone .part.0]>
+			47e: R_ARM_THM_CALL	std::_Vector_base<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::~_Vector_base()
+ 482:	f104 0014 	add.w	r0, r4, #20
+ 486:	f7ff fffe 	bl	0 <fftconvolver::Buffer<float>::resize(unsigned int) [clone .part.0]>
+			486: R_ARM_THM_CALL	std::_Vector_base<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::~_Vector_base()
+ 48a:	f7ff fffe 	bl	0 <__cxa_end_cleanup>
+			48a: R_ARM_THM_CALL	__cxa_end_cleanup
+ 48e:	bf00      	nop
+ 490:	00000008 	.word	0x00000008
+			490: R_ARM_ABS32	.rodata
+ 494:	00000008 	.word	0x00000008
+			494: R_ARM_ABS32	vtable for fftconvolver::Buffer<float>
+
+00000498 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)>:
+ 498:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 49c:	460d      	mov	r5, r1
+ 49e:	b085      	sub	sp, #20
+ 4a0:	4604      	mov	r4, r0
+ 4a2:	4617      	mov	r7, r2
+ 4a4:	461e      	mov	r6, r3
+ 4a6:	9200      	str	r2, [sp, #0]
+ 4a8:	f7ff fffe 	bl	1c <fftconvolver::FFTConvolver::reset()>
+			4a8: R_ARM_THM_CALL	fftconvolver::FFTConvolver::reset()
+ 4ac:	2d00      	cmp	r5, #0
+ 4ae:	f000 81e7 	beq.w	880 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x3e8>
+ 4b2:	2e00      	cmp	r6, #0
+ 4b4:	f000 81c6 	beq.w	844 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x3ac>
+ 4b8:	eb07 0386 	add.w	r3, r7, r6, lsl #2
+ 4bc:	ed9f 7a50 	vldr	s14, [pc, #320]	@ 600 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x168>
+ 4c0:	e002      	b.n	4c8 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x30>
+ 4c2:	3e01      	subs	r6, #1
+ 4c4:	f000 81be 	beq.w	844 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x3ac>
+ 4c8:	ed73 7a01 	vldmdb	r3!, {s15}
+ 4cc:	eef0 7ae7 	vabs.f32	s15, s15
+ 4d0:	eef4 7ac7 	vcmpe.f32	s15, s14
+ 4d4:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+ 4d8:	d4f3      	bmi.n	4c2 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x2a>
+ 4da:	2d01      	cmp	r5, #1
+ 4dc:	f000 81ef 	beq.w	8be <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x426>
+ 4e0:	2301      	movs	r3, #1
+ 4e2:	4618      	mov	r0, r3
+ 4e4:	005b      	lsls	r3, r3, #1
+ 4e6:	42ab      	cmp	r3, r5
+ 4e8:	d3fb      	bcc.n	4e2 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x4a>
+ 4ea:	ee07 3a90 	vmov	s15, r3
+ 4ee:	0080      	lsls	r0, r0, #2
+ 4f0:	eef8 6a67 	vcvt.f32.u32	s13, s15
+ 4f4:	ee07 6a90 	vmov	s15, r6
+ 4f8:	eef8 7a67 	vcvt.f32.u32	s15, s15
+ 4fc:	e9c4 3001 	strd	r3, r0, [r4, #4]
+ 500:	ee87 7aa6 	vdiv.f32	s14, s15, s13
+ 504:	eeb7 7ac7 	vcvt.f64.f32	d7, s14
+ 508:	feba 7b47 	vrintp.f64	d7, d7
+ 50c:	eebc 7bc7 	vcvt.u32.f64	s14, d7
+ 510:	ed84 7a03 	vstr	s14, [r4, #12]
+ 514:	f7ff fffe 	bl	0 <audiofft::AudioFFT::ComplexSize(unsigned int)>
+			514: R_ARM_THM_CALL	audiofft::AudioFFT::ComplexSize(unsigned int)
+ 518:	f104 0338 	add.w	r3, r4, #56	@ 0x38
+ 51c:	6120      	str	r0, [r4, #16]
+ 51e:	68a1      	ldr	r1, [r4, #8]
+ 520:	4618      	mov	r0, r3
+ 522:	9301      	str	r3, [sp, #4]
+ 524:	f7ff fffe 	bl	0 <audiofft::AudioFFT::init(unsigned int)>
+			524: R_ARM_THM_CALL	audiofft::AudioFFT::init(unsigned int)
+ 528:	68a5      	ldr	r5, [r4, #8]
+ 52a:	6b63      	ldr	r3, [r4, #52]	@ 0x34
+ 52c:	429d      	cmp	r5, r3
+ 52e:	f000 81c0 	beq.w	8b2 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x41a>
+ 532:	6b20      	ldr	r0, [r4, #48]	@ 0x30
+ 534:	b108      	cbz	r0, 53a <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0xa2>
+ 536:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			536: R_ARM_THM_CALL	operator delete[](void*)
+ 53a:	2300      	movs	r3, #0
+ 53c:	e9c4 330c 	strd	r3, r3, [r4, #48]	@ 0x30
+ 540:	2d00      	cmp	r5, #0
+ 542:	f040 81a1 	bne.w	888 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x3f0>
+ 546:	68e3      	ldr	r3, [r4, #12]
+ 548:	2b00      	cmp	r3, #0
+ 54a:	f000 80cd 	beq.w	6e8 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x250>
+ 54e:	f04f 0900 	mov.w	r9, #0
+ 552:	f8df 80b0 	ldr.w	r8, [pc, #176]	@ 604 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x16c>
+ 556:	464f      	mov	r7, r9
+ 558:	e007      	b.n	56a <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0xd2>
+ 55a:	f109 0901 	add.w	r9, r9, #1
+ 55e:	68e3      	ldr	r3, [r4, #12]
+ 560:	f842 5b04 	str.w	r5, [r2], #4
+ 564:	454b      	cmp	r3, r9
+ 566:	61a2      	str	r2, [r4, #24]
+ 568:	d943      	bls.n	5f2 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x15a>
+ 56a:	201c      	movs	r0, #28
+ 56c:	f7ff fffe 	bl	0 <operator new(unsigned int)>
+			56c: R_ARM_THM_CALL	operator new(unsigned int)
+ 570:	f8d4 b010 	ldr.w	fp, [r4, #16]
+ 574:	4605      	mov	r5, r0
+ 576:	6187      	str	r7, [r0, #24]
+ 578:	e9c0 7800 	strd	r7, r8, [r0]
+ 57c:	e9c0 7702 	strd	r7, r7, [r0, #8]
+ 580:	e9c0 8704 	strd	r8, r7, [r0, #16]
+ 584:	f1bb 0f00 	cmp.w	fp, #0
+ 588:	d022      	beq.n	5d0 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x138>
+ 58a:	f06f 4360 	mvn.w	r3, #3758096384	@ 0xe0000000
+ 58e:	459b      	cmp	fp, r3
+ 590:	f080 81c1 	bcs.w	916 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x47e>
+ 594:	ea4f 0a8b 	mov.w	sl, fp, lsl #2
+ 598:	4650      	mov	r0, sl
+ 59a:	f7ff fffe 	bl	0 <operator new[](unsigned int)>
+			59a: R_ARM_THM_CALL	operator new[](unsigned int)
+ 59e:	4652      	mov	r2, sl
+ 5a0:	2100      	movs	r1, #0
+ 5a2:	e9c5 0b02 	strd	r0, fp, [r5, #8]
+ 5a6:	f7ff fffe 	bl	0 <memset>
+			5a6: R_ARM_THM_CALL	memset
+ 5aa:	69aa      	ldr	r2, [r5, #24]
+ 5ac:	4593      	cmp	fp, r2
+ 5ae:	f000 8194 	beq.w	8da <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x442>
+ 5b2:	6968      	ldr	r0, [r5, #20]
+ 5b4:	b108      	cbz	r0, 5ba <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x122>
+ 5b6:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			5b6: R_ARM_THM_CALL	operator delete[](void*)
+ 5ba:	4650      	mov	r0, sl
+ 5bc:	e9c5 7705 	strd	r7, r7, [r5, #20]
+ 5c0:	f7ff fffe 	bl	0 <operator new[](unsigned int)>
+			5c0: R_ARM_THM_CALL	operator new[](unsigned int)
+ 5c4:	e9c5 0b05 	strd	r0, fp, [r5, #20]
+ 5c8:	4652      	mov	r2, sl
+ 5ca:	2100      	movs	r1, #0
+ 5cc:	f7ff fffe 	bl	0 <memset>
+			5cc: R_ARM_THM_CALL	memset
+ 5d0:	69a2      	ldr	r2, [r4, #24]
+ 5d2:	69e3      	ldr	r3, [r4, #28]
+ 5d4:	f8c5 b000 	str.w	fp, [r5]
+ 5d8:	429a      	cmp	r2, r3
+ 5da:	9503      	str	r5, [sp, #12]
+ 5dc:	d1bd      	bne.n	55a <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0xc2>
+ 5de:	a903      	add	r1, sp, #12
+ 5e0:	f104 0014 	add.w	r0, r4, #20
+ 5e4:	f7ff fffe 	bl	0 <fftconvolver::Buffer<float>::resize(unsigned int) [clone .part.0]>
+			5e4: R_ARM_THM_CALL	void std::vector<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::_M_realloc_append<fftconvolver::SplitComplex*>(fftconvolver::SplitComplex*&&)
+ 5e8:	f109 0901 	add.w	r9, r9, #1
+ 5ec:	68e3      	ldr	r3, [r4, #12]
+ 5ee:	454b      	cmp	r3, r9
+ 5f0:	d8bb      	bhi.n	56a <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0xd2>
+ 5f2:	2b00      	cmp	r3, #0
+ 5f4:	d078      	beq.n	6e8 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x250>
+ 5f6:	f04f 0a00 	mov.w	sl, #0
+ 5fa:	4657      	mov	r7, sl
+ 5fc:	e00c      	b.n	618 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x180>
+ 5fe:	bf00      	nop
+ 600:	358637bd 	.word	0x358637bd
+ 604:	00000008 	.word	0x00000008
+			604: R_ARM_ABS32	vtable for fftconvolver::Buffer<float>
+ 608:	f843 5b04 	str.w	r5, [r3], #4
+ 60c:	f10a 0a01 	add.w	sl, sl, #1
+ 610:	6263      	str	r3, [r4, #36]	@ 0x24
+ 612:	68e3      	ldr	r3, [r4, #12]
+ 614:	4553      	cmp	r3, sl
+ 616:	d967      	bls.n	6e8 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x250>
+ 618:	201c      	movs	r0, #28
+ 61a:	f7ff fffe 	bl	0 <operator new(unsigned int)>
+			61a: R_ARM_THM_CALL	operator new(unsigned int)
+ 61e:	f8d4 b010 	ldr.w	fp, [r4, #16]
+ 622:	4605      	mov	r5, r0
+ 624:	6187      	str	r7, [r0, #24]
+ 626:	e9c0 7800 	strd	r7, r8, [r0]
+ 62a:	e9c0 7702 	strd	r7, r7, [r0, #8]
+ 62e:	e9c0 8704 	strd	r8, r7, [r0, #16]
+ 632:	f1bb 0f00 	cmp.w	fp, #0
+ 636:	d022      	beq.n	67e <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x1e6>
+ 638:	f06f 4360 	mvn.w	r3, #3758096384	@ 0xe0000000
+ 63c:	459b      	cmp	fp, r3
+ 63e:	f080 816d 	bcs.w	91c <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x484>
+ 642:	ea4f 098b 	mov.w	r9, fp, lsl #2
+ 646:	4648      	mov	r0, r9
+ 648:	f7ff fffe 	bl	0 <operator new[](unsigned int)>
+			648: R_ARM_THM_CALL	operator new[](unsigned int)
+ 64c:	464a      	mov	r2, r9
+ 64e:	2100      	movs	r1, #0
+ 650:	e9c5 0b02 	strd	r0, fp, [r5, #8]
+ 654:	f7ff fffe 	bl	0 <memset>
+			654: R_ARM_THM_CALL	memset
+ 658:	69ab      	ldr	r3, [r5, #24]
+ 65a:	459b      	cmp	fp, r3
+ 65c:	f000 813b 	beq.w	8d6 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x43e>
+ 660:	6968      	ldr	r0, [r5, #20]
+ 662:	b108      	cbz	r0, 668 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x1d0>
+ 664:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			664: R_ARM_THM_CALL	operator delete[](void*)
+ 668:	4648      	mov	r0, r9
+ 66a:	e9c5 7705 	strd	r7, r7, [r5, #20]
+ 66e:	f7ff fffe 	bl	0 <operator new[](unsigned int)>
+			66e: R_ARM_THM_CALL	operator new[](unsigned int)
+ 672:	e9c5 0b05 	strd	r0, fp, [r5, #20]
+ 676:	464a      	mov	r2, r9
+ 678:	2100      	movs	r1, #0
+ 67a:	f7ff fffe 	bl	0 <memset>
+			67a: R_ARM_THM_CALL	memset
+ 67e:	6862      	ldr	r2, [r4, #4]
+ 680:	6b63      	ldr	r3, [r4, #52]	@ 0x34
+ 682:	fb0a f102 	mul.w	r1, sl, r2
+ 686:	f8c5 b000 	str.w	fp, [r5]
+ 68a:	eba6 0901 	sub.w	r9, r6, r1
+ 68e:	9503      	str	r5, [sp, #12]
+ 690:	4591      	cmp	r9, r2
+ 692:	bf28      	it	cs
+ 694:	4691      	movcs	r9, r2
+ 696:	9a00      	ldr	r2, [sp, #0]
+ 698:	4599      	cmp	r9, r3
+ 69a:	eb02 0181 	add.w	r1, r2, r1, lsl #2
+ 69e:	f200 8113 	bhi.w	8c8 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x430>
+ 6a2:	ea4f 0b89 	mov.w	fp, r9, lsl #2
+ 6a6:	6b20      	ldr	r0, [r4, #48]	@ 0x30
+ 6a8:	465a      	mov	r2, fp
+ 6aa:	f7ff fffe 	bl	0 <memcpy>
+			6aa: R_ARM_THM_CALL	memcpy
+ 6ae:	6b62      	ldr	r2, [r4, #52]	@ 0x34
+ 6b0:	6b20      	ldr	r0, [r4, #48]	@ 0x30
+ 6b2:	2100      	movs	r1, #0
+ 6b4:	eba2 0209 	sub.w	r2, r2, r9
+ 6b8:	4458      	add	r0, fp
+ 6ba:	0092      	lsls	r2, r2, #2
+ 6bc:	f7ff fffe 	bl	0 <memset>
+			6bc: R_ARM_THM_CALL	memset
+ 6c0:	696b      	ldr	r3, [r5, #20]
+ 6c2:	68aa      	ldr	r2, [r5, #8]
+ 6c4:	6b21      	ldr	r1, [r4, #48]	@ 0x30
+ 6c6:	9801      	ldr	r0, [sp, #4]
+ 6c8:	f7ff fffe 	bl	0 <audiofft::AudioFFT::fft(float const*, float*, float*)>
+			6c8: R_ARM_THM_CALL	audiofft::AudioFFT::fft(float const*, float*, float*)
+ 6cc:	e9d4 3209 	ldrd	r3, r2, [r4, #36]	@ 0x24
+ 6d0:	4293      	cmp	r3, r2
+ 6d2:	d199      	bne.n	608 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x170>
+ 6d4:	a903      	add	r1, sp, #12
+ 6d6:	f104 0020 	add.w	r0, r4, #32
+ 6da:	f7ff fffe 	bl	0 <fftconvolver::Buffer<float>::resize(unsigned int) [clone .part.0]>
+			6da: R_ARM_THM_CALL	void std::vector<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::_M_realloc_append<fftconvolver::SplitComplex* const&>(fftconvolver::SplitComplex* const&)
+ 6de:	f10a 0a01 	add.w	sl, sl, #1
+ 6e2:	68e3      	ldr	r3, [r4, #12]
+ 6e4:	4553      	cmp	r3, sl
+ 6e6:	d897      	bhi.n	618 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x180>
+ 6e8:	6925      	ldr	r5, [r4, #16]
+ 6ea:	6ca3      	ldr	r3, [r4, #72]	@ 0x48
+ 6ec:	429d      	cmp	r5, r3
+ 6ee:	f000 80ad 	beq.w	84c <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x3b4>
+ 6f2:	6c60      	ldr	r0, [r4, #68]	@ 0x44
+ 6f4:	b108      	cbz	r0, 6fa <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x262>
+ 6f6:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			6f6: R_ARM_THM_CALL	operator delete[](void*)
+ 6fa:	2300      	movs	r3, #0
+ 6fc:	e9c4 3311 	strd	r3, r3, [r4, #68]	@ 0x44
+ 700:	2d00      	cmp	r5, #0
+ 702:	f000 80a5 	beq.w	850 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x3b8>
+ 706:	f06f 4360 	mvn.w	r3, #3758096384	@ 0xe0000000
+ 70a:	429d      	cmp	r5, r3
+ 70c:	f080 8101 	bcs.w	912 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x47a>
+ 710:	00ae      	lsls	r6, r5, #2
+ 712:	4630      	mov	r0, r6
+ 714:	f7ff fffe 	bl	0 <operator new[](unsigned int)>
+			714: R_ARM_THM_CALL	operator new[](unsigned int)
+ 718:	e9c4 0511 	strd	r0, r5, [r4, #68]	@ 0x44
+ 71c:	4632      	mov	r2, r6
+ 71e:	2100      	movs	r1, #0
+ 720:	f7ff fffe 	bl	0 <memset>
+			720: R_ARM_THM_CALL	memset
+ 724:	6d63      	ldr	r3, [r4, #84]	@ 0x54
+ 726:	429d      	cmp	r5, r3
+ 728:	f000 80dc 	beq.w	8e4 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x44c>
+ 72c:	6d20      	ldr	r0, [r4, #80]	@ 0x50
+ 72e:	b108      	cbz	r0, 734 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x29c>
+ 730:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			730: R_ARM_THM_CALL	operator delete[](void*)
+ 734:	2300      	movs	r3, #0
+ 736:	e9c4 3314 	strd	r3, r3, [r4, #80]	@ 0x50
+ 73a:	b175      	cbz	r5, 75a <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x2c2>
+ 73c:	f06f 4360 	mvn.w	r3, #3758096384	@ 0xe0000000
+ 740:	429d      	cmp	r5, r3
+ 742:	f080 80e6 	bcs.w	912 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x47a>
+ 746:	00ae      	lsls	r6, r5, #2
+ 748:	4630      	mov	r0, r6
+ 74a:	f7ff fffe 	bl	0 <operator new[](unsigned int)>
+			74a: R_ARM_THM_CALL	operator new[](unsigned int)
+ 74e:	e9c4 0514 	strd	r0, r5, [r4, #80]	@ 0x50
+ 752:	4632      	mov	r2, r6
+ 754:	2100      	movs	r1, #0
+ 756:	f7ff fffe 	bl	0 <memset>
+			756: R_ARM_THM_CALL	memset
+ 75a:	6926      	ldr	r6, [r4, #16]
+ 75c:	6e63      	ldr	r3, [r4, #100]	@ 0x64
+ 75e:	63e5      	str	r5, [r4, #60]	@ 0x3c
+ 760:	429e      	cmp	r6, r3
+ 762:	d07e      	beq.n	862 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x3ca>
+ 764:	6e20      	ldr	r0, [r4, #96]	@ 0x60
+ 766:	b108      	cbz	r0, 76c <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x2d4>
+ 768:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			768: R_ARM_THM_CALL	operator delete[](void*)
+ 76c:	2300      	movs	r3, #0
+ 76e:	e9c4 3318 	strd	r3, r3, [r4, #96]	@ 0x60
+ 772:	2e00      	cmp	r6, #0
+ 774:	d077      	beq.n	866 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x3ce>
+ 776:	f06f 4360 	mvn.w	r3, #3758096384	@ 0xe0000000
+ 77a:	429e      	cmp	r6, r3
+ 77c:	f080 80c9 	bcs.w	912 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x47a>
+ 780:	00b5      	lsls	r5, r6, #2
+ 782:	4628      	mov	r0, r5
+ 784:	f7ff fffe 	bl	0 <operator new[](unsigned int)>
+			784: R_ARM_THM_CALL	operator new[](unsigned int)
+ 788:	e9c4 0618 	strd	r0, r6, [r4, #96]	@ 0x60
+ 78c:	462a      	mov	r2, r5
+ 78e:	2100      	movs	r1, #0
+ 790:	f7ff fffe 	bl	0 <memset>
+			790: R_ARM_THM_CALL	memset
+ 794:	6f23      	ldr	r3, [r4, #112]	@ 0x70
+ 796:	429e      	cmp	r6, r3
+ 798:	f000 80a6 	beq.w	8e8 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x450>
+ 79c:	6ee0      	ldr	r0, [r4, #108]	@ 0x6c
+ 79e:	b108      	cbz	r0, 7a4 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x30c>
+ 7a0:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			7a0: R_ARM_THM_CALL	operator delete[](void*)
+ 7a4:	2300      	movs	r3, #0
+ 7a6:	e9c4 331b 	strd	r3, r3, [r4, #108]	@ 0x6c
+ 7aa:	b176      	cbz	r6, 7ca <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x332>
+ 7ac:	f06f 4360 	mvn.w	r3, #3758096384	@ 0xe0000000
+ 7b0:	429e      	cmp	r6, r3
+ 7b2:	f080 80ae 	bcs.w	912 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x47a>
+ 7b6:	00b5      	lsls	r5, r6, #2
+ 7b8:	4628      	mov	r0, r5
+ 7ba:	f7ff fffe 	bl	0 <operator new[](unsigned int)>
+			7ba: R_ARM_THM_CALL	operator new[](unsigned int)
+ 7be:	e9c4 061b 	strd	r0, r6, [r4, #108]	@ 0x6c
+ 7c2:	462a      	mov	r2, r5
+ 7c4:	2100      	movs	r1, #0
+ 7c6:	f7ff fffe 	bl	0 <memset>
+			7c6: R_ARM_THM_CALL	memset
+ 7ca:	6865      	ldr	r5, [r4, #4]
+ 7cc:	6fe3      	ldr	r3, [r4, #124]	@ 0x7c
+ 7ce:	65a6      	str	r6, [r4, #88]	@ 0x58
+ 7d0:	429d      	cmp	r5, r3
+ 7d2:	d050      	beq.n	876 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x3de>
+ 7d4:	6fa0      	ldr	r0, [r4, #120]	@ 0x78
+ 7d6:	b108      	cbz	r0, 7dc <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x344>
+ 7d8:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			7d8: R_ARM_THM_CALL	operator delete[](void*)
+ 7dc:	2300      	movs	r3, #0
+ 7de:	e9c4 331e 	strd	r3, r3, [r4, #120]	@ 0x78
+ 7e2:	b175      	cbz	r5, 802 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x36a>
+ 7e4:	f06f 4360 	mvn.w	r3, #3758096384	@ 0xe0000000
+ 7e8:	429d      	cmp	r5, r3
+ 7ea:	f080 8092 	bcs.w	912 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x47a>
+ 7ee:	00ae      	lsls	r6, r5, #2
+ 7f0:	4630      	mov	r0, r6
+ 7f2:	f7ff fffe 	bl	0 <operator new[](unsigned int)>
+			7f2: R_ARM_THM_CALL	operator new[](unsigned int)
+ 7f6:	e9c4 051e 	strd	r0, r5, [r4, #120]	@ 0x78
+ 7fa:	4632      	mov	r2, r6
+ 7fc:	2100      	movs	r1, #0
+ 7fe:	f7ff fffe 	bl	0 <memset>
+			7fe: R_ARM_THM_CALL	memset
+ 802:	6865      	ldr	r5, [r4, #4]
+ 804:	f8d4 308c 	ldr.w	r3, [r4, #140]	@ 0x8c
+ 808:	429d      	cmp	r5, r3
+ 80a:	d04c      	beq.n	8a6 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x40e>
+ 80c:	f8d4 0088 	ldr.w	r0, [r4, #136]	@ 0x88
+ 810:	b108      	cbz	r0, 816 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x37e>
+ 812:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			812: R_ARM_THM_CALL	operator delete[](void*)
+ 816:	2300      	movs	r3, #0
+ 818:	e9c4 3322 	strd	r3, r3, [r4, #136]	@ 0x88
+ 81c:	b16d      	cbz	r5, 83a <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x3a2>
+ 81e:	f06f 4360 	mvn.w	r3, #3758096384	@ 0xe0000000
+ 822:	429d      	cmp	r5, r3
+ 824:	d275      	bcs.n	912 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x47a>
+ 826:	00ae      	lsls	r6, r5, #2
+ 828:	4630      	mov	r0, r6
+ 82a:	f7ff fffe 	bl	0 <operator new[](unsigned int)>
+			82a: R_ARM_THM_CALL	operator new[](unsigned int)
+ 82e:	e9c4 0522 	strd	r0, r5, [r4, #136]	@ 0x88
+ 832:	4632      	mov	r2, r6
+ 834:	2100      	movs	r1, #0
+ 836:	f7ff fffe 	bl	0 <memset>
+			836: R_ARM_THM_CALL	memset
+ 83a:	2300      	movs	r3, #0
+ 83c:	f8c4 3090 	str.w	r3, [r4, #144]	@ 0x90
+ 840:	f8c4 3080 	str.w	r3, [r4, #128]	@ 0x80
+ 844:	2001      	movs	r0, #1
+ 846:	b005      	add	sp, #20
+ 848:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 84c:	2d00      	cmp	r5, #0
+ 84e:	d14d      	bne.n	8ec <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x454>
+ 850:	6d63      	ldr	r3, [r4, #84]	@ 0x54
+ 852:	429d      	cmp	r5, r3
+ 854:	f47f af6a 	bne.w	72c <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x294>
+ 858:	6926      	ldr	r6, [r4, #16]
+ 85a:	6e63      	ldr	r3, [r4, #100]	@ 0x64
+ 85c:	63e5      	str	r5, [r4, #60]	@ 0x3c
+ 85e:	429e      	cmp	r6, r3
+ 860:	d180      	bne.n	764 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x2cc>
+ 862:	2e00      	cmp	r6, #0
+ 864:	d13b      	bne.n	8de <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x446>
+ 866:	6f23      	ldr	r3, [r4, #112]	@ 0x70
+ 868:	429e      	cmp	r6, r3
+ 86a:	d197      	bne.n	79c <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x304>
+ 86c:	6865      	ldr	r5, [r4, #4]
+ 86e:	6fe3      	ldr	r3, [r4, #124]	@ 0x7c
+ 870:	65a6      	str	r6, [r4, #88]	@ 0x58
+ 872:	429d      	cmp	r5, r3
+ 874:	d1ae      	bne.n	7d4 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x33c>
+ 876:	2d00      	cmp	r5, #0
+ 878:	d0c4      	beq.n	804 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x36c>
+ 87a:	00ae      	lsls	r6, r5, #2
+ 87c:	6fa0      	ldr	r0, [r4, #120]	@ 0x78
+ 87e:	e7bc      	b.n	7fa <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x362>
+ 880:	4628      	mov	r0, r5
+ 882:	b005      	add	sp, #20
+ 884:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 888:	f06f 4360 	mvn.w	r3, #3758096384	@ 0xe0000000
+ 88c:	429d      	cmp	r5, r3
+ 88e:	d240      	bcs.n	912 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x47a>
+ 890:	00af      	lsls	r7, r5, #2
+ 892:	4638      	mov	r0, r7
+ 894:	f7ff fffe 	bl	0 <operator new[](unsigned int)>
+			894: R_ARM_THM_CALL	operator new[](unsigned int)
+ 898:	e9c4 050c 	strd	r0, r5, [r4, #48]	@ 0x30
+ 89c:	463a      	mov	r2, r7
+ 89e:	2100      	movs	r1, #0
+ 8a0:	f7ff fffe 	bl	0 <memset>
+			8a0: R_ARM_THM_CALL	memset
+ 8a4:	e64f      	b.n	546 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0xae>
+ 8a6:	2d00      	cmp	r5, #0
+ 8a8:	d0c7      	beq.n	83a <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x3a2>
+ 8aa:	00ae      	lsls	r6, r5, #2
+ 8ac:	f8d4 0088 	ldr.w	r0, [r4, #136]	@ 0x88
+ 8b0:	e7bf      	b.n	832 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x39a>
+ 8b2:	2d00      	cmp	r5, #0
+ 8b4:	f43f ae47 	beq.w	546 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0xae>
+ 8b8:	00af      	lsls	r7, r5, #2
+ 8ba:	6b20      	ldr	r0, [r4, #48]	@ 0x30
+ 8bc:	e7ee      	b.n	89c <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x404>
+ 8be:	eef7 6a00 	vmov.f32	s13, #112	@ 0x3f800000  1.0
+ 8c2:	462b      	mov	r3, r5
+ 8c4:	2002      	movs	r0, #2
+ 8c6:	e615      	b.n	4f4 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x5c>
+ 8c8:	4b15      	ldr	r3, [pc, #84]	@ (920 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x488>)
+ 8ca:	f240 1141 	movw	r1, #321	@ 0x141
+ 8ce:	4a15      	ldr	r2, [pc, #84]	@ (924 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x48c>)
+ 8d0:	4815      	ldr	r0, [pc, #84]	@ (928 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x490>)
+ 8d2:	f7ff fffe 	bl	0 <__assert_func>
+			8d2: R_ARM_THM_CALL	__assert_func
+ 8d6:	6968      	ldr	r0, [r5, #20]
+ 8d8:	e6cd      	b.n	676 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x1de>
+ 8da:	6968      	ldr	r0, [r5, #20]
+ 8dc:	e674      	b.n	5c8 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x130>
+ 8de:	00b5      	lsls	r5, r6, #2
+ 8e0:	6e20      	ldr	r0, [r4, #96]	@ 0x60
+ 8e2:	e753      	b.n	78c <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x2f4>
+ 8e4:	6d20      	ldr	r0, [r4, #80]	@ 0x50
+ 8e6:	e734      	b.n	752 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x2ba>
+ 8e8:	6ee0      	ldr	r0, [r4, #108]	@ 0x6c
+ 8ea:	e76a      	b.n	7c2 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x32a>
+ 8ec:	00ae      	lsls	r6, r5, #2
+ 8ee:	6c60      	ldr	r0, [r4, #68]	@ 0x44
+ 8f0:	e714      	b.n	71c <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x284>
+ 8f2:	4628      	mov	r0, r5
+ 8f4:	f840 8f10 	str.w	r8, [r0, #16]!
+ 8f8:	f7ff fffe 	bl	0 <fftconvolver::Buffer<float>::resize(unsigned int) [clone .part.0]>
+			8f8: R_ARM_THM_CALL	fftconvolver::Buffer<float>::clear()
+ 8fc:	4628      	mov	r0, r5
+ 8fe:	f840 8f04 	str.w	r8, [r0, #4]!
+ 902:	f7ff fffe 	bl	0 <fftconvolver::Buffer<float>::resize(unsigned int) [clone .part.0]>
+			902: R_ARM_THM_CALL	fftconvolver::Buffer<float>::clear()
+ 906:	211c      	movs	r1, #28
+ 908:	4628      	mov	r0, r5
+ 90a:	f7ff fffe 	bl	0 <operator delete(void*, unsigned int)>
+			90a: R_ARM_THM_CALL	operator delete(void*, unsigned int)
+ 90e:	f7ff fffe 	bl	0 <__cxa_end_cleanup>
+			90e: R_ARM_THM_CALL	__cxa_end_cleanup
+ 912:	f7ff fffe 	bl	0 <__cxa_throw_bad_array_new_length>
+			912: R_ARM_THM_CALL	__cxa_throw_bad_array_new_length
+ 916:	f7ff fffe 	bl	0 <__cxa_throw_bad_array_new_length>
+			916: R_ARM_THM_CALL	__cxa_throw_bad_array_new_length
+ 91a:	e7ea      	b.n	8f2 <fftconvolver::FFTConvolver::init(unsigned int, float const*, unsigned int)+0x45a>
+ 91c:	f7ff fffe 	bl	0 <__cxa_throw_bad_array_new_length>
+			91c: R_ARM_THM_CALL	__cxa_throw_bad_array_new_length
+ 920:	00000134 	.word	0x00000134
+			920: R_ARM_ABS32	.rodata.str1.4
+ 924:	0000014c 	.word	0x0000014c
+			924: R_ARM_ABS32	.rodata.str1.4
+ 928:	00000070 	.word	0x00000070
+			928: R_ARM_ABS32	.rodata.str1.4
+
+Disassembly of section .text._ZN12fftconvolver6BufferIfED2Ev:
+
+00000000 <fftconvolver::Buffer<float>::~Buffer()>:
+   0:	b510      	push	{r4, lr}
+   2:	4b04      	ldr	r3, [pc, #16]	@ (14 <fftconvolver::Buffer<float>::~Buffer()+0x14>)
+   4:	4604      	mov	r4, r0
+   6:	6840      	ldr	r0, [r0, #4]
+   8:	6023      	str	r3, [r4, #0]
+   a:	b108      	cbz	r0, 10 <fftconvolver::Buffer<float>::~Buffer()+0x10>
+   c:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			c: R_ARM_THM_CALL	operator delete[](void*)
+  10:	4620      	mov	r0, r4
+  12:	bd10      	pop	{r4, pc}
+  14:	00000008 	.word	0x00000008
+			14: R_ARM_ABS32	vtable for fftconvolver::Buffer<float>
+
+Disassembly of section .text._ZN12fftconvolver6BufferIfED0Ev:
+
+00000000 <fftconvolver::Buffer<float>::~Buffer()>:
+   0:	b510      	push	{r4, lr}
+   2:	4b06      	ldr	r3, [pc, #24]	@ (1c <fftconvolver::Buffer<float>::~Buffer()+0x1c>)
+   4:	4604      	mov	r4, r0
+   6:	6840      	ldr	r0, [r0, #4]
+   8:	6023      	str	r3, [r4, #0]
+   a:	b108      	cbz	r0, 10 <fftconvolver::Buffer<float>::~Buffer()+0x10>
+   c:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			c: R_ARM_THM_CALL	operator delete[](void*)
+  10:	4620      	mov	r0, r4
+  12:	210c      	movs	r1, #12
+  14:	f7ff fffe 	bl	0 <operator delete(void*, unsigned int)>
+			14: R_ARM_THM_CALL	operator delete(void*, unsigned int)
+  18:	4620      	mov	r0, r4
+  1a:	bd10      	pop	{r4, pc}
+  1c:	00000008 	.word	0x00000008
+			1c: R_ARM_ABS32	vtable for fftconvolver::Buffer<float>
+
+Disassembly of section .text._ZN12fftconvolver12SplitComplexD2Ev:
+
+00000000 <fftconvolver::SplitComplex::~SplitComplex()>:
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4604      	mov	r4, r0
+   4:	6880      	ldr	r0, [r0, #8]
+   6:	b108      	cbz	r0, c <fftconvolver::SplitComplex::~SplitComplex()+0xc>
+   8:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			8: R_ARM_THM_CALL	operator delete[](void*)
+   c:	2500      	movs	r5, #0
+   e:	6960      	ldr	r0, [r4, #20]
+  10:	e9c4 5502 	strd	r5, r5, [r4, #8]
+  14:	b140      	cbz	r0, 28 <fftconvolver::SplitComplex::~SplitComplex()+0x28>
+  16:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			16: R_ARM_THM_CALL	operator delete[](void*)
+  1a:	4b04      	ldr	r3, [pc, #16]	@ (2c <fftconvolver::SplitComplex::~SplitComplex()+0x2c>)
+  1c:	68a0      	ldr	r0, [r4, #8]
+  1e:	e9c4 5300 	strd	r5, r3, [r4]
+  22:	b108      	cbz	r0, 28 <fftconvolver::SplitComplex::~SplitComplex()+0x28>
+  24:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			24: R_ARM_THM_CALL	operator delete[](void*)
+  28:	4620      	mov	r0, r4
+  2a:	bd38      	pop	{r3, r4, r5, pc}
+  2c:	00000008 	.word	0x00000008
+			2c: R_ARM_ABS32	vtable for fftconvolver::Buffer<float>
+
+Disassembly of section .text._ZN12fftconvolver6BufferIfE5clearEv:
+
+00000000 <fftconvolver::Buffer<float>::clear()>:
+   0:	b510      	push	{r4, lr}
+   2:	4604      	mov	r4, r0
+   4:	6840      	ldr	r0, [r0, #4]
+   6:	b108      	cbz	r0, c <fftconvolver::Buffer<float>::clear()+0xc>
+   8:	f7ff fffe 	bl	0 <operator delete[](void*)>
+			8: R_ARM_THM_CALL	operator delete[](void*)
+   c:	2300      	movs	r3, #0
+   e:	e9c4 3301 	strd	r3, r3, [r4, #4]
+  12:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text._ZNSt12_Vector_baseIPN12fftconvolver12SplitComplexESaIS2_EED2Ev:
+
+00000000 <std::_Vector_base<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::~_Vector_base()>:
+   0:	b510      	push	{r4, lr}
+   2:	4604      	mov	r4, r0
+   4:	6800      	ldr	r0, [r0, #0]
+   6:	b118      	cbz	r0, 10 <std::_Vector_base<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::~_Vector_base()+0x10>
+   8:	68a1      	ldr	r1, [r4, #8]
+   a:	1a09      	subs	r1, r1, r0
+   c:	f7ff fffe 	bl	0 <operator delete(void*, unsigned int)>
+			c: R_ARM_THM_CALL	operator delete(void*, unsigned int)
+  10:	4620      	mov	r0, r4
+  12:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text._ZNSt6vectorIPN12fftconvolver12SplitComplexESaIS2_EE17_M_realloc_appendIJRKS2_EEEvDpOT_:
+
+00000000 <void std::vector<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::_M_realloc_append<fftconvolver::SplitComplex* const&>(fftconvolver::SplitComplex* const&)>:
+   0:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+   4:	e9d0 8700 	ldrd	r8, r7, [r0]
+   8:	4689      	mov	r9, r1
+   a:	f06f 4160 	mvn.w	r1, #3758096384	@ 0xe0000000
+   e:	eba7 0708 	sub.w	r7, r7, r8
+  12:	ebb1 0fa7 	cmp.w	r1, r7, asr #2
+  16:	d036      	beq.n	86 <void std::vector<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::_M_realloc_append<fftconvolver::SplitComplex* const&>(fftconvolver::SplitComplex* const&)+0x86>
+  18:	10bb      	asrs	r3, r7, #2
+  1a:	4606      	mov	r6, r0
+  1c:	2b01      	cmp	r3, #1
+  1e:	461a      	mov	r2, r3
+  20:	bf38      	it	cc
+  22:	2201      	movcc	r2, #1
+  24:	189c      	adds	r4, r3, r2
+  26:	d22c      	bcs.n	82 <void std::vector<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::_M_realloc_append<fftconvolver::SplitComplex* const&>(fftconvolver::SplitComplex* const&)+0x82>
+  28:	428c      	cmp	r4, r1
+  2a:	bf28      	it	cs
+  2c:	460c      	movcs	r4, r1
+  2e:	00a4      	lsls	r4, r4, #2
+  30:	4620      	mov	r0, r4
+  32:	f7ff fffe 	bl	0 <operator new(unsigned int)>
+			32: R_ARM_THM_CALL	operator new(unsigned int)
+  36:	f8d9 3000 	ldr.w	r3, [r9]
+  3a:	2f00      	cmp	r7, #0
+  3c:	f107 0904 	add.w	r9, r7, #4
+  40:	4605      	mov	r5, r0
+  42:	51c3      	str	r3, [r0, r7]
+  44:	4481      	add	r9, r0
+  46:	dc08      	bgt.n	5a <void std::vector<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::_M_realloc_append<fftconvolver::SplitComplex* const&>(fftconvolver::SplitComplex* const&)+0x5a>
+  48:	f1b8 0f00 	cmp.w	r8, #0
+  4c:	d115      	bne.n	7a <void std::vector<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::_M_realloc_append<fftconvolver::SplitComplex* const&>(fftconvolver::SplitComplex* const&)+0x7a>
+  4e:	442c      	add	r4, r5
+  50:	e9c6 5900 	strd	r5, r9, [r6]
+  54:	60b4      	str	r4, [r6, #8]
+  56:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  5a:	4641      	mov	r1, r8
+  5c:	463a      	mov	r2, r7
+  5e:	f7ff fffe 	bl	0 <memcpy>
+			5e: R_ARM_THM_CALL	memcpy
+  62:	68b1      	ldr	r1, [r6, #8]
+  64:	eba1 0108 	sub.w	r1, r1, r8
+  68:	442c      	add	r4, r5
+  6a:	4640      	mov	r0, r8
+  6c:	f7ff fffe 	bl	0 <operator delete(void*, unsigned int)>
+			6c: R_ARM_THM_CALL	operator delete(void*, unsigned int)
+  70:	60b4      	str	r4, [r6, #8]
+  72:	e9c6 5900 	strd	r5, r9, [r6]
+  76:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  7a:	68b1      	ldr	r1, [r6, #8]
+  7c:	eba1 0108 	sub.w	r1, r1, r8
+  80:	e7f2      	b.n	68 <void std::vector<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::_M_realloc_append<fftconvolver::SplitComplex* const&>(fftconvolver::SplitComplex* const&)+0x68>
+  82:	4c02      	ldr	r4, [pc, #8]	@ (8c <void std::vector<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::_M_realloc_append<fftconvolver::SplitComplex* const&>(fftconvolver::SplitComplex* const&)+0x8c>)
+  84:	e7d4      	b.n	30 <void std::vector<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::_M_realloc_append<fftconvolver::SplitComplex* const&>(fftconvolver::SplitComplex* const&)+0x30>
+  86:	4802      	ldr	r0, [pc, #8]	@ (90 <void std::vector<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::_M_realloc_append<fftconvolver::SplitComplex* const&>(fftconvolver::SplitComplex* const&)+0x90>)
+  88:	f7ff fffe 	bl	0 <std::__throw_length_error(char const*)>
+			88: R_ARM_THM_CALL	std::__throw_length_error(char const*)
+  8c:	7ffffffc 	.word	0x7ffffffc
+  90:	00000000 	.word	0x00000000
+			90: R_ARM_ABS32	.rodata._ZNSt6vectorIPN12fftconvolver12SplitComplexESaIS2_EE17_M_realloc_appendIJRKS2_EEEvDpOT_.str1.4
+
+Disassembly of section .text._ZNSt6vectorIPN12fftconvolver12SplitComplexESaIS2_EE17_M_realloc_appendIJS2_EEEvDpOT_:
+
+00000000 <void std::vector<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::_M_realloc_append<fftconvolver::SplitComplex*>(fftconvolver::SplitComplex*&&)>:
+   0:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+   4:	e9d0 8700 	ldrd	r8, r7, [r0]
+   8:	4689      	mov	r9, r1
+   a:	f06f 4160 	mvn.w	r1, #3758096384	@ 0xe0000000
+   e:	eba7 0708 	sub.w	r7, r7, r8
+  12:	ebb1 0fa7 	cmp.w	r1, r7, asr #2
+  16:	d036      	beq.n	86 <void std::vector<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::_M_realloc_append<fftconvolver::SplitComplex*>(fftconvolver::SplitComplex*&&)+0x86>
+  18:	10bb      	asrs	r3, r7, #2
+  1a:	4606      	mov	r6, r0
+  1c:	2b01      	cmp	r3, #1
+  1e:	461a      	mov	r2, r3
+  20:	bf38      	it	cc
+  22:	2201      	movcc	r2, #1
+  24:	189c      	adds	r4, r3, r2
+  26:	d22c      	bcs.n	82 <void std::vector<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::_M_realloc_append<fftconvolver::SplitComplex*>(fftconvolver::SplitComplex*&&)+0x82>
+  28:	428c      	cmp	r4, r1
+  2a:	bf28      	it	cs
+  2c:	460c      	movcs	r4, r1
+  2e:	00a4      	lsls	r4, r4, #2
+  30:	4620      	mov	r0, r4
+  32:	f7ff fffe 	bl	0 <operator new(unsigned int)>
+			32: R_ARM_THM_CALL	operator new(unsigned int)
+  36:	f8d9 3000 	ldr.w	r3, [r9]
+  3a:	2f00      	cmp	r7, #0
+  3c:	f107 0904 	add.w	r9, r7, #4
+  40:	4605      	mov	r5, r0
+  42:	51c3      	str	r3, [r0, r7]
+  44:	4481      	add	r9, r0
+  46:	dc08      	bgt.n	5a <void std::vector<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::_M_realloc_append<fftconvolver::SplitComplex*>(fftconvolver::SplitComplex*&&)+0x5a>
+  48:	f1b8 0f00 	cmp.w	r8, #0
+  4c:	d115      	bne.n	7a <void std::vector<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::_M_realloc_append<fftconvolver::SplitComplex*>(fftconvolver::SplitComplex*&&)+0x7a>
+  4e:	442c      	add	r4, r5
+  50:	e9c6 5900 	strd	r5, r9, [r6]
+  54:	60b4      	str	r4, [r6, #8]
+  56:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  5a:	4641      	mov	r1, r8
+  5c:	463a      	mov	r2, r7
+  5e:	f7ff fffe 	bl	0 <memcpy>
+			5e: R_ARM_THM_CALL	memcpy
+  62:	68b1      	ldr	r1, [r6, #8]
+  64:	eba1 0108 	sub.w	r1, r1, r8
+  68:	442c      	add	r4, r5
+  6a:	4640      	mov	r0, r8
+  6c:	f7ff fffe 	bl	0 <operator delete(void*, unsigned int)>
+			6c: R_ARM_THM_CALL	operator delete(void*, unsigned int)
+  70:	60b4      	str	r4, [r6, #8]
+  72:	e9c6 5900 	strd	r5, r9, [r6]
+  76:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+  7a:	68b1      	ldr	r1, [r6, #8]
+  7c:	eba1 0108 	sub.w	r1, r1, r8
+  80:	e7f2      	b.n	68 <void std::vector<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::_M_realloc_append<fftconvolver::SplitComplex*>(fftconvolver::SplitComplex*&&)+0x68>
+  82:	4c02      	ldr	r4, [pc, #8]	@ (8c <void std::vector<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::_M_realloc_append<fftconvolver::SplitComplex*>(fftconvolver::SplitComplex*&&)+0x8c>)
+  84:	e7d4      	b.n	30 <void std::vector<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::_M_realloc_append<fftconvolver::SplitComplex*>(fftconvolver::SplitComplex*&&)+0x30>
+  86:	4802      	ldr	r0, [pc, #8]	@ (90 <void std::vector<fftconvolver::SplitComplex*, std::allocator<fftconvolver::SplitComplex*> >::_M_realloc_append<fftconvolver::SplitComplex*>(fftconvolver::SplitComplex*&&)+0x90>)
+  88:	f7ff fffe 	bl	0 <std::__throw_length_error(char const*)>
+			88: R_ARM_THM_CALL	std::__throw_length_error(char const*)
+  8c:	7ffffffc 	.word	0x7ffffffc
+  90:	00000000 	.word	0x00000000
+			90: R_ARM_ABS32	.rodata._ZNSt6vectorIPN12fftconvolver12SplitComplexESaIS2_EE17_M_realloc_appendIJRKS2_EEEvDpOT_.str1.4
