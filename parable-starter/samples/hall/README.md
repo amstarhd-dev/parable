@@ -3,7 +3,7 @@
 Start [healthy matched](selected/healthy_matched.wav) and
 [damaged matched](selected/fault_matched.wav). Same recorded take03 and settings;
 only final reflecting-plane coherence changes0→0.98. RMS copies use explicit gains
-in [levels.csv](selected/levels.csv); these are not perceptual/LUFS normalization.
+in [levels.csv](selected/levels.csv); its RMS/peak/mean columns describe the raw signal before that gain. these are not perceptual/LUFS normalization.
 
 Hear [healthy stereo](selected/healthy_stereo.wav) / [damaged stereo](selected/fault_stereo.wav)
 for actual spatial output, or raw mono [healthy](selected/healthy_raw.wav) /

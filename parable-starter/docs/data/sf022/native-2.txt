@@ -1,0 +1,1 @@
+Hall bytes=474704 healthy_us=0.252853 fault_us=0.25772

@@ -41,3 +41,14 @@ Tradeoffs: source has intentional near-zero noise/dither, fixed-size timing and
 sample-rate-dependent interpolation, and expensive double libm operations. Keep
 those initially rather than claiming an optimized port is the proven original.
 Stop on memory infeasibility; do not infer deadline safety from host speed/linking.
+
+Observed outcome: healthy/adopted3rate float samples agree exactly; fixed474704B
+Hall and full BOOT_NONE95348B flash-load audio image linked in unchanged regions.
+Actual host medians0.316/0.299µs/frame, no target timing. Final faultf0.98 has
+changed late spectrum/chord bloom and extinguishes in sustained tests. It does
+not become relatively identical to healthy under weak excitation; that musical
+requirement is unresolved. Reset is stopped-only with an external audition fade.
+Professional quality/physical hall fidelity and Seed3 admission remain open.
+The original96k input subsampling drops a phase0-only one-sample impulse; the
+corrected response probe excites both phases. No antialias retrofit is hidden.
+See SF022_REPORT for exact evidence, rejected estimate, and next smallest test.

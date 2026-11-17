@@ -7,7 +7,7 @@ Existing native Engine/patch/storage/firmware remain outside this increment.
 
 Before repository code changes, clean Release configure/build and all **40/40**
 existing tests passed in **142.85 s** (GNU14.2, CMake3.31.6). Exact logs are in
-`data/sf022/sf022-baseline-*.log`. The JSON source override uses the existing
+`data/sf022/baseline-*.log`. The JSON source override uses the existing
 pinned3.11.3 source cache, not another effect implementation.
 
 Research first: original complete Airwindows kCathedral and Verbity processors

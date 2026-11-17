@@ -1,0 +1,32 @@
+/workspace/work/sf022-arm/BOOT_NONE/parable_hall_link_probe.elf  :
+section                  size         addr
+.isr_vector               664    134217728
+.text                   93644    134218392
+.ARM.extab                  0    134312036
+.exidx                      8    134312036
+.ARM.attributes            46            0
+.init_array                40    134312044
+.fini_array                 4    134312084
+.data                     988    603979776
+.bss                    12340    603980768
+.dtcmram_bss                0    536870912
+.sram1_bss              16384    805306368
+.sdram_bss             474704   3221225472
+.backup_sram               12    947912704
+.qspiflash_text             0   2415919104
+.qspiflash_data             0   2415919104
+.qspiflash_bss              0   2415919104
+.heap                       0    603993108
+.reserved_for_stack         0    603993108
+.comment                   57            0
+.debug_info            591295            0
+.debug_abbrev           59109            0
+.debug_aranges          11416            0
+.debug_rnglists         27656            0
+.debug_line            329844            0
+.debug_str              86593            0
+.debug_frame            34592            0
+.debug_loclists        232871            0
+Total                 1972267
+
+

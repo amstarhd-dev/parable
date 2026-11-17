@@ -1,0 +1,64 @@
+{
+  "host": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "compiler": "c++ (Debian 14.2.0-19) 14.2.0",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "frames_per_measured_mode": 768000,
+  "block_frames": 64,
+  "trials_us_per_frame": [
+    {
+      "kCathedral": 0.256687,
+      "Verbity": 0.0685914,
+      "native_healthy": 0.340810036458,
+      "native_fault": 0.298900690104
+    },
+    {
+      "kCathedral": 0.305561,
+      "Verbity": 0.102058,
+      "native_healthy": 0.315989553385,
+      "native_fault": 0.335613626302
+    },
+    {
+      "kCathedral": 0.347207,
+      "Verbity": 0.0662619,
+      "native_healthy": 0.252852847656,
+      "native_fault": 0.257720420573
+    }
+  ],
+  "median_us_per_frame": {
+    "kCathedral": 0.305561,
+    "Verbity": 0.0685914,
+    "native_healthy": 0.315989553385,
+    "native_fault": 0.298900690104
+  },
+  "protocol": "Actual complete process calls; setup/allocation/statistics/file I/O outside timed loop. Sequential three trials; run with no concurrent DSP builds/tests. Host clock/scheduler uncontrolled; not WCET or MCU estimate.",
+  "wav_sha256": {
+    "Verbity/left.wav": "05b09669595117ce023e852f81db287487da5d67e70bceac8e5323b5f61e0b2f",
+    "Verbity/matched.wav": "1a69199b851e8f2e52a747460fb4c9bb783973ff1cc2324a081df54bb7d37aa5",
+    "Verbity/mix.wav": "05f132619ad31c0cb113d30865dbb80e18b1d558b3c320d8f9ec4c7030fbce4e",
+    "Verbity/right.wav": "2d6690a530eef00d65a79192770765682111366fdb25e9bf8fa390f280a443d3",
+    "Verbity/wet.wav": "4f4209703c2060194685c6fcc78c091c11c4d9c2a64b3a35bdc358912630f8ad",
+    "kCathedral/left.wav": "a779671ff3e723d3cd6eb9bbf382d374ccf789caf3837ac9e55c26a6a1b4abb1",
+    "kCathedral/matched.wav": "ad1518dbd9e330e8e7e8a221eaad52ce6159bfc59934631f3dfeb0855892d252",
+    "kCathedral/mix.wav": "191f8133762fd348bc32cb2b9a6d55476a5d47b07dfb7ea394491d9c5355a48a",
+    "kCathedral/right.wav": "d64a4fd439f037bf55fa964cc6d46ffe2222fee5fe6783d80462ac997607dced",
+    "kCathedral/wet.wav": "dc1a903d0c4623d59bd559773d58bfbfe7fd3cdcdfe8f3526fb0876832bb5449",
+    "selected/chord_fault.wav": "7b476909bcd3ca75535b20d502b1e9b3157ca7ba65c905cbedbedceb6f5aae44",
+    "selected/chord_healthy.wav": "38f0d679c6eb444e8781747bec81adfcbd9127812f53a00a989a1e57226926ec",
+    "selected/dry.wav": "f9665916aac490cf7464c601e371c3bcffb71acaccd2aa26944fa69b414bfa71",
+    "selected/fault_matched.wav": "db5dcf8a0e9f838ccd58397bf5d46e44252479074ac8de4a8c8c6aa9bf521915",
+    "selected/fault_raw.wav": "9ce050611b550143eefa494082a934ed5467af9b79bbcb2816181011638a6ebf",
+    "selected/fault_stereo.wav": "788859f83fb4b9870afbbc2deb60b563914471e0004fb0a8100c6ec1984844c9",
+    "selected/fault_wet.wav": "4515a86549053b24834b125f3e083426d54541dcd44072c06bc19ae9865de4c1",
+    "selected/healthy_matched.wav": "3436edea73e72e2f09fb4b77fddfca46b3100f534db52a938fd95b7324df253e",
+    "selected/healthy_raw.wav": "4fd30612f66cdefb17ea1cf503a380f87617ceb71c7b9252bab2eb28aad8f92c",
+    "selected/healthy_stereo.wav": "dbba3f1e4e6f00523a2969f33c0d158240a787e149a08fffe9e3f45d543fb6e5",
+    "selected/healthy_wet.wav": "dc1a903d0c4623d59bd559773d58bfbfe7fd3cdcdfe8f3526fb0876832bb5449",
+    "selected/impulse_fault.wav": "73495ccb75d9f2ec4c2d62ac4252309e3e5e87827d49f8469f6759af91564ce5",
+    "selected/impulse_healthy.wav": "9055700e35cc393b2e418afda24eabfb103d9c8614345afdfbb8a1b4fc804a14",
+    "selected/reset_stopped_faded.wav": "d0c547ed78c78ddcc98b717e874d006b75da8faa0a77a9079023e18e839f0684",
+    "selected/silence_fault.wav": "27d4876c224043636315934d8e3c6473199d7dc55580ebb97dd3169205abcb76",
+    "selected/silence_healthy.wav": "27d4876c224043636315934d8e3c6473199d7dc55580ebb97dd3169205abcb76",
+    "selected/weak_fault.wav": "3655561328149f03aacaa5796ddf9c3c946f0af3eff13b507e56ad3ac6d94f5d",
+    "selected/weak_healthy.wav": "e0c57ec90ee6ea11f6e4c3b9c3c95e0280272e214f3dcb891d911a00e3be4977"
+  }
+}
