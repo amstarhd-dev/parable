@@ -1362,6 +1362,145 @@
           "paths": []
         }
       }
+    },
+    {
+      "id": "chamber",
+      "type": "model",
+      "paths": [
+        "parable-starter/include/parable_chamber.h",
+        "parable-starter/src/parable_chamber.cpp",
+        "parable-starter/src/chamber_cloud_settings.h",
+        "parable-starter/docs/adr/ADR-021-cancer-borrowed-chamber.md"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/chamber/provenance.json",
+          "candidate": 0,
+          "relationship": "used",
+          "scope": "Complete algorithm reused, constructor initialization and precision-preserving std::sin(float) portability patches only; original defaults and compact parameter retunings auditioned",
+          "notice_paths": [
+            "parable-starter/third_party/chamber/cloudseed/LICENSE"
+          ]
+        },
+        {
+          "provenance_path": "parable-starter/third_party/chamber/provenance.json",
+          "candidate": 1,
+          "relationship": "audit-only",
+          "scope": "Complete healthy research comparison only; reverb header MIT, bundled STFX distinct license below. No selected-runtime import",
+          "notice_paths": []
+        },
+        {
+          "provenance_path": "parable-starter/third_party/chamber/provenance.json",
+          "candidate": 2,
+          "relationship": "audit-only",
+          "scope": "File explicitly declares Boost license; audited/executed in external research cache, not vendored or selected. Root MIT not silently substituted",
+          "notice_paths": []
+        },
+        {
+          "provenance_path": "parable-starter/third_party/chamber/provenance.json",
+          "candidate": 3,
+          "relationship": "audit-only",
+          "scope": "Pinned v1.7.1 direct dependency of complete research comparison only",
+          "notice_paths": []
+        },
+        {
+          "provenance_path": "parable-starter/third_party/chamber/provenance.json",
+          "candidate": 4,
+          "relationship": "audit-only",
+          "scope": "Umbrella CMake dependency audited; not included by reverb processing",
+          "notice_paths": []
+        },
+        {
+          "provenance_path": "parable-starter/third_party/chamber/provenance.json",
+          "candidate": 5,
+          "relationship": "audit-only",
+          "scope": "Umbrella CMake dependency audited; not included by reverb processing",
+          "notice_paths": []
+        },
+        {
+          "provenance_path": "parable-starter/third_party/chamber/provenance.json",
+          "candidate": 6,
+          "relationship": "audit-only",
+          "scope": "Complete convolver source inspected; no verified original chamber IR obtained, so no convolution audition/import",
+          "notice_paths": []
+        },
+        {
+          "provenance_path": "parable-starter/third_party/chamber/provenance.json",
+          "candidate": 7,
+          "relationship": "audit-only",
+          "scope": "Author page confirms CC0,.885s,48k stereo24bit; download requires login/OAuth. No lossy preview substitution and no IR imported",
+          "notice_paths": []
+        }
+      ],
+      "ownership_notes": "Complete MIT Cloud Seed core reused with explicit initialization/portability patches. Shared PCM, statistics and callback guards reused. Other complete engines executed for comparison only; no new reverb algorithm or policy exception.",
+      "physics_notes": "Algorithmic chamber candidate, one external mic-to-excitation return gain; shared instantaneous class-B threshold/soft rail, filters and64sample return delay. No measured architectural acoustics or hardware component fit.",
+      "behavior": "Standalone portable prepared64frame block processor; host heap allocation only during stopped preparation. Same-owner20ms return-gain smoothing. No Engine/patch/firmware registration.",
+      "limitations": [
+        "67MB core and fixed maximum delay arrays; no Daisy memory placement, cycles or physical admission.",
+        "Measured chamber IR benchmark not performed; original download requires authorization. Final chamber/fault musical acceptance pending; founder preferred original Cloud comparison.",
+        "Idealized shared amplifier threshold/rails, uncalibrated electrical units and no quantified nonlinear alias bound.",
+        "Complete Signalsmith wrapper uses non-lock-free atomic<double> on M7 and a separately declared Boost license; not selected."
+      ],
+      "dependencies": {
+        "assets": [
+          "host.pcm16",
+          "host.signal-analysis"
+        ],
+        "external": [
+          "Complete pinned MIT CloudSeedCore; C++17 and bounded libm in processing. NumPy2.3.5 offline measurements only."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Focused independent return law/wiring, three-rate amplitude contrast,60s fault, recovery, finite/reset/guards and actual native PCM checks.",
+          "paths": [
+            "parable-starter/tests/test_chamber.cpp",
+            "parable-starter/tests/test_chamber_cli.py",
+            "parable-starter/tests/fixtures/chamber/reference.json"
+          ]
+        },
+        "independent_circuit": {
+          "status": "reduced-section-compared",
+          "scope": "Independent double assumed return-amplifier law and filter/delay wiring only; no SPICE amplifier or measured room validation.",
+          "paths": [
+            "parable-starter/tools/chamber_reference.py",
+            "parable-starter/tests/fixtures/chamber/return-amplifier.csv"
+          ]
+        },
+        "synthetic_audition": {
+          "status": "generated",
+          "scope": "Weak/strong/chord/zero/recovery/impulse files through SAME full native implementation.",
+          "paths": [
+            "parable-starter/tools/chamber_lab.cpp"
+          ]
+        },
+        "real_guitar_audition": {
+          "status": "auditioned",
+          "scope": "Founder preferred original whole-Cloud healthy comparison as less subtle/ethereal; final shortened room and fault are not approved.",
+          "paths": [
+            "parable-starter/third_party/chamber/AUDIO_NOTICE.md",
+            "parable-starter/docs/adr/ADR-021-cancer-borrowed-chamber.md"
+          ]
+        },
+        "arm_cross_compile": {
+          "status": "compiled",
+          "scope": "Pinned selected full-core objects, layouts and conservative audio-call audit only.",
+          "paths": [
+            "parable-starter/tools/check_chamber_arm.py"
+          ]
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No boot/audio/cycles/SDRAM/latency/noise test.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "Engine, canonical patches, runtime, storage, firmware and correspondence untouched.",
+          "paths": []
+        }
+      }
     }
   ]
 }

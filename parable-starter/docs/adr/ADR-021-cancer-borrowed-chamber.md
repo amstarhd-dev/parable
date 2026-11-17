@@ -33,3 +33,42 @@ satisfy attack-dependent singback. No oscillator, RMS trigger or independent ton
 layer is authorized. Stop/report a failed fault hypothesis instead of inventing
 another fault. Founder listening, IR benchmark, safety and full issue gates remain
 independent of this provisional technical source choice.
+
+## Selected implementation and observed founder preference
+
+Founder listened to the original Gate1 pair and selected Cloud: “less subtle,
+very ethereal.” This selects the core, not approval of every later parameter set
+or the damage. Original ethereal files remain committed. The original nominally
+compact Cloud control setting actually had a~6.5s T20-extrapolated decay; its
+nominal RT60 knob is not the complete diffused network's measured decay.
+Retune ONLY original LateLineDecay to.25 for the selected shorter chamber. Keep
+all core topology/processing; provide a second Signalsmith envelope retuning and
+raw float IR metrics to compare actual decay rather than knob labels.
+
+The common return stage is a stated experimental electrical reduction:
+mic -> HP200Hz/LP4500Hz -> fixedx100 preamp + unbiased complementary conduction
+(Vbe assumed.7V), referred back to mic units -> gain Rf/Riso -> common soft rail.
+Two fixed inversions may restore positive return polarity; only Riso changes.
+Choose Rf1k,Riso50k healthy(g=.02), effective partial-short Riso41.667ohm fault(g=24).
+The precise resistor values, mic-voltage calibration and soft rail are assumptions,
+not a measured studio amplifier. Class-B conduction fact reference:
+https://wiki.analog.com/university/courses/engineering_discovery/lab_14 .
+The hard knee is continuous but omits junction curvature and thermal/noise physics.
+
+In software, f(v)=.15*tanh(g*sign(v)*max(abs(v)-.007,0)/.15). Both configurations
+have exactly this same threshold, filters and rail. Only g changes. The threshold
+uses instantaneous filtered mic voltage, not RMS, a note detector or an oscillator.
+Its derivative is zero near silence, so a quiet basin exists even when the
+large-signal loop can sustain. A linear over-unity loop would fail that requirement.
+The resulting return is used64samples later at the SAME reverb's input; microphone,
+speaker excitation and applied return are captured. Same room, source, gain,
+output calibration3 and mix in each healthy/fault pair. Optional output containment
+at.98 is common numerical safety; normal delivered renders reach it zero times.
+Return gain changes on the single owner use20ms smoothing; resetting reconstructs
+outside audio. This is neither a concurrent interface nor a live preset system.
+
+Initialization audit also found uninitialized seed arithmetic under poisoned
+allocation. Initialize affected control/seed/Biquad fields, retain exact patches,
+and replace nonportable std::sinf with std::sin(float), preserving float precision.
+No core equations, buffers or topology changed. Original-core/selected-core actual
+mic WAV equality and poisoned ASan/UBSan are required checks.

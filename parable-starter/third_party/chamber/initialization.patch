@@ -1,0 +1,118 @@
+--- upstream/DSP/AllpassDiffuser.h
++++ local/DSP/AllpassDiffuser.h
+@@ -37,8 +37,8 @@
+ 		int samplerate;
+ 
+ 		ModulatedAllpass filters[MaxStageCount];
+-		int delay;
+-		float modRate;
++		int delay = 0;
++		float modRate = 0;
+ 		std::vector<float> seedValues;
+ 		int seed;
+ 		float crossSeed;
+--- upstream/DSP/Biquad.h
++++ local/DSP/Biquad.h
+@@ -41,18 +41,18 @@
+ 		};
+ 
+ 	private:
+-		float fs;
+-		float fsInv;
+-		float gainDB;
+-		float q;
+-		float a0, a1, a2, b0, b1, b2;
+-		float x1, x2, y, y1, y2;
+-		float gain;
++		float fs = 48000;
++		float fsInv = 1.f/48000;
++		float gainDB = 0;
++		float q = .5f;
++		float a0=1, a1=0, a2=0, b0=1, b1=0, b2=0;
++		float x1=0, x2=0, y=0, y1=0, y2=0;
++		float gain = 1;
+ 
+ 	public:
+-		FilterType Type;
+-		float Output;
+-		float Frequency;
++		FilterType Type = FilterType::LowPass;
++		float Output = 0;
++		float Frequency = 1000;
+ 
+ 		Biquad();
+ 		Biquad(FilterType filterType, float fs);
+--- upstream/DSP/DelayLine.h
++++ local/DSP/DelayLine.h
+@@ -120,11 +120,11 @@
+ 		float feedback;
+ 
+ 	public:
+-		bool DiffuserEnabled;
+-		bool LowShelfEnabled;
+-		bool HighShelfEnabled;
+-		bool CutoffEnabled;
+-		bool TapPostDiffuser;
++		bool DiffuserEnabled = false;
++		bool LowShelfEnabled = false;
++		bool HighShelfEnabled = false;
++		bool CutoffEnabled = false;
++		bool TapPostDiffuser = false;
+ 
+ 		DelayLine() :
+ 			lowShelf(Biquad::FilterType::LowShelf, 48000),
+--- upstream/DSP/Hp1.h
++++ local/DSP/Hp1.h
+@@ -36,7 +36,7 @@
+ 		float cutoffHz;
+ 
+ 	public:
+-		float Output;
++		float Output = 0;
+ 
+ 		Hp1()
+ 		{
+--- upstream/DSP/Lp1.h
++++ local/DSP/Lp1.h
+@@ -35,7 +35,7 @@
+ 		float cutoffHz;
+ 
+ 	public:
+-		float Output;
++		float Output = 0;
+ 
+ 		Lp1()
+ 		{
+--- upstream/DSP/ReverbChannel.h
++++ local/DSP/ReverbChannel.h
+@@ -60,20 +60,20 @@
+ 		Hp1 highPass;
+ 		Lp1 lowPass;
+ 
+-		int delayLineSeed;
+-		int postDiffusionSeed;
++		int delayLineSeed = 0;
++		int postDiffusionSeed = 0;
+ 
+ 		// Used the the main process loop
+ 		int lineCount;
+ 
+-		bool lowCutEnabled;
+-		bool highCutEnabled;
+-		bool multitapEnabled;
+-		bool diffuserEnabled;
+-		float inputMix;
+-		float dryOut;
+-		float earlyOut;
+-		float lineOut;
++		bool lowCutEnabled = false;
++		bool highCutEnabled = false;
++		bool multitapEnabled = false;
++		bool diffuserEnabled = false;
++		float inputMix = 0;
++		float dryOut = 0;
++		float earlyOut = 0;
++		float lineOut = 0;
+ 		float crossSeed;
+ 		ChannelLR channelLr;
+ 

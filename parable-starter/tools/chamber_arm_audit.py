@@ -10,7 +10,7 @@ flags=['-std=c++17','-O2','-fno-exceptions','-fno-rtti','-mcpu=cortex-m7','-mthu
 rows=[]
 for name,value in [('cloud',1),('signalsmith',0)]:
  obj=out/(name+'.o');command=[str(compiler),*flags,'-DENGINE_CLOUD='+str(value)]
- if value:command+=['-DBUFFER_SIZE=64','-DMAX_STR_SIZE=32','-include',str(ROOT/'tools/chamber_cloud_portability.h')]
+ if value:command+=['-DBUFFER_SIZE=64','-DMAX_STR_SIZE=32','-DPARABLE_CLOUD_UNMODIFIED_RESEARCH=1','-include',str(ROOT/'tools/chamber_cloud_portability.h')]
  command+=['-c',str(ROOT/'tools/chamber_arm_probe.cpp'),'-o',str(obj)]
  run=subprocess.run(command,text=True,capture_output=True);(out/(name+'-compile.log')).write_text(run.stdout+run.stderr)
  if run.returncode:rows.append(dict(candidate=name,compiled=False,command=command,diagnostic=run.stderr));continue

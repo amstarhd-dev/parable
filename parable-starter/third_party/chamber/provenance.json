@@ -1,0 +1,55 @@
+{
+  "candidates": [
+    {
+      "url": "https://github.com/GhostNoteAudio/CloudSeedCore",
+      "revision": "deb21ded9eb7dad9b3ff94ce1ba96a963716594e",
+      "license": "MIT",
+      "use": "Complete algorithm reused, constructor initialization and precision-preserving std::sin(float) portability patches only; original defaults and compact parameter retunings auditioned"
+    },
+    {
+      "url": "https://github.com/Signalsmith-Audio/basics",
+      "revision": "369e906e03760ec219d07b06fa06dc4fd099f377",
+      "license": "MIT",
+      "use": "Complete healthy research comparison only; reverb header MIT, bundled STFX distinct license below. No selected-runtime import"
+    },
+    {
+      "url": "https://github.com/Signalsmith-Audio/basics/blob/369e906e03760ec219d07b06fa06dc4fd099f377/include/stfx/stfx-library.h",
+      "revision": "369e906e03760ec219d07b06fa06dc4fd099f377",
+      "license": "BSL-1.0",
+      "use": "File explicitly declares Boost license; audited/executed in external research cache, not vendored or selected. Root MIT not silently substituted"
+    },
+    {
+      "url": "https://github.com/Signalsmith-Audio/dsp",
+      "revision": "2d20161915e733f117545c6be8cd3275a739a1e3",
+      "license": "MIT",
+      "use": "Pinned v1.7.1 direct dependency of complete research comparison only"
+    },
+    {
+      "url": "https://github.com/Signalsmith-Audio/hilbert-iir",
+      "revision": "9e42e09714c8215d51eaa1b52a3d54ae8dd2a3a3",
+      "license": "0BSD",
+      "use": "Umbrella CMake dependency audited; not included by reverb processing"
+    },
+    {
+      "url": "https://github.com/Signalsmith-Audio/linear",
+      "revision": "de55e6a50ffcf6f8f43f649692d94691c7025151",
+      "license": "MIT",
+      "use": "Umbrella CMake dependency audited; not included by reverb processing"
+    },
+    {
+      "url": "https://github.com/HiFi-LoFi/FFTConvolver",
+      "revision": "f2cdeb04c42141d2caec19ca4f137398b2a76b85",
+      "license": "MIT",
+      "use": "Complete convolver source inspected; no verified original chamber IR obtained, so no convolution audition/import"
+    },
+    {
+      "url": "https://freesound.org/people/Nox_Sound/sounds/585740/",
+      "revision": "Author page accessed2026-11-17UTC; original file bytes not obtained",
+      "license": "CC0-1.0",
+      "use": "Author page confirms CC0,.885s,48k stereo24bit; download requires login/OAuth. No lossy preview substitution and no IR imported"
+    }
+  ],
+  "selected": "Complete CloudSeedCore algorithm; not a from-scratch reverb",
+  "notices": "Original MIT headers/LICENSE retained; renderer permissions separate from core code",
+  "physics": "Experimental common class-B/soft-rail electronic return reduction, not measured room or amplifier. Class-B fact reference: https://wiki.analog.com/university/courses/engineering_discovery/lab_14"
+}

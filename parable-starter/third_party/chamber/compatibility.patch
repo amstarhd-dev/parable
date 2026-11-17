@@ -1,0 +1,22 @@
+--- upstream/DSP/ModulatedDelay.h
++++ local/DSP/ModulatedDelay.h
+@@ -105,7 +105,7 @@
+ 			if (modPhase > 1)
+ 				modPhase = std::fmod(modPhase, 1.0);
+ 
+-			auto mod = std::sinf(modPhase * 2 * M_PI);
++			auto mod = std::sin(static_cast<float>(modPhase * 2 * M_PI));
+ 			auto totalDelay = SampleDelay + ModAmount * mod;
+ 
+ 			auto delayA = (int)totalDelay;
+--- upstream/DSP/ModulatedAllpass.h
++++ local/DSP/ModulatedAllpass.h
+@@ -164,7 +164,7 @@
+ 			if (modPhase > 1)
+ 				modPhase = std::fmod(modPhase, 1.0);
+ 
+-			auto mod = std::sinf(modPhase * 2 * M_PI);
++			auto mod = std::sin(static_cast<float>(modPhase * 2 * M_PI));
+ 
+ 			if (ModAmount >= SampleDelay) // don't modulate to negative value
+ 				ModAmount = SampleDelay - 1;

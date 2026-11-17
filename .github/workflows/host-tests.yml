@@ -103,6 +103,23 @@ jobs:
           path: parable-starter/build/scorpio-auditions/
           if-no-files-found: error
           retention-days: 30
+      - name: Render full borrowed chamber healthy and return-coupling fault
+        if: matrix.build_type == 'Release'
+        run: |
+          ./build/parable_chamber_lab --input samples/chamber/input_take03_20s.wav --output build/chamber-auditions
+          cp third_party/chamber/AUDIO_NOTICE.md samples/chamber/source-receipt.json build/chamber-auditions/
+          git rev-parse HEAD > build/chamber-auditions/SOURCE_COMMIT
+          c++ --version > build/chamber-auditions/HOST_COMPILER.txt
+          sha256sum include/parable_chamber.h src/parable_chamber.cpp src/chamber_cloud_settings.h tools/chamber_lab.cpp third_party/chamber/local-source-sha256.json > build/chamber-auditions/SOURCE_SHA256SUMS
+          (cd build/chamber-auditions && sha256sum ./*.wav ./*.f32 ./*.csv ./*.json AUDIO_NOTICE.md SOURCE_COMMIT SOURCE_SHA256SUMS HOST_COMPILER.txt) > build/chamber-auditions/SHA256SUMS
+      - name: Publish borrowed chamber microphone return and singing probes
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-chamber-auditions
+          path: parable-starter/build/chamber-auditions/
+          if-no-files-found: error
+          retention-days: 30
       - name: Render source-derived TS808 and truly open D2 with NEW guitar take06
         if: matrix.build_type == 'Release'
         env:
@@ -449,6 +466,16 @@ jobs:
           ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
           UBSAN_OPTIONS: halt_on_error=1
         run: ctest --test-dir build/scorpio-sanitized --output-on-failure --no-tests=error -R '^scorpio_' -j2
+
+      - name: Configure full chamber ASan and UBSan
+        run: cmake -S . -B build/chamber-sanitized -DCMAKE_BUILD_TYPE=Debug -DFETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON="$PWD/build/_deps/nlohmann_json-src" -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -O1" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
+      - name: Build full chamber sanitizer targets
+        run: cmake --build build/chamber-sanitized --target parable_chamber_test parable_chamber_lab -j2
+      - name: Test full chamber with large allocations poisoned
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1:max_malloc_fill_size=100000000
+          UBSAN_OPTIONS: halt_on_error=1
+        run: ctest --test-dir build/chamber-sanitized -R '^(chamber_causal_feedback|chamber_listening_cli)$' --output-on-failure --no-tests=error
 
   activation-tsan:
     runs-on: ubuntu-24.04

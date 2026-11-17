@@ -1,0 +1,22 @@
+{
+  "DSP/AllpassDiffuser.h": "f7c70992718f0f914288535d02d43a5b4d969084f39f0769c1f9085c2215e313",
+  "DSP/Biquad.cpp": "4e04140ab40174a3b93ed5714a2b574deaa92da9e1c82ad6d715b2b84eda2d52",
+  "DSP/Biquad.h": "39079c9bf6961b2024dcdb4a917043ce74497fde734fb56902f6e64dbd36e8b6",
+  "DSP/DelayLine.h": "8cd3d6e4bcb5246f6f83ed33ce762bd4f4733187959c2696b4b068aa10c000de",
+  "DSP/Hp1.h": "86cb51f6954ebaad269961f318a03184d2459c055ee590866095337c463b36ed",
+  "DSP/LcgRandom.h": "0b5b415cbc1d3b65248d558ad65aee4bbcc9481ea5387474cae00ba06ad24969",
+  "DSP/Lp1.h": "a4b50398a1f4f4c1459034b40ff2036d5b91ed32e64d2f6741c938f619c4c318",
+  "DSP/ModulatedAllpass.h": "251f47595222372fcbbab23863960f00fdafb97d7ec6a34e5bcafe57672c807d",
+  "DSP/ModulatedDelay.h": "e0fa76cc24a0656ac5237962e7814f47127f4c6be2cfc6c9b006319cd296f71d",
+  "DSP/MultitapDelay.h": "2b40025e203c9ea10feead0952a4deb870586c1fc2490010c99f260e20b51d91",
+  "DSP/RandomBuffer.cpp": "3bfa1f0d26808d83f3478caf40122e1defdf7e97af5bf73e904f930a7944ff6b",
+  "DSP/RandomBuffer.h": "1d84b26cec8e12423eecba088a6b3cb4ea2f1cb17a1f785afbd0180e13b2a083",
+  "DSP/ReverbChannel.h": "4460df7b2b81402da7f224ded927d9808cd9e47251b973c82aa54f417cecd5c1",
+  "DSP/ReverbController.h": "66b633cb7e3b88fcb3f81f70bf65bce329150969eb49806682d1346bd0c35181",
+  "DSP/Utils.h": "8a2316eeb8f99cc5cbd0fb1d6c3ba21d3cd06def231f52edb7a76c50b7f6316f",
+  "LICENSE": "1c57cf0291ebfc28709b46c82a05a6dad4d0168b4715165279e697dd4f04dc9a",
+  "Parameters.cpp": "e4a3d6fce5849a0684cd4122ca803e5a781ed0b2d5a94c19c707eda85a6a76a0",
+  "Parameters.h": "0267d598526c6d35c765bab1a06538da92a353dedb9fba2e5bf009a3dbf378d8",
+  "Programs.h": "d15481355f961bf6b2ecfed429ba0a42eba0070f956097e2f07291d7841a0fd4",
+  "Readme.md": "ed20c465175b0f22b50cecb0bd5dc1c8516ba22813f175a89d48b3cc2f07ccde"
+}
