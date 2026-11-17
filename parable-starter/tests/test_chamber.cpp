@@ -38,6 +38,8 @@ static void safety(){Chamber e;float input[64]{},out[64]{};CHECK(!e.process(inpu
  CHECK(repeat&&energy>1.e-4);CHECK(e.prepare(48000,0,1));for(unsigned n=0;n<8192;n+=64){for(unsigned j=0;j<64;++j)input[j]=excitation(n+j,48000,.15f);repeat&=e.process(input,out);repeat&=std::equal(out,out+64,first.data()+n);}CHECK(repeat);
  Chamber reference;CHECK(reference.prepare(48000,0,1));for(unsigned n=0;n<8192;n+=64){for(unsigned j=0;j<64;++j)input[j]=excitation(n+j,48000,.15f);reference.process(input,out);}
  CHECK(!e.prepare(32000)&&!e.prepare(NAN)&&!e.prepare(48000,-1)&&!e.setReturnGain(INFINITY));input[1]=NAN;CHECK(!e.process(input,out));input[1]=0;float expected[64];CHECK(e.process(input,out)&&reference.process(input,expected));CHECK(std::equal(out,out+64,expected));
+ CHECK(!e.prepare(48000,0,1,{-1,.25f,6500}));CHECK(!e.prepare(48000,0,1,{0,NAN,6500}));CHECK(!e.prepare(48000,0,1,{0,.25f,1999}));
+ CHECK(e.prepare(48000,0,1,{40,.5f,2000}));std::fill_n(input,64,0.f);input[0]=.1f;bool predelay=true;double after=0;for(unsigned n=0;n<4096;n+=64){e.process(input,out);std::fill_n(input,64,0.f);for(unsigned j=0;j<64;++j){if(n+j<1920)predelay&=out[j]==0;else after+=double(out[j])*out[j];}}CHECK(predelay&&after>0);
  CHECK(e.prepare(48000,0,1));std::fill_n(input,64,0.f);bool silent=true;for(unsigned i=0;i<100;++i){silent&=e.process(input,out);for(float x:out)silent&=x==0;}CHECK(silent);
  // Stress the common numerical input/output containment; no musical assertion.
  std::fill_n(input,64,1.e30f);bool finite=true;activation_guard::begin();for(unsigned i=0;i<200;++i){finite&=e.process(input,out);for(float x:out)finite&=std::isfinite(x)&&std::abs(x)<=.98f;}activation_guard::end();CHECK(finite&&activation_guard::clean());

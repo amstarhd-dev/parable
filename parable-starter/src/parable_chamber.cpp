@@ -7,12 +7,13 @@ namespace parable::soundforge {
 struct Chamber::Core:Cloudseed::ReverbController {explicit Core(int rate):ReverbController(rate){}};
 Chamber::Chamber()=default;Chamber::~Chamber()=default;
 std::size_t Chamber::coreBytes()noexcept{return sizeof(Core);}
-bool Chamber::prepare(float rate,float gain,float wet){
+bool Chamber::prepare(float rate,float gain,float wet,ChamberRoom room){
     if((rate!=44100&&rate!=48000&&rate!=96000)||!std::isfinite(gain)||gain<0||gain>64||!std::isfinite(wet)||wet<0||wet>1)return false;
+    if(!std::isfinite(room.predelayMs)||room.predelayMs<0||room.predelayMs>80||!std::isfinite(room.decayControl)||room.decayControl<0||room.decayControl>.5f||!std::isfinite(room.dampingHz)||room.dampingHz<2000||room.dampingHz>12000)return false;
     // Upstream uses process-global rand during construction: serialized control
     // preparation only. Never reseed/allocate on the audio thread.
     std::srand(1);auto fresh=std::make_unique<Core>(static_cast<int>(rate));
-    chamber_detail::compact(*fresh);core_=std::move(fresh);gain_=targetGain_=gain;wet_=wet;
+    chamber_detail::compact(*fresh,room);core_=std::move(fresh);gain_=targetGain_=gain;wet_=wet;
     gainPole_=1-std::exp(-1/(.02f*rate));
     hp_=lp_=prev_=0;hpPole_=std::exp(-6.28318530718f*200/rate);lpPole_=std::exp(-6.28318530718f*4500/rate);
     for(unsigned i=0;i<64;++i)memory_[i]=mic_[i]=speaker_[i]=applied_[i]=0;

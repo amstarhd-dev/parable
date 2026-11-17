@@ -33,7 +33,7 @@ auto before=mallinfo2();activation_guard::preparation=true;
  auto e=std::make_unique<signalsmith::basics::ReverbFloat>();
  if(mode=="preset"){auto select=[](const char*name){return std::string(name)=="ambient";};e->presets(select);}
  if(mode=="compact"){e->roomMs=28;e->rt20=.4;e->early=1.5;e->detune=.5;e->lowCutHz=120;e->highCutHz=6500;e->lowDampRate=1.5;e->highDampRate=2.5;}
- if(mode=="envelope"){e->roomMs=28;e->rt20=.83;e->early=1.5;e->detune=.5;e->lowCutHz=120;e->highCutHz=6500;e->lowDampRate=1.5;e->highDampRate=2.5;}
+ if(mode=="envelope"){e->roomMs=28;e->rt20=1.35;e->early=1.5;e->detune=.5;e->lowCutHz=120;e->highCutHz=6500;e->lowDampRate=1.5;e->highDampRate=2.5;}
  e->dry=0;e->wet=1;lab::require(e->configure(fs,block,2),"configure failed");e->reset();
 #endif
  return e;};auto e=create();

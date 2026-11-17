@@ -2,6 +2,11 @@
 #include <cstddef>
 #include <memory>
 namespace parable::soundforge {
+struct ChamberRoom {
+    float predelayMs=0;
+    float decayControl=.25f; // Original normalized control0..0.5; NOT measured room RT60
+    float dampingHz=6500;
+};
 // Experimental HOST specimen. One owner, stopped prepare/reset/destruction.
 // Complete borrowed stereo core is folded mono; no Engine/patch admission.
 class Chamber {
@@ -10,7 +15,7 @@ public:
     static constexpr float healthyGain=.02f, faultGain=24.f;
     Chamber();~Chamber();
     Chamber(const Chamber&)=delete;Chamber& operator=(const Chamber&)=delete;
-    bool prepare(float rate,float returnGain=healthyGain,float wet=.65f);
+    bool prepare(float rate,float returnGain=healthyGain,float wet=.65f,ChamberRoom room={});
     // Input/output64 valid samples. Invalid input block produces zero and keeps
     // history; valid zero input continues the causal room/feedback response.
     bool process(const float* input,float* output) noexcept;
