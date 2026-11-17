@@ -1,0 +1,4 @@
+/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/Utilities.cpp:28:6:bool fftconvolver::SSEEnabled()	0	static
+/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/Utilities.cpp:38:6:void fftconvolver::Sum(Sample*, const Sample*, const Sample*, size_t)	16	static
+/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/Utilities.cpp:66:6:void fftconvolver::ComplexMultiplyAccumulate(Sample*, Sample*, const Sample*, const Sample*, const Sample*, const Sample*, size_t)	48	static
+/workspace/work/parable-sf024/parable-starter/third_party/fftconvolver/Utilities.cpp:58:6:void fftconvolver::ComplexMultiplyAccumulate(SplitComplex&, const SplitComplex&, const SplitComplex&)	32	static

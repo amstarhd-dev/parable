@@ -1,0 +1,14 @@
+Internal ctest changing into directory: /workspace/work/sf024-debug
+Test project /workspace/work/sf024-debug
+    Start 41: wallace_routing_actual_graph
+1/4 Test #41: wallace_routing_actual_graph .....   Passed   21.54 sec
+    Start 42: wallace_source_and_cli
+2/4 Test #42: wallace_source_and_cli ...........   Passed    0.12 sec
+    Start 43: wallace2_cabinet_clean_routing
+3/4 Test #43: wallace2_cabinet_clean_routing ...   Passed   12.86 sec
+    Start 44: wallace2_sources_and_cli
+4/4 Test #44: wallace2_sources_and_cli .........   Passed    0.10 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =  34.63 sec

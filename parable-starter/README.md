@@ -1,5 +1,7 @@
 # Parable Core — Brick 0.1 (2026-11-06)
 
+
+SF-024 adds the experimental [Wallace II cabinet/clean study](docs/SF024_REPORT.md): [ten matched WAVs and independent clean solos](samples/wallace2/README.md). Clean .50/Muff .75 default, two licensed measured IRs, pre/postcab placement. All original effects unchanged; host-only, no Daisy admission or claimed human musical verdict.
 This is the first **portable C++ code brick**, not a finished Parable SDK and not a commercial DSP effect. It contains no astrology or browser implementation. A separate experimental circuit-derived LabRAT listening laboratory is described below.
 
 SF-023 adds the host-only [Wallace mixing experiment](docs/SF023_REPORT.md):

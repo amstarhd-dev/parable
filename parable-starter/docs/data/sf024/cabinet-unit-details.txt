@@ -1,0 +1,3 @@
+jensen cab creation+prepare requested bytes 249532, allocation calls 1266 (gross, not live heap/high-water)
+v30 cab creation+prepare requested bytes 280636, allocation calls 1428 (gross, not live heap/high-water)
+584 checks: independent convolution, chunks/tails/reset, zero buffering latency, real clean/stem routing and callback guards
