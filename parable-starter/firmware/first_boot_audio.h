@@ -72,15 +72,23 @@ inline void end(Token token, size_t frames) noexcept {
 }
 inline void formatReport(const Summary& s) {
 #ifdef PARABLE_RAT_LINK_PROBE
-    constexpr const char* image = "RAT_COMPOSITE Gain(1.8)->Rat(.35/.5/.7)->Lowpass(1800Hz) trim=.8";
+#ifdef PARABLE_RAT_BENCH_1X
+    constexpr const char* image = "RAT_COMPOSITE_1X Gain(1.8)->Rat(.35/.5/.7)->Lowpass(1800Hz) trim=.8";
+#else
+    constexpr const char* image = "RAT_COMPOSITE_4X Gain(1.8)->Rat(.35/.5/.7)->Lowpass(1800Hz) trim=.8";
+#endif
 #else
     constexpr const char* image = "MONO_BYPASS trim=1";
 #endif
+    // ARM newlib-nano printf does not support the %llu modifier in this
+    // configuration. Print a bounded 32-bit ratio instead of shifting varargs.
+    const uint64_t ratio = ratioPpm(s.maxCycles, budget.deadlineCycles);
+    const uint32_t printableRatio = ratio > UINT32_MAX ? UINT32_MAX : static_cast<uint32_t>(ratio);
     const int n = std::snprintf(report, sizeof(report),
         "\r\nPAR009 %s\r\nwindow=FIRST_30000_CALLBACKS_FROZEN_USB_STARTED_AFTER_CAPTURE\r\n"
         "core_hz_rcc=%lu configured_rate_millihz=%lu block_frames=%lu estimated_deadline_cycles=%lu\r\n"
         "counter_enabled=%u blocks=%lu valid_blocks=%lu max_valid_callback_body_cycles=%lu last_valid_cycles=%lu\r\n"
-        "at_or_above_estimated_deadline=%lu invalid_intervals=%lu frame_mismatches=%lu max_valid_ratio_ppm=%llu\r\n"
+        "at_or_above_estimated_deadline=%lu invalid_intervals=%lu frame_mismatches=%lu max_valid_ratio_ppm=%lu\r\n"
         "stopped_load_ms=%lu stopped_load_cycles_valid=%u stopped_load_cycles=%lu engine_bytes=%u\r\n"
         "excludes=measurement_tail_return_SDK_ISR_and_postcapture_USB\r\n"
         "interval_contract=each_callback_less_than_2^31_cycles_multiwrap_hangs_not_resolvable\r\n"
@@ -91,7 +99,7 @@ inline void formatReport(const Summary& s) {
         static_cast<unsigned long>(s.maxCycles), static_cast<unsigned long>(s.lastCycles),
         static_cast<unsigned long>(s.atOrAboveDeadline), static_cast<unsigned long>(s.invalidIntervals),
         static_cast<unsigned long>(s.frameMismatches),
-        static_cast<unsigned long long>(ratioPpm(s.maxCycles, budget.deadlineCycles)),
+        static_cast<unsigned long>(printableRatio),
         static_cast<unsigned long>(loadMs), unsigned(loadCyclesValid), static_cast<unsigned long>(loadCycles),
         unsigned(sizeof(parable::Engine)));
     if (n <= 0 || static_cast<size_t>(n) >= sizeof(report)) fail(LedStatus::InvalidConfiguration);
