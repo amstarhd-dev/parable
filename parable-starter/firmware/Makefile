@@ -39,8 +39,11 @@ C_DEFS += -DPARABLE_FIRST_BOOT
 else ifeq ($(FIRST_BOOT_IMAGE),rat_composite)
 TARGET = parable_seed3_rat_composite
 C_DEFS += -DPARABLE_FIRST_BOOT -DPARABLE_RAT_LINK_PROBE
+else ifeq ($(FIRST_BOOT_IMAGE),rat_composite_1x)
+TARGET = parable_seed3_rat_composite_1x
+C_DEFS += -DPARABLE_FIRST_BOOT -DPARABLE_RAT_LINK_PROBE -DPARABLE_RAT_BENCH_1X
 else
-$(error Unknown FIRST_BOOT_IMAGE; use led_recovery, mono_bypass or rat_composite)
+$(error Unknown FIRST_BOOT_IMAGE; use led_recovery, mono_bypass, rat_composite or rat_composite_1x)
 endif
 endif
 
