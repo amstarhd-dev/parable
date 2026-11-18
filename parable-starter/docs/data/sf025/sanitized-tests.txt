@@ -1,0 +1,10 @@
+Internal ctest changing into directory: /workspace/work/sf025-sanitized
+Test project /workspace/work/sf025-sanitized
+    Start 41: tiled_room_reference_and_safety
+1/2 Test #41: tiled_room_reference_and_safety ...   Passed    3.38 sec
+    Start 42: tiled_room_cli_and_pins
+2/2 Test #42: tiled_room_cli_and_pins ...........   Passed    2.30 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   5.68 sec

@@ -56,7 +56,7 @@ TiledOutput TiledRoom::process(float input) noexcept {
     l=allpass(5,l,-.7f);l=delay(6,l);leftState_=l*dampA_+leftState_*dampB_;
     l=allpass(7,leftState_*gain_,apGain_);leftOut_=delay(8,l);
     r=allpass(9,r,-.7f);r=delay(10,r);rightState_=r*dampA_+rightState_*dampB_;
-    r=allpass(11,rightState_*gain_,apGain_);rightOut_=delay(12,r);
+    r=allpass(11,rightState_*gain_,diffuserGain());rightOut_=delay(12,r);
     const float wl=tap(10,leftTaps_[0])+tap(10,leftTaps_[1])-tap(11,leftTaps_[2])+tap(12,leftTaps_[3])-tap(6,leftTaps_[4])-tap(7,leftTaps_[5])-tap(8,leftTaps_[6]);
     const float wr=tap(6,rightTaps_[0])+tap(6,rightTaps_[1])-tap(7,rightTaps_[2])+tap(8,rightTaps_[3])-tap(10,rightTaps_[4])-tap(11,rightTaps_[5])-tap(12,rightTaps_[6]);
     TiledOutput o;o.wetLeft=.5f*wl;o.wetRight=.5f*wr;o.left=input*(1-settings_.wet)+o.wetLeft*settings_.wet;o.right=input*(1-settings_.wet)+o.wetRight*settings_.wet;o.mono=(o.left+o.right)*.5f;return o;

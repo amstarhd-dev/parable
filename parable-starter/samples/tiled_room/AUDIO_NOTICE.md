@@ -19,3 +19,8 @@ Borrowed code: Mike Jarmy dsp-lib, MIT, exact pin and complete notice under
 ../../third_party/tiled_room. No proprietary Lexicon/Eos code, IR or recordings
 included. This is an independent character study, no PCM70 sonic identity claim.
 Preserve attribution/source/license/change notices when sharing these recordings.
+
+Final fault changes exactly the right second tank-allpass recirculation coefficient
+from default.5 to.94; no oscillator, extra delay line or separate resonator layer.
+Original Room A comparison is existing Parable SF020, aperture0, with a disclosed
+offline wet-RMS calibration. Existing source-code notices remain in third_party.

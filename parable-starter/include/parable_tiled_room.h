@@ -2,7 +2,7 @@
 #include <array>
 #include <cstddef>
 namespace parable::soundforge {
-struct TiledSettings { float decaySeconds=.62f, wet=.35f; };
+struct TiledSettings { float decaySeconds=.62f, wet=.35f; bool ceramic=false; };
 struct TiledOutput { float left=0,right=0,mono=0,wetLeft=0,wetRight=0; };
 // Standalone fixed-topology specimen, not an Engine/patch processor registration.
 // Caller retains storage. prepare/reset are stopped-only; one audio owner.
@@ -17,6 +17,7 @@ public:
     TiledOutput process(float input) noexcept;
     size_t bufferBytes() const noexcept {return used_*sizeof(float);}
     float loopGain() const noexcept {return gain_;}
+    float diffuserGain() const noexcept {return settings_.ceramic?.94f:apGain_;}
 private:
     struct Delay {unsigned offset=0,length=0,write=0;float frames=0;};
     std::array<Delay,13> delays_{};

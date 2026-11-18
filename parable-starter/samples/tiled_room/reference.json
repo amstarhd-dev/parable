@@ -1,0 +1,51 @@
+{
+  "method": "independent full-network z-transform; fractional delay interpolation and existing internal tap histories; native f32 FFT compared on a logarithmic frequency grid",
+  "sample_rate": 48000,
+  "frequency_bins": 878,
+  "loop_gain": 0.5454381108283997,
+  "one_fault": "right second tank allpass feedback .5 to.94; tied feedforward coefficient uses same parameter",
+  "measurements": {
+    "healthy": {
+      "max_complex_error": 4.1339981635306213e-07,
+      "relative_complex_error": 1.2159273158165752e-07,
+      "t20_extrapolated_rt60_s": 0.5825735010054479,
+      "last_second_rms": 5.550883364206346e-22,
+      "energy_300_1000ms": 1.1878392215805493e-05,
+      "first_nonzero_sample": 257
+    },
+    "fault": {
+      "max_complex_error": 0.00014304961003249093,
+      "relative_complex_error": 1.1709481923910962e-05,
+      "t20_extrapolated_rt60_s": 2.81218049161684,
+      "last_second_rms": 1.0630602028630412e-08,
+      "energy_300_1000ms": 0.0007172543198383941,
+      "first_nonzero_sample": 257
+    }
+  },
+  "normalized_early_echo_density": {
+    "healthy": {
+      "(0, 0.01)": 0.07878718164069579,
+      "(0.01, 0.02)": 0.4727230898441747,
+      "(0.02, 0.04)": 0.735347028646494,
+      "(0.04, 0.08)": 0.9011283900154581,
+      "(0.08, 0.16)": 0.8724038967089544
+    },
+    "fault": {
+      "(0, 0.01)": 0.07878718164069579,
+      "(0.01, 0.02)": 0.4727230898441747,
+      "(0.02, 0.04)": 0.735347028646494,
+      "(0.04, 0.08)": 0.9011283900154581,
+      "(0.08, 0.16)": 0.9232872848519037
+    }
+  },
+  "largest_sampled_modal_increase": {
+    "frequency_hz": 374.3333333333333,
+    "fault_over_healthy_db": 19.343457103835462
+  },
+  "tail_energy_300_1000ms_increase_db": 17.809155113066765,
+  "stability": "Every interpolated delay is contractive; each allpass is a disk-preserving transfer with |g|<1; unchanged cross-loop gains<1. This is bounded linear algorithmic ringing, not amplitude-triggered behavior.",
+  "limits": [
+    "Six-second reference response truncation and native float coefficient quantization contribute residual error.",
+    "Temporal density/decay/modal differences do not establish PCM70 authenticity or musical quality."
+  ]
+}

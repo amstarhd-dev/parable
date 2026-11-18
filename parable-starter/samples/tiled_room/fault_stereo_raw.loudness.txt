@@ -1,0 +1,29 @@
+[aist#0:0/pcm_s16le @ 0x563f67f4e640] Guessed Channel Layout: stereo
+Input #0, wav, from '/workspace/work/parable-sf025/parable-starter/samples/tiled_room/fault_stereo_raw.wav':
+  Duration: 00:00:23.00, bitrate: 1536 kb/s
+  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    encoder         : Lavf61.7.103
+  Stream #0:0: Audio: pcm_s16le, 48000 Hz, stereo, s16, 1536 kb/s
+      Metadata:
+        encoder         : Lavc61.19.101 pcm_s16le
+[Parsed_ebur128_0 @ 0x7f4c9c001f40] Summary:
+
+  Integrated loudness:
+    I:         -29.2 LUFS
+    Threshold: -40.8 LUFS
+
+  Loudness range:
+    LRA:        17.1 LU
+    Threshold: -51.3 LUFS
+    LRA low:   -44.6 LUFS
+    LRA high:  -27.4 LUFS
+
+  True peak:
+    Peak:      -14.5 dBFS
+[out#0/null @ 0x563f67f4e800] video:0KiB audio:4312KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:00:23.00 bitrate=N/A speed= 207x    

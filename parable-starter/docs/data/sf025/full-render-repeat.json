@@ -1,0 +1,17 @@
+{
+  "comparison_roomA_wet_raw.wav": "9a0b58b84f60f7719367eb72723d0930b0fb5935bc542b0e37e33cb1dd25e3e6",
+  "dry_raw.wav": "e1bee6e92e7b369b17e50fa736800630e1b8a10317b841d5c1c12fa740575265",
+  "fault_raw.wav": "2619f13ca4a8ec8648aa03effa31a3b7fbc0062e77a80f2fddc563067adfa1d6",
+  "fault_stereo_raw.wav": "ec15b8b23a0298c0ae66abe4f3aac8631a28e9d04c62f5e971a78621f1d8d4d3",
+  "fault_wet_raw.wav": "e5aef8b9dcbd84040d11e7e5b3b140fb5e43d334d49e3068176aa6db36fa3faa",
+  "healthy_raw.wav": "b862d712a8eeff9f93921189bc0b820182ffead34cf905f99ca40e72ce80fa87",
+  "healthy_stereo_raw.wav": "3855213b5858c8b9565e312903bba10115f7cf0b3353c7a6c47c83361e69e296",
+  "healthy_wet_raw.wav": "daf7b9ff538ed08b364c0af95ae3188e58699452c50d9131814a4b73ef4cca7a",
+  "impulse_fault.f32": "4ac8dc9789bc6036975ebda7edf4ac975663512de0ca46513affde15dbd18313",
+  "impulse_fault.wav": "91c6968d5913ff6285508e8d5c05dd41aa9ada2c713baaa3155bc4460afd9c79",
+  "impulse_healthy.f32": "b0c86e6ee8c3747e7a4039fa4de4b2ecb13c0e3ad5dc6b12086b7a1175130726",
+  "impulse_healthy.wav": "3b8f10a329ec6a63a40219657f769295d2c8a5982387425be4507d8baa1e18b1",
+  "impulse_roomA.wav": "86ec7b22944f93d9caa330670c23b6f49943e75ebc935486c367dd9d784c2d42",
+  "transient_fault.wav": "285c94991c3b2c1679ee11001018fe3d7f0fcfefd438a68abe4de0abfd69b75d",
+  "transient_healthy.wav": "ed624e15f38863ae0de8eefd9aae06fb6953ff520f36a6b3253ac7bcdd15207e"
+}

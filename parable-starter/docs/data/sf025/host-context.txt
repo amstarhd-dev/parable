@@ -1,0 +1,1 @@
+GNU C++14.2.0, CMake3.31.6, Python3.12.14, x86_64 EPYC9V74. Release -O3 -DNDEBUG, no fast math. Complete1104000frame/23s render at48k, one-frame native API. steady_clock brackets actual processing plus four capture stores; preparation and IO outside. No affinity/frequency lock. Host mean is not WCET or MCU cycles.

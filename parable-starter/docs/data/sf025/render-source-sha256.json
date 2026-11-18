@@ -1,0 +1,7 @@
+{
+  "include/parable_tiled_room.h": "3f9dff37bf1b5b788e9c01bada323692a9ef7519bea7270d3f30e927d4574102",
+  "src/parable_tiled_room.cpp": "3e2e437c091deddff96bfe509502562ea4032bdfd872701b5b917f588954e89c",
+  "tools/tiled_room_lab.cpp": "1f8f818d4dce6bd66e1fb4e04f2543f7c2271b08ab141ac6098cb015bc1cc4ae",
+  "third_party/tiled_room/parablereference/parable_coupled_rooms.cpp": "8d03b23d4fb393c4ed57873b8193b6b2f3ab28cda89275f60af12ab2262828e0",
+  "third_party/tiled_room/parablereference/parable_coupled_rooms.h": "bc20b8ca2020ce578f05b6a69b9cac07b32e4e7f84e0c831234974f96edb1954"
+}
