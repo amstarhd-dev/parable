@@ -1,0 +1,20 @@
+{
+  "candidates": [
+    {
+      "name": "Mike Jarmy dsp-lib",
+      "url": "https://github.com/mjarmy/dsp-lib",
+      "revision": "a26e67c8c9a12038cc51fdec5f7bed3941ce465b",
+      "license": "MIT",
+      "relationship": "derived",
+      "files": {
+        "PlateReverb.hpp": "2d4733949dd815a0623645eaafde9d113b89c2c31b7d9f96c0e1022cef973136",
+        "FastMath.hpp": "3ada58f1c50070c0998d3740b4b9bd27d90df1b708fcad456b53a6665bc7486f"
+      }
+    }
+  ],
+  "notes": [
+    "FastMath is retained only for the original reference test; production removes LFO entirely.",
+    "Native fixed caller storage and compact/no-modulation tuning preserve the selected source scalar signal flow.",
+    "Source parity is not PCM70 equivalence."
+  ]
+}

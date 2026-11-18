@@ -1,0 +1,20 @@
+{
+  "matching": {
+    "healthy": {
+      "gain": 3.467368504525315,
+      "source": {
+        "lufs": -33.8,
+        "dbtp": -17.0
+      },
+      "matched": {
+        "lufs": -23.0,
+        "dbtp": -6.2
+      },
+      "stereo_gain": 2.26464430759306
+    }
+  },
+  "target_lufs": -23.0,
+  "meter": "external FFmpeg ebur128; measured0.1LU resolution; constant gains only; scaled rawPCM16 exports",
+  "ffmpeg": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers",
+  "fault_present": false
+}
