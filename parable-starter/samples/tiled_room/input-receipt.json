@@ -1,0 +1,25 @@
+{
+  "dataset": "Guitar-TECHS",
+  "record": "14963133",
+  "license": "CC-BY-4.0",
+  "authors": [
+    "Hegel Emmanuel Pedroza Villalobos",
+    "Termeh Taheri",
+    "Wallace Abreu",
+    "Ryan M. Corey",
+    "Iran R. Roman"
+  ],
+  "source": "https://zenodo.org/records/14963133",
+  "archive_sha256": "033489e22600751fb5a1633e7d856b901c6782e0486fa02135e830780d9dbfe2",
+  "member": "P3_music/audio/directinput/directinput_03.wav",
+  "original_sha256": "84980b5468f3315171e4e546a1d38d54e4c368ccb5fee72c759e0915f346fad0",
+  "prepared_sha256": "e6f6c8736d2cf31b11bf3c37a14fad47f4d5a40a8b28e0c7cb6f7bbe7afe63a4",
+  "start_frame": 445440,
+  "end_frame": 1405440,
+  "start_seconds": 9.28,
+  "end_seconds": 29.28,
+  "rate": 48000,
+  "frames": 960000,
+  "channel": 0,
+  "changes": "Excerpt only,24->16 nearest/ties-away, no resample/EQ/dynamics/gating/gain;9s zero tail added by C++ renderer."
+}

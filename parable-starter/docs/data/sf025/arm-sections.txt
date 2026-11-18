@@ -1,0 +1,32 @@
+/workspace/work/sf025-arm/build/parable_tiled_room_probe.elf  :
+section                  size         addr
+.isr_vector               664    134217728
+.text                   77436    134218392
+.ARM.extab                  0    134295828
+.exidx                      8    134295828
+.ARM.attributes            46            0
+.init_array                40    134295836
+.fini_array                 4    134295876
+.data                    1320    603979776
+.bss                    60868    603981096
+.dtcmram_bss                0    536870912
+.sram1_bss              16384    805306368
+.sdram_bss                  0   3221225472
+.backup_sram               12    947912704
+.qspiflash_text             0   2415919104
+.qspiflash_data             0   2415919104
+.qspiflash_bss              0   2415919104
+.heap                       0    604041964
+.reserved_for_stack         0    604041964
+.comment                   57            0
+.debug_info            578098            0
+.debug_abbrev           57711            0
+.debug_aranges          11432            0
+.debug_rnglists         27856            0
+.debug_line            320415            0
+.debug_str              87762            0
+.debug_frame            34628            0
+.debug_loclists        230367            0
+Total                 1505108
+
+

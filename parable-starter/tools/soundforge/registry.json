@@ -1362,6 +1362,91 @@
           "paths": []
         }
       }
+    },
+    {
+      "id": "model.tiled-room",
+      "type": "model",
+      "paths": [
+        "parable-starter/include/parable_tiled_room.h",
+        "parable-starter/src/parable_tiled_room.cpp"
+      ],
+      "sources": [
+        {
+          "provenance_path": "parable-starter/third_party/tiled_room/provenance.json",
+          "candidate": 0,
+          "relationship": "derived",
+          "notice_paths": [
+            "parable-starter/third_party/tiled_room/MJARMY-LICENSE.txt"
+          ],
+          "scope": "Same complete Dattorro signal flow, bounded static storage/no modulation; exact upstream retained for source parity."
+        }
+      ],
+      "ownership_notes": "MIT Mike Jarmy source adapted with notices; portable fixed storage and one coefficient fault are Parable. Global project license unspecified.",
+      "physics_notes": "Independent static digital character study. One existing right tank diffuser recirculation coefficient .5 to.94; not physical tile simulation or a PCM70 clone.",
+      "behavior": "Stopped preparation at44.1/48/96k, caller storage; configurable dry/wet, exact wet outputs; no Engine or firmware integration.",
+      "limitations": [
+        "Founder found healthy promising; fault musical approval and PCM70 equivalence unproven.",
+        "Independent digital-network comparison is not physical hardware validation.",
+        "No Seed3 runtime/cycles/analog/stack high-water proof."
+      ],
+      "dependencies": {
+        "assets": [
+          "host.pcm16",
+          "host.signal-analysis"
+        ],
+        "external": [
+          "C++17, libm during preparation only; pinned ARM14.2.1/libDaisy; Python NumPy2.3.5/FFmpeg external analysis."
+        ]
+      },
+      "evidence": {
+        "host_numerical": {
+          "status": "passed",
+          "scope": "Source parity, three rates/reset/safety/callback guards and deterministic actual renderer.",
+          "paths": [
+            "parable-starter/tests/test_tiled_room.cpp",
+            "parable-starter/tests/test_tiled_room_cli.py",
+            "parable-starter/tools/tiled_room_reference.py"
+          ]
+        },
+        "independent_circuit": {
+          "status": "not-applicable",
+          "scope": "Digital reverb, no physical circuit claim; independent full z-transform validation belongs to host_numerical.",
+          "paths": []
+        },
+        "synthetic_audition": {
+          "status": "generated",
+          "scope": "Native impulses and short three-transient probes.",
+          "paths": [
+            "parable-starter/samples/tiled_room/transient_healthy.wav",
+            "parable-starter/samples/tiled_room/transient_fault.wav"
+          ]
+        },
+        "real_guitar_audition": {
+          "status": "auditioned",
+          "scope": "Founder called healthy candidate promising and requested continuation. Fault approval remains open.",
+          "paths": [
+            "parable-starter/samples/tiled_room/AUDIO_NOTICE.md",
+            "parable-starter/docs/SF025_REPORT.md"
+          ]
+        },
+        "arm_cross_compile": {
+          "status": "compiled",
+          "scope": "Actual standalone internal-flash audio-image compile/link; not hardware execution.",
+          "paths": [
+            "parable-starter/tools/check_tiled_room_arm.py"
+          ]
+        },
+        "physical_daisy": {
+          "status": "not-performed",
+          "scope": "No physical boot/audio/deadline measured.",
+          "paths": []
+        },
+        "patch_runtime": {
+          "status": "not-integrated",
+          "scope": "Canonical schema, Engine, activation and production firmware unchanged.",
+          "paths": []
+        }
+      }
     }
   ]
 }

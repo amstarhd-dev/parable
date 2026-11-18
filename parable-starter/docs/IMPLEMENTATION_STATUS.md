@@ -1,5 +1,24 @@
 # Implementation status and reproducible baseline
 
+## SF025 — experimental Virgo Tiled Room
+
+[Report](SF025_REPORT.md), [ADR025](adr/ADR-025-virgo-tiled-room.md),
+[listening ZIP](../samples/tiled_room/SF025-listening.zip).
+
+- **Implemented:** complete MIT Jarmy Dattorro signal flow, compact static/no-LFO
+  tuning, caller memory,3rates; one right second-diffuser coefficient .5→.94.
+  Native stereo/mono and configurable mix; main auditions retain65% dry.
+- **Host-tested:** source parity3rates/3decays, independent full complex network,
+  reset/invalid/history/DC/sine/tail/callback and actual deterministic render;
+  focused Release7/7, Debug2/2, ASan+UBSan2/2.452 prior protected files unchanged.
+- **ARM link-tested:** separate actual48k stereo audio image79472B flash load,
+  on-chip RAM,0SDRAM; native2588B text; ARM room+history48864B.84B known static
+  callback frame chain before SDK/interrupts, not high-water/WCET.
+- **Hardware-tested:**none. No physical cycles/boot/codec/latency/headroom proof,
+  no canonical/Engine/production firmware/previous reverb/correspondence change.
+- **Musically auditioned:** founder called healthy-first candidate “Promising—continue.”
+  Final fault and historical PCM70 equivalence remain unapproved/unverified.
+
 ## SF-014 — experimental standalone Lockhart / one feed resistor
 
 [Gate0](SF014_GATE0.md), [ADR014](adr/ADR-014-lockhart-feed-resistor.md),

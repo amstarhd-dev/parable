@@ -450,6 +450,52 @@ jobs:
           UBSAN_OPTIONS: halt_on_error=1
         run: ctest --test-dir build/scorpio-sanitized --output-on-failure --no-tests=error -R '^scorpio_' -j2
 
+  tiled-room:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        build_type: [Debug, Release]
+    defaults:
+      run:
+        working-directory: parable-starter
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure and build focused Tiled Room targets
+        run: |
+          cmake -S . -B build/tiled -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+          cmake --build build/tiled --target parable_tiled_room_test parable_tiled_room_lab -j2
+      - name: Test source parity, safe ownership and actual renderer
+        run: ctest --test-dir build/tiled --output-on-failure --no-tests=error -R '^tiled_room_'
+      - name: Render and independently validate Tiled Room listening pair
+        if: matrix.build_type == 'Release'
+        run: |
+          python3 -m venv build/tiled-tools
+          build/tiled-tools/bin/python -m pip install numpy==2.3.5
+          if ! command -v ffmpeg; then sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg; fi
+          ./build/tiled/parable_tiled_room_lab --input samples/tiled_room/take03-late20s.wav --output build/tiled-auditions
+          cp samples/tiled_room/AUDIO_NOTICE.md samples/tiled_room/README.md build/tiled-auditions/
+          build/tiled-tools/bin/python tools/tiled_room_reference.py --directory build/tiled-auditions
+          build/tiled-tools/bin/python tools/tiled_room_evidence.py --directory build/tiled-auditions
+          git rev-parse HEAD > build/tiled-auditions/SOURCE_COMMIT
+      - name: Publish Tiled Room same-gain and matched auditions
+        if: matrix.build_type == 'Release'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: parable-tiled-room-auditions
+          path: parable-starter/build/tiled-auditions/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Focused Tiled Room ASan and UBSan
+        if: matrix.build_type == 'Release'
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1:max_malloc_fill_size=100000000
+          UBSAN_OPTIONS: halt_on_error=1
+        run: |
+          cmake -S . -B build/tiled-sanitized -DCMAKE_BUILD_TYPE=Debug -DFETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON="$PWD/build/tiled/_deps/nlohmann_json-src" -DCMAKE_CXX_FLAGS="-O1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie" -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined -no-pie"
+          cmake --build build/tiled-sanitized --target parable_tiled_room_test parable_tiled_room_lab -j2
+          ctest --test-dir build/tiled-sanitized --output-on-failure --no-tests=error -R '^tiled_room_'
+
   activation-tsan:
     runs-on: ubuntu-24.04
     timeout-minutes: 10

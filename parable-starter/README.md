@@ -1,5 +1,7 @@
 # Parable Core — Brick 0.1 (2026-11-06)
 
+
+SF-025 adds an experimental [Virgo Tiled Room](docs/SF025_REPORT.md): compact static borrowed Dattorro core, one diffuser-recirculation fault, [listening ZIP](samples/tiled_room/SF025-listening.zip). Native3rate tests and a separate internal-flash ARM audio link pass; physical runtime and final musical approval remain open. No production integration.
 This is the first **portable C++ code brick**, not a finished Parable SDK and not a commercial DSP effect. It contains no astrology or browser implementation. A separate experimental circuit-derived LabRAT listening laboratory is described below.
 
 SF-014 adds one standalone [loaded Lockhart wavefolder / upper-feed resistor fault](docs/SF014_REPORT.md).

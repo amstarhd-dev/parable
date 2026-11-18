@@ -1,0 +1,29 @@
+{
+  "candidates": [
+    {
+      "name": "Mike Jarmy dsp-lib",
+      "url": "https://github.com/mjarmy/dsp-lib",
+      "revision": "a26e67c8c9a12038cc51fdec5f7bed3941ce465b",
+      "license": "MIT",
+      "relationship": "derived",
+      "files": {
+        "PlateReverb.hpp": "2d4733949dd815a0623645eaafde9d113b89c2c31b7d9f96c0e1022cef973136",
+        "FastMath.hpp": "3ada58f1c50070c0998d3740b4b9bd27d90df1b708fcad456b53a6665bc7486f"
+      }
+    }
+  ],
+  "notes": [
+    "FastMath is retained only for the original reference test; production removes LFO entirely.",
+    "Native fixed caller storage and compact/no-modulation tuning preserve the selected source scalar signal flow.",
+    "Source parity is not PCM70 equivalence."
+  ],
+  "comparison": {
+    "commit": "421f31489fab1050985697003c5f74527763f979",
+    "role": "unchanged original SF020 comparison only; aperture0 isolates Room A",
+    "sha256": {
+      "parable_coupled_rooms.h": "bc20b8ca2020ce578f05b6a69b9cac07b32e4e7f84e0c831234974f96edb1954",
+      "SIGNALSMITH-LICENSE.txt": "b81eab3abab58e20eb74c74e70b8f3cbf7160ae3b3f1951b8f5e6692b52d10b5",
+      "parable_coupled_rooms.cpp": "8d03b23d4fb393c4ed57873b8193b6b2f3ab28cda89275f60af12ab2262828e0"
+    }
+  }
+}

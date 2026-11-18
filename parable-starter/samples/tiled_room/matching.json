@@ -1,0 +1,72 @@
+{
+  "mono_checks": {
+    "healthy": {
+      "max_pcm_mono_average_error": 1.52587890625e-05,
+      "wet_left_right_cosine": -0.009111668489132125,
+      "mono_wet_power_vs_stereo_mean_db": -3.049658454924625,
+      "note": "Wet inferred from quantized full stereo and common dry path; no subjective width/quality claim."
+    },
+    "fault": {
+      "max_pcm_mono_average_error": 1.52587890625e-05,
+      "wet_left_right_cosine": -0.01670286749063094,
+      "mono_wet_power_vs_stereo_mean_db": -3.082926011780058,
+      "note": "Wet inferred from quantized full stereo and common dry path; no subjective width/quality claim."
+    }
+  },
+  "comparison": {
+    "source": "exact existing SF020 Room A, aperture0, original mono readout",
+    "native_nominal_rt60_s": 0.65,
+    "offline_wet_rms_gain": 2.680402640657232,
+    "mix_law": ".65 calibrated source + .35 scaled existing room return",
+    "note": "Scalar equalizes wet RMS to healthy Tiled for this one comparison only; unscaled actual old wet return retained."
+  },
+  "matching": {
+    "healthy": {
+      "gain": 3.467368504525315,
+      "source": {
+        "lufs": -33.8,
+        "dbtp": -17.0
+      },
+      "matched": {
+        "lufs": -23.0,
+        "dbtp": -6.2
+      },
+      "stereo_gain": 2.26464430759306,
+      "stereo_matched": {
+        "lufs": -23.0,
+        "dbtp": -8.4
+      }
+    },
+    "fault": {
+      "gain": 3.198895109691399,
+      "source": {
+        "lufs": -33.1,
+        "dbtp": -16.5
+      },
+      "matched": {
+        "lufs": -23.0,
+        "dbtp": -6.4
+      },
+      "stereo_gain": 2.041737944669529,
+      "stereo_matched": {
+        "lufs": -23.0,
+        "dbtp": -8.3
+      }
+    },
+    "comparison_roomA": {
+      "gain": 3.198895109691399,
+      "source": {
+        "lufs": -33.1,
+        "dbtp": -16.7
+      },
+      "matched": {
+        "lufs": -23.0,
+        "dbtp": -6.6
+      }
+    }
+  },
+  "target_lufs": -23.0,
+  "meter": "external FFmpeg ebur128; measured0.1LU resolution; constant gains only; scaled rawPCM16 exports",
+  "ffmpeg": "ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers",
+  "fault_present": true
+}
