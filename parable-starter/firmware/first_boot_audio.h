@@ -74,6 +74,8 @@ inline void formatReport(const Summary& s) {
 #ifdef PARABLE_RAT_LINK_PROBE
 #ifdef PARABLE_RAT_BENCH_1X
     constexpr const char* image = "RAT_COMPOSITE_1X Gain(1.8)->Rat(.35/.5/.7)->Lowpass(1800Hz) trim=.8";
+#elif defined(PARABLE_RAT_BENCH_FIR97)
+    constexpr const char* image = "RAT_COMPOSITE_4X97 Gain(1.8)->Rat(.35/.5/.7)->Lowpass(1800Hz) trim=.8";
 #else
     constexpr const char* image = "RAT_COMPOSITE_4X Gain(1.8)->Rat(.35/.5/.7)->Lowpass(1800Hz) trim=.8";
 #endif
