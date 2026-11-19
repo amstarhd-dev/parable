@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Compile and compare reference, 4x97 and 4x97/floatclip RAT variants.
 
-Six deterministic two-second synthetic stimuli at 48k. Host-only differential
+Eight deterministic two-second synthetic stimuli at 48k. Host-only differential
 check, not a claim of perceptual similarity, hardware cycles, or target safety.
 Python 3 standard library and C++17 compiler; no network or third-party modules.
 """
@@ -12,8 +12,8 @@ import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-FRAMES, NCASES = 96000, 6
-CASES = ("pluck", "low_drive_chords", "3517Hz", "7971Hz", "hard_transients", "wideband")
+FRAMES, NCASES = 96000, 8
+CASES = ("pluck", "low_drive_chords", "3517Hz", "7971Hz", "hard_transients", "wideband", "diode_open", "both_diodes_open")
 
 def render(out, compiler, name, defines):
     binary=out/("rat_"+name)
@@ -56,6 +56,6 @@ def main():
         print(f"{name},{e1:.6f},{e2:.6f}")
         worst=max(worst,e2)
     print(f"worst_floatclip_pct={worst:.6f}")
-    if worst>0.05:raise RuntimeError("FP32 clipping divergence >0.05% in six probe cases")
+    if worst>0.05:raise RuntimeError("FP32 clipping divergence >0.05% in eight probe cases")
     print("PASS: host differential only; no authorization for production use")
 if __name__=="__main__":main()
