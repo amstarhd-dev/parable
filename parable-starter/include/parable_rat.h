@@ -59,7 +59,14 @@ public:
     RatNodes lastNodes() const noexcept {return nodes_;} // Same-thread diagnostics only.
     RatControls controls() const noexcept {return controls_;}
     RatCircuit circuit() const noexcept {return circuit_;}
+#ifdef PARABLE_RAT_BENCH_FIR97
+    // Diagnostic ONLY: 4x processing with a shorter anti-alias FIR.
+    // The 97-tap two-pass interpolator/decimator has ~24 base-frame latency,
+    // versus 48 for the original; match delays explicitly for audio A/B.
+    static constexpr std::size_t kTaps=97,kFirDelay=24;
+#else
     static constexpr std::size_t kTaps=193,kFirDelay=48;
+#endif
 private:
     double circuitSample(double v) noexcept;
     rat_detail::Filter input_,gain_;
