@@ -33,8 +33,8 @@ def inspect(toolbin, build, target="parable_seed3_minimal", app_type="BOOT_NONE"
         raise RuntimeError("Diagnostic must retain JSON decoding and native preparation")
     if outputs["undefined.txt"].strip():
         raise RuntimeError("Final ARM image has unresolved symbols")
-    active_rat = target.endswith("rat_probe") or target in ("parable_seed3_rat_composite", "parable_seed3_rat_composite_1x", "parable_seed3_rat_composite_97")
-    first_boot = target in ("parable_seed3_led", "parable_seed3_bypass", "parable_seed3_rat_composite", "parable_seed3_rat_composite_1x", "parable_seed3_rat_composite_97")
+    active_rat = target.endswith("rat_probe") or target in ("parable_seed3_rat_composite", "parable_seed3_rat_composite_1x", "parable_seed3_rat_composite_97", "parable_seed3_rat_composite_97_floatclip")
+    first_boot = target in ("parable_seed3_led", "parable_seed3_bypass", "parable_seed3_rat_composite", "parable_seed3_rat_composite_1x", "parable_seed3_rat_composite_97", "parable_seed3_rat_composite_97_floatclip")
     if first_boot and ("Codec::" in outputs["symbols.txt"] or "nlohmann::" in outputs["symbols.txt"]):
         raise RuntimeError("Parser unexpectedly linked into first-boot kit")
     if target == "parable_seed3_led":
