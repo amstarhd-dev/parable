@@ -15,7 +15,7 @@ def parse(raw):
             banner=line[7:]
             fields={}
         if banner is not None:
-            for m in re.finditer(r"\\b([a-z_]+)=([0-9]+)(?=\\s|$)",line):
+            for m in re.finditer(r"\b([a-z_]+)=([0-9]+)(?=\s|$)",line):
                 fields[m[1]]=int(m[2])
     if not banner: raise ValueError("No PAR009 banner")
     missing=set(REQUIRED)-set(fields)
@@ -44,9 +44,9 @@ def check(raw,voice,stimulus="unconnected"):
                 "input and control worst-case not certified","stack, SDRAM, actual analog I/O, listening and combined patch pending"])
 def test():
     def raw(header,cycles):
-        return (f"PAR009 {header}\\ncore_hz_rcc=480000000 configured_rate_millihz=48000000 block_frames=48 estimated_deadline_cycles=480000\\n"
-                f"counter_enabled=1 blocks=30000 valid_blocks=30000 max_valid_callback_body_cycles={cycles} last_valid_cycles=3246\\n"
-                "at_or_above_estimated_deadline=0 invalid_intervals=0 frame_mismatches=0 max_valid_ratio_ppm=lu\\n")
+        return (f"PAR009 {header}\ncore_hz_rcc=480000000 configured_rate_millihz=48000000 block_frames=48 estimated_deadline_cycles=480000\n"
+                f"counter_enabled=1 blocks=30000 valid_blocks=30000 max_valid_callback_body_cycles={cycles} last_valid_cycles=3246\n"
+                "at_or_above_estimated_deadline=0 invalid_intervals=0 frame_mismatches=0 max_valid_ratio_ppm=lu\n")
     a=check(raw("RAT_COMPOSITE Gain(1.8) Rat",370915),"rat")
     b=check(raw("MONO_BYPASS trim=1",3357),"bypass")
     assert a["timing_screen"]=="FAIL" and abs(a["utilization_percent"]-77.274)<.01
