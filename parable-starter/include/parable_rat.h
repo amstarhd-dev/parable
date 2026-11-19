@@ -35,13 +35,26 @@ bool preparePreamp(Filter& input,Filter& gain,double rate,RatControls p,const Ra
 struct ClipStage {
     static constexpr std::size_t kTable=2049;
     std::array<float,kTable> inverse{};
-    double sourceG=0,filterG=0,toneG=0,gateG=0,toneInv=0,toneInput=0,portR=1;
+#ifdef PARABLE_RAT_BENCH_FLOATCLIP
+    // First-pass target profiling only: use hardware-FPU friendly state and
+    // math in the clipping network; retain double-precision preamp filters.
+    float sourceG=0,filterG=0,toneG=0,gateG=0,toneInv=0,toneInput=0,portR=1;
+    float couplingR=0,clipR=0,gateR=0,outG=0,outR=0,bottomR=0;
+    float zCoupling=0,zTone=0,zGate=0,zOut=0;
+#else
+    double sourceG=0,filterG=0,toneG=0,gateG=0,toneInv=0,portR=1;
     double couplingR=0,clipR=0,gateR=0,outG=0,outR=0,bottomR=0;
     double zCoupling=0,zTone=0,zGate=0,zOut=0;
+#endif
     float clip=0,tone=0;
     void prepare(double rate,RatControls control,const RatCircuit& c) noexcept;
+#ifdef PARABLE_RAT_BENCH_FLOATCLIP
+    float process(float v) noexcept;
+    float lookup(float v) const noexcept;
+#else
     double process(double v) noexcept;
     double lookup(double v) const noexcept;
+#endif
     void reset() noexcept {zCoupling=zTone=zGate=zOut=0;clip=tone=0;}
 };
 }
