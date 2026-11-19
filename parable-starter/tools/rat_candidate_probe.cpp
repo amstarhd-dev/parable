@@ -6,16 +6,21 @@
 #include <iostream>
 using parable::dsp::Rat;
 constexpr double pi=3.14159265358979323846;
-struct Scenario {float distortion,filter,volume,amplitude;unsigned pattern;};
+struct Scenario {float distortion,filter,volume,amplitude;unsigned pattern;unsigned diodeFault;};
 int main(int argc,char**argv){
  if(argc!=2){std::cerr<<"Usage: rat_candidate_probe OUTPUT.raw\n";return 2;}
  std::ofstream out(argv[1],std::ios::binary);if(!out)return 3;
  constexpr int rate=48000,frames=rate*2;
  const Scenario scenarios[]={
   {.35f,.5f,.7f,.25f,0},{0.f,0.f,1.f,.9f,1},{1.f,1.f,1.f,.95f,2},
-  {1.f,0.f,.05f,.5f,3},{.9f,.4f,.85f,.85f,4},{.5f,.5f,.5f,1.f,5}};
+  {1.f,0.f,.05f,.5f,3},{.9f,.4f,.85f,.85f,4},{.5f,.5f,.5f,1.f,5,0},
+  {.85f,.6f,.7f,.6f,2,1},  // unilateral diode-open fault
+  {1.f,.2f,.65f,.85f,4,2}}; // both diodes disconnected
  for(const auto& c:scenarios){
-  Rat rat;if(!rat.configure(rate,{c.distortion,c.filter,c.volume}))return 4;
+  Rat rat;parable::dsp::RatCircuit circuit;
+  if(c.diodeFault) circuit.positiveDiodeConnected=false;
+  if(c.diodeFault==2) circuit.negativeDiodeConnected=false;
+  if(!rat.configure(rate,{c.distortion,c.filter,c.volume},circuit))return 4;
   for(int n=0;n<frames;++n){
    const double t=double(n)/rate;double signal=0;
    switch(c.pattern){
