@@ -1,0 +1,230 @@
+{
+  "schema": 1,
+  "target": "Daisy Seed3 480MHz 48kHz 48frame",
+  "cycles_per_block": 480000,
+  "full_chain_limit_percent": 70,
+  "isolated_target_percent": {
+    "drive": 20,
+    "reverb": 12,
+    "delay": 5,
+    "modulation": 5
+  },
+  "observed": {
+    "source": "user physical Seed3 PAR009 2026-11-18; unconnected ADC, DWT callback body only",
+    "bypass_max_cycles": 3357,
+    "rat_composite_max_cycles": 370915,
+    "blocks": 30000
+  },
+  "effects": [
+    {
+      "id": "rat",
+      "category": "drive",
+      "source": "main",
+      "disposition": "optimize_reference",
+      "priority": 1,
+      "evidence": "DWT composite 370915/480000; 4x FIR/soft-double",
+      "next": "4x97 and mixed-precision M7 bench",
+      "production_admitted": false
+    },
+    {
+      "id": "muff",
+      "category": "drive",
+      "source": "main PR50",
+      "disposition": "optimize_reference",
+      "priority": 1,
+      "evidence": "4x ten-port Newton; ~6-12us host/frame",
+      "next": "profile solve, exponential, sparse/float approximation",
+      "production_admitted": false
+    },
+    {
+      "id": "ts808",
+      "category": "drive",
+      "source": "main PR52",
+      "disposition": "optimize_reference",
+      "priority": 1,
+      "evidence": "16x circuit solve; ~16us host/frame",
+      "next": "costed 4x/8x physical-surrogate comparison",
+      "production_admitted": false
+    },
+    {
+      "id": "klon",
+      "category": "drive",
+      "source": "main PR54",
+      "disposition": "optimize_reference",
+      "priority": 1,
+      "evidence": "12x nonlinear solve; ~9-12us host/frame",
+      "next": "cached/state-dependent nonlinear approximation",
+      "production_admitted": false
+    },
+    {
+      "id": "germanium",
+      "category": "drive",
+      "source": "main",
+      "disposition": "optimize_reference",
+      "priority": 2,
+      "evidence": "4x expm1/sqrt solving; no target cycles",
+      "next": "device-table/float and stressed M7 bench",
+      "production_admitted": false
+    },
+    {
+      "id": "cmos",
+      "category": "drive",
+      "source": "main; PR42 open",
+      "disposition": "needs_measurement",
+      "priority": 2,
+      "evidence": "4x; untested target cycles",
+      "next": "isolated M7 benchmark",
+      "production_admitted": false
+    },
+    {
+      "id": "scorpio",
+      "category": "drive",
+      "source": "main PR67",
+      "disposition": "bench_first",
+      "priority": 1,
+      "evidence": "4x fixed-cost hybrid; ~0.55us host/frame",
+      "next": "integrate target benchmark then composite",
+      "production_admitted": false
+    },
+    {
+      "id": "wavefolder",
+      "category": "drive",
+      "source": "main PR59",
+      "disposition": "bench_first",
+      "priority": 1,
+      "evidence": "4x fixed-table ADAA; ~0.5us host/frame",
+      "next": "measure M7 cost",
+      "production_admitted": false
+    },
+    {
+      "id": "libra",
+      "category": "drive",
+      "source": "open PR70",
+      "disposition": "bench_first",
+      "priority": 2,
+      "evidence": "4x piecewise model; ~0.26us host/frame",
+      "next": "rebase and test M7",
+      "production_admitted": false
+    },
+    {
+      "id": "ds1",
+      "category": "drive",
+      "source": "open PR69",
+      "disposition": "needs_measurement",
+      "priority": 2,
+      "evidence": "8x fixed work; ~1.2us host/frame",
+      "next": "M7 and high-note comparison",
+      "production_admitted": false
+    },
+    {
+      "id": "fz1",
+      "category": "drive",
+      "source": "open PR61",
+      "disposition": "optimize_reference",
+      "priority": 2,
+      "evidence": "8x nonlinear solve; ~5-11us host/frame",
+      "next": "reduce solver and M7 stack",
+      "production_admitted": false
+    },
+    {
+      "id": "blender",
+      "category": "drive",
+      "source": "open PR63",
+      "disposition": "research_hold",
+      "priority": 3,
+      "evidence": "8x; high-note gates fail; ~22-57us host/frame",
+      "next": "repair high-note numerical reference first",
+      "production_admitted": false
+    },
+    {
+      "id": "tape_saturation",
+      "category": "drive",
+      "source": "open PR56",
+      "disposition": "optimize_reference",
+      "priority": 2,
+      "evidence": "nonlinear magnetic model; ~10us host/frame",
+      "next": "reduced state/float physical model",
+      "production_admitted": false
+    },
+    {
+      "id": "tape_medium",
+      "category": "delay",
+      "source": "main SF006",
+      "disposition": "needs_measurement",
+      "priority": 2,
+      "evidence": "~768kB long-lived tape storage",
+      "next": "SDRAM/caching and M7 throughput",
+      "production_admitted": false
+    },
+    {
+      "id": "rotary",
+      "category": "modulation",
+      "source": "main SF007",
+      "disposition": "bench_first",
+      "priority": 2,
+      "evidence": "bounded work, ~4.4kB state, no callback libm",
+      "next": "M7 benchmark",
+      "production_admitted": false
+    },
+    {
+      "id": "spring",
+      "category": "reverb",
+      "source": "open PR48",
+      "disposition": "needs_measurement",
+      "priority": 2,
+      "evidence": "spring crash target cost unknown",
+      "next": "ARM budget audit and bench",
+      "production_admitted": false
+    },
+    {
+      "id": "taurus_plate",
+      "category": "reverb",
+      "source": "open PR72",
+      "disposition": "bench_first",
+      "priority": 2,
+      "evidence": "~147kB buffer; ~0.13us host/frame",
+      "next": "ARM memory placement and bench",
+      "production_admitted": false
+    },
+    {
+      "id": "gemini_rooms",
+      "category": "reverb",
+      "source": "open PR74",
+      "disposition": "bench_first",
+      "priority": 1,
+      "evidence": "43.4kB buffer; ~0.023us host/frame",
+      "next": "first M7 reverb/composite bench",
+      "production_admitted": false
+    },
+    {
+      "id": "cancer_cloud",
+      "category": "reverb",
+      "source": "open PR76",
+      "disposition": "memory_blocked",
+      "priority": 3,
+      "evidence": "67,011,904B core; dual reprepare ~134MB",
+      "next": "hold until reduced memory core same-audio verification",
+      "production_admitted": false
+    },
+    {
+      "id": "leo_hall",
+      "category": "reverb",
+      "source": "open PR77",
+      "disposition": "needs_measurement",
+      "priority": 2,
+      "evidence": "~475kB; double-heavy; ~0.316us host/frame",
+      "next": "M7 soft-double/SDRAM benchmark",
+      "production_admitted": false
+    },
+    {
+      "id": "virgo_tiled",
+      "category": "reverb",
+      "source": "open PR80",
+      "disposition": "bench_first",
+      "priority": 1,
+      "evidence": "48.5kB buffer; ~0.066us host/frame",
+      "next": "first M7 reverb/composite bench",
+      "production_admitted": false
+    }
+  ]
+}
