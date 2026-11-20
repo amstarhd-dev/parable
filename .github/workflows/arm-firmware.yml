@@ -38,7 +38,7 @@ jobs:
       - name: Publish first-boot kit candidate (never flash here)
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          name: seed3-first-boot-kit
+          name: parable-rat81-4x97-fp32-20261119-v2
           path: parable-starter/build/arm/first-boot/
           if-no-files-found: error
           retention-days: 30
