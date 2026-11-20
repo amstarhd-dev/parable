@@ -42,7 +42,7 @@ struct ClipStage {
     float couplingR=0,clipR=0,gateR=0,outG=0,outR=0,bottomR=0;
     float zCoupling=0,zTone=0,zGate=0,zOut=0;
 #else
-    double sourceG=0,filterG=0,toneG=0,gateG=0,toneInv=0,portR=1;
+    double sourceG=0,filterG=0,toneG=0,gateG=0,toneInv=0,toneInput=0,portR=1;
     double couplingR=0,clipR=0,gateR=0,outG=0,outR=0,bottomR=0;
     double zCoupling=0,zTone=0,zGate=0,zOut=0;
 #endif
