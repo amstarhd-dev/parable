@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 3
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c5af683 # v4.2.2
+      - uses: actions/checkout@v4
       - name: Validate inventory and historical capture arithmetic (not M7 runtime admission)
         run: |
           python3 parable-starter/tools/check_daisy_admission.py --selftest
