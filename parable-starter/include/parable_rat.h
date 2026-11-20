@@ -35,13 +35,26 @@ bool preparePreamp(Filter& input,Filter& gain,double rate,RatControls p,const Ra
 struct ClipStage {
     static constexpr std::size_t kTable=2049;
     std::array<float,kTable> inverse{};
+#ifdef PARABLE_RAT_BENCH_FLOATCLIP
+    // First-pass target profiling only: use hardware-FPU friendly state and
+    // math in the clipping network; retain double-precision preamp filters.
+    float sourceG=0,filterG=0,toneG=0,gateG=0,toneInv=0,toneInput=0,portR=1;
+    float couplingR=0,clipR=0,gateR=0,outG=0,outR=0,bottomR=0;
+    float zCoupling=0,zTone=0,zGate=0,zOut=0;
+#else
     double sourceG=0,filterG=0,toneG=0,gateG=0,toneInv=0,toneInput=0,portR=1;
     double couplingR=0,clipR=0,gateR=0,outG=0,outR=0,bottomR=0;
     double zCoupling=0,zTone=0,zGate=0,zOut=0;
+#endif
     float clip=0,tone=0;
     void prepare(double rate,RatControls control,const RatCircuit& c) noexcept;
+#ifdef PARABLE_RAT_BENCH_FLOATCLIP
+    float process(float v) noexcept;
+    float lookup(float v) const noexcept;
+#else
     double process(double v) noexcept;
     double lookup(double v) const noexcept;
+#endif
     void reset() noexcept {zCoupling=zTone=zGate=zOut=0;clip=tone=0;}
 };
 }
@@ -59,7 +72,14 @@ public:
     RatNodes lastNodes() const noexcept {return nodes_;} // Same-thread diagnostics only.
     RatControls controls() const noexcept {return controls_;}
     RatCircuit circuit() const noexcept {return circuit_;}
+#ifdef PARABLE_RAT_BENCH_FIR97
+    // Diagnostic ONLY: 4x processing with a shorter anti-alias FIR.
+    // The 97-tap two-pass interpolator/decimator has ~24 base-frame latency,
+    // versus 48 for the original; match delays explicitly for audio A/B.
+    static constexpr std::size_t kTaps=97,kFirDelay=24;
+#else
     static constexpr std::size_t kTaps=193,kFirDelay=48;
+#endif
 private:
     double circuitSample(double v) noexcept;
     rat_detail::Filter input_,gain_;

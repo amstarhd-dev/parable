@@ -1,0 +1,22 @@
+name: RAT candidate host differential
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  rat-candidate-differential:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile three real C++ RAT variants and test numerical divergence
+        run: python3 parable-starter/tools/rat_candidate_audit.py
+      - name: Publish diagnostic floats
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: rat-candidate-host-diagnostic
+          path: parable-starter/build/rat-candidate-audit/*.raw
+          if-no-files-found: ignore
+          retention-days: 7

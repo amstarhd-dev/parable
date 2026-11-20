@@ -207,7 +207,10 @@ def build(cache, output):
             raise RuntimeError("Missing ARM layout measurement: " + label)
         sizes[label + "_bytes"] = int(match[1], 16)
     first_boot_targets = {"led_recovery": "parable_seed3_led", "mono_bypass": "parable_seed3_bypass",
-                          "rat_composite": "parable_seed3_rat_composite"}
+                          "rat_composite": "parable_seed3_rat_composite",
+                          "rat_composite_1x": "parable_seed3_rat_composite_1x",
+                          "rat_composite_97": "parable_seed3_rat_composite_97",
+                          "rat_composite_97_floatclip": "parable_seed3_rat_composite_97_floatclip"}
     for name, target in first_boot_targets.items():
         directory = kit / name
         # No automatic layout fallback in this kit. Any 128 KiB overflow FAILS.

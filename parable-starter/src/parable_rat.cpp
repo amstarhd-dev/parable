@@ -6,6 +6,9 @@ namespace parable::dsp {
 namespace {
 constexpr double pi=3.14159265358979323846;
 double tidy(double x) noexcept {return std::abs(x)<1e-20 ? 0.:x;}
+#ifdef PARABLE_RAT_BENCH_FLOATCLIP
+float tidy(float x) noexcept {return std::abs(x)<1e-20f ? 0.f:x;}
+#endif
 bool between(double x,double lo,double hi) noexcept {return std::isfinite(x)&&x>=lo&&x<=hi;}
 bool valid(const RatCircuit& c) noexcept {
     const double resistors[]={c.inputBiasOhms,c.inputSeriesOhms,c.feedbackBassOhms,c.feedbackTrebleOhms,
@@ -71,6 +74,29 @@ void ClipStage::prepare(double rate,RatControls p,const RatCircuit& c) noexcept 
     }
     inverse[(kTable-1)/2]=0;reset();
 }
+#ifdef PARABLE_RAT_BENCH_FLOATCLIP
+float ClipStage::lookup(float x) const noexcept {
+    const float position=std::abs(std::clamp(x,-16.f,16.f))*64.f;
+    const auto i=static_cast<std::size_t>(position);constexpr auto mid=(kTable-1)/2;
+    if(i>=mid)return x<0?inverse.front():inverse.back();
+    const auto index=x<0 ? mid-i:mid+i;const auto next=x<0?index-1:index+1;
+    return inverse[index]+(position-i)*(inverse[next]-inverse[index]);
+}
+float ClipStage::process(float source) noexcept {
+    const float history=(toneG*zTone+gateG*zGate)*toneInv;
+    const float v=lookup(portR*(sourceG*(source-zCoupling)+filterG*history));
+    const float t=toneInput*v+history;
+    const float current=sourceG*(source-v-zCoupling);
+    zCoupling=tidy(2.f*(source-v-clipR*current)-zCoupling);
+    zTone=tidy(2.f*t-zTone);
+    const float gate=gateR*gateG*(t-zGate);
+    zGate=tidy(2.f*(t-gate)-zGate);
+    const float outputCurrent=outG*(gate-zOut);
+    zOut=tidy(2.f*(gate-outR*outputCurrent)-zOut);
+    clip=v;tone=t;
+    return tidy(outputCurrent*bottomR);
+}
+#else
 double ClipStage::lookup(double x) const noexcept {
     const double position=std::abs(std::clamp(x,-16.,16.))*64.;
     const auto i=static_cast<std::size_t>(position);constexpr auto mid=(kTable-1)/2;
@@ -92,6 +118,7 @@ double ClipStage::process(double source) noexcept {
     clip=static_cast<float>(v);tone=static_cast<float>(t);
     return tidy(outputCurrent*bottomR);
 }
+#endif // PARABLE_RAT_BENCH_FLOATCLIP
 bool preparePreamp(Filter& input,Filter& gain,double fs,RatControls p,const RatCircuit& c) noexcept {
     Polynomial b={0,c.inputCapFarads*c.inputBiasOhms,0,0,0};
     Polynomial a={1,c.inputCapFarads*c.inputBiasOhms+c.inputShuntFarads*(c.inputBiasOhms+c.inputSeriesOhms),

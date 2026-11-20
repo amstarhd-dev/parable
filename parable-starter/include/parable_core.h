@@ -114,7 +114,13 @@ public:
             if (!existed) rat_.emplace(); // Fixed storage; control side only.
             // Rat::configure rejects without changing existing state. Nothing
             // after this successful configuration can reject the native commit.
-            if (!rat_->configure(sampleRate_, ratStage->rat, {}, dsp::RatRate::Oversampled4x)) {
+#ifdef PARABLE_RAT_BENCH_1X
+            // Experimental firmware-only cost comparison; normal Engine is unchanged.
+            constexpr auto ratRate = dsp::RatRate::Reference1x;
+#else
+            constexpr auto ratRate = dsp::RatRate::Oversampled4x;
+#endif
+            if (!rat_->configure(sampleRate_, ratStage->rat, {}, ratRate)) {
                 if (!existed) rat_.reset();
                 return Status::InvalidParameter;
             }
