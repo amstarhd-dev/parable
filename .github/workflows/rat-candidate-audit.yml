@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 8
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c5af683 # v4.2.2
+      - uses: actions/checkout@v4
       - name: Compile three real C++ RAT variants and test numerical divergence
         run: python3 parable-starter/tools/rat_candidate_audit.py
       - name: Publish diagnostic floats
