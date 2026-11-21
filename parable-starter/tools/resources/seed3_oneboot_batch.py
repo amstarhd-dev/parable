@@ -68,7 +68,7 @@ class Device(r.Mac):
                                   stderr=subprocess.STDOUT, timeout=90)
         except subprocess.TimeoutExpired:
             raise r.Stop('DFU timed out; STOP without retry or further flash')
-        output = proc.stdout.decode('utf-8', errors='replace').replace('\\r', '\\n')
+        output = proc.stdout.decode('utf-8', errors='replace').replace(chr(13), chr(10))
         r.atomic(self.output / ('flash-%02d.log' % self.sequence),
                  output.encode('utf-8'))
         milestones = ('Erase done.', 'Download done.', 'File downloaded successfully')
@@ -77,8 +77,8 @@ class Device(r.Mac):
         if proc.returncode:
             tail = output[output.rfind('File downloaded successfully'):]
             r.require(re.search(
-                r'File downloaded successfully\\s+Submitting leave request\\.\\.\\.\\s+'
-                r'dfu-util: Error during download get_status\\s*\\Z', tail) is not None,
+                r'File downloaded successfully\s+Submitting leave request\.\.\.\s+'
+                r'dfu-util: Error during download get_status\s*\Z', tail) is not None,
                 'DFU nonzero status for another reason; STOP without retry')
             print('Write completed; LEAVE lost USB status. Checking the flashed '
                   'firmware over CDC before any further flash.', flush=True)
