@@ -1,5 +1,39 @@
 # Implementation status and reproducible baseline
 
+## Staged RAM-only startup diagnostic — unmerged, physical execution unproven
+
+[v0.2 physical procedure and source-backed startup audit](resources/RAM_STARTUP.md).
+Founder evidence establishes v0.1 RAM transfer/readback and request retention
+through manual ROM recovery, but the mailbox stayed QDIP with zero response:
+native execution/completion and automatic return were not demonstrated.
+The old initial MSP at DTCM's end violated AN2606's documented jump guidance;
+v0.2 uses 0x2001FFC0. This correction is not a proven physical root cause.
+Three separately gated images (944/1908/2060 bytes) record durable stackless
+entry, native startup/fault and reset progress. Recovery collection is read-only,
+nonce/artifact/device bound, and cannot permit flash. Actual ARM links/startup
+and focused host simulations pass; v0.2 physical entry, native identity capture,
+PG3 return, cache/trace retention and High Sierra operation remain unproven.
+No production DSP, original identity gate, old helper or15 benchmark images changed.
+
+## Automated Seed3 benchmark runner — unmerged proposal
+
+**Blocked:** founder ROM enumeration succeeded, but v1.1 SET_ADDRESS identity
+verification failed. [Investigation / replacement design](resources/IDENTITY_BLOCKER.md).
+No replacement identity backend has passed physical validation; no flash or
+physical handoff success is claimed.
+
+[Guide / exact commands / physical gate](resources/RUNNER.md),
+[prior-art and reset design](resources/RUNNER_GATE0.md),
+[software/link evidence](resources/runner/validation.json).
+15 updated BOOT_NONE images compile/link with original DSP source closures;
+26 focused host regressions/protocol tests pass, including ASan/UBSan.
+Benchmark-only CDC control and early reset handoff; no production boot/DSP change.
+Physical ROM access, software DFU return, full unattended batch, High Sierra
+execution and new Seed3 performance measurements are **not tested**.
+v1.1 accepts the founder-observed sixteen-sector ROM descriptor as a map only;
+independent 128 KiB silicon/image bounds remain required. Firmware is unchanged.
+Batch requires a separate successful physical probe; no musical claim.
+
 ## SF-014 — experimental standalone Lockhart / one feed resistor
 
 [Gate0](SF014_GATE0.md), [ADR014](adr/ADR-014-lockhart-feed-resistor.md),

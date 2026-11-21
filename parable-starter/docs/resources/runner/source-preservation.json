@@ -1,0 +1,141 @@
+{
+  "artifacts": [
+    {
+      "profile": "rat",
+      "parent_artifact_id": "786c0a40bed0e8d63efdac250a399e0d8cee91bee2295472685e4932664ffa0e",
+      "artifact_id": "d9a0b2ab9a6e7a31abcd2179c6aeaab0bccc267197a89f9f514fdf201f838ce5",
+      "original_dsp_source_closure_unchanged": true,
+      "bin_bytes": 106888,
+      "static_internal_ram_section_bytes": 58840,
+      "static_sdram_section_bytes": 0
+    },
+    {
+      "profile": "rat_fir97",
+      "parent_artifact_id": "c4b5cb03fe23989e82a920b995800eb39ae673edabd4da298d34ac7a9d010df4",
+      "artifact_id": "1e3a2940b4937308f771430c211bb400e288fb2b77fa949fd1e9e28dc0d77703",
+      "original_dsp_source_closure_unchanged": true,
+      "bin_bytes": 106904,
+      "static_internal_ram_section_bytes": 57976,
+      "static_sdram_section_bytes": 0
+    },
+    {
+      "profile": "rat_fir97_fp32",
+      "parent_artifact_id": "8e1a8aed0a8ae641ececf3b8da6e6bca5e2a7ab4257e25f7e7bdaa3f457bd9b3",
+      "artifact_id": "c3a6998fdfded0aff36b597362e26d0d86738a7f4ac2036ef2de9958fb33217a",
+      "original_dsp_source_closure_unchanged": true,
+      "bin_bytes": 106728,
+      "static_internal_ram_section_bytes": 57904,
+      "static_sdram_section_bytes": 0
+    },
+    {
+      "profile": "rat_1x_cost_only",
+      "parent_artifact_id": "018e354392ea5fc1d66ac44ff3ecf30fd1e3c75527deae90f152bbc2f09225d5",
+      "artifact_id": "f5cae107a05c4a58bf9408cf163f61b32aaa059f95a0acfbf1c1e4ca25ccdba1",
+      "original_dsp_source_closure_unchanged": true,
+      "bin_bytes": 106904,
+      "static_internal_ram_section_bytes": 58840,
+      "static_sdram_section_bytes": 0
+    },
+    {
+      "profile": "cmos",
+      "parent_artifact_id": "da397b6cb93947051a9dc309e6c18600627e7e681eed13c56b22af946479456a",
+      "artifact_id": "ee4d623bc450fb93e9acdc5636ffc50c45121081d2a9f4e398e6c8a82b360c32",
+      "original_dsp_source_closure_unchanged": true,
+      "bin_bytes": 97040,
+      "static_internal_ram_section_bytes": 50216,
+      "static_sdram_section_bytes": 0
+    },
+    {
+      "profile": "germanium",
+      "parent_artifact_id": "f91bcbbdaa968e323c08f4dea238316b8234279ad044c9d2b6bd8fdbb23b945f",
+      "artifact_id": "e602caf105e8bbae2c07fbac1cdcfa03bd8329da63efe44e24ebe43fbd3f7dc2",
+      "original_dsp_source_closure_unchanged": true,
+      "bin_bytes": 99704,
+      "static_internal_ram_section_bytes": 50568,
+      "static_sdram_section_bytes": 0
+    },
+    {
+      "profile": "muff",
+      "parent_artifact_id": "733aa740211497f467a48cc7b4b774ccd3619326e5ba1bee2f95e93385cbfd53",
+      "artifact_id": "436c6b1ed3c65ab4a560e2e53cda800b294fa4dddabc6c55e8da6e4e534f824c",
+      "original_dsp_source_closure_unchanged": true,
+      "bin_bytes": 99720,
+      "static_internal_ram_section_bytes": 56920,
+      "static_sdram_section_bytes": 0
+    },
+    {
+      "profile": "ts808",
+      "parent_artifact_id": "c84e3a77f129c293e95ad5d94145b935ae132a521366faa23181aff3957e1ed2",
+      "artifact_id": "8daa387ec9a2fd9874b25543d43f76b11302a6226b92e52e19978751cce5462c",
+      "original_dsp_source_closure_unchanged": true,
+      "bin_bytes": 109744,
+      "static_internal_ram_section_bytes": 56192,
+      "static_sdram_section_bytes": 0
+    },
+    {
+      "profile": "klon",
+      "parent_artifact_id": "bea79dde981a39f5b29b48af3348d8523d08ec12ea3a6330f455391a47b03ff7",
+      "artifact_id": "014bd977859b9913e2bea87fb2b0583cd6c331a626c73e5d785bbb0b5c855527",
+      "original_dsp_source_closure_unchanged": true,
+      "bin_bytes": 102520,
+      "static_internal_ram_section_bytes": 59896,
+      "static_sdram_section_bytes": 0
+    },
+    {
+      "profile": "blender",
+      "parent_artifact_id": "2aefaabb654522891179d2d44d10bc13973da7fa285362513c803cee4c8df718",
+      "artifact_id": "f066b5b1efcf8107ca385c8ef8a4d6723e5cbaeead6ba292a2e85bebba95649e",
+      "original_dsp_source_closure_unchanged": true,
+      "bin_bytes": 111904,
+      "static_internal_ram_section_bytes": 67968,
+      "static_sdram_section_bytes": 0
+    },
+    {
+      "profile": "fz1",
+      "parent_artifact_id": "fdbec0036e92c343bfd2a1e3b84de66edef795fec90103c536b29566a4052375",
+      "artifact_id": "389d81eeb3e0695b523b6f41def6475dcd8fb2ddf47293676a7dee4ed096ab68",
+      "original_dsp_source_closure_unchanged": true,
+      "bin_bytes": 100440,
+      "static_internal_ram_section_bytes": 53224,
+      "static_sdram_section_bytes": 0
+    },
+    {
+      "profile": "tape_saturation",
+      "parent_artifact_id": "51536a99d83da37b2a25e95708e43d0dd74f08aae73f07c947f1649bb24a5880",
+      "artifact_id": "31948b6958cc380e1040f7d42157b9d41a0d19b678461706cde5ac1653a764fe",
+      "original_dsp_source_closure_unchanged": true,
+      "bin_bytes": 103608,
+      "static_internal_ram_section_bytes": 59968,
+      "static_sdram_section_bytes": 0
+    },
+    {
+      "profile": "spring",
+      "parent_artifact_id": "460253ad8eceaa9595efe22e8e3a9631b719bfed530cc4ed3f399337047e7238",
+      "artifact_id": "a291f6368bacd805d10149fa2053b85fe2104e6ed4b2187435e412308429cda7",
+      "original_dsp_source_closure_unchanged": true,
+      "bin_bytes": 98128,
+      "static_internal_ram_section_bytes": 66824,
+      "static_sdram_section_bytes": 0
+    },
+    {
+      "profile": "leo_hall",
+      "parent_artifact_id": "ce56e9f289d7a78ba876016ea40b1d1c9f342dfeb4cb64e53e188b019e9c54b2",
+      "artifact_id": "49cdf5b56683e0796dd2e5a2c33bf8cce4e34f3ef4d902db99fedba5b5d7fd94",
+      "original_dsp_source_closure_unchanged": true,
+      "bin_bytes": 109192,
+      "static_internal_ram_section_bytes": 48080,
+      "static_sdram_section_bytes": 475480
+    },
+    {
+      "profile": "chain_scorpio_gemini_rooms_0",
+      "parent_artifact_id": "542343632140cefe9f0a336950cee5e0fe6f0bed8040023c5a03518b7bcf2b0e",
+      "artifact_id": "d1b5312530c41f21dbc9a53ac12ce06539b7d840fd06163981d0c637a9cfd44c",
+      "original_dsp_source_closure_unchanged": true,
+      "bin_bytes": 112120,
+      "static_internal_ram_section_bytes": 62056,
+      "static_sdram_section_bytes": 866304
+    }
+  ],
+  "production_dsp_modified": false,
+  "physical_tests": false
+}

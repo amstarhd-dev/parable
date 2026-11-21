@@ -1,0 +1,17 @@
+
+/workspace/work/startup-build/startup/diagnostic.elf:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .vectors      00000298  24040000  24040000  00001000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  1 .text         000004dc  24040298  24040298  00001298  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .mailbox      00000080  24041000  24041000  00002000  2**0
+                  ALLOC
+  3 .stack        00000400  2001fc00  2001fc00  00000c00  2**0
+                  ALLOC
+  4 .trace        00000400  24042000  24042000  00002000  2**0
+                  ALLOC
+  5 .ARM.attributes 0000002c  00000000  00000000  00001774  2**0
+                  CONTENTS, READONLY

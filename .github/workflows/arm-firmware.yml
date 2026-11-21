@@ -19,6 +19,25 @@ jobs:
         env:
           HEAD_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
         run: python3 parable-starter/firmware/build.py
+      - name: Rebuild the fifteen one-BOOT images with libDaisy STM reset path
+        run: |
+          git fetch --no-tags --depth=1 origin 3d091127f154847c6938ff909ceecc1ca942ac85
+          python3 parable-starter/tools/resources/firmware.py \
+            --compiler parable-starter/build/arm-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++ \
+            --libdaisy parable-starter/build/arm-cache/libDaisy \
+            --output parable-starter/build/arm/oneboot-firmware --fetch --usb-control \
+            --only rat rat_fir97 rat_fir97_fp32 rat_1x_cost_only cmos germanium muff ts808 klon blender fz1 tape_saturation spring leo_hall chain_scorpio_gemini_rooms_0
+          python3 parable-starter/tools/resources/audit_handoff.py \
+            --kit parable-starter/build/arm/oneboot-firmware \
+            --objdump parable-starter/build/arm-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-objdump
+          python3 parable-starter/tools/resources/package_runner.py \
+            --build parable-starter/build/arm/oneboot-firmware \
+            --output parable-starter/build/arm/oneboot-kit
+          cp parable-starter/tools/resources/seed3_oneboot_batch.py parable-starter/build/arm/oneboot-kit/
+      - name: Build and audit isolated RAM-only identity instrument (never flash)
+        run: python3 parable-starter/tools/resources/ram_identity/build.py --compiler parable-starter/build/arm-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++ --libdaisy parable-starter/build/arm-cache/libDaisy --output parable-starter/build/arm/ram-identity
+      - name: Build and audit staged RAM-only startup diagnostics (never flash)
+        run: python3 parable-starter/tools/resources/ram_startup/build.py --compiler parable-starter/build/arm-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++ --libdaisy parable-starter/build/arm-cache/libDaisy --output parable-starter/build/arm/ram-startup
       - name: Compile and inspect prepared activation (no firmware integration)
         run: python3 parable-starter/tools/check_activation_arm.py --living --compiler parable-starter/build/arm-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++ --output parable-starter/build/arm/activation-audit
       - name: Compile and inspect standalone tape medium (not firmware integrated)

@@ -1,0 +1,15 @@
+{
+  "schema": "parable.ram-startup-audit.v1",
+  "no_undefined_helpers": true,
+  "no_interrupt_enable_or_unexpected_calls": true,
+  "all_load_segments_in_documented_ram": true,
+  "no_c_runtime_data_or_bss": true,
+  "physical_tested": false,
+  "interrupt_policy": "PRIMASK stays set until SYSRESETREQ; no USB app startup",
+  "peripheral_write_review": [
+    "SysTick/NVIC/SCB cache and reset",
+    "RCC USB reset and GPIOG clock",
+    "GPIOG pin3 only",
+    "128-byte AXI RAM mailbox; 1KiB DTCM stack"
+  ]
+}

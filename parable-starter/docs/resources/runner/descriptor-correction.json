@@ -1,0 +1,39 @@
+{
+  "schema": "parable.runner-descriptor-correction.v1",
+  "version": "v1.1",
+  "observed_descriptor": "@Internal Flash /0x08000000/16*128Kg",
+  "observation": "Founder reported ROM enumeration; other regression listing fields are synthetic",
+  "advertised_map_is_capacity_evidence": false,
+  "required_factory_flash_kib": 128,
+  "maximum_firmware_bytes": 131072,
+  "baseline": {
+    "command": "python3 -m unittest discover -s parable-starter/tests -p test_seed3_runner.py -v",
+    "passed": 16,
+    "seconds": 2.207
+  },
+  "tests": [
+    {
+      "command": "python3 -m unittest discover -s parable-starter/tests -p test_seed3_runner.py -v",
+      "passed": 18,
+      "seconds": 1.931
+    },
+    {
+      "command": "python3 -m unittest discover -s parable-starter/tests -p test_resources.py -v",
+      "passed": 8,
+      "seconds": 8.903
+    }
+  ],
+  "unchanged_safety_function_sources": [
+    "load_kit",
+    "silicon",
+    "Mac",
+    "receipt_context",
+    "execute"
+  ],
+  "preserved_firmware_bin_elf_map_and_manifest_files": 46,
+  "firmware_manifest_sha256": "f2c156bb74dd792b273e7f5a33d66ca75c7d676b6a5a7bdd534e723ada2f5fe3",
+  "runner_sha256": "764d589fcc68d72ec5583eba537f923eb23453f5dcc3d6a6b3e84996ccfeeeb7",
+  "physical_rom_handoff": "NOT PROVEN",
+  "physical_unattended_acceptance": "NOT PROVEN",
+  "arm_rebuild": "Not repeated; firmware sources and all 15 linked image payloads are unchanged"
+}

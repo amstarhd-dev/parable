@@ -1,0 +1,11 @@
+{
+  "artifact_id": "c45fd3116e29f72943a8ccedbcf1517e616b461e01d84059a47b5c2e17cf127f",
+  "bytes": 49306,
+  "file": "seed3-ram-identity-v0.1-c45fd3116e29-ccbaf6f60b66.zip",
+  "flash_programming_permitted": false,
+  "hardware_tested": false,
+  "host_sha256": "ccbaf6f60b662fae7e4c2435e2553d33392226db50bacdf7360390e2c5bbae67",
+  "manifest_sha256": "060b62c7796c1b65fc16e04e0aab54d01edff30d1f6d11ce9424566cc6efe6ba",
+  "schema": "parable.ram-identity-kit.v1",
+  "sha256": "f69a50e66432c0cd00d7838fb9f8e537dc25b8d4a5ee21b16bc68c1e8a2fd87b"
+}

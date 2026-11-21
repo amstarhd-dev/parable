@@ -1,0 +1,1867 @@
+{
+  "schema": "parable.resource-artifacts.v1",
+  "hardware_run": false,
+  "artifacts": [
+    {
+      "control_protocol": "parable.control.v1",
+      "handoff": "reset-systeminit-v1",
+      "flash_origin": 134217728,
+      "flash_length": 131072,
+      "profile": "rat",
+      "execution": "foreground_kernel",
+      "stimulus": "synthetic_mix",
+      "mode": 2,
+      "route": 0,
+      "capture_blocks": 3000,
+      "status": "linked",
+      "layout": "BOOT_NONE",
+      "parent_artifact_id": "786c0a40bed0e8d63efdac250a399e0d8cee91bee2295472685e4932664ffa0e",
+      "artifact_id": "d9a0b2ab9a6e7a31abcd2179c6aeaab0bccc267197a89f9f514fdf201f838ce5",
+      "source_set_sha256": "7d998876f6a7a4f50834f3f9f180aa168c2d5cfceb2c1aeca0bf968fede53829",
+      "bin_sha256": "5741a4fb32e82ec1f4c2dc71cc960d0ed420aba2f4e8e6d2bea5d3b6b8d026a2",
+      "elf_sha256": "4da0f68c234ebdfb23b9b850c0c881ced9494cda41a2260bc6b42782557ffe12",
+      "bin_file": "parres-v1-rat-m2-d9a0b2ab9a6e-boot_none/build/parres-v1-rat-m2-d9a0b2ab9a6e-boot_none.bin",
+      "configuration": {
+        "usb_control": true,
+        "profile": {
+          "id": "rat",
+          "adapter": "Rat",
+          "category": "drive",
+          "commit": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+          "pr": null,
+          "main_integrated": true,
+          "source_files": [
+            "include/parable_rat.h",
+            "src/parable_rat.cpp"
+          ],
+          "defines": [
+            "BENCH_USE_RAT"
+          ],
+          "family": "prepared-IIR/table/4x-FIR",
+          "latency_fir_frames": 48,
+          "mode_labels": {
+            "0": "nominal healthy",
+            "1": "diode_open",
+            "2": "healthy high-control corner",
+            "3": "ruetz",
+            "4": "compensation"
+          },
+          "modes": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "mode": 2,
+        "execution": "foreground_kernel",
+        "layout": "BOOT_NONE",
+        "capture_blocks": 3000,
+        "source_sha256": {
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:include/parable_rat.h": "3959350952136fedd276b0590851e022ee32b1cb081bd26729ec4481dff87979",
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:src/parable_rat.cpp": "7506e15675576d41ef1350ad08b893651556ed77b272b8b85e0030b0a26ece4b",
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:src/rat_circuit_math.h": "753b159feba8f9db9c9d367c7e67fadae4a3aae9af752273c5f3a4e00abe89c1"
+        },
+        "harness_sha256": {
+          "firmware_bench.cpp": "15163e298adae088f325711d31ff97887c33a63cfe1af46ad1044231f0a96520",
+          "adapters.h": "f10ba3ca32c77d69316dc49caa77140c44c000d9246e185fe27de2995e6e3230",
+          "firmware.py": "937c30681ffc99defbf111071335ba785733a2b3c640a45e03e913ed262dff6b",
+          "run.py": "7d997d4cf05034587d804deaa8358be0c7b89cec43ccea37cda2338232d835d6",
+          "runtime_measurement.h": "0d81e4995fc7e56e0a7da7125ddb26b16c5f7c197ddc3632cb688bdcbd6f8b68",
+          "dfu_control.h": "c5fda11bfd2dd90b7f7db8a4600af2f3dd8627594bf17a440d82632d65fa70dd",
+          "dfu_handoff.cpp": "f4ee356876007c099800bc0ef6b516061d4d517e87ea80ec78615a11ce713ca6",
+          "dfu_handoff.ld": "5b6d42dc0b32f602c8370fda758c45a3574a1122ef0d72019e4d7b80f4086751"
+        },
+        "compiler_sha256": "45b67f0cb647f69b0fbd0512b43f7d257458916ca77c8fd538708309845ff76c",
+        "libdaisy_archive_sha256": "c4c68a4cc668610bd5c46613d1b859903fc81d0ab267e6d02c019b867fbc071e",
+        "pins": {
+          "toolchain": {
+            "version": "14.2.1",
+            "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+            "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+            "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+            "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+          },
+          "libdaisy": {
+            "url": "https://github.com/daisyaudio/libDaisy.git",
+            "commit": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+            "submodules": {
+              "Drivers/CMSIS-DSP": "3a04f817a4380c00ff51f9bcdc6c4e4bb7a18b80",
+              "Drivers/CMSIS-Device/ST/STM32H7xx": "6dac8c24d7b38ab20806d27dd7d8285a6433b8f7",
+              "Drivers/CMSIS_5": "2b7495b8535bdcb306dac29b9ded4cfb679d7e5c",
+              "Drivers/STM32H7xx_HAL_Driver": "404a70d4c19c124636c78801ff7c0dbc87bc4256",
+              "Middlewares/ST/STM32_USB_Device_Library": "7b5e6886d2f11ad15d2b46364e8a96984358f639"
+            }
+          },
+          "json": {
+            "url": "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz",
+            "sha256": "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d",
+            "directory": "json"
+          },
+          "target": {
+            "cpu": "cortex-m7",
+            "fpu": "fpv5-d16",
+            "float_abi": "hard",
+            "layouts": {
+              "BOOT_NONE": "core/STM32H750IB_flash.lds",
+              "BOOT_SRAM": "core/STM32H750IB_sram.lds",
+              "BOOT_QSPI": "core/STM32H750IB_qspi.lds"
+            }
+          },
+          "bootloader_audit": {
+            "bundled_binary": "core/dsy_bootloader_v6_4-intdfu-2000ms.bin",
+            "sha256": "76296b6bd625e5e5dbeba2431619a0ed90ae2c0a3a99258df00a64a0b8b9ec35",
+            "source_url": "https://github.com/daisyaudio/DaisyBootloader",
+            "source_commit": "8b279a8e25922b786c24a6cbd1d499cdc1e76934",
+            "source_libdaisy_gitlink": "24be4afea00d71988019fe8dd9fd9fc8fc5bf72c",
+            "status": "binary hash verified; source audited, not rebuilt; Seed3 boot/hardware compatibility unverified"
+          }
+        },
+        "linker_sha256": "d45452b0f9f5b722b16e3a8fc168a76e2a5022d46a4efd10054880dcc5a87e8d",
+        "definitions": [
+          "BENCH_ARM",
+          "BENCH_USB_CONTROL",
+          "BENCH_USE_RAT",
+          "BENCH_SELECTED=Rat"
+        ],
+        "arena_samples": 0
+      },
+      "reserved_sdram_bytes": 0,
+      "model_sdram_bytes": 0,
+      "sections": "/workspace/work/runner-arm-final/parres-v1-rat-m2-d9a0b2ab9a6e-boot_none/build/parres-v1-rat-m2-d9a0b2ab9a6e-boot_none.elf  :\nsection                  size         addr\n.isr_vector               664    134217728\n.text                  104600    134218400\n.ARM.extab                  0    134323000\n.exidx                      8    134323000\n.ARM.attributes            46            0\n.init_array                40    134323008\n.fini_array                 4    134323048\n.data                    1564    603979776\n.parable_handoff           32    603981344\n.bss                    40848    603981376\n.dtcmram_bss                0    536870912\n.sram1_bss              16384    805306368\n.sdram_bss                  0   3221225472\n.backup_sram               12    947912704\n.qspiflash_text             0   2415919104\n.qspiflash_data             0   2415919104\n.qspiflash_bss              0   2415919104\n.heap                       0    604022224\n.reserved_for_stack         0    604022224\n.comment                   57            0\n.debug_info            553269            0\n.debug_abbrev           57195            0\n.debug_loclists        228802            0\n.debug_aranges          11736            0\n.debug_rnglists         27308            0\n.debug_line            317928            0\n.debug_str              82267            0\n.debug_frame            35276            0\nTotal                 1478040\n\n\n"
+    },
+    {
+      "control_protocol": "parable.control.v1",
+      "handoff": "reset-systeminit-v1",
+      "flash_origin": 134217728,
+      "flash_length": 131072,
+      "profile": "rat_fir97",
+      "execution": "foreground_kernel",
+      "stimulus": "synthetic_mix",
+      "mode": 2,
+      "route": 0,
+      "capture_blocks": 3000,
+      "status": "linked",
+      "layout": "BOOT_NONE",
+      "parent_artifact_id": "c4b5cb03fe23989e82a920b995800eb39ae673edabd4da298d34ac7a9d010df4",
+      "artifact_id": "1e3a2940b4937308f771430c211bb400e288fb2b77fa949fd1e9e28dc0d77703",
+      "source_set_sha256": "d5cfcf20245358e6e1ac163264f9fc26ec2851921771a553388f5296c98aa947",
+      "bin_sha256": "fcade62a3fdc537e63adf92eb780e6f60bb8be8afd46aa8280e9790bc1c85065",
+      "elf_sha256": "1e08d0c9b974c2c54f9c13e2980413c9cc68a8954f89d475b25594b6ec4605fd",
+      "bin_file": "parres-v1-rat_fir97-m2-1e3a2940b493-boot_none/build/parres-v1-rat_fir97-m2-1e3a2940b493-boot_none.bin",
+      "configuration": {
+        "usb_control": true,
+        "profile": {
+          "id": "rat_fir97",
+          "adapter": "Rat",
+          "category": "drive",
+          "commit": "11404fd192921d4e3a93c944856eacc888bb4b09",
+          "pr": 81,
+          "main_integrated": false,
+          "source_files": [
+            "include/parable_rat.h",
+            "src/parable_rat.cpp"
+          ],
+          "defines": [
+            "BENCH_USE_RAT",
+            "PARABLE_RAT_BENCH_FIR97"
+          ],
+          "family": "PR81-isolated-experiment",
+          "variant_of": "rat",
+          "latency_fir_frames": 24,
+          "mode_labels": {
+            "0": "nominal healthy",
+            "1": "diode_open",
+            "2": "healthy high-control corner",
+            "3": "ruetz",
+            "4": "compensation"
+          },
+          "modes": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "mode": 2,
+        "execution": "foreground_kernel",
+        "layout": "BOOT_NONE",
+        "capture_blocks": 3000,
+        "source_sha256": {
+          "11404fd192921d4e3a93c944856eacc888bb4b09:include/parable_rat.h": "c76068bf7e46e5b7b4bbb350570a24645040fc851e0743c3dc857514b87a1909",
+          "11404fd192921d4e3a93c944856eacc888bb4b09:src/parable_rat.cpp": "8fcf30b985100b309c276b9e6674e365721b8a7bd26caf63acaf362ddd756fd6",
+          "11404fd192921d4e3a93c944856eacc888bb4b09:src/rat_circuit_math.h": "753b159feba8f9db9c9d367c7e67fadae4a3aae9af752273c5f3a4e00abe89c1"
+        },
+        "harness_sha256": {
+          "firmware_bench.cpp": "15163e298adae088f325711d31ff97887c33a63cfe1af46ad1044231f0a96520",
+          "adapters.h": "f10ba3ca32c77d69316dc49caa77140c44c000d9246e185fe27de2995e6e3230",
+          "firmware.py": "937c30681ffc99defbf111071335ba785733a2b3c640a45e03e913ed262dff6b",
+          "run.py": "7d997d4cf05034587d804deaa8358be0c7b89cec43ccea37cda2338232d835d6",
+          "runtime_measurement.h": "0d81e4995fc7e56e0a7da7125ddb26b16c5f7c197ddc3632cb688bdcbd6f8b68",
+          "dfu_control.h": "c5fda11bfd2dd90b7f7db8a4600af2f3dd8627594bf17a440d82632d65fa70dd",
+          "dfu_handoff.cpp": "f4ee356876007c099800bc0ef6b516061d4d517e87ea80ec78615a11ce713ca6",
+          "dfu_handoff.ld": "5b6d42dc0b32f602c8370fda758c45a3574a1122ef0d72019e4d7b80f4086751"
+        },
+        "compiler_sha256": "45b67f0cb647f69b0fbd0512b43f7d257458916ca77c8fd538708309845ff76c",
+        "libdaisy_archive_sha256": "c4c68a4cc668610bd5c46613d1b859903fc81d0ab267e6d02c019b867fbc071e",
+        "pins": {
+          "toolchain": {
+            "version": "14.2.1",
+            "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+            "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+            "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+            "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+          },
+          "libdaisy": {
+            "url": "https://github.com/daisyaudio/libDaisy.git",
+            "commit": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+            "submodules": {
+              "Drivers/CMSIS-DSP": "3a04f817a4380c00ff51f9bcdc6c4e4bb7a18b80",
+              "Drivers/CMSIS-Device/ST/STM32H7xx": "6dac8c24d7b38ab20806d27dd7d8285a6433b8f7",
+              "Drivers/CMSIS_5": "2b7495b8535bdcb306dac29b9ded4cfb679d7e5c",
+              "Drivers/STM32H7xx_HAL_Driver": "404a70d4c19c124636c78801ff7c0dbc87bc4256",
+              "Middlewares/ST/STM32_USB_Device_Library": "7b5e6886d2f11ad15d2b46364e8a96984358f639"
+            }
+          },
+          "json": {
+            "url": "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz",
+            "sha256": "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d",
+            "directory": "json"
+          },
+          "target": {
+            "cpu": "cortex-m7",
+            "fpu": "fpv5-d16",
+            "float_abi": "hard",
+            "layouts": {
+              "BOOT_NONE": "core/STM32H750IB_flash.lds",
+              "BOOT_SRAM": "core/STM32H750IB_sram.lds",
+              "BOOT_QSPI": "core/STM32H750IB_qspi.lds"
+            }
+          },
+          "bootloader_audit": {
+            "bundled_binary": "core/dsy_bootloader_v6_4-intdfu-2000ms.bin",
+            "sha256": "76296b6bd625e5e5dbeba2431619a0ed90ae2c0a3a99258df00a64a0b8b9ec35",
+            "source_url": "https://github.com/daisyaudio/DaisyBootloader",
+            "source_commit": "8b279a8e25922b786c24a6cbd1d499cdc1e76934",
+            "source_libdaisy_gitlink": "24be4afea00d71988019fe8dd9fd9fc8fc5bf72c",
+            "status": "binary hash verified; source audited, not rebuilt; Seed3 boot/hardware compatibility unverified"
+          }
+        },
+        "linker_sha256": "d45452b0f9f5b722b16e3a8fc168a76e2a5022d46a4efd10054880dcc5a87e8d",
+        "definitions": [
+          "BENCH_ARM",
+          "BENCH_USB_CONTROL",
+          "BENCH_USE_RAT",
+          "PARABLE_RAT_BENCH_FIR97",
+          "BENCH_SELECTED=Rat"
+        ],
+        "arena_samples": 0
+      },
+      "reserved_sdram_bytes": 0,
+      "model_sdram_bytes": 0,
+      "sections": "/workspace/work/runner-arm-final/parres-v1-rat_fir97-m2-1e3a2940b493-boot_none/build/parres-v1-rat_fir97-m2-1e3a2940b493-boot_none.elf  :\nsection                  size         addr\n.isr_vector               664    134217728\n.text                  104616    134218400\n.ARM.extab                  0    134323016\n.exidx                      8    134323016\n.ARM.attributes            46            0\n.init_array                40    134323024\n.fini_array                 4    134323064\n.data                    1564    603979776\n.parable_handoff           32    603981344\n.bss                    39984    603981376\n.dtcmram_bss                0    536870912\n.sram1_bss              16384    805306368\n.sdram_bss                  0   3221225472\n.backup_sram               12    947912704\n.qspiflash_text             0   2415919104\n.qspiflash_data             0   2415919104\n.qspiflash_bss              0   2415919104\n.heap                       0    604021360\n.reserved_for_stack         0    604021360\n.comment                   57            0\n.debug_info            553269            0\n.debug_abbrev           57195            0\n.debug_loclists        228802            0\n.debug_aranges          11736            0\n.debug_rnglists         27308            0\n.debug_line            317928            0\n.debug_str              82267            0\n.debug_frame            35276            0\nTotal                 1477192\n\n\n"
+    },
+    {
+      "control_protocol": "parable.control.v1",
+      "handoff": "reset-systeminit-v1",
+      "flash_origin": 134217728,
+      "flash_length": 131072,
+      "profile": "rat_fir97_fp32",
+      "execution": "foreground_kernel",
+      "stimulus": "synthetic_mix",
+      "mode": 2,
+      "route": 0,
+      "capture_blocks": 3000,
+      "status": "linked",
+      "layout": "BOOT_NONE",
+      "parent_artifact_id": "8e1a8aed0a8ae641ececf3b8da6e6bca5e2a7ab4257e25f7e7bdaa3f457bd9b3",
+      "artifact_id": "c3a6998fdfded0aff36b597362e26d0d86738a7f4ac2036ef2de9958fb33217a",
+      "source_set_sha256": "d5cfcf20245358e6e1ac163264f9fc26ec2851921771a553388f5296c98aa947",
+      "bin_sha256": "41d907a41ca2294302fde03b6bff812a72aa24b59ffdf9f7023e4e6e6c3c5c45",
+      "elf_sha256": "1443bf5880ec349c4e7412b68978dba2f1c1de717cb177282496a5cc5f918571",
+      "bin_file": "parres-v1-rat_fir97_fp32-m2-c3a6998fdfde-boot_none/build/parres-v1-rat_fir97_fp32-m2-c3a6998fdfde-boot_none.bin",
+      "configuration": {
+        "usb_control": true,
+        "profile": {
+          "id": "rat_fir97_fp32",
+          "adapter": "Rat",
+          "category": "drive",
+          "commit": "11404fd192921d4e3a93c944856eacc888bb4b09",
+          "pr": 81,
+          "main_integrated": false,
+          "source_files": [
+            "include/parable_rat.h",
+            "src/parable_rat.cpp"
+          ],
+          "defines": [
+            "BENCH_USE_RAT",
+            "PARABLE_RAT_BENCH_FIR97",
+            "PARABLE_RAT_BENCH_FLOATCLIP"
+          ],
+          "family": "PR81-isolated-experiment",
+          "variant_of": "rat",
+          "latency_fir_frames": 24,
+          "mode_labels": {
+            "0": "nominal healthy",
+            "1": "diode_open",
+            "2": "healthy high-control corner",
+            "3": "ruetz",
+            "4": "compensation"
+          },
+          "modes": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "mode": 2,
+        "execution": "foreground_kernel",
+        "layout": "BOOT_NONE",
+        "capture_blocks": 3000,
+        "source_sha256": {
+          "11404fd192921d4e3a93c944856eacc888bb4b09:include/parable_rat.h": "c76068bf7e46e5b7b4bbb350570a24645040fc851e0743c3dc857514b87a1909",
+          "11404fd192921d4e3a93c944856eacc888bb4b09:src/parable_rat.cpp": "8fcf30b985100b309c276b9e6674e365721b8a7bd26caf63acaf362ddd756fd6",
+          "11404fd192921d4e3a93c944856eacc888bb4b09:src/rat_circuit_math.h": "753b159feba8f9db9c9d367c7e67fadae4a3aae9af752273c5f3a4e00abe89c1"
+        },
+        "harness_sha256": {
+          "firmware_bench.cpp": "15163e298adae088f325711d31ff97887c33a63cfe1af46ad1044231f0a96520",
+          "adapters.h": "f10ba3ca32c77d69316dc49caa77140c44c000d9246e185fe27de2995e6e3230",
+          "firmware.py": "937c30681ffc99defbf111071335ba785733a2b3c640a45e03e913ed262dff6b",
+          "run.py": "7d997d4cf05034587d804deaa8358be0c7b89cec43ccea37cda2338232d835d6",
+          "runtime_measurement.h": "0d81e4995fc7e56e0a7da7125ddb26b16c5f7c197ddc3632cb688bdcbd6f8b68",
+          "dfu_control.h": "c5fda11bfd2dd90b7f7db8a4600af2f3dd8627594bf17a440d82632d65fa70dd",
+          "dfu_handoff.cpp": "f4ee356876007c099800bc0ef6b516061d4d517e87ea80ec78615a11ce713ca6",
+          "dfu_handoff.ld": "5b6d42dc0b32f602c8370fda758c45a3574a1122ef0d72019e4d7b80f4086751"
+        },
+        "compiler_sha256": "45b67f0cb647f69b0fbd0512b43f7d257458916ca77c8fd538708309845ff76c",
+        "libdaisy_archive_sha256": "c4c68a4cc668610bd5c46613d1b859903fc81d0ab267e6d02c019b867fbc071e",
+        "pins": {
+          "toolchain": {
+            "version": "14.2.1",
+            "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+            "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+            "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+            "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+          },
+          "libdaisy": {
+            "url": "https://github.com/daisyaudio/libDaisy.git",
+            "commit": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+            "submodules": {
+              "Drivers/CMSIS-DSP": "3a04f817a4380c00ff51f9bcdc6c4e4bb7a18b80",
+              "Drivers/CMSIS-Device/ST/STM32H7xx": "6dac8c24d7b38ab20806d27dd7d8285a6433b8f7",
+              "Drivers/CMSIS_5": "2b7495b8535bdcb306dac29b9ded4cfb679d7e5c",
+              "Drivers/STM32H7xx_HAL_Driver": "404a70d4c19c124636c78801ff7c0dbc87bc4256",
+              "Middlewares/ST/STM32_USB_Device_Library": "7b5e6886d2f11ad15d2b46364e8a96984358f639"
+            }
+          },
+          "json": {
+            "url": "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz",
+            "sha256": "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d",
+            "directory": "json"
+          },
+          "target": {
+            "cpu": "cortex-m7",
+            "fpu": "fpv5-d16",
+            "float_abi": "hard",
+            "layouts": {
+              "BOOT_NONE": "core/STM32H750IB_flash.lds",
+              "BOOT_SRAM": "core/STM32H750IB_sram.lds",
+              "BOOT_QSPI": "core/STM32H750IB_qspi.lds"
+            }
+          },
+          "bootloader_audit": {
+            "bundled_binary": "core/dsy_bootloader_v6_4-intdfu-2000ms.bin",
+            "sha256": "76296b6bd625e5e5dbeba2431619a0ed90ae2c0a3a99258df00a64a0b8b9ec35",
+            "source_url": "https://github.com/daisyaudio/DaisyBootloader",
+            "source_commit": "8b279a8e25922b786c24a6cbd1d499cdc1e76934",
+            "source_libdaisy_gitlink": "24be4afea00d71988019fe8dd9fd9fc8fc5bf72c",
+            "status": "binary hash verified; source audited, not rebuilt; Seed3 boot/hardware compatibility unverified"
+          }
+        },
+        "linker_sha256": "d45452b0f9f5b722b16e3a8fc168a76e2a5022d46a4efd10054880dcc5a87e8d",
+        "definitions": [
+          "BENCH_ARM",
+          "BENCH_USB_CONTROL",
+          "BENCH_USE_RAT",
+          "PARABLE_RAT_BENCH_FIR97",
+          "PARABLE_RAT_BENCH_FLOATCLIP",
+          "BENCH_SELECTED=Rat"
+        ],
+        "arena_samples": 0
+      },
+      "reserved_sdram_bytes": 0,
+      "model_sdram_bytes": 0,
+      "sections": "/workspace/work/runner-arm-final/parres-v1-rat_fir97_fp32-m2-c3a6998fdfde-boot_none/build/parres-v1-rat_fir97_fp32-m2-c3a6998fdfde-boot_none.elf  :\nsection                  size         addr\n.isr_vector               664    134217728\n.text                  104440    134218400\n.ARM.extab                  0    134322840\n.exidx                      8    134322840\n.ARM.attributes            46            0\n.init_array                40    134322848\n.fini_array                 4    134322888\n.data                    1564    603979776\n.parable_handoff           32    603981344\n.bss                    39912    603981376\n.dtcmram_bss                0    536870912\n.sram1_bss              16384    805306368\n.sdram_bss                  0   3221225472\n.backup_sram               12    947912704\n.qspiflash_text             0   2415919104\n.qspiflash_data             0   2415919104\n.qspiflash_bss              0   2415919104\n.heap                       0    604021288\n.reserved_for_stack         0    604021288\n.comment                   57            0\n.debug_info            553269            0\n.debug_abbrev           57195            0\n.debug_loclists        228802            0\n.debug_aranges          11736            0\n.debug_rnglists         27308            0\n.debug_line            317928            0\n.debug_str              82267            0\n.debug_frame            35276            0\nTotal                 1476944\n\n\n"
+    },
+    {
+      "control_protocol": "parable.control.v1",
+      "handoff": "reset-systeminit-v1",
+      "flash_origin": 134217728,
+      "flash_length": 131072,
+      "profile": "rat_1x_cost_only",
+      "execution": "foreground_kernel",
+      "stimulus": "synthetic_mix",
+      "mode": 2,
+      "route": 0,
+      "capture_blocks": 3000,
+      "status": "linked",
+      "layout": "BOOT_NONE",
+      "parent_artifact_id": "018e354392ea5fc1d66ac44ff3ecf30fd1e3c75527deae90f152bbc2f09225d5",
+      "artifact_id": "f5cae107a05c4a58bf9408cf163f61b32aaa059f95a0acfbf1c1e4ca25ccdba1",
+      "source_set_sha256": "d5cfcf20245358e6e1ac163264f9fc26ec2851921771a553388f5296c98aa947",
+      "bin_sha256": "12a040d464c5e57daf7e390aefc48c78f3bdc4540fb597ce017e02ccf97cd5b8",
+      "elf_sha256": "f93b2ff0cdb52b09e0dc251fd86924eae197c4dfa59ac10e962bd11d526df2df",
+      "bin_file": "parres-v1-rat_1x_cost_only-m2-f5cae107a05c-boot_none/build/parres-v1-rat_1x_cost_only-m2-f5cae107a05c-boot_none.bin",
+      "configuration": {
+        "usb_control": true,
+        "profile": {
+          "id": "rat_1x_cost_only",
+          "adapter": "Rat",
+          "category": "drive",
+          "commit": "11404fd192921d4e3a93c944856eacc888bb4b09",
+          "pr": 81,
+          "main_integrated": false,
+          "source_files": [
+            "include/parable_rat.h",
+            "src/parable_rat.cpp"
+          ],
+          "defines": [
+            "BENCH_USE_RAT",
+            "PARABLE_RAT_BENCH_1X"
+          ],
+          "family": "PR81-isolated-experiment",
+          "variant_of": "rat",
+          "latency_fir_frames": 0,
+          "mode_labels": {
+            "0": "nominal healthy",
+            "1": "diode_open",
+            "2": "healthy high-control corner",
+            "3": "ruetz",
+            "4": "compensation"
+          },
+          "hold": "CPU-only lower bound; anti-aliasing removed, never a fidelity candidate",
+          "modes": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "mode": 2,
+        "execution": "foreground_kernel",
+        "layout": "BOOT_NONE",
+        "capture_blocks": 3000,
+        "source_sha256": {
+          "11404fd192921d4e3a93c944856eacc888bb4b09:include/parable_rat.h": "c76068bf7e46e5b7b4bbb350570a24645040fc851e0743c3dc857514b87a1909",
+          "11404fd192921d4e3a93c944856eacc888bb4b09:src/parable_rat.cpp": "8fcf30b985100b309c276b9e6674e365721b8a7bd26caf63acaf362ddd756fd6",
+          "11404fd192921d4e3a93c944856eacc888bb4b09:src/rat_circuit_math.h": "753b159feba8f9db9c9d367c7e67fadae4a3aae9af752273c5f3a4e00abe89c1"
+        },
+        "harness_sha256": {
+          "firmware_bench.cpp": "15163e298adae088f325711d31ff97887c33a63cfe1af46ad1044231f0a96520",
+          "adapters.h": "f10ba3ca32c77d69316dc49caa77140c44c000d9246e185fe27de2995e6e3230",
+          "firmware.py": "937c30681ffc99defbf111071335ba785733a2b3c640a45e03e913ed262dff6b",
+          "run.py": "7d997d4cf05034587d804deaa8358be0c7b89cec43ccea37cda2338232d835d6",
+          "runtime_measurement.h": "0d81e4995fc7e56e0a7da7125ddb26b16c5f7c197ddc3632cb688bdcbd6f8b68",
+          "dfu_control.h": "c5fda11bfd2dd90b7f7db8a4600af2f3dd8627594bf17a440d82632d65fa70dd",
+          "dfu_handoff.cpp": "f4ee356876007c099800bc0ef6b516061d4d517e87ea80ec78615a11ce713ca6",
+          "dfu_handoff.ld": "5b6d42dc0b32f602c8370fda758c45a3574a1122ef0d72019e4d7b80f4086751"
+        },
+        "compiler_sha256": "45b67f0cb647f69b0fbd0512b43f7d257458916ca77c8fd538708309845ff76c",
+        "libdaisy_archive_sha256": "c4c68a4cc668610bd5c46613d1b859903fc81d0ab267e6d02c019b867fbc071e",
+        "pins": {
+          "toolchain": {
+            "version": "14.2.1",
+            "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+            "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+            "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+            "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+          },
+          "libdaisy": {
+            "url": "https://github.com/daisyaudio/libDaisy.git",
+            "commit": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+            "submodules": {
+              "Drivers/CMSIS-DSP": "3a04f817a4380c00ff51f9bcdc6c4e4bb7a18b80",
+              "Drivers/CMSIS-Device/ST/STM32H7xx": "6dac8c24d7b38ab20806d27dd7d8285a6433b8f7",
+              "Drivers/CMSIS_5": "2b7495b8535bdcb306dac29b9ded4cfb679d7e5c",
+              "Drivers/STM32H7xx_HAL_Driver": "404a70d4c19c124636c78801ff7c0dbc87bc4256",
+              "Middlewares/ST/STM32_USB_Device_Library": "7b5e6886d2f11ad15d2b46364e8a96984358f639"
+            }
+          },
+          "json": {
+            "url": "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz",
+            "sha256": "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d",
+            "directory": "json"
+          },
+          "target": {
+            "cpu": "cortex-m7",
+            "fpu": "fpv5-d16",
+            "float_abi": "hard",
+            "layouts": {
+              "BOOT_NONE": "core/STM32H750IB_flash.lds",
+              "BOOT_SRAM": "core/STM32H750IB_sram.lds",
+              "BOOT_QSPI": "core/STM32H750IB_qspi.lds"
+            }
+          },
+          "bootloader_audit": {
+            "bundled_binary": "core/dsy_bootloader_v6_4-intdfu-2000ms.bin",
+            "sha256": "76296b6bd625e5e5dbeba2431619a0ed90ae2c0a3a99258df00a64a0b8b9ec35",
+            "source_url": "https://github.com/daisyaudio/DaisyBootloader",
+            "source_commit": "8b279a8e25922b786c24a6cbd1d499cdc1e76934",
+            "source_libdaisy_gitlink": "24be4afea00d71988019fe8dd9fd9fc8fc5bf72c",
+            "status": "binary hash verified; source audited, not rebuilt; Seed3 boot/hardware compatibility unverified"
+          }
+        },
+        "linker_sha256": "d45452b0f9f5b722b16e3a8fc168a76e2a5022d46a4efd10054880dcc5a87e8d",
+        "definitions": [
+          "BENCH_ARM",
+          "BENCH_USB_CONTROL",
+          "BENCH_USE_RAT",
+          "PARABLE_RAT_BENCH_1X",
+          "BENCH_SELECTED=Rat"
+        ],
+        "arena_samples": 0
+      },
+      "reserved_sdram_bytes": 0,
+      "model_sdram_bytes": 0,
+      "sections": "/workspace/work/runner-arm-final/parres-v1-rat_1x_cost_only-m2-f5cae107a05c-boot_none/build/parres-v1-rat_1x_cost_only-m2-f5cae107a05c-boot_none.elf  :\nsection                  size         addr\n.isr_vector               664    134217728\n.text                  104616    134218400\n.ARM.extab                  0    134323016\n.exidx                      8    134323016\n.ARM.attributes            46            0\n.init_array                40    134323024\n.fini_array                 4    134323064\n.data                    1564    603979776\n.parable_handoff           32    603981344\n.bss                    40848    603981376\n.dtcmram_bss                0    536870912\n.sram1_bss              16384    805306368\n.sdram_bss                  0   3221225472\n.backup_sram               12    947912704\n.qspiflash_text             0   2415919104\n.qspiflash_data             0   2415919104\n.qspiflash_bss              0   2415919104\n.heap                       0    604022224\n.reserved_for_stack         0    604022224\n.comment                   57            0\n.debug_info            553269            0\n.debug_abbrev           57195            0\n.debug_loclists        228802            0\n.debug_aranges          11736            0\n.debug_rnglists         27308            0\n.debug_line            317928            0\n.debug_str              82267            0\n.debug_frame            35276            0\nTotal                 1478056\n\n\n"
+    },
+    {
+      "control_protocol": "parable.control.v1",
+      "handoff": "reset-systeminit-v1",
+      "flash_origin": 134217728,
+      "flash_length": 131072,
+      "profile": "cmos",
+      "execution": "foreground_kernel",
+      "stimulus": "synthetic_mix",
+      "mode": 2,
+      "route": 0,
+      "capture_blocks": 3000,
+      "status": "linked",
+      "layout": "BOOT_NONE",
+      "parent_artifact_id": "da397b6cb93947051a9dc309e6c18600627e7e681eed13c56b22af946479456a",
+      "artifact_id": "ee4d623bc450fb93e9acdc5636ffc50c45121081d2a9f4e398e6c8a82b360c32",
+      "source_set_sha256": "ff646e1f1796e798c82601a1408df4ef72b6b60b8b5e094c202c209443ef4bac",
+      "bin_sha256": "4e9895a3c6c899396d69bdebd670f2a29835bd4f9169f4315544aa37b9387206",
+      "elf_sha256": "16271eaac2bc35e3718e9c29a1ea6b680ddecc17895b705032fc6fd9cc3da2b3",
+      "bin_file": "parres-v1-cmos-m2-ee4d623bc450-boot_none/build/parres-v1-cmos-m2-ee4d623bc450-boot_none.bin",
+      "configuration": {
+        "usb_control": true,
+        "profile": {
+          "id": "cmos",
+          "adapter": "Cmos",
+          "category": "drive",
+          "commit": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+          "pr": null,
+          "main_integrated": false,
+          "source_files": [
+            "include/parable_cmos.h",
+            "src/parable_cmos.cpp"
+          ],
+          "defines": [
+            "BENCH_USE_CMOS"
+          ],
+          "family": "4x-nonlinear-Newton",
+          "mode_labels": {
+            "0": "nominal healthy",
+            "1": "coupling_small",
+            "2": "healthy high-control corner",
+            "3": "feedback_low"
+          },
+          "modes": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "mode": 2,
+        "execution": "foreground_kernel",
+        "layout": "BOOT_NONE",
+        "capture_blocks": 3000,
+        "source_sha256": {
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:include/parable_cmos.h": "a3d12cbaa1328c5f7437af078f78992008a8aa94d1dd618e2bf06e87bc34caa6",
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:src/cmos_device.h": "5432639be54102e97ac0a020664f388ba1a5512d6d79c4ecd8e1e7f088a07c9b",
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:src/parable_cmos.cpp": "abbd25e1d51b0463babecda411bb501236115d0331879e37fb2340c036a2517a"
+        },
+        "harness_sha256": {
+          "firmware_bench.cpp": "15163e298adae088f325711d31ff97887c33a63cfe1af46ad1044231f0a96520",
+          "adapters.h": "f10ba3ca32c77d69316dc49caa77140c44c000d9246e185fe27de2995e6e3230",
+          "firmware.py": "937c30681ffc99defbf111071335ba785733a2b3c640a45e03e913ed262dff6b",
+          "run.py": "7d997d4cf05034587d804deaa8358be0c7b89cec43ccea37cda2338232d835d6",
+          "runtime_measurement.h": "0d81e4995fc7e56e0a7da7125ddb26b16c5f7c197ddc3632cb688bdcbd6f8b68",
+          "dfu_control.h": "c5fda11bfd2dd90b7f7db8a4600af2f3dd8627594bf17a440d82632d65fa70dd",
+          "dfu_handoff.cpp": "f4ee356876007c099800bc0ef6b516061d4d517e87ea80ec78615a11ce713ca6",
+          "dfu_handoff.ld": "5b6d42dc0b32f602c8370fda758c45a3574a1122ef0d72019e4d7b80f4086751"
+        },
+        "compiler_sha256": "45b67f0cb647f69b0fbd0512b43f7d257458916ca77c8fd538708309845ff76c",
+        "libdaisy_archive_sha256": "c4c68a4cc668610bd5c46613d1b859903fc81d0ab267e6d02c019b867fbc071e",
+        "pins": {
+          "toolchain": {
+            "version": "14.2.1",
+            "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+            "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+            "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+            "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+          },
+          "libdaisy": {
+            "url": "https://github.com/daisyaudio/libDaisy.git",
+            "commit": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+            "submodules": {
+              "Drivers/CMSIS-DSP": "3a04f817a4380c00ff51f9bcdc6c4e4bb7a18b80",
+              "Drivers/CMSIS-Device/ST/STM32H7xx": "6dac8c24d7b38ab20806d27dd7d8285a6433b8f7",
+              "Drivers/CMSIS_5": "2b7495b8535bdcb306dac29b9ded4cfb679d7e5c",
+              "Drivers/STM32H7xx_HAL_Driver": "404a70d4c19c124636c78801ff7c0dbc87bc4256",
+              "Middlewares/ST/STM32_USB_Device_Library": "7b5e6886d2f11ad15d2b46364e8a96984358f639"
+            }
+          },
+          "json": {
+            "url": "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz",
+            "sha256": "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d",
+            "directory": "json"
+          },
+          "target": {
+            "cpu": "cortex-m7",
+            "fpu": "fpv5-d16",
+            "float_abi": "hard",
+            "layouts": {
+              "BOOT_NONE": "core/STM32H750IB_flash.lds",
+              "BOOT_SRAM": "core/STM32H750IB_sram.lds",
+              "BOOT_QSPI": "core/STM32H750IB_qspi.lds"
+            }
+          },
+          "bootloader_audit": {
+            "bundled_binary": "core/dsy_bootloader_v6_4-intdfu-2000ms.bin",
+            "sha256": "76296b6bd625e5e5dbeba2431619a0ed90ae2c0a3a99258df00a64a0b8b9ec35",
+            "source_url": "https://github.com/daisyaudio/DaisyBootloader",
+            "source_commit": "8b279a8e25922b786c24a6cbd1d499cdc1e76934",
+            "source_libdaisy_gitlink": "24be4afea00d71988019fe8dd9fd9fc8fc5bf72c",
+            "status": "binary hash verified; source audited, not rebuilt; Seed3 boot/hardware compatibility unverified"
+          }
+        },
+        "linker_sha256": "d45452b0f9f5b722b16e3a8fc168a76e2a5022d46a4efd10054880dcc5a87e8d",
+        "definitions": [
+          "BENCH_ARM",
+          "BENCH_USB_CONTROL",
+          "BENCH_USE_CMOS",
+          "BENCH_SELECTED=Cmos"
+        ],
+        "arena_samples": 0
+      },
+      "reserved_sdram_bytes": 0,
+      "model_sdram_bytes": 0,
+      "sections": "/workspace/work/runner-arm-final/parres-v1-cmos-m2-ee4d623bc450-boot_none/build/parres-v1-cmos-m2-ee4d623bc450-boot_none.elf  :\nsection                  size         addr\n.isr_vector               664    134217728\n.text                   94752    134218400\n.ARM.extab                  0    134313152\n.exidx                      8    134313152\n.ARM.attributes            46            0\n.init_array                40    134313160\n.fini_array                 4    134313200\n.data                    1564    603979776\n.parable_handoff           32    603981344\n.bss                    32224    603981376\n.dtcmram_bss                0    536870912\n.sram1_bss              16384    805306368\n.sdram_bss                  0   3221225472\n.backup_sram               12    947912704\n.qspiflash_text             0   2415919104\n.qspiflash_data             0   2415919104\n.qspiflash_bss              0   2415919104\n.heap                       0    604013600\n.reserved_for_stack         0    604013600\n.comment                   57            0\n.debug_info            553269            0\n.debug_abbrev           57195            0\n.debug_loclists        228802            0\n.debug_aranges          11736            0\n.debug_rnglists         27308            0\n.debug_line            317928            0\n.debug_str              82267            0\n.debug_frame            35276            0\nTotal                 1459568\n\n\n"
+    },
+    {
+      "control_protocol": "parable.control.v1",
+      "handoff": "reset-systeminit-v1",
+      "flash_origin": 134217728,
+      "flash_length": 131072,
+      "profile": "germanium",
+      "execution": "foreground_kernel",
+      "stimulus": "synthetic_mix",
+      "mode": 2,
+      "route": 0,
+      "capture_blocks": 3000,
+      "status": "linked",
+      "layout": "BOOT_NONE",
+      "parent_artifact_id": "f91bcbbdaa968e323c08f4dea238316b8234279ad044c9d2b6bd8fdbb23b945f",
+      "artifact_id": "e602caf105e8bbae2c07fbac1cdcfa03bd8329da63efe44e24ebe43fbd3f7dc2",
+      "source_set_sha256": "7682657c32054c6ac925bdb3335c9460a24ea63c376490f4be1461f2edf7b183",
+      "bin_sha256": "b6c6f59b2ec6b08034465e7c5b4fa702c0af149cb2d45d2dc637a92c1c5ec8cd",
+      "elf_sha256": "9d9a53afa45fcead57989e82b0ac5dc6393e72c90201067d88dc80558004ddc4",
+      "bin_file": "parres-v1-germanium-m2-e602caf105e8-boot_none/build/parres-v1-germanium-m2-e602caf105e8-boot_none.bin",
+      "configuration": {
+        "usb_control": true,
+        "profile": {
+          "id": "germanium",
+          "adapter": "Germanium",
+          "category": "drive",
+          "commit": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+          "pr": null,
+          "main_integrated": false,
+          "source_files": [
+            "include/parable_germanium.h",
+            "src/parable_germanium.cpp"
+          ],
+          "defines": [
+            "BENCH_USE_GERMANIUM"
+          ],
+          "family": "4x-Gummel-Poon-Newton",
+          "mode_labels": {
+            "0": "nominal healthy",
+            "1": "q1_leaky",
+            "2": "healthy high-control corner",
+            "3": "feedback_wrong"
+          },
+          "modes": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "mode": 2,
+        "execution": "foreground_kernel",
+        "layout": "BOOT_NONE",
+        "capture_blocks": 3000,
+        "source_sha256": {
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:include/parable_germanium.h": "3ac41d2eb8eb8b0b66d5bf0e4cab6cfc0b5a47dec2d2f89359275fa0f73cd45b",
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:src/germanium_device.h": "89ed1c3fc29d8135bf00ac133ac88b19e32f0f0802183de06add5fd1a84007f0",
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:src/parable_germanium.cpp": "b9521af43b566c5e91d0e64d0e098fa1a1f13deb19c3f4ba8b0befa610b452b0"
+        },
+        "harness_sha256": {
+          "firmware_bench.cpp": "15163e298adae088f325711d31ff97887c33a63cfe1af46ad1044231f0a96520",
+          "adapters.h": "f10ba3ca32c77d69316dc49caa77140c44c000d9246e185fe27de2995e6e3230",
+          "firmware.py": "937c30681ffc99defbf111071335ba785733a2b3c640a45e03e913ed262dff6b",
+          "run.py": "7d997d4cf05034587d804deaa8358be0c7b89cec43ccea37cda2338232d835d6",
+          "runtime_measurement.h": "0d81e4995fc7e56e0a7da7125ddb26b16c5f7c197ddc3632cb688bdcbd6f8b68",
+          "dfu_control.h": "c5fda11bfd2dd90b7f7db8a4600af2f3dd8627594bf17a440d82632d65fa70dd",
+          "dfu_handoff.cpp": "f4ee356876007c099800bc0ef6b516061d4d517e87ea80ec78615a11ce713ca6",
+          "dfu_handoff.ld": "5b6d42dc0b32f602c8370fda758c45a3574a1122ef0d72019e4d7b80f4086751"
+        },
+        "compiler_sha256": "45b67f0cb647f69b0fbd0512b43f7d257458916ca77c8fd538708309845ff76c",
+        "libdaisy_archive_sha256": "c4c68a4cc668610bd5c46613d1b859903fc81d0ab267e6d02c019b867fbc071e",
+        "pins": {
+          "toolchain": {
+            "version": "14.2.1",
+            "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+            "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+            "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+            "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+          },
+          "libdaisy": {
+            "url": "https://github.com/daisyaudio/libDaisy.git",
+            "commit": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+            "submodules": {
+              "Drivers/CMSIS-DSP": "3a04f817a4380c00ff51f9bcdc6c4e4bb7a18b80",
+              "Drivers/CMSIS-Device/ST/STM32H7xx": "6dac8c24d7b38ab20806d27dd7d8285a6433b8f7",
+              "Drivers/CMSIS_5": "2b7495b8535bdcb306dac29b9ded4cfb679d7e5c",
+              "Drivers/STM32H7xx_HAL_Driver": "404a70d4c19c124636c78801ff7c0dbc87bc4256",
+              "Middlewares/ST/STM32_USB_Device_Library": "7b5e6886d2f11ad15d2b46364e8a96984358f639"
+            }
+          },
+          "json": {
+            "url": "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz",
+            "sha256": "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d",
+            "directory": "json"
+          },
+          "target": {
+            "cpu": "cortex-m7",
+            "fpu": "fpv5-d16",
+            "float_abi": "hard",
+            "layouts": {
+              "BOOT_NONE": "core/STM32H750IB_flash.lds",
+              "BOOT_SRAM": "core/STM32H750IB_sram.lds",
+              "BOOT_QSPI": "core/STM32H750IB_qspi.lds"
+            }
+          },
+          "bootloader_audit": {
+            "bundled_binary": "core/dsy_bootloader_v6_4-intdfu-2000ms.bin",
+            "sha256": "76296b6bd625e5e5dbeba2431619a0ed90ae2c0a3a99258df00a64a0b8b9ec35",
+            "source_url": "https://github.com/daisyaudio/DaisyBootloader",
+            "source_commit": "8b279a8e25922b786c24a6cbd1d499cdc1e76934",
+            "source_libdaisy_gitlink": "24be4afea00d71988019fe8dd9fd9fc8fc5bf72c",
+            "status": "binary hash verified; source audited, not rebuilt; Seed3 boot/hardware compatibility unverified"
+          }
+        },
+        "linker_sha256": "d45452b0f9f5b722b16e3a8fc168a76e2a5022d46a4efd10054880dcc5a87e8d",
+        "definitions": [
+          "BENCH_ARM",
+          "BENCH_USB_CONTROL",
+          "BENCH_USE_GERMANIUM",
+          "BENCH_SELECTED=Germanium"
+        ],
+        "arena_samples": 0
+      },
+      "reserved_sdram_bytes": 0,
+      "model_sdram_bytes": 0,
+      "sections": "/workspace/work/runner-arm-final/parres-v1-germanium-m2-e602caf105e8-boot_none/build/parres-v1-germanium-m2-e602caf105e8-boot_none.elf  :\nsection                  size         addr\n.isr_vector               664    134217728\n.text                   97416    134218400\n.ARM.extab                  0    134315816\n.exidx                      8    134315816\n.ARM.attributes            46            0\n.init_array                40    134315824\n.fini_array                 4    134315864\n.data                    1564    603979776\n.parable_handoff           32    603981344\n.bss                    32576    603981376\n.dtcmram_bss                0    536870912\n.sram1_bss              16384    805306368\n.sdram_bss                  0   3221225472\n.backup_sram               12    947912704\n.qspiflash_text             0   2415919104\n.qspiflash_data             0   2415919104\n.qspiflash_bss              0   2415919104\n.heap                       0    604013952\n.reserved_for_stack         0    604013952\n.comment                   57            0\n.debug_info            553269            0\n.debug_abbrev           57195            0\n.debug_loclists        228802            0\n.debug_aranges          11736            0\n.debug_rnglists         27308            0\n.debug_line            317928            0\n.debug_str              82267            0\n.debug_frame            35276            0\nTotal                 1462584\n\n\n"
+    },
+    {
+      "control_protocol": "parable.control.v1",
+      "handoff": "reset-systeminit-v1",
+      "flash_origin": 134217728,
+      "flash_length": 131072,
+      "profile": "muff",
+      "execution": "foreground_kernel",
+      "stimulus": "synthetic_mix",
+      "mode": 2,
+      "route": 0,
+      "capture_blocks": 3000,
+      "status": "linked",
+      "layout": "BOOT_NONE",
+      "parent_artifact_id": "733aa740211497f467a48cc7b4b774ccd3619326e5ba1bee2f95e93385cbfd53",
+      "artifact_id": "436c6b1ed3c65ab4a560e2e53cda800b294fa4dddabc6c55e8da6e4e534f824c",
+      "source_set_sha256": "9a9b997394d151012b9c1d346436d2784ca6ca1881d5674be3595168d73ef32a",
+      "bin_sha256": "8c6d92f4b347c9837a48ace1f1168b6e80af8f73ef2a12535c8ee8f0b1daa79c",
+      "elf_sha256": "46093bd4d6674ac2d1bd5c58699d0177d9b3a03fa4837293e126546fd8e60a61",
+      "bin_file": "parres-v1-muff-m2-436c6b1ed3c6-boot_none/build/parres-v1-muff-m2-436c6b1ed3c6-boot_none.bin",
+      "configuration": {
+        "usb_control": true,
+        "profile": {
+          "id": "muff",
+          "adapter": "Muff",
+          "category": "drive",
+          "commit": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+          "pr": null,
+          "main_integrated": false,
+          "source_files": [
+            "include/parable_muff.h",
+            "src/parable_muff.cpp"
+          ],
+          "defines": [
+            "BENCH_USE_MUFF"
+          ],
+          "family": "4x-10port-Newton",
+          "mode_labels": {
+            "0": "nominal healthy",
+            "1": "documented primary fault or parameter corner",
+            "2": "healthy high-control corner"
+          }
+        },
+        "mode": 2,
+        "execution": "foreground_kernel",
+        "layout": "BOOT_NONE",
+        "capture_blocks": 3000,
+        "source_sha256": {
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:include/parable_muff.h": "02cd65fb559daf00ef263b3dfe318817c4c07e80ffe5fd66d428f9e9782fd12f",
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:src/muff_device.h": "05f2a30c527ff2349ff47df5111a71078ff5dcc731e5b9818afb21f7155359be",
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:src/parable_muff.cpp": "d80d9a7a55eb5c252bd4fcaa0b17ccfbab48efe14cb3ce9398ab8c4edda3fd7d"
+        },
+        "harness_sha256": {
+          "firmware_bench.cpp": "15163e298adae088f325711d31ff97887c33a63cfe1af46ad1044231f0a96520",
+          "adapters.h": "f10ba3ca32c77d69316dc49caa77140c44c000d9246e185fe27de2995e6e3230",
+          "firmware.py": "937c30681ffc99defbf111071335ba785733a2b3c640a45e03e913ed262dff6b",
+          "run.py": "7d997d4cf05034587d804deaa8358be0c7b89cec43ccea37cda2338232d835d6",
+          "runtime_measurement.h": "0d81e4995fc7e56e0a7da7125ddb26b16c5f7c197ddc3632cb688bdcbd6f8b68",
+          "dfu_control.h": "c5fda11bfd2dd90b7f7db8a4600af2f3dd8627594bf17a440d82632d65fa70dd",
+          "dfu_handoff.cpp": "f4ee356876007c099800bc0ef6b516061d4d517e87ea80ec78615a11ce713ca6",
+          "dfu_handoff.ld": "5b6d42dc0b32f602c8370fda758c45a3574a1122ef0d72019e4d7b80f4086751"
+        },
+        "compiler_sha256": "45b67f0cb647f69b0fbd0512b43f7d257458916ca77c8fd538708309845ff76c",
+        "libdaisy_archive_sha256": "c4c68a4cc668610bd5c46613d1b859903fc81d0ab267e6d02c019b867fbc071e",
+        "pins": {
+          "toolchain": {
+            "version": "14.2.1",
+            "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+            "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+            "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+            "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+          },
+          "libdaisy": {
+            "url": "https://github.com/daisyaudio/libDaisy.git",
+            "commit": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+            "submodules": {
+              "Drivers/CMSIS-DSP": "3a04f817a4380c00ff51f9bcdc6c4e4bb7a18b80",
+              "Drivers/CMSIS-Device/ST/STM32H7xx": "6dac8c24d7b38ab20806d27dd7d8285a6433b8f7",
+              "Drivers/CMSIS_5": "2b7495b8535bdcb306dac29b9ded4cfb679d7e5c",
+              "Drivers/STM32H7xx_HAL_Driver": "404a70d4c19c124636c78801ff7c0dbc87bc4256",
+              "Middlewares/ST/STM32_USB_Device_Library": "7b5e6886d2f11ad15d2b46364e8a96984358f639"
+            }
+          },
+          "json": {
+            "url": "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz",
+            "sha256": "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d",
+            "directory": "json"
+          },
+          "target": {
+            "cpu": "cortex-m7",
+            "fpu": "fpv5-d16",
+            "float_abi": "hard",
+            "layouts": {
+              "BOOT_NONE": "core/STM32H750IB_flash.lds",
+              "BOOT_SRAM": "core/STM32H750IB_sram.lds",
+              "BOOT_QSPI": "core/STM32H750IB_qspi.lds"
+            }
+          },
+          "bootloader_audit": {
+            "bundled_binary": "core/dsy_bootloader_v6_4-intdfu-2000ms.bin",
+            "sha256": "76296b6bd625e5e5dbeba2431619a0ed90ae2c0a3a99258df00a64a0b8b9ec35",
+            "source_url": "https://github.com/daisyaudio/DaisyBootloader",
+            "source_commit": "8b279a8e25922b786c24a6cbd1d499cdc1e76934",
+            "source_libdaisy_gitlink": "24be4afea00d71988019fe8dd9fd9fc8fc5bf72c",
+            "status": "binary hash verified; source audited, not rebuilt; Seed3 boot/hardware compatibility unverified"
+          }
+        },
+        "linker_sha256": "d45452b0f9f5b722b16e3a8fc168a76e2a5022d46a4efd10054880dcc5a87e8d",
+        "definitions": [
+          "BENCH_ARM",
+          "BENCH_USB_CONTROL",
+          "BENCH_USE_MUFF",
+          "BENCH_SELECTED=Muff"
+        ],
+        "arena_samples": 0
+      },
+      "reserved_sdram_bytes": 0,
+      "model_sdram_bytes": 0,
+      "sections": "/workspace/work/runner-arm-final/parres-v1-muff-m2-436c6b1ed3c6-boot_none/build/parres-v1-muff-m2-436c6b1ed3c6-boot_none.elf  :\nsection                  size         addr\n.isr_vector               664    134217728\n.text                   97432    134218400\n.ARM.extab                  0    134315832\n.exidx                      8    134315832\n.ARM.attributes            46            0\n.init_array                40    134315840\n.fini_array                 4    134315880\n.data                    1564    603979776\n.parable_handoff           32    603981344\n.bss                    38928    603981376\n.dtcmram_bss                0    536870912\n.sram1_bss              16384    805306368\n.sdram_bss                  0   3221225472\n.backup_sram               12    947912704\n.qspiflash_text             0   2415919104\n.qspiflash_data             0   2415919104\n.qspiflash_bss              0   2415919104\n.heap                       0    604020304\n.reserved_for_stack         0    604020304\n.comment                   57            0\n.debug_info            553269            0\n.debug_abbrev           57195            0\n.debug_loclists        228802            0\n.debug_aranges          11736            0\n.debug_rnglists         27308            0\n.debug_line            317928            0\n.debug_str              82267            0\n.debug_frame            35276            0\nTotal                 1468952\n\n\n"
+    },
+    {
+      "control_protocol": "parable.control.v1",
+      "handoff": "reset-systeminit-v1",
+      "flash_origin": 134217728,
+      "flash_length": 131072,
+      "profile": "ts808",
+      "execution": "foreground_kernel",
+      "stimulus": "synthetic_mix",
+      "mode": 2,
+      "route": 0,
+      "capture_blocks": 3000,
+      "status": "linked",
+      "layout": "BOOT_NONE",
+      "parent_artifact_id": "c84e3a77f129c293e95ad5d94145b935ae132a521366faa23181aff3957e1ed2",
+      "artifact_id": "8daa387ec9a2fd9874b25543d43f76b11302a6226b92e52e19978751cce5462c",
+      "source_set_sha256": "9b79af32408a35590c20d248f906d324eb9c5c818b5bab8dc99df66b457dbed4",
+      "bin_sha256": "818885940a9d425b6881083a929dda7484b7cf24df48e59286034207db42a225",
+      "elf_sha256": "687e9f06fbae246917439063fb064682a1a6fd9f26ff8e0675e142246aaef971",
+      "bin_file": "parres-v1-ts808-m2-8daa387ec9a2-boot_none/build/parres-v1-ts808-m2-8daa387ec9a2-boot_none.bin",
+      "configuration": {
+        "usb_control": true,
+        "profile": {
+          "id": "ts808",
+          "adapter": "Ts808",
+          "category": "drive",
+          "commit": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+          "pr": null,
+          "main_integrated": false,
+          "source_files": [
+            "include/parable_ts808.h",
+            "src/parable_ts808.cpp"
+          ],
+          "defines": [
+            "BENCH_USE_TS808"
+          ],
+          "family": "16x-7unknown-Newton",
+          "mode_labels": {
+            "0": "nominal healthy",
+            "1": "documented primary fault or parameter corner",
+            "2": "healthy high-control corner"
+          }
+        },
+        "mode": 2,
+        "execution": "foreground_kernel",
+        "layout": "BOOT_NONE",
+        "capture_blocks": 3000,
+        "source_sha256": {
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:include/parable_ts808.h": "dd610004fc3506671e53ffe351777285fe7aebd10b80d6bf28d75ec49d312e38",
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:src/parable_ts808.cpp": "3fdfaeb754d21cd174a1c5fd67ca23481eaae023b9daa15fed1151dc6beb912f",
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:src/ts808_device.h": "c801cc1429d617db0a8542fc87a213d940f73e7ac079c5e3f829f2d6d17b1282"
+        },
+        "harness_sha256": {
+          "firmware_bench.cpp": "15163e298adae088f325711d31ff97887c33a63cfe1af46ad1044231f0a96520",
+          "adapters.h": "f10ba3ca32c77d69316dc49caa77140c44c000d9246e185fe27de2995e6e3230",
+          "firmware.py": "937c30681ffc99defbf111071335ba785733a2b3c640a45e03e913ed262dff6b",
+          "run.py": "7d997d4cf05034587d804deaa8358be0c7b89cec43ccea37cda2338232d835d6",
+          "runtime_measurement.h": "0d81e4995fc7e56e0a7da7125ddb26b16c5f7c197ddc3632cb688bdcbd6f8b68",
+          "dfu_control.h": "c5fda11bfd2dd90b7f7db8a4600af2f3dd8627594bf17a440d82632d65fa70dd",
+          "dfu_handoff.cpp": "f4ee356876007c099800bc0ef6b516061d4d517e87ea80ec78615a11ce713ca6",
+          "dfu_handoff.ld": "5b6d42dc0b32f602c8370fda758c45a3574a1122ef0d72019e4d7b80f4086751"
+        },
+        "compiler_sha256": "45b67f0cb647f69b0fbd0512b43f7d257458916ca77c8fd538708309845ff76c",
+        "libdaisy_archive_sha256": "c4c68a4cc668610bd5c46613d1b859903fc81d0ab267e6d02c019b867fbc071e",
+        "pins": {
+          "toolchain": {
+            "version": "14.2.1",
+            "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+            "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+            "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+            "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+          },
+          "libdaisy": {
+            "url": "https://github.com/daisyaudio/libDaisy.git",
+            "commit": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+            "submodules": {
+              "Drivers/CMSIS-DSP": "3a04f817a4380c00ff51f9bcdc6c4e4bb7a18b80",
+              "Drivers/CMSIS-Device/ST/STM32H7xx": "6dac8c24d7b38ab20806d27dd7d8285a6433b8f7",
+              "Drivers/CMSIS_5": "2b7495b8535bdcb306dac29b9ded4cfb679d7e5c",
+              "Drivers/STM32H7xx_HAL_Driver": "404a70d4c19c124636c78801ff7c0dbc87bc4256",
+              "Middlewares/ST/STM32_USB_Device_Library": "7b5e6886d2f11ad15d2b46364e8a96984358f639"
+            }
+          },
+          "json": {
+            "url": "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz",
+            "sha256": "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d",
+            "directory": "json"
+          },
+          "target": {
+            "cpu": "cortex-m7",
+            "fpu": "fpv5-d16",
+            "float_abi": "hard",
+            "layouts": {
+              "BOOT_NONE": "core/STM32H750IB_flash.lds",
+              "BOOT_SRAM": "core/STM32H750IB_sram.lds",
+              "BOOT_QSPI": "core/STM32H750IB_qspi.lds"
+            }
+          },
+          "bootloader_audit": {
+            "bundled_binary": "core/dsy_bootloader_v6_4-intdfu-2000ms.bin",
+            "sha256": "76296b6bd625e5e5dbeba2431619a0ed90ae2c0a3a99258df00a64a0b8b9ec35",
+            "source_url": "https://github.com/daisyaudio/DaisyBootloader",
+            "source_commit": "8b279a8e25922b786c24a6cbd1d499cdc1e76934",
+            "source_libdaisy_gitlink": "24be4afea00d71988019fe8dd9fd9fc8fc5bf72c",
+            "status": "binary hash verified; source audited, not rebuilt; Seed3 boot/hardware compatibility unverified"
+          }
+        },
+        "linker_sha256": "d45452b0f9f5b722b16e3a8fc168a76e2a5022d46a4efd10054880dcc5a87e8d",
+        "definitions": [
+          "BENCH_ARM",
+          "BENCH_USB_CONTROL",
+          "BENCH_USE_TS808",
+          "BENCH_SELECTED=Ts808"
+        ],
+        "arena_samples": 0
+      },
+      "reserved_sdram_bytes": 0,
+      "model_sdram_bytes": 0,
+      "sections": "/workspace/work/runner-arm-final/parres-v1-ts808-m2-8daa387ec9a2-boot_none/build/parres-v1-ts808-m2-8daa387ec9a2-boot_none.elf  :\nsection                  size         addr\n.isr_vector               664    134217728\n.text                  107456    134218400\n.ARM.extab                  0    134325856\n.exidx                      8    134325856\n.ARM.attributes            46            0\n.init_array                40    134325864\n.fini_array                 4    134325904\n.data                    1564    603979776\n.parable_handoff           32    603981344\n.bss                    38200    603981376\n.dtcmram_bss                0    536870912\n.sram1_bss              16384    805306368\n.sdram_bss                  0   3221225472\n.backup_sram               12    947912704\n.qspiflash_text             0   2415919104\n.qspiflash_data             0   2415919104\n.qspiflash_bss              0   2415919104\n.heap                       0    604019576\n.reserved_for_stack         0    604019576\n.comment                   57            0\n.debug_info            553269            0\n.debug_abbrev           57195            0\n.debug_loclists        228802            0\n.debug_aranges          11736            0\n.debug_rnglists         27308            0\n.debug_line            317928            0\n.debug_str              82267            0\n.debug_frame            35276            0\nTotal                 1478248\n\n\n"
+    },
+    {
+      "control_protocol": "parable.control.v1",
+      "handoff": "reset-systeminit-v1",
+      "flash_origin": 134217728,
+      "flash_length": 131072,
+      "profile": "klon",
+      "execution": "foreground_kernel",
+      "stimulus": "synthetic_mix",
+      "mode": 2,
+      "route": 0,
+      "capture_blocks": 3000,
+      "status": "linked",
+      "layout": "BOOT_NONE",
+      "parent_artifact_id": "bea79dde981a39f5b29b48af3348d8523d08ec12ea3a6330f455391a47b03ff7",
+      "artifact_id": "014bd977859b9913e2bea87fb2b0583cd6c331a626c73e5d785bbb0b5c855527",
+      "source_set_sha256": "eb6fbd57ba7388efa075d3eadf6d543373c69b9667ef536fa1470e337c2ca754",
+      "bin_sha256": "3e5a9f0d65fc7ac4003f3a2bba76b21a32de4baa5771fb4680814c2a7ebf63fe",
+      "elf_sha256": "be22f3332dd53dedf887db5cb51f3ef0d7f9b5714d68499a186ba61222044609",
+      "bin_file": "parres-v1-klon-m2-014bd977859b-boot_none/build/parres-v1-klon-m2-014bd977859b-boot_none.bin",
+      "configuration": {
+        "usb_control": true,
+        "profile": {
+          "id": "klon",
+          "adapter": "Klon",
+          "category": "drive",
+          "commit": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+          "pr": null,
+          "main_integrated": false,
+          "source_files": [
+            "include/parable_klon.h",
+            "src/parable_klon.cpp"
+          ],
+          "defines": [
+            "BENCH_USE_KLON"
+          ],
+          "family": "12x-5unknown-Newton",
+          "mode_labels": {
+            "0": "nominal healthy",
+            "1": "documented primary fault or parameter corner",
+            "2": "healthy high-control corner"
+          }
+        },
+        "mode": 2,
+        "execution": "foreground_kernel",
+        "layout": "BOOT_NONE",
+        "capture_blocks": 3000,
+        "source_sha256": {
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:include/parable_klon.h": "e03c08fcbb5a52665f1a2cf1f6cded105298ca57c494df3dd509859b426ad294",
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:src/klon_device.h": "8061bcf2956d213f8bf5ace362922ea52ae20751fc5784e17ec0da27e9580648",
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:src/parable_klon.cpp": "7c68722b75574b3a9fcc64541d22259e6d6f68feb1167bb4f725fd18fe041868"
+        },
+        "harness_sha256": {
+          "firmware_bench.cpp": "15163e298adae088f325711d31ff97887c33a63cfe1af46ad1044231f0a96520",
+          "adapters.h": "f10ba3ca32c77d69316dc49caa77140c44c000d9246e185fe27de2995e6e3230",
+          "firmware.py": "937c30681ffc99defbf111071335ba785733a2b3c640a45e03e913ed262dff6b",
+          "run.py": "7d997d4cf05034587d804deaa8358be0c7b89cec43ccea37cda2338232d835d6",
+          "runtime_measurement.h": "0d81e4995fc7e56e0a7da7125ddb26b16c5f7c197ddc3632cb688bdcbd6f8b68",
+          "dfu_control.h": "c5fda11bfd2dd90b7f7db8a4600af2f3dd8627594bf17a440d82632d65fa70dd",
+          "dfu_handoff.cpp": "f4ee356876007c099800bc0ef6b516061d4d517e87ea80ec78615a11ce713ca6",
+          "dfu_handoff.ld": "5b6d42dc0b32f602c8370fda758c45a3574a1122ef0d72019e4d7b80f4086751"
+        },
+        "compiler_sha256": "45b67f0cb647f69b0fbd0512b43f7d257458916ca77c8fd538708309845ff76c",
+        "libdaisy_archive_sha256": "c4c68a4cc668610bd5c46613d1b859903fc81d0ab267e6d02c019b867fbc071e",
+        "pins": {
+          "toolchain": {
+            "version": "14.2.1",
+            "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+            "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+            "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+            "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+          },
+          "libdaisy": {
+            "url": "https://github.com/daisyaudio/libDaisy.git",
+            "commit": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+            "submodules": {
+              "Drivers/CMSIS-DSP": "3a04f817a4380c00ff51f9bcdc6c4e4bb7a18b80",
+              "Drivers/CMSIS-Device/ST/STM32H7xx": "6dac8c24d7b38ab20806d27dd7d8285a6433b8f7",
+              "Drivers/CMSIS_5": "2b7495b8535bdcb306dac29b9ded4cfb679d7e5c",
+              "Drivers/STM32H7xx_HAL_Driver": "404a70d4c19c124636c78801ff7c0dbc87bc4256",
+              "Middlewares/ST/STM32_USB_Device_Library": "7b5e6886d2f11ad15d2b46364e8a96984358f639"
+            }
+          },
+          "json": {
+            "url": "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz",
+            "sha256": "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d",
+            "directory": "json"
+          },
+          "target": {
+            "cpu": "cortex-m7",
+            "fpu": "fpv5-d16",
+            "float_abi": "hard",
+            "layouts": {
+              "BOOT_NONE": "core/STM32H750IB_flash.lds",
+              "BOOT_SRAM": "core/STM32H750IB_sram.lds",
+              "BOOT_QSPI": "core/STM32H750IB_qspi.lds"
+            }
+          },
+          "bootloader_audit": {
+            "bundled_binary": "core/dsy_bootloader_v6_4-intdfu-2000ms.bin",
+            "sha256": "76296b6bd625e5e5dbeba2431619a0ed90ae2c0a3a99258df00a64a0b8b9ec35",
+            "source_url": "https://github.com/daisyaudio/DaisyBootloader",
+            "source_commit": "8b279a8e25922b786c24a6cbd1d499cdc1e76934",
+            "source_libdaisy_gitlink": "24be4afea00d71988019fe8dd9fd9fc8fc5bf72c",
+            "status": "binary hash verified; source audited, not rebuilt; Seed3 boot/hardware compatibility unverified"
+          }
+        },
+        "linker_sha256": "d45452b0f9f5b722b16e3a8fc168a76e2a5022d46a4efd10054880dcc5a87e8d",
+        "definitions": [
+          "BENCH_ARM",
+          "BENCH_USB_CONTROL",
+          "BENCH_USE_KLON",
+          "BENCH_SELECTED=Klon"
+        ],
+        "arena_samples": 0
+      },
+      "reserved_sdram_bytes": 0,
+      "model_sdram_bytes": 0,
+      "sections": "/workspace/work/runner-arm-final/parres-v1-klon-m2-014bd977859b-boot_none/build/parres-v1-klon-m2-014bd977859b-boot_none.elf  :\nsection                  size         addr\n.isr_vector               664    134217728\n.text                  100232    134218400\n.ARM.extab                  0    134318632\n.exidx                      8    134318632\n.ARM.attributes            46            0\n.init_array                40    134318640\n.fini_array                 4    134318680\n.data                    1564    603979776\n.parable_handoff           32    603981344\n.bss                    41904    603981376\n.dtcmram_bss                0    536870912\n.sram1_bss              16384    805306368\n.sdram_bss                  0   3221225472\n.backup_sram               12    947912704\n.qspiflash_text             0   2415919104\n.qspiflash_data             0   2415919104\n.qspiflash_bss              0   2415919104\n.heap                       0    604023280\n.reserved_for_stack         0    604023280\n.comment                   57            0\n.debug_info            553269            0\n.debug_abbrev           57195            0\n.debug_loclists        228802            0\n.debug_aranges          11736            0\n.debug_rnglists         27308            0\n.debug_line            317928            0\n.debug_str              82267            0\n.debug_frame            35276            0\nTotal                 1474728\n\n\n"
+    },
+    {
+      "control_protocol": "parable.control.v1",
+      "handoff": "reset-systeminit-v1",
+      "flash_origin": 134217728,
+      "flash_length": 131072,
+      "profile": "blender",
+      "execution": "foreground_kernel",
+      "stimulus": "synthetic_mix",
+      "mode": 2,
+      "route": 0,
+      "capture_blocks": 3000,
+      "status": "linked",
+      "layout": "BOOT_NONE",
+      "parent_artifact_id": "2aefaabb654522891179d2d44d10bc13973da7fa285362513c803cee4c8df718",
+      "artifact_id": "f066b5b1efcf8107ca385c8ef8a4d6723e5cbaeead6ba292a2e85bebba95649e",
+      "source_set_sha256": "cc05347c772f94029af459b8854936951f340a4afdeb7d9220712a46e8f5bd48",
+      "bin_sha256": "ace2af37453e0e9e6386bb492f21cabc036103b2d7419c3205a2566c117b5bfe",
+      "elf_sha256": "788621bed92ce5b9a4362a7022ff58e19dcd69fd33b194914482dfb74044752e",
+      "bin_file": "parres-v1-blender-m2-f066b5b1efcf-boot_none/build/parres-v1-blender-m2-f066b5b1efcf-boot_none.bin",
+      "configuration": {
+        "usb_control": true,
+        "profile": {
+          "id": "blender",
+          "adapter": "Blender",
+          "category": "drive",
+          "commit": "15d90d21ebaa56057e07365f29adfd828875375e",
+          "pr": 63,
+          "main_integrated": false,
+          "source_files": [
+            "include/parable_blender.h",
+            "src/parable_blender.cpp"
+          ],
+          "defines": [
+            "BENCH_USE_BLENDER"
+          ],
+          "family": "8x-14port-Newton",
+          "hold": "Existing high-note scientific gates fail",
+          "mode_labels": {
+            "0": "nominal healthy",
+            "1": "documented primary fault or parameter corner",
+            "2": "healthy high-control corner"
+          }
+        },
+        "mode": 2,
+        "execution": "foreground_kernel",
+        "layout": "BOOT_NONE",
+        "capture_blocks": 3000,
+        "source_sha256": {
+          "15d90d21ebaa56057e07365f29adfd828875375e:include/parable_blender.h": "9b4a55ea913219f4269b5230ff8a5e851f15ab73dfd98c3cdc546d7bdb95c740",
+          "15d90d21ebaa56057e07365f29adfd828875375e:src/blender_device.h": "de7225310c667fd4bc7a30e0a9f556a67afc786961242575eaf305ae84590aea",
+          "15d90d21ebaa56057e07365f29adfd828875375e:src/parable_blender.cpp": "90481ab455df5a63de433621c1a8aefd36cd7410994b7116ae3c44a8600f4a3f"
+        },
+        "harness_sha256": {
+          "firmware_bench.cpp": "15163e298adae088f325711d31ff97887c33a63cfe1af46ad1044231f0a96520",
+          "adapters.h": "f10ba3ca32c77d69316dc49caa77140c44c000d9246e185fe27de2995e6e3230",
+          "firmware.py": "937c30681ffc99defbf111071335ba785733a2b3c640a45e03e913ed262dff6b",
+          "run.py": "7d997d4cf05034587d804deaa8358be0c7b89cec43ccea37cda2338232d835d6",
+          "runtime_measurement.h": "0d81e4995fc7e56e0a7da7125ddb26b16c5f7c197ddc3632cb688bdcbd6f8b68",
+          "dfu_control.h": "c5fda11bfd2dd90b7f7db8a4600af2f3dd8627594bf17a440d82632d65fa70dd",
+          "dfu_handoff.cpp": "f4ee356876007c099800bc0ef6b516061d4d517e87ea80ec78615a11ce713ca6",
+          "dfu_handoff.ld": "5b6d42dc0b32f602c8370fda758c45a3574a1122ef0d72019e4d7b80f4086751"
+        },
+        "compiler_sha256": "45b67f0cb647f69b0fbd0512b43f7d257458916ca77c8fd538708309845ff76c",
+        "libdaisy_archive_sha256": "c4c68a4cc668610bd5c46613d1b859903fc81d0ab267e6d02c019b867fbc071e",
+        "pins": {
+          "toolchain": {
+            "version": "14.2.1",
+            "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+            "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+            "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+            "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+          },
+          "libdaisy": {
+            "url": "https://github.com/daisyaudio/libDaisy.git",
+            "commit": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+            "submodules": {
+              "Drivers/CMSIS-DSP": "3a04f817a4380c00ff51f9bcdc6c4e4bb7a18b80",
+              "Drivers/CMSIS-Device/ST/STM32H7xx": "6dac8c24d7b38ab20806d27dd7d8285a6433b8f7",
+              "Drivers/CMSIS_5": "2b7495b8535bdcb306dac29b9ded4cfb679d7e5c",
+              "Drivers/STM32H7xx_HAL_Driver": "404a70d4c19c124636c78801ff7c0dbc87bc4256",
+              "Middlewares/ST/STM32_USB_Device_Library": "7b5e6886d2f11ad15d2b46364e8a96984358f639"
+            }
+          },
+          "json": {
+            "url": "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz",
+            "sha256": "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d",
+            "directory": "json"
+          },
+          "target": {
+            "cpu": "cortex-m7",
+            "fpu": "fpv5-d16",
+            "float_abi": "hard",
+            "layouts": {
+              "BOOT_NONE": "core/STM32H750IB_flash.lds",
+              "BOOT_SRAM": "core/STM32H750IB_sram.lds",
+              "BOOT_QSPI": "core/STM32H750IB_qspi.lds"
+            }
+          },
+          "bootloader_audit": {
+            "bundled_binary": "core/dsy_bootloader_v6_4-intdfu-2000ms.bin",
+            "sha256": "76296b6bd625e5e5dbeba2431619a0ed90ae2c0a3a99258df00a64a0b8b9ec35",
+            "source_url": "https://github.com/daisyaudio/DaisyBootloader",
+            "source_commit": "8b279a8e25922b786c24a6cbd1d499cdc1e76934",
+            "source_libdaisy_gitlink": "24be4afea00d71988019fe8dd9fd9fc8fc5bf72c",
+            "status": "binary hash verified; source audited, not rebuilt; Seed3 boot/hardware compatibility unverified"
+          }
+        },
+        "linker_sha256": "d45452b0f9f5b722b16e3a8fc168a76e2a5022d46a4efd10054880dcc5a87e8d",
+        "definitions": [
+          "BENCH_ARM",
+          "BENCH_USB_CONTROL",
+          "BENCH_USE_BLENDER",
+          "BENCH_SELECTED=Blender"
+        ],
+        "arena_samples": 0
+      },
+      "reserved_sdram_bytes": 0,
+      "model_sdram_bytes": 0,
+      "sections": "/workspace/work/runner-arm-final/parres-v1-blender-m2-f066b5b1efcf-boot_none/build/parres-v1-blender-m2-f066b5b1efcf-boot_none.elf  :\nsection                  size         addr\n.isr_vector               664    134217728\n.text                  109616    134218400\n.ARM.extab                  0    134328016\n.exidx                      8    134328016\n.ARM.attributes            46            0\n.init_array                40    134328024\n.fini_array                 4    134328064\n.data                    1564    603979776\n.parable_handoff           32    603981344\n.bss                    49976    603981376\n.dtcmram_bss                0    536870912\n.sram1_bss              16384    805306368\n.sdram_bss                  0   3221225472\n.backup_sram               12    947912704\n.qspiflash_text             0   2415919104\n.qspiflash_data             0   2415919104\n.qspiflash_bss              0   2415919104\n.heap                       0    604031352\n.reserved_for_stack         0    604031352\n.comment                   57            0\n.debug_info            553269            0\n.debug_abbrev           57195            0\n.debug_loclists        228802            0\n.debug_aranges          11736            0\n.debug_rnglists         27308            0\n.debug_line            317928            0\n.debug_str              82267            0\n.debug_frame            35276            0\nTotal                 1492184\n\n\n"
+    },
+    {
+      "control_protocol": "parable.control.v1",
+      "handoff": "reset-systeminit-v1",
+      "flash_origin": 134217728,
+      "flash_length": 131072,
+      "profile": "fz1",
+      "execution": "foreground_kernel",
+      "stimulus": "synthetic_mix",
+      "mode": 2,
+      "route": 0,
+      "capture_blocks": 3000,
+      "status": "linked",
+      "layout": "BOOT_NONE",
+      "parent_artifact_id": "fdbec0036e92c343bfd2a1e3b84de66edef795fec90103c536b29566a4052375",
+      "artifact_id": "389d81eeb3e0695b523b6f41def6475dcd8fb2ddf47293676a7dee4ed096ab68",
+      "source_set_sha256": "ab5f439e4105eb2b106063b68bb71d23dacf6a93da224ec38018d6a23d4e3ffb",
+      "bin_sha256": "6f0d7874d0ba87cb05afa860bbab5cb05cdc9aecc921cef5c2c897bb939d1617",
+      "elf_sha256": "166d8efed3b379d98c75a08db6a24504128fd9aed97eba6f7d0a81411d0a5c1f",
+      "bin_file": "parres-v1-fz1-m2-389d81eeb3e0-boot_none/build/parres-v1-fz1-m2-389d81eeb3e0-boot_none.bin",
+      "configuration": {
+        "usb_control": true,
+        "profile": {
+          "id": "fz1",
+          "adapter": "Fz1",
+          "category": "drive",
+          "commit": "fc9f3eb4d583bf8307f8a5900255976683e47373",
+          "pr": 61,
+          "main_integrated": false,
+          "source_files": [
+            "include/parable_fz1.h",
+            "src/parable_fz1.cpp"
+          ],
+          "defines": [
+            "BENCH_USE_FZ1"
+          ],
+          "family": "8x-6port-Newton",
+          "mode_labels": {
+            "0": "nominal healthy",
+            "1": "documented primary fault or parameter corner",
+            "2": "healthy high-control corner"
+          }
+        },
+        "mode": 2,
+        "execution": "foreground_kernel",
+        "layout": "BOOT_NONE",
+        "capture_blocks": 3000,
+        "source_sha256": {
+          "fc9f3eb4d583bf8307f8a5900255976683e47373:include/parable_fz1.h": "b275c9e1ab7acc959b3ce7742c48dfd803d751e1aae4aceb26bf70af484f7d7b",
+          "fc9f3eb4d583bf8307f8a5900255976683e47373:include/parable_germanium.h": "3ac41d2eb8eb8b0b66d5bf0e4cab6cfc0b5a47dec2d2f89359275fa0f73cd45b",
+          "fc9f3eb4d583bf8307f8a5900255976683e47373:src/germanium_device.h": "89ed1c3fc29d8135bf00ac133ac88b19e32f0f0802183de06add5fd1a84007f0",
+          "fc9f3eb4d583bf8307f8a5900255976683e47373:src/parable_fz1.cpp": "de45561bfd30c239b221672d2435d42aaf93c1541c4525506264caa854cccaf5"
+        },
+        "harness_sha256": {
+          "firmware_bench.cpp": "15163e298adae088f325711d31ff97887c33a63cfe1af46ad1044231f0a96520",
+          "adapters.h": "f10ba3ca32c77d69316dc49caa77140c44c000d9246e185fe27de2995e6e3230",
+          "firmware.py": "937c30681ffc99defbf111071335ba785733a2b3c640a45e03e913ed262dff6b",
+          "run.py": "7d997d4cf05034587d804deaa8358be0c7b89cec43ccea37cda2338232d835d6",
+          "runtime_measurement.h": "0d81e4995fc7e56e0a7da7125ddb26b16c5f7c197ddc3632cb688bdcbd6f8b68",
+          "dfu_control.h": "c5fda11bfd2dd90b7f7db8a4600af2f3dd8627594bf17a440d82632d65fa70dd",
+          "dfu_handoff.cpp": "f4ee356876007c099800bc0ef6b516061d4d517e87ea80ec78615a11ce713ca6",
+          "dfu_handoff.ld": "5b6d42dc0b32f602c8370fda758c45a3574a1122ef0d72019e4d7b80f4086751"
+        },
+        "compiler_sha256": "45b67f0cb647f69b0fbd0512b43f7d257458916ca77c8fd538708309845ff76c",
+        "libdaisy_archive_sha256": "c4c68a4cc668610bd5c46613d1b859903fc81d0ab267e6d02c019b867fbc071e",
+        "pins": {
+          "toolchain": {
+            "version": "14.2.1",
+            "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+            "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+            "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+            "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+          },
+          "libdaisy": {
+            "url": "https://github.com/daisyaudio/libDaisy.git",
+            "commit": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+            "submodules": {
+              "Drivers/CMSIS-DSP": "3a04f817a4380c00ff51f9bcdc6c4e4bb7a18b80",
+              "Drivers/CMSIS-Device/ST/STM32H7xx": "6dac8c24d7b38ab20806d27dd7d8285a6433b8f7",
+              "Drivers/CMSIS_5": "2b7495b8535bdcb306dac29b9ded4cfb679d7e5c",
+              "Drivers/STM32H7xx_HAL_Driver": "404a70d4c19c124636c78801ff7c0dbc87bc4256",
+              "Middlewares/ST/STM32_USB_Device_Library": "7b5e6886d2f11ad15d2b46364e8a96984358f639"
+            }
+          },
+          "json": {
+            "url": "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz",
+            "sha256": "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d",
+            "directory": "json"
+          },
+          "target": {
+            "cpu": "cortex-m7",
+            "fpu": "fpv5-d16",
+            "float_abi": "hard",
+            "layouts": {
+              "BOOT_NONE": "core/STM32H750IB_flash.lds",
+              "BOOT_SRAM": "core/STM32H750IB_sram.lds",
+              "BOOT_QSPI": "core/STM32H750IB_qspi.lds"
+            }
+          },
+          "bootloader_audit": {
+            "bundled_binary": "core/dsy_bootloader_v6_4-intdfu-2000ms.bin",
+            "sha256": "76296b6bd625e5e5dbeba2431619a0ed90ae2c0a3a99258df00a64a0b8b9ec35",
+            "source_url": "https://github.com/daisyaudio/DaisyBootloader",
+            "source_commit": "8b279a8e25922b786c24a6cbd1d499cdc1e76934",
+            "source_libdaisy_gitlink": "24be4afea00d71988019fe8dd9fd9fc8fc5bf72c",
+            "status": "binary hash verified; source audited, not rebuilt; Seed3 boot/hardware compatibility unverified"
+          }
+        },
+        "linker_sha256": "d45452b0f9f5b722b16e3a8fc168a76e2a5022d46a4efd10054880dcc5a87e8d",
+        "definitions": [
+          "BENCH_ARM",
+          "BENCH_USB_CONTROL",
+          "BENCH_USE_FZ1",
+          "BENCH_SELECTED=Fz1"
+        ],
+        "arena_samples": 0
+      },
+      "reserved_sdram_bytes": 0,
+      "model_sdram_bytes": 0,
+      "sections": "/workspace/work/runner-arm-final/parres-v1-fz1-m2-389d81eeb3e0-boot_none/build/parres-v1-fz1-m2-389d81eeb3e0-boot_none.elf  :\nsection                  size         addr\n.isr_vector               664    134217728\n.text                   98152    134218400\n.ARM.extab                  0    134316552\n.exidx                      8    134316552\n.ARM.attributes            46            0\n.init_array                40    134316560\n.fini_array                 4    134316600\n.data                    1564    603979776\n.parable_handoff           32    603981344\n.bss                    35232    603981376\n.dtcmram_bss                0    536870912\n.sram1_bss              16384    805306368\n.sdram_bss                  0   3221225472\n.backup_sram               12    947912704\n.qspiflash_text             0   2415919104\n.qspiflash_data             0   2415919104\n.qspiflash_bss              0   2415919104\n.heap                       0    604016608\n.reserved_for_stack         0    604016608\n.comment                   57            0\n.debug_info            553269            0\n.debug_abbrev           57195            0\n.debug_loclists        228802            0\n.debug_aranges          11736            0\n.debug_rnglists         27308            0\n.debug_line            317928            0\n.debug_str              82267            0\n.debug_frame            35276            0\nTotal                 1465976\n\n\n"
+    },
+    {
+      "control_protocol": "parable.control.v1",
+      "handoff": "reset-systeminit-v1",
+      "flash_origin": 134217728,
+      "flash_length": 131072,
+      "profile": "tape_saturation",
+      "execution": "foreground_kernel",
+      "stimulus": "synthetic_mix",
+      "mode": 2,
+      "route": 0,
+      "capture_blocks": 3000,
+      "status": "linked",
+      "layout": "BOOT_NONE",
+      "parent_artifact_id": "51536a99d83da37b2a25e95708e43d0dd74f08aae73f07c947f1649bb24a5880",
+      "artifact_id": "31948b6958cc380e1040f7d42157b9d41a0d19b678461706cde5ac1653a764fe",
+      "source_set_sha256": "834a2f728ee5230a30ee7eab3c5cb17548745f0b900a70daab2f855471377705",
+      "bin_sha256": "a91d62618d7c02ff44bcc871501be2de702ad5cc9dd5cdae1408245a17292da8",
+      "elf_sha256": "1ed589bdee58ae54c9aebb78207519a34c61cca4f998588f160b601f0a016691",
+      "bin_file": "parres-v1-tape_saturation-m2-31948b6958cc-boot_none/build/parres-v1-tape_saturation-m2-31948b6958cc-boot_none.bin",
+      "configuration": {
+        "usb_control": true,
+        "profile": {
+          "id": "tape_saturation",
+          "adapter": "TapeSat",
+          "category": "drive",
+          "commit": "5c7a481b92fd2d137c8f6eee2f9fc1af6f2d8a10",
+          "pr": 56,
+          "main_integrated": false,
+          "source_files": [
+            "include/parable_tape_saturation.h",
+            "src/parable_tape_saturation.cpp"
+          ],
+          "defines": [
+            "BENCH_USE_TAPE_SAT"
+          ],
+          "family": "4x-magnetic-parcels",
+          "mode_labels": {
+            "0": "nominal healthy",
+            "1": "documented primary fault or parameter corner",
+            "2": "healthy high-control corner"
+          }
+        },
+        "mode": 2,
+        "execution": "foreground_kernel",
+        "layout": "BOOT_NONE",
+        "capture_blocks": 3000,
+        "source_sha256": {
+          "5c7a481b92fd2d137c8f6eee2f9fc1af6f2d8a10:include/parable_tape_saturation.h": "555e2796a9ea27e23c06d0a7cd1d7459c0cc1252d4dc404720f3e882a5589d63",
+          "5c7a481b92fd2d137c8f6eee2f9fc1af6f2d8a10:src/parable_tape_saturation.cpp": "cf6571007cebc0bb1159c3f2772b2481ce176d9e3f3cf4d2b584c88164bcf05a",
+          "5c7a481b92fd2d137c8f6eee2f9fc1af6f2d8a10:src/tape_saturation_material.h": "f2ad953fcb29b365dd0cb8575a71eb2515441b322d3f14d43c08216d56c624d7"
+        },
+        "harness_sha256": {
+          "firmware_bench.cpp": "15163e298adae088f325711d31ff97887c33a63cfe1af46ad1044231f0a96520",
+          "adapters.h": "f10ba3ca32c77d69316dc49caa77140c44c000d9246e185fe27de2995e6e3230",
+          "firmware.py": "937c30681ffc99defbf111071335ba785733a2b3c640a45e03e913ed262dff6b",
+          "run.py": "7d997d4cf05034587d804deaa8358be0c7b89cec43ccea37cda2338232d835d6",
+          "runtime_measurement.h": "0d81e4995fc7e56e0a7da7125ddb26b16c5f7c197ddc3632cb688bdcbd6f8b68",
+          "dfu_control.h": "c5fda11bfd2dd90b7f7db8a4600af2f3dd8627594bf17a440d82632d65fa70dd",
+          "dfu_handoff.cpp": "f4ee356876007c099800bc0ef6b516061d4d517e87ea80ec78615a11ce713ca6",
+          "dfu_handoff.ld": "5b6d42dc0b32f602c8370fda758c45a3574a1122ef0d72019e4d7b80f4086751"
+        },
+        "compiler_sha256": "45b67f0cb647f69b0fbd0512b43f7d257458916ca77c8fd538708309845ff76c",
+        "libdaisy_archive_sha256": "c4c68a4cc668610bd5c46613d1b859903fc81d0ab267e6d02c019b867fbc071e",
+        "pins": {
+          "toolchain": {
+            "version": "14.2.1",
+            "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+            "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+            "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+            "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+          },
+          "libdaisy": {
+            "url": "https://github.com/daisyaudio/libDaisy.git",
+            "commit": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+            "submodules": {
+              "Drivers/CMSIS-DSP": "3a04f817a4380c00ff51f9bcdc6c4e4bb7a18b80",
+              "Drivers/CMSIS-Device/ST/STM32H7xx": "6dac8c24d7b38ab20806d27dd7d8285a6433b8f7",
+              "Drivers/CMSIS_5": "2b7495b8535bdcb306dac29b9ded4cfb679d7e5c",
+              "Drivers/STM32H7xx_HAL_Driver": "404a70d4c19c124636c78801ff7c0dbc87bc4256",
+              "Middlewares/ST/STM32_USB_Device_Library": "7b5e6886d2f11ad15d2b46364e8a96984358f639"
+            }
+          },
+          "json": {
+            "url": "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz",
+            "sha256": "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d",
+            "directory": "json"
+          },
+          "target": {
+            "cpu": "cortex-m7",
+            "fpu": "fpv5-d16",
+            "float_abi": "hard",
+            "layouts": {
+              "BOOT_NONE": "core/STM32H750IB_flash.lds",
+              "BOOT_SRAM": "core/STM32H750IB_sram.lds",
+              "BOOT_QSPI": "core/STM32H750IB_qspi.lds"
+            }
+          },
+          "bootloader_audit": {
+            "bundled_binary": "core/dsy_bootloader_v6_4-intdfu-2000ms.bin",
+            "sha256": "76296b6bd625e5e5dbeba2431619a0ed90ae2c0a3a99258df00a64a0b8b9ec35",
+            "source_url": "https://github.com/daisyaudio/DaisyBootloader",
+            "source_commit": "8b279a8e25922b786c24a6cbd1d499cdc1e76934",
+            "source_libdaisy_gitlink": "24be4afea00d71988019fe8dd9fd9fc8fc5bf72c",
+            "status": "binary hash verified; source audited, not rebuilt; Seed3 boot/hardware compatibility unverified"
+          }
+        },
+        "linker_sha256": "d45452b0f9f5b722b16e3a8fc168a76e2a5022d46a4efd10054880dcc5a87e8d",
+        "definitions": [
+          "BENCH_ARM",
+          "BENCH_USB_CONTROL",
+          "BENCH_USE_TAPE_SAT",
+          "BENCH_SELECTED=TapeSat"
+        ],
+        "arena_samples": 0
+      },
+      "reserved_sdram_bytes": 0,
+      "model_sdram_bytes": 0,
+      "sections": "/workspace/work/runner-arm-final/parres-v1-tape_saturation-m2-31948b6958cc-boot_none/build/parres-v1-tape_saturation-m2-31948b6958cc-boot_none.elf  :\nsection                  size         addr\n.isr_vector               664    134217728\n.text                  101320    134218400\n.ARM.extab                  0    134319720\n.exidx                      8    134319720\n.ARM.attributes            46            0\n.init_array                40    134319728\n.fini_array                 4    134319768\n.data                    1564    603979776\n.parable_handoff           32    603981344\n.bss                    41976    603981376\n.dtcmram_bss                0    536870912\n.sram1_bss              16384    805306368\n.sdram_bss                  0   3221225472\n.backup_sram               12    947912704\n.qspiflash_text             0   2415919104\n.qspiflash_data             0   2415919104\n.qspiflash_bss              0   2415919104\n.heap                       0    604023352\n.reserved_for_stack         0    604023352\n.comment                   57            0\n.debug_info            553269            0\n.debug_abbrev           57195            0\n.debug_loclists        228802            0\n.debug_aranges          11736            0\n.debug_rnglists         27308            0\n.debug_line            317928            0\n.debug_str              82267            0\n.debug_frame            35276            0\nTotal                 1475888\n\n\n"
+    },
+    {
+      "control_protocol": "parable.control.v1",
+      "handoff": "reset-systeminit-v1",
+      "flash_origin": 134217728,
+      "flash_length": 131072,
+      "profile": "spring",
+      "execution": "foreground_kernel",
+      "stimulus": "synthetic_mix",
+      "mode": 2,
+      "route": 0,
+      "capture_blocks": 3000,
+      "status": "linked",
+      "layout": "BOOT_NONE",
+      "parent_artifact_id": "460253ad8eceaa9595efe22e8e3a9631b719bfed530cc4ed3f399337047e7238",
+      "artifact_id": "a291f6368bacd805d10149fa2053b85fe2104e6ed4b2187435e412308429cda7",
+      "source_set_sha256": "ef27e0878b87430f111736b4ea25ca62b967e4147af3003cd9b076a4177dde2e",
+      "bin_sha256": "a1ae775e35a79005afea2a1d015e5e779e6d2941c787aeb41b6f0b6ee9ec8488",
+      "elf_sha256": "9a884c4c39a08154e974e1cc38ec959da44b15fcdc180583fb9da1954610d2f5",
+      "bin_file": "parres-v1-spring-m2-a291f6368bac-boot_none/build/parres-v1-spring-m2-a291f6368bac-boot_none.bin",
+      "configuration": {
+        "usb_control": true,
+        "profile": {
+          "id": "spring",
+          "adapter": "Spring",
+          "category": "reverb",
+          "commit": "9f8548cebb572c0b73f8ae12bb0a24873b8f11af",
+          "pr": 48,
+          "main_integrated": false,
+          "source_files": [
+            "include/parable_spring.h",
+            "src/parable_spring.cpp"
+          ],
+          "defines": [
+            "BENCH_USE_SPRING"
+          ],
+          "family": "192-modal-mechanical/2substeps",
+          "mode_labels": {
+            "0": "nominal healthy",
+            "1": "documented primary fault or parameter corner",
+            "2": "healthy high-control corner"
+          }
+        },
+        "mode": 2,
+        "execution": "foreground_kernel",
+        "layout": "BOOT_NONE",
+        "capture_blocks": 3000,
+        "source_sha256": {
+          "9f8548cebb572c0b73f8ae12bb0a24873b8f11af:include/parable_spring.h": "4fe4cd1713e07fc10bd50a543fe4d5ec5565627ca669d70cb6c1510af08c6d0b",
+          "9f8548cebb572c0b73f8ae12bb0a24873b8f11af:src/parable_spring.cpp": "9be8b141008d8cf90a520db2be74103e0032a875a9ade6e19c3b5b49076f5743",
+          "9f8548cebb572c0b73f8ae12bb0a24873b8f11af:src/spring_contact.h": "c0eff0e85d5e9b91954bc0235c53ef0d0bfa594e622f355c63468b22f8365b7b"
+        },
+        "harness_sha256": {
+          "firmware_bench.cpp": "15163e298adae088f325711d31ff97887c33a63cfe1af46ad1044231f0a96520",
+          "adapters.h": "f10ba3ca32c77d69316dc49caa77140c44c000d9246e185fe27de2995e6e3230",
+          "firmware.py": "937c30681ffc99defbf111071335ba785733a2b3c640a45e03e913ed262dff6b",
+          "run.py": "7d997d4cf05034587d804deaa8358be0c7b89cec43ccea37cda2338232d835d6",
+          "runtime_measurement.h": "0d81e4995fc7e56e0a7da7125ddb26b16c5f7c197ddc3632cb688bdcbd6f8b68",
+          "dfu_control.h": "c5fda11bfd2dd90b7f7db8a4600af2f3dd8627594bf17a440d82632d65fa70dd",
+          "dfu_handoff.cpp": "f4ee356876007c099800bc0ef6b516061d4d517e87ea80ec78615a11ce713ca6",
+          "dfu_handoff.ld": "5b6d42dc0b32f602c8370fda758c45a3574a1122ef0d72019e4d7b80f4086751"
+        },
+        "compiler_sha256": "45b67f0cb647f69b0fbd0512b43f7d257458916ca77c8fd538708309845ff76c",
+        "libdaisy_archive_sha256": "c4c68a4cc668610bd5c46613d1b859903fc81d0ab267e6d02c019b867fbc071e",
+        "pins": {
+          "toolchain": {
+            "version": "14.2.1",
+            "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+            "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+            "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+            "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+          },
+          "libdaisy": {
+            "url": "https://github.com/daisyaudio/libDaisy.git",
+            "commit": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+            "submodules": {
+              "Drivers/CMSIS-DSP": "3a04f817a4380c00ff51f9bcdc6c4e4bb7a18b80",
+              "Drivers/CMSIS-Device/ST/STM32H7xx": "6dac8c24d7b38ab20806d27dd7d8285a6433b8f7",
+              "Drivers/CMSIS_5": "2b7495b8535bdcb306dac29b9ded4cfb679d7e5c",
+              "Drivers/STM32H7xx_HAL_Driver": "404a70d4c19c124636c78801ff7c0dbc87bc4256",
+              "Middlewares/ST/STM32_USB_Device_Library": "7b5e6886d2f11ad15d2b46364e8a96984358f639"
+            }
+          },
+          "json": {
+            "url": "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz",
+            "sha256": "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d",
+            "directory": "json"
+          },
+          "target": {
+            "cpu": "cortex-m7",
+            "fpu": "fpv5-d16",
+            "float_abi": "hard",
+            "layouts": {
+              "BOOT_NONE": "core/STM32H750IB_flash.lds",
+              "BOOT_SRAM": "core/STM32H750IB_sram.lds",
+              "BOOT_QSPI": "core/STM32H750IB_qspi.lds"
+            }
+          },
+          "bootloader_audit": {
+            "bundled_binary": "core/dsy_bootloader_v6_4-intdfu-2000ms.bin",
+            "sha256": "76296b6bd625e5e5dbeba2431619a0ed90ae2c0a3a99258df00a64a0b8b9ec35",
+            "source_url": "https://github.com/daisyaudio/DaisyBootloader",
+            "source_commit": "8b279a8e25922b786c24a6cbd1d499cdc1e76934",
+            "source_libdaisy_gitlink": "24be4afea00d71988019fe8dd9fd9fc8fc5bf72c",
+            "status": "binary hash verified; source audited, not rebuilt; Seed3 boot/hardware compatibility unverified"
+          }
+        },
+        "linker_sha256": "d45452b0f9f5b722b16e3a8fc168a76e2a5022d46a4efd10054880dcc5a87e8d",
+        "definitions": [
+          "BENCH_ARM",
+          "BENCH_USB_CONTROL",
+          "BENCH_USE_SPRING",
+          "BENCH_SELECTED=Spring"
+        ],
+        "arena_samples": 0
+      },
+      "reserved_sdram_bytes": 0,
+      "model_sdram_bytes": 0,
+      "sections": "/workspace/work/runner-arm-final/parres-v1-spring-m2-a291f6368bac-boot_none/build/parres-v1-spring-m2-a291f6368bac-boot_none.elf  :\nsection                  size         addr\n.isr_vector               664    134217728\n.text                   95840    134218400\n.ARM.extab                  0    134314240\n.exidx                      8    134314240\n.ARM.attributes            46            0\n.init_array                40    134314248\n.fini_array                 4    134314288\n.data                    1564    603979776\n.parable_handoff           32    603981344\n.bss                    48832    603981376\n.dtcmram_bss                0    536870912\n.sram1_bss              16384    805306368\n.sdram_bss                  0   3221225472\n.backup_sram               12    947912704\n.qspiflash_text             0   2415919104\n.qspiflash_data             0   2415919104\n.qspiflash_bss              0   2415919104\n.heap                       0    604030208\n.reserved_for_stack         0    604030208\n.comment                   57            0\n.debug_info            553269            0\n.debug_abbrev           57195            0\n.debug_loclists        228802            0\n.debug_aranges          11736            0\n.debug_rnglists         27308            0\n.debug_line            317928            0\n.debug_str              82267            0\n.debug_frame            35276            0\nTotal                 1477264\n\n\n"
+    },
+    {
+      "control_protocol": "parable.control.v1",
+      "handoff": "reset-systeminit-v1",
+      "flash_origin": 134217728,
+      "flash_length": 131072,
+      "profile": "leo_hall",
+      "execution": "foreground_kernel",
+      "stimulus": "synthetic_mix",
+      "mode": 2,
+      "route": 0,
+      "capture_blocks": 3000,
+      "status": "linked",
+      "layout": "BOOT_NONE",
+      "parent_artifact_id": "ce56e9f289d7a78ba876016ea40b1d1c9f342dfeb4cb64e53e188b019e9c54b2",
+      "artifact_id": "49cdf5b56683e0796dd2e5a2c33bf8cce4e34f3ef4d902db99fedba5b5d7fd94",
+      "source_set_sha256": "e3081382f7ad0c6b7fcaca15fd7aa8c5559842ec0d3709ad7c84d1f869ec40eb",
+      "bin_sha256": "cef120db78fcaf3cd71b82546c2c11a71faad9bc4fad071ea50fe5b73f7b57ba",
+      "elf_sha256": "e4631441c5f2ce361b34f83cf5113dacfd36d72af628ab6c3db8805eff44c822",
+      "bin_file": "parres-v1-leo_hall-m2-49cdf5b56683-boot_none/build/parres-v1-leo_hall-m2-49cdf5b56683-boot_none.bin",
+      "configuration": {
+        "usb_control": true,
+        "profile": {
+          "id": "leo_hall",
+          "adapter": "Hall",
+          "category": "reverb",
+          "commit": "21905d5ca171c1cb98d2e228dda33beac039ac4a",
+          "pr": 77,
+          "main_integrated": false,
+          "source_files": [
+            "include/parable_hall.h",
+            "src/parable_hall.cpp"
+          ],
+          "defines": [
+            "BENCH_USE_HALL"
+          ],
+          "family": "borrowed-double-grand-hall",
+          "block_bridge_frames": 64,
+          "extra_sources": [
+            "src/hall_core.cpp"
+          ],
+          "mode_labels": {
+            "0": "nominal healthy",
+            "1": "documented primary fault or parameter corner",
+            "2": "healthy high-control corner"
+          }
+        },
+        "mode": 2,
+        "execution": "foreground_kernel",
+        "layout": "BOOT_NONE",
+        "capture_blocks": 3000,
+        "source_sha256": {
+          "21905d5ca171c1cb98d2e228dda33beac039ac4a:include/parable_hall.h": "ffd3efee7f4428dd4aff5d04511df36188c5f939744418c5899f5effa85a3c97",
+          "21905d5ca171c1cb98d2e228dda33beac039ac4a:src/hall_core.cpp": "77a3001cdd6fddf169fc172d67354ff920a24e963e742d73c31dac40b26aaf72",
+          "21905d5ca171c1cb98d2e228dda33beac039ac4a:src/hall_core.h": "1cad91f3a66bc0ffda6c7f62dd2bf111d4e9ea74ba6e5e269bf3f7547c962fe9",
+          "21905d5ca171c1cb98d2e228dda33beac039ac4a:src/parable_hall.cpp": "bf432e0a38ed1e36ad316324aeb9d047517c5314d81cd0ded8a750e1783ca82b"
+        },
+        "harness_sha256": {
+          "firmware_bench.cpp": "15163e298adae088f325711d31ff97887c33a63cfe1af46ad1044231f0a96520",
+          "adapters.h": "f10ba3ca32c77d69316dc49caa77140c44c000d9246e185fe27de2995e6e3230",
+          "firmware.py": "937c30681ffc99defbf111071335ba785733a2b3c640a45e03e913ed262dff6b",
+          "run.py": "7d997d4cf05034587d804deaa8358be0c7b89cec43ccea37cda2338232d835d6",
+          "runtime_measurement.h": "0d81e4995fc7e56e0a7da7125ddb26b16c5f7c197ddc3632cb688bdcbd6f8b68",
+          "dfu_control.h": "c5fda11bfd2dd90b7f7db8a4600af2f3dd8627594bf17a440d82632d65fa70dd",
+          "dfu_handoff.cpp": "f4ee356876007c099800bc0ef6b516061d4d517e87ea80ec78615a11ce713ca6",
+          "dfu_handoff.ld": "5b6d42dc0b32f602c8370fda758c45a3574a1122ef0d72019e4d7b80f4086751"
+        },
+        "compiler_sha256": "45b67f0cb647f69b0fbd0512b43f7d257458916ca77c8fd538708309845ff76c",
+        "libdaisy_archive_sha256": "c4c68a4cc668610bd5c46613d1b859903fc81d0ab267e6d02c019b867fbc071e",
+        "pins": {
+          "toolchain": {
+            "version": "14.2.1",
+            "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+            "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+            "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+            "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+          },
+          "libdaisy": {
+            "url": "https://github.com/daisyaudio/libDaisy.git",
+            "commit": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+            "submodules": {
+              "Drivers/CMSIS-DSP": "3a04f817a4380c00ff51f9bcdc6c4e4bb7a18b80",
+              "Drivers/CMSIS-Device/ST/STM32H7xx": "6dac8c24d7b38ab20806d27dd7d8285a6433b8f7",
+              "Drivers/CMSIS_5": "2b7495b8535bdcb306dac29b9ded4cfb679d7e5c",
+              "Drivers/STM32H7xx_HAL_Driver": "404a70d4c19c124636c78801ff7c0dbc87bc4256",
+              "Middlewares/ST/STM32_USB_Device_Library": "7b5e6886d2f11ad15d2b46364e8a96984358f639"
+            }
+          },
+          "json": {
+            "url": "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz",
+            "sha256": "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d",
+            "directory": "json"
+          },
+          "target": {
+            "cpu": "cortex-m7",
+            "fpu": "fpv5-d16",
+            "float_abi": "hard",
+            "layouts": {
+              "BOOT_NONE": "core/STM32H750IB_flash.lds",
+              "BOOT_SRAM": "core/STM32H750IB_sram.lds",
+              "BOOT_QSPI": "core/STM32H750IB_qspi.lds"
+            }
+          },
+          "bootloader_audit": {
+            "bundled_binary": "core/dsy_bootloader_v6_4-intdfu-2000ms.bin",
+            "sha256": "76296b6bd625e5e5dbeba2431619a0ed90ae2c0a3a99258df00a64a0b8b9ec35",
+            "source_url": "https://github.com/daisyaudio/DaisyBootloader",
+            "source_commit": "8b279a8e25922b786c24a6cbd1d499cdc1e76934",
+            "source_libdaisy_gitlink": "24be4afea00d71988019fe8dd9fd9fc8fc5bf72c",
+            "status": "binary hash verified; source audited, not rebuilt; Seed3 boot/hardware compatibility unverified"
+          }
+        },
+        "linker_sha256": "d45452b0f9f5b722b16e3a8fc168a76e2a5022d46a4efd10054880dcc5a87e8d",
+        "definitions": [
+          "BENCH_ARM",
+          "BENCH_USB_CONTROL",
+          "BENCH_USE_HALL",
+          "BENCH_SELECTED=Hall",
+          "BENCH_MODEL_SDRAM"
+        ],
+        "arena_samples": 0
+      },
+      "reserved_sdram_bytes": 475480,
+      "model_sdram_bytes": 475480,
+      "sections": "/workspace/work/runner-arm-final/parres-v1-leo_hall-m2-49cdf5b56683-boot_none/build/parres-v1-leo_hall-m2-49cdf5b56683-boot_none.elf  :\nsection                  size         addr\n.isr_vector               664    134217728\n.text                  106904    134218400\n.ARM.extab                  0    134325304\n.exidx                      8    134325304\n.ARM.attributes            46            0\n.init_array                40    134325312\n.fini_array                 4    134325352\n.data                    1564    603979776\n.parable_handoff           32    603981344\n.bss                    30088    603981376\n.dtcmram_bss                0    536870912\n.sram1_bss              16384    805306368\n.sdram_bss             475480   3221225472\n.backup_sram               12    947912704\n.qspiflash_text             0   2415919104\n.qspiflash_data             0   2415919104\n.qspiflash_bss              0   2415919104\n.heap                       0    604011464\n.reserved_for_stack         0    604011464\n.comment                   57            0\n.debug_info            553269            0\n.debug_abbrev           57195            0\n.debug_loclists        228802            0\n.debug_aranges          11736            0\n.debug_rnglists         27308            0\n.debug_line            317928            0\n.debug_str              82267            0\n.debug_frame            35276            0\nTotal                 1945064\n\n\n"
+    },
+    {
+      "control_protocol": "parable.control.v1",
+      "handoff": "reset-systeminit-v1",
+      "flash_origin": 134217728,
+      "flash_length": 131072,
+      "profile": "chain_scorpio_gemini_rooms_0",
+      "execution": "foreground_kernel",
+      "stimulus": "synthetic_mix",
+      "mode": 2,
+      "route": 0,
+      "capture_blocks": 3000,
+      "status": "linked",
+      "layout": "BOOT_NONE",
+      "parent_artifact_id": "542343632140cefe9f0a336950cee5e0fe6f0bed8040023c5a03518b7bcf2b0e",
+      "artifact_id": "d1b5312530c41f21dbc9a53ac12ce06539b7d840fd06163981d0c637a9cfd44c",
+      "source_set_sha256": "a0ecc0e734e475faac92199c3de8cd4065d70e99ed42b32b4e4889dd827119b7",
+      "bin_sha256": "34eef16c7ec182d44b016f98d3d2b44446f39fcd7a014b96fc9b01c904d56201",
+      "elf_sha256": "c275c397521d75215fd8662ee3968bfcc3090f616de495bbca8e54bcce70ae0d",
+      "bin_file": "parres-v1-chain_scorpio_gemini_rooms_0-m2-d1b5312530c4-boot_none/build/parres-v1-chain_scorpio_gemini_rooms_0-m2-d1b5312530c4-boot_none.bin",
+      "configuration": {
+        "usb_control": true,
+        "profile": {
+          "id": "chain_scorpio_gemini_rooms_0",
+          "members": [
+            "scorpio",
+            "gemini_rooms",
+            "tape_medium",
+            "rotary"
+          ],
+          "route": 0,
+          "routing": "serial-drive-mod-delay-verb"
+        },
+        "mode": 2,
+        "execution": "foreground_kernel",
+        "layout": "BOOT_NONE",
+        "capture_blocks": 3000,
+        "source_sha256": {
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:include/parable_scorpio.h": "c558d623f737cf802d257631e2efe92698a15dd0459e43b2b563637cf552eaf1",
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:src/parable_scorpio.cpp": "be7f56d5fb39bf0852ff84bd1c7f43156f944157d8c9aa2aa2227faf583bb962",
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:src/scorpio_circuit.h": "aa8a0b6de604cac5413eea7ec855c1e38879c03f88730b3a7382aa02879bc90a",
+          "421f31489fab1050985697003c5f74527763f979:include/parable_coupled_rooms.h": "bc20b8ca2020ce578f05b6a69b9cac07b32e4e7f84e0c831234974f96edb1954",
+          "421f31489fab1050985697003c5f74527763f979:src/parable_coupled_rooms.cpp": "8d03b23d4fb393c4ed57873b8193b6b2f3ab28cda89275f60af12ab2262828e0",
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:include/parable_tape.h": "9b10588e8f056e8706551f6eb20660ecbe60cd7772c13a05402cced8915e9fee",
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:src/parable_tape.cpp": "821f9079e0f252c21e232065295d0c8074befee6b6b2286eee9c523e37826492",
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:include/parable_rotary.h": "0d1e0a3c3888e69682a1ea9e22a04e35b3d32600c04f19717c4fe4afe01c456f",
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:src/parable_rotary.cpp": "a0946ced8afb7c3875d29e2cf1b69b688ab27697376d0ac4362dda97457e4c1d",
+          "767a3c402b972fc20df8aea0729adf794f4b7a38:src/rotary_delay.h": "88aae2ae46125e313056ec84da978c0901c4f511ae1580dfd6207d6645f4b063"
+        },
+        "harness_sha256": {
+          "firmware_bench.cpp": "15163e298adae088f325711d31ff97887c33a63cfe1af46ad1044231f0a96520",
+          "adapters.h": "f10ba3ca32c77d69316dc49caa77140c44c000d9246e185fe27de2995e6e3230",
+          "firmware.py": "937c30681ffc99defbf111071335ba785733a2b3c640a45e03e913ed262dff6b",
+          "run.py": "7d997d4cf05034587d804deaa8358be0c7b89cec43ccea37cda2338232d835d6",
+          "runtime_measurement.h": "0d81e4995fc7e56e0a7da7125ddb26b16c5f7c197ddc3632cb688bdcbd6f8b68",
+          "dfu_control.h": "c5fda11bfd2dd90b7f7db8a4600af2f3dd8627594bf17a440d82632d65fa70dd",
+          "dfu_handoff.cpp": "f4ee356876007c099800bc0ef6b516061d4d517e87ea80ec78615a11ce713ca6",
+          "dfu_handoff.ld": "5b6d42dc0b32f602c8370fda758c45a3574a1122ef0d72019e4d7b80f4086751"
+        },
+        "compiler_sha256": "45b67f0cb647f69b0fbd0512b43f7d257458916ca77c8fd538708309845ff76c",
+        "libdaisy_archive_sha256": "c4c68a4cc668610bd5c46613d1b859903fc81d0ab267e6d02c019b867fbc071e",
+        "pins": {
+          "toolchain": {
+            "version": "14.2.1",
+            "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+            "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+            "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+            "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+          },
+          "libdaisy": {
+            "url": "https://github.com/daisyaudio/libDaisy.git",
+            "commit": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+            "submodules": {
+              "Drivers/CMSIS-DSP": "3a04f817a4380c00ff51f9bcdc6c4e4bb7a18b80",
+              "Drivers/CMSIS-Device/ST/STM32H7xx": "6dac8c24d7b38ab20806d27dd7d8285a6433b8f7",
+              "Drivers/CMSIS_5": "2b7495b8535bdcb306dac29b9ded4cfb679d7e5c",
+              "Drivers/STM32H7xx_HAL_Driver": "404a70d4c19c124636c78801ff7c0dbc87bc4256",
+              "Middlewares/ST/STM32_USB_Device_Library": "7b5e6886d2f11ad15d2b46364e8a96984358f639"
+            }
+          },
+          "json": {
+            "url": "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz",
+            "sha256": "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d",
+            "directory": "json"
+          },
+          "target": {
+            "cpu": "cortex-m7",
+            "fpu": "fpv5-d16",
+            "float_abi": "hard",
+            "layouts": {
+              "BOOT_NONE": "core/STM32H750IB_flash.lds",
+              "BOOT_SRAM": "core/STM32H750IB_sram.lds",
+              "BOOT_QSPI": "core/STM32H750IB_qspi.lds"
+            }
+          },
+          "bootloader_audit": {
+            "bundled_binary": "core/dsy_bootloader_v6_4-intdfu-2000ms.bin",
+            "sha256": "76296b6bd625e5e5dbeba2431619a0ed90ae2c0a3a99258df00a64a0b8b9ec35",
+            "source_url": "https://github.com/daisyaudio/DaisyBootloader",
+            "source_commit": "8b279a8e25922b786c24a6cbd1d499cdc1e76934",
+            "source_libdaisy_gitlink": "24be4afea00d71988019fe8dd9fd9fc8fc5bf72c",
+            "status": "binary hash verified; source audited, not rebuilt; Seed3 boot/hardware compatibility unverified"
+          }
+        },
+        "linker_sha256": "d45452b0f9f5b722b16e3a8fc168a76e2a5022d46a4efd10054880dcc5a87e8d",
+        "definitions": [
+          "BENCH_ARM",
+          "BENCH_USB_CONTROL",
+          "BENCH_USE_SCORPIO",
+          "BENCH_USE_ROOMS",
+          "BENCH_USE_TAPE",
+          "BENCH_USE_ROTARY",
+          "BENCH_SELECTED=Chain<Scorpio,Rooms,Tape,Rotary>",
+          "BENCH_ROUTE"
+        ],
+        "arena_samples": 216576
+      },
+      "reserved_sdram_bytes": 866304,
+      "model_sdram_bytes": 0,
+      "sections": "/workspace/work/runner-arm-final/parres-v1-chain_scorpio_gemini_rooms_0-m2-d1b5312530c4-boot_none/build/parres-v1-chain_scorpio_gemini_rooms_0-m2-d1b5312530c4-boot_none.elf  :\nsection                  size         addr\n.isr_vector               664    134217728\n.text                  109832    134218400\n.ARM.extab                  0    134328232\n.exidx                      8    134328232\n.ARM.attributes            46            0\n.init_array                40    134328240\n.fini_array                 4    134328280\n.data                    1564    603979776\n.parable_handoff           32    603981344\n.bss                    44064    603981376\n.dtcmram_bss                0    536870912\n.sram1_bss              16384    805306368\n.sdram_bss             866304   3221225472\n.backup_sram               12    947912704\n.qspiflash_text             0   2415919104\n.qspiflash_data             0   2415919104\n.qspiflash_bss              0   2415919104\n.heap                       0    604025440\n.reserved_for_stack         0    604025440\n.comment                   57            0\n.debug_info            553269            0\n.debug_abbrev           57195            0\n.debug_loclists        228802            0\n.debug_aranges          11736            0\n.debug_rnglists         27308            0\n.debug_line            317928            0\n.debug_str              82267            0\n.debug_frame            35276            0\nTotal                 2352792\n\n\n"
+    }
+  ],
+  "limits": "Original pinned sources; link/build evidence only. Foreground images never start audio; callback option is experimental, IRQ-starvation risk if budget exceeded. Official SDK layout used unchanged; bootloader-dependent links do not prove Seed3 boot compatibility."
+}

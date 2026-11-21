@@ -180,3 +180,9 @@ Next smallest engineering step: import the15 physical foreground captures, then
 measure the light whole chain in callback context and actual stack/analog operation.
 The first software optimization ticket should retain193-tap references and test
 exact-order shared FIR traversal before any shorter-filter or numerical adoption.
+
+## Automated runner proposal
+
+The separately reviewed [Seed3 runner](RUNNER.md) adds gated CDC-to-ROM transitions
+for these 15 profiles. Its updated binaries have distinct IDs; this original kit
+is preserved. Physical handoff and unattended acceptance remain untested.
