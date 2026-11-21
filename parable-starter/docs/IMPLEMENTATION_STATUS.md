@@ -2,6 +2,11 @@
 
 ## Automated Seed3 benchmark runner — unmerged proposal
 
+**Blocked:** founder ROM enumeration succeeded, but v1.1 SET_ADDRESS identity
+verification failed. [Investigation / replacement design](resources/IDENTITY_BLOCKER.md).
+No supported replacement identity backend has been implemented; no flash or
+physical handoff success is claimed.
+
 [Guide / exact commands / physical gate](resources/RUNNER.md),
 [prior-art and reset design](resources/RUNNER_GATE0.md),
 [software/link evidence](resources/runner/validation.json).

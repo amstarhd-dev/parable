@@ -127,6 +127,28 @@ class FakeBackend:
 
 
 class Runner(unittest.TestCase):
+    def test_identity_set_address_failure_never_reaches_flash(self):
+        addresses = ['0x1ff1e800:12:force', '0x5c001000:4:force', '0x1ff1e880:2:force']
+        for failing in range(3):
+            backend = runner.Mac.__new__(runner.Mac)
+            backend.dfu = Path('/verified/dfu-util')
+            device = runner.choose_dfu(LISTING, '1234ABCD')
+            backend.wait_dfu = lambda timeout: device
+            commands = []
+            def command(args):
+                commands.append(args)
+                self.assertIn('-U', args)
+                address = args[args.index('-s') + 1]
+                self.assertEqual(address, addresses[len(commands) - 1])
+                if len(commands) - 1 == failing:
+                    raise runner.Stop('SET_ADDRESS not correctly executed: ' + address)
+                Path(args[-1]).write_bytes(bytes([1]) * [12, 4, 2][len(commands) - 1])
+            backend.command = command
+            with self.assertRaisesRegex(runner.Stop, addresses[failing].replace(':', '.')):
+                backend.flash(device, Path('/never-flashed.bin'), IDENTITY)
+            self.assertEqual(len(commands), failing + 1)
+            self.assertTrue(all('-D' not in cmd for cmd in commands))
+
     def test_manifest_hash_binary_vectors_layout_and_identity(self):
         with tempfile.TemporaryDirectory() as t:
             root = Path(t)

@@ -1,5 +1,10 @@
 # Seed3 automated benchmark runner — experimental
 
+**BLOCKED: v1.1 physical identity verification fails at ROM SET_ADDRESS. Do not
+retry its probe/batch as an operational recipe.** See [identity investigation and
+replacement design](IDENTITY_BLOCKER.md). The original steps below are retained
+for review; no replacement identity backend or working kit is claimed.
+
 **Software tests and 15 ARM links pass. Physical handoff and the one-button,
 15-image acceptance test are NOT tested. Batch remains gated by a successful
 physical probe.** macOS 10.13 execution is also untested. This is an unmerged
