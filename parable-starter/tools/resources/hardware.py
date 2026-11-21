@@ -40,7 +40,7 @@ def check(raw,manifest):
  return dict(schema='parable.hardware-measurement.v1',capture=capture,artifact_bin_sha256=artifact['bin_sha256'],raw_capture_sha256=hashlib.sha256(raw.encode()).hexdigest(),screen='FAIL' if failures else ('FOREGROUND_COST_ONLY' if capture['execution']=='foreground_kernel' else 'PASS_CALLBACK_BODY_SCREEN_ONLY'),observed_fraction_of_nominal_block=capture['max_cycles']/480000,failures=failures,production_admitted=False,limitations=['Physical evidence supplied by operator; importer cannot attest which board/binary was actually run','Foreground measurements are not audio callback or interrupt-context measurements','No ISR-inclusive WCET, stack high-water, cache worst case, analog or listening approval inferred'])
 def matrix(manifest,path):
  with path.open('w') as f:
-  w=csv.writer(f);w.writerow(['artifact_id','profile','mode','route','execution','stimulus','capture_file','operator','board_serial','audio_input_connected','notes'])
+  w=csv.writer(f,lineterminator="\n");w.writerow(['artifact_id','profile','mode','route','execution','stimulus','capture_file','operator','board_serial','audio_input_connected','notes'])
   for a in manifest['artifacts']:
    if a.get('status')=='linked':w.writerow([a['artifact_id'],a['profile'],a['mode'],a['route'],a['execution'],a['stimulus'],'','','','',''])
 def main():
