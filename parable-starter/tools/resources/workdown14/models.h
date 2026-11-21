@@ -126,12 +126,22 @@ template<class T> static T* start(void* memory) {
     return model;
 }
 static bool select(unsigned i) {
+#if !defined(WORK_BANK) || WORK_BANK == 0
     if(i<21){start<Drive>(&small)->fit=&fits[i];return true;}
+#endif
+#if !defined(WORK_BANK) || WORK_BANK == 1
     if(i==21)return start<RatOriginal>(&small)->init();
     if(i<24)return start<Rat>(&small)->init(i==22?2:4);
     if(i<27){start<Spring>(&small)->count=48u<<(i-24);return true;}
+#endif
+#if !defined(WORK_BANK) || WORK_BANK == 2
     if(i==27){start<HallHalf>(&large);return true;}
     if(i==28){start<HallFull>(&large);return true;}
+#endif
+#if !defined(WORK_BANK) || WORK_BANK == 3
     return i<modelCount && start<Chain>(&small)->init(i-29);
+#endif
+    return false;
+
 }
 }
