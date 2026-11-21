@@ -1,5 +1,6 @@
 // Experimental benchmark-only STM32H750 ROM handoff. See RUNNER.md / Gate 0.
 #include "stm32h7xx.h"
+#include "sys/system.h"
 #include <cstdint>
 
 namespace {
@@ -45,6 +46,14 @@ extern "C" void __wrap_SystemInit() {
         SCB_CleanDCache_by_Addr(reinterpret_cast<uint32_t*>(
             const_cast<uint32_t*>(mailbox)), sizeof(mailbox));
     __DSB(); __ISB();
+    // Prefer libDaisy's board-specific BOOT-pin path instead of a naked reset.
+    // It drives PG3 high, waits 10 ms for the BOOT capacitor, then resets.
+    // Leave interrupts enabled here: its HAL_Delay() depends on the HAL tick.
+    // If BOOT sampling selects ROM, the early SystemInit wrapper is unused.
+    // If hardware instead selects application flash, the pre-existing cookie
+    // lets the wrapped SystemInit attempt its ROM-vector handoff as fallback.
+    daisy::System::ResetToBootloader(daisy::System::BootloaderMode::STM);
+    // Defensive only: the SDK reset call should never return.
     NVIC_SystemReset();
     for(;;) {}
 }
