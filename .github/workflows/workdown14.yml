@@ -1,0 +1,22 @@
+name: Fourteen reference workdown
+on:
+  push:
+    branches: [probe/remaining14-480]
+  pull_request:
+    paths: ['parable-starter/tools/resources/workdown14/**']
+permissions:
+  contents: read
+jobs:
+  cross-build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - run: python3 parable-starter/tools/resources/workdown14/build_probe.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: Parable_Remaining14_480MHz
+          path: parable-starter/build/workdown14-kit/
+          if-no-files-found: error
