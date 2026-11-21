@@ -67,8 +67,12 @@ firmware/startup files change.
 
 ## Host admission and residual risks
 
-Every download checks the exact selected ROM serial/path, alt0 128 KiB layout,
-UID, device-family ID and factory flash-size word. ID 0x450 alone names a family;
+Every download checks the exact selected ROM serial/path, alt0 internal-flash descriptor at `0x08000000` with 128 KiB sectors,
+UID, device-family ID and factory flash-size word. The founder observed
+`@Internal Flash /0x08000000/16*128Kg`; the parser accepts that exact shared-ROM
+map and legacy one-sector forms. The advertised total is not capacity evidence: the
+independent silicon flash-size word must still report 128 KiB, and images must
+remain within the original 128 KiB firmware bounds. ID 0x450 alone names a family;
 128 KiB flash and firmware's Seed3 board check complete the expected target
 constraints. This is identification evidence, not cryptographic board attestation.
 CDC identity must match the ROM reads before any reset command is sent.
@@ -77,8 +81,8 @@ CDC identity must match the ROM reads before any reset command is sent.
 UID, DBGMCU or flash-size words, the runner stops **before flashing**. Do not bypass
 that safeguard. Capture the diagnostic for a separately reviewed identification
 strategy. No unsupported claim is made that AN3156 guarantees peripheral reads on
-every ROM revision. Likewise exact DFU layout and High Sierra IORegistry behavior
-are unverified on the user's hardware.
+every ROM revision. The descriptor above is a founder-reported ROM enumeration observation only;
+High Sierra IORegistry behavior and software-to-ROM handoff remain unverified.
 
 A separate low-cost RAT probe must return a complete report and re-enumerate as
 the same ROM silicon after software reset. Only then is a local transition

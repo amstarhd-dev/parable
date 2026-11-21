@@ -20,7 +20,10 @@ sys.path.insert(0, str(HERE))
 import seed3_runner as runner
 import hardware
 
-LISTING = 'Found DFU: [0483:df11] ver=0200, devnum=2, cfg=1, intf=0, path="1-2", alt=0, name="@Internal Flash /0x08000000/01*128Kg", serial="1234ABCD"\n'
+# Descriptor copied verbatim from the founder's physical Seed3 probe.
+# Other listing fields (including serial/path) remain synthetic test values.
+OBSERVED_DESCRIPTOR = '@Internal Flash /0x08000000/16*128Kg'
+LISTING = 'Found DFU: [0483:df11] ver=0200, devnum=2, cfg=1, intf=0, path="1-2", alt=0, name="' + OBSERVED_DESCRIPTOR + '", serial="1234ABCD"\n'
 IDENTITY = dict(uid='112233445566778899aabbcc', chip_id=0x10030450, flash_kib=128)
 
 
@@ -164,6 +167,43 @@ class Runner(unittest.TestCase):
                         (uid[:-1], bytes(4), b'\x80\x00')]:
             with self.assertRaises(runner.Stop):
                 runner.silicon(u, c, f)
+
+    def test_observed_seed3_descriptor_is_not_capacity_evidence(self):
+        device = runner.choose_dfu(LISTING, '1234ABCD')
+        self.assertEqual(device['layout'], OBSERVED_DESCRIPTOR)
+        for sectors in ('1', '01'):
+            legacy = LISTING.replace('16*128Kg', sectors + '*128Kg')
+            self.assertEqual(runner.choose_dfu(legacy, '1234ABCD')['serial'], device['serial'])
+        for bad in ('17*128Kg', '0*128Kg', '16*64Kg', '16*128Ka',
+                    '16*128Kg/01*128Kg'):
+            with self.assertRaises(runner.Stop):
+                runner.choose_dfu(LISTING.replace('16*128Kg', bad), '1234ABCD')
+        with self.assertRaises(runner.Stop):
+            runner.choose_dfu(LISTING.replace('0x08000000', '0x08020000'), '1234ABCD')
+        # A shared ROM map never grants permission to write on 2 MiB silicon.
+        backend = runner.Mac.__new__(runner.Mac)
+        backend.wait_dfu = lambda timeout: device
+        def reject_capacity(selected):
+            return runner.silicon(struct.pack('<III', 1, 2, 3),
+                                  struct.pack('<I', 0x450), struct.pack('<H', 2048))
+        backend.identity = reject_capacity
+        backend.command = mock.Mock()
+        with self.assertRaises(runner.Stop):
+            backend.flash(device, Path('/reviewed/image.bin'), IDENTITY)
+        backend.command.assert_not_called()
+
+    def test_binary_bound_remains_128k_despite_observed_rom_map(self):
+        runner.choose_dfu(LISTING, '1234ABCD')
+        with tempfile.TemporaryDirectory() as t:
+            root = Path(t)
+            manifest, _ = fixture(root)
+            binary = root / 'rat.bin'
+            binary.write_bytes(binary.read_bytes() + bytes(131073 - binary.stat().st_size))
+            manifest['artifacts'][0]['bin_sha256'] = runner.sha(binary.read_bytes())
+            raw = runner.json_bytes(manifest)
+            (root / 'artifacts.json').write_bytes(raw)
+            with self.assertRaisesRegex(runner.Stop, 'Binary hash/size mismatch'):
+                runner.load_kit(root / 'artifacts.json', runner.sha(raw))
 
     def test_dynamic_high_sierra_registry_ancestry(self):
         tree = [{'idVendor': 0x483, 'idProduct': 0x5740, 'USB Serial Number': 'CDCID',
@@ -361,6 +401,11 @@ class Runner(unittest.TestCase):
                 digest, name = line.split('  ', 1)
                 self.assertEqual(runner.sha(archive.read(name)), digest, name)
             self.assertEqual(archive.read('seed3_runner.py'), (HERE / 'seed3_runner.py').read_bytes())
+            release = json.loads(archive.read('runner-manifest.json'))
+            self.assertEqual(release['version'], receipt['version'])
+            self.assertEqual(release['runner_sha256'], runner.sha(archive.read('seed3_runner.py')))
+            self.assertEqual(release['firmware_manifest_sha256'], receipt['manifest_sha256'])
+            self.assertFalse(release['physical_rom_handoff_passed'])
             self.assertNotIn('transition-receipt.json', archive.namelist())
             raw = archive.read('artifacts.json')
             manifest = json.loads(raw)

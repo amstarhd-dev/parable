@@ -11,9 +11,28 @@ validates silicon/firmware identities and saves each report before authorizing
 the next reset. All images remain **foreground kernel** benchmarks with audio
 stopped. Their cycle fraction is **not real-time callback utilization**.
 
+## v1.1 descriptor correction
+
+The founder's physical probe reported exactly
+`@Internal Flash /0x08000000/16*128Kg`. The previous one-sector-only validation
+was incorrect. This shared ROM map advertises sixteen 128 KiB sectors; it is
+**not proof of 2 MiB available flash**. The runner now recognizes that descriptor
+and the legacy `1*128Kg` / `01*128Kg` forms, while still requiring alt0, interface0,
+configuration1, base `0x08000000`, the selected serial/path and independent UID,
+chip ID and **128 KiB factory flash-size** verification. Firmware remains bounded
+to 128 KiB by both the image verifier and original linker script.
+
+This is a host parser correction. All 15 BIN/ELF/map payloads, firmware identities
+and the firmware manifest SHA below are unchanged. `runner-manifest.json` records
+the new runner version/hash; `SHA256SUMS` and external `kit.json` are regenerated.
+Use this freshly extracted ZIP and new output folders. The changed runner hash
+requires a new successful probe receipt before batch can run. ROM enumeration was
+reported by the founder; **identity uploads, software ROM handoff and unattended
+batch acceptance remain unproven**.
+
 ## Download and prepare
 
-Download the [versioned runner ZIP](https://github.com/amstarhd-dev/parable/raw/refs/heads/engineering/seed3-automated-runner/parable-starter/docs/resources/runner/seed3-runner-v1-f2c156bb74dd.zip). Extract it to a new folder. It
+Download the [versioned runner ZIP](https://github.com/amstarhd-dev/parable/raw/refs/heads/engineering/seed3-automated-runner/parable-starter/docs/resources/runner/seed3-runner-v1.1-f2c156bb74dd-764d589fcc68.zip). Extract it to a new folder. It
 contains 15 uniquely named BINs, matching ELF.gz/map/static-frame/link evidence,
 manifest, reset-hook disassembly, licenses, source-preservation receipts, runner
 and this guide. Original PR #83 binaries/IDs are retained as references; modified
@@ -63,7 +82,8 @@ vectors. It rejects BOOT_SRAM/QSPI and incomplete/different kits.
 1. Hold BOOT, press and release RESET, release BOOT. This is the **one initial
    manual ROM entry**. Ordinary BOOT/RESET recovery remains available afterward.
 2. Run `./darwin_amd64/dfu-util -l`. Copy the `serial="..."` value for the one
-   `0483:df11` device. Expect alt0 `@Internal Flash /0x08000000/01*128Kg`.
+   `0483:df11` device. The observed Seed3 alt0 name is `@Internal Flash /0x08000000/16*128Kg`;
+   the advertised sector count does not establish physical flash capacity.
 3. Set the ROM serial and run the probe below. It first uploads read-only silicon
    identity words. If any read/layout/identity check fails, **it will not flash**.
    Send the full diagnostic for review; do not weaken the checks.
@@ -72,14 +92,14 @@ vectors. It rejects BOOT_SRAM/QSPI and incomplete/different kits.
 ROM_SERIAL=REPLACE_WITH_THE_REPORTED_ROM_SERIAL
 python3 seed3_runner.py probe --manifest artifacts.json --manifest-sha256 "$MANIFEST_SHA" \
   --dfu-util ./darwin_amd64/dfu-util --serial "$ROM_SERIAL" \
-  --output probe-001 --authorize-dfu-reset
+  --output probe-002 --authorize-dfu-reset
 ```
 
 The probe flashes the labeled **rat_1x_cost_only** image (a control-path test,
 not an audio-quality candidate), waits for its complete frozen report, saves and
 syncs it, checks CDC identity, sends the artifact-bound reset command and verifies
 that **the same ROM device and silicon return without touching BOOT/RESET**.
-Success produces `probe-001/transition-receipt.json`, leaving the board in DFU.
+Success produces `probe-002/transition-receipt.json`, leaving the board in DFU.
 Keep the entire probe folder. No receipt is produced on a failed transition.
 
 **If the board stays in CDC, goes missing, or identity reads fail: stop.** The
@@ -96,8 +116,8 @@ operation is needed when the handoff works:
 ```sh
 python3 seed3_runner.py batch --manifest artifacts.json --manifest-sha256 "$MANIFEST_SHA" \
   --dfu-util ./darwin_amd64/dfu-util --serial "$ROM_SERIAL" \
-  --transition-receipt probe-001/transition-receipt.json \
-  --output batch-001 --authorize-dfu-reset
+  --transition-receipt probe-002/transition-receipt.json \
+  --output batch-002 --authorize-dfu-reset
 ```
 
 The default benchmark/CDC wait is bounded at 900 seconds per image; adjust with
@@ -160,7 +180,7 @@ and SDK archive hashes are recorded; rebuilt dependencies/debug paths can change
 artifact identities. A changed artifact needs its own manifest and probe, rather
 than reusing a previous ID or physical measurement.
 
-The post-edit focused suites pass **24 tests** (8 existing + 16 runner/package tests).
+The post-edit focused suites pass **26 tests** (8 existing + 18 runner/package tests).
 The actual command parser and existing DSP chain also run under ASan/UBSan.
 No unrelated DSP/SPICE/audition campaign was rerun.
 

@@ -128,7 +128,10 @@ def choose_dfu(text, serial):
     require(found == serial, 'Wrong ROM DFU serial; refusing to flash')
     internal = [a for a in alts if a['alt'] == '0' and a['intf'] == '0' and a['cfg'] == '1']
     require(len(internal) == 1, 'Ambiguous internal flash interface')
-    require(re.fullmatch(r'@Internal Flash\s*/0x08000000/0?1\*128Kg', internal[0]['name']) is not None, 'ROM does not advertise the expected 128 KiB internal FLASH layout')
+    # H750 ROM can advertise the shared 16-sector map despite 128 KiB silicon.
+    # This checks the interface/base/sector description, NOT available capacity.
+    # silicon() and load_kit() independently enforce 128 KiB before any write.
+    require(re.fullmatch(r'@Internal Flash\s*/0x08000000/(?:0?1|16)\*128Kg', internal[0]['name']) is not None, 'Unrecognized STM32 ROM internal FLASH descriptor')
     return dict(path=path, serial=serial, layout=internal[0]['name'])
 
 

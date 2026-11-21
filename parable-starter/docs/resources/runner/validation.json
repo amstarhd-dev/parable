@@ -33,5 +33,6 @@
   "python_3_6_execution": "NOT TESTED; syntax/API compatibility audited only",
   "audio_listening": "not performed; no DSP changes",
   "daisy_runtime_performance": "NOT MEASURED; no physical reports supplied",
-  "report_only_default_link": "PASS; no control protocol or handoff section"
+  "report_only_default_link": "PASS; no control protocol or handoff section",
+  "descriptor_correction": "See descriptor-correction.json: 26 focused tests pass; firmware unchanged; physical handoff unproven"
 }

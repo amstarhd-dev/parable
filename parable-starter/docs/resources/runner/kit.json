@@ -1,10 +1,11 @@
 {
   "schema": "parable.runner-kit.v1",
-  "file": "seed3-runner-v1-f2c156bb74dd.zip",
-  "bytes": 12235696,
-  "sha256": "fc34f37457979981c7ba44f7b63a8884b7f40a69df7d4fb9aa60c5ba4da1d428",
+  "version": "v1.1",
+  "file": "seed3-runner-v1.1-f2c156bb74dd-764d589fcc68.zip",
+  "bytes": 12237021,
+  "sha256": "3c6af0913eb431db9343814f7377ad66d92a8a6a9c46788c4463953b76b37d90",
   "manifest_sha256": "f2c156bb74dd792b273e7f5a33d66ca75c7d676b6a5a7bdd534e723ada2f5fe3",
-  "runner_sha256": "0ccbbdc43fb6bde6f75d650ab9c053cbcf8a9441e86063b71014e2413eabf8d6",
+  "runner_sha256": "764d589fcc68d72ec5583eba537f923eb23453f5dcc3d6a6b3e84996ccfeeeb7",
   "images": 15,
   "physical_acceptance_tested": false
 }

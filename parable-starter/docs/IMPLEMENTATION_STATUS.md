@@ -6,10 +6,12 @@
 [prior-art and reset design](resources/RUNNER_GATE0.md),
 [software/link evidence](resources/runner/validation.json).
 15 updated BOOT_NONE images compile/link with original DSP source closures;
-24 focused host regressions/protocol tests pass, including ASan/UBSan.
+26 focused host regressions/protocol tests pass, including ASan/UBSan.
 Benchmark-only CDC control and early reset handoff; no production boot/DSP change.
 Physical ROM access, software DFU return, full unattended batch, High Sierra
 execution and new Seed3 performance measurements are **not tested**.
+v1.1 accepts the founder-observed sixteen-sector ROM descriptor as a map only;
+independent 128 KiB silicon/image bounds remain required. Firmware is unchanged.
 Batch requires a separate successful physical probe; no musical claim.
 
 ## SF-014 — experimental standalone Lockhart / one feed resistor
