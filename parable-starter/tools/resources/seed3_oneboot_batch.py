@@ -71,8 +71,205 @@ class Device(r.Mac):
         output = proc.stdout.decode('utf-8', errors='replace').replace(chr(13), chr(10))
         r.atomic(self.output / ('flash-%02d.log' % self.sequence),
                  output.encode('utf-8'))
-        milestones = ('Erase done.', 'Download done.', 'File downloaded successfully')
-        r.require(all(part in output for part in milestones),
+        # dfu-util pads erase progress with spaces/tabs. Match whole completion
+        # lines, not a whitespace-sensitive literal such as "Erase done.".
+        erase_ok = re.search(r'(?m)^Erase[ \t]+done\.[ \t]*
+        if proc.returncode:
+            tail = output[output.rfind('File downloaded successfully'):]
+            r.require(re.search(
+                r'File downloaded successfully\s+Submitting leave request\.\.\.\s+'
+                r'dfu-util: Error during download get_status\s*\Z', tail) is not None,
+                'DFU nonzero status for another reason; STOP without retry')
+            print('Write completed; LEAVE lost USB status. Checking the flashed '
+                  'firmware over CDC before any further flash.', flush=True)
+        # Neither zero return nor observed USB disconnect proves execution:
+        # the batch MUST capture the exact artifact and challenge native silicon.
+
+
+def batch(backend, manifest, manifest_hash, kit, output, timeout):
+    output = Path(output)
+    r.require(not output.exists(), 'Output directory already exists; choose a new one')
+    output.mkdir(parents=True)
+    selected = backend.wait_dfu(20)
+    # ROM exposes device USB serial/path, NOT the H750 chip ID or factory size.
+    r.atomic(output/'session.json', r.json_bytes(dict(
+        schema='parable.one-boot-batch.v1', manifest_sha256=manifest_hash,
+        dfu_serial=selected['serial'], dfu_path=selected['path'],
+        initial_silicon_read='NOT AVAILABLE THROUGH ROM DFU',
+        first_flash_requires_explicit_authorization=True,
+        flash_programming_permitted_only_for_verified_128k_images=True,
+        physical_acceptance=False)))
+    primary = next(a for a in manifest['artifacts'] if a['profile'] == 'rat_1x_cost_only')
+    queue = [primary] + [a for a in manifest['artifacts'] if a['artifact_id'] != primary['artifact_id']]
+    silicon = None
+    observations = []
+    for index,artifact in enumerate(queue,1):
+        binary = (kit / artifact['bin_file']).resolve()
+        r.require(kit in binary.parents and r.sha(binary.read_bytes()) == artifact['bin_sha256'],
+                  'Binary changed after manifest verification')
+        r.require(binary.stat().st_size <= 131072,
+                  'Cannot program beyond physical 128KiB flash')
+        label = '%02d-%s-%s' % (index,artifact['profile'],artifact['artifact_id'][:12])
+        print('Flashing %d/15: %s' % (index,artifact['profile']), flush=True)
+        backend.flash_selected(selected,binary)
+        port = backend.open_cdc(timeout)
+        try:
+            raw,result = r.capture(port,manifest,artifact,timeout)
+            r.atomic(output/(label+'.txt'),raw.encode('ascii'))
+            nonce,control,observed = cdc_identity(port,artifact)
+            if silicon is None:
+                silicon = observed
+                r.atomic(output/'first-native-silicon.json',r.json_bytes(silicon))
+            else:
+                r.require(observed == silicon,
+                          'Changed silicon UID/chip/capacity; STOP without further flash')
+            r.atomic(output/(label+'.control.json'),r.json_bytes(control))
+            observations.append(result)
+            r.results(output,observations,complete=False)
+            port.send('ENTER_DFU ' + artifact['artifact_id'] + ' ' + nonce + '\n')
+            end=time.monotonic()+10
+            while port.line(end) != 'DFU_AUTHORIZED ' + nonce + '\n':
+                pass
+        finally:
+            port.close()
+        print('Saved %d/15; verifying automatic ROM DFU return' % index, flush=True)
+        returned=backend.wait_dfu(25)
+        r.require(returned==selected,'ROM DFU serial/path/interface changed; STOP')
+        r.atomic(output/(label+'.transition.json'),r.json_bytes(dict(
+            rom_return_observed=True,rom_usb_identity=returned,
+            native_silicon_identity=observed,identity_source='firmware_CDC_post_flash')))
+    r.results(output,observations,complete=True)
+    r.atomic(output/'batch-complete.json',r.json_bytes(dict(
+        schema='parable.one-boot-acceptance.v1',image_count=15,
+        rom_returns=15,firmware_native_silicon=silicon,
+        identity_preflash_first_image=False,
+        tested_execution='foreground_kernel',
+        limitation='Not audio callback utilization; first image was selected by ROM USB descriptor only.')))
+    print('Completed 15 reports and 15 observed automatic ROM returns.',flush=True)
+
+def main():
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--manifest',required=True,type=Path)
+    p.add_argument('--manifest-sha256',required=True)
+    p.add_argument('--dfu-util',required=True,type=Path)
+    p.add_argument('--serial',required=True)
+    p.add_argument('--output',required=True,type=Path)
+    p.add_argument('--report-timeout',type=int,default=180)
+    p.add_argument('--authorize-first-flash-without-rom-silicon-read',action='store_true')
+    a=p.parse_args()
+    try:
+        r.require(a.authorize_first_flash_without_rom_silicon_read,
+                  'No supported ROM DFU silicon read. Explicit first-flash authorization required')
+        r.require(30<=a.report_timeout<=3600,'Report timeout must be 30..3600s')
+        manifest=r.load_kit(a.manifest,a.manifest_sha256)
+        backend=Device(a.dfu_util,a.output,a.serial)
+        batch(backend,manifest,a.manifest_sha256,a.manifest.parent.resolve(),a.output,a.report_timeout)
+        return 0
+    except (r.Stop,ValueError,KeyError,OSError,subprocess.SubprocessError) as error:
+        print('STOP: '+str(error),file=sys.stderr)
+        return 1
+if __name__=='__main__':
+    sys.exit(main())
+, output) is not None
+        download_ok = re.search(r'(?m)^Download[ \t]+done\.[ \t]*
+        if proc.returncode:
+            tail = output[output.rfind('File downloaded successfully'):]
+            r.require(re.search(
+                r'File downloaded successfully\s+Submitting leave request\.\.\.\s+'
+                r'dfu-util: Error during download get_status\s*\Z', tail) is not None,
+                'DFU nonzero status for another reason; STOP without retry')
+            print('Write completed; LEAVE lost USB status. Checking the flashed '
+                  'firmware over CDC before any further flash.', flush=True)
+        # Neither zero return nor observed USB disconnect proves execution:
+        # the batch MUST capture the exact artifact and challenge native silicon.
+
+
+def batch(backend, manifest, manifest_hash, kit, output, timeout):
+    output = Path(output)
+    r.require(not output.exists(), 'Output directory already exists; choose a new one')
+    output.mkdir(parents=True)
+    selected = backend.wait_dfu(20)
+    # ROM exposes device USB serial/path, NOT the H750 chip ID or factory size.
+    r.atomic(output/'session.json', r.json_bytes(dict(
+        schema='parable.one-boot-batch.v1', manifest_sha256=manifest_hash,
+        dfu_serial=selected['serial'], dfu_path=selected['path'],
+        initial_silicon_read='NOT AVAILABLE THROUGH ROM DFU',
+        first_flash_requires_explicit_authorization=True,
+        flash_programming_permitted_only_for_verified_128k_images=True,
+        physical_acceptance=False)))
+    primary = next(a for a in manifest['artifacts'] if a['profile'] == 'rat_1x_cost_only')
+    queue = [primary] + [a for a in manifest['artifacts'] if a['artifact_id'] != primary['artifact_id']]
+    silicon = None
+    observations = []
+    for index,artifact in enumerate(queue,1):
+        binary = (kit / artifact['bin_file']).resolve()
+        r.require(kit in binary.parents and r.sha(binary.read_bytes()) == artifact['bin_sha256'],
+                  'Binary changed after manifest verification')
+        r.require(binary.stat().st_size <= 131072,
+                  'Cannot program beyond physical 128KiB flash')
+        label = '%02d-%s-%s' % (index,artifact['profile'],artifact['artifact_id'][:12])
+        print('Flashing %d/15: %s' % (index,artifact['profile']), flush=True)
+        backend.flash_selected(selected,binary)
+        port = backend.open_cdc(timeout)
+        try:
+            raw,result = r.capture(port,manifest,artifact,timeout)
+            r.atomic(output/(label+'.txt'),raw.encode('ascii'))
+            nonce,control,observed = cdc_identity(port,artifact)
+            if silicon is None:
+                silicon = observed
+                r.atomic(output/'first-native-silicon.json',r.json_bytes(silicon))
+            else:
+                r.require(observed == silicon,
+                          'Changed silicon UID/chip/capacity; STOP without further flash')
+            r.atomic(output/(label+'.control.json'),r.json_bytes(control))
+            observations.append(result)
+            r.results(output,observations,complete=False)
+            port.send('ENTER_DFU ' + artifact['artifact_id'] + ' ' + nonce + '\n')
+            end=time.monotonic()+10
+            while port.line(end) != 'DFU_AUTHORIZED ' + nonce + '\n':
+                pass
+        finally:
+            port.close()
+        print('Saved %d/15; verifying automatic ROM DFU return' % index, flush=True)
+        returned=backend.wait_dfu(25)
+        r.require(returned==selected,'ROM DFU serial/path/interface changed; STOP')
+        r.atomic(output/(label+'.transition.json'),r.json_bytes(dict(
+            rom_return_observed=True,rom_usb_identity=returned,
+            native_silicon_identity=observed,identity_source='firmware_CDC_post_flash')))
+    r.results(output,observations,complete=True)
+    r.atomic(output/'batch-complete.json',r.json_bytes(dict(
+        schema='parable.one-boot-acceptance.v1',image_count=15,
+        rom_returns=15,firmware_native_silicon=silicon,
+        identity_preflash_first_image=False,
+        tested_execution='foreground_kernel',
+        limitation='Not audio callback utilization; first image was selected by ROM USB descriptor only.')))
+    print('Completed 15 reports and 15 observed automatic ROM returns.',flush=True)
+
+def main():
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--manifest',required=True,type=Path)
+    p.add_argument('--manifest-sha256',required=True)
+    p.add_argument('--dfu-util',required=True,type=Path)
+    p.add_argument('--serial',required=True)
+    p.add_argument('--output',required=True,type=Path)
+    p.add_argument('--report-timeout',type=int,default=180)
+    p.add_argument('--authorize-first-flash-without-rom-silicon-read',action='store_true')
+    a=p.parse_args()
+    try:
+        r.require(a.authorize_first_flash_without_rom_silicon_read,
+                  'No supported ROM DFU silicon read. Explicit first-flash authorization required')
+        r.require(30<=a.report_timeout<=3600,'Report timeout must be 30..3600s')
+        manifest=r.load_kit(a.manifest,a.manifest_sha256)
+        backend=Device(a.dfu_util,a.output,a.serial)
+        batch(backend,manifest,a.manifest_sha256,a.manifest.parent.resolve(),a.output,a.report_timeout)
+        return 0
+    except (r.Stop,ValueError,KeyError,OSError,subprocess.SubprocessError) as error:
+        print('STOP: '+str(error),file=sys.stderr)
+        return 1
+if __name__=='__main__':
+    sys.exit(main())
+, output) is not None
+        r.require(erase_ok and download_ok and 'File downloaded successfully' in output,
                   'DFU did not confirm complete erase/write; STOP without retry')
         if proc.returncode:
             tail = output[output.rfind('File downloaded successfully'):]
