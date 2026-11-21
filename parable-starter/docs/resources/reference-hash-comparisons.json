@@ -1,0 +1,16 @@
+[
+  {
+    "reference": "rat",
+    "candidate": "rat_pr81_reference",
+    "shared_cases": 55,
+    "matching_output_hashes": 55,
+    "scope": "FNV output-hash equality for recorded host cases only, not proof of all-input equivalence"
+  },
+  {
+    "reference": "germanium",
+    "candidate": "germanium_libm",
+    "shared_cases": 44,
+    "matching_output_hashes": 44,
+    "scope": "FNV output-hash equality for recorded host cases only, not proof of all-input equivalence"
+  }
+]

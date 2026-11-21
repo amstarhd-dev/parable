@@ -18,6 +18,7 @@ def main():
  for identity in a.only:
   profile=profiles[identity];selected_models=[models[m] for m in profile.get('members',[identity])]
   row=dict(profile=identity,execution=a.execution,stimulus='synthetic_mix',mode=a.mode,route=profile.get('route',0),capture_blocks=a.capture_blocks,status='pending',layout=a.layout)
+  directory=None
   try:
    if any(m['id']=='cancer_cloud' for m in selected_models):raise RuntimeError('Cloud memory hold: do not produce misleading target image')
    if any(m['id']=='taurus_plate' for m in selected_models):raise RuntimeError('Plate vector heap needs separately validated target placement before image generation')
@@ -41,9 +42,9 @@ def main():
    model_sdram_bytes=0
    config=directory/'resource_config.h'
    config.write_text('\n'.join(['#pragma once',f'#define BENCH_PROFILE {json.dumps(identity)}',f'#define BENCH_ARTIFACT_ID {json.dumps(artifact_id)}',f'#define BENCH_SOURCE_SHA {json.dumps(source_set_sha)}',f'#define BENCH_EXECUTION {json.dumps(a.execution)}',f'#define BENCH_MODE {a.mode}',f'#define BENCH_ROUTE_VALUE {profile.get("route",0)}',f'#define BENCH_CAPTURE_BLOCKS {a.capture_blocks}',f'#define BENCH_ARENA_SAMPLES {arena_samples}',f'#define BENCH_MODEL_SDRAM_BYTES '+('sizeof(Selected)' if large else '0'),f'#define BENCH_RESERVED_SDRAM_BYTES ({arena_samples}*4+BENCH_MODEL_SDRAM_BYTES)'])+'\n')
-   cppflags=['-fno-fast-math','-fno-finite-math-only','-fstack-usage',*['-D'+d for d in dict.fromkeys(definitions)],*[x for f in forced for x in ['-include',str(f)]]]
+   cppflags=['-g0','-fno-fast-math','-fno-finite-math-only','-fstack-usage',*['-D'+d for d in dict.fromkeys(definitions)],*[x for f in forced for x in ['-include',str(f)]]]
    includes+=[HERE,ROOT/'firmware',directory,sdk/'Middlewares/Patched/ST/STM32_USB_Device_Library/Class/CDC/Inc']
-   make=directory/'Makefile';make.write_text(f'TARGET = {name}\nLIBDAISY_DIR = {sdk}\nCPP_SOURCES = '+ ' '.join(map(str,[*dict.fromkeys(files),HERE/'firmware_bench.cpp']))+'\nC_INCLUDES = '+' '.join('-I'+str(i) for i in dict.fromkeys(includes))+f'\nSYSTEM_FILES_DIR = $(LIBDAISY_DIR)/core\nCPP_STANDARD = -std=gnu++17\nAPP_TYPE = {a.layout}\nOPT = -O2\ninclude $(LIBDAISY_DIR)/core/Makefile\nCPPFLAGS += '+' '.join(shlex.quote(x) for x in cppflags)+'\nCFLAGS += -fstack-usage\n')
+   make=directory/'Makefile';make.write_text(f'TARGET = {name}\nLIBDAISY_DIR = {sdk}\nCPP_SOURCES = '+ ' '.join(map(str,[*dict.fromkeys(files),HERE/'firmware_bench.cpp']))+'\nC_INCLUDES = '+' '.join('-I'+str(i) for i in dict.fromkeys(includes))+f'\nSYSTEM_FILES_DIR = $(LIBDAISY_DIR)/core\nCPP_STANDARD = -std=gnu++17\nAPP_TYPE = {a.layout}\nOPT = -O2\ninclude $(LIBDAISY_DIR)/core/Makefile\nCPPFLAGS += '+' '.join(shlex.quote(x) for x in cppflags)+'\nCFLAGS += -g0 -fstack-usage\n')
    build=directory/'build';r=subprocess.run(['make','-C',str(directory),'-j2','GCC_PATH='+str(compiler.parent),'BUILD_DIR='+str(build)],capture_output=True,text=True);(directory/'build.log').write_text(r.stdout+r.stderr)
    if r.returncode:raise RuntimeError('Link failed; see '+str(directory/'build.log'))
    elf=build/(name+'.elf');binary=build/(name+'.bin');tool=lambda n:compiler.parent/('arm-none-eabi-'+n)
@@ -56,7 +57,11 @@ def main():
    for f in build.iterdir():
     if f.suffix in ['.o','.lst','.d']:f.unlink()
     elif f.suffix=='.map':f.with_suffix('.map.gz').write_bytes(gzip.compress(f.read_bytes(),mtime=0));f.unlink()
-  except (RuntimeError,subprocess.CalledProcessError) as e:row.update(status='failed',error=str(e))
+  except (RuntimeError,subprocess.CalledProcessError,OSError) as e:
+   row.update(status='failed',error=str(e))
+   if directory:
+    for generated in (directory/'build').glob('*'):
+     if generated.suffix in ['.o','.lst','.d','.hex']:generated.unlink()
   artifacts.append(row);print(identity,row['status'],row.get('bin_file',row.get('error')),flush=True)
   manifest=dict(schema='parable.resource-artifacts.v1',hardware_run=False,artifacts=artifacts,limits='Original pinned sources; link/build evidence only. Foreground images never start audio; callback option is experimental, IRQ-starvation risk if budget exceeded. Official SDK layout used unchanged; bootloader-dependent links do not prove Seed3 boot compatibility.')
   (out/'artifacts.json').write_text(json.dumps(manifest,indent=2)+'\n');matrix(manifest,out/'hardware-matrix.csv')

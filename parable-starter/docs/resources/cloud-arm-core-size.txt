@@ -1,0 +1,5 @@
+Pinned xPack14.2.1,M7 fpv5-d16; original PR76 source.
+objdump -drC resource-arm-final/arm/cancer_cloud/0-parable_chamber.o
+Chamber::coreBytes(): ldr r0,[pc,#0]; bx lr; .word0x03fe8540
+0x03fe8540 =67011904 bytes. Raw64MiB margin96960; two cores134023808.
+This is target ABI size evidence, not allocation/boot/runtime proof.

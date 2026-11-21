@@ -3,6 +3,7 @@ import copy,hashlib,importlib,json,subprocess,sys,tempfile,unittest
 from pathlib import Path
 HERE=Path(__file__).resolve().parents[1]/'tools/resources';sys.path.insert(0,str(HERE))
 import hardware
+import hardware_compare
 import run as bench
 CATALOG=json.loads((HERE/'catalog.json').read_text())
 class Resources(unittest.TestCase):
@@ -15,7 +16,7 @@ class Resources(unittest.TestCase):
   bad=copy.deepcopy(CATALOG);bad['models'][0]['commit']='main'
   with self.assertRaises(ValueError):bench.validate(bad)
  def fixture(self):
-  c=dict(artifact_id='a'*64,profile='rat_fir97',execution='foreground_kernel',stimulus='synthetic_mix',mode=2,route=0,core_hz_rcc=480000000,sample_rate=48000,block_frames=48,deadline_cycles=480000,counter_enabled=1,blocks=3000,valid_blocks=3000,max_cycles=235475,deadline_hits=0,invalid_intervals=0,frame_mismatches=0,source_set_sha256='b'*64,reserved_sdram_bytes=0,used_sdram_bytes=0,finite_output_failures=0,fpscr=0,fpdscr=0,icache_enabled=1,dcache_enabled=1)
+  c=dict(artifact_id='a'*64,profile='rat_fir97',execution='foreground_kernel',stimulus='synthetic_mix',mode=2,route=0,core_hz_rcc=480000000,sample_rate=48000,block_frames=48,deadline_cycles=480000,counter_enabled=1,blocks=3000,valid_blocks=3000,max_cycles=235475,deadline_hits=0,invalid_intervals=0,frame_mismatches=0,source_set_sha256='b'*64,reserved_sdram_bytes=0,used_sdram_bytes=0,finite_output_failures=0,fpscr=0,fpdscr=0,icache_enabled=1,dcache_enabled=1,native_failures=0,native_evaluations=0,native_solves=0,native_max_iterations=0,native_containment=0)
   artifact={k:c[k] for k in ['artifact_id','profile','execution','stimulus','mode','route','source_set_sha256','reserved_sdram_bytes']};artifact.update(status='linked',capture_blocks=3000,bin_sha256='c'*64)
   raw='PARABLE_RESOURCE_V1 '+' '.join(f'{k}={v}' for k,v in c.items())+'\nEND_RESOURCE_CAPTURE\n';return raw,dict(artifacts=[artifact])
  def test_hardware_capture_never_admits(self):
@@ -26,6 +27,12 @@ class Resources(unittest.TestCase):
   for changed in [raw.replace('profile=rat_fir97','profile=rat'),raw.replace('source_set_sha256='+'b'*64,'source_set_sha256='+'d'*64),raw.replace('block_frames=48','block_frames=64'),raw.replace('blocks=3000','blocks=3001',1),raw.replace('END_RESOURCE_CAPTURE',''),raw+'PARABLE_RESOURCE_V1 partial\n',raw.replace('max_cycles=235475','max_cycles=235475 max_cycles=1'),raw.replace('max_cycles=235475','max_cycles=2147483648')]:
    with self.subTest(changed=changed[-120:]):
     with self.assertRaises(ValueError):hardware.check(changed,manifest)
+ def test_physical_comparison_requires_compatible_context(self):
+  raw,manifest=self.fixture();context={'compiler_sha256':'f'*64,'libdaisy_archive_sha256':'0'*64,'harness_sha256':{'firmware_bench.cpp':'1'*64,'adapters.h':'2'*64}};manifest['artifacts'][0]['configuration']={**context,'profile':{'variant_of':'rat'}};manifest['artifacts'][0]['layout']='BOOT_NONE'
+  reference=copy.deepcopy(manifest['artifacts'][0]);reference.update(artifact_id='d'*64,profile='rat',source_set_sha256='e'*64,configuration={**context,'profile':{}});manifest['artifacts'].append(reference)
+  ref=raw.replace('artifact_id='+'a'*64,'artifact_id='+'d'*64).replace('profile=rat_fir97','profile=rat').replace('source_set_sha256='+'b'*64,'source_set_sha256='+'e'*64).replace('max_cycles=235475','max_cycles=370915')
+  result=hardware_compare.compare(manifest,[('reference',ref),('candidate',raw)]);self.assertEqual(len(result['comparisons']),1);self.assertFalse(result['production_admitted']);self.assertLess(result['comparisons'][0]['observed_maximum_cost_change_percent'],0)
+  result=hardware_compare.compare(manifest,[('reference',ref),('candidate',raw.replace('dcache_enabled=1','dcache_enabled=0'))]);self.assertEqual(result['comparisons'],[])
  def test_two_different_usb_captures_reject(self):
   raw,manifest=self.fixture()
   with self.assertRaises(ValueError):hardware.check(raw+raw.replace('max_cycles=235475','max_cycles=235474'),manifest)

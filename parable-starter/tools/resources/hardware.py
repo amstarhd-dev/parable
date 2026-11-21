@@ -2,7 +2,7 @@
 """Import versioned physical captures. A timing screen NEVER confers production admission."""
 import argparse,csv,hashlib,json,re
 from pathlib import Path
-REQUIRED={'artifact_id','profile','execution','stimulus','mode','route','core_hz_rcc','sample_rate','block_frames','deadline_cycles','counter_enabled','blocks','valid_blocks','max_cycles','deadline_hits','invalid_intervals','frame_mismatches','source_set_sha256','reserved_sdram_bytes','used_sdram_bytes','finite_output_failures','fpscr','fpdscr','icache_enabled','dcache_enabled'}
+REQUIRED={'artifact_id','profile','execution','stimulus','mode','route','core_hz_rcc','sample_rate','block_frames','deadline_cycles','counter_enabled','blocks','valid_blocks','max_cycles','deadline_hits','invalid_intervals','frame_mismatches','source_set_sha256','reserved_sdram_bytes','used_sdram_bytes','finite_output_failures','fpscr','fpdscr','icache_enabled','dcache_enabled','native_failures','native_evaluations','native_solves','native_max_iterations','native_containment'}
 NUMERIC=REQUIRED-{'artifact_id','profile','execution','stimulus','source_set_sha256'}
 def parse(raw):
  blocks=re.findall(r'^PARABLE_RESOURCE_V1\s.*?^END_RESOURCE_CAPTURE\s*$',raw,re.M|re.S)
@@ -35,6 +35,7 @@ def check(raw,manifest):
  if capture['counter_enabled']!=1 or capture['valid_blocks']!=capture['blocks'] or capture['invalid_intervals'] or capture['frame_mismatches']:failures.append('invalid counter/frame intervals')
  if capture['deadline_hits'] or capture['max_cycles']>=480000:failures.append('observed deadline-sized routine')
  if capture['finite_output_failures']:failures.append('nonfinite output')
+ if capture['native_failures']:failures.append('native solver/numerical failures reported')
  if capture['max_cycles']>336000:failures.append('exceeds provisional70% whole-graph body allocation')
  return dict(schema='parable.hardware-measurement.v1',capture=capture,artifact_bin_sha256=artifact['bin_sha256'],raw_capture_sha256=hashlib.sha256(raw.encode()).hexdigest(),screen='FAIL' if failures else ('FOREGROUND_COST_ONLY' if capture['execution']=='foreground_kernel' else 'PASS_CALLBACK_BODY_SCREEN_ONLY'),observed_fraction_of_nominal_block=capture['max_cycles']/480000,failures=failures,production_admitted=False,limitations=['Physical evidence supplied by operator; importer cannot attest which board/binary was actually run','Foreground measurements are not audio callback or interrupt-context measurements','No ISR-inclusive WCET, stack high-water, cache worst case, analog or listening approval inferred'])
 def matrix(manifest,path):

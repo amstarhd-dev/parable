@@ -4,12 +4,15 @@ import argparse,collections,gzip,json,re,subprocess
 from pathlib import Path
 from run import HERE,ROOT,REPO,git
 
-def inventory():
+def inventory(fetch=False):
  catalog=json.loads((HERE/'catalog.json').read_text());snapshots=json.loads((ROOT/'docs/resource-pr-snapshot.json').read_text());snapshots=[dict(number=None,sha=catalog['baseline'],head='main',state='main',merged=True),*snapshots]
  known={p for m in catalog['models'] for p in m['source_files']+m.get('extra_sources',[])};versions={};contents={};unknown=[];missing=[]
  for s in snapshots:
   try:listing=git('ls-tree','-r','--format=%(objectname) %(path)',s['sha'],'--','parable-starter/include','parable-starter/src')
-  except subprocess.CalledProcessError:missing.append(s);continue
+  except subprocess.CalledProcessError:
+   if not fetch:missing.append(s);continue
+   try:git('fetch','--no-tags','origin',s['sha']);listing=git('ls-tree','-r','--format=%(objectname) %(path)',s['sha'],'--','parable-starter/include','parable-starter/src')
+   except subprocess.CalledProcessError:missing.append(s);continue
   for line in listing.splitlines():
    blob,path=line.split(' ',1);relative=path.removeprefix('parable-starter/');key=(path,blob)
    if key not in versions:versions[key]=dict(path=path,git_blob_sha=blob,snapshots=[])
@@ -24,5 +27,5 @@ def inventory():
  return result
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);a=p.parse_args();result=inventory();a.output.write_bytes(gzip.compress((json.dumps(result,indent=2)+'\n').encode(),mtime=0));print(result['snapshot_count'],'snapshots;',result['unique_native_file_versions'],'native file versions;',len(result['unknown_processor_sources']),'unknown processors;',len(result['missing_snapshots']),'missing snapshots');return int(bool(result['unknown_processor_sources'] or result['missing_snapshots']))
+ p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);p.add_argument('--fetch',action='store_true');a=p.parse_args();result=inventory(a.fetch);a.output.write_bytes(gzip.compress((json.dumps(result,indent=2)+'\n').encode(),mtime=0));print(result['snapshot_count'],'snapshots;',result['unique_native_file_versions'],'native file versions;',len(result['unknown_processor_sources']),'unknown processors;',len(result['missing_snapshots']),'missing snapshots');return int(bool(result['unknown_processor_sources'] or result['missing_snapshots']))
 if __name__=='__main__':raise SystemExit(main())

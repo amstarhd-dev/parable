@@ -1,0 +1,41 @@
+{
+  "commands": {
+    "baseline": [
+      "cmake -S parable-starter -B build/baseline -DCMAKE_BUILD_TYPE=Release -DFETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON=/workspace/work/sf015-deps/nlohmann_json-src",
+      "cmake --build build/baseline --target parable_core_test parable_audio_safety_test parable_soundforge_test -j2",
+      "ctest --test-dir build/baseline --output-on-failure -R '^(core_validation|audio_safety|soundforge_)'"
+    ],
+    "focused": [
+      "python3 -m unittest discover -s parable-starter/tests -p test_resources.py -v"
+    ],
+    "host": [
+      "python3 parable-starter/tools/resources/run.py --output build/resources --chains --compile-only",
+      "python3 parable-starter/tools/resources/run.py --output build/resources --chains --reuse-builds --frames 4800 --repetitions 2"
+    ],
+    "arm": [
+      "python3 parable-starter/tools/resources/arm.py --compiler \"$ARM_GXX\" --output build/resources-arm --chains"
+    ],
+    "firmware": [
+      "python3 parable-starter/tools/resources/firmware.py --compiler \"$ARM_GXX\" --libdaisy \"$LIBDAISY\" --output build/resource-images --only rat rat_fir97 rat_fir97_fp32 rat_1x_cost_only cmos germanium muff ts808 klon blender fz1 tape_saturation spring leo_hall chain_scorpio_gemini_rooms_0"
+    ]
+  },
+  "results": {
+    "baseline": "5/5 passed before edits; GNU14.2.0/CMake3.31.6",
+    "focused": "8/8 passed; includes actual RAT,1x and ASan/UBSan mixed chain",
+    "host": "47 profiles,1738 cases, two output-hash repeats per case; all prepared/reprepared/deterministic/finite; no intercepted forbidden callback operations; native solver failures retained as holds",
+    "arm": "46/47 profiles compiled with SDK-compatible flags; plate fails control-side catch under -fno-exceptions",
+    "firmware": "15/15 BOOT_NONE full links; each BIN/ELF checksum verified inside downloadable ZIP",
+    "source_preservation": "No diff in existing src/,include/,firmware/ against main767a3c4",
+    "hardware": "No new physical measurements; founder RAT observations retained separately",
+    "scope": "First deliverable only: no DSP optimization adopted, canonical admission integration or physical/audio certification"
+  },
+  "log_archive": "verification-logs.json.gz",
+  "ci": "Pending remote run; local outcomes are not CI outcomes",
+  "limitations": [
+    "No full unrelated SPICE/audition suites rerun",
+    "Only48kHz/48frame resource protocol",
+    "No M7 high-water/ISR WCET/analog/boot proof",
+    "Compiler largest-frame estimate is not full stack",
+    "Known native solver and plate portability holds remain"
+  ]
+}
