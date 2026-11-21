@@ -1,0 +1,17 @@
+{
+  "dataset": "Guitar-TECHS Player3 directinput_03.wav",
+  "license": "CC-BY-4.0",
+  "url": "https://zenodo.org/records/14963133",
+  "authors": [
+    "Hegel Emmanuel Pedroza Villalobos",
+    "Termeh Taheri",
+    "Wallace Abreu",
+    "Ryan M. Corey",
+    "Iran R. Roman"
+  ],
+  "prepared_parent_sha256": "e6f6c8736d2cf31b11bf3c37a14fad47f4d5a40a8b28e0c7cb6f7bbe7afe63a4",
+  "original_start_seconds": 11.28,
+  "original_end_seconds": 12.28,
+  "changes": "Existing licensed PCM16 excerpt; further1s cut without resampling/EQ/gain; host normalizes input peak to.2.",
+  "sha256": "fd0237b13cb8a7a8c95c62f548ad8d2c8b301af577c383b6df714ce6de8ed447"
+}

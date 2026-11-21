@@ -1,0 +1,1024 @@
+{
+  "schema": "parable.resource-catalog.v1",
+  "baseline": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+  "target": {
+    "core_hz": 480000000,
+    "sample_rate": 48000,
+    "block_frames": 48,
+    "deadline_cycles": 480000,
+    "provisional_whole_graph_limit": 0.7
+  },
+  "models": [
+    {
+      "id": "rat",
+      "adapter": "Rat",
+      "category": "drive",
+      "commit": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+      "pr": null,
+      "main_integrated": true,
+      "source_files": [
+        "include/parable_rat.h",
+        "src/parable_rat.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_RAT"
+      ],
+      "family": "prepared-IIR/table/4x-FIR",
+      "latency_fir_frames": 48,
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "diode_open",
+        "2": "healthy high-control corner",
+        "3": "ruetz",
+        "4": "compensation"
+      },
+      "modes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "cmos",
+      "adapter": "Cmos",
+      "category": "drive",
+      "commit": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+      "pr": null,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_cmos.h",
+        "src/parable_cmos.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_CMOS"
+      ],
+      "family": "4x-nonlinear-Newton",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "coupling_small",
+        "2": "healthy high-control corner",
+        "3": "feedback_low"
+      },
+      "modes": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "germanium",
+      "adapter": "Germanium",
+      "category": "drive",
+      "commit": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+      "pr": null,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_germanium.h",
+        "src/parable_germanium.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_GERMANIUM"
+      ],
+      "family": "4x-Gummel-Poon-Newton",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "q1_leaky",
+        "2": "healthy high-control corner",
+        "3": "feedback_wrong"
+      },
+      "modes": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "muff",
+      "adapter": "Muff",
+      "category": "drive",
+      "commit": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+      "pr": null,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_muff.h",
+        "src/parable_muff.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_MUFF"
+      ],
+      "family": "4x-10port-Newton",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "documented primary fault or parameter corner",
+        "2": "healthy high-control corner"
+      }
+    },
+    {
+      "id": "ts808",
+      "adapter": "Ts808",
+      "category": "drive",
+      "commit": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+      "pr": null,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_ts808.h",
+        "src/parable_ts808.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_TS808"
+      ],
+      "family": "16x-7unknown-Newton",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "documented primary fault or parameter corner",
+        "2": "healthy high-control corner"
+      }
+    },
+    {
+      "id": "klon",
+      "adapter": "Klon",
+      "category": "drive",
+      "commit": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+      "pr": null,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_klon.h",
+        "src/parable_klon.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_KLON"
+      ],
+      "family": "12x-5unknown-Newton",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "documented primary fault or parameter corner",
+        "2": "healthy high-control corner"
+      }
+    },
+    {
+      "id": "wavefolder",
+      "adapter": "Wavefolder",
+      "category": "drive",
+      "commit": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+      "pr": null,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_wavefolder.h",
+        "src/parable_wavefolder.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_WAVEFOLDER"
+      ],
+      "family": "4x-prepared-Hermite-ADAA",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "documented primary fault or parameter corner",
+        "2": "healthy high-control corner"
+      }
+    },
+    {
+      "id": "scorpio",
+      "adapter": "Scorpio",
+      "category": "drive",
+      "commit": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+      "pr": null,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_scorpio.h",
+        "src/parable_scorpio.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_SCORPIO"
+      ],
+      "family": "4x-prepared-Hermite-ADAA/magnetics",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "documented primary fault or parameter corner",
+        "2": "healthy high-control corner"
+      }
+    },
+    {
+      "id": "libra",
+      "adapter": "Libra",
+      "category": "drive",
+      "commit": "9bacd58af4b3a7a4215ff5c32d79b6a70ce1272f",
+      "pr": 70,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_libra.h",
+        "src/parable_libra.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_LIBRA"
+      ],
+      "family": "4x-piecewise-affine-feedback",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "documented primary fault or parameter corner",
+        "2": "healthy high-control corner"
+      }
+    },
+    {
+      "id": "ds1",
+      "adapter": "Ds1",
+      "category": "drive",
+      "commit": "d3ab8addaa2941e747c88d7de3f137027e6c842d",
+      "pr": 69,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_capricorn.h",
+        "src/parable_capricorn.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_DS1"
+      ],
+      "family": "8x-prepared-curve-ADAA",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "documented primary fault or parameter corner",
+        "2": "healthy high-control corner"
+      }
+    },
+    {
+      "id": "fz1",
+      "adapter": "Fz1",
+      "category": "drive",
+      "commit": "fc9f3eb4d583bf8307f8a5900255976683e47373",
+      "pr": 61,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_fz1.h",
+        "src/parable_fz1.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_FZ1"
+      ],
+      "family": "8x-6port-Newton",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "documented primary fault or parameter corner",
+        "2": "healthy high-control corner"
+      }
+    },
+    {
+      "id": "blender",
+      "adapter": "Blender",
+      "category": "drive",
+      "commit": "15d90d21ebaa56057e07365f29adfd828875375e",
+      "pr": 63,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_blender.h",
+        "src/parable_blender.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_BLENDER"
+      ],
+      "family": "8x-14port-Newton",
+      "hold": "Existing high-note scientific gates fail",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "documented primary fault or parameter corner",
+        "2": "healthy high-control corner"
+      }
+    },
+    {
+      "id": "tape_saturation",
+      "adapter": "TapeSat",
+      "category": "drive",
+      "commit": "5c7a481b92fd2d137c8f6eee2f9fc1af6f2d8a10",
+      "pr": 56,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_tape_saturation.h",
+        "src/parable_tape_saturation.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_TAPE_SAT"
+      ],
+      "family": "4x-magnetic-parcels",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "documented primary fault or parameter corner",
+        "2": "healthy high-control corner"
+      }
+    },
+    {
+      "id": "tape_medium",
+      "adapter": "Tape",
+      "category": "delay",
+      "commit": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+      "pr": null,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_tape.h",
+        "src/parable_tape.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_TAPE"
+      ],
+      "family": "streaming-magnetic-medium",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "documented primary fault or parameter corner",
+        "2": "healthy high-control corner"
+      }
+    },
+    {
+      "id": "rotary",
+      "adapter": "Rotary",
+      "category": "modulation",
+      "commit": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+      "pr": null,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_rotary.h",
+        "src/parable_rotary.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_ROTARY"
+      ],
+      "family": "mechanics/interpolated-delays",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "documented primary fault or parameter corner",
+        "2": "healthy high-control corner"
+      }
+    },
+    {
+      "id": "spring",
+      "adapter": "Spring",
+      "category": "reverb",
+      "commit": "9f8548cebb572c0b73f8ae12bb0a24873b8f11af",
+      "pr": 48,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_spring.h",
+        "src/parable_spring.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_SPRING"
+      ],
+      "family": "192-modal-mechanical/2substeps",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "documented primary fault or parameter corner",
+        "2": "healthy high-control corner"
+      }
+    },
+    {
+      "id": "taurus_plate",
+      "adapter": "Plate",
+      "category": "reverb",
+      "commit": "bff69f7b0ebce5a1f6ed7d0fd72796d5aa1c9405",
+      "pr": 72,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_plate.h",
+        "src/parable_plate.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_PLATE"
+      ],
+      "family": "Dattorro-delay-network",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "documented primary fault or parameter corner",
+        "2": "healthy high-control corner"
+      }
+    },
+    {
+      "id": "gemini_rooms",
+      "adapter": "Rooms",
+      "category": "reverb",
+      "commit": "421f31489fab1050985697003c5f74527763f979",
+      "pr": 74,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_coupled_rooms.h",
+        "src/parable_coupled_rooms.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_ROOMS"
+      ],
+      "family": "two-coupled-delay-networks",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "documented primary fault or parameter corner",
+        "2": "healthy high-control corner"
+      }
+    },
+    {
+      "id": "cancer_cloud",
+      "adapter": "Cloud",
+      "category": "reverb",
+      "commit": "249ff07943356ae1a761800c74a2ed4eb405be5c",
+      "pr": 76,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_chamber.h",
+        "src/parable_chamber.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_CLOUD",
+        "BUFFER_SIZE=64",
+        "MAX_STR_SIZE=32"
+      ],
+      "family": "complete-CloudSeed",
+      "extra_sources": [
+        "third_party/chamber/cloudseed/DSP/Biquad.cpp",
+        "third_party/chamber/cloudseed/DSP/RandomBuffer.cpp"
+      ],
+      "include_dirs": [
+        "third_party/chamber/cloudseed"
+      ],
+      "forced_includes": [
+        "tools/chamber_cloud_portability.h"
+      ],
+      "block_bridge_frames": 64,
+      "hold": "67011904-byte core near64MiB limit; reprepare peak exceedsSDRAM",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "documented primary fault or parameter corner",
+        "2": "healthy high-control corner"
+      }
+    },
+    {
+      "id": "leo_hall",
+      "adapter": "Hall",
+      "category": "reverb",
+      "commit": "21905d5ca171c1cb98d2e228dda33beac039ac4a",
+      "pr": 77,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_hall.h",
+        "src/parable_hall.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_HALL"
+      ],
+      "family": "borrowed-double-grand-hall",
+      "block_bridge_frames": 64,
+      "extra_sources": [
+        "src/hall_core.cpp"
+      ],
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "documented primary fault or parameter corner",
+        "2": "healthy high-control corner"
+      }
+    },
+    {
+      "id": "virgo_tiled",
+      "adapter": "Tiled",
+      "category": "reverb",
+      "commit": "352118af7c0c6e4cb4e115a00b9c237937f789f1",
+      "pr": 80,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_tiled_room.h",
+        "src/parable_tiled_room.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_TILED"
+      ],
+      "family": "compact-Dattorro-delay-network",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "documented primary fault or parameter corner",
+        "2": "healthy high-control corner"
+      }
+    },
+    {
+      "id": "generic_drive_prototype",
+      "adapter": "Drive",
+      "category": "prototype",
+      "commit": "cacdc28f533355167ed667b417ef195569aba48f",
+      "pr": 11,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_drive.h",
+        "src/parable_drive.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_DRIVE"
+      ],
+      "family": "4x-prepared-diode-table",
+      "hold": "Unmerged PAR006 prototype; superseded as general drive direction",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "documented primary fault or parameter corner",
+        "2": "healthy high-control corner"
+      }
+    },
+    {
+      "id": "gemini_cmos_candidate",
+      "adapter": "Cmos",
+      "category": "drive",
+      "commit": "057312b7b0d67344bcf8ba22e73e7c4df9dec89e",
+      "pr": 42,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_cmos.h",
+        "src/parable_cmos.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_CMOS",
+        "BENCH_GEMINI"
+      ],
+      "family": "same-CMOS-core/new-bias-leak",
+      "variant_of": "cmos",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "documented primary fault or parameter corner",
+        "2": "healthy high-control corner"
+      }
+    },
+    {
+      "id": "rat_pr81_reference",
+      "adapter": "Rat",
+      "category": "drive",
+      "commit": "11404fd192921d4e3a93c944856eacc888bb4b09",
+      "pr": 81,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_rat.h",
+        "src/parable_rat.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_RAT"
+      ],
+      "family": "PR81-isolated-experiment",
+      "variant_of": "rat",
+      "latency_fir_frames": 48,
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "diode_open",
+        "2": "healthy high-control corner",
+        "3": "ruetz",
+        "4": "compensation"
+      },
+      "modes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "rat_fir97",
+      "adapter": "Rat",
+      "category": "drive",
+      "commit": "11404fd192921d4e3a93c944856eacc888bb4b09",
+      "pr": 81,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_rat.h",
+        "src/parable_rat.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_RAT",
+        "PARABLE_RAT_BENCH_FIR97"
+      ],
+      "family": "PR81-isolated-experiment",
+      "variant_of": "rat",
+      "latency_fir_frames": 24,
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "diode_open",
+        "2": "healthy high-control corner",
+        "3": "ruetz",
+        "4": "compensation"
+      },
+      "modes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "rat_fir97_fp32",
+      "adapter": "Rat",
+      "category": "drive",
+      "commit": "11404fd192921d4e3a93c944856eacc888bb4b09",
+      "pr": 81,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_rat.h",
+        "src/parable_rat.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_RAT",
+        "PARABLE_RAT_BENCH_FIR97",
+        "PARABLE_RAT_BENCH_FLOATCLIP"
+      ],
+      "family": "PR81-isolated-experiment",
+      "variant_of": "rat",
+      "latency_fir_frames": 24,
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "diode_open",
+        "2": "healthy high-control corner",
+        "3": "ruetz",
+        "4": "compensation"
+      },
+      "modes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "rat_1x_cost_only",
+      "adapter": "Rat",
+      "category": "drive",
+      "commit": "11404fd192921d4e3a93c944856eacc888bb4b09",
+      "pr": 81,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_rat.h",
+        "src/parable_rat.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_RAT",
+        "PARABLE_RAT_BENCH_1X"
+      ],
+      "family": "PR81-isolated-experiment",
+      "variant_of": "rat",
+      "latency_fir_frames": 0,
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "diode_open",
+        "2": "healthy high-control corner",
+        "3": "ruetz",
+        "4": "compensation"
+      },
+      "hold": "CPU-only lower bound; anti-aliasing removed, never a fidelity candidate",
+      "modes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "germanium_libm",
+      "adapter": "Germanium",
+      "category": "drive",
+      "commit": "b2b1bf421d1dd6ca087edd0c87e824c55405ce0d",
+      "pr": 21,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_germanium.h",
+        "src/parable_germanium.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_GERMANIUM",
+        "PARABLE_GERMANIUM_EVALUATOR=0"
+      ],
+      "family": "PR21-unselected-evaluator",
+      "variant_of": "germanium",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "q1_leaky",
+        "2": "healthy high-control corner",
+        "3": "feedback_wrong"
+      },
+      "modes": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "germanium_hermite32",
+      "adapter": "Germanium",
+      "category": "drive",
+      "commit": "b2b1bf421d1dd6ca087edd0c87e824c55405ce0d",
+      "pr": 21,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_germanium.h",
+        "src/parable_germanium.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_GERMANIUM",
+        "PARABLE_GERMANIUM_EVALUATOR=1"
+      ],
+      "family": "PR21-unselected-evaluator",
+      "variant_of": "germanium",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "q1_leaky",
+        "2": "healthy high-control corner",
+        "3": "feedback_wrong"
+      },
+      "modes": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "germanium_hermite64",
+      "adapter": "Germanium",
+      "category": "drive",
+      "commit": "b2b1bf421d1dd6ca087edd0c87e824c55405ce0d",
+      "pr": 21,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_germanium.h",
+        "src/parable_germanium.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_GERMANIUM",
+        "PARABLE_GERMANIUM_EVALUATOR=2"
+      ],
+      "family": "PR21-unselected-evaluator",
+      "variant_of": "germanium",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "q1_leaky",
+        "2": "healthy high-control corner",
+        "3": "feedback_wrong"
+      },
+      "modes": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "germanium_polynomial8",
+      "adapter": "Germanium",
+      "category": "drive",
+      "commit": "b2b1bf421d1dd6ca087edd0c87e824c55405ce0d",
+      "pr": 21,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_germanium.h",
+        "src/parable_germanium.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_GERMANIUM",
+        "PARABLE_GERMANIUM_EVALUATOR=3"
+      ],
+      "family": "PR21-unselected-evaluator",
+      "variant_of": "germanium",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "q1_leaky",
+        "2": "healthy high-control corner",
+        "3": "feedback_wrong"
+      },
+      "modes": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "germanium_polynomial12",
+      "adapter": "Germanium",
+      "category": "drive",
+      "commit": "b2b1bf421d1dd6ca087edd0c87e824c55405ce0d",
+      "pr": 21,
+      "main_integrated": false,
+      "source_files": [
+        "include/parable_germanium.h",
+        "src/parable_germanium.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_GERMANIUM",
+        "PARABLE_GERMANIUM_EVALUATOR=4"
+      ],
+      "family": "PR21-unselected-evaluator",
+      "variant_of": "germanium",
+      "mode_labels": {
+        "0": "nominal healthy",
+        "1": "q1_leaky",
+        "2": "healthy high-control corner",
+        "3": "feedback_wrong"
+      },
+      "modes": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "bypass",
+      "adapter": "Utility",
+      "category": "utility",
+      "commit": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+      "pr": null,
+      "main_integrated": true,
+      "source_files": [
+        "include/parable_core.h",
+        "src/parable_rat.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_UTILITIES",
+        "BENCH_UTILITY_KIND=0"
+      ],
+      "family": "actual-native-Engine"
+    },
+    {
+      "id": "gain",
+      "adapter": "Utility",
+      "category": "utility",
+      "commit": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+      "pr": null,
+      "main_integrated": true,
+      "source_files": [
+        "include/parable_core.h",
+        "src/parable_rat.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_UTILITIES",
+        "BENCH_UTILITY_KIND=1"
+      ],
+      "family": "actual-native-Engine"
+    },
+    {
+      "id": "lowpass",
+      "adapter": "Utility",
+      "category": "utility",
+      "commit": "767a3c402b972fc20df8aea0729adf794f4b7a38",
+      "pr": null,
+      "main_integrated": true,
+      "source_files": [
+        "include/parable_core.h",
+        "src/parable_rat.cpp"
+      ],
+      "defines": [
+        "BENCH_USE_UTILITIES",
+        "BENCH_UTILITY_KIND=2"
+      ],
+      "family": "actual-native-Engine"
+    }
+  ],
+  "chains": [
+    {
+      "id": "chain_scorpio_gemini_rooms_0",
+      "members": [
+        "scorpio",
+        "gemini_rooms",
+        "tape_medium",
+        "rotary"
+      ],
+      "route": 0,
+      "routing": "serial-drive-mod-delay-verb"
+    },
+    {
+      "id": "chain_scorpio_gemini_rooms_1",
+      "members": [
+        "scorpio",
+        "gemini_rooms",
+        "tape_medium",
+        "rotary"
+      ],
+      "route": 1,
+      "routing": "parallel-preserved-clean"
+    },
+    {
+      "id": "chain_scorpio_gemini_rooms_2",
+      "members": [
+        "scorpio",
+        "gemini_rooms",
+        "tape_medium",
+        "rotary"
+      ],
+      "route": 2,
+      "routing": "bounded-feedback-around-serial"
+    },
+    {
+      "id": "chain_wavefolder_virgo_tiled_0",
+      "members": [
+        "wavefolder",
+        "virgo_tiled",
+        "tape_medium",
+        "rotary"
+      ],
+      "route": 0,
+      "routing": "serial-drive-mod-delay-verb"
+    },
+    {
+      "id": "chain_wavefolder_virgo_tiled_1",
+      "members": [
+        "wavefolder",
+        "virgo_tiled",
+        "tape_medium",
+        "rotary"
+      ],
+      "route": 1,
+      "routing": "parallel-preserved-clean"
+    },
+    {
+      "id": "chain_wavefolder_virgo_tiled_2",
+      "members": [
+        "wavefolder",
+        "virgo_tiled",
+        "tape_medium",
+        "rotary"
+      ],
+      "route": 2,
+      "routing": "bounded-feedback-around-serial"
+    },
+    {
+      "id": "chain_rat_leo_hall_0",
+      "members": [
+        "rat",
+        "leo_hall",
+        "tape_medium",
+        "rotary"
+      ],
+      "route": 0,
+      "routing": "serial-drive-mod-delay-verb"
+    },
+    {
+      "id": "chain_rat_leo_hall_1",
+      "members": [
+        "rat",
+        "leo_hall",
+        "tape_medium",
+        "rotary"
+      ],
+      "route": 1,
+      "routing": "parallel-preserved-clean"
+    },
+    {
+      "id": "chain_rat_leo_hall_2",
+      "members": [
+        "rat",
+        "leo_hall",
+        "tape_medium",
+        "rotary"
+      ],
+      "route": 2,
+      "routing": "bounded-feedback-around-serial"
+    },
+    {
+      "id": "chain_muff_virgo_tiled_0",
+      "members": [
+        "muff",
+        "virgo_tiled",
+        "tape_medium",
+        "rotary"
+      ],
+      "route": 0,
+      "routing": "serial-drive-mod-delay-verb"
+    },
+    {
+      "id": "chain_muff_virgo_tiled_1",
+      "members": [
+        "muff",
+        "virgo_tiled",
+        "tape_medium",
+        "rotary"
+      ],
+      "route": 1,
+      "routing": "parallel-preserved-clean"
+    },
+    {
+      "id": "chain_muff_virgo_tiled_2",
+      "members": [
+        "muff",
+        "virgo_tiled",
+        "tape_medium",
+        "rotary"
+      ],
+      "route": 2,
+      "routing": "bounded-feedback-around-serial"
+    }
+  ],
+  "exclusions": [
+    {
+      "pr": 78,
+      "reason": "Wallace host routing experiment; uses existing kernels; source routing must still be inventoried"
+    },
+    {
+      "pr": 79,
+      "reason": "Offline cabinet-IR research; not a bounded realtime native cabinet processor"
+    },
+    {
+      "local": "SF026",
+      "reason": "Unpublished incomplete Level-Loc workspace; new assignment supersedes its active work, preserved separately"
+    }
+  ]
+}

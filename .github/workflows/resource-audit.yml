@@ -1,0 +1,33 @@
+name: DSP resource infrastructure
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['parable-starter/tools/resources/**', 'parable-starter/tests/test_resources.py', 'parable-starter/tests/fixtures/resources/**', 'parable-starter/src/**', 'parable-starter/include/**', '.github/workflows/resource-audit.yml']
+  push:
+    paths: ['parable-starter/tools/resources/**', 'parable-starter/tests/test_resources.py', 'parable-starter/tests/fixtures/resources/**', 'parable-starter/src/**', 'parable-starter/include/**', '.github/workflows/resource-audit.yml']
+permissions:
+  contents: read
+jobs:
+  host-resource-screen:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Fetch exact historical sources required by infrastructure regression
+        run: |
+          git fetch --no-tags --depth=1 origin 767a3c402b972fc20df8aea0729adf794f4b7a38
+          git fetch --no-tags --depth=1 origin 421f31489fab1050985697003c5f74527763f979
+          git fetch --no-tags --depth=1 origin 11404fd192921d4e3a93c944856eacc888bb4b09
+      - name: Test catalog, counters, capture rejection and actual sanitized chain
+        run: python3 -m unittest discover -s parable-starter/tests -p test_resources.py -v
+      - name: Compile current checkout kernels before timing
+        run: python3 parable-starter/tools/resources/run.py --output build/resources --current-checkout --only rat cmos germanium muff ts808 klon wavefolder scorpio tape_medium rotary bypass gain lowpass --compile-only
+      - name: Screen actual current kernels without background compilation
+        run: python3 parable-starter/tools/resources/run.py --output build/resources --current-checkout --only rat cmos germanium muff ts808 klon wavefolder scorpio tape_medium rotary bypass gain lowpass --reuse-builds --frames 480 --signals pluck high_note invalid extreme denormal
+      - name: Retain source fingerprints and negative findings
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: resource-host-screen-${{ github.sha }}
+          path: build/resources/*.json
+          if-no-files-found: warn
