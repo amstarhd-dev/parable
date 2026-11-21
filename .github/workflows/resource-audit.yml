@@ -2,9 +2,9 @@ name: DSP resource infrastructure
 on:
   workflow_dispatch:
   pull_request:
-    paths: ['parable-starter/tools/resources/**', 'parable-starter/tests/test_resources.py', 'parable-starter/tests/fixtures/resources/**', 'parable-starter/src/**', 'parable-starter/include/**', '.github/workflows/resource-audit.yml']
+    paths: ['parable-starter/tools/resources/**', 'parable-starter/tests/test_resources.py', 'parable-starter/tests/test_seed3_runner.py', 'parable-starter/tests/fixtures/resources/**', 'parable-starter/src/**', 'parable-starter/include/**', '.github/workflows/resource-audit.yml']
   push:
-    paths: ['parable-starter/tools/resources/**', 'parable-starter/tests/test_resources.py', 'parable-starter/tests/fixtures/resources/**', 'parable-starter/src/**', 'parable-starter/include/**', '.github/workflows/resource-audit.yml']
+    paths: ['parable-starter/tools/resources/**', 'parable-starter/tests/test_resources.py', 'parable-starter/tests/test_seed3_runner.py', 'parable-starter/tests/fixtures/resources/**', 'parable-starter/src/**', 'parable-starter/include/**', '.github/workflows/resource-audit.yml']
 permissions:
   contents: read
 jobs:
@@ -20,6 +20,8 @@ jobs:
           git fetch --no-tags --depth=1 origin 11404fd192921d4e3a93c944856eacc888bb4b09
       - name: Test catalog, counters, capture rejection and actual sanitized chain
         run: python3 -m unittest discover -s parable-starter/tests -p test_resources.py -v
+      - name: Simulate the Seed3 runner and sanitize the actual firmware command parser
+        run: python3 -m unittest discover -s parable-starter/tests -p test_seed3_runner.py -v
       - name: Compile current checkout kernels before timing
         run: python3 parable-starter/tools/resources/run.py --output build/resources --current-checkout --only rat cmos germanium muff ts808 klon wavefolder scorpio tape_medium rotary bypass gain lowpass --compile-only
       - name: Screen actual current kernels without background compilation

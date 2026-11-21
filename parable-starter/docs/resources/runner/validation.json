@@ -1,0 +1,38 @@
+{
+  "schema": "parable.runner-validation.v1",
+  "parent_pr": 83,
+  "parent_commit": "3d091127f154847c6938ff909ceecc1ca942ac85",
+  "manifest_sha256": "f2c156bb74dd792b273e7f5a33d66ca75c7d676b6a5a7bdd534e723ada2f5fe3",
+  "tests": [
+    {
+      "command": "python3 -m unittest discover -s parable-starter/tests -p test_resources.py -v",
+      "phase": "pre-edit",
+      "passed": 8,
+      "seconds": 10.619
+    },
+    {
+      "command": "python3 -m unittest discover -s parable-starter/tests -p test_resources.py -v",
+      "phase": "regression",
+      "passed": 8,
+      "seconds": 9.551
+    },
+    {
+      "command": "python3 -m unittest discover -s parable-starter/tests -p test_seed3_runner.py -v",
+      "phase": "final-protocol-and-state",
+      "passed": 16,
+      "seconds": 2.029
+    }
+  ],
+  "arm_links": 15,
+  "arm_handoff_elf_audits": 15,
+  "original_dsp_source_closures_preserved": 15,
+  "host": "Linux x86_64; Python 3.12.14; GNU C++ 14.2.0",
+  "physical_rom_transition": "NOT TESTED",
+  "physical_15_image_acceptance": "NOT TESTED",
+  "macos_10_13_execution": "NOT TESTED",
+  "python_3_6_execution": "NOT TESTED; syntax/API compatibility audited only",
+  "audio_listening": "not performed; no DSP changes",
+  "daisy_runtime_performance": "NOT MEASURED; no physical reports supplied",
+  "report_only_default_link": "PASS; no control protocol or handoff section",
+  "descriptor_correction": "See descriptor-correction.json: 26 focused tests pass; firmware unchanged; physical handoff unproven"
+}
