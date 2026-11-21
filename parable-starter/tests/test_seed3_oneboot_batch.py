@@ -75,21 +75,21 @@ class Batch(unittest.TestCase):
             backend.wait_dfu=mock.Mock(return_value=device)
             backend.selectors=mock.Mock(return_value=['dfu-util','-a','0'])
             binary=Path(t)/'test.bin';binary.write_bytes(b'abc')
-            complete=('Erase done.\\nDownload done.\\nFile downloaded successfully\\n'
-                      'Submitting leave request...\\ndfu-util: Error during download get_status\\n')
+            complete=('Erase done.\nDownload done.\nFile downloaded successfully\n'
+                      'Submitting leave request...\ndfu-util: Error during download get_status\n')
             with mock.patch.object(one.subprocess,'run',return_value=mock.Mock(
                     returncode=74,stdout=complete.encode())) as call:
                 backend.flash_selected(device,binary)
                 self.assertEqual(call.call_count,1)
                 self.assertEqual((Path(t)/'flash-01.log').read_text(),complete)
             # It MUST NOT treat any earlier write error as a completed flash.
-            for failing in ('Erase done.\\nDownload done.\\nSubmitting leave request...\\n'
-                            'dfu-util: Error during download get_status\\n',
-                            'Erase done.\\nDownload done.\\nFile downloaded successfully\\n'
-                            'dfu-util: Error during download get_status\\n',
-                            'Erase done.\\nDownload done.\\nFile downloaded successfully\\n'
-                            'Submitting leave request...\\ndfu-util: Error during download get_status\\n'
-                            'dfu-util: second failure\\n'):
+            for failing in ('Erase done.\nDownload done.\nSubmitting leave request...\n'
+                            'dfu-util: Error during download get_status\n',
+                            'Erase done.\nDownload done.\nFile downloaded successfully\n'
+                            'dfu-util: Error during download get_status\n',
+                            'Erase done.\nDownload done.\nFile downloaded successfully\n'
+                            'Submitting leave request...\ndfu-util: Error during download get_status\n'
+                            'dfu-util: second failure\n'):
                 with mock.patch.object(one.subprocess,'run',return_value=mock.Mock(
                         returncode=74,stdout=failing.encode())):
                     with self.assertRaisesRegex(r.Stop, 'STOP|confirm'):
