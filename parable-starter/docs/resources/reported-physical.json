@@ -1,0 +1,34 @@
+{
+  "schema": "parable.reported-physical.v1",
+  "core_hz": 480000000,
+  "sample_rate": 48000,
+  "block_frames": 48,
+  "deadline_cycles": 480000,
+  "scope": "callback-body measurements; unconnected audio; incomplete SDK/ISR overhead; not WCET",
+  "records": [
+    {
+      "id": "rat_4x193_double",
+      "max_callback_cycles": 370915,
+      "fraction_of_nominal_block": 0.7727395833333334,
+      "source": "founder-confirmed physical Seed3 observations supplied in assignment",
+      "exact_artifact_binding": null,
+      "source_bound_admission": false
+    },
+    {
+      "id": "rat_4x97_double",
+      "max_callback_cycles": 270757,
+      "fraction_of_nominal_block": 0.5640770833333333,
+      "source": "founder-confirmed physical Seed3 observations supplied in assignment",
+      "exact_artifact_binding": null,
+      "source_bound_admission": false
+    },
+    {
+      "id": "rat_4x97_fp32_clip",
+      "max_callback_cycles": 235475,
+      "fraction_of_nominal_block": 0.4905729166666667,
+      "source": "founder-confirmed physical Seed3 observations supplied in assignment",
+      "exact_artifact_binding": null,
+      "source_bound_admission": false
+    }
+  ]
+}

@@ -264,3 +264,10 @@ accepts bounded mono PCM16 without changing DSP code. No real-guitar or hardware
 proof is claimed. PAR-008 adds the explicit patch-v1/Engine adapter; the PAR-006
 processor is not substituted for the RAT. Historical factory revision, full
 LM308/JFET dynamics and faulty-buffer headroom remain unverified.
+
+## Proposed batch resource audit
+
+See [the resource matrix and reproducible host/ARM harness](docs/resources/README.md)
+for35 source/build identities and12 mixed-chain configurations. This is admission
+evidence with explicit numerical, memory and target holds; existing DSP/firmware
+behavior is unchanged and no new hardware performance is claimed.

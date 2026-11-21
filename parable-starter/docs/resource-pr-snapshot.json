@@ -1,0 +1,338 @@
+[
+  {
+    "number": 82,
+    "title": "PAR-RES-001: inventory 21 voices and gate Seed3 resource admission",
+    "head": "engineering/seed3-resource-admission-v1",
+    "sha": "067da922edc0bde7c2d3187dfcaf5fe3993af097",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 81,
+    "title": "Bench: RAT 4x97 FIR + FP32 clip vs 4x193/1x on Seed3 (experimental)",
+    "head": "bench/seed3-rat-1x-cycles",
+    "sha": "11404fd192921d4e3a93c944856eacc888bb4b09",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 80,
+    "title": "SF-025: Virgo Tiled Room and one diffuser-recirculation fault",
+    "head": "sf-025",
+    "sha": "352118af7c0c6e4cb4e115a00b9c237937f789f1",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 79,
+    "title": "SF-024: real cabinet IRs and a preserved clean guitar path",
+    "head": "sf-024",
+    "sha": "53aaf989339f8049b8f7fd1bf4188bdb95a50a60",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 78,
+    "title": "SF-023: Wallace serial versus parallel console listening experiment",
+    "head": "sf-023",
+    "sha": "06e54dbf797c708f46a5890cf97a4c1839952d63",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 77,
+    "title": "SF-022: complete borrowed grand hall and coherent-reflection fault",
+    "head": "sf-022",
+    "sha": "21905d5ca171c1cb98d2e228dda33beac039ac4a",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 76,
+    "title": "SF-021: borrowed Cloud chamber and one microphone-return gain fault",
+    "head": "sf-021",
+    "sha": "249ff07943356ae1a761800c74a2ed4eb405be5c",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 74,
+    "title": "SF-020: experimental Gemini coupled rooms and one return polarity fault",
+    "head": "sf-020",
+    "sha": "421f31489fab1050985697003c5f74527763f979",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 72,
+    "title": "SF-019: Jupiter Taurus Dattorro-style plate with reduced mount contact (experimental)",
+    "head": "sf-019-jupiter-taurus-plate",
+    "sha": "bff69f7b0ebce5a1f6ed7d0fd72796d5aa1c9405",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 70,
+    "title": "SF-013: Libra complementary feedback overdrive and one RB1 bias fault",
+    "head": "sf-013",
+    "sha": "9bacd58af4b3a7a4215ff5c32d79b6a70ce1272f",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 69,
+    "title": "SF-018: Capricorn 1978 DS-1 family and one C4-open fault",
+    "head": "sf-018",
+    "sha": "d3ab8addaa2941e747c88d7de3f137027e6c842d",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 67,
+    "title": "SF-017: Scorpio transistor/transformer drive and one R3 bias fault",
+    "head": "sf-017",
+    "sha": "52b66999fc973edcf6cba2600f48c77a6ce38dfa",
+    "merged": true,
+    "state": "closed"
+  },
+  {
+    "number": 65,
+    "title": "SF-TEST-PERF-001: bounded parallel verification with unchanged DSP",
+    "head": "sf-test-perf-001",
+    "sha": "abc1f2b0c8cee8b1f562397f94250e0bd1eee8a2",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 63,
+    "title": "SF-016: original-style Blender and open-D1 research (draft: high-note gates fail)",
+    "head": "sf-016",
+    "sha": "15d90d21ebaa56057e07365f29adfd828875375e",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 61,
+    "title": "SF-015: experimental original-FZ1-style circuit, causal feed fault and listening evidence",
+    "head": "sf-015",
+    "sha": "fc9f3eb4d583bf8307f8a5900255976683e47373",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 59,
+    "title": "SF-014: loaded Lockhart wavefolder and one causal feed-resistor fault",
+    "head": "sf-014",
+    "sha": "2970360ee46d05e77cd2835b6a10af97aa58eddb",
+    "merged": true,
+    "state": "closed"
+  },
+  {
+    "number": 56,
+    "title": "SF-012: moving magnetic tape saturation and causal underbias listening study",
+    "head": "sf-012",
+    "sha": "5c7a481b92fd2d137c8f6eee2f9fc1af6f2d8a10",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 54,
+    "title": "SF-011: original-style Klon and one clean-gang wiper contact",
+    "head": "sf-011",
+    "sha": "07321edbe7b894a323e9155a60bfc8a7fcd4a10a",
+    "merged": true,
+    "state": "closed"
+  },
+  {
+    "number": 52,
+    "title": "SF-010: TS808 feedback circuit and one truly open diode, with listening evidence",
+    "head": "sf-010",
+    "sha": "dd81c923127b32027bc5420299adc63a36a5dc2a",
+    "merged": true,
+    "state": "closed"
+  },
+  {
+    "number": 50,
+    "title": "SF-009: V3 sustain fuzz and high-R15 bias experiment (choke hypothesis failed)",
+    "head": "sf-009",
+    "sha": "bdecc9db45806db6befcb34fbc064671e5146788",
+    "merged": true,
+    "state": "closed"
+  },
+  {
+    "number": 48,
+    "title": "SF-008: spring reverb A/B with passive displaced-support crash",
+    "head": "sf-008",
+    "sha": "9f8548cebb572c0b73f8ae12bb0a24873b8f11af",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 46,
+    "title": "SF-007: two-rotor guitar A/B with worn horn-belt slip and catch-up",
+    "head": "sf-007",
+    "sha": "b06f01e8edc2161dfd3b53e40612856b5ddc4e8c",
+    "merged": true,
+    "state": "closed"
+  },
+  {
+    "number": 44,
+    "title": "SF-006: tape echo with component-causal weak erase and audible retained A/B",
+    "head": "sf-006",
+    "sha": "fdc9d1cccfe22cd56ed7242bfcd9c9d05f9cbc48",
+    "merged": true,
+    "state": "closed"
+  },
+  {
+    "number": 42,
+    "title": "SF-005: Gemini CMOS healthy vs bias-leak guitar A/B and bounded Engine integration",
+    "head": "sf-005",
+    "sha": "057312b7b0d67344bcf8ba22e73e7c4df9dec89e",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 40,
+    "title": "PAR-012: bounded living-source replay and prepared Engine control proof",
+    "head": "par-012",
+    "sha": "9c482c19f07614e8de40663295ecdc6ea3117345",
+    "merged": true,
+    "state": "closed"
+  },
+  {
+    "number": 37,
+    "title": "PAR-WEAR-001: Apple Watch direct live optical PPG feasibility — NO-GO",
+    "head": "par-wear-001",
+    "sha": "2be39027690a2b0c677b73515c2b8234ce311039",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 33,
+    "title": "PAR-011: bounded prepared Engine activation with generational retirement",
+    "head": "par-011",
+    "sha": "86515be9dc7d1ba488d27709ce29bbc7ce8cc607",
+    "merged": true,
+    "state": "closed"
+  },
+  {
+    "number": 31,
+    "title": "PAR-010: four-slot canonical preset journal with simulated power-cut proof",
+    "head": "par-010",
+    "sha": "e4c84a1d61a2f69e66f12b322e50dfb3c131a3ec",
+    "merged": true,
+    "state": "closed"
+  },
+  {
+    "number": 30,
+    "title": "PAR-009: Seed3 first-boot kit, ROM-DFU recovery and bounded DWT hooks",
+    "head": "par-009",
+    "sha": "61ef98c643474954bd411ae45dc161ffc42b1088",
+    "merged": true,
+    "state": "closed"
+  },
+  {
+    "number": 27,
+    "title": "PAR-008: canonical RAT serial playback, host WAVs and active ARM link proof",
+    "head": "par-008",
+    "sha": "47d8be4ac720ac4a781803e665640a2968610b85",
+    "merged": true,
+    "state": "closed"
+  },
+  {
+    "number": 23,
+    "title": "SF004 research: physical BJT interfaces, continuous islands and feasibility limits",
+    "head": "sf-004-research",
+    "sha": "2b86a571ae194bbfe27f726deff3098680e9eebc",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 21,
+    "title": "SF003-PERF: validate GP approximations; retain libm after mixed host results",
+    "head": "sf-003-perf",
+    "sha": "b2b1bf421d1dd6ca087edd0c87e824c55405ce0d",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 19,
+    "title": "SF-003: causal PNP germanium fuzz with leakage, loading and Soundforge evidence",
+    "head": "sf-003-germanium",
+    "sha": "8ae5dc9cbe9985b1d60efc6f272fa117f982d790",
+    "merged": true,
+    "state": "closed"
+  },
+  {
+    "number": 17,
+    "title": "SF-002: source-derived CD4049 distortion and measured Soundforge reuse",
+    "head": "sf-002-cmos-inverter",
+    "sha": "b363556c0c71d7cf182c4f299ce7357d7d3328ff",
+    "merged": true,
+    "state": "closed"
+  },
+  {
+    "number": 15,
+    "title": "SF-001: bootstrap Soundforge host lab and evidence registry",
+    "head": "sf-001-soundforge-bootstrap",
+    "sha": "b36b16aa6ca584af361e04e2a048d8f40c081e35",
+    "merged": true,
+    "state": "closed"
+  },
+  {
+    "number": 13,
+    "title": "PAR-007: sourced LabRAT model, component faults and SPICE/WAV evidence",
+    "head": "par-007-labrat",
+    "sha": "0a8e5a598fb34682771a0e645fdc7b225a7b8c90",
+    "merged": true,
+    "state": "closed"
+  },
+  {
+    "number": 11,
+    "title": "PAR-006: experimental native diode drive and downloadable WAV auditions",
+    "head": "par-006-drive-lab",
+    "sha": "cacdc28f533355167ed667b417ef195569aba48f",
+    "merged": false,
+    "state": "open"
+  },
+  {
+    "number": 9,
+    "title": "PAR-005: reproducible ARM builds and Seed3 flash/SRAM/QSPI resource baseline",
+    "head": "par-005-arm-baseline",
+    "sha": "58997ba8cba2fa68359f7cb96f19bbf0dbfc9e18",
+    "merged": true,
+    "state": "closed"
+  },
+  {
+    "number": 7,
+    "title": "PAR-004: bridge validated patches to native host playback",
+    "head": "par-004-host-preparation",
+    "sha": "d8af52d4a9faf8be8190c6e7f5bebcd723c5a81c",
+    "merged": true,
+    "state": "closed"
+  },
+  {
+    "number": 5,
+    "title": "PAR-002: add canonical JSON patch contract and validation",
+    "head": "par-002-json-contract",
+    "sha": "ba996efc2b27f045f1ae3d1d224af0256a8dfb07",
+    "merged": true,
+    "state": "closed"
+  },
+  {
+    "number": 4,
+    "title": "PAR-003: prevent non-finite audio and filter-state poisoning",
+    "head": "par-003-finite-audio",
+    "sha": "6edcbf3875c8205b5f503c92ace9831093ee6a8f",
+    "merged": true,
+    "state": "closed"
+  },
+  {
+    "number": 1,
+    "title": "PAR-001: establish host baseline and propose patch authority",
+    "head": "par-001-production-baseline",
+    "sha": "1faf7b7a820ab80be73087bb1628bfe5a9d00c7b",
+    "merged": true,
+    "state": "closed"
+  }
+]

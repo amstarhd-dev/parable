@@ -957,3 +957,15 @@ results; original logs retained. See[SF017_REPORT.md](SF017_REPORT.md) and
 remote checks remain unverified. ARM object/layout/calls audited;
 hardware cycles/boot/audio and physical magnetic/device fidelity **not tested**.
 Founder musical audition/approval **pending**; generated audio is not approval.
+
+## Proposed batch library resource baseline (unmerged)
+
+[Resource audit](resources/README.md):21 primary voices across main/open PRs,35
+native build identities,12 laboratory chains,1738 host scenarios. Production
+DSP/contracts/firmware unchanged. Eight focused infrastructure tests pass, including
+ASan/UBSan on actual processors;46/47 SDK-compatible ARM profiles compile, with
+the plate exception-policy failure retained. Fifteen BOOT_NONE benchmark images
+link and are published with fingerprints. No new board execution/admission,
+optimization-quality approval or all-chart capacity guarantee. Cloud preparation
+lifetime, native solver stress failures, placement/stack/ISR and target chain
+measurements remain explicit holds. PR81/82 are reviewed, not merged.

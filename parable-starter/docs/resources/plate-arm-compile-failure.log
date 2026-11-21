@@ -1,0 +1,4 @@
+/workspace/work/resource-arm-final/sources/bff69f7b0ebce5a1f6ed7d0fd72796d5aa1c9405/src/parable_plate.cpp: In member function 'bool parable::dsp::Plate::prepare(float, parable::dsp::PlateControls)':
+/workspace/work/resource-arm-final/sources/bff69f7b0ebce5a1f6ed7d0fd72796d5aa1c9405/src/parable_plate.cpp:54:33: error: exception handling disabled, use '-fexceptions' to enable
+   54 |     } catch(const std::bad_alloc&) {return false;}
+      |                                 ^
