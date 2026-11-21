@@ -440,8 +440,14 @@ class Runner(unittest.TestCase):
                 elf = archive.read(str(Path(a['bin_file']).with_suffix('.elf.gz')))
                 self.assertEqual(runner.sha(gzip.decompress(elf)), a['elf_sha256'])
                 for name, digest in a['configuration']['harness_sha256'].items():
-                    source = HERE / name if name != 'runtime_measurement.h' else HERE.parents[1] / 'firmware' / name
-                    self.assertEqual(runner.sha(source.read_bytes()), digest)
+                    # A historical released ZIP must match its *bundled historical*
+                    # sources, even after this PR evolves the next firmware. Do
+                    # not compare an old release to a newer checkout source.
+                    if name == 'runtime_measurement.h':
+                        source_bytes = (HERE.parents[1] / 'firmware' / name).read_bytes()
+                    else:
+                        source_bytes = archive.read('harness-source/' + name)
+                    self.assertEqual(runner.sha(source_bytes), digest)
             runner.load_kit(root / 'artifacts.json', receipt['manifest_sha256'])
             old = json.loads((evidence.parent / 'artifacts.json').read_text())
             parents = {a['artifact_id']: a for a in old['artifacts']}
