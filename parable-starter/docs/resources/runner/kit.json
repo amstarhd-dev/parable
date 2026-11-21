@@ -1,0 +1,10 @@
+{
+  "schema": "parable.runner-kit.v1",
+  "file": "seed3-runner-v1-f2c156bb74dd.zip",
+  "bytes": 12235696,
+  "sha256": "fc34f37457979981c7ba44f7b63a8884b7f40a69df7d4fb9aa60c5ba4da1d428",
+  "manifest_sha256": "f2c156bb74dd792b273e7f5a33d66ca75c7d676b6a5a7bdd534e723ada2f5fe3",
+  "runner_sha256": "0ccbbdc43fb6bde6f75d650ab9c053cbcf8a9441e86063b71014e2413eabf8d6",
+  "images": 15,
+  "physical_acceptance_tested": false
+}

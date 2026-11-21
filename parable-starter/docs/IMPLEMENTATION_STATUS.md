@@ -1,5 +1,17 @@
 # Implementation status and reproducible baseline
 
+## Automated Seed3 benchmark runner — unmerged proposal
+
+[Guide / exact commands / physical gate](resources/RUNNER.md),
+[prior-art and reset design](resources/RUNNER_GATE0.md),
+[software/link evidence](resources/runner/validation.json).
+15 updated BOOT_NONE images compile/link with original DSP source closures;
+24 focused host regressions/protocol tests pass, including ASan/UBSan.
+Benchmark-only CDC control and early reset handoff; no production boot/DSP change.
+Physical ROM access, software DFU return, full unattended batch, High Sierra
+execution and new Seed3 performance measurements are **not tested**.
+Batch requires a separate successful physical probe; no musical claim.
+
 ## SF-014 — experimental standalone Lockhart / one feed resistor
 
 [Gate0](SF014_GATE0.md), [ADR014](adr/ADR-014-lockhart-feed-resistor.md),
