@@ -1,0 +1,215 @@
+{
+  "schema": "parable.ram-startup.v2",
+  "version": "v0.2",
+  "code_address": 604241920,
+  "code_limit": 4096,
+  "mailbox_address": 604246016,
+  "mailbox_bytes": 128,
+  "trace_address": 604250112,
+  "trace_bytes": 1024,
+  "images": [
+    {
+      "name": "entry",
+      "mode": 0,
+      "artifact_id": "76977bc1edb287decd09286e57859287733f35144b7650bd6354b1287d2ac9fd",
+      "configuration": {
+        "schema": "parable.ram-startup-build.v1",
+        "mode": 0,
+        "pins": {
+          "toolchain": {
+            "version": "14.2.1",
+            "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+            "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+            "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+            "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+          },
+          "libdaisy": {
+            "url": "https://github.com/daisyaudio/libDaisy.git",
+            "commit": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+            "submodules": {
+              "Drivers/CMSIS-DSP": "3a04f817a4380c00ff51f9bcdc6c4e4bb7a18b80",
+              "Drivers/CMSIS-Device/ST/STM32H7xx": "6dac8c24d7b38ab20806d27dd7d8285a6433b8f7",
+              "Drivers/CMSIS_5": "2b7495b8535bdcb306dac29b9ded4cfb679d7e5c",
+              "Drivers/STM32H7xx_HAL_Driver": "404a70d4c19c124636c78801ff7c0dbc87bc4256",
+              "Middlewares/ST/STM32_USB_Device_Library": "7b5e6886d2f11ad15d2b46364e8a96984358f639"
+            }
+          },
+          "json": {
+            "url": "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz",
+            "sha256": "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d",
+            "directory": "json"
+          },
+          "target": {
+            "cpu": "cortex-m7",
+            "fpu": "fpv5-d16",
+            "float_abi": "hard",
+            "layouts": {
+              "BOOT_NONE": "core/STM32H750IB_flash.lds",
+              "BOOT_SRAM": "core/STM32H750IB_sram.lds",
+              "BOOT_QSPI": "core/STM32H750IB_qspi.lds"
+            }
+          },
+          "bootloader_audit": {
+            "bundled_binary": "core/dsy_bootloader_v6_4-intdfu-2000ms.bin",
+            "sha256": "76296b6bd625e5e5dbeba2431619a0ed90ae2c0a3a99258df00a64a0b8b9ec35",
+            "source_url": "https://github.com/daisyaudio/DaisyBootloader",
+            "source_commit": "8b279a8e25922b786c24a6cbd1d499cdc1e76934",
+            "source_libdaisy_gitlink": "24be4afea00d71988019fe8dd9fd9fc8fc5bf72c",
+            "status": "binary hash verified; source audited, not rebuilt; Seed3 boot/hardware compatibility unverified"
+          }
+        },
+        "sources": {
+          "entry.S": "0f0df99f1b71e1a3e7455d251438b8fa58a00ccc475d40f6d884b02bace94b4f",
+          "diagnostic.cpp": "c8a99847ddfa35ae09b199d02bcb424da2b0c541675cf4efe94982cde23dc9ed",
+          "diagnostic.ld": "728f7208630693e2226920335d973759bffab81d95e2ede8e68b19d8b13afec3",
+          "build.py": "8d026bdd5936ab9ea8fd3ba82c01c82a4572616f1cc17ae4647ae19deb2224f7",
+          "protocol.h": "f01d4139854905b8ee9a91117ebed7c1634f3cfd3794670109086be78afb2733"
+        },
+        "compiler_sha256": "45b67f0cb647f69b0fbd0512b43f7d257458916ca77c8fd538708309845ff76c"
+      },
+      "bin_file": "entry/diagnostic.bin",
+      "bin_sha256": "fa0cd41a684872aab16666e2ba6c837fabdefdfadcafbfc1a64e110e49f3a27a",
+      "bin_bytes": 944,
+      "elf_sha256": "461a86e59a96ec4588aff425a30a3cdd8bed72d975f9bce4840c5d20c8315cfd",
+      "initial_msp": 537001920,
+      "main_msp": 537001920,
+      "expected_halt_stage": 2
+    },
+    {
+      "name": "startup",
+      "mode": 1,
+      "artifact_id": "609214d5c0e8658bdd4d78819bdb727e5582cc680d86ce23d8ab44802b944913",
+      "configuration": {
+        "schema": "parable.ram-startup-build.v1",
+        "mode": 1,
+        "pins": {
+          "toolchain": {
+            "version": "14.2.1",
+            "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+            "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+            "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+            "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+          },
+          "libdaisy": {
+            "url": "https://github.com/daisyaudio/libDaisy.git",
+            "commit": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+            "submodules": {
+              "Drivers/CMSIS-DSP": "3a04f817a4380c00ff51f9bcdc6c4e4bb7a18b80",
+              "Drivers/CMSIS-Device/ST/STM32H7xx": "6dac8c24d7b38ab20806d27dd7d8285a6433b8f7",
+              "Drivers/CMSIS_5": "2b7495b8535bdcb306dac29b9ded4cfb679d7e5c",
+              "Drivers/STM32H7xx_HAL_Driver": "404a70d4c19c124636c78801ff7c0dbc87bc4256",
+              "Middlewares/ST/STM32_USB_Device_Library": "7b5e6886d2f11ad15d2b46364e8a96984358f639"
+            }
+          },
+          "json": {
+            "url": "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz",
+            "sha256": "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d",
+            "directory": "json"
+          },
+          "target": {
+            "cpu": "cortex-m7",
+            "fpu": "fpv5-d16",
+            "float_abi": "hard",
+            "layouts": {
+              "BOOT_NONE": "core/STM32H750IB_flash.lds",
+              "BOOT_SRAM": "core/STM32H750IB_sram.lds",
+              "BOOT_QSPI": "core/STM32H750IB_qspi.lds"
+            }
+          },
+          "bootloader_audit": {
+            "bundled_binary": "core/dsy_bootloader_v6_4-intdfu-2000ms.bin",
+            "sha256": "76296b6bd625e5e5dbeba2431619a0ed90ae2c0a3a99258df00a64a0b8b9ec35",
+            "source_url": "https://github.com/daisyaudio/DaisyBootloader",
+            "source_commit": "8b279a8e25922b786c24a6cbd1d499cdc1e76934",
+            "source_libdaisy_gitlink": "24be4afea00d71988019fe8dd9fd9fc8fc5bf72c",
+            "status": "binary hash verified; source audited, not rebuilt; Seed3 boot/hardware compatibility unverified"
+          }
+        },
+        "sources": {
+          "entry.S": "0f0df99f1b71e1a3e7455d251438b8fa58a00ccc475d40f6d884b02bace94b4f",
+          "diagnostic.cpp": "c8a99847ddfa35ae09b199d02bcb424da2b0c541675cf4efe94982cde23dc9ed",
+          "diagnostic.ld": "728f7208630693e2226920335d973759bffab81d95e2ede8e68b19d8b13afec3",
+          "build.py": "8d026bdd5936ab9ea8fd3ba82c01c82a4572616f1cc17ae4647ae19deb2224f7",
+          "protocol.h": "f01d4139854905b8ee9a91117ebed7c1634f3cfd3794670109086be78afb2733"
+        },
+        "compiler_sha256": "45b67f0cb647f69b0fbd0512b43f7d257458916ca77c8fd538708309845ff76c"
+      },
+      "bin_file": "startup/diagnostic.bin",
+      "bin_sha256": "b71fb0c2c88c95a292daaeb956e4f0b089fa2e0c1a69d8ed662663a3102326e5",
+      "bin_bytes": 1908,
+      "elf_sha256": "6c2176b29af073001745341b5dfaf8d094a6bb85f0737f1de5cd09b56f715fcd",
+      "initial_msp": 537001920,
+      "main_msp": 537001920,
+      "expected_halt_stage": 17
+    },
+    {
+      "name": "reset",
+      "mode": 2,
+      "artifact_id": "a81f6ddb30f6870224ed3cb2b7d7777465c470ebf133e544e38b133ff6bb5b92",
+      "configuration": {
+        "schema": "parable.ram-startup-build.v1",
+        "mode": 2,
+        "pins": {
+          "toolchain": {
+            "version": "14.2.1",
+            "distribution": "xPack GNU Arm Embedded GCC 14.2.1-1.1",
+            "url": "https://github.com/xpack-dev-tools/arm-none-eabi-gcc-xpack/releases/download/v14.2.1-1.1/xpack-arm-none-eabi-gcc-14.2.1-1.1-linux-x64.tar.gz",
+            "sha256": "ed8c7d207a85d00da22b90cf80ab3b0b2c7600509afadf6b7149644e9d4790a6",
+            "directory": "xpack-arm-none-eabi-gcc-14.2.1-1.1"
+          },
+          "libdaisy": {
+            "url": "https://github.com/daisyaudio/libDaisy.git",
+            "commit": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+            "submodules": {
+              "Drivers/CMSIS-DSP": "3a04f817a4380c00ff51f9bcdc6c4e4bb7a18b80",
+              "Drivers/CMSIS-Device/ST/STM32H7xx": "6dac8c24d7b38ab20806d27dd7d8285a6433b8f7",
+              "Drivers/CMSIS_5": "2b7495b8535bdcb306dac29b9ded4cfb679d7e5c",
+              "Drivers/STM32H7xx_HAL_Driver": "404a70d4c19c124636c78801ff7c0dbc87bc4256",
+              "Middlewares/ST/STM32_USB_Device_Library": "7b5e6886d2f11ad15d2b46364e8a96984358f639"
+            }
+          },
+          "json": {
+            "url": "https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz",
+            "sha256": "d6c65aca6b1ed68e7a182f4757257b107ae403032760ed6ef121c9d55e81757d",
+            "directory": "json"
+          },
+          "target": {
+            "cpu": "cortex-m7",
+            "fpu": "fpv5-d16",
+            "float_abi": "hard",
+            "layouts": {
+              "BOOT_NONE": "core/STM32H750IB_flash.lds",
+              "BOOT_SRAM": "core/STM32H750IB_sram.lds",
+              "BOOT_QSPI": "core/STM32H750IB_qspi.lds"
+            }
+          },
+          "bootloader_audit": {
+            "bundled_binary": "core/dsy_bootloader_v6_4-intdfu-2000ms.bin",
+            "sha256": "76296b6bd625e5e5dbeba2431619a0ed90ae2c0a3a99258df00a64a0b8b9ec35",
+            "source_url": "https://github.com/daisyaudio/DaisyBootloader",
+            "source_commit": "8b279a8e25922b786c24a6cbd1d499cdc1e76934",
+            "source_libdaisy_gitlink": "24be4afea00d71988019fe8dd9fd9fc8fc5bf72c",
+            "status": "binary hash verified; source audited, not rebuilt; Seed3 boot/hardware compatibility unverified"
+          }
+        },
+        "sources": {
+          "entry.S": "0f0df99f1b71e1a3e7455d251438b8fa58a00ccc475d40f6d884b02bace94b4f",
+          "diagnostic.cpp": "c8a99847ddfa35ae09b199d02bcb424da2b0c541675cf4efe94982cde23dc9ed",
+          "diagnostic.ld": "728f7208630693e2226920335d973759bffab81d95e2ede8e68b19d8b13afec3",
+          "build.py": "8d026bdd5936ab9ea8fd3ba82c01c82a4572616f1cc17ae4647ae19deb2224f7",
+          "protocol.h": "f01d4139854905b8ee9a91117ebed7c1634f3cfd3794670109086be78afb2733"
+        },
+        "compiler_sha256": "45b67f0cb647f69b0fbd0512b43f7d257458916ca77c8fd538708309845ff76c"
+      },
+      "bin_file": "reset/diagnostic.bin",
+      "bin_sha256": "0be2c035a8fff0b386007145fe4984ffea327950a83385a0c9b7acc1644e6f01",
+      "bin_bytes": 2060,
+      "elf_sha256": "feb2e0588cbce3a9c2833cc51911d05ec52bff678da4b1f784f3119fa9eafb67",
+      "initial_msp": 537001920,
+      "main_msp": 537001920,
+      "expected_halt_stage": null
+    }
+  ],
+  "flash_programming_permitted": false,
+  "hardware_tested": false
+}

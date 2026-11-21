@@ -1,0 +1,58 @@
+
+/workspace/work/startup-build/startup/diagnostic.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+240406c8 <Diag_Fault>:
+240406c8:	b672      	cpsid	i
+240406ca:	481d      	ldr	r0, [pc, #116]	@ (24040740 <Diag_Fault+0x78>)
+240406cc:	f3ef 8105 	mrs	r1, IPSR
+240406d0:	6041      	str	r1, [r0, #4]
+240406d2:	f8c0 e008 	str.w	lr, [r0, #8]
+240406d6:	f3ef 8108 	mrs	r1, MSP
+240406da:	60c1      	str	r1, [r0, #12]
+240406dc:	f3ef 8109 	mrs	r1, PSP
+240406e0:	6101      	str	r1, [r0, #16]
+240406e2:	f3ef 8114 	mrs	r1, CONTROL
+240406e6:	6141      	str	r1, [r0, #20]
+240406e8:	f3ef 8110 	mrs	r1, PRIMASK
+240406ec:	6181      	str	r1, [r0, #24]
+240406ee:	f3ef 8111 	mrs	r1, BASEPRI
+240406f2:	61c1      	str	r1, [r0, #28]
+240406f4:	4a13      	ldr	r2, [pc, #76]	@ (24040744 <Diag_Fault+0x7c>)
+240406f6:	6a91      	ldr	r1, [r2, #40]	@ 0x28
+240406f8:	6201      	str	r1, [r0, #32]
+240406fa:	6ad1      	ldr	r1, [r2, #44]	@ 0x2c
+240406fc:	6241      	str	r1, [r0, #36]	@ 0x24
+240406fe:	6b11      	ldr	r1, [r2, #48]	@ 0x30
+24040700:	6281      	str	r1, [r0, #40]	@ 0x28
+24040702:	6b51      	ldr	r1, [r2, #52]	@ 0x34
+24040704:	62c1      	str	r1, [r0, #44]	@ 0x2c
+24040706:	6b91      	ldr	r1, [r2, #56]	@ 0x38
+24040708:	6301      	str	r1, [r0, #48]	@ 0x30
+2404070a:	6a51      	ldr	r1, [r2, #36]	@ 0x24
+2404070c:	6341      	str	r1, [r0, #52]	@ 0x34
+2404070e:	6bd1      	ldr	r1, [r2, #60]	@ 0x3c
+24040710:	6381      	str	r1, [r0, #56]	@ 0x38
+24040712:	6851      	ldr	r1, [r2, #4]
+24040714:	63c1      	str	r1, [r0, #60]	@ 0x3c
+24040716:	6891      	ldr	r1, [r2, #8]
+24040718:	6401      	str	r1, [r0, #64]	@ 0x40
+2404071a:	6951      	ldr	r1, [r2, #20]
+2404071c:	6441      	str	r1, [r0, #68]	@ 0x44
+2404071e:	490a      	ldr	r1, [pc, #40]	@ (24040748 <Diag_Fault+0x80>)
+24040720:	6001      	str	r1, [r0, #0]
+24040722:	490a      	ldr	r1, [pc, #40]	@ (2404074c <Diag_Fault+0x84>)
+24040724:	67c1      	str	r1, [r0, #124]	@ 0x7c
+24040726:	f3bf 8f4f 	dsb	sy
+2404072a:	4a09      	ldr	r2, [pc, #36]	@ (24040750 <Diag_Fault+0x88>)
+2404072c:	6010      	str	r0, [r2, #0]
+2404072e:	3020      	adds	r0, #32
+24040730:	6010      	str	r0, [r2, #0]
+24040732:	3020      	adds	r0, #32
+24040734:	6010      	str	r0, [r2, #0]
+24040736:	3020      	adds	r0, #32
+24040738:	6010      	str	r0, [r2, #0]
+2404073a:	f3bf 8f4f 	dsb	sy
+2404073e:	e7fe      	b.n	2404073e <Diag_Fault+0x76>

@@ -44,7 +44,8 @@ class Ram(unittest.TestCase):
   with zipfile.ZipFile(archive) as z:
    for line in z.read('SHA256SUMS').decode().splitlines():
     digest,name=line.split('  ',1);self.assertEqual(common.sha(z.read(name)),digest,name)
-   self.assertEqual(z.read('ram_identity_test.py'),(HERE/'ram_identity_test.py').read_bytes())
+   # Historical v0.1 release is pinned to its archived host, not later branch fixes.
+   self.assertEqual(common.sha(z.read('ram_identity_test.py')),receipt['host_sha256'])
    self.assertEqual(z.read('seed3_runner.py'),(HERE/'seed3_runner.py').read_bytes())
    elf=z.read('ram-identity.elf');self.assertEqual(common.sha(elf),MANIFEST['elf_sha256'])
    self.assertEqual(z.read('ram-identity.bin'),BLOB)

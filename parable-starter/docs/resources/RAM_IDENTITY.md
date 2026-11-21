@@ -1,5 +1,7 @@
 # Separate Seed3 RAM-only identity test v0.1
 
+**Physical update:** v0.1 RAM transfer/readback succeeded, but QDIP remained unchanged after manual recovery; native execution/completion and automatic return are unproven. Use the [v0.2 staged startup diagnostic](RAM_STARTUP.md) next. The original kit below is historical evidence, not an admitted identity backend. No flash gate has been removed.
+
 **Built and host-tested; NOT physically tested.** This is an isolated experiment
 for unmerged PR84. It cannot flash firmware, issue a benchmark transition receipt,
 or unlock the full runner. The old v1.1 identity backend remains blocked.

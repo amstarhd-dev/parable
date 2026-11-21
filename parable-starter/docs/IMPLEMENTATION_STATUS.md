@@ -1,21 +1,25 @@
 # Implementation status and reproducible baseline
 
-## Isolated RAM-only Seed3 identity instrument — unmerged experimental candidate
+## Staged RAM-only startup diagnostic — unmerged, physical execution unproven
 
-[Physical one-command test and startup audit](resources/RAM_IDENTITY.md).
-A 1,416-byte freestanding RAM executable reads the full UID/chip ID/factory size
-and returns a fixed nonce/CRC record through RAM after a PG3 BOOT/system reset.
-Code/mailbox use documented upper AXI RAM; a 1,024-byte DTCM stack has a 40-byte
-compiler static frame. Actual ARM link/startup inspection and focused host tests
-pass. Physical RAM execution, reset retention, PG3 return, High Sierra operation
-and native identity capture are **not tested**. No flash permission or full-runner
-receipt is issued; the15 benchmark images and their identity backend are unchanged.
+[v0.2 physical procedure and source-backed startup audit](resources/RAM_STARTUP.md).
+Founder evidence establishes v0.1 RAM transfer/readback and request retention
+through manual ROM recovery, but the mailbox stayed QDIP with zero response:
+native execution/completion and automatic return were not demonstrated.
+The old initial MSP at DTCM's end violated AN2606's documented jump guidance;
+v0.2 uses 0x2001FFC0. This correction is not a proven physical root cause.
+Three separately gated images (944/1908/2060 bytes) record durable stackless
+entry, native startup/fault and reset progress. Recovery collection is read-only,
+nonce/artifact/device bound, and cannot permit flash. Actual ARM links/startup
+and focused host simulations pass; v0.2 physical entry, native identity capture,
+PG3 return, cache/trace retention and High Sierra operation remain unproven.
+No production DSP, original identity gate, old helper or15 benchmark images changed.
 
 ## Automated Seed3 benchmark runner — unmerged proposal
 
 **Blocked:** founder ROM enumeration succeeded, but v1.1 SET_ADDRESS identity
 verification failed. [Investigation / replacement design](resources/IDENTITY_BLOCKER.md).
-No supported replacement identity backend has been implemented; no flash or
+No replacement identity backend has passed physical validation; no flash or
 physical handoff success is claimed.
 
 [Guide / exact commands / physical gate](resources/RUNNER.md),

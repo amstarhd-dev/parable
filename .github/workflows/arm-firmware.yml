@@ -21,6 +21,8 @@ jobs:
         run: python3 parable-starter/firmware/build.py
       - name: Build and audit isolated RAM-only identity instrument (never flash)
         run: python3 parable-starter/tools/resources/ram_identity/build.py --compiler parable-starter/build/arm-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++ --libdaisy parable-starter/build/arm-cache/libDaisy --output parable-starter/build/arm/ram-identity
+      - name: Build and audit staged RAM-only startup diagnostics (never flash)
+        run: python3 parable-starter/tools/resources/ram_startup/build.py --compiler parable-starter/build/arm-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++ --libdaisy parable-starter/build/arm-cache/libDaisy --output parable-starter/build/arm/ram-startup
       - name: Compile and inspect prepared activation (no firmware integration)
         run: python3 parable-starter/tools/check_activation_arm.py --living --compiler parable-starter/build/arm-cache/xpack-arm-none-eabi-gcc-14.2.1-1.1/bin/arm-none-eabi-g++ --output parable-starter/build/arm/activation-audit
       - name: Compile and inspect standalone tape medium (not firmware integrated)

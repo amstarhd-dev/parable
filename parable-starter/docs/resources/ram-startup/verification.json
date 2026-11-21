@@ -1,0 +1,53 @@
+{
+  "schema": "parable.ram-startup-verification.v2",
+  "base": "464693cfbf6a6d2eb240a4e90252206228a38fcc",
+  "baseline": "Original local baseline passed; newer remote head had one pre-existing stale-v0.1-host ZIP equality failure. Historical release integrity now checked against its pinned receipt. Remote host fixes preserved unchanged.",
+  "tests": [
+    {
+      "command": "python3 -m unittest discover -s parable-starter/tests -p test_ram_startup.py -v",
+      "passed": 11
+    },
+    {
+      "command": "python3 -m unittest discover -s parable-starter/tests -p test_ram_identity.py -v",
+      "passed": 12
+    },
+    {
+      "command": "python3 -m unittest discover -s parable-starter/tests -p test_seed3_runner.py -v",
+      "passed": 19
+    }
+  ],
+  "arm": {
+    "compiler": "xPack GNU Arm Embedded GCC14.2.1-1.1",
+    "libdaisy": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+    "build_command": "python3 parable-starter/tools/resources/ram_startup/build.py --compiler \"$ARM_GXX\" --libdaisy \"$LIBDAISY\" --output build/ram-startup",
+    "initial_msp": "0x2001FFC0",
+    "images": [
+      {
+        "name": "entry",
+        "bin_bytes": 944
+      },
+      {
+        "name": "startup",
+        "bin_bytes": 1908
+      },
+      {
+        "name": "reset",
+        "bin_bytes": 2060
+      }
+    ]
+  },
+  "static_frame_bytes": 40,
+  "stack_high_water_measured": false,
+  "unproven": [
+    "v0.2 instruction entry",
+    "native identity reads",
+    "physical cache/trace retention",
+    "PG3/system reset ROM return",
+    "macOS10.13 execution",
+    "automatic 15-image acceptance"
+  ],
+  "production_dsp_changed": false,
+  "benchmark_images_rebuilt": false,
+  "flash_programming_permitted": false,
+  "hardware_tested": false
+}

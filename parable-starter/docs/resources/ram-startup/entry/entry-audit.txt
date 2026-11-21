@@ -1,0 +1,53 @@
+
+/workspace/work/startup-build/entry/diagnostic.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+24040298 <Diag_Entry>:
+24040298:	b672      	cpsid	i
+2404029a:	481d      	ldr	r0, [pc, #116]	@ (24040310 <Diag_Entry+0x78>)
+2404029c:	491d      	ldr	r1, [pc, #116]	@ (24040314 <Diag_Entry+0x7c>)
+2404029e:	6001      	str	r1, [r0, #0]
+240402a0:	2101      	movs	r1, #1
+240402a2:	6041      	str	r1, [r0, #4]
+240402a4:	43c9      	mvns	r1, r1
+240402a6:	6081      	str	r1, [r0, #8]
+240402a8:	f3ef 8105 	mrs	r1, IPSR
+240402ac:	60c1      	str	r1, [r0, #12]
+240402ae:	f3ef 8108 	mrs	r1, MSP
+240402b2:	6101      	str	r1, [r0, #16]
+240402b4:	f3ef 8114 	mrs	r1, CONTROL
+240402b8:	6141      	str	r1, [r0, #20]
+240402ba:	f3ef 8110 	mrs	r1, PRIMASK
+240402be:	6181      	str	r1, [r0, #24]
+240402c0:	4915      	ldr	r1, [pc, #84]	@ (24040318 <Diag_Entry+0x80>)
+240402c2:	61c1      	str	r1, [r0, #28]
+240402c4:	f3bf 8f4f 	dsb	sy
+240402c8:	4a14      	ldr	r2, [pc, #80]	@ (2404031c <Diag_Entry+0x84>)
+240402ca:	6010      	str	r0, [r2, #0]
+240402cc:	f3bf 8f4f 	dsb	sy
+240402d0:	f3bf 8f6f 	isb	sy
+240402d4:	4812      	ldr	r0, [pc, #72]	@ (24040320 <Diag_Entry+0x88>)
+240402d6:	490f      	ldr	r1, [pc, #60]	@ (24040314 <Diag_Entry+0x7c>)
+240402d8:	6001      	str	r1, [r0, #0]
+240402da:	2102      	movs	r1, #2
+240402dc:	6041      	str	r1, [r0, #4]
+240402de:	43c9      	mvns	r1, r1
+240402e0:	6081      	str	r1, [r0, #8]
+240402e2:	f3ef 8105 	mrs	r1, IPSR
+240402e6:	60c1      	str	r1, [r0, #12]
+240402e8:	f3ef 8108 	mrs	r1, MSP
+240402ec:	6101      	str	r1, [r0, #16]
+240402ee:	f3ef 8114 	mrs	r1, CONTROL
+240402f2:	6141      	str	r1, [r0, #20]
+240402f4:	f3ef 8110 	mrs	r1, PRIMASK
+240402f8:	6181      	str	r1, [r0, #24]
+240402fa:	4907      	ldr	r1, [pc, #28]	@ (24040318 <Diag_Entry+0x80>)
+240402fc:	61c1      	str	r1, [r0, #28]
+240402fe:	f3bf 8f4f 	dsb	sy
+24040302:	4a06      	ldr	r2, [pc, #24]	@ (2404031c <Diag_Entry+0x84>)
+24040304:	6010      	str	r0, [r2, #0]
+24040306:	f3bf 8f4f 	dsb	sy
+2404030a:	f3bf 8f6f 	isb	sy
+2404030e:	e7fe      	b.n	2404030e <Diag_Entry+0x76>

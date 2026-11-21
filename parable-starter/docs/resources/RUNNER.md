@@ -1,5 +1,7 @@
 # Seed3 automated benchmark runner — experimental
 
+**Physical update:** v0.1 RAM transfer/readback succeeded, but QDIP remained unchanged after manual recovery; native execution/completion and automatic return are unproven. Use the [v0.2 staged startup diagnostic](RAM_STARTUP.md) next. The original kit below is historical evidence, not an admitted identity backend. No flash gate has been removed.
+
 **BLOCKED: v1.1 physical identity verification fails at ROM SET_ADDRESS. Do not
 retry its probe/batch as an operational recipe.** See [identity investigation and
 replacement design](IDENTITY_BLOCKER.md). A separate [RAM-only identity test](RAM_IDENTITY.md) is now available for its own

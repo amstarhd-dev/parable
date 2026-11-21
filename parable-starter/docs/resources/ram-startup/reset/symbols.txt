@@ -1,0 +1,7 @@
+20020000 B _stack_top
+24040000 r _ZL7vectors
+24040298 t _ZL4markj
+240402e8 T Diag_Main
+240405ec T Diag_Entry
+24040760 T Diag_Fault
+24041000 B _mailbox

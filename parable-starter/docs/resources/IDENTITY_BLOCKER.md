@@ -1,5 +1,7 @@
 # ROM DFU identity gate — blocked, not a successful physical probe
 
+**Physical update:** v0.1 RAM transfer/readback succeeded, but QDIP remained unchanged after manual recovery; native execution/completion and automatic return are unproven. Use the [v0.2 staged startup diagnostic](RAM_STARTUP.md) next. The original kit below is historical evidence, not an admitted identity backend. No flash gate has been removed.
+
 A follow-on [separate RAM-only test](RAM_IDENTITY.md) is now implemented and
 packaged for physical validation. It does not integrate with or unlock the full
 runner. The investigation below still applies to the unsupported v1.1 backend.

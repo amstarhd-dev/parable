@@ -1,0 +1,10 @@
+{
+  "bytes": 79270,
+  "file": "seed3-ram-startup-v0.2-332b7e1ac3e8-5e32f8af5989.zip",
+  "flash_programming_permitted": false,
+  "hardware_tested": false,
+  "host_sha256": "5e32f8af59891cf7afda1d4ccb0893660905a4b55f4fb67e06e3015ca1ed168e",
+  "manifest_sha256": "332b7e1ac3e8cd223b3a0ab9cb5572139758800835166876d2680adbffccc4d6",
+  "schema": "parable.ram-startup-kit.v2",
+  "sha256": "753a3f68e251e77b8f7531517a1cf096b8880b58098ce89bf5355b9f3f10b3ed"
+}

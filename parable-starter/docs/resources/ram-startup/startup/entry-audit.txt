@@ -1,0 +1,129 @@
+
+/workspace/work/startup-build/startup/diagnostic.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+24040554 <Diag_Entry>:
+24040554:	b672      	cpsid	i
+24040556:	4851      	ldr	r0, [pc, #324]	@ (2404069c <Diag_Entry+0x148>)
+24040558:	4951      	ldr	r1, [pc, #324]	@ (240406a0 <Diag_Entry+0x14c>)
+2404055a:	6001      	str	r1, [r0, #0]
+2404055c:	2101      	movs	r1, #1
+2404055e:	6041      	str	r1, [r0, #4]
+24040560:	43c9      	mvns	r1, r1
+24040562:	6081      	str	r1, [r0, #8]
+24040564:	f3ef 8105 	mrs	r1, IPSR
+24040568:	60c1      	str	r1, [r0, #12]
+2404056a:	f3ef 8108 	mrs	r1, MSP
+2404056e:	6101      	str	r1, [r0, #16]
+24040570:	f3ef 8114 	mrs	r1, CONTROL
+24040574:	6141      	str	r1, [r0, #20]
+24040576:	f3ef 8110 	mrs	r1, PRIMASK
+2404057a:	6181      	str	r1, [r0, #24]
+2404057c:	4949      	ldr	r1, [pc, #292]	@ (240406a4 <Diag_Entry+0x150>)
+2404057e:	61c1      	str	r1, [r0, #28]
+24040580:	f3bf 8f4f 	dsb	sy
+24040584:	4a48      	ldr	r2, [pc, #288]	@ (240406a8 <Diag_Entry+0x154>)
+24040586:	6010      	str	r0, [r2, #0]
+24040588:	f3bf 8f4f 	dsb	sy
+2404058c:	f3bf 8f6f 	isb	sy
+24040590:	4846      	ldr	r0, [pc, #280]	@ (240406ac <Diag_Entry+0x158>)
+24040592:	4943      	ldr	r1, [pc, #268]	@ (240406a0 <Diag_Entry+0x14c>)
+24040594:	6001      	str	r1, [r0, #0]
+24040596:	2102      	movs	r1, #2
+24040598:	6041      	str	r1, [r0, #4]
+2404059a:	43c9      	mvns	r1, r1
+2404059c:	6081      	str	r1, [r0, #8]
+2404059e:	f3ef 8105 	mrs	r1, IPSR
+240405a2:	60c1      	str	r1, [r0, #12]
+240405a4:	f3ef 8108 	mrs	r1, MSP
+240405a8:	6101      	str	r1, [r0, #16]
+240405aa:	f3ef 8114 	mrs	r1, CONTROL
+240405ae:	6141      	str	r1, [r0, #20]
+240405b0:	f3ef 8110 	mrs	r1, PRIMASK
+240405b4:	6181      	str	r1, [r0, #24]
+240405b6:	493b      	ldr	r1, [pc, #236]	@ (240406a4 <Diag_Entry+0x150>)
+240405b8:	61c1      	str	r1, [r0, #28]
+240405ba:	f3bf 8f4f 	dsb	sy
+240405be:	4a3a      	ldr	r2, [pc, #232]	@ (240406a8 <Diag_Entry+0x154>)
+240405c0:	6010      	str	r0, [r2, #0]
+240405c2:	f3bf 8f4f 	dsb	sy
+240405c6:	f3bf 8f6f 	isb	sy
+240405ca:	4839      	ldr	r0, [pc, #228]	@ (240406b0 <Diag_Entry+0x15c>)
+240405cc:	4939      	ldr	r1, [pc, #228]	@ (240406b4 <Diag_Entry+0x160>)
+240405ce:	6001      	str	r1, [r0, #0]
+240405d0:	f3bf 8f4f 	dsb	sy
+240405d4:	f3bf 8f6f 	isb	sy
+240405d8:	4837      	ldr	r0, [pc, #220]	@ (240406b8 <Diag_Entry+0x164>)
+240405da:	4931      	ldr	r1, [pc, #196]	@ (240406a0 <Diag_Entry+0x14c>)
+240405dc:	6001      	str	r1, [r0, #0]
+240405de:	2103      	movs	r1, #3
+240405e0:	6041      	str	r1, [r0, #4]
+240405e2:	43c9      	mvns	r1, r1
+240405e4:	6081      	str	r1, [r0, #8]
+240405e6:	f3ef 8105 	mrs	r1, IPSR
+240405ea:	60c1      	str	r1, [r0, #12]
+240405ec:	f3ef 8108 	mrs	r1, MSP
+240405f0:	6101      	str	r1, [r0, #16]
+240405f2:	f3ef 8114 	mrs	r1, CONTROL
+240405f6:	6141      	str	r1, [r0, #20]
+240405f8:	f3ef 8110 	mrs	r1, PRIMASK
+240405fc:	6181      	str	r1, [r0, #24]
+240405fe:	4929      	ldr	r1, [pc, #164]	@ (240406a4 <Diag_Entry+0x150>)
+24040600:	61c1      	str	r1, [r0, #28]
+24040602:	f3bf 8f4f 	dsb	sy
+24040606:	4a28      	ldr	r2, [pc, #160]	@ (240406a8 <Diag_Entry+0x154>)
+24040608:	6010      	str	r0, [r2, #0]
+2404060a:	f3bf 8f4f 	dsb	sy
+2404060e:	f3bf 8f6f 	isb	sy
+24040612:	482a      	ldr	r0, [pc, #168]	@ (240406bc <Diag_Entry+0x168>)
+24040614:	f380 8808 	msr	MSP, r0
+24040618:	4829      	ldr	r0, [pc, #164]	@ (240406c0 <Diag_Entry+0x16c>)
+2404061a:	4921      	ldr	r1, [pc, #132]	@ (240406a0 <Diag_Entry+0x14c>)
+2404061c:	6001      	str	r1, [r0, #0]
+2404061e:	2104      	movs	r1, #4
+24040620:	6041      	str	r1, [r0, #4]
+24040622:	43c9      	mvns	r1, r1
+24040624:	6081      	str	r1, [r0, #8]
+24040626:	f3ef 8105 	mrs	r1, IPSR
+2404062a:	60c1      	str	r1, [r0, #12]
+2404062c:	f3ef 8108 	mrs	r1, MSP
+24040630:	6101      	str	r1, [r0, #16]
+24040632:	f3ef 8114 	mrs	r1, CONTROL
+24040636:	6141      	str	r1, [r0, #20]
+24040638:	f3ef 8110 	mrs	r1, PRIMASK
+2404063c:	6181      	str	r1, [r0, #24]
+2404063e:	4919      	ldr	r1, [pc, #100]	@ (240406a4 <Diag_Entry+0x150>)
+24040640:	61c1      	str	r1, [r0, #28]
+24040642:	f3bf 8f4f 	dsb	sy
+24040646:	4a18      	ldr	r2, [pc, #96]	@ (240406a8 <Diag_Entry+0x154>)
+24040648:	6010      	str	r0, [r2, #0]
+2404064a:	f3bf 8f4f 	dsb	sy
+2404064e:	f3bf 8f6f 	isb	sy
+24040652:	2000      	movs	r0, #0
+24040654:	f380 8814 	msr	CONTROL, r0
+24040658:	f3bf 8f6f 	isb	sy
+2404065c:	4819      	ldr	r0, [pc, #100]	@ (240406c4 <Diag_Entry+0x170>)
+2404065e:	4910      	ldr	r1, [pc, #64]	@ (240406a0 <Diag_Entry+0x14c>)
+24040660:	6001      	str	r1, [r0, #0]
+24040662:	2105      	movs	r1, #5
+24040664:	6041      	str	r1, [r0, #4]
+24040666:	43c9      	mvns	r1, r1
+24040668:	6081      	str	r1, [r0, #8]
+2404066a:	f3ef 8105 	mrs	r1, IPSR
+2404066e:	60c1      	str	r1, [r0, #12]
+24040670:	f3ef 8108 	mrs	r1, MSP
+24040674:	6101      	str	r1, [r0, #16]
+24040676:	f3ef 8114 	mrs	r1, CONTROL
+2404067a:	6141      	str	r1, [r0, #20]
+2404067c:	f3ef 8110 	mrs	r1, PRIMASK
+24040680:	6181      	str	r1, [r0, #24]
+24040682:	4908      	ldr	r1, [pc, #32]	@ (240406a4 <Diag_Entry+0x150>)
+24040684:	61c1      	str	r1, [r0, #28]
+24040686:	f3bf 8f4f 	dsb	sy
+2404068a:	4a07      	ldr	r2, [pc, #28]	@ (240406a8 <Diag_Entry+0x154>)
+2404068c:	6010      	str	r0, [r2, #0]
+2404068e:	f3bf 8f4f 	dsb	sy
+24040692:	f3bf 8f6f 	isb	sy
+24040696:	f7ff be27 	b.w	240402e8 <Diag_Main>

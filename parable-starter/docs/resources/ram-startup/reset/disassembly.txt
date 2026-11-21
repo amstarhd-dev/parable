@@ -1,0 +1,502 @@
+
+/workspace/work/startup-build/reset/diagnostic.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+24040298 <_ZL4markj>:
+24040298:	4b0f      	ldr	r3, [pc, #60]	@ (240402d8 <_ZL4markj+0x40>)
+2404029a:	43c2      	mvns	r2, r0
+2404029c:	490f      	ldr	r1, [pc, #60]	@ (240402dc <_ZL4markj+0x44>)
+2404029e:	4403      	add	r3, r0
+240402a0:	015b      	lsls	r3, r3, #5
+240402a2:	6019      	str	r1, [r3, #0]
+240402a4:	6058      	str	r0, [r3, #4]
+240402a6:	609a      	str	r2, [r3, #8]
+240402a8:	f3ef 8205 	mrs	r2, IPSR
+240402ac:	60da      	str	r2, [r3, #12]
+240402ae:	f3ef 8208 	mrs	r2, MSP
+240402b2:	611a      	str	r2, [r3, #16]
+240402b4:	f3ef 8214 	mrs	r2, CONTROL
+240402b8:	615a      	str	r2, [r3, #20]
+240402ba:	f3ef 8110 	mrs	r1, PRIMASK
+240402be:	4a08      	ldr	r2, [pc, #32]	@ (240402e0 <_ZL4markj+0x48>)
+240402c0:	6199      	str	r1, [r3, #24]
+240402c2:	61da      	str	r2, [r3, #28]
+240402c4:	f3bf 8f4f 	dsb	sy
+240402c8:	4a06      	ldr	r2, [pc, #24]	@ (240402e4 <_ZL4markj+0x4c>)
+240402ca:	f8c2 3268 	str.w	r3, [r2, #616]	@ 0x268
+240402ce:	f3bf 8f4f 	dsb	sy
+240402d2:	f3bf 8f6f 	isb	sy
+240402d6:	4770      	bx	lr
+240402d8:	01202101 	.word	0x01202101
+240402dc:	53544745 	.word	0x53544745
+240402e0:	434d4954 	.word	0x434d4954
+240402e4:	e000ed00 	.word	0xe000ed00
+
+240402e8 <Diag_Main>:
+240402e8:	b500      	push	{lr}
+240402ea:	2006      	movs	r0, #6
+240402ec:	b089      	sub	sp, #36	@ 0x24
+240402ee:	f7ff ffd3 	bl	24040298 <_ZL4markj>
+240402f2:	2600      	movs	r6, #0
+240402f4:	4baa      	ldr	r3, [pc, #680]	@ (240405a0 <Diag_Main+0x2b8>)
+240402f6:	f04f 32ff 	mov.w	r2, #4294967295	@ 0xffffffff
+240402fa:	f04f 21e0 	mov.w	r1, #3758153728	@ 0xe000e000
+240402fe:	4ca9      	ldr	r4, [pc, #676]	@ (240405a4 <Diag_Main+0x2bc>)
+24040300:	f04f 6020 	mov.w	r0, #167772160	@ 0xa000000
+24040304:	6965      	ldr	r5, [r4, #20]
+24040306:	610e      	str	r6, [r1, #16]
+24040308:	614e      	str	r6, [r1, #20]
+2404030a:	618e      	str	r6, [r1, #24]
+2404030c:	f8c3 2080 	str.w	r2, [r3, #128]	@ 0x80
+24040310:	f8c3 2180 	str.w	r2, [r3, #384]	@ 0x180
+24040314:	f8c3 2084 	str.w	r2, [r3, #132]	@ 0x84
+24040318:	f8c3 2184 	str.w	r2, [r3, #388]	@ 0x184
+2404031c:	f8c3 2088 	str.w	r2, [r3, #136]	@ 0x88
+24040320:	f8c3 2188 	str.w	r2, [r3, #392]	@ 0x188
+24040324:	f8c3 208c 	str.w	r2, [r3, #140]	@ 0x8c
+24040328:	f8c3 218c 	str.w	r2, [r3, #396]	@ 0x18c
+2404032c:	f8c3 2090 	str.w	r2, [r3, #144]	@ 0x90
+24040330:	f8c3 2190 	str.w	r2, [r3, #400]	@ 0x190
+24040334:	6060      	str	r0, [r4, #4]
+24040336:	f3bf 8f4f 	dsb	sy
+2404033a:	f3bf 8f6f 	isb	sy
+2404033e:	2007      	movs	r0, #7
+24040340:	f7ff ffaa 	bl	24040298 <_ZL4markj>
+24040344:	6963      	ldr	r3, [r4, #20]
+24040346:	03d9      	lsls	r1, r3, #15
+24040348:	d524      	bpl.n	24040394 <Diag_Main+0xac>
+2404034a:	f8c4 6084 	str.w	r6, [r4, #132]	@ 0x84
+2404034e:	f3bf 8f4f 	dsb	sy
+24040352:	6963      	ldr	r3, [r4, #20]
+24040354:	f423 3380 	bic.w	r3, r3, #65536	@ 0x10000
+24040358:	6163      	str	r3, [r4, #20]
+2404035a:	f3bf 8f4f 	dsb	sy
+2404035e:	f8d4 3080 	ldr.w	r3, [r4, #128]	@ 0x80
+24040362:	f643 7ee0 	movw	lr, #16352	@ 0x3fe0
+24040366:	f3c3 304e 	ubfx	r0, r3, #13, #15
+2404036a:	f3c3 0cc9 	ubfx	ip, r3, #3, #10
+2404036e:	0140      	lsls	r0, r0, #5
+24040370:	ea00 010e 	and.w	r1, r0, lr
+24040374:	4663      	mov	r3, ip
+24040376:	ea41 7283 	orr.w	r2, r1, r3, lsl #30
+2404037a:	3b01      	subs	r3, #1
+2404037c:	f8c4 2274 	str.w	r2, [r4, #628]	@ 0x274
+24040380:	1c5a      	adds	r2, r3, #1
+24040382:	d1f8      	bne.n	24040376 <Diag_Main+0x8e>
+24040384:	3820      	subs	r0, #32
+24040386:	f110 0f20 	cmn.w	r0, #32
+2404038a:	d1f1      	bne.n	24040370 <Diag_Main+0x88>
+2404038c:	f3bf 8f4f 	dsb	sy
+24040390:	f3bf 8f6f 	isb	sy
+24040394:	2008      	movs	r0, #8
+24040396:	f7ff ff7f 	bl	24040298 <_ZL4markj>
+2404039a:	f3bf 8f4f 	dsb	sy
+2404039e:	f3bf 8f6f 	isb	sy
+240403a2:	4b80      	ldr	r3, [pc, #512]	@ (240405a4 <Diag_Main+0x2bc>)
+240403a4:	2100      	movs	r1, #0
+240403a6:	695a      	ldr	r2, [r3, #20]
+240403a8:	f422 3200 	bic.w	r2, r2, #131072	@ 0x20000
+240403ac:	615a      	str	r2, [r3, #20]
+240403ae:	f8c3 1250 	str.w	r1, [r3, #592]	@ 0x250
+240403b2:	f3bf 8f4f 	dsb	sy
+240403b6:	f3bf 8f6f 	isb	sy
+240403ba:	2009      	movs	r0, #9
+240403bc:	f7ff ff6c 	bl	24040298 <_ZL4markj>
+240403c0:	4b79      	ldr	r3, [pc, #484]	@ (240405a8 <Diag_Main+0x2c0>)
+240403c2:	f8d3 2080 	ldr.w	r2, [r3, #128]	@ 0x80
+240403c6:	f042 6220 	orr.w	r2, r2, #167772160	@ 0xa000000
+240403ca:	f8c3 2080 	str.w	r2, [r3, #128]	@ 0x80
+240403ce:	f3bf 8f4f 	dsb	sy
+240403d2:	f8d3 2080 	ldr.w	r2, [r3, #128]	@ 0x80
+240403d6:	200a      	movs	r0, #10
+240403d8:	466c      	mov	r4, sp
+240403da:	4e74      	ldr	r6, [pc, #464]	@ (240405ac <Diag_Main+0x2c4>)
+240403dc:	f022 6220 	bic.w	r2, r2, #167772160	@ 0xa000000
+240403e0:	f8c3 2080 	str.w	r2, [r3, #128]	@ 0x80
+240403e4:	f7ff ff58 	bl	24040298 <_ZL4markj>
+240403e8:	f8df c1c4 	ldr.w	ip, [pc, #452]	@ 240405b0 <Diag_Main+0x2c8>
+240403ec:	f8df e1c4 	ldr.w	lr, [pc, #452]	@ 240405b4 <Diag_Main+0x2cc>
+240403f0:	e8bc 000f 	ldmia.w	ip!, {r0, r1, r2, r3}
+240403f4:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+240403f6:	e89c 000f 	ldmia.w	ip, {r0, r1, r2, r3}
+240403fa:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
+240403fe:	f8de 3000 	ldr.w	r3, [lr]
+24040402:	42b3      	cmp	r3, r6
+24040404:	d103      	bne.n	2404040e <Diag_Main+0x126>
+24040406:	f8de 3004 	ldr.w	r3, [lr, #4]
+2404040a:	2b01      	cmp	r3, #1
+2404040c:	d001      	beq.n	24040412 <Diag_Main+0x12a>
+2404040e:	f000 f9a7 	bl	24040760 <Diag_Fault>
+24040412:	f8de 3008 	ldr.w	r3, [lr, #8]
+24040416:	2b20      	cmp	r3, #32
+24040418:	d1f9      	bne.n	2404040e <Diag_Main+0x126>
+2404041a:	f8de 300c 	ldr.w	r3, [lr, #12]
+2404041e:	2b00      	cmp	r3, #0
+24040420:	d1f5      	bne.n	2404040e <Diag_Main+0x126>
+24040422:	f8de 3010 	ldr.w	r3, [lr, #16]
+24040426:	f8de 2014 	ldr.w	r2, [lr, #20]
+2404042a:	f8de 1018 	ldr.w	r1, [lr, #24]
+2404042e:	4313      	orrs	r3, r2
+24040430:	f8de 201c 	ldr.w	r2, [lr, #28]
+24040434:	430b      	orrs	r3, r1
+24040436:	4313      	orrs	r3, r2
+24040438:	d0e9      	beq.n	2404040e <Diag_Main+0x126>
+2404043a:	466a      	mov	r2, sp
+2404043c:	4b5e      	ldr	r3, [pc, #376]	@ (240405b8 <Diag_Main+0x2d0>)
+2404043e:	495f      	ldr	r1, [pc, #380]	@ (240405bc <Diag_Main+0x2d4>)
+24040440:	681c      	ldr	r4, [r3, #0]
+24040442:	f852 0b04 	ldr.w	r0, [r2], #4
+24040446:	4284      	cmp	r4, r0
+24040448:	d1e1      	bne.n	2404040e <Diag_Main+0x126>
+2404044a:	3304      	adds	r3, #4
+2404044c:	428b      	cmp	r3, r1
+2404044e:	d1f7      	bne.n	24040440 <Diag_Main+0x158>
+24040450:	4a5b      	ldr	r2, [pc, #364]	@ (240405c0 <Diag_Main+0x2d8>)
+24040452:	6819      	ldr	r1, [r3, #0]
+24040454:	2900      	cmp	r1, #0
+24040456:	d1da      	bne.n	2404040e <Diag_Main+0x126>
+24040458:	3304      	adds	r3, #4
+2404045a:	4293      	cmp	r3, r2
+2404045c:	d1f9      	bne.n	24040452 <Diag_Main+0x16a>
+2404045e:	4e59      	ldr	r6, [pc, #356]	@ (240405c4 <Diag_Main+0x2dc>)
+24040460:	200b      	movs	r0, #11
+24040462:	4c54      	ldr	r4, [pc, #336]	@ (240405b4 <Diag_Main+0x2cc>)
+24040464:	f7ff ff18 	bl	24040298 <_ZL4markj>
+24040468:	f8d6 3800 	ldr.w	r3, [r6, #2048]	@ 0x800
+2404046c:	200c      	movs	r0, #12
+2404046e:	6423      	str	r3, [r4, #64]	@ 0x40
+24040470:	f7ff ff12 	bl	24040298 <_ZL4markj>
+24040474:	f8d6 3804 	ldr.w	r3, [r6, #2052]	@ 0x804
+24040478:	200d      	movs	r0, #13
+2404047a:	6463      	str	r3, [r4, #68]	@ 0x44
+2404047c:	f7ff ff0c 	bl	24040298 <_ZL4markj>
+24040480:	f8d6 3808 	ldr.w	r3, [r6, #2056]	@ 0x808
+24040484:	200e      	movs	r0, #14
+24040486:	64a3      	str	r3, [r4, #72]	@ 0x48
+24040488:	f7ff ff06 	bl	24040298 <_ZL4markj>
+2404048c:	4b4e      	ldr	r3, [pc, #312]	@ (240405c8 <Diag_Main+0x2e0>)
+2404048e:	200f      	movs	r0, #15
+24040490:	681b      	ldr	r3, [r3, #0]
+24040492:	64e3      	str	r3, [r4, #76]	@ 0x4c
+24040494:	f7ff ff00 	bl	24040298 <_ZL4markj>
+24040498:	4b4c      	ldr	r3, [pc, #304]	@ (240405cc <Diag_Main+0x2e4>)
+2404049a:	2010      	movs	r0, #16
+2404049c:	f8b3 3080 	ldrh.w	r3, [r3, #128]	@ 0x80
+240404a0:	b29b      	uxth	r3, r3
+240404a2:	6523      	str	r3, [r4, #80]	@ 0x50
+240404a4:	f7ff fef8 	bl	24040298 <_ZL4markj>
+240404a8:	4b3f      	ldr	r3, [pc, #252]	@ (240405a8 <Diag_Main+0x2c0>)
+240404aa:	4949      	ldr	r1, [pc, #292]	@ (240405d0 <Diag_Main+0x2e8>)
+240404ac:	f8d3 30d0 	ldr.w	r3, [r3, #208]	@ 0xd0
+240404b0:	4a3c      	ldr	r2, [pc, #240]	@ (240405a4 <Diag_Main+0x2bc>)
+240404b2:	6563      	str	r3, [r4, #84]	@ 0x54
+240404b4:	2303      	movs	r3, #3
+240404b6:	65a5      	str	r5, [r4, #88]	@ 0x58
+240404b8:	65e1      	str	r1, [r4, #92]	@ 0x5c
+240404ba:	6892      	ldr	r2, [r2, #8]
+240404bc:	6622      	str	r2, [r4, #96]	@ 0x60
+240404be:	6663      	str	r3, [r4, #100]	@ 0x64
+240404c0:	f3ef 8305 	mrs	r3, IPSR
+240404c4:	66a3      	str	r3, [r4, #104]	@ 0x68
+240404c6:	f3ef 8314 	mrs	r3, CONTROL
+240404ca:	66e3      	str	r3, [r4, #108]	@ 0x6c
+240404cc:	f3ef 8310 	mrs	r3, PRIMASK
+240404d0:	4d40      	ldr	r5, [pc, #256]	@ (240405d4 <Diag_Main+0x2ec>)
+240404d2:	f04f 32ff 	mov.w	r2, #4294967295	@ 0xffffffff
+240404d6:	6723      	str	r3, [r4, #112]	@ 0x70
+240404d8:	347c      	adds	r4, #124	@ 0x7c
+240404da:	483f      	ldr	r0, [pc, #252]	@ (240405d8 <Diag_Main+0x2f0>)
+240404dc:	f04f 0c00 	mov.w	ip, #0
+240404e0:	682b      	ldr	r3, [r5, #0]
+240404e2:	2108      	movs	r1, #8
+240404e4:	fa23 f30c 	lsr.w	r3, r3, ip
+240404e8:	b2db      	uxtb	r3, r3
+240404ea:	405a      	eors	r2, r3
+240404ec:	f342 0300 	sbfx	r3, r2, #0, #1
+240404f0:	3901      	subs	r1, #1
+240404f2:	ea03 0300 	and.w	r3, r3, r0
+240404f6:	ea83 0252 	eor.w	r2, r3, r2, lsr #1
+240404fa:	d1f7      	bne.n	240404ec <Diag_Main+0x204>
+240404fc:	f10c 0c08 	add.w	ip, ip, #8
+24040500:	f1bc 0f20 	cmp.w	ip, #32
+24040504:	d1ec      	bne.n	240404e0 <Diag_Main+0x1f8>
+24040506:	3504      	adds	r5, #4
+24040508:	42a5      	cmp	r5, r4
+2404050a:	d1e7      	bne.n	240404dc <Diag_Main+0x1f4>
+2404050c:	43d2      	mvns	r2, r2
+2404050e:	4b29      	ldr	r3, [pc, #164]	@ (240405b4 <Diag_Main+0x2cc>)
+24040510:	67da      	str	r2, [r3, #124]	@ 0x7c
+24040512:	f3bf 8f4f 	dsb	sy
+24040516:	4a31      	ldr	r2, [pc, #196]	@ (240405dc <Diag_Main+0x2f4>)
+24040518:	601a      	str	r2, [r3, #0]
+2404051a:	f3bf 8f4f 	dsb	sy
+2404051e:	2011      	movs	r0, #17
+24040520:	f7ff feba 	bl	24040298 <_ZL4markj>
+24040524:	2012      	movs	r0, #18
+24040526:	f7ff feb7 	bl	24040298 <_ZL4markj>
+2404052a:	4b1f      	ldr	r3, [pc, #124]	@ (240405a8 <Diag_Main+0x2c0>)
+2404052c:	f8d3 20e0 	ldr.w	r2, [r3, #224]	@ 0xe0
+24040530:	f042 0240 	orr.w	r2, r2, #64	@ 0x40
+24040534:	f8c3 20e0 	str.w	r2, [r3, #224]	@ 0xe0
+24040538:	f8d3 30e0 	ldr.w	r3, [r3, #224]	@ 0xe0
+2404053c:	f3bf 8f4f 	dsb	sy
+24040540:	2013      	movs	r0, #19
+24040542:	f7ff fea9 	bl	24040298 <_ZL4markj>
+24040546:	4b26      	ldr	r3, [pc, #152]	@ (240405e0 <Diag_Main+0x2f8>)
+24040548:	2208      	movs	r2, #8
+2404054a:	2014      	movs	r0, #20
+2404054c:	619a      	str	r2, [r3, #24]
+2404054e:	685a      	ldr	r2, [r3, #4]
+24040550:	f022 0208 	bic.w	r2, r2, #8
+24040554:	605a      	str	r2, [r3, #4]
+24040556:	68da      	ldr	r2, [r3, #12]
+24040558:	f022 02c0 	bic.w	r2, r2, #192	@ 0xc0
+2404055c:	60da      	str	r2, [r3, #12]
+2404055e:	689a      	ldr	r2, [r3, #8]
+24040560:	f022 02c0 	bic.w	r2, r2, #192	@ 0xc0
+24040564:	609a      	str	r2, [r3, #8]
+24040566:	681a      	ldr	r2, [r3, #0]
+24040568:	f022 02c0 	bic.w	r2, r2, #192	@ 0xc0
+2404056c:	f042 0240 	orr.w	r2, r2, #64	@ 0x40
+24040570:	601a      	str	r2, [r3, #0]
+24040572:	f7ff fe91 	bl	24040298 <_ZL4markj>
+24040576:	4b1b      	ldr	r3, [pc, #108]	@ (240405e4 <Diag_Main+0x2fc>)
+24040578:	bf00      	nop
+2404057a:	3b01      	subs	r3, #1
+2404057c:	d1fc      	bne.n	24040578 <Diag_Main+0x290>
+2404057e:	2015      	movs	r0, #21
+24040580:	f7ff fe8a 	bl	24040298 <_ZL4markj>
+24040584:	f3bf 8f4f 	dsb	sy
+24040588:	4906      	ldr	r1, [pc, #24]	@ (240405a4 <Diag_Main+0x2bc>)
+2404058a:	4b17      	ldr	r3, [pc, #92]	@ (240405e8 <Diag_Main+0x300>)
+2404058c:	68ca      	ldr	r2, [r1, #12]
+2404058e:	f402 62e0 	and.w	r2, r2, #1792	@ 0x700
+24040592:	4313      	orrs	r3, r2
+24040594:	60cb      	str	r3, [r1, #12]
+24040596:	f3bf 8f4f 	dsb	sy
+2404059a:	bf00      	nop
+2404059c:	e7fd      	b.n	2404059a <Diag_Main+0x2b2>
+2404059e:	bf00      	nop
+240405a0:	e000e100 	.word	0xe000e100
+240405a4:	e000ed00 	.word	0xe000ed00
+240405a8:	58024400 	.word	0x58024400
+240405ac:	50494451 	.word	0x50494451
+240405b0:	240407ec 	.word	0x240407ec
+240405b4:	24041000 	.word	0x24041000
+240405b8:	24041020 	.word	0x24041020
+240405bc:	24041040 	.word	0x24041040
+240405c0:	24041080 	.word	0x24041080
+240405c4:	1ff1e000 	.word	0x1ff1e000
+240405c8:	5c001000 	.word	0x5c001000
+240405cc:	1ff1e800 	.word	0x1ff1e800
+240405d0:	24040000 	.word	0x24040000
+240405d4:	24041004 	.word	0x24041004
+240405d8:	edb88320 	.word	0xedb88320
+240405dc:	50494452 	.word	0x50494452
+240405e0:	58021800 	.word	0x58021800
+240405e4:	004c4b40 	.word	0x004c4b40
+240405e8:	05fa0004 	.word	0x05fa0004
+
+240405ec <Diag_Entry>:
+240405ec:	b672      	cpsid	i
+240405ee:	4851      	ldr	r0, [pc, #324]	@ (24040734 <Diag_Entry+0x148>)
+240405f0:	4951      	ldr	r1, [pc, #324]	@ (24040738 <Diag_Entry+0x14c>)
+240405f2:	6001      	str	r1, [r0, #0]
+240405f4:	2101      	movs	r1, #1
+240405f6:	6041      	str	r1, [r0, #4]
+240405f8:	43c9      	mvns	r1, r1
+240405fa:	6081      	str	r1, [r0, #8]
+240405fc:	f3ef 8105 	mrs	r1, IPSR
+24040600:	60c1      	str	r1, [r0, #12]
+24040602:	f3ef 8108 	mrs	r1, MSP
+24040606:	6101      	str	r1, [r0, #16]
+24040608:	f3ef 8114 	mrs	r1, CONTROL
+2404060c:	6141      	str	r1, [r0, #20]
+2404060e:	f3ef 8110 	mrs	r1, PRIMASK
+24040612:	6181      	str	r1, [r0, #24]
+24040614:	4949      	ldr	r1, [pc, #292]	@ (2404073c <Diag_Entry+0x150>)
+24040616:	61c1      	str	r1, [r0, #28]
+24040618:	f3bf 8f4f 	dsb	sy
+2404061c:	4a48      	ldr	r2, [pc, #288]	@ (24040740 <Diag_Entry+0x154>)
+2404061e:	6010      	str	r0, [r2, #0]
+24040620:	f3bf 8f4f 	dsb	sy
+24040624:	f3bf 8f6f 	isb	sy
+24040628:	4846      	ldr	r0, [pc, #280]	@ (24040744 <Diag_Entry+0x158>)
+2404062a:	4943      	ldr	r1, [pc, #268]	@ (24040738 <Diag_Entry+0x14c>)
+2404062c:	6001      	str	r1, [r0, #0]
+2404062e:	2102      	movs	r1, #2
+24040630:	6041      	str	r1, [r0, #4]
+24040632:	43c9      	mvns	r1, r1
+24040634:	6081      	str	r1, [r0, #8]
+24040636:	f3ef 8105 	mrs	r1, IPSR
+2404063a:	60c1      	str	r1, [r0, #12]
+2404063c:	f3ef 8108 	mrs	r1, MSP
+24040640:	6101      	str	r1, [r0, #16]
+24040642:	f3ef 8114 	mrs	r1, CONTROL
+24040646:	6141      	str	r1, [r0, #20]
+24040648:	f3ef 8110 	mrs	r1, PRIMASK
+2404064c:	6181      	str	r1, [r0, #24]
+2404064e:	493b      	ldr	r1, [pc, #236]	@ (2404073c <Diag_Entry+0x150>)
+24040650:	61c1      	str	r1, [r0, #28]
+24040652:	f3bf 8f4f 	dsb	sy
+24040656:	4a3a      	ldr	r2, [pc, #232]	@ (24040740 <Diag_Entry+0x154>)
+24040658:	6010      	str	r0, [r2, #0]
+2404065a:	f3bf 8f4f 	dsb	sy
+2404065e:	f3bf 8f6f 	isb	sy
+24040662:	4839      	ldr	r0, [pc, #228]	@ (24040748 <Diag_Entry+0x15c>)
+24040664:	4939      	ldr	r1, [pc, #228]	@ (2404074c <Diag_Entry+0x160>)
+24040666:	6001      	str	r1, [r0, #0]
+24040668:	f3bf 8f4f 	dsb	sy
+2404066c:	f3bf 8f6f 	isb	sy
+24040670:	4837      	ldr	r0, [pc, #220]	@ (24040750 <Diag_Entry+0x164>)
+24040672:	4931      	ldr	r1, [pc, #196]	@ (24040738 <Diag_Entry+0x14c>)
+24040674:	6001      	str	r1, [r0, #0]
+24040676:	2103      	movs	r1, #3
+24040678:	6041      	str	r1, [r0, #4]
+2404067a:	43c9      	mvns	r1, r1
+2404067c:	6081      	str	r1, [r0, #8]
+2404067e:	f3ef 8105 	mrs	r1, IPSR
+24040682:	60c1      	str	r1, [r0, #12]
+24040684:	f3ef 8108 	mrs	r1, MSP
+24040688:	6101      	str	r1, [r0, #16]
+2404068a:	f3ef 8114 	mrs	r1, CONTROL
+2404068e:	6141      	str	r1, [r0, #20]
+24040690:	f3ef 8110 	mrs	r1, PRIMASK
+24040694:	6181      	str	r1, [r0, #24]
+24040696:	4929      	ldr	r1, [pc, #164]	@ (2404073c <Diag_Entry+0x150>)
+24040698:	61c1      	str	r1, [r0, #28]
+2404069a:	f3bf 8f4f 	dsb	sy
+2404069e:	4a28      	ldr	r2, [pc, #160]	@ (24040740 <Diag_Entry+0x154>)
+240406a0:	6010      	str	r0, [r2, #0]
+240406a2:	f3bf 8f4f 	dsb	sy
+240406a6:	f3bf 8f6f 	isb	sy
+240406aa:	482a      	ldr	r0, [pc, #168]	@ (24040754 <Diag_Entry+0x168>)
+240406ac:	f380 8808 	msr	MSP, r0
+240406b0:	4829      	ldr	r0, [pc, #164]	@ (24040758 <Diag_Entry+0x16c>)
+240406b2:	4921      	ldr	r1, [pc, #132]	@ (24040738 <Diag_Entry+0x14c>)
+240406b4:	6001      	str	r1, [r0, #0]
+240406b6:	2104      	movs	r1, #4
+240406b8:	6041      	str	r1, [r0, #4]
+240406ba:	43c9      	mvns	r1, r1
+240406bc:	6081      	str	r1, [r0, #8]
+240406be:	f3ef 8105 	mrs	r1, IPSR
+240406c2:	60c1      	str	r1, [r0, #12]
+240406c4:	f3ef 8108 	mrs	r1, MSP
+240406c8:	6101      	str	r1, [r0, #16]
+240406ca:	f3ef 8114 	mrs	r1, CONTROL
+240406ce:	6141      	str	r1, [r0, #20]
+240406d0:	f3ef 8110 	mrs	r1, PRIMASK
+240406d4:	6181      	str	r1, [r0, #24]
+240406d6:	4919      	ldr	r1, [pc, #100]	@ (2404073c <Diag_Entry+0x150>)
+240406d8:	61c1      	str	r1, [r0, #28]
+240406da:	f3bf 8f4f 	dsb	sy
+240406de:	4a18      	ldr	r2, [pc, #96]	@ (24040740 <Diag_Entry+0x154>)
+240406e0:	6010      	str	r0, [r2, #0]
+240406e2:	f3bf 8f4f 	dsb	sy
+240406e6:	f3bf 8f6f 	isb	sy
+240406ea:	2000      	movs	r0, #0
+240406ec:	f380 8814 	msr	CONTROL, r0
+240406f0:	f3bf 8f6f 	isb	sy
+240406f4:	4819      	ldr	r0, [pc, #100]	@ (2404075c <Diag_Entry+0x170>)
+240406f6:	4910      	ldr	r1, [pc, #64]	@ (24040738 <Diag_Entry+0x14c>)
+240406f8:	6001      	str	r1, [r0, #0]
+240406fa:	2105      	movs	r1, #5
+240406fc:	6041      	str	r1, [r0, #4]
+240406fe:	43c9      	mvns	r1, r1
+24040700:	6081      	str	r1, [r0, #8]
+24040702:	f3ef 8105 	mrs	r1, IPSR
+24040706:	60c1      	str	r1, [r0, #12]
+24040708:	f3ef 8108 	mrs	r1, MSP
+2404070c:	6101      	str	r1, [r0, #16]
+2404070e:	f3ef 8114 	mrs	r1, CONTROL
+24040712:	6141      	str	r1, [r0, #20]
+24040714:	f3ef 8110 	mrs	r1, PRIMASK
+24040718:	6181      	str	r1, [r0, #24]
+2404071a:	4908      	ldr	r1, [pc, #32]	@ (2404073c <Diag_Entry+0x150>)
+2404071c:	61c1      	str	r1, [r0, #28]
+2404071e:	f3bf 8f4f 	dsb	sy
+24040722:	4a07      	ldr	r2, [pc, #28]	@ (24040740 <Diag_Entry+0x154>)
+24040724:	6010      	str	r0, [r2, #0]
+24040726:	f3bf 8f4f 	dsb	sy
+2404072a:	f3bf 8f6f 	isb	sy
+2404072e:	f7ff bddb 	b.w	240402e8 <Diag_Main>
+24040732:	0000      	.short	0x0000
+24040734:	24042040 	.word	0x24042040
+24040738:	53544745 	.word	0x53544745
+2404073c:	434d4954 	.word	0x434d4954
+24040740:	e000ef68 	.word	0xe000ef68
+24040744:	24042060 	.word	0x24042060
+24040748:	e000ed08 	.word	0xe000ed08
+2404074c:	24040000 	.word	0x24040000
+24040750:	24042080 	.word	0x24042080
+24040754:	2001ffc0 	.word	0x2001ffc0
+24040758:	240420a0 	.word	0x240420a0
+2404075c:	240420c0 	.word	0x240420c0
+
+24040760 <Diag_Fault>:
+24040760:	b672      	cpsid	i
+24040762:	481d      	ldr	r0, [pc, #116]	@ (240407d8 <Diag_Fault+0x78>)
+24040764:	f3ef 8105 	mrs	r1, IPSR
+24040768:	6041      	str	r1, [r0, #4]
+2404076a:	f8c0 e008 	str.w	lr, [r0, #8]
+2404076e:	f3ef 8108 	mrs	r1, MSP
+24040772:	60c1      	str	r1, [r0, #12]
+24040774:	f3ef 8109 	mrs	r1, PSP
+24040778:	6101      	str	r1, [r0, #16]
+2404077a:	f3ef 8114 	mrs	r1, CONTROL
+2404077e:	6141      	str	r1, [r0, #20]
+24040780:	f3ef 8110 	mrs	r1, PRIMASK
+24040784:	6181      	str	r1, [r0, #24]
+24040786:	f3ef 8111 	mrs	r1, BASEPRI
+2404078a:	61c1      	str	r1, [r0, #28]
+2404078c:	4a13      	ldr	r2, [pc, #76]	@ (240407dc <Diag_Fault+0x7c>)
+2404078e:	6a91      	ldr	r1, [r2, #40]	@ 0x28
+24040790:	6201      	str	r1, [r0, #32]
+24040792:	6ad1      	ldr	r1, [r2, #44]	@ 0x2c
+24040794:	6241      	str	r1, [r0, #36]	@ 0x24
+24040796:	6b11      	ldr	r1, [r2, #48]	@ 0x30
+24040798:	6281      	str	r1, [r0, #40]	@ 0x28
+2404079a:	6b51      	ldr	r1, [r2, #52]	@ 0x34
+2404079c:	62c1      	str	r1, [r0, #44]	@ 0x2c
+2404079e:	6b91      	ldr	r1, [r2, #56]	@ 0x38
+240407a0:	6301      	str	r1, [r0, #48]	@ 0x30
+240407a2:	6a51      	ldr	r1, [r2, #36]	@ 0x24
+240407a4:	6341      	str	r1, [r0, #52]	@ 0x34
+240407a6:	6bd1      	ldr	r1, [r2, #60]	@ 0x3c
+240407a8:	6381      	str	r1, [r0, #56]	@ 0x38
+240407aa:	6851      	ldr	r1, [r2, #4]
+240407ac:	63c1      	str	r1, [r0, #60]	@ 0x3c
+240407ae:	6891      	ldr	r1, [r2, #8]
+240407b0:	6401      	str	r1, [r0, #64]	@ 0x40
+240407b2:	6951      	ldr	r1, [r2, #20]
+240407b4:	6441      	str	r1, [r0, #68]	@ 0x44
+240407b6:	490a      	ldr	r1, [pc, #40]	@ (240407e0 <Diag_Fault+0x80>)
+240407b8:	6001      	str	r1, [r0, #0]
+240407ba:	490a      	ldr	r1, [pc, #40]	@ (240407e4 <Diag_Fault+0x84>)
+240407bc:	67c1      	str	r1, [r0, #124]	@ 0x7c
+240407be:	f3bf 8f4f 	dsb	sy
+240407c2:	4a09      	ldr	r2, [pc, #36]	@ (240407e8 <Diag_Fault+0x88>)
+240407c4:	6010      	str	r0, [r2, #0]
+240407c6:	3020      	adds	r0, #32
+240407c8:	6010      	str	r0, [r2, #0]
+240407ca:	3020      	adds	r0, #32
+240407cc:	6010      	str	r0, [r2, #0]
+240407ce:	3020      	adds	r0, #32
+240407d0:	6010      	str	r0, [r2, #0]
+240407d2:	f3bf 8f4f 	dsb	sy
+240407d6:	e7fe      	b.n	240407d6 <Diag_Fault+0x76>
+240407d8:	24042380 	.word	0x24042380
+240407dc:	e000ed00 	.word	0xe000ed00
+240407e0:	4641554c 	.word	0x4641554c
+240407e4:	46434d54 	.word	0x46434d54
+240407e8:	e000ef68 	.word	0xe000ef68
+240407ec:	db6d1fa8 	.word	0xdb6d1fa8
+240407f0:	0287f630 	.word	0x0287f630
+240407f4:	b23ced24 	.word	0xb23ced24
+240407f8:	7477d7b7 	.word	0x7477d7b7
+240407fc:	eb70c465 	.word	0xeb70c465
+24040800:	44e533f1 	.word	0x44e533f1
+24040804:	3f138be3 	.word	0x3f138be3
+24040808:	925bbbf6 	.word	0x925bbbf6
