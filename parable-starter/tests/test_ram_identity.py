@@ -129,6 +129,30 @@ class Ram(unittest.TestCase):
    p=Path(t)/'ram.bin';p.write_bytes(BLOB)
    f.command(DEVICE,ram.BASE,download=p);args=f.usb.command.call_args[0][0];self.assertIn('-D',args);self.assertIn('0x24040000:force',args)
    f.command(DEVICE,ram.BASE,leave=True);args=f.usb.command.call_args[0][0];self.assertIn('0x24040000:leave',args);self.assertNotIn('-D',args)
+ def test_leave_usb_status_loss_requires_subsequent_verification(self):
+  with tempfile.TemporaryDirectory() as t:
+   f=ram.RamDfu.__new__(ram.RamDfu);f.output=Path(t);f.command_number=0;f.usb=mock.Mock()
+   f.usb.wait_dfu.return_value=DEVICE;f.usb.selectors.return_value=['dfu-util','-a','0']
+   error=common.Stop("Command failed: Submitting leave request...\\ndfu-util: Error during download get_status")
+   f.usb.command.side_effect=error
+   self.assertIsNone(f.command(DEVICE,ram.BASE,leave=True))
+   self.assertTrue((Path(t)/'command-01-error.txt').exists())
+   # A generic failure or failure on a RAM write must remain fatal.
+   f.usb.command.side_effect=common.Stop('Other USB failure')
+   with self.assertRaises(common.Stop):f.command(DEVICE,ram.BASE,leave=True)
+   p=Path(t)/'ram.bin';p.write_bytes(BLOB)
+   f.usb.command.side_effect=error
+   with self.assertRaises(common.Stop):f.command(DEVICE,ram.BASE,download=p)
+  with tempfile.TemporaryDirectory() as t:
+   class LeaveLoss(Fake):
+    def command(self,*args,**kwargs):
+     val=super().command(*args,**kwargs)
+     if kwargs.get('leave'):raise common.Stop('Simulated get_status disconnect')
+     return val
+   # A transport exception without an accepted, verified return is not success.
+   f=LeaveLoss()
+   with self.assertRaises(common.Stop):ram.execute(f,MANIFEST,BLOB,Path(t))
+   self.assertFalse((Path(t)/'identity-observation.json').exists())
  def test_actual_cpp_request_and_crc_under_sanitizers(self):
   # Exercise the SAME portable functions compiled into the ARM executable.
   source='''#include "protocol.h"
