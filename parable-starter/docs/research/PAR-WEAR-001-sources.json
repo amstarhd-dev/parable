@@ -1,0 +1,328 @@
+{
+  "scope": "Direct real-time Apple Watch optical PPG only",
+  "base_commit": "8f943681ad933f7d8b65d1d66535aa811c75c48e",
+  "checked_date": "2026-11-11",
+  "hash_definition": "SHA-256 of the exact fetched HTTP response body. URLs are references, not imported implementation source. No Apple device data acquired.",
+  "sources": [
+    {
+      "id": "A01",
+      "evidence_class": "Official SDK",
+      "title": "PPG sensor entitlement and client platforms",
+      "url": "https://developer.apple.com/documentation/sensorkit/srsensor/photoplethysmogram",
+      "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/sensorkit/srsensor/photoplethysmogram.json",
+      "checked_date": "2026-11-11",
+      "sha256": "6b293896122363e1cbc744325ea45fa63c62c6e0470f486a9ad32d64be744bbe",
+      "body_bytes": 25432
+    },
+    {
+      "id": "A02",
+      "evidence_class": "Official SDK",
+      "title": "Optical channel metadata and sensor generations",
+      "url": "https://developer.apple.com/documentation/sensorkit/srphotoplethysmogramopticalsample",
+      "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/sensorkit/srphotoplethysmogramopticalsample.json",
+      "checked_date": "2026-11-11",
+      "sha256": "8b30f55bafb85734c3383f597818838f300289db2454d64fab9fc1f80f9a5d53",
+      "body_bytes": 54901
+    },
+    {
+      "id": "A03",
+      "evidence_class": "Official SDK",
+      "title": "Normalized waveform, nullable and variable scale",
+      "url": "https://developer.apple.com/documentation/sensorkit/srphotoplethysmogramopticalsample/normalizedreflectance-9aidm",
+      "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/sensorkit/srphotoplethysmogramopticalsample/normalizedreflectance-9aidm.json",
+      "checked_date": "2026-11-11",
+      "sha256": "fb1a9711c8dce3b7e1a919ec9ae381e4b6af3c9b979cf08f1d6934c4fdb4b4ca",
+      "body_bytes": 21717
+    },
+    {
+      "id": "A04",
+      "evidence_class": "Official SDK",
+      "title": "24-hour eligibility and overlapping fetch behavior",
+      "url": "https://developer.apple.com/documentation/sensorkit/srfetchrequest",
+      "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/sensorkit/srfetchrequest.json",
+      "checked_date": "2026-11-11",
+      "sha256": "61f27851550324c27e17e16bf5a878050d3407f754eb99e73feee9704330629d",
+      "body_bytes": 31222
+    },
+    {
+      "id": "A05",
+      "evidence_class": "Official SDK",
+      "title": "iOS/iPadOS 27 async fetch, not live acquisition",
+      "url": "https://developer.apple.com/documentation/sensorkit/srreader/samples(matching:)",
+      "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/sensorkit/srreader/samples(matching:).json",
+      "checked_date": "2026-11-11",
+      "sha256": "1067177e60ba9d1b1d1ed76726673375e99989248142933be56fc1b4c9c81352",
+      "body_bytes": 12076
+    },
+    {
+      "id": "A06",
+      "evidence_class": "Official SDK",
+      "title": "Apple-granted entitlement and provisioning",
+      "url": "https://developer.apple.com/documentation/sensorkit/configuring-your-project-for-sensor-reading",
+      "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/sensorkit/configuring-your-project-for-sensor-reading.json",
+      "checked_date": "2026-11-11",
+      "sha256": "4e184877ef70dd18a38705c685f744f66e6f086a29671f3cee4f2ebfb6b94bbc",
+      "body_bytes": 27730
+    },
+    {
+      "id": "A07",
+      "evidence_class": "Official policy",
+      "title": "Study-specific approval and participant distribution",
+      "url": "https://healthresearch.apple.com/resources/accessing-sensorkit-data/",
+      "retrieval_url": "https://healthresearch.apple.com/resources/accessing-sensorkit-data/",
+      "checked_date": "2026-11-11",
+      "sha256": "dff91455b202cba6b2ce87c0d1c475d90314e3a6fb4e5319ebfcbc9861197322",
+      "body_bytes": 32374
+    },
+    {
+      "id": "A08",
+      "evidence_class": "Official technical paper",
+      "title": "Physical optics and PPG-processing algorithms, November 2024",
+      "url": "https://www.apple.com/health/pdf/Heart_Rate_Calorimetry_Activity_on_Apple_Watch_November_2024.pdf",
+      "retrieval_url": "https://www.apple.com/health/pdf/Heart_Rate_Calorimetry_Activity_on_Apple_Watch_November_2024.pdf",
+      "checked_date": "2026-11-11",
+      "sha256": "cd7601a52d52f5811e91ffaedad6e331f7b46ad4a91cd978297a820e9245b496",
+      "body_bytes": 19802539
+    },
+    {
+      "id": "A09",
+      "evidence_class": "Official developer support",
+      "title": "DTS describes HealthKit limits, November 2025",
+      "url": "https://developer.apple.com/forums/thread/806255",
+      "retrieval_url": "https://developer.apple.com/forums/thread/806255",
+      "checked_date": "2026-11-11",
+      "sha256": "239efd645fae36e90c1a1bfea925ac6c820b55d6d7e37027d8778ecac7692366",
+      "body_bytes": 202661
+    },
+    {
+      "id": "A10",
+      "evidence_class": "Official FAQ",
+      "title": "No real-time heartbeat data via documented HealthKit path",
+      "url": "https://healthresearch.apple.com/faq/",
+      "retrieval_url": "https://healthresearch.apple.com/faq/",
+      "checked_date": "2026-11-11",
+      "sha256": "3b889de5e55a19f75d75f9a1a5aa1dd483ae26f6da2300c76976bee4775aae02",
+      "body_bytes": 69670
+    },
+    {
+      "id": "A11",
+      "evidence_class": "Official distribution policy",
+      "title": "App Review 2.5.1, 2.5.4 and 5.1.3",
+      "url": "https://developer.apple.com/app-store/review/guidelines/",
+      "retrieval_url": "https://developer.apple.com/app-store/review/guidelines/",
+      "checked_date": "2026-11-11",
+      "sha256": "645fb972c149bdb172a6a0dd1ee5f5d5de6eadb25a5e1193d32dfea0aa2cd52b",
+      "body_bytes": 240818
+    },
+    {
+      "id": "A12",
+      "evidence_class": "Official signing documentation",
+      "title": "Entitlement/profile validation, archived TN2415",
+      "url": "https://developer.apple.com/library/archive/technotes/tn2415/_index.html",
+      "retrieval_url": "https://developer.apple.com/library/archive/technotes/tn2415/_index.html",
+      "checked_date": "2026-11-11",
+      "sha256": "20b79893462aaff3ec021163a96b5a63c55967d99934632407f02f2d61f13fb7",
+      "body_bytes": 62256
+    },
+    {
+      "id": "A13",
+      "evidence_class": "Official SDK",
+      "title": "Developer Mode is development installation, not a sensor entitlement",
+      "url": "https://developer.apple.com/documentation/xcode/enabling-developer-mode-on-a-device",
+      "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/xcode/enabling-developer-mode-on-a-device.json",
+      "checked_date": "2026-11-11",
+      "sha256": "cebb3751e2f31376622cbc91de320bd3c68eb953aa1593e8d4483d764b920239",
+      "body_bytes": 7481
+    },
+    {
+      "id": "A14",
+      "evidence_class": "Official SDK",
+      "title": "Recording start time",
+      "url": "https://developer.apple.com/documentation/sensorkit/srphotoplethysmogramsample/startdate",
+      "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/sensorkit/srphotoplethysmogramsample/startdate.json",
+      "checked_date": "2026-11-11",
+      "sha256": "01a8025dd623749aae4ee43e6c7ae83cb4c0eea86c43459291a580b4730e6422",
+      "body_bytes": 19522
+    },
+    {
+      "id": "A15",
+      "evidence_class": "Official SDK",
+      "title": "Optical sensor-relative nanosecond timestamp",
+      "url": "https://developer.apple.com/documentation/sensorkit/srphotoplethysmogramopticalsample/nanosecondssincestart",
+      "retrieval_url": "https://developer.apple.com/tutorials/data/documentation/sensorkit/srphotoplethysmogramopticalsample/nanosecondssincestart.json",
+      "checked_date": "2026-11-11",
+      "sha256": "2af48aae2d0ad853d06be6bb5e5270ef17c175ca260ec24f56c5c1ce00564792",
+      "body_bytes": 26123
+    },
+    {
+      "id": "R01",
+      "evidence_class": "Published historical simulator artefact",
+      "title": "watchOS-labelled private SensorKit reader with holding-period field",
+      "url": "https://github.com/LeoNatan/Apple-Runtime-Headers/blob/5e50ad05dfd7d7b69fc2e0e685765fc054166b3c/watchOS/PrivateFrameworks/SensorKit.framework/SRSensorReader.h",
+      "retrieval_url": "https://raw.githubusercontent.com/LeoNatan/Apple-Runtime-Headers/5e50ad05dfd7d7b69fc2e0e685765fc054166b3c/watchOS/PrivateFrameworks/SensorKit.framework/SRSensorReader.h",
+      "checked_date": "2026-11-11",
+      "sha256": "38b2d84741b55cc46b08ffcdf2eeb0e8530aead5b7b837c82b3a02f1d62c50e7",
+      "body_bytes": 5209
+    },
+    {
+      "id": "R02",
+      "evidence_class": "Published historical simulator artefact",
+      "title": "Privileged writer and datastore interface",
+      "url": "https://github.com/LeoNatan/Apple-Runtime-Headers/blob/5e50ad05dfd7d7b69fc2e0e685765fc054166b3c/watchOS/PrivateFrameworks/SensorKit.framework/SRSensorWriter.h",
+      "retrieval_url": "https://raw.githubusercontent.com/LeoNatan/Apple-Runtime-Headers/5e50ad05dfd7d7b69fc2e0e685765fc054166b3c/watchOS/PrivateFrameworks/SensorKit.framework/SRSensorWriter.h",
+      "checked_date": "2026-11-11",
+      "sha256": "2e3a721cf070e806ba78b178fe1ceb68389a1916b4ec39421cc0bd3af0b8995c",
+      "body_bytes": 4188
+    },
+    {
+      "id": "R03",
+      "evidence_class": "Published historical simulator artefact",
+      "title": "HealthAlgorithms PPG export, not sensor activation",
+      "url": "https://github.com/LeoNatan/Apple-Runtime-Headers/blob/5e50ad05dfd7d7b69fc2e0e685765fc054166b3c/watchOS/PrivateFrameworks/HealthAlgorithms.framework/HAPPGExporter.h",
+      "retrieval_url": "https://raw.githubusercontent.com/LeoNatan/Apple-Runtime-Headers/5e50ad05dfd7d7b69fc2e0e685765fc054166b3c/watchOS/PrivateFrameworks/HealthAlgorithms.framework/HAPPGExporter.h",
+      "checked_date": "2026-11-11",
+      "sha256": "8afe43d4744466b803d2766a7ca691b17708e1ba8e71ec96ed80ce6558698937",
+      "body_bytes": 835
+    },
+    {
+      "id": "R04",
+      "evidence_class": "Published generator provenance",
+      "title": "watchOS entries generated from simulator runtime, i386",
+      "url": "https://github.com/LeoNatan/Apple-Runtime-Headers/blob/5e50ad05dfd7d7b69fc2e0e685765fc054166b3c/generate_headers.sh",
+      "retrieval_url": "https://raw.githubusercontent.com/LeoNatan/Apple-Runtime-Headers/5e50ad05dfd7d7b69fc2e0e685765fc054166b3c/generate_headers.sh",
+      "checked_date": "2026-11-11",
+      "sha256": "6b639e102d0d42b2de55448d959bcba2db88fbe1ef582dde42cb11100c4e0625",
+      "body_bytes": 8356
+    },
+    {
+      "id": "R05",
+      "evidence_class": "Published iOS 26 runtime header",
+      "title": "PPG binary frame decoder, not a Watch acquisition subscription",
+      "url": "https://github.com/qingralf/iOS26-Runtime-Headers/blob/cbf1d4c4122f3c6807eba36693581882640e5c6c/PrivateFrameworks/HealthAlgorithms.framework/HAPPGFrameEnumerator.h",
+      "retrieval_url": "https://raw.githubusercontent.com/qingralf/iOS26-Runtime-Headers/cbf1d4c4122f3c6807eba36693581882640e5c6c/PrivateFrameworks/HealthAlgorithms.framework/HAPPGFrameEnumerator.h",
+      "checked_date": "2026-11-11",
+      "sha256": "6c4773aaee1ef0a4122bc866e506b3e304d7ab138991483b65d1b1fc9b47f379",
+      "body_bytes": 1422
+    },
+    {
+      "id": "R06",
+      "evidence_class": "Published iOS 26 runtime header",
+      "title": "Reader XPC backend and datastore",
+      "url": "https://github.com/qingralf/iOS26-Runtime-Headers/blob/cbf1d4c4122f3c6807eba36693581882640e5c6c/Frameworks/SensorKit.framework/SRReaderSensorKitBackend.h",
+      "retrieval_url": "https://raw.githubusercontent.com/qingralf/iOS26-Runtime-Headers/cbf1d4c4122f3c6807eba36693581882640e5c6c/Frameworks/SensorKit.framework/SRReaderSensorKitBackend.h",
+      "checked_date": "2026-11-11",
+      "sha256": "ad95f76b534460fc3978bbe5ce75ef7477d01d8b2639ed53193907cd1f39aafa",
+      "body_bytes": 1291
+    },
+    {
+      "id": "R07",
+      "evidence_class": "Published iOS 26.1 decompilation",
+      "title": "Peer entitlement check for private holding-period exception",
+      "url": "https://github.com/EthanArbuckle/iPhone18-3_26.1_23B85_Restore/blob/90aa0cfe59d9682b4265e1354c8b19ec3c7823ab/usr/libexec/sensorkitd/NSXPCConnection.mm",
+      "retrieval_url": "https://raw.githubusercontent.com/EthanArbuckle/iPhone18-3_26.1_23B85_Restore/90aa0cfe59d9682b4265e1354c8b19ec3c7823ab/usr/libexec/sensorkitd/NSXPCConnection.mm",
+      "checked_date": "2026-11-11",
+      "sha256": "26811be65792c8911bc3ca032e389ea170d79a6ef6831cd3ded0ad7167d9b8ab",
+      "body_bytes": 3315
+    },
+    {
+      "id": "R08",
+      "evidence_class": "Published iOS 26.1 decompilation",
+      "title": "Daemon reading eligibility and exception branch",
+      "url": "https://github.com/EthanArbuckle/iPhone18-3_26.1_23B85_Restore/blob/90aa0cfe59d9682b4265e1354c8b19ec3c7823ab/usr/libexec/sensorkitd/RDDaemon.mm",
+      "retrieval_url": "https://raw.githubusercontent.com/EthanArbuckle/iPhone18-3_26.1_23B85_Restore/90aa0cfe59d9682b4265e1354c8b19ec3c7823ab/usr/libexec/sensorkitd/RDDaemon.mm",
+      "checked_date": "2026-11-11",
+      "sha256": "c0c86c7707491fe03841353204708b7a3b38153192de498efa729aa3820aa5f7",
+      "body_bytes": 101978
+    },
+    {
+      "id": "R09",
+      "evidence_class": "Published iOS entitlement extraction",
+      "title": "Apple SensorKitDataExport helper carries private exception entitlement",
+      "url": "https://github.com/Lessica/iOS-Entitlements-Database/blob/bb601fbba5c5f7174da15dcaac2d417dd5aa96ea/entitlements/23C55__iPhone12,3_5/System/Library/Frameworks/SensorKit.framework/XPCServices/SensorKitDataExport.xpc/SensorKitDataExport.xml",
+      "retrieval_url": "https://raw.githubusercontent.com/Lessica/iOS-Entitlements-Database/bb601fbba5c5f7174da15dcaac2d417dd5aa96ea/entitlements/23C55__iPhone12,3_5/System/Library/Frameworks/SensorKit.framework/XPCServices/SensorKitDataExport.xpc/SensorKitDataExport.xml",
+      "checked_date": "2026-11-11",
+      "sha256": "acf18c5fc9dda466f73c5d78fc54bda6e8c13985850bfb06dc1b02d6593f569f",
+      "body_bytes": 402
+    },
+    {
+      "id": "R10",
+      "evidence_class": "Published historical simulator artefact",
+      "title": "HealthDaemon processed heartbeat-sequence data",
+      "url": "https://github.com/LeoNatan/Apple-Runtime-Headers/blob/5e50ad05dfd7d7b69fc2e0e685765fc054166b3c/watchOS/PrivateFrameworks/HealthDaemon.framework/HDHeartbeatSequenceSensorDatum.h",
+      "retrieval_url": "https://raw.githubusercontent.com/LeoNatan/Apple-Runtime-Headers/5e50ad05dfd7d7b69fc2e0e685765fc054166b3c/watchOS/PrivateFrameworks/HealthDaemon.framework/HDHeartbeatSequenceSensorDatum.h",
+      "checked_date": "2026-11-11",
+      "sha256": "b70f1f2b34e4868fd510170313b40ecdaf8e34cbaa258a411dd4025f2a1a25ee",
+      "body_bytes": 1753
+    },
+    {
+      "id": "R11",
+      "evidence_class": "Published iOS 18 runtime header",
+      "title": "Audio-accessory PPG is not established Watch optical access",
+      "url": "https://github.com/qingralf/iOS18-Runtime-Headers/blob/cfdd406d3a0bbac8473571dda5482e155b1cc402/Frameworks/CoreMotion.framework/CMAudioAccessoryManager.h",
+      "retrieval_url": "https://raw.githubusercontent.com/qingralf/iOS18-Runtime-Headers/cfdd406d3a0bbac8473571dda5482e155b1cc402/Frameworks/CoreMotion.framework/CMAudioAccessoryManager.h",
+      "checked_date": "2026-11-11",
+      "sha256": "853fea3ec1bce47035c873ebf562c29815d55952ffd4b7cc282bae254922abd6",
+      "body_bytes": 8347
+    },
+    {
+      "id": "R12",
+      "evidence_class": "Published iOS 26.1 decompilation",
+      "title": "Processed source coordination, not proof of photodiode streaming",
+      "url": "https://github.com/EthanArbuckle/iPhone18-3_26.1_23B85_Restore/blob/90aa0cfe59d9682b4265e1354c8b19ec3c7823ab/usr/libexec/heartratecoordinatord/HRCSourceController.mm",
+      "retrieval_url": "https://raw.githubusercontent.com/EthanArbuckle/iPhone18-3_26.1_23B85_Restore/90aa0cfe59d9682b4265e1354c8b19ec3c7823ab/usr/libexec/heartratecoordinatord/HRCSourceController.mm",
+      "checked_date": "2026-11-11",
+      "sha256": "b7cc0bfce4a6218711543f6188a7b76a853b2ec1b00e7222385c87790f5a12e4",
+      "body_bytes": 11857
+    },
+    {
+      "id": "R13",
+      "evidence_class": "Published reverse-engineering project",
+      "title": "Old-model kernel/process dumping; no demonstrated optical streaming",
+      "url": "https://github.com/datalocaltmp/peepo/blob/6d20d676f7c2d1620ba4764f7500baa906d67b64/README.md",
+      "retrieval_url": "https://raw.githubusercontent.com/datalocaltmp/peepo/6d20d676f7c2d1620ba4764f7500baa906d67b64/README.md",
+      "checked_date": "2026-11-11",
+      "sha256": "31e382a65257ccc9c6a754d1188b34c4c5933f45910abe4e300b50a67a5e497e",
+      "body_bytes": 20329
+    },
+    {
+      "id": "R14",
+      "evidence_class": "Forensic vendor report",
+      "title": "Offline bootloader extraction, not live watchOS acquisition",
+      "url": "https://blog.elcomsoft.com/2026/09/low-level-extraction-of-the-apple-watch-s4-s5/",
+      "retrieval_url": "https://blog.elcomsoft.com/2026/09/low-level-extraction-of-the-apple-watch-s4-s5/",
+      "checked_date": "2026-11-11",
+      "sha256": "434aeee47397188f6f714ab502ac8d5e20ddec88818b5875db114dd606396920",
+      "body_bytes": 71532
+    },
+    {
+      "id": "R15",
+      "evidence_class": "Published SDK negative lead",
+      "title": "PPG plugin reports Wear OS support, not Apple Watch raw extraction",
+      "url": "https://github.com/kuprel/ppg_plugin/blob/aa6c9ad87cf7f1a5a928e70f0727d87ae784ddfb/README.md",
+      "retrieval_url": "https://raw.githubusercontent.com/kuprel/ppg_plugin/aa6c9ad87cf7f1a5a928e70f0727d87ae784ddfb/README.md",
+      "checked_date": "2026-11-11",
+      "sha256": "eb3e2b178cbe3a64d6d13291d825d0bc24bae5da400ee19a01208a3de0956ded",
+      "body_bytes": 1105
+    },
+    {
+      "id": "R16",
+      "evidence_class": "Published iOS 26 runtime header",
+      "title": "Optical/associated PPG frame representation",
+      "url": "https://github.com/qingralf/iOS26-Runtime-Headers/blob/cbf1d4c4122f3c6807eba36693581882640e5c6c/PrivateFrameworks/HealthAlgorithms.framework/HAPPGFrame.h",
+      "retrieval_url": "https://raw.githubusercontent.com/qingralf/iOS26-Runtime-Headers/cbf1d4c4122f3c6807eba36693581882640e5c6c/PrivateFrameworks/HealthAlgorithms.framework/HAPPGFrame.h",
+      "checked_date": "2026-11-11",
+      "sha256": "b388f402db7a110e61b45898f0edbf81cebefabc38647ff6363f160f708f6de0",
+      "body_bytes": 1533
+    },
+    {
+      "id": "R17",
+      "evidence_class": "Published historical simulator artefact",
+      "title": "CoreMotion workout event connection, not established optical acquisition",
+      "url": "https://github.com/LeoNatan/Apple-Runtime-Headers/blob/5e50ad05dfd7d7b69fc2e0e685765fc054166b3c/watchOS/Frameworks/CoreMotion.framework/CMWorkoutManagerInternal.h",
+      "retrieval_url": "https://raw.githubusercontent.com/LeoNatan/Apple-Runtime-Headers/5e50ad05dfd7d7b69fc2e0e685765fc054166b3c/watchOS/Frameworks/CoreMotion.framework/CMWorkoutManagerInternal.h",
+      "checked_date": "2026-11-11",
+      "sha256": "f7c3a832a768057b201801ff375c5f62ed28088928b5ac95358f22cd0bf5fa02",
+      "body_bytes": 1101
+    }
+  ]
+}
