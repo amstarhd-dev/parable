@@ -67,20 +67,41 @@ class Batch(unittest.TestCase):
         for chip in (0,0x451,0x8):
             with self.assertRaises(r.Stop):
                 one.cdc_identity(FakePort(chip),dict(artifact_id='a'*64))
-    def test_flash_selected_does_not_call_rom_silicon_and_never_retries(self):
+    def test_flash_selected_accepts_only_verified_write_followed_by_leave_status_loss(self):
         with tempfile.TemporaryDirectory() as t:
             backend=one.Device.__new__(one.Device)
-            backend.output=Path(t);backend.sequence=0;backend.wait_dfu=mock.Mock(return_value=dict(path='20-1',serial='S',layout='flash'))
+            backend.output=Path(t);backend.sequence=0
+            device=dict(path='20-1',serial='S',layout='flash')
+            backend.wait_dfu=mock.Mock(return_value=device)
             backend.selectors=mock.Mock(return_value=['dfu-util','-a','0'])
-            backend.command=mock.Mock(return_value='Uploaded and left')
             binary=Path(t)/'test.bin';binary.write_bytes(b'abc')
-            backend.flash_selected(backend.wait_dfu.return_value,binary)
-            self.assertEqual(backend.command.call_count,1)
-            self.assertIn('-D',backend.command.call_args[0][0])
-            backend.command.side_effect=r.Stop('flash failure')
-            with self.assertRaises(r.Stop):backend.flash_selected(backend.wait_dfu.return_value,binary)
-            self.assertEqual(backend.command.call_count,2)
-            self.assertFalse((Path(t)/'flash-02.log').exists())
+            complete=('Erase done.\\nDownload done.\\nFile downloaded successfully\\n'
+                      'Submitting leave request...\\ndfu-util: Error during download get_status\\n')
+            with mock.patch.object(one.subprocess,'run',return_value=mock.Mock(
+                    returncode=74,stdout=complete.encode())) as call:
+                backend.flash_selected(device,binary)
+                self.assertEqual(call.call_count,1)
+                self.assertEqual((Path(t)/'flash-01.log').read_text(),complete)
+            # It MUST NOT treat any earlier write error as a completed flash.
+            for failing in ('Erase done.\\nDownload done.\\nSubmitting leave request...\\n'
+                            'dfu-util: Error during download get_status\\n',
+                            'Erase done.\\nDownload done.\\nFile downloaded successfully\\n'
+                            'dfu-util: Error during download get_status\\n',
+                            'Erase done.\\nDownload done.\\nFile downloaded successfully\\n'
+                            'Submitting leave request...\\ndfu-util: Error during download get_status\\n'
+                            'dfu-util: second failure\\n'):
+                with mock.patch.object(one.subprocess,'run',return_value=mock.Mock(
+                        returncode=74,stdout=failing.encode())):
+                    with self.assertRaisesRegex(r.Stop, 'STOP|confirm'):
+                        backend.flash_selected(device,binary)
+            self.assertEqual(backend.sequence,4)
+            backend.identity=mock.Mock(side_effect=AssertionError('Unexpected ROM register read'))
+            backend.identity.assert_not_called()
+    def test_reset_routine_does_not_mask_interrupts_before_hal_delay(self):
+        source=(ROOT/'dfu_handoff.cpp').read_text()
+        reset=source.split('[[noreturn]] void resourceEnterRomDfu() {',1)[1]
+        self.assertIn('System::ResetToBootloader',reset)
+        self.assertNotIn('__disable_irq()',reset.split('ResetToBootloader',1)[0])
     def test_runner_has_no_direct_rom_register_access(self):
         source=(ROOT/'seed3_oneboot_batch.py').read_text()
         for forbidden in ('0x1ff1e800','0x5c001000','0x1ff1e880','backend.identity('):
