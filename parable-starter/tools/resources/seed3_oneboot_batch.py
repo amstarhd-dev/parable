@@ -59,9 +59,32 @@ class Device(r.Mac):
         r.require(current == selected, 'ROM DFU device changed before flashing')
         args = self.selectors(current) + ['-s','0x08000000:leave','-D',str(binary)]
         self.sequence += 1
-        # Never retry a failed write or infer success from USB disconnection.
-        output = self.command(args, timeout=90)
-        r.atomic(self.output / ('flash-%02d.log' % self.sequence), output.encode('utf-8'))
+        # dfu-util on this physical H750 reports a USB GETSTATUS error *after*
+        # "File downloaded successfully" when the running application takes over.
+        # Preserve the complete log before judging it. Never accept an erase,
+        # write, address, verify or other error, and never retry automatically.
+        try:
+            proc = subprocess.run(args, stdout=subprocess.PIPE,
+                                  stderr=subprocess.STDOUT, timeout=90)
+        except subprocess.TimeoutExpired:
+            raise r.Stop('DFU timed out; STOP without retry or further flash')
+        output = proc.stdout.decode('utf-8', errors='replace').replace('\\r', '\\n')
+        r.atomic(self.output / ('flash-%02d.log' % self.sequence),
+                 output.encode('utf-8'))
+        milestones = ('Erase done.', 'Download done.', 'File downloaded successfully')
+        r.require(all(part in output for part in milestones),
+                  'DFU did not confirm complete erase/write; STOP without retry')
+        if proc.returncode:
+            tail = output[output.rfind('File downloaded successfully'):]
+            r.require(re.search(
+                r'File downloaded successfully\\s+Submitting leave request\\.\\.\\.\\s+'
+                r'dfu-util: Error during download get_status\\s*\\Z', tail) is not None,
+                'DFU nonzero status for another reason; STOP without retry')
+            print('Write completed; LEAVE lost USB status. Checking the flashed '
+                  'firmware over CDC before any further flash.', flush=True)
+        # Neither zero return nor observed USB disconnect proves execution:
+        # the batch MUST capture the exact artifact and challenge native silicon.
+
 
 def batch(backend, manifest, manifest_hash, kit, output, timeout):
     output = Path(output)
