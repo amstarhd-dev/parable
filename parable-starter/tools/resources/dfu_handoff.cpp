@@ -38,7 +38,10 @@ extern "C" void __wrap_SystemInit() {
     __real_SystemInit(); // ordinary boot/recovery unchanged
 }
 [[noreturn]] void resourceEnterRomDfu() {
-    __disable_irq();
+    // DO NOT disable interrupts here: the pinned libDaisy STM boot path
+    // calls HAL_Delay(10) while charging PG3/BOOT, and HAL tick requires
+    // interrupts. Masking IRQs before it deadlocks the handoff.
+    // The SDK itself disables RCC interrupts at its reset boundary.
     RCC->RSR |= RCC_RSR_RMVF; // subsequent reset must be software-only
     mailbox[0] = cookie; mailbox[1] = ~cookie;
     mailbox[2] = 1; mailbox[3] = ~uint32_t(1);
