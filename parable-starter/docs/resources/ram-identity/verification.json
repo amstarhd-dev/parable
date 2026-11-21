@@ -1,0 +1,48 @@
+{
+  "schema": "parable.ram-identity-verification.v1",
+  "baseline": {
+    "command": "python3 -m unittest discover -s parable-starter/tests -p test_seed3_runner.py",
+    "passed": 19,
+    "seconds": 2.055
+  },
+  "tests": [
+    {
+      "command": "python3 -m unittest discover -s parable-starter/tests -p test_ram_identity.py -v",
+      "passed": 11,
+      "seconds": 0.207
+    },
+    {
+      "command": "python3 -m unittest discover -s parable-starter/tests -p test_seed3_runner.py -v",
+      "passed": 19,
+      "seconds": 2.117
+    }
+  ],
+  "arm_build": "PASS: pinned xPack14.2.1 freestanding ARM link; no SDK library",
+  "bin_bytes": 1416,
+  "vector_bytes": 664,
+  "mailbox_bytes": 128,
+  "stack_reservation_bytes": 1024,
+  "compiler_frames": [
+    {
+      "function": "/workspace/work/parable-runner/parable-starter/tools/resources/ram_identity/bootstrap.cpp:6:54:void Ram_Entry()",
+      "bytes": 0,
+      "kind": "static"
+    },
+    {
+      "function": "/workspace/work/parable-runner/parable-starter/tools/resources/ram_identity/bootstrap.cpp:10:30:void Ram_Fault()",
+      "bytes": 0,
+      "kind": "static"
+    },
+    {
+      "function": "/workspace/work/parable-runner/parable-starter/tools/resources/ram_identity/bootstrap.cpp:17:30:void ram_identity_main()",
+      "bytes": 40,
+      "kind": "static"
+    }
+  ],
+  "maximum_static_frame_bytes": 40,
+  "physical_high_water": "NOT MEASURED",
+  "hardware_tested": false,
+  "full_runner_integrated": false,
+  "benchmark_images_rebuilt": 0,
+  "flash_programming_permitted": false
+}

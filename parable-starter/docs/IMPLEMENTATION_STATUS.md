@@ -1,5 +1,16 @@
 # Implementation status and reproducible baseline
 
+## Isolated RAM-only Seed3 identity instrument — unmerged experimental candidate
+
+[Physical one-command test and startup audit](resources/RAM_IDENTITY.md).
+A 1,416-byte freestanding RAM executable reads the full UID/chip ID/factory size
+and returns a fixed nonce/CRC record through RAM after a PG3 BOOT/system reset.
+Code/mailbox use documented upper AXI RAM; a 1,024-byte DTCM stack has a 40-byte
+compiler static frame. Actual ARM link/startup inspection and focused host tests
+pass. Physical RAM execution, reset retention, PG3 return, High Sierra operation
+and native identity capture are **not tested**. No flash permission or full-runner
+receipt is issued; the15 benchmark images and their identity backend are unchanged.
+
 ## Automated Seed3 benchmark runner — unmerged proposal
 
 **Blocked:** founder ROM enumeration succeeded, but v1.1 SET_ADDRESS identity

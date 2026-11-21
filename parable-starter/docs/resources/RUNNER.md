@@ -2,7 +2,8 @@
 
 **BLOCKED: v1.1 physical identity verification fails at ROM SET_ADDRESS. Do not
 retry its probe/batch as an operational recipe.** See [identity investigation and
-replacement design](IDENTITY_BLOCKER.md). The original steps below are retained
+replacement design](IDENTITY_BLOCKER.md). A separate [RAM-only identity test](RAM_IDENTITY.md) is now available for its own
+physical validation; it does not authorize this runner. The original steps below are retained
 for review; no replacement identity backend or working kit is claimed.
 
 **Software tests and 15 ARM links pass. Physical handoff and the one-button,

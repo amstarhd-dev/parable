@@ -1,5 +1,9 @@
 # ROM DFU identity gate — blocked, not a successful physical probe
 
+A follow-on [separate RAM-only test](RAM_IDENTITY.md) is now implemented and
+packaged for physical validation. It does not integrate with or unlock the full
+runner. The investigation below still applies to the unsupported v1.1 backend.
+
 The founder's v1.1 log reports USB DFU 011a, transfer size1024, alt0 Internal
 Flash, initial state2/dfuIDLE and status0, followed by
 `SET_ADDRESS not correctly executed`. Enumeration succeeded. Identity verification,
@@ -75,9 +79,9 @@ DFU flashing and no-flash-before-verification:
    is not adversarial cryptographic attestation.
 
 These are documented RAM transport mechanisms, not physical Seed3 compatibility
-proof. This RAM helper and its host state machine are **not implemented** in this
-correction. The USB/core-reset startup requirement is an unresolved technical
-risk. Do not send an ordinary flash-linked image to RAM or modify option bytes.
+proof. The follow-on RAM helper is implemented only as the separate physical test. It
+keeps interrupts masked until a full system reset and starts no USB stack,
+addressing the startup requirement in its design. Physical behavior is unproven. Do not send an ordinary flash-linked image to RAM or modify option bytes.
 
 A second supported transport is read-only **ST-LINK/SWD** acquisition, followed
 by verification and flashing of that same attached target via SWD. [ST UM2237 /
@@ -91,12 +95,13 @@ preflashed identity firmware, or accepting missing values is not a replacement.
 ## Delivery status and next test
 
 v1.1 remains blocked at identity verification and must not be treated as a usable
-unattended kit. No replacement ZIP is published: runner/firmware code and existing
-binaries are unchanged. Added regressions inject failure at each identity request
+unattended kit. No corrected full-runner ZIP is published. A separately packaged RAM-only
+instrument is available in the follow-on guide; the15 benchmark binaries and
+old full-runner backend are unchanged. Added regressions inject failure at each identity request
 and establish that no later read or flash download is issued. They simulate errors;
 they do not prove ROM readability or physical handoff.
 
-Next increment: implement/audit the RAM-only bootstrap and resolve its USB startup
-requirements, then physically validate RAM download/readback/identity/ROM return
+Next test: physically validate the standalone RAM download/readback and two
+nonce-bound native identity captures with ROM return
 **before any flash download**. If that cannot be supported, explicitly decide on
 SWD transport. PR84 stays unmerged; original acceptance is unfulfilled.
