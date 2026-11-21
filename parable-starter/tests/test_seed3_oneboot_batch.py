@@ -75,7 +75,7 @@ class Batch(unittest.TestCase):
             backend.wait_dfu=mock.Mock(return_value=device)
             backend.selectors=mock.Mock(return_value=['dfu-util','-a','0'])
             binary=Path(t)/'test.bin';binary.write_bytes(b'abc')
-            complete=('Erase done.\nDownload done.\nFile downloaded successfully\n'
+            complete=('Erase   \t done.\nDownload done.\nFile downloaded successfully\n'
                       'Submitting leave request...\ndfu-util: Error during download get_status\n')
             with mock.patch.object(one.subprocess,'run',return_value=mock.Mock(
                     returncode=74,stdout=complete.encode())) as call:
