@@ -4,9 +4,9 @@ from seed3_oneboot_batch import Device, cdc_identity
 from seed3_runner import atomic,require,Stop
 
 root=Path(__file__).resolve().parent
-names=[p+'/'+str(w)+' branches' for p in ('cmos','germanium','muff','klon','blender','fz1','tape_saturation') for w in (6,12,20)]
+names=[p+'/'+w for p in ('cmos','germanium','muff','klon','blender','fz1','tape_saturation') for w in ("6 branches","12 branches","20 branches","12 branches ADAA")]
 names+=['rat/native1x','rat/2x33','rat/4x33','spring/48 modes','spring/96 modes','spring/192 modes','leo_hall/half rate','leo_hall/full rate','chain/4x native','chain/1x rotor 8','chain/1x rotor 32']
-intervals=[(0,21),(21,27),(27,29),(29,32)]
+intervals=[(0,28),(28,34),(34,36),(36,39)]
 labels=['drives and tape','Rat and spring','Leo Hall','complete Scorpio chain']
 def capture(port,m):
     bank=m['bank'];low,high=intervals[bank];end=time.monotonic()+18
@@ -31,6 +31,10 @@ def save(out,results):
         status='invalid' if not 0<n<=3000 or not peak or bad or frames else 'deadline miss' if hits else 'incomplete' if n!=3000 else 'within 20%' if peak<=96000 else 'above 20%'
         writer.writerow([names[i],n,peak,round(pct,4),hits,bad,frames,status])
     atomic(out/'timing.csv',buf.getvalue().encode())
+def enter(port,m,nonce):
+    port.send('ENTER_DFU '+m['id']+' '+nonce+'\n')
+    end=time.monotonic()+10
+    while port.line(end)!='DFU_AUTHORIZED '+nonce+'\n':pass
 def run():
     banks=json.loads((root/'manifest.json').read_text())['banks']
     require([m['bank'] for m in banks]==list(range(4)),'Invalid bank list')
@@ -59,6 +63,21 @@ def run():
             state.update(selected=selected,phase='capture');checkpoint()
             print(f'Flashing {bank+1}/4: {labels[bank]}',flush=True)
             d.flash_selected(selected,root/m['bin'])
+        if state['phase']=='handoff':
+            # A host interruption can occur on either side of the USB reset.
+            try: returned=d.wait_dfu(2)
+            except Stop: returned=None
+            if returned is not None:
+                require(returned==state['selected'],'ROM identity changed after capture')
+                state['phase']='return';checkpoint()
+            else:
+                port=d.open_cdc(20)
+                try:
+                    nonce,_,silicon=cdc_identity(port,{'artifact_id':m['id']})
+                    require(silicon==state['silicon'],'Native silicon identity changed')
+                    enter(port,m,nonce)
+                    state['phase']='return';checkpoint()
+                finally:port.close()
         if state['phase']=='capture':
             print(f'Waiting for {labels[bank]} ({3*(intervals[bank][1]-intervals[bank][0])} seconds of audio if every candidate completes)…',flush=True)
             port=d.open_cdc(180)
@@ -73,9 +92,8 @@ def run():
                 for i,n,peak,hits,bad,frames in rows:print(f'{names[i]:27s} {peak/4800:6.2f}%  blocks {n}  hits {hits}  nonfinite {bad}  bad frames {frames}',flush=True)
                 # Final bank stays in the reporting application for inspection.
                 if bank<3:
-                    port.send('ENTER_DFU '+m['id']+' '+nonce+'\n')
-                    end=time.monotonic()+10
-                    while port.line(end)!='DFU_AUTHORIZED '+nonce+'\n':pass
+                    state['phase']='handoff';checkpoint()
+                    enter(port,m,nonce)
                     state['phase']='return';checkpoint()
             finally:port.close()
         if bank<3:

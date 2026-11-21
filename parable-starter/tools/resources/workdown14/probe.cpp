@@ -33,7 +33,7 @@ static void audio(daisy::AudioHandle::InputBuffer,daisy::AudioHandle::OutputBuff
         blocks=block+1;
     }
 }
-static constexpr unsigned boundaries[]={0,21,27,29,32};
+static constexpr unsigned boundaries[]={0,28,34,36,39};
 static constexpr unsigned firstRow=boundaries[WORK_BANK],endRow=boundaries[WORK_BANK+1];
 static char report[1600];static size_t reportBytes;
 // SPSC byte queue: ISR copies only; foreground drains with a short IRQ guard.
