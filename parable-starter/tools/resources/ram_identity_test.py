@@ -81,7 +81,15 @@ class RamDfu:
         try:
             log = self.usb.command(args, timeout=30)
         except (common.Stop, subprocess.SubprocessError) as error:
-            atomic(self.output / ('command-%02d-error.txt' % self.command_number), str(error).encode())
+            failure = str(error)
+            atomic(self.output / ('command-%02d-error.txt' % self.command_number), failure.encode())
+            # A running RAM image can reset/disconnect USB during DfuSe LEAVE,
+            # before dfu-util receives its final GETSTATUS. This is NOT success:
+            # execute() must still witness a fresh ROM enumeration and validate
+            # the nonce-bound mailbox before accepting the round.
+            if leave and 'Submitting leave request...' in failure and 'dfu-util: Error during download get_status' in failure:
+                print('LEAVE lost USB status; checking ROM return and RAM identity (not yet verified)', flush=True)
+                return
             raise
         atomic(self.output / ('command-%02d.txt' % self.command_number), log.encode())
         if length is not None:
@@ -104,7 +112,14 @@ class RamDfu:
         end = time.monotonic() + 25
         absent = False
         while time.monotonic() < end:
-            text = self.usb.command([str(self.usb.dfu), '-l'], timeout=5)
+            try:
+                text = self.usb.command([str(self.usb.dfu), '-l'], timeout=5)
+            except (common.Stop, subprocess.SubprocessError, subprocess.TimeoutExpired):
+                # Enumeration can briefly fail during USB detachment. We still
+                # require an independently observed fresh ROM generation.
+                absent = True
+                time.sleep(.1)
+                continue
             devices = common.dfu_devices(text)
             if not devices:
                 absent = True
