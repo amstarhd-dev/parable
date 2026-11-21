@@ -1,0 +1,23 @@
+SF004 paused control test
+Vword in 0 0
+R1 in out 1k
+C1 out 0 1u
+.control
+set noaskquit
+set wr_singlescale
+set wr_vecnames
+stop when time=1m
+stop when time=2m
+tran 10u 3m 0 10u
+let before=v(out)[length(time)-1]
+print before
+alter Vword dc=1
+resume
+let measured=v(out)[length(time)-1]
+let code=floor(measured*65536)/65536
+print measured code
+resume
+wrdata rc-trace.txt v(in) v(out)
+quit
+.endc
+.end

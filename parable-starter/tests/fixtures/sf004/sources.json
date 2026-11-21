@@ -1,0 +1,90 @@
+[
+  {
+    "id": "native",
+    "url": "https://github.com/amstarhd-dev/parable/tree/440a99221af7cc3f3b7123db327bb161306d4856/parable-starter",
+    "revision": "440a99221af7cc3f3b7123db327bb161306d4856",
+    "role": "unchanged primary reduced model, native solver and independent SPICE",
+    "accessed": "2026-11-11",
+    "use": "reference only; no external code/illustrations imported"
+  },
+  {
+    "id": "perf",
+    "url": "https://github.com/amstarhd-dev/parable/pull/21",
+    "revision": "b2b1bf421d1dd6ca087edd0c87e824c55405ce0d",
+    "role": "unmerged contextual research; final CI contains mixed O2 and positive O3 evidence, ARM cycles unmeasured",
+    "accessed": "2026-11-11",
+    "use": "reference only; no external code/illustrations imported"
+  },
+  {
+    "id": "sdk",
+    "url": "https://github.com/daisyaudio/libDaisy/blob/1289a000bc29dae1bc0ed4129cfa2df40ef71574/src/daisy_seed.cpp",
+    "revision": "1289a000bc29dae1bc0ed4129cfa2df40ef71574",
+    "role": "pinned 48k/24bit configuration; reset-compatible Seed3 path, no board timing measurement",
+    "accessed": "2026-11-11",
+    "use": "reference only; no external code/illustrations imported"
+  },
+  {
+    "id": "seed3",
+    "url": "https://docs.daisy.audio/hardware/Seed3/",
+    "role": "official module identity and capabilities, not measured configuration",
+    "accessed": "2026-11-11",
+    "use": "reference only; no external code/illustrations imported"
+  },
+  {
+    "id": "phil",
+    "url": "https://doi.org/10.3390/electronics11010007",
+    "date": "2021-12-21",
+    "role": "Resch et al.; delay/impedance/amplifier stability framework; linear-grid results are not direct proof for active nonlinear BJTs",
+    "accessed": "2026-11-11",
+    "use": "reference only; no external code/illustrations imported"
+  },
+  {
+    "id": "ctsd",
+    "url": "https://www.analog.com/en/resources/analog-dialogue/articles/ctsd-precision-adcs-part-2.html",
+    "role": "converter delay inside feedback and integrator need; not a transistor HIL design",
+    "accessed": "2026-11-11",
+    "use": "reference only; no external code/illustrations imported"
+  },
+  {
+    "id": "an1444",
+    "url": "https://www.analog.com/en/resources/app-notes/an-1444.html",
+    "role": "interface writes versus analog settling/glitch; not proof of a suitable product",
+    "accessed": "2026-11-11",
+    "use": "reference only; no external code/illustrations imported"
+  },
+  {
+    "id": "ngspice",
+    "url": "https://ngspice.sourceforge.io/docs/ngspice-44-manual.pdf",
+    "revision": "44.2; existing Debian44.2+ds-1 SHA-pin in third_party/germanium/provenance.json",
+    "role": "paused transient, alter/resume formalism; nonlinear delivery-event convergence remains unvalidated",
+    "accessed": "2026-11-11",
+    "use": "reference only; no external code/illustrations imported"
+  },
+  {
+    "id": "tac5242",
+    "url": "https://www.ti.com/lit/ds/symlink/tac5242.pdf",
+    "revision": "SLASF27A; revised November2024",
+    "sha256": "0e83ec67ecfcea851450bbb6cd5dab417dd031f7af0a9daa7f3778241e833d3a",
+    "role": "Tables7-16/18/21/23/28/30/31/33/34; filter latency, HPF, range and pin-selected formats",
+    "accessed": "2026-11-11",
+    "use": "reference only; no external code/illustrations imported"
+  },
+  {
+    "id": "ad3552r",
+    "url": "https://www.analog.com/media/en/technical-documentation/data-sheets/ad3552r.pdf",
+    "revision": "Rev.B February2023",
+    "sha256": "8a82d8ce773649d1f0c8918baadaa1856fcedfcdd37f94ed409e106358511ebb",
+    "role": "33MUPS current-output DAC; externalTIA/1.8Vlogic; 100ns2V0.1% settling is NOT16bit settling",
+    "accessed": "2026-11-11",
+    "use": "reference only; no external code/illustrations imported"
+  },
+  {
+    "id": "ad7380-4",
+    "url": "https://www.analog.com/media/en/technical-documentation/data-sheets/ad7380-4.pdf",
+    "revision": "Rev.A April2024",
+    "sha256": "a42117a6ebea7f9e8c80872994f6f4099d1012423334ec5aef3b277c48452675",
+    "role": "4MSPS per lane,4 simultaneousADC; max190ns conversion, 1cycle readback/low-latency read option,16bit not ENOB",
+    "accessed": "2026-11-11",
+    "use": "reference only; no external code/illustrations imported"
+  }
+]

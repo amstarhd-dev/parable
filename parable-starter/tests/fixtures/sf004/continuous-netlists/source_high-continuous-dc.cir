@@ -1,0 +1,47 @@
+Positive-ground PNP reduced germanium circuit
+Vbattery supply 0 -9
+
+Rsource source intermediate 100
+Cin intermediate b1 2.2u
+Xq1 c1 b1 0 measured leak=7.5460000000000003e-06
+Xq2 c2 c1 e2 measured
+Rcollector1 c1 supply 33k
+Rfeedback b1 e2 100000
+Rft e2 wiper 199.99999999999994
+Rfb wiper 0 800
+Cbypass wiper 0 20u
+Cbc1 b1 c1 100p
+Cbc2 c1 c2 100p
+Rcollector2 c2 tap 8.2k
+Rsupplytap tap supply 470
+Cout tap volume 10n
+RvolumeTop volume jack 250k
+RvolumeBottom jack 0 250k
+Rload jack 0 1Meg
+.nodeset v(b1)=-.073 v(c1)=-.21 v(e2)=-.16 v(c2)=-7.55
+
+.subckt measured c b e params: beta=229.6 leak=7.546u
+Bbe e b I={20.66u/beta*(exp(v(e,b)/(1.133*0.0255))-1)+2.190u*(exp(v(e,b)/(1.796*0.0255))-1)}
+Bbc c b I={20.66u/14.66*(exp(v(c,b)/(1.140*0.0255))-1)+leak*(exp(v(c,b)/(1.364*0.0255))-1)}
+Btransport e c I={2*(1-v(e,b)/88.28-v(c,b)/19.68)/(1+sqrt(1+4*(20.66u*(exp(v(e,b)/(1.133*0.0255))-1)/0.463+20.66u*(exp(v(c,b)/(1.140*0.0255))-1)/0.2415)))*(20.66u*(exp(v(e,b)/(1.133*0.0255))-1)-20.66u*(exp(v(c,b)/(1.140*0.0255))-1))}
+.ends
+
+Vprobe drive source 0
+Bstim stimulus 0 V={0.050000000000000003*sin(2*pi*997*time)}
+Bsum rawcmd 0 V={v(stimulus)-49900*i(Vprobe)}
+Bcommand drvcmd 0 V={v(rawcmd)}
+Edrive drive 0 drvcmd 0 1
+
+.options method=gear maxord=2
+
+.options reltol=1e-8 abstol=1e-13 vntol=1e-10 gmin=1e-14
+.temp 26.85
+.control
+set noaskquit
+set wr_singlescale
+set wr_vecnames
+op
+wrdata source_high-continuous-dc.txt v(b1) v(c1) v(e2) v(c2) v(tap) v(jack) i(Vprobe) v(rawcmd) v(drvcmd)
+quit
+.endc
+.end

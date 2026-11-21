@@ -1,0 +1,70 @@
+name: SF004 desk research
+
+on:
+  push:
+    paths:
+      - 'parable-starter/tools/sf004/**'
+      - 'parable-starter/tests/fixtures/sf004/**'
+      - 'parable-starter/docs/PHYSICAL_BJT_FEASIBILITY.md'
+      - 'parable-starter/docs/adr/ADR-006-physical-bjt-partition.md'
+      - '.github/workflows/sf004-research.yml'
+  pull_request:
+    paths:
+      - 'parable-starter/tools/sf004/**'
+      - 'parable-starter/tests/fixtures/sf004/**'
+      - 'parable-starter/docs/PHYSICAL_BJT_FEASIBILITY.md'
+      - 'parable-starter/docs/adr/ADR-006-physical-bjt-partition.md'
+      - '.github/workflows/sf004-research.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce-research:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Check arithmetic, source preservation and disclosed limits
+        run: python3 parable-starter/tools/sf004/check.py
+      - name: Extract the existing checksum-pinned offline simulator
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libxaw7 libreadline8t64
+          python3 - <<'PY'
+          import hashlib,json,subprocess
+          from pathlib import Path
+          pin=json.loads(Path('parable-starter/third_party/germanium/provenance.json').read_text())['offline_reference']
+          root=Path('parable-starter/build/sf004');root.mkdir(parents=True,exist_ok=True)
+          archive=root/'ngspice.deb'
+          subprocess.run(['curl','-fL','--retry','3',pin['url'],'-o',str(archive)],check=True)
+          assert hashlib.sha256(archive.read_bytes()).hexdigest()==pin['sha256']
+          subprocess.run(['dpkg-deb','-x',str(archive),str(root/'simulator')],check=True)
+          PY
+      - name: Reproduce all seven continuous electrical reference cases
+        run: |
+          python3 parable-starter/tools/sf004/coupled_spice.py --ngspice "$GITHUB_WORKSPACE/parable-starter/build/sf004/simulator/usr/bin/ngspice" --output parable-starter/build/sf004/evidence --mode continuous
+          cp parable-starter/tests/fixtures/sf004/rc-pause-selfcheck.cir parable-starter/build/sf004/evidence/
+          (cd parable-starter/build/sf004/evidence && ../simulator/usr/bin/ngspice -n -b rc-pause-selfcheck.cir > rc-pause.log 2>&1)
+          python3 parable-starter/tools/sf004/check.py --continuous parable-starter/build/sf004/evidence/results.json --rc parable-starter/build/sf004/evidence/rc-trace.txt
+          python3 parable-starter/tools/sf004/budget.py --output parable-starter/build/sf004/evidence/budget.json
+          python3 parable-starter/tools/sf004/linear_port.py --output parable-starter/build/sf004/evidence/linear-port.json
+      - name: Record scope and source identity
+        env:
+          HEAD_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          git rev-parse HEAD > parable-starter/build/sf004/evidence/SOURCE_COMMIT
+          printenv HEAD_COMMIT > parable-starter/build/sf004/evidence/HEAD_COMMIT
+          cp parable-starter/tools/sf004/PLAN.md parable-starter/tests/fixtures/sf004/blocked-coupled-results.json parable-starter/tests/fixtures/sf004/sources.json parable-starter/build/sf004/evidence/
+          git ls-files -z parable-starter/tools/sf004 parable-starter/tests/fixtures/sf004 parable-starter/src/parable_germanium.cpp parable-starter/src/germanium_device.h parable-starter/tools/germanium_spice_reference.py parable-starter/tests/fixtures/germanium | xargs -0 sha256sum > parable-starter/build/sf004/evidence/SOURCE_SHA256SUMS
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
+        with:
+          name: sf004-desk-evidence-NOT-hardware-validation
+          path: parable-starter/build/sf004/evidence/
+          if-no-files-found: error
+          retention-days: 7
