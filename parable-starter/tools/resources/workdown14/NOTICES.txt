@@ -1,0 +1,386 @@
+11404fd19292/labrat/PiRAT-LICENSE.txt
+Copyright 2022 Cedric TESSIER
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+11404fd19292/labrat/Rodent-LICENSE.txt
+The MIT License (MIT)
+
+Copyright (c) 2013 Valdemar Erlingsson
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+767a3c402b97/rotary/DaisySP-LICENSE.txt
+DaisySP, copyright (c) 2020 Electrosmith, Corp.
+
+Published under the MIT license:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-------------------------------------------------------------------------------
+
+Plaits, copyright 2016 Emilie Gillet (emilie.o.gillet@gmail.com)
+
+Published under the MIT license:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+-------------------------------------------------------------------------------
+
+Soundpipe, copyright 2015 Paul Batchelor
+
+Published under the MIT license:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+767a3c402b97/rotary/AUDIO_NOTICE.md
+# SF-007 permitted real-guitar input
+
+Reuse the same pinned **GuitarJam / Julian-br**, CC0-1.0, as SF-006; original
+card retained at `third_party/tape/GuitarJam-README.md`. Exact recording:
+
+https://huggingface.co/datasets/Julian-br/GuitarJam/resolve/2d467bfec90af19301b01123494f4b2ba64c5a3a/guitar_jam/test/050.wav
+
+Revision **2d467bfec90af19301b01123494f4b2ba64c5a3a**, SHA256
+**22e7b845fc2d71200c72c13fedbeb5f8ac593e48a01f99875f857e0cc5dfecd0**,
+987046 bytes, mono PCM16/44.1 kHz/493501 frames. Author describes clean
+Stratocaster -> Scarlett Solo -> Audacity without amp/effects. The pinned public
+CC0 card is permission basis; authorship/ownership not independently authenticated.
+This is listening audio, not a DSP-code import or license-allowlist exception.
+
+Both versions receive the entire same input at peak .25 normalized and a 2 s
+silent tail; no resampling or physical-voltage calibration. Full-band dry/healthy/
+worn, actual horn taps and identical drum tap are labeled separately. Synthetic
+09/10/11 files are owned transient/steady test signals, explicitly **not guitar**.
+RMS matching gains are in renders.csv; no human/founder approval is inferred.
+CI checks SHA, includes original/card/provenance/notices and source/compiler
+identity. Custom CLI input needs the caller's permission. DSP/tests have no
+recording-download dependency; CI download is an explicit, pinned listening step.
+
+
+767a3c402b97/rotary/algo-dsp-LICENSE.txt
+MIT License
+
+Copyright (c) 2026
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+767a3c402b97/tape/DaisySP-LICENSE.txt
+DaisySP, copyright (c) 2020 Electrosmith, Corp.
+
+Published under the MIT license:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+-------------------------------------------------------------------------------
+
+Plaits, copyright 2016 Emilie Gillet (emilie.o.gillet@gmail.com)
+
+Published under the MIT license:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+-------------------------------------------------------------------------------
+
+Soundpipe, copyright 2015 Paul Batchelor
+
+Published under the MIT license:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+767a3c402b97/tape/AUDIO_NOTICE.md
+# Listening input, separate from DSP source licensing
+
+GuitarJam / Julian-br, revision **2d467bfec90af19301b01123494f4b2ba64c5a3a**,
+`guitar_jam/test/050.wav`. Public source and dataset card:
+
+- https://huggingface.co/datasets/Julian-br/GuitarJam/tree/2d467bfec90af19301b01123494f4b2ba64c5a3a
+- https://huggingface.co/datasets/Julian-br/GuitarJam/resolve/2d467bfec90af19301b01123494f4b2ba64c5a3a/guitar_jam/test/050.wav
+
+Author's pinned card declares **CC0-1.0** and describes clean Stratocaster DI
+through a Scarlett Solo/Audacity, without amp/effects. Card retained unchanged;
+no independent authentication of the author's recording ownership. The public
+CC0 dedication is the basis for these downloadable original/processed audio
+examples. This is not an MIT/BSD DSP-code import or registry-policy exception.
+
+Original SHA256 **22e7b845fc2d71200c72c13fedbeb5f8ac593e48a01f99875f857e0cc5dfecd0**;
+987,046 B, mono PCM16/44.1 kHz/493,501 frames. Do not relabel synthetic plucks as
+real guitar. CI downloads explicitly, checks this SHA and includes the original,
+card and provenance with the processed files. No audio-network dependency in DSP,
+ordinary host tests or firmware. Alternate CLI recordings need the caller's rights.
+
+SF-006's proof excerpts are the first second (A) and one second starting halfway
+through this recording (B). Both enter the ordinary record head; retained A is
+never supplied as a hidden extra input. Source frame offsets, normalized-input
+calibration and raw/matching gains are in the receipts. Human/founder musical
+approval is pending; permission to distribute a recording is not quality approval.
+
+
+767a3c402b97/scorpio/ACME-LICENSE.md
+The ACME.jl package is licensed under the MIT "Expat" License:
+
+> Copyright (c) 2015, 2016, 2017: Martin Holters.
+>
+> Permission is hereby granted, free of charge, to any person obtaining
+> a copy of this software and associated documentation files (the
+> "Software"), to deal in the Software without restriction, including
+> without limitation the rights to use, copy, modify, merge, publish,
+> distribute, sublicense, and/or sell copies of the Software, and to
+> permit persons to whom the Software is furnished to do so, subject to
+> the following conditions:
+>
+> The above copyright notice and this permission notice shall be
+> included in all copies or substantial portions of the Software.
+>
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+> EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+> MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+> IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+> CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+> TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+> SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+767a3c402b97/scorpio/AUDIO_NOTICE.md
+# SF017 listening source and changes
+
+Credit Hegel Emmanuel Pedroza Villalobos, Termeh Taheri, Wallace Abreu,
+Ryan M. Corey and Iran R. Roman. Guitar-TECHS, ICASSP2025.
+Source https://zenodo.org/records/14963133 and https://guitar-techs.github.io/ .
+Creative Commons Attribution4.0 International:
+https://creativecommons.org/licenses/by/4.0/ . Preserve this notice with audio.
+
+Player3 performance03 direct-input. Archive P3_music.zip SHA256
+033489e22600751fb5a1633e7d856b901c6782e0486fa02135e830780d9dbfe2;
+member P3_music/audio/directinput/directinput_03.wav original SHA256
+84980b5468f3315171e4e546a1d38d54e4c368ccb5fee72c759e0915f346fad0.
+Existing tools/klon_input.py prepares first20s/channel0/PCM24->16 nearest,
+ties away, no resampling/EQ/gain; prepared SHA256
+75ae5e73c72e6774fb75e6318dc91ba66347fb65290949e947144033eb648f52.
+SF017 uses first8s of that preparation, calibrates peak0.03modelV, adds1s silence,
+and renders the same source through both modes at identical Level. Raw jackVolts/8
+and separate offline RMS matching are explicit in settings/renders.csv; not LUFS.
+Software units are not measured pickup/codec calibration. The dry file is external
+DI with the same software calibration/output divisor. No source ownership beyond
+CC-BY rights, physical-pedal match or founder approval is implied.
+
+
+21905d5ca171/hall/AUDIO_NOTICE.md
+# SF-022 guitar recording
+
+Guitar-TECHS, ICASSP2025; Hegel Emmanuel Pedroza Villalobos, Termeh Taheri,
+Wallace Abreu, Ryan M. Corey and Iran R. Roman. Source:
+https://zenodo.org/records/14963133 and https://guitar-techs.github.io/ .
+Creative Commons Attribution4.0 International:
+https://creativecommons.org/licenses/by/4.0/ . Retain credit/license/change notice.
+
+Player3 take03 direct input, the established SF011/SF014/SF021 performance.
+Archive `P3_music.zip`, SHA256
+`033489e22600751fb5a1633e7d856b901c6782e0486fa02135e830780d9dbfe2`;
+member `P3_music/audio/directinput/directinput_03.wav`, SHA256
+`84980b5468f3315171e4e546a1d38d54e4c368ccb5fee72c759e0915f346fad0`.
+Main's `tools/klon_input.py` selects channel0/first20s and quantizes24→16
+nearest/ties-away, no EQ/gain/resampling. Prepared1920044bytes, SHA256
+`75ae5e73c72e6774fb75e6318dc91ba66347fb65290949e947144033eb648f52`.
+The committed prepared input is exact; no unmerged effect DSP is imported.
+Original archive can be fetched/reverified by that existing tool; full stereo
+original is not duplicated in this package.
+
+This laboratory takes first8s, adds8s tail, processes the same native C++ hall,
+retains raw0.65dry+0.35wet and wet-only files, and separately applies whole-file
+RMS gains with receipts. No pickup/codec voltage calibration. Chord/impulse/zero
+probes are synthetic and explicitly labeled; they do not replace real guitar.
+Stereo files preserve actual core channels; mono files use their arithmetic sum.
+Reset demonstration stops/resets at4s with an explicit external5ms output fade.
+
+
+21905d5ca171/hall/upstream/LICENSE
+MIT License
+
+Copyright (c) 2018 Chris Johnson
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+9f8548cebb57/spring/AUDIO_NOTICE.md
+# SF-008 permitted real-guitar input
+
+Same CC0 GuitarJam / Julian-br input as SF-006/007, pinned card at
+`third_party/tape/GuitarJam-README.md`. The source describes clean Stratocaster
+-> Scarlett Solo -> Audacity, no amp/effects. Public CC0 card is permission basis;
+authorship/ownership has not been independently authenticated.
+
+https://huggingface.co/datasets/Julian-br/GuitarJam/resolve/2d467bfec90af19301b01123494f4b2ba64c5a3a/guitar_jam/test/050.wav
+
+Revision **2d467bfec90af19301b01123494f4b2ba64c5a3a**, SHA256
+**22e7b845fc2d71200c72c13fedbeb5f8ac593e48a01f99875f857e0cc5dfecd0**,
+987046 bytes, mono PCM16/44100 Hz/493501 frames. Card SHA256
+**e6df26337b6307b41b58bdb0f5d9d7e185f5784028f5b2dcba13d2f21e7e78f8**.
+
+Both spring configurations receive the entire same source at **peak.8 normalized**
+(software gain4.62335097002), NOT calibrated physical voltage. This deliberately
+differs from prior tape/rotary peak.25; no resampling, add6s silence. Six primary
+files have758101 frames each. Dry/healthy/fault are raw common gain1 and separately
+whole-file RMS matched at -23dBFS subject to.89 peak ceiling; not LUFS matching.
+Weak/strong/impulse files are explicitly OWNED synthetic mechanical probes,
+not guitar. Additional *_common64.wav probe pairs use the SAME offline64 gain
+across weak/strong/impulse, retaining relative levels. No human/founder listening approval is inferred from rendering.
+
+CI verifies input SHA and includes original/card/notices/provenance, exact source
+and compiler identity, all WAV hashes/receipts. Caller-supplied CLI input needs its
+own permission; tests need no external recording download. No other tank recording
+or impulse response imported. Artifact expires after30days; rerun CI to regenerate.
