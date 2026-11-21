@@ -9,15 +9,21 @@
 
 extern "C" USBD_HandleTypeDef hUsbDeviceFS;
 static daisy::DaisySeed hw;
-alignas(ReducedTS808) static unsigned char storage[sizeof(ReducedTS808)];
-static ReducedTS808* fx;
+using First2 = TunedTS808<1,false,1>;
+using Second2 = TunedTS808<1,false,2>;
+using First4 = TunedTS808<2,true,1>;
+using ModelStorage = std::aligned_union_t<0,First2,Second2,First4>;
+static ModelStorage storage;
+struct Result { unsigned blocks, peak, hits, bad, frames; };
+static Result results[3]{};
 static float patterns[4][256];
 static volatile unsigned blocks, peak, hits, bad, badFrames;
 static volatile float sink;
 constexpr unsigned totalBlocks=3000;
 
-static void audio(daisy::AudioHandle::InputBuffer, daisy::AudioHandle::OutputBuffer out, size_t frames) {
+template<class Model> static void audio(daisy::AudioHandle::InputBuffer, daisy::AudioHandle::OutputBuffer out, size_t frames) {
     const uint32_t begin=DWT->CYCCNT;
+    auto* fx=std::launder(reinterpret_cast<Model*>(&storage));
     const unsigned block=blocks;
     for(size_t n=0;n<frames;++n) {
         if(block<totalBlocks) {
@@ -38,6 +44,16 @@ static void audio(daisy::AudioHandle::InputBuffer, daisy::AudioHandle::OutputBuf
     }
 }
 
+template<class Model> static void measure(Result& result) {
+    auto* model=new(&storage) Model;
+    blocks=peak=hits=bad=badFrames=0;
+    hw.StartAudio(audio<Model>);
+    while(blocks<totalBlocks) hw.DelayMs(1);
+    hw.StopAudio();
+    result={blocks,peak,hits,bad,badFrames};
+    model->~Model();
+}
+
 int main() {
     hw.Init(true);
     hw.SetAudioSampleRate(daisy::SaiHandle::Config::SampleRate::SAI_48KHZ);
@@ -53,7 +69,6 @@ int main() {
     for(unsigned n=0;n<32;++n) __NOP();
     bool counter=DWT->CYCCNT!=first;
     if(seed3 && hz==480000000 && rate==48000 && counter) {
-        fx=new(storage) ReducedTS808;
         uint32_t random=0x504152;
         for(unsigned n=0;n<256;++n) {
             random=random*1664525+1013904223;
@@ -62,13 +77,15 @@ int main() {
             patterns[2][n]=.2f*std::sin(6.28318530718f*7971*n/48000);
             patterns[3][n]=n<128?.8f:-.8f;
         }
-        hw.StartAudio(audio);
-        while(blocks<totalBlocks) hw.DelayMs(1);
-        hw.StopAudio();
+        measure<First2>(results[0]);
+        measure<Second2>(results[1]);
+        measure<First4>(results[2]);
     }
-    static char msg[384];
-    int len=std::snprintf(msg,sizeof(msg),"TS808_PROBE_V1 id=%s seed3=%u core_hz=%lu rate=%u counter=%u blocks=%u bad_frames=%u peak_cycles=%u deadline_hits=%u nonfinite=%u\n",
-        PROBE_ID,unsigned(seed3),(unsigned long)hz,rate,unsigned(counter),blocks,badFrames,peak,hits,bad);
+    static char msg[512];
+    const auto& a=results[0]; const auto& b=results[1]; const auto& c=results[2];
+    int len=std::snprintf(msg,sizeof(msg),"TS808_COMPARE id=%s seed3=%u core_hz=%lu rate=%u counter=%u AA1_2x=%u,%u,%u,%u,%u AA2_2x=%u,%u,%u,%u,%u AA1_4x=%u,%u,%u,%u,%u\n",
+        PROBE_ID,unsigned(seed3),(unsigned long)hz,rate,unsigned(counter),
+        a.blocks,a.peak,a.hits,a.bad,a.frames,b.blocks,b.peak,b.hits,b.bad,b.frames,c.blocks,c.peak,c.hits,c.bad,c.frames);
     hw.usb_handle.Init(daisy::UsbHandle::FS_INTERNAL);
     hw.SetLed(true);
     for(;;) {

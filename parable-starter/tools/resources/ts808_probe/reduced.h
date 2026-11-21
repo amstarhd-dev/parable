@@ -2,24 +2,29 @@
 #include <algorithm>
 #include <array>
 #include <cmath>
+#include <type_traits>
 
 // Host prototype: 48 kHz, drive 1, tone and level 0.5, healthy diode pair.
-#ifndef TS808_STAGES
-#define TS808_STAGES 1
-#endif
-class ReducedTS808 {
-    static_assert(TS808_STAGES>=1 && TS808_STAGES<=3);
-
-    static constexpr double fs = 48000, inner = (1<<TS808_STAGES)*fs;
-    static constexpr double rf = 551000, rg = 4700, cf = 51e-12;
-    static constexpr float maxCurrent = 0.002f;
-    static constexpr size_t cells = 2048;
-    std::array<float,cells+1> volts{};
+// First and second antiderivatives of the tabulated static diode map.
+struct TS808FirstEntry { float v, primitive; };
+struct TS808SecondEntry { float v, primitive; double second; };
+template<unsigned substeps, bool fullFir, unsigned antialias>
+class TunedTS808 {
+    static_assert(substeps==1 || substeps==2 || substeps==4);
+    static constexpr size_t stagesCount=fullFir ? (substeps==4 ? 3 : 2) : 1;
+    static constexpr float inner=96000.f*substeps;
+    static constexpr double fs=48000, rf=551000, rg=4700, cf=51e-12;
+    static constexpr float maxCurrent=2000.f; // microamps
+    static constexpr size_t cells=2048;
+    using Entry=std::conditional_t<antialias==2,TS808SecondEntry,TS808FirstEntry>;
+    std::array<Entry,cells+1> curve{};
+    float previousCurrent=0, previousArea=0, previousDry=0, previousOver=0;
     std::array<float,31> fir{};
     using Phases = std::array<float,16>;
     struct History { Phases input{}, even{}, odd{}; };
-    std::array<History, TS808_STAGES> stages{};
+    std::array<History, stagesCount> stages{};
     float in1=0, in2=0, src1=0, src2=0, low=0, vfb=0;
+    float olderCurrent=0; double previousSecond=0, previousSlope=0;
     float z1=0, z2=0, out1=0, out2=0;
     float b0,b1,b2,a1,a2;
     static float hp(float x,float& lastX,float& lastY,float pole) {
@@ -39,16 +44,54 @@ class ReducedTS808 {
     float clip(float x) {
         constexpr float alpha=1.f/(1.f+inner*rg*47e-9);
         low+=alpha*(x-low);
-        float current=(x-low)/rg+inner*cf*vfb;
-        float u=cells*std::sqrt(std::min(std::abs(current)/maxCurrent,1.f));
-        size_t i=std::min(static_cast<size_t>(u),cells-1);
-        vfb=std::copysign(volts[i]+(u-i)*(volts[i+1]-volts[i]),current);
-        return x+vfb;
+        constexpr float inputG=1.e6f/rg, feedbackG=1.e6f*inner*cf;
+        const float current=std::clamp(inputG*(x-low)+feedbackG*vfb,-maxCurrent,maxCurrent);
+        const float mag=std::abs(current);
+        const float u=cells*std::sqrt(mag/maxCurrent);
+        const size_t i=std::min(static_cast<size_t>(u),cells-1);
+        const float start=(float(i)*i)*(maxCurrent/(cells*cells));
+        const float span=(2*i+1)*(maxCurrent/(cells*cells));
+        const float dx=mag-start;
+        const float voltage=curve[i].v+(dx/span)*(curve[i+1].v-curve[i].v);
+        const float endpoint=std::copysign(voltage,current);
+        if constexpr(antialias) {
+            // Integrate the piecewise-linear diode curve across the interval.
+            // Use the instantaneous endpoint for the feedback-capacitor state.
+            const float area=curve[i].primitive+0.5f*dx*(curve[i].v+voltage);
+            const float change=current-previousCurrent;
+            float wet;
+            float dry;
+            if constexpr(antialias==2) {
+                const double second=std::copysign(curve[i].second+dx*(double(curve[i].primitive)+dx*(2.*curve[i].v+voltage)/6.),current);
+                const double slope=std::abs(change)>1.e-5f*(1+mag) ? (second-previousSecond)/change : .5*(area+previousArea);
+                const float wide=current-olderCurrent;
+                if(std::abs(wide)>1.e-4f*(1+mag)) wet=2*(slope-previousSlope)/wide;
+                else if(std::abs(change)>1.e-3f*(1+mag)) wet=2*(area-slope)/change;
+                else wet=(endpoint+vfb)*.5f;
+                olderCurrent=previousCurrent; previousSecond=second; previousSlope=slope;
+                dry=previousDry;
+            } else {
+                wet=std::abs(change)>1.e-4f*(1.f+mag) ? (area-previousArea)/change : .5f*(endpoint+vfb);
+                dry=0.5f*(previousDry+x);
+            }
+            previousDry=x; previousArea=area; previousCurrent=current; vfb=endpoint;
+            return dry+wet;
+        }
+        vfb=endpoint;
+        return x+endpoint;
+    }
+    float innerStep(float x) {
+        if constexpr(fullFir || substeps==1) return clip(x);
+        const float increment=(x-previousOver)/substeps;
+        float sum=0;
+        for(unsigned k=1;k<=substeps;++k) sum+=clip(previousOver+k*increment);
+        previousOver=x;
+        return sum/substeps;
     }
     template<size_t stage>
     float resample(float x) {
-        if constexpr(stage == TS808_STAGES) {
-            return clip(x);
+        if constexpr(stage == stagesCount) {
+            return innerStep(x);
         } else {
             auto& h=stages[stage];
             push(h.input,x);
@@ -59,15 +102,22 @@ class ReducedTS808 {
         }
     }
 public:
-    ReducedTS808() {
+    TunedTS808() {
         for(size_t i=0;i<=cells;++i) {
-            double u=double(i)/cells, target=maxCurrent*u*u, lo=0, hi=1;
+            double u=double(i)/cells, target=1.e-6*maxCurrent*u*u, lo=0, hi=1;
             for(int n=0;n<48;++n) {
                 double mid=(lo+hi)*.5;
                 double cur=(1/rf+inner*cf)*mid+2*2.52e-9*std::sinh(mid/.045293);
                 if(cur<target) lo=mid; else hi=mid;
             }
-            volts[i]=(lo+hi)*.5;
+            curve[i].v=(lo+hi)*.5;
+            if(i) curve[i].primitive=curve[i-1].primitive+(2*i-1)*(maxCurrent/(cells*cells))*.5f*(curve[i-1].v+curve[i].v);
+            if constexpr(antialias==2) {
+                if(i) {
+                    const double h=(2*i-1)*(maxCurrent/(cells*cells));
+                    curve[i].second=curve[i-1].second+h*(double(curve[i-1].primitive)+h*(2.*curve[i-1].v+curve[i].v)/6.);
+                }
+            }
         }
         constexpr double pi=3.141592653589793;
         double sum=0;
