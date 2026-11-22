@@ -1,0 +1,19 @@
+name: Patch Bench WebAssembly
+on:
+  push:
+    branches: [bench/patch-wasm]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends emscripten
+      - working-directory: parable-starter/tools/patch-bench/native
+        run: bash build.sh
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: patch-bench-wasm
+          path: parable-starter/tools/patch-bench/native/bench.wasm
