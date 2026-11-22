@@ -1,48 +1,79 @@
+import argparse
 import hashlib
 import json
+from pathlib import Path
 import sys
 import time
-from pathlib import Path
+
 from seed3_oneboot_batch import Device
 from seed3_runner import atomic, require, Stop
 
+MODES = ("moderate", "exalted", "leaky")
+
+
+def next_report(port, deadline, identity):
+    while True:
+        line = port.line(deadline)
+        if line.startswith("CAP_LOC "):
+            fields = dict(item.split("=", 1) for item in line.split()[1:])
+            require(fields["id"] == identity, "Unexpected firmware identity")
+            return line, fields
+
+
+def screen(fields):
+    expected = dict(seed3=1, core_hz=480000000, rate=48000, counter=1)
+    require(all(int(fields[k]) == v for k, v in expected.items()), "Board, clock, rate or cycle counter mismatch")
+    passed = True
+    for mode in MODES:
+        blocks, peak, hits, nonfinite, frames = map(int, fields[mode].split(","))
+        good = blocks == 3000 and 0 < peak < 96000 and hits == nonfinite == frames == 0
+        print(f"{mode}: {peak} peak cycles ({peak/4800:.2f}%) | {blocks} blocks | "
+              f"{hits} deadline hits | {nonfinite} nonfinite | {frames} bad frames | "
+              f"{'PASS' if good else 'FAIL'}")
+        passed &= good
+    return passed
+
+
 def run():
-    root=Path(__file__).resolve().parent
-    manifest=json.loads((root/"manifest.json").read_text())
-    binary=root/"capricorn_loc.bin"
-    data=binary.read_bytes()
-    require(8<len(data)<=131072 and hashlib.sha256(data).hexdigest()==manifest["sha256"],"Firmware checksum/size mismatch")
-    out=root/("measurement-"+time.strftime("%Y%m%d-%H%M%S"))
+    parser = argparse.ArgumentParser()
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("--read-only", action="store_true")
+    group.add_argument("--play", choices=MODES, help="select live sound on the already flashed board")
+    args = parser.parse_args()
+    root = Path(__file__).resolve().parent
+    manifest = json.loads((root / "manifest.json").read_text())
+    binary = root / "capricorn_loc.bin"
+    data = binary.read_bytes()
+    require(8 < len(data) <= 131072 and hashlib.sha256(data).hexdigest() == manifest["sha256"],
+            "Firmware checksum or size mismatch")
+    out = root / ("measurement-" + time.strftime("%Y%m%d-%H%M%S") + "-" + str(time.time_ns()%1000000000))
     out.mkdir()
-    backend=Device(Path.home()/"Parable-PAR009/runner84-v11/darwin_amd64/dfu-util",out,"200364500000")
-    if sys.argv[1:]!=["--read-only"]:
-        require(not sys.argv[1:],"Only supported option is --read-only")
-        print("Looking for your Daisy in ROM DFU. If needed, hold BOOT, tap RESET, then release BOOT.",flush=True)
-        selected=backend.wait_dfu(45)
-        backend.flash_selected(selected,binary)
-    print("Measuring Capricorn moderate, exalted and leaky at 480 MHz…",flush=True)
-    port=backend.open_cdc(60)
+    backend = Device(Path.home() / "Parable-PAR009/runner84-v11/darwin_amd64/dfu-util", out, "200364500000")
+    if not (args.read_only or args.play):
+        print("Looking for Daisy ROM DFU. Hold BOOT, tap RESET, then release BOOT if needed.", flush=True)
+        backend.flash_selected(backend.wait_dfu(45), binary)
+    print("Reading the three-mode Capricorn measurement…", flush=True)
+    port = backend.open_cdc(60)
     try:
-        end=time.monotonic()+15
-        while True:
-            line=port.line(end)
-            if line.startswith("CAP_LOC "): break
+        line, fields = next_report(port, time.monotonic() + 15, manifest["id"])
+        atomic(out / "report.txt", line.encode("ascii"))
+        print("Saved", out / "report.txt")
+        require(screen(fields), "Capricorn missed its 20% screen or capture checks")
+        if args.play:
+            mode_id = str(MODES.index(args.play) + 1)
+            port.send(mode_id)
+            end = time.monotonic() + 6
+            while fields.get("live") != mode_id:
+                _, fields = next_report(port, end, manifest["id"])
+        live = int(fields["live"])
+        if live in (1, 2, 3):
+            print("Live guitar, left input to both outputs:", MODES[live-1])
     finally:
         port.close()
-    atomic(out/"report.txt",line.encode("ascii"))
-    print(line.strip())
-    fields=dict(pair.split("=",1) for pair in line.strip().split()[1:])
-    require(fields["id"]==manifest["id"],"Unexpected firmware report")
-    expected=dict(seed3=1,core_hz=480000000,rate=48000,counter=1)
-    require(all(int(fields[k])==v for k,v in expected.items()),"Clock, sample rate or counter failed verification")
-    for key in ("moderate","exalted","leaky"):
-        blocks,peak,hits,bad,frames=map(int,fields[key].split(","))
-        require(blocks==3000 and frames==0 and peak>0,"Invalid capture for "+key)
-        print("%s: %d peak cycles = %.2f%% | deadline hits %d | nonfinite %d" %
-              (key,peak,100*peak/480000,hits,bad))
-    print("Saved:",out/"report.txt")
-if __name__=="__main__":
+
+
+if __name__ == "__main__":
     try:
         run()
-    except (Stop,ValueError,KeyError,OSError) as error:
-        sys.exit("STOP: "+str(error))
+    except (Stop, ValueError, KeyError, OSError) as error:
+        sys.exit("STOP: " + str(error))

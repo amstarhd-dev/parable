@@ -35,6 +35,7 @@ class CapricornLoc {
 public:
     explicit CapricornLoc(float amount=1,bool leaky=false) noexcept
       : registerTarget_(std::clamp(amount,0.f,1.f)),register_(registerTarget_),leaky_(leaky) {}
+    void setLeaky(bool enabled) noexcept { leaky_ = enabled; }
     void setRegister(float amount) noexcept {
         if(std::isfinite(amount))registerTarget_=std::clamp(amount,0.f,1.f);
     }

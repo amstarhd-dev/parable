@@ -3,6 +3,7 @@
 #include "usbd_cdc.h"
 #include "capricorn_loc.h"
 #include "probe_id.h"
+#include <atomic>
 #include <cmath>
 #include <cstdio>
 #include <new>
@@ -11,10 +12,8 @@ extern "C" USBD_HandleTypeDef hUsbDeviceFS;
 static daisy::DaisySeed hw;
 struct Moderate : CapricornLoc { Moderate():CapricornLoc(.42f,false){} };
 struct Leaky : CapricornLoc { Leaky():CapricornLoc(1,true){} };
-using First2 = Moderate;
-using Second2 = CapricornLoc;
-using First4 = Leaky;
-using ModelStorage = std::aligned_union_t<0,First2,Second2,First4>;
+
+using ModelStorage = std::aligned_union_t<0,Moderate,CapricornLoc,Leaky>;
 static ModelStorage storage;
 struct Result { unsigned blocks, peak, hits, bad, frames; };
 static Result results[3]{};
@@ -56,6 +55,24 @@ template<class Model> static void measure(Result& result) {
     model->~Model();
 }
 
+// USB only selects the requested mode. Only the audio ISR owns the live DSP state.
+static std::atomic<unsigned> requestedMode{2};
+static std::atomic<unsigned> playingMode{0};
+static CapricornLoc liveDrive;
+static void receive(uint8_t* bytes, uint32_t* length) {
+    if (*length == 1 && bytes[0] >= '1' && bytes[0] <= '3')
+        requestedMode.store(bytes[0] - '0', std::memory_order_relaxed);
+}
+
+static void play(daisy::AudioHandle::InputBuffer in, daisy::AudioHandle::OutputBuffer out, size_t frames) {
+    const unsigned mode = requestedMode.load(std::memory_order_relaxed);
+    liveDrive.setRegister(mode == 1 ? .42f : 1.f);
+    liveDrive.setLeaky(mode == 3);
+    for (size_t i = 0; i < frames; ++i)
+        out[0][i] = out[1][i] = liveDrive.process(in[0][i]);
+    playingMode.store(mode, std::memory_order_relaxed);
+}
+
 int main() {
     hw.Init(true);
     hw.SetAudioSampleRate(daisy::SaiHandle::Config::SampleRate::SAI_48KHZ);
@@ -79,22 +96,30 @@ int main() {
             patterns[2][n]=.2f*std::sin(6.28318530718f*7971*n/48000);
             patterns[3][n]=n<128?.8f:-.8f;
         }
-        measure<First2>(results[0]);
-        measure<Second2>(results[1]);
-        measure<First4>(results[2]);
+        measure<Moderate>(results[0]);
+        measure<CapricornLoc>(results[1]);
+        measure<Leaky>(results[2]);
     }
     static char msg[512];
     const auto& a=results[0]; const auto& b=results[1]; const auto& c=results[2];
-    int len=std::snprintf(msg,sizeof(msg),"CAP_LOC id=%s seed3=%u core_hz=%lu rate=%u counter=%u moderate=%u,%u,%u,%u,%u exalted=%u,%u,%u,%u,%u leaky=%u,%u,%u,%u,%u\n",
+    int len=std::snprintf(msg,sizeof(msg),"CAP_LOC id=%s seed3=%u core_hz=%lu rate=%u counter=%u moderate=%u,%u,%u,%u,%u exalted=%u,%u,%u,%u,%u leaky=%u,%u,%u,%u,%u live=0\n",
         PROBE_ID,unsigned(seed3),(unsigned long)hz,rate,unsigned(counter),
         a.blocks,a.peak,a.hits,a.bad,a.frames,b.blocks,b.peak,b.hits,b.bad,b.frames,c.blocks,c.peak,c.hits,c.bad,c.frames);
     hw.usb_handle.Init(daisy::UsbHandle::FS_INTERNAL);
+    hw.usb_handle.SetReceiveCallback(receive,daisy::UsbHandle::FS_INTERNAL);
+    bool withinBudget = seed3 && hz == 480000000 && rate == 48000 && counter;
+    for(const auto& row : results)
+        withinBudget = withinBudget && row.blocks == totalBlocks && row.peak > 0 &&
+                       row.peak < 96000 && !row.hits && !row.bad && !row.frames;
+    if(withinBudget) hw.StartAudio(play);
     hw.SetLed(true);
     for(;;) {
         uint32_t mask=__get_PRIMASK(); __disable_irq();
         if(len>0 && size_t(len)<sizeof(msg) && hUsbDeviceFS.dev_state==USBD_STATE_CONFIGURED && hUsbDeviceFS.pClassData &&
-           !static_cast<const USBD_CDC_HandleTypeDef*>(hUsbDeviceFS.pClassData)->TxState)
+           !static_cast<const USBD_CDC_HandleTypeDef*>(hUsbDeviceFS.pClassData)->TxState) {
+            msg[len-2] = static_cast<char>('0' + playingMode.load(std::memory_order_relaxed));
             hw.usb_handle.TransmitInternal(reinterpret_cast<uint8_t*>(msg),len);
+        }
         __set_PRIMASK(mask); hw.DelayMs(750);
     }
 }
