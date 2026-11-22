@@ -1,7 +1,7 @@
 name: Patch Bench WebAssembly
 on:
-  push:
-    branches: [bench/patch-wasm]
+  pull_request:
+    paths: ['parable-starter/tools/patch-bench/native/**', '.github/workflows/patch-bench-wasm.yml']
 permissions:
   contents: read
 jobs:
